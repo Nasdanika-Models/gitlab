@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel"
-    modelDirectory="/org.nasdanika.models.gitlab/src/main/java" creationIcons="false"
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/org.nasdanika.models.gitlab/src/main/java" creationIcons="false"
     editorDirectory="" modelPluginID="org.nasdanika.models.gitlab" modelName="GitLab"
     rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container" importerID="org.eclipse.emf.importer.ecore"
     featureDelegation="Dynamic" complianceLevel="17.0" suppressGenModelAnnotations="false"
@@ -8,6 +8,65 @@
   <foreignModel>gitlab.ecore</foreignModel>
   <genPackages prefix="GitLab" basePackage="org.nasdanika.models" disposableProviderFactory="true"
       ecorePackage="gitlab.ecore#/">
-    <genClasses ecoreClass="gitlab.ecore#//Group"/>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="gitlab.ecore#//Visibility">
+      <genEnumLiterals ecoreEnumLiteral="gitlab.ecore#//Visibility/Public"/>
+      <genEnumLiterals ecoreEnumLiteral="gitlab.ecore#//Visibility/Private"/>
+      <genEnumLiterals ecoreEnumLiteral="gitlab.ecore#//Visibility/Internal"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="gitlab.ecore#//AccessLevel">
+      <genEnumLiterals ecoreEnumLiteral="gitlab.ecore#//AccessLevel/Invalid"/>
+      <genEnumLiterals ecoreEnumLiteral="gitlab.ecore#//AccessLevel/None"/>
+      <genEnumLiterals ecoreEnumLiteral="gitlab.ecore#//AccessLevel/MinimalAccess"/>
+      <genEnumLiterals ecoreEnumLiteral="gitlab.ecore#//AccessLevel/Guest"/>
+      <genEnumLiterals ecoreEnumLiteral="gitlab.ecore#//AccessLevel/Reporter"/>
+      <genEnumLiterals ecoreEnumLiteral="gitlab.ecore#//AccessLevel/Developer"/>
+      <genEnumLiterals ecoreEnumLiteral="gitlab.ecore#//AccessLevel/Maintainer"/>
+      <genEnumLiterals ecoreEnumLiteral="gitlab.ecore#//AccessLevel/Owner"/>
+      <genEnumLiterals ecoreEnumLiteral="gitlab.ecore#//AccessLevel/Admin"/>
+    </genEnums>
+    <genClasses ecoreClass="gitlab.ecore#//GitLab">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gitlab.ecore#//GitLab/url"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference gitlab.ecore#//GitLab/groups"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference gitlab.ecore#//GitLab/users"/>
+    </genClasses>
+    <genClasses ecoreClass="gitlab.ecore#//Group">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gitlab.ecore#//Group/id"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gitlab.ecore#//Group/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gitlab.ecore#//Group/avatarUrl"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gitlab.ecore#//Group/webUrl"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gitlab.ecore#//Group/fullName"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gitlab.ecore#//Group/fullPath"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gitlab.ecore#//Group/path"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gitlab.ecore#//Group/description"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gitlab.ecore#//Group/visibility"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gitlab.ecore#//Group/lfsEnabled"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gitlab.ecore#//Group/createdAt"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference gitlab.ecore#//Group/projects"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference gitlab.ecore#//Group/sharedProjects"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gitlab.ecore#//Group/storageSize"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gitlab.ecore#//Group/repositorySize"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gitlab.ecore#//Group/lfsObjectsSize"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gitlab.ecore#//Group/jobArtifactsSize"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference gitlab.ecore#//Group/subGroups"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference gitlab.ecore#//Group/members"/>
+    </genClasses>
+    <genClasses ecoreClass="gitlab.ecore#//Member">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference gitlab.ecore#//Member/user"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gitlab.ecore#//Member/accessLevel"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gitlab.ecore#//Member/expiresAt"/>
+    </genClasses>
+    <genClasses ecoreClass="gitlab.ecore#//User">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference gitlab.ecore#//User/projects"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference gitlab.ecore#//User/membership"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gitlab.ecore#//User/avatarUrl"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gitlab.ecore#//User/createdAt"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gitlab.ecore#//User/eMail"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gitlab.ecore#//User/id"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gitlab.ecore#//User/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gitlab.ecore#//User/state"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gitlab.ecore#//User/username"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gitlab.ecore#//User/webUrl"/>
+    </genClasses>
+    <genClasses ecoreClass="gitlab.ecore#//Project"/>
   </genPackages>
 </genmodel:GenModel>

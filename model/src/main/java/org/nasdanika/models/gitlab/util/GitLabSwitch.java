@@ -66,14 +66,53 @@ public class GitLabSwitch<T> extends Switch<T> {
 	@Override
 	protected T doSwitch(int classifierID, EObject theEObject) {
 		switch (classifierID) {
+			case GitLabPackage.GIT_LAB: {
+				GitLab gitLab = (GitLab)theEObject;
+				T result = caseGitLab(gitLab);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			case GitLabPackage.GROUP: {
 				Group group = (Group)theEObject;
 				T result = caseGroup(group);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case GitLabPackage.MEMBER: {
+				Member member = (Member)theEObject;
+				T result = caseMember(member);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case GitLabPackage.USER: {
+				User user = (User)theEObject;
+				T result = caseUser(user);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case GitLabPackage.PROJECT: {
+				Project project = (Project)theEObject;
+				T result = caseProject(project);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			default: return defaultCase(theEObject);
 		}
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Git Lab</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Git Lab</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseGitLab(GitLab object) {
+		return null;
 	}
 
 	/**
@@ -88,6 +127,51 @@ public class GitLabSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseGroup(Group object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Member</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Member</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseMember(Member object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>User</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>User</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseUser(User object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Project</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Project</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseProject(Project object) {
 		return null;
 	}
 

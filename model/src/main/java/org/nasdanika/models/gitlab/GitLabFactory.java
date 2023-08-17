@@ -22,6 +22,15 @@ public interface GitLabFactory extends EFactory {
 	GitLabFactory eINSTANCE = org.nasdanika.models.gitlab.impl.GitLabFactoryImpl.init();
 
 	/**
+	 * Returns a new object of class '<em>Git Lab</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Git Lab</em>'.
+	 * @generated
+	 */
+	GitLab createGitLab();
+
+	/**
 	 * Returns a new object of class '<em>Group</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -29,6 +38,33 @@ public interface GitLabFactory extends EFactory {
 	 * @generated
 	 */
 	Group createGroup();
+
+	/**
+	 * Returns a new object of class '<em>Member</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Member</em>'.
+	 * @generated
+	 */
+	Member createMember();
+
+	/**
+	 * Returns a new object of class '<em>User</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>User</em>'.
+	 * @generated
+	 */
+	User createUser();
+
+	/**
+	 * Returns a new object of class '<em>Project</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Project</em>'.
+	 * @generated
+	 */
+	Project createProject();
 
 	/**
 	 * Returns the package supported by this factory.

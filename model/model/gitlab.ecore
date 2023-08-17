@@ -1,5 +1,114 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="gitlab" nsURI="ecore://nasdanika.org/models/gitlab" nsPrefix="org.nasdanika.models.gitlab">
-  <eClassifiers xsi:type="ecore:EClass" name="Group"/>
+  <eClassifiers xsi:type="ecore:EClass" name="GitLab">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="Represents a GitLab host/instance. The root of the GitLab model."/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="url" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="groups" upperBound="-1"
+        eType="#//Group" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="users" upperBound="-1"
+        eType="#//User" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Group">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//ELongObject"
+        iD="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="avatarUrl" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="webUrl" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="fullName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="fullPath" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="path" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="visibility" eType="#//Visibility"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="lfsEnabled" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBooleanObject"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="createdAt" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDate"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="projects" upperBound="-1"
+        eType="#//Project" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="storageSize" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//ELongObject"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="repositorySize" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//ELongObject"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="lfsObjectsSize" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//ELongObject"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="jobArtifactsSize" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//ELongObject"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="subGroups" upperBound="-1"
+        eType="#//Group" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="members" upperBound="-1"
+        eType="#//Member" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Member">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="user" eType="#//User" eOpposite="#//User/membership"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="accessLevel" eType="#//AccessLevel"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="expiresAt" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDate"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="User">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="projects" upperBound="-1"
+        eType="#//Project" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="membership" upperBound="-1"
+        eType="#//Member" eOpposite="#//Member/user"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="avatarUrl" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="createdAt" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDate"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="eMail" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//ELongObject"
+        iD="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="state" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="username" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="webUrl" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Project">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="approvalsBeforeMerge" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EIntegerObject"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="archived" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="avatarUrl" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="containerRegistryEnabled"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="createdAt" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDate"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="creator" eType="#//User"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="defaultBranch" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="forksCount" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EIntegerObject"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="forkedFrom" eType="#//Project"
+        eOpposite="#//Project/forks"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="forks" upperBound="-1"
+        eType="#//Project" eOpposite="#//Project/forkedFrom"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="httpUrlToRepo" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//ELongObject"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" eType="#//AccessLevel"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" eType="#//AccessLevel"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" eType="#//AccessLevel"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" eType="#//AccessLevel"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" eType="#//AccessLevel"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" eType="#//AccessLevel"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" eType="#//AccessLevel"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" eType="#//AccessLevel"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" eType="#//AccessLevel"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" eType="#//AccessLevel"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" eType="#//AccessLevel"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" eType="#//AccessLevel"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" eType="#//AccessLevel"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" eType="#//AccessLevel"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" eType="#//AccessLevel"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" eType="#//AccessLevel"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" eType="#//AccessLevel"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" eType="#//AccessLevel"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" eType="#//AccessLevel"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" eType="#//AccessLevel"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" eType="#//AccessLevel"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="Visibility">
+    <eLiterals name="Public"/>
+    <eLiterals name="Private" value="1"/>
+    <eLiterals name="Internal" value="2"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="AccessLevel">
+    <eLiterals name="Invalid" value="-1"/>
+    <eLiterals name="None"/>
+    <eLiterals name="MinimalAccess" value="5"/>
+    <eLiterals name="Guest" value="10"/>
+    <eLiterals name="Reporter" value="20"/>
+    <eLiterals name="Developer" value="30"/>
+    <eLiterals name="Maintainer" value="40"/>
+    <eLiterals name="Owner" value="50"/>
+    <eLiterals name="Admin" value="60"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Commit"/>
 </ecore:EPackage>
