@@ -20,9 +20,13 @@ import org.gitlab4j.api.RepositoryApi;
 import org.gitlab4j.api.models.AbstractUser;
 import org.gitlab4j.api.models.Branch;
 import org.gitlab4j.api.models.Commit;
+import org.gitlab4j.api.models.Group;
 import org.gitlab4j.api.models.Group.Statistics;
+import org.gitlab4j.api.models.Member;
+import org.gitlab4j.api.models.Project;
 import org.gitlab4j.api.models.TreeItem;
 import org.nasdanika.common.ProgressMonitor;
+import org.nasdanika.common.Status;
 import org.nasdanika.models.gitlab.AccessLevel;
 import org.nasdanika.models.gitlab.GitLab;
 import org.nasdanika.models.gitlab.GitLabFactory;
@@ -43,6 +47,14 @@ public class Loader implements AutoCloseable {
 	public Loader(GitLabApi gitLabApi) {
 		this(gitLabApi, new ThrottlingHandler());
 	}
+	
+	public Loader(String hostUrl, String accessToken, int rateLimit) {
+		this(new GitLabApi(hostUrl, accessToken), rateLimit);
+	}	
+	
+	public Loader(GitLabApi gitLabApi, int rateLimit) {
+		this(gitLabApi, new ThrottlingHandler(rateLimit));
+	}	
 	
 	public Loader(GitLabApi gitLabApi, Handler throttlingHandler) {
 		if (throttlingHandler != null) {			
@@ -108,47 +120,24 @@ public class Loader implements AutoCloseable {
 		List<org.nasdanika.models.gitlab.Group> rootGroups = new ArrayList<>(); 
 		try (ProgressMonitor groupsMonitor = progressMonitor.split("Loading groups", 1)) {
 			GroupApi groupApi = gitLabApi.getGroupApi();
-			for (org.gitlab4j.api.models.Group group: groupApi.getGroups()) {
-				org.nasdanika.models.gitlab.Group modelGroup = loadGroup(group, progressMonitor);
-				EList<org.nasdanika.models.gitlab.Project> modelGroupProjects = modelGroup.getProjects();
-				for (org.gitlab4j.api.models.Project project: groupApi.getProjects(group.getId())) {
-					org.nasdanika.models.gitlab.Project modelProject = loadProject(project, progressMonitor);
-					modelGroupProjects.add(modelProject);
-					
-					RepositoryApi repoApi = gitLabApi.getRepositoryApi();
-					try {
-						for (Branch branch: repoApi.getBranches(project.getId())) {
-							System.out.println(branch.getCommit());
-							for (TreeItem treeItem: repoApi.getTree(project.getId(), "/", branch.getName())) {
-								System.out.println(treeItem);
-							}
+			List<Group> groups = groupApi.getGroups();
+			try (ProgressMonitor scaledGroupsMonitor = groupsMonitor.scale(groups.size() + 1)) {
+				scaledGroupsMonitor.worked(Status.INFO, 1, "Retrieved " + groups.size() + " groups");
+				for (org.gitlab4j.api.models.Group group: groups) {
+					try (ProgressMonitor groupMonitor = scaledGroupsMonitor.split("Loading group " + group.getName() + " " + group.getId(), 1, group)) {
+						org.nasdanika.models.gitlab.Group modelGroup = loadGroup(group, groupApi, userProvider, groupMonitor);
+						if (!groupProvider.apply(group.getId()).complete(modelGroup)) {
+							throw new IllegalStateException("Group completable future already completed for " + group.getId() + " " + group.getFullName());
 						}
-					} catch (Exception e) {
-						e.printStackTrace();
+						Long parentId = group.getParentId();
+						if (parentId == null) {
+							rootGroups.add(modelGroup);
+						} else {
+							groupProvider.apply(parentId).thenAccept(pg -> pg.getSubGroups().add(modelGroup));					
+						}
 					}
-					
-					CommitsApi commitsApi = gitLabApi.getCommitsApi();
-					for (Commit commit: commitsApi.getCommits(project.getId())) {
-						System.out.println("Commit: " + commit);
-					}
 				}
-				EList<org.nasdanika.models.gitlab.Member> modelGroupMembers = modelGroup.getMembers();
-				for (org.gitlab4j.api.models.Member member: groupApi.getMembers(group.getId())) {
-					org.nasdanika.models.gitlab.Member modelMember = loadMember(member, userProvider, progressMonitor);
-					modelGroupMembers.add(modelMember);
-				}
-				
-				if (!groupProvider.apply(group.getId()).complete(modelGroup)) {
-					throw new IllegalStateException("Group completable future already completed for " + group.getId() + " " + group.getFullName());
-				}
-				Long parentId = group.getParentId();
-				if (parentId == null) {
-					rootGroups.add(modelGroup);
-				} else {
-					groupProvider.apply(parentId).thenAccept(pg -> pg.getSubGroups().add(modelGroup));					
-				}
-				
-			};			
+			}
 		}
 		
 		long incomplete = groupMap.values().stream().filter(cf -> !cf.isDone()).count();
@@ -164,7 +153,9 @@ public class Loader implements AutoCloseable {
 	
 	protected org.nasdanika.models.gitlab.Group loadGroup(
 			org.gitlab4j.api.models.Group group, 
-			ProgressMonitor progressMonitor) {
+			GroupApi groupApi,
+			Function<org.gitlab4j.api.models.AbstractUser<?>, org.nasdanika.models.gitlab.User> userProvider,
+			ProgressMonitor progressMonitor) throws GitLabApiException {
 		org.nasdanika.models.gitlab.Group modelGroup = factory.createGroup();
 		modelGroup.setAvatarUrl(group.getAvatarUrl());
 		modelGroup.setCreatedAt(group.getCreatedAt());
@@ -184,6 +175,26 @@ public class Loader implements AutoCloseable {
 		modelGroup.setPath(group.getPath());
 		modelGroup.setVisibility(org.nasdanika.models.gitlab.Visibility.get(group.getVisibility().ordinal()));
 		modelGroup.setWebUrl(group.getWebUrl());
+		
+		EList<org.nasdanika.models.gitlab.Project> modelGroupProjects = modelGroup.getProjects();
+		List<Project> groupProjects = groupApi.getProjects(group.getId());
+		List<Member> groupMembers = groupApi.getMembers(group.getId());
+		try (ProgressMonitor scaledGroupMonitor = progressMonitor.scale(1 + groupProjects.size() + groupMembers.size())) {
+			scaledGroupMonitor.worked(Status.INFO, 1, "Retrieved " + groupProjects.size() + " projects and " + groupMembers.size() + " members");							
+			for (org.gitlab4j.api.models.Project project: groupProjects) {
+				try (ProgressMonitor projectMonitor = scaledGroupMonitor.split("Loading project " + project.getName() + " " + project.getId(), 1, project)) {				
+					org.nasdanika.models.gitlab.Project modelProject = loadProject(project, projectMonitor);
+					modelGroupProjects.add(modelProject);
+				}
+			}
+			EList<org.nasdanika.models.gitlab.Member> modelGroupMembers = modelGroup.getMembers();
+			for (org.gitlab4j.api.models.Member member: groupMembers) {
+				try (ProgressMonitor memberMonitor = scaledGroupMonitor.split("Loading member " + member.getName() + " " + member.getId(), 1, member)) {				
+					org.nasdanika.models.gitlab.Member modelMember = loadMember(member, userProvider, memberMonitor);
+					modelGroupMembers.add(modelMember);
+				}
+			}
+		}
 
 		return modelGroup;
 	}
@@ -262,6 +273,25 @@ public class Loader implements AutoCloseable {
 //	    private Boolean emailsDisabled;
 //	    private String suggestionCommitMessage;
 //	    private SquashOption squashOption;
+		
+		
+		
+//							RepositoryApi repoApi = gitLabApi.getRepositoryApi();
+//							try {
+//								for (Branch branch: repoApi.getBranches(project.getId())) {
+//									System.out.println(branch.getCommit());
+//									for (TreeItem treeItem: repoApi.getTree(project.getId(), "/", branch.getName())) {
+//										System.out.println(treeItem);
+//									}
+//								}
+//							} catch (Exception e) {
+//								e.printStackTrace();
+//							}
+//							
+//							CommitsApi commitsApi = gitLabApi.getCommitsApi();
+//							for (Commit commit: commitsApi.getCommits(project.getId())) {
+//								System.out.println("Commit: " + commit);
+//							}
 		
 	
 		return modelProject;

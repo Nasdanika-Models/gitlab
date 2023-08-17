@@ -74,7 +74,6 @@ public class ThrottlingHandler extends Handler {
 				if (sinceLastRequest < interval) {
 					try {
 						long toSleep = interval - sinceLastRequest;
-						System.out.println("Sleeping " + toSleep);
 						Thread.sleep(toSleep);
 					} catch (InterruptedException e) {
 						e.printStackTrace();
