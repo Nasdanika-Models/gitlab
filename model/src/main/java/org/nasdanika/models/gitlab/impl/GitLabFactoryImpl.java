@@ -2,6 +2,7 @@
  */
 package org.nasdanika.models.gitlab.impl;
 
+import java.util.Map;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EObject;
@@ -62,6 +63,12 @@ public class GitLabFactoryImpl extends EFactoryImpl implements GitLabFactory {
 			case GitLabPackage.MEMBER: return createMember();
 			case GitLabPackage.USER: return createUser();
 			case GitLabPackage.PROJECT: return createProject();
+			case GitLabPackage.PROJECT_STATISTICS: return createProjectStatistics();
+			case GitLabPackage.PROJECT_LICENSE: return createProjectLicense();
+			case GitLabPackage.CONTRIBUTOR: return createContributor();
+			case GitLabPackage.PROJECT_ACCESS: return createProjectAccess();
+			case GitLabPackage.CUSTOM_ATTRIBUTE: return (EObject)createCustomAttribute();
+			case GitLabPackage.BRANCH: return createBranch();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -79,6 +86,16 @@ public class GitLabFactoryImpl extends EFactoryImpl implements GitLabFactory {
 				return createVisibilityFromString(eDataType, initialValue);
 			case GitLabPackage.ACCESS_LEVEL:
 				return createAccessLevelFromString(eDataType, initialValue);
+			case GitLabPackage.MERGE_METHOD:
+				return createMergeMethodFromString(eDataType, initialValue);
+			case GitLabPackage.BUILD_GIT_STRATEGY:
+				return createBuildGitStrategyFromString(eDataType, initialValue);
+			case GitLabPackage.STATUS:
+				return createStatusFromString(eDataType, initialValue);
+			case GitLabPackage.AUTO_DEVOPS_DEPLOY_STRATEGY:
+				return createAutoDevopsDeployStrategyFromString(eDataType, initialValue);
+			case GitLabPackage.SQUASH_OPTION:
+				return createSquashOptionFromString(eDataType, initialValue);
 			default:
 				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
@@ -96,6 +113,16 @@ public class GitLabFactoryImpl extends EFactoryImpl implements GitLabFactory {
 				return convertVisibilityToString(eDataType, instanceValue);
 			case GitLabPackage.ACCESS_LEVEL:
 				return convertAccessLevelToString(eDataType, instanceValue);
+			case GitLabPackage.MERGE_METHOD:
+				return convertMergeMethodToString(eDataType, instanceValue);
+			case GitLabPackage.BUILD_GIT_STRATEGY:
+				return convertBuildGitStrategyToString(eDataType, instanceValue);
+			case GitLabPackage.STATUS:
+				return convertStatusToString(eDataType, instanceValue);
+			case GitLabPackage.AUTO_DEVOPS_DEPLOY_STRATEGY:
+				return convertAutoDevopsDeployStrategyToString(eDataType, instanceValue);
+			case GitLabPackage.SQUASH_OPTION:
+				return convertSquashOptionToString(eDataType, instanceValue);
 			default:
 				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
@@ -161,6 +188,71 @@ public class GitLabFactoryImpl extends EFactoryImpl implements GitLabFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
+	public ProjectStatistics createProjectStatistics() {
+		ProjectStatisticsImpl projectStatistics = new ProjectStatisticsImpl();
+		return projectStatistics;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public ProjectLicense createProjectLicense() {
+		ProjectLicenseImpl projectLicense = new ProjectLicenseImpl();
+		return projectLicense;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Contributor createContributor() {
+		ContributorImpl contributor = new ContributorImpl();
+		return contributor;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public ProjectAccess createProjectAccess() {
+		ProjectAccessImpl projectAccess = new ProjectAccessImpl();
+		return projectAccess;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Map.Entry<String, String> createCustomAttribute() {
+		CustomAttributeImpl customAttribute = new CustomAttributeImpl();
+		return customAttribute;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Branch createBranch() {
+		BranchImpl branch = new BranchImpl();
+		return branch;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public Visibility createVisibilityFromString(EDataType eDataType, String initialValue) {
 		Visibility result = Visibility.get(initialValue);
 		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
@@ -193,6 +285,106 @@ public class GitLabFactoryImpl extends EFactoryImpl implements GitLabFactory {
 	 * @generated
 	 */
 	public String convertAccessLevelToString(EDataType eDataType, Object instanceValue) {
+		return instanceValue == null ? null : instanceValue.toString();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public MergeMethod createMergeMethodFromString(EDataType eDataType, String initialValue) {
+		MergeMethod result = MergeMethod.get(initialValue);
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertMergeMethodToString(EDataType eDataType, Object instanceValue) {
+		return instanceValue == null ? null : instanceValue.toString();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public BuildGitStrategy createBuildGitStrategyFromString(EDataType eDataType, String initialValue) {
+		BuildGitStrategy result = BuildGitStrategy.get(initialValue);
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertBuildGitStrategyToString(EDataType eDataType, Object instanceValue) {
+		return instanceValue == null ? null : instanceValue.toString();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Status createStatusFromString(EDataType eDataType, String initialValue) {
+		Status result = Status.get(initialValue);
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertStatusToString(EDataType eDataType, Object instanceValue) {
+		return instanceValue == null ? null : instanceValue.toString();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public AutoDevopsDeployStrategy createAutoDevopsDeployStrategyFromString(EDataType eDataType, String initialValue) {
+		AutoDevopsDeployStrategy result = AutoDevopsDeployStrategy.get(initialValue);
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertAutoDevopsDeployStrategyToString(EDataType eDataType, Object instanceValue) {
+		return instanceValue == null ? null : instanceValue.toString();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public SquashOption createSquashOptionFromString(EDataType eDataType, String initialValue) {
+		SquashOption result = SquashOption.get(initialValue);
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertSquashOptionToString(EDataType eDataType, Object instanceValue) {
 		return instanceValue == null ? null : instanceValue.toString();
 	}
 

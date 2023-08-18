@@ -7,9 +7,11 @@
     </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="url" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="groups" upperBound="-1"
-        eType="#//Group" containment="true"/>
+        eType="#//Group" containment="true" eKeys="#//Group/id"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="users" upperBound="-1"
-        eType="#//User" containment="true"/>
+        eType="#//User" containment="true" eKeys="#//User/id"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="licenses" upperBound="-1"
+        eType="#//ProjectLicense" containment="true" eKeys="#//ProjectLicense/key"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Group">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//ELongObject"
@@ -26,6 +28,8 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="createdAt" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDate"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="projects" upperBound="-1"
         eType="#//Project" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="sharedProjects" upperBound="-1"
+        eType="#//Project" eOpposite="#//Project/sharedWithGroups"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="storageSize" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//ELongObject"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="repositorySize" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//ELongObject"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="lfsObjectsSize" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//ELongObject"/>
@@ -54,15 +58,22 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="state" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="username" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="webUrl" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="ownedProjects" upperBound="-1"
+        eType="#//Project" eOpposite="#//Project/owner"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="createdProjects" upperBound="-1"
+        eType="#//Project" eOpposite="#//Project/creator"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="contributions" upperBound="-1"
+        eType="#//Contributor" eOpposite="#//Contributor/user"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Project">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="approvalsBeforeMerge" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EIntegerObject"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="archived" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="archived" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBooleanObject"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="avatarUrl" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="containerRegistryEnabled"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="createdAt" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDate"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="creator" eType="#//User"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="creator" eType="#//User"
+        eOpposite="#//User/createdProjects"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="defaultBranch" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="forksCount" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EIntegerObject"/>
@@ -72,27 +83,103 @@
         eType="#//Project" eOpposite="#//Project/forkedFrom"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="httpUrlToRepo" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//ELongObject"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" eType="#//AccessLevel"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" eType="#//AccessLevel"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" eType="#//AccessLevel"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" eType="#//AccessLevel"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" eType="#//AccessLevel"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" eType="#//AccessLevel"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" eType="#//AccessLevel"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" eType="#//AccessLevel"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" eType="#//AccessLevel"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" eType="#//AccessLevel"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" eType="#//AccessLevel"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" eType="#//AccessLevel"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" eType="#//AccessLevel"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" eType="#//AccessLevel"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" eType="#//AccessLevel"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" eType="#//AccessLevel"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" eType="#//AccessLevel"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" eType="#//AccessLevel"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" eType="#//AccessLevel"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" eType="#//AccessLevel"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" eType="#//AccessLevel"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="isPublic" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBooleanObject"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="issuesEnabled" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBooleanObject"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="jobsEnabled" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBooleanObject"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="lastsActivityAt" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDate"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="lfsEnabled" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBooleanObject"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="mergeMethod" eType="#//MergeMethod"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="mergeRequestsEnabled" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBooleanObject"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="nameWithNamespace" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="onlyAllowMergeIfPipelineSucceeds"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBooleanObject"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="allowMergeOnSkippedPipeline"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBooleanObject"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="onlyAllowMergeIfAllDiscussionsAreResolved"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBooleanObject"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="openIssuesCount" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EIntegerObject"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="owner" eType="#//User"
+        eOpposite="#//User/ownedProjects"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="path" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="pathWithNamespace" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="projectAccess" eType="#//ProjectAccess"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="groupAccess" eType="#//ProjectAccess"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="publicJobs" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBooleanObject"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="sharedWithGroups" upperBound="-1"
+        eType="#//Group" eOpposite="#//Group/sharedProjects"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="repositoryStorage" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="requestAccessEnabled" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBooleanObject"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="runnersToken" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="sharedRunnersEnabled" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBooleanObject"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="snippetsEnabled" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBooleanObject"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="sshUrlToRepo" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="starCount" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EIntegerObject"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="tags" upperBound="-1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="visibilityLevel" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EIntegerObject"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="visibility" eType="#//Visibility"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="wallEnabled" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBooleanObject"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="webUrl" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="wikiEnabled" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBooleanObject"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="printingMergeRequestLinkEnabled"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBooleanObject"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="resolveOutdatedDiffDiscussions"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBooleanObject"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="statistics" eType="#//ProjectStatistics"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="initializeWithReadme" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBooleanObject"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="packagesEnabled" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBooleanObject"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="emptyRepo" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBooleanObject"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="licenseUrl" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="license" eType="#//ProjectLicense"
+        eOpposite="#//ProjectLicense/projects"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="customAttributes" upperBound="-1"
+        eType="#//CustomAttribute" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="buildCoverageRegex" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="buildGitStrategy" eType="#//BuildGitStrategy"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="readmeUrl" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="canCreateMergeRequestIn"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBooleanObject"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="importStatus" eType="#//Status"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="ciDefaultGitDepth" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EIntegerObject"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="ciForwardDeploymentEnabled"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBooleanObject"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="ciConfigPath" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="removeSourceBranchAfterMerge"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBooleanObject"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="autoDevopsEnabled" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBooleanObject"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="autoDevopsDeployStrategy"
+        eType="#//AutoDevopsDeployStrategy"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="autocloseReferencedIssues"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBooleanObject"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="emailsDisabled" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBooleanObject"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="suggestionCommitMessage"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="squashOption" eType="#//SquashOption"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="branches" upperBound="-1"
+        eType="#//Branch" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="contributors" upperBound="-1"
+        eType="#//Contributor" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ProjectStatistics">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="commitCount" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//ELong"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="storageSize" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//ELong"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="repositorySize" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//ELong"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="wikiSize" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//ELong"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="lfsObjectsSize" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//ELong"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="jobArtifactsSize" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//ELong"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="packagesSize" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//ELong"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ProjectLicense">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="key" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="nickname" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="htmlUrl" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="sourceUrl" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="projects" upperBound="-1"
+        eType="#//Project" eOpposite="#//Project/license"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="Visibility">
     <eLiterals name="Public"/>
@@ -110,5 +197,57 @@
     <eLiterals name="Owner" value="50"/>
     <eLiterals name="Admin" value="60"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Commit"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Contributor">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="user" eType="#//User" eOpposite="#//User/contributions"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="commits" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EIntegerObject"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="additions" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EIntegerObject"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="deletions" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EIntegerObject"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="MergeMethod">
+    <eLiterals name="Merge"/>
+    <eLiterals name="RebaseMerge" value="1"/>
+    <eLiterals name="FastForward" value="2"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ProjectAccess">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="accessLevel" eType="#//AccessLevel"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="notificationLevel" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="CustomAttribute" instanceClassName="java.util.Map$Entry">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="key" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="BuildGitStrategy">
+    <eLiterals name="Fetch"/>
+    <eLiterals name="Clone" value="1"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="Status">
+    <eLiterals name="Info" literal="Info"/>
+    <eLiterals name="Success" value="1"/>
+    <eLiterals name="Warning" value="2"/>
+    <eLiterals name="Error" value="3"/>
+    <eLiterals name="Fail" value="4"/>
+    <eLiterals name="Cancel" value="5"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="AutoDevopsDeployStrategy">
+    <eLiterals name="Continuous" literal="Info"/>
+    <eLiterals name="Manual" value="1"/>
+    <eLiterals name="TimedIncremental" value="2"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="SquashOption">
+    <eLiterals name="Never" literal="Info"/>
+    <eLiterals name="Always" value="1"/>
+    <eLiterals name="DefaultOn" value="2"/>
+    <eLiterals name="DefaultOff" value="3"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Branch">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="commitDate" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDate"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="developersCanMerge" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBooleanObject"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="developersCanPush" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBooleanObject"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="merged" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBooleanObject"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="isProtected" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBooleanObject"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="isDefault" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBooleanObject"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="canPush" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBooleanObject"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="webUrl" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
 </ecore:EPackage>

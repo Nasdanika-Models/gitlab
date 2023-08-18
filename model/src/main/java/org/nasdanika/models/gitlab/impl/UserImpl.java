@@ -16,6 +16,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.eclipse.emf.ecore.util.InternalEList;
 
+import org.nasdanika.models.gitlab.Contributor;
 import org.nasdanika.models.gitlab.GitLabPackage;
 import org.nasdanika.models.gitlab.Member;
 import org.nasdanika.models.gitlab.Project;
@@ -39,6 +40,9 @@ import org.nasdanika.models.gitlab.User;
  *   <li>{@link org.nasdanika.models.gitlab.impl.UserImpl#getState <em>State</em>}</li>
  *   <li>{@link org.nasdanika.models.gitlab.impl.UserImpl#getUsername <em>Username</em>}</li>
  *   <li>{@link org.nasdanika.models.gitlab.impl.UserImpl#getWebUrl <em>Web Url</em>}</li>
+ *   <li>{@link org.nasdanika.models.gitlab.impl.UserImpl#getOwnedProjects <em>Owned Projects</em>}</li>
+ *   <li>{@link org.nasdanika.models.gitlab.impl.UserImpl#getCreatedProjects <em>Created Projects</em>}</li>
+ *   <li>{@link org.nasdanika.models.gitlab.impl.UserImpl#getContributions <em>Contributions</em>}</li>
  * </ul>
  *
  * @generated
@@ -335,10 +339,49 @@ public class UserImpl extends MinimalEObjectImpl.Container implements User {
 	 */
 	@SuppressWarnings("unchecked")
 	@Override
+	public EList<Project> getOwnedProjects() {
+		return (EList<Project>)eDynamicGet(GitLabPackage.USER__OWNED_PROJECTS, GitLabPackage.Literals.USER__OWNED_PROJECTS, true, true);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@SuppressWarnings("unchecked")
+	@Override
+	public EList<Project> getCreatedProjects() {
+		return (EList<Project>)eDynamicGet(GitLabPackage.USER__CREATED_PROJECTS, GitLabPackage.Literals.USER__CREATED_PROJECTS, true, true);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@SuppressWarnings("unchecked")
+	@Override
+	public EList<Contributor> getContributions() {
+		return (EList<Contributor>)eDynamicGet(GitLabPackage.USER__CONTRIBUTIONS, GitLabPackage.Literals.USER__CONTRIBUTIONS, true, true);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@SuppressWarnings("unchecked")
+	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case GitLabPackage.USER__MEMBERSHIP:
 				return ((InternalEList<InternalEObject>)(InternalEList<?>)getMembership()).basicAdd(otherEnd, msgs);
+			case GitLabPackage.USER__OWNED_PROJECTS:
+				return ((InternalEList<InternalEObject>)(InternalEList<?>)getOwnedProjects()).basicAdd(otherEnd, msgs);
+			case GitLabPackage.USER__CREATED_PROJECTS:
+				return ((InternalEList<InternalEObject>)(InternalEList<?>)getCreatedProjects()).basicAdd(otherEnd, msgs);
+			case GitLabPackage.USER__CONTRIBUTIONS:
+				return ((InternalEList<InternalEObject>)(InternalEList<?>)getContributions()).basicAdd(otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
@@ -355,6 +398,12 @@ public class UserImpl extends MinimalEObjectImpl.Container implements User {
 				return ((InternalEList<?>)getProjects()).basicRemove(otherEnd, msgs);
 			case GitLabPackage.USER__MEMBERSHIP:
 				return ((InternalEList<?>)getMembership()).basicRemove(otherEnd, msgs);
+			case GitLabPackage.USER__OWNED_PROJECTS:
+				return ((InternalEList<?>)getOwnedProjects()).basicRemove(otherEnd, msgs);
+			case GitLabPackage.USER__CREATED_PROJECTS:
+				return ((InternalEList<?>)getCreatedProjects()).basicRemove(otherEnd, msgs);
+			case GitLabPackage.USER__CONTRIBUTIONS:
+				return ((InternalEList<?>)getContributions()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -387,6 +436,12 @@ public class UserImpl extends MinimalEObjectImpl.Container implements User {
 				return getUsername();
 			case GitLabPackage.USER__WEB_URL:
 				return getWebUrl();
+			case GitLabPackage.USER__OWNED_PROJECTS:
+				return getOwnedProjects();
+			case GitLabPackage.USER__CREATED_PROJECTS:
+				return getCreatedProjects();
+			case GitLabPackage.USER__CONTRIBUTIONS:
+				return getContributions();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -432,6 +487,18 @@ public class UserImpl extends MinimalEObjectImpl.Container implements User {
 			case GitLabPackage.USER__WEB_URL:
 				setWebUrl((String)newValue);
 				return;
+			case GitLabPackage.USER__OWNED_PROJECTS:
+				getOwnedProjects().clear();
+				getOwnedProjects().addAll((Collection<? extends Project>)newValue);
+				return;
+			case GitLabPackage.USER__CREATED_PROJECTS:
+				getCreatedProjects().clear();
+				getCreatedProjects().addAll((Collection<? extends Project>)newValue);
+				return;
+			case GitLabPackage.USER__CONTRIBUTIONS:
+				getContributions().clear();
+				getContributions().addAll((Collection<? extends Contributor>)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -474,6 +541,15 @@ public class UserImpl extends MinimalEObjectImpl.Container implements User {
 			case GitLabPackage.USER__WEB_URL:
 				setWebUrl(WEB_URL_EDEFAULT);
 				return;
+			case GitLabPackage.USER__OWNED_PROJECTS:
+				getOwnedProjects().clear();
+				return;
+			case GitLabPackage.USER__CREATED_PROJECTS:
+				getCreatedProjects().clear();
+				return;
+			case GitLabPackage.USER__CONTRIBUTIONS:
+				getContributions().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -506,6 +582,12 @@ public class UserImpl extends MinimalEObjectImpl.Container implements User {
 				return USERNAME_EDEFAULT == null ? getUsername() != null : !USERNAME_EDEFAULT.equals(getUsername());
 			case GitLabPackage.USER__WEB_URL:
 				return WEB_URL_EDEFAULT == null ? getWebUrl() != null : !WEB_URL_EDEFAULT.equals(getWebUrl());
+			case GitLabPackage.USER__OWNED_PROJECTS:
+				return !getOwnedProjects().isEmpty();
+			case GitLabPackage.USER__CREATED_PROJECTS:
+				return !getCreatedProjects().isEmpty();
+			case GitLabPackage.USER__CONTRIBUTIONS:
+				return !getContributions().isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

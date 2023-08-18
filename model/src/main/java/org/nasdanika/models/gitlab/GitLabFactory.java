@@ -67,6 +67,51 @@ public interface GitLabFactory extends EFactory {
 	Project createProject();
 
 	/**
+	 * Returns a new object of class '<em>Project Statistics</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Project Statistics</em>'.
+	 * @generated
+	 */
+	ProjectStatistics createProjectStatistics();
+
+	/**
+	 * Returns a new object of class '<em>Project License</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Project License</em>'.
+	 * @generated
+	 */
+	ProjectLicense createProjectLicense();
+
+	/**
+	 * Returns a new object of class '<em>Contributor</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Contributor</em>'.
+	 * @generated
+	 */
+	Contributor createContributor();
+
+	/**
+	 * Returns a new object of class '<em>Project Access</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Project Access</em>'.
+	 * @generated
+	 */
+	ProjectAccess createProjectAccess();
+
+	/**
+	 * Returns a new object of class '<em>Branch</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Branch</em>'.
+	 * @generated
+	 */
+	Branch createBranch();
+
+	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

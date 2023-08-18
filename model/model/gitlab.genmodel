@@ -24,10 +24,39 @@
       <genEnumLiterals ecoreEnumLiteral="gitlab.ecore#//AccessLevel/Owner"/>
       <genEnumLiterals ecoreEnumLiteral="gitlab.ecore#//AccessLevel/Admin"/>
     </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="gitlab.ecore#//MergeMethod">
+      <genEnumLiterals ecoreEnumLiteral="gitlab.ecore#//MergeMethod/Merge"/>
+      <genEnumLiterals ecoreEnumLiteral="gitlab.ecore#//MergeMethod/RebaseMerge"/>
+      <genEnumLiterals ecoreEnumLiteral="gitlab.ecore#//MergeMethod/FastForward"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="gitlab.ecore#//BuildGitStrategy">
+      <genEnumLiterals ecoreEnumLiteral="gitlab.ecore#//BuildGitStrategy/Fetch"/>
+      <genEnumLiterals ecoreEnumLiteral="gitlab.ecore#//BuildGitStrategy/Clone"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="gitlab.ecore#//Status">
+      <genEnumLiterals ecoreEnumLiteral="gitlab.ecore#//Status/Info"/>
+      <genEnumLiterals ecoreEnumLiteral="gitlab.ecore#//Status/Success"/>
+      <genEnumLiterals ecoreEnumLiteral="gitlab.ecore#//Status/Warning"/>
+      <genEnumLiterals ecoreEnumLiteral="gitlab.ecore#//Status/Error"/>
+      <genEnumLiterals ecoreEnumLiteral="gitlab.ecore#//Status/Fail"/>
+      <genEnumLiterals ecoreEnumLiteral="gitlab.ecore#//Status/Cancel"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="gitlab.ecore#//AutoDevopsDeployStrategy">
+      <genEnumLiterals ecoreEnumLiteral="gitlab.ecore#//AutoDevopsDeployStrategy/Continuous"/>
+      <genEnumLiterals ecoreEnumLiteral="gitlab.ecore#//AutoDevopsDeployStrategy/Manual"/>
+      <genEnumLiterals ecoreEnumLiteral="gitlab.ecore#//AutoDevopsDeployStrategy/TimedIncremental"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="gitlab.ecore#//SquashOption">
+      <genEnumLiterals ecoreEnumLiteral="gitlab.ecore#//SquashOption/Never"/>
+      <genEnumLiterals ecoreEnumLiteral="gitlab.ecore#//SquashOption/Always"/>
+      <genEnumLiterals ecoreEnumLiteral="gitlab.ecore#//SquashOption/DefaultOn"/>
+      <genEnumLiterals ecoreEnumLiteral="gitlab.ecore#//SquashOption/DefaultOff"/>
+    </genEnums>
     <genClasses ecoreClass="gitlab.ecore#//GitLab">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gitlab.ecore#//GitLab/url"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference gitlab.ecore#//GitLab/groups"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference gitlab.ecore#//GitLab/users"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference gitlab.ecore#//GitLab/licenses"/>
     </genClasses>
     <genClasses ecoreClass="gitlab.ecore#//Group">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gitlab.ecore#//Group/id"/>
@@ -66,7 +95,125 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gitlab.ecore#//User/state"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gitlab.ecore#//User/username"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gitlab.ecore#//User/webUrl"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference gitlab.ecore#//User/ownedProjects"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference gitlab.ecore#//User/createdProjects"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference gitlab.ecore#//User/contributions"/>
     </genClasses>
-    <genClasses ecoreClass="gitlab.ecore#//Project"/>
+    <genClasses ecoreClass="gitlab.ecore#//Project">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gitlab.ecore#//Project/approvalsBeforeMerge"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gitlab.ecore#//Project/archived"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gitlab.ecore#//Project/avatarUrl"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gitlab.ecore#//Project/containerRegistryEnabled"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gitlab.ecore#//Project/createdAt"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference gitlab.ecore#//Project/creator"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gitlab.ecore#//Project/defaultBranch"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gitlab.ecore#//Project/description"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gitlab.ecore#//Project/forksCount"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference gitlab.ecore#//Project/forkedFrom"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference gitlab.ecore#//Project/forks"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gitlab.ecore#//Project/httpUrlToRepo"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gitlab.ecore#//Project/id"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gitlab.ecore#//Project/isPublic"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gitlab.ecore#//Project/issuesEnabled"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gitlab.ecore#//Project/jobsEnabled"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gitlab.ecore#//Project/lastsActivityAt"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gitlab.ecore#//Project/lfsEnabled"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gitlab.ecore#//Project/mergeMethod"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gitlab.ecore#//Project/mergeRequestsEnabled"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gitlab.ecore#//Project/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gitlab.ecore#//Project/nameWithNamespace"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gitlab.ecore#//Project/onlyAllowMergeIfPipelineSucceeds"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gitlab.ecore#//Project/allowMergeOnSkippedPipeline"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gitlab.ecore#//Project/onlyAllowMergeIfAllDiscussionsAreResolved"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gitlab.ecore#//Project/openIssuesCount"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference gitlab.ecore#//Project/owner"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gitlab.ecore#//Project/path"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gitlab.ecore#//Project/pathWithNamespace"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference gitlab.ecore#//Project/projectAccess"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference gitlab.ecore#//Project/groupAccess"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gitlab.ecore#//Project/publicJobs"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference gitlab.ecore#//Project/sharedWithGroups"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gitlab.ecore#//Project/repositoryStorage"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gitlab.ecore#//Project/requestAccessEnabled"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gitlab.ecore#//Project/runnersToken"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gitlab.ecore#//Project/sharedRunnersEnabled"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gitlab.ecore#//Project/snippetsEnabled"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gitlab.ecore#//Project/sshUrlToRepo"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gitlab.ecore#//Project/starCount"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gitlab.ecore#//Project/tags"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gitlab.ecore#//Project/visibilityLevel"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gitlab.ecore#//Project/visibility"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gitlab.ecore#//Project/wallEnabled"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gitlab.ecore#//Project/webUrl"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gitlab.ecore#//Project/wikiEnabled"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gitlab.ecore#//Project/printingMergeRequestLinkEnabled"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gitlab.ecore#//Project/resolveOutdatedDiffDiscussions"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference gitlab.ecore#//Project/statistics"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gitlab.ecore#//Project/initializeWithReadme"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gitlab.ecore#//Project/packagesEnabled"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gitlab.ecore#//Project/emptyRepo"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gitlab.ecore#//Project/licenseUrl"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference gitlab.ecore#//Project/license"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference gitlab.ecore#//Project/customAttributes"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gitlab.ecore#//Project/buildCoverageRegex"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gitlab.ecore#//Project/buildGitStrategy"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gitlab.ecore#//Project/readmeUrl"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gitlab.ecore#//Project/canCreateMergeRequestIn"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gitlab.ecore#//Project/importStatus"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gitlab.ecore#//Project/ciDefaultGitDepth"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gitlab.ecore#//Project/ciForwardDeploymentEnabled"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gitlab.ecore#//Project/ciConfigPath"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gitlab.ecore#//Project/removeSourceBranchAfterMerge"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gitlab.ecore#//Project/autoDevopsEnabled"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gitlab.ecore#//Project/autoDevopsDeployStrategy"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gitlab.ecore#//Project/autocloseReferencedIssues"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gitlab.ecore#//Project/emailsDisabled"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gitlab.ecore#//Project/suggestionCommitMessage"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gitlab.ecore#//Project/squashOption"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference gitlab.ecore#//Project/branches"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference gitlab.ecore#//Project/contributors"/>
+    </genClasses>
+    <genClasses ecoreClass="gitlab.ecore#//ProjectStatistics">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gitlab.ecore#//ProjectStatistics/commitCount"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gitlab.ecore#//ProjectStatistics/storageSize"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gitlab.ecore#//ProjectStatistics/repositorySize"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gitlab.ecore#//ProjectStatistics/wikiSize"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gitlab.ecore#//ProjectStatistics/lfsObjectsSize"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gitlab.ecore#//ProjectStatistics/jobArtifactsSize"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gitlab.ecore#//ProjectStatistics/packagesSize"/>
+    </genClasses>
+    <genClasses ecoreClass="gitlab.ecore#//ProjectLicense">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gitlab.ecore#//ProjectLicense/key"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gitlab.ecore#//ProjectLicense/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gitlab.ecore#//ProjectLicense/nickname"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gitlab.ecore#//ProjectLicense/htmlUrl"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gitlab.ecore#//ProjectLicense/sourceUrl"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference gitlab.ecore#//ProjectLicense/projects"/>
+    </genClasses>
+    <genClasses ecoreClass="gitlab.ecore#//Contributor">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference gitlab.ecore#//Contributor/user"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gitlab.ecore#//Contributor/commits"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gitlab.ecore#//Contributor/additions"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gitlab.ecore#//Contributor/deletions"/>
+    </genClasses>
+    <genClasses ecoreClass="gitlab.ecore#//ProjectAccess">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gitlab.ecore#//ProjectAccess/accessLevel"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gitlab.ecore#//ProjectAccess/notificationLevel"/>
+    </genClasses>
+    <genClasses ecoreClass="gitlab.ecore#//CustomAttribute">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gitlab.ecore#//CustomAttribute/key"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gitlab.ecore#//CustomAttribute/value"/>
+    </genClasses>
+    <genClasses ecoreClass="gitlab.ecore#//Branch">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gitlab.ecore#//Branch/commitDate"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gitlab.ecore#//Branch/developersCanMerge"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gitlab.ecore#//Branch/developersCanPush"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gitlab.ecore#//Branch/merged"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gitlab.ecore#//Branch/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gitlab.ecore#//Branch/isProtected"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gitlab.ecore#//Branch/isDefault"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gitlab.ecore#//Branch/canPush"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gitlab.ecore#//Branch/webUrl"/>
+    </genClasses>
   </genPackages>
 </genmodel:GenModel>

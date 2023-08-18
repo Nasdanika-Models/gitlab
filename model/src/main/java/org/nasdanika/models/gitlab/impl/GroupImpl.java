@@ -564,11 +564,28 @@ public class GroupImpl extends MinimalEObjectImpl.Container implements Group {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
+	@Override
+	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case GitLabPackage.GROUP__SHARED_PROJECTS:
+				return ((InternalEList<InternalEObject>)(InternalEList<?>)getSharedProjects()).basicAdd(otherEnd, msgs);
+		}
+		return super.eInverseAdd(otherEnd, featureID, msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case GitLabPackage.GROUP__PROJECTS:
 				return ((InternalEList<?>)getProjects()).basicRemove(otherEnd, msgs);
+			case GitLabPackage.GROUP__SHARED_PROJECTS:
+				return ((InternalEList<?>)getSharedProjects()).basicRemove(otherEnd, msgs);
 			case GitLabPackage.GROUP__SUB_GROUPS:
 				return ((InternalEList<?>)getSubGroups()).basicRemove(otherEnd, msgs);
 			case GitLabPackage.GROUP__MEMBERS:

@@ -2,6 +2,7 @@
  */
 package org.nasdanika.models.gitlab.util;
 
+import java.util.Map;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 
@@ -96,6 +97,42 @@ public class GitLabSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case GitLabPackage.PROJECT_STATISTICS: {
+				ProjectStatistics projectStatistics = (ProjectStatistics)theEObject;
+				T result = caseProjectStatistics(projectStatistics);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case GitLabPackage.PROJECT_LICENSE: {
+				ProjectLicense projectLicense = (ProjectLicense)theEObject;
+				T result = caseProjectLicense(projectLicense);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case GitLabPackage.CONTRIBUTOR: {
+				Contributor contributor = (Contributor)theEObject;
+				T result = caseContributor(contributor);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case GitLabPackage.PROJECT_ACCESS: {
+				ProjectAccess projectAccess = (ProjectAccess)theEObject;
+				T result = caseProjectAccess(projectAccess);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case GitLabPackage.CUSTOM_ATTRIBUTE: {
+				@SuppressWarnings("unchecked") Map.Entry<String, String> customAttribute = (Map.Entry<String, String>)theEObject;
+				T result = caseCustomAttribute(customAttribute);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case GitLabPackage.BRANCH: {
+				Branch branch = (Branch)theEObject;
+				T result = caseBranch(branch);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			default: return defaultCase(theEObject);
 		}
 	}
@@ -172,6 +209,96 @@ public class GitLabSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseProject(Project object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Project Statistics</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Project Statistics</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseProjectStatistics(ProjectStatistics object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Project License</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Project License</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseProjectLicense(ProjectLicense object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Contributor</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Contributor</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseContributor(Contributor object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Project Access</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Project Access</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseProjectAccess(ProjectAccess object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Custom Attribute</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Custom Attribute</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseCustomAttribute(Map.Entry<String, String> object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Branch</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Branch</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseBranch(Branch object) {
 		return null;
 	}
 

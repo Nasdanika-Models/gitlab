@@ -12,25 +12,36 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 import org.eclipse.emf.common.util.EList;
-import org.gitlab4j.api.CommitsApi;
+import org.eclipse.emf.common.util.EMap;
+import org.gitlab4j.api.Constants.AutoDevopsDeployStrategy;
+import org.gitlab4j.api.Constants.BuildGitStrategy;
+import org.gitlab4j.api.Constants.SquashOption;
 import org.gitlab4j.api.GitLabApi;
 import org.gitlab4j.api.GitLabApiException;
 import org.gitlab4j.api.GroupApi;
+import org.gitlab4j.api.ProjectLicense;
 import org.gitlab4j.api.RepositoryApi;
 import org.gitlab4j.api.models.AbstractUser;
 import org.gitlab4j.api.models.Branch;
 import org.gitlab4j.api.models.Commit;
+import org.gitlab4j.api.models.Contributor;
+import org.gitlab4j.api.models.CustomAttribute;
 import org.gitlab4j.api.models.Group;
 import org.gitlab4j.api.models.Group.Statistics;
 import org.gitlab4j.api.models.Member;
+import org.gitlab4j.api.models.Owner;
+import org.gitlab4j.api.models.Permissions;
 import org.gitlab4j.api.models.Project;
+import org.gitlab4j.api.models.ProjectAccess;
+import org.gitlab4j.api.models.ProjectSharedGroup;
+import org.gitlab4j.api.models.ProjectStatistics;
 import org.gitlab4j.api.models.TreeItem;
+import org.gitlab4j.api.models.Visibility;
 import org.nasdanika.common.ProgressMonitor;
 import org.nasdanika.common.Status;
-import org.nasdanika.models.gitlab.AccessLevel;
 import org.nasdanika.models.gitlab.GitLab;
 import org.nasdanika.models.gitlab.GitLabFactory;
-import org.nasdanika.models.gitlab.User;
+import org.nasdanika.models.gitlab.MergeMethod;
 
 /**
  * Loads data into the model using {@link GitLabApi}.
@@ -80,22 +91,53 @@ public class Loader implements AutoCloseable {
 	 */
 	public GitLab loadGroups(ProgressMonitor progressMonitor) throws GitLabApiException {
 		GitLab ret = factory.createGitLab();
-		Function<AbstractUser<?>, User> userProvider = apiUser -> {
-			for (User modelUser: ret.getUsers()) {
+		
+		Map<Long, CompletableFuture<org.nasdanika.models.gitlab.User>> groupMap = new HashMap<>();
+		Function<Long, CompletableFuture<org.nasdanika.models.gitlab.User>> userProviderById = id -> groupMap.computeIfAbsent(id, _id -> new CompletableFuture<>());
+						
+		Function<AbstractUser<?>, org.nasdanika.models.gitlab.User> userProvider = apiUser -> {
+			for (org.nasdanika.models.gitlab.User modelUser: ret.getUsers()) {
 				if (Objects.equals(modelUser.getId(), apiUser.getId())) {
 					return modelUser;
 				}
 			}
-			User modelUser = loadUser(apiUser, progressMonitor);
+			org.nasdanika.models.gitlab.User modelUser = loadUser(apiUser, progressMonitor);
 			ret.getUsers().add(modelUser);
+			userProviderById.apply(apiUser.getId()).complete(modelUser);
 			return modelUser;
 		};
-		ret.getGroups().addAll(loadGroups(userProvider, progressMonitor));				
+		
+		Function<ProjectLicense, org.nasdanika.models.gitlab.ProjectLicense> licenseProvider = apiLicense -> {
+			for (org.nasdanika.models.gitlab.ProjectLicense modelLicense: ret.getLicenses()) {
+				if (Objects.equals(modelLicense.getKey(), apiLicense.getKey())) {
+					return modelLicense;
+				}
+			}
+			org.nasdanika.models.gitlab.ProjectLicense modelLicense = loadProjectLicense(apiLicense, progressMonitor);
+			ret.getLicenses().add(modelLicense);
+			return modelLicense;
+		};
+		
+		ret.getGroups().addAll(loadGroups(
+				userProvider, 
+				userProviderById, 
+				licenseProvider, 
+				progressMonitor));				
 		return ret;
 	}
 	
-	protected User loadUser(AbstractUser<?> apiUser, ProgressMonitor progressMonitor) {
-		User user = factory.createUser();
+	protected org.nasdanika.models.gitlab.ProjectLicense loadProjectLicense(ProjectLicense apiLicense, ProgressMonitor progressMonitor) {
+		org.nasdanika.models.gitlab.ProjectLicense modelLicense = factory.createProjectLicense();
+		modelLicense.setHtmlUrl(apiLicense.getHtmlUrl());
+		modelLicense.setKey(apiLicense.getKey());
+		modelLicense.setName(apiLicense.getName());
+		modelLicense.setNickname(apiLicense.getNickname());
+		modelLicense.setSourceUrl(apiLicense.getSourceUrl());
+		return modelLicense;
+	}
+	
+	protected org.nasdanika.models.gitlab.User loadUser(AbstractUser<?> apiUser, ProgressMonitor progressMonitor) {
+		org.nasdanika.models.gitlab.User user = factory.createUser();
 		user.setAvatarUrl(apiUser.getAvatarUrl());
 		user.setCreatedAt(apiUser.getCreatedAt());
 		user.setEMail(apiUser.getEmail());
@@ -114,9 +156,15 @@ public class Loader implements AutoCloseable {
 	 */
 	public List<org.nasdanika.models.gitlab.Group> loadGroups(
 			Function<org.gitlab4j.api.models.AbstractUser<?>, org.nasdanika.models.gitlab.User> userProvider,
+			Function<Long, CompletableFuture<org.nasdanika.models.gitlab.User>> userProviderById,			
+			Function<ProjectLicense, org.nasdanika.models.gitlab.ProjectLicense> licenseProvider,			
 			ProgressMonitor progressMonitor) throws GitLabApiException {
 		Map<Long, CompletableFuture<org.nasdanika.models.gitlab.Group>> groupMap = new HashMap<>();
 		Function<Long, CompletableFuture<org.nasdanika.models.gitlab.Group>> groupProvider = id -> groupMap.computeIfAbsent(id, _id -> new CompletableFuture<>());
+		
+		Map<Long, CompletableFuture<org.nasdanika.models.gitlab.Project>> projectMap = new HashMap<>();
+		Function<Long, CompletableFuture<org.nasdanika.models.gitlab.Project>> projectProvider = id -> projectMap.computeIfAbsent(id, _id -> new CompletableFuture<>());
+
 		List<org.nasdanika.models.gitlab.Group> rootGroups = new ArrayList<>(); 
 		try (ProgressMonitor groupsMonitor = progressMonitor.split("Loading groups", 1)) {
 			GroupApi groupApi = gitLabApi.getGroupApi();
@@ -125,7 +173,15 @@ public class Loader implements AutoCloseable {
 				scaledGroupsMonitor.worked(Status.INFO, 1, "Retrieved " + groups.size() + " groups");
 				for (org.gitlab4j.api.models.Group group: groups) {
 					try (ProgressMonitor groupMonitor = scaledGroupsMonitor.split("Loading group " + group.getName() + " " + group.getId(), 1, group)) {
-						org.nasdanika.models.gitlab.Group modelGroup = loadGroup(group, groupApi, userProvider, groupMonitor);
+						org.nasdanika.models.gitlab.Group modelGroup = loadGroup(
+								group, 
+								groupApi, 
+								groupProvider,	
+								projectProvider,
+								userProvider, 
+								userProviderById,
+								licenseProvider, 
+								groupMonitor);
 						if (!groupProvider.apply(group.getId()).complete(modelGroup)) {
 							throw new IllegalStateException("Group completable future already completed for " + group.getId() + " " + group.getFullName());
 						}
@@ -154,7 +210,11 @@ public class Loader implements AutoCloseable {
 	protected org.nasdanika.models.gitlab.Group loadGroup(
 			org.gitlab4j.api.models.Group group, 
 			GroupApi groupApi,
+			Function<Long, CompletableFuture<org.nasdanika.models.gitlab.Group>> groupProvider,
+			Function<Long, CompletableFuture<org.nasdanika.models.gitlab.Project>> projectProvider, 
 			Function<org.gitlab4j.api.models.AbstractUser<?>, org.nasdanika.models.gitlab.User> userProvider,
+			Function<Long, CompletableFuture<org.nasdanika.models.gitlab.User>> userProviderById,
+			Function<ProjectLicense, org.nasdanika.models.gitlab.ProjectLicense> licenseProvider,
 			ProgressMonitor progressMonitor) throws GitLabApiException {
 		org.nasdanika.models.gitlab.Group modelGroup = factory.createGroup();
 		modelGroup.setAvatarUrl(group.getAvatarUrl());
@@ -182,9 +242,18 @@ public class Loader implements AutoCloseable {
 		try (ProgressMonitor scaledGroupMonitor = progressMonitor.scale(1 + groupProjects.size() + groupMembers.size())) {
 			scaledGroupMonitor.worked(Status.INFO, 1, "Retrieved " + groupProjects.size() + " projects and " + groupMembers.size() + " members");							
 			for (org.gitlab4j.api.models.Project project: groupProjects) {
-				try (ProgressMonitor projectMonitor = scaledGroupMonitor.split("Loading project " + project.getName() + " " + project.getId(), 1, project)) {				
-					org.nasdanika.models.gitlab.Project modelProject = loadProject(project, projectMonitor);
-					modelGroupProjects.add(modelProject);
+				try (ProgressMonitor projectMonitor = scaledGroupMonitor.split("Loading project " + project.getName() + " " + project.getId(), 1, project)) {
+					if (Objects.equals(project.getNamespace().getId(), group.getId())) {
+						org.nasdanika.models.gitlab.Project modelProject = loadProject(
+								project, 
+								groupProvider, 
+								projectProvider,
+								userProvider,
+								userProviderById, 
+								licenseProvider, 
+								projectMonitor);
+						modelGroupProjects.add(modelProject);
+					}
 				}
 			}
 			EList<org.nasdanika.models.gitlab.Member> modelGroupMembers = modelGroup.getMembers();
@@ -201,99 +270,208 @@ public class Loader implements AutoCloseable {
 	
 	protected org.nasdanika.models.gitlab.Project loadProject(
 			org.gitlab4j.api.models.Project project, 
-			ProgressMonitor progressMonitor) {
+			Function<Long, CompletableFuture<org.nasdanika.models.gitlab.Group>> groupProvider,
+			Function<Long, CompletableFuture<org.nasdanika.models.gitlab.Project>> projectProvider,			
+			Function<org.gitlab4j.api.models.AbstractUser<?>, org.nasdanika.models.gitlab.User> userProvider,
+			Function<Long, CompletableFuture<org.nasdanika.models.gitlab.User>> userProviderById,
+			Function<ProjectLicense, org.nasdanika.models.gitlab.ProjectLicense> licenseProvider,			
+			ProgressMonitor progressMonitor) throws GitLabApiException {
 		org.nasdanika.models.gitlab.Project modelProject = factory.createProject();
 		
-//	    private Integer approvalsBeforeMerge;
-//	    private Boolean archived;
-//	    private String avatarUrl;
-//	    private Boolean containerRegistryEnabled;
-//	    private Date createdAt;
-//	    private Long creatorId;
-//	    private String defaultBranch;
-//	    private String description;
-//	    private Integer forksCount;
-//	    private Project forkedFromProject;
-//	    private String httpUrlToRepo;
-//	    private Long id;
-//	    private Boolean isPublic;
-//	    private Boolean issuesEnabled;
-//	    private Boolean jobsEnabled;
-//	    private Date lastActivityAt;
-//	    private Boolean lfsEnabled;
-//	    private MergeMethod mergeMethod;
-//	    private Boolean mergeRequestsEnabled;
-//	    private String name;
-//	    private Namespace namespace;
-//	    private String nameWithNamespace;
-//	    private Boolean onlyAllowMergeIfPipelineSucceeds;
-//	    private Boolean allowMergeOnSkippedPipeline;
-//	    private Boolean onlyAllowMergeIfAllDiscussionsAreResolved;
-//	    private Integer openIssuesCount;
-//	    private Owner owner;
-//	    private String path;
-//	    private String pathWithNamespace;
-//	    private Permissions permissions;
-//	    private Boolean publicJobs;
-//	    private String repositoryStorage;
-//	    private Boolean requestAccessEnabled;
-//	    private String runnersToken;
-//	    private Boolean sharedRunnersEnabled;
-//	    private List<ProjectSharedGroup> sharedWithGroups;
-//	    private Boolean snippetsEnabled;
-//	    private String sshUrlToRepo;
-//	    private Integer starCount;
-//	    private List<String> tagList;
-//	    private Integer visibilityLevel;
-//	    private Visibility visibility;
-//	    private Boolean wallEnabled;
-//	    private String webUrl;
-//	    private Boolean wikiEnabled;
-//	    private Boolean printingMergeRequestLinkEnabled;
-//	    private Boolean resolveOutdatedDiffDiscussions;
-//	    private ProjectStatistics statistics;
-//	    private Boolean initializeWithReadme;
-//	    private Boolean packagesEnabled;
-//	    private Boolean emptyRepo;
-//	    private String licenseUrl;
-//	    private ProjectLicense license;
-//	    private List<CustomAttribute> customAttributes;
-//	    private String buildCoverageRegex;
-//	    private BuildGitStrategy buildGitStrategy;
-//	    private String readmeUrl;
-//	    private Boolean canCreateMergeRequestIn;
-//	    private Status importStatus;
-//	    private Integer ciDefaultGitDepth;
-//	    private Boolean ciForwardDeploymentEnabled;
-//	    private String ciConfigPath;
-//	    private Boolean removeSourceBranchAfterMerge;
-//	    private Boolean autoDevopsEnabled;
-//	    private AutoDevopsDeployStrategy autoDevopsDeployStrategy;
-//	    private Boolean autocloseReferencedIssues;
-//	    private Boolean emailsDisabled;
-//	    private String suggestionCommitMessage;
-//	    private SquashOption squashOption;
+		modelProject.setId(project.getId());
+		modelProject.setApprovalsBeforeMerge(project.getApprovalsBeforeMerge());
+		modelProject.setArchived(project.getArchived());
+		modelProject.setAvatarUrl(project.getAvatarUrl());
+		modelProject.setContainerRegistryEnabled(project.getContainerRegistryEnabled());
+		modelProject.setCreatedAt(project.getCreatedAt());
+		Long creatorId = project.getCreatorId();
+		if (creatorId != null) {
+			userProviderById.apply(creatorId).thenAccept(modelProject::setCreator);
+		}
+		modelProject.setDefaultBranch(project.getDefaultBranch());
+		modelProject.setDescription(project.getDescription());		
+		modelProject.setForksCount(project.getForksCount());		
+
+		Project forkedFrom = project.getForkedFromProject();
+		if (forkedFrom != null) {
+			projectProvider.apply(forkedFrom.getId()).thenAccept(modelProject::setForkedFrom);
+		}
 		
+		modelProject.setHttpUrlToRepo(project.getHttpUrlToRepo());		
+		modelProject.setIsPublic(project.getPublic());		
+		modelProject.setIssuesEnabled(project.getIssuesEnabled());		
+		modelProject.setJobsEnabled(project.getJobsEnabled());		
+		modelProject.setLastsActivityAt(project.getLastActivityAt());		
+		modelProject.setLfsEnabled(project.getLfsEnabled());		
+		modelProject.setMergeMethod(MergeMethod.get(project.getMergeMethod().ordinal()));		
+		modelProject.setMergeRequestsEnabled(project.getMergeRequestsEnabled());		
+		modelProject.setName(project.getName());		
+		modelProject.setNameWithNamespace(project.getNameWithNamespace());		
+		modelProject.setOnlyAllowMergeIfAllDiscussionsAreResolved(project.getOnlyAllowMergeIfAllDiscussionsAreResolved());		
+		modelProject.setOpenIssuesCount(project.getOpenIssuesCount());		
 		
+		Owner owner = project.getOwner();
+		if (owner != null) {
+			modelProject.setOwner(userProvider.apply(owner));
+		}
 		
-//							RepositoryApi repoApi = gitLabApi.getRepositoryApi();
-//							try {
-//								for (Branch branch: repoApi.getBranches(project.getId())) {
-//									System.out.println(branch.getCommit());
-//									for (TreeItem treeItem: repoApi.getTree(project.getId(), "/", branch.getName())) {
-//										System.out.println(treeItem);
-//									}
-//								}
-//							} catch (Exception e) {
-//								e.printStackTrace();
-//							}
-//							
-//							CommitsApi commitsApi = gitLabApi.getCommitsApi();
-//							for (Commit commit: commitsApi.getCommits(project.getId())) {
-//								System.out.println("Commit: " + commit);
-//							}
+		modelProject.setPath(project.getPath());
+		modelProject.setPathWithNamespace(project.getPathWithNamespace());
 		
-	
+		Permissions permissions = project.getPermissions();
+		if (permissions != null) {
+			ProjectAccess groupAccess = permissions.getGroupAccess();
+			if (groupAccess != null) {
+				org.nasdanika.models.gitlab.ProjectAccess modelGroupAccess = factory.createProjectAccess();
+				modelGroupAccess.setAccessLevel(org.nasdanika.models.gitlab.AccessLevel.get(groupAccess.getAccessLevel().value));
+				modelProject.setGroupAccess(modelGroupAccess);
+			}
+			ProjectAccess projectAccess = permissions.getProjectAccess();
+			if (projectAccess != null) {
+				org.nasdanika.models.gitlab.ProjectAccess modelProjectAccess = factory.createProjectAccess();
+				modelProjectAccess.setAccessLevel(org.nasdanika.models.gitlab.AccessLevel.get(projectAccess.getAccessLevel().value));
+				modelProject.setGroupAccess(modelProjectAccess);
+			}
+		}
+		
+		modelProject.setPublicJobs(project.getPublicJobs());
+		modelProject.setRepositoryStorage(project.getRepositoryStorage());
+		modelProject.setRequestAccessEnabled(project.getRequestAccessEnabled());
+		modelProject.setRunnersToken(project.getRunnersToken());
+		modelProject.setSharedRunnersEnabled(project.getSharedRunnersEnabled());
+		
+		List<ProjectSharedGroup> sharedGroups = project.getSharedWithGroups();
+		if (sharedGroups != null) {
+			for (ProjectSharedGroup sg: sharedGroups) {
+				groupProvider.apply(sg.getGroupId()).thenAccept(modelProject.getSharedWithGroups()::add);
+			}
+		}
+				
+		modelProject.setSnippetsEnabled(project.getSnippetsEnabled());
+		modelProject.setSshUrlToRepo(project.getSshUrlToRepo());
+		modelProject.setStarCount(project.getStarCount());
+
+		List<String> tags = project.getTagList();
+		if (tags != null) {
+			modelProject.getTags().addAll(tags);
+		}
+		
+		modelProject.setVisibilityLevel(project.getVisibilityLevel());
+		Visibility projectVisibility = project.getVisibility();
+		if (projectVisibility != null) {
+			modelProject.setVisibility(org.nasdanika.models.gitlab.Visibility.get(projectVisibility.ordinal()));
+		}
+		modelProject.setWallEnabled(project.getWallEnabled());
+		modelProject.setWebUrl(project.getWebUrl());
+		modelProject.setWikiEnabled(project.getWikiEnabled());
+		modelProject.setPrintingMergeRequestLinkEnabled(project.getPrintingMergeRequestLinkEnabled());
+		modelProject.setResolveOutdatedDiffDiscussions(project.getResolveOutdatedDiffDiscussions());
+		
+		ProjectStatistics projectStatistics = project.getStatistics();
+		if (projectStatistics != null) {
+			org.nasdanika.models.gitlab.ProjectStatistics modelProjectStatistics = factory.createProjectStatistics();
+			modelProjectStatistics.setCommitCount(projectStatistics.getCommitCount());
+			modelProjectStatistics.setJobArtifactsSize(projectStatistics.getJobArtifactsSize());
+			modelProjectStatistics.setLfsObjectsSize(projectStatistics.getLfsObjectsSize());
+			modelProjectStatistics.setPackagesSize(projectStatistics.getPackagesSize());
+			modelProjectStatistics.setRepositorySize(projectStatistics.getRepositorySize());
+			modelProjectStatistics.setStorageSize(projectStatistics.getStorageSize());
+			modelProjectStatistics.setWikiSize(projectStatistics.getWikiSize());
+			
+			modelProject.setStatistics(modelProjectStatistics);
+		}
+		
+		modelProject.setInitializeWithReadme(null);
+		modelProject.setPackagesEnabled(null);
+		modelProject.setEmptyRepo(null);
+		modelProject.setLicenseUrl(null);
+		
+		ProjectLicense apiLicense = project.getLicense();
+		if (apiLicense != null) {
+			modelProject.setLicense(licenseProvider.apply(apiLicense));
+		}
+
+		List<CustomAttribute> apiCustomAttributes = project.getCustomAttributes();
+		if (apiCustomAttributes != null) {
+			EMap<String, String> modelCustomAttributes = modelProject.getCustomAttributes();
+			apiCustomAttributes.forEach(ca -> modelCustomAttributes.put(ca.getKey(), ca.getValue()));
+		}
+		
+		modelProject.setBuildCoverageRegex(project.getBuildCoverageRegex());
+		
+		BuildGitStrategy buildGitStrategy = project.getBuildGitStrategy();
+		if (buildGitStrategy != null) {
+			modelProject.setBuildGitStrategy(org.nasdanika.models.gitlab.BuildGitStrategy.get(buildGitStrategy.ordinal()));
+		}
+		
+		modelProject.setReadmeUrl(project.getReadmeUrl());
+		modelProject.setCanCreateMergeRequestIn(project.getCanCreateMergeRequestIn());
+		
+		org.gitlab4j.api.models.ImportStatus.Status importStatus = project.getImportStatus();
+		if (importStatus != null) {
+			modelProject.setImportStatus(org.nasdanika.models.gitlab.Status.get(importStatus.ordinal()));
+		}
+		modelProject.setCiDefaultGitDepth(project.getCiDefaultGitDepth());
+		modelProject.setCiForwardDeploymentEnabled(project.getCiForwardDeploymentEnabled());
+		modelProject.setCiConfigPath(project.getCiConfigPath());
+		modelProject.setRemoveSourceBranchAfterMerge(project.getRemoveSourceBranchAfterMerge());
+		modelProject.setAutoDevopsEnabled(project.getAutoDevopsEnabled());
+		
+		AutoDevopsDeployStrategy autoDevopsDeployStrategy = project.getAutoDevopsDeployStrategy();
+		if (autoDevopsDeployStrategy != null) {
+			modelProject.setAutoDevopsDeployStrategy(org.nasdanika.models.gitlab.AutoDevopsDeployStrategy.get(autoDevopsDeployStrategy.ordinal()));
+		}
+		
+		modelProject.setAutocloseReferencedIssues(project.getAutocloseReferencedIssues());
+		modelProject.setEmailsDisabled(project.getEmailsDisabled());
+		modelProject.setSuggestionCommitMessage(project.getSuggestionCommitMessage());
+		
+		SquashOption squashOption = project.getSquashOption();
+		if (squashOption != null) {
+			modelProject.setSquashOption(org.nasdanika.models.gitlab.SquashOption.get(squashOption.ordinal()));
+		}		
+		
+		RepositoryApi repoApi = gitLabApi.getRepositoryApi();
+		List<Branch> branches = repoApi.getBranches(project.getId());
+		if (branches != null) {
+			EList<org.nasdanika.models.gitlab.Branch> modelBranches = modelProject.getBranches();
+			for (Branch branch: branches) {
+				org.nasdanika.models.gitlab.Branch modelBranch = factory.createBranch();
+				modelBranch.setCanPush(branch.getCanPush());
+				
+				Commit commit = branch.getCommit();
+				if (commit != null) {
+					modelBranch.setCommitDate(commit.getCommittedDate());
+				}
+				
+				modelBranch.setDevelopersCanMerge(branch.getDevelopersCanMerge());
+				modelBranch.setDevelopersCanPush(branch.getDevelopersCanPush());
+				modelBranch.setIsDefault(branch.getDefault());
+				modelBranch.setIsProtected(branch.getProtected());
+				modelBranch.setMerged(branch.getMerged());
+				modelBranch.setName(branch.getName());
+				modelBranch.setWebUrl(branch.getWebUrl());
+				modelBranches.add(modelBranch);
+			}			
+		}
+		List<Contributor> contributors = repoApi.getContributors(project.getId());
+		if (contributors != null) {
+			EList<org.nasdanika.models.gitlab.Contributor> modelContributors = modelProject.getContributors();
+			for (Contributor contributor: contributors) {
+				org.nasdanika.models.gitlab.Contributor modelContributor = factory.createContributor();
+				modelContributor.setAdditions(contributor.getAdditions());
+				modelContributor.setCommits(contributor.getCommits());
+				modelContributor.setDeletions(contributor.getDeletions());
+				modelContributor.setUser(userProvider.apply(contributor));
+				modelContributors.add(modelContributor);
+			}			
+		}
+				
+//		CommitsApi commitsApi = gitLabApi.getCommitsApi();
+//		for (Commit commit: commitsApi.getCommits(project.getId())) {
+//			System.out.println("Commit: " + commit);
+//		}
+			
 		return modelProject;
 	}	
 	
@@ -311,7 +489,7 @@ public class Loader implements AutoCloseable {
 		org.nasdanika.models.gitlab.Member modelMember = factory.createMember();
 		org.gitlab4j.api.models.AccessLevel accessLevel = member.getAccessLevel();
 		if (accessLevel != null) {
-			modelMember.setAccessLevel(AccessLevel.get(accessLevel.value));
+			modelMember.setAccessLevel(org.nasdanika.models.gitlab.AccessLevel.get(accessLevel.value));
 		}
 		modelMember.setExpiresAt(member.getExpiresAt());		
 		if (userProvider != null) {

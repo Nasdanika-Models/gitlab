@@ -302,11 +302,13 @@ public interface Group extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Shared Projects</b></em>' reference list.
 	 * The list contents are of type {@link org.nasdanika.models.gitlab.Project}.
+	 * It is bidirectional and its opposite is '{@link org.nasdanika.models.gitlab.Project#getSharedWithGroups <em>Shared With Groups</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Shared Projects</em>' reference list.
 	 * @see org.nasdanika.models.gitlab.GitLabPackage#getGroup_SharedProjects()
-	 * @model
+	 * @see org.nasdanika.models.gitlab.Project#getSharedWithGroups
+	 * @model opposite="sharedWithGroups"
 	 * @generated
 	 */
 	EList<Project> getSharedProjects();

@@ -26,6 +26,9 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link org.nasdanika.models.gitlab.User#getState <em>State</em>}</li>
  *   <li>{@link org.nasdanika.models.gitlab.User#getUsername <em>Username</em>}</li>
  *   <li>{@link org.nasdanika.models.gitlab.User#getWebUrl <em>Web Url</em>}</li>
+ *   <li>{@link org.nasdanika.models.gitlab.User#getOwnedProjects <em>Owned Projects</em>}</li>
+ *   <li>{@link org.nasdanika.models.gitlab.User#getCreatedProjects <em>Created Projects</em>}</li>
+ *   <li>{@link org.nasdanika.models.gitlab.User#getContributions <em>Contributions</em>}</li>
  * </ul>
  *
  * @see org.nasdanika.models.gitlab.GitLabPackage#getUser()
@@ -234,5 +237,47 @@ public interface User extends EObject {
 	 * @generated
 	 */
 	void setWebUrl(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Owned Projects</b></em>' reference list.
+	 * The list contents are of type {@link org.nasdanika.models.gitlab.Project}.
+	 * It is bidirectional and its opposite is '{@link org.nasdanika.models.gitlab.Project#getOwner <em>Owner</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Owned Projects</em>' reference list.
+	 * @see org.nasdanika.models.gitlab.GitLabPackage#getUser_OwnedProjects()
+	 * @see org.nasdanika.models.gitlab.Project#getOwner
+	 * @model opposite="owner"
+	 * @generated
+	 */
+	EList<Project> getOwnedProjects();
+
+	/**
+	 * Returns the value of the '<em><b>Created Projects</b></em>' reference list.
+	 * The list contents are of type {@link org.nasdanika.models.gitlab.Project}.
+	 * It is bidirectional and its opposite is '{@link org.nasdanika.models.gitlab.Project#getCreator <em>Creator</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Created Projects</em>' reference list.
+	 * @see org.nasdanika.models.gitlab.GitLabPackage#getUser_CreatedProjects()
+	 * @see org.nasdanika.models.gitlab.Project#getCreator
+	 * @model opposite="creator"
+	 * @generated
+	 */
+	EList<Project> getCreatedProjects();
+
+	/**
+	 * Returns the value of the '<em><b>Contributions</b></em>' reference list.
+	 * The list contents are of type {@link org.nasdanika.models.gitlab.Contributor}.
+	 * It is bidirectional and its opposite is '{@link org.nasdanika.models.gitlab.Contributor#getUser <em>User</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Contributions</em>' reference list.
+	 * @see org.nasdanika.models.gitlab.GitLabPackage#getUser_Contributions()
+	 * @see org.nasdanika.models.gitlab.Contributor#getUser
+	 * @model opposite="user"
+	 * @generated
+	 */
+	EList<Contributor> getContributions();
 
 } // User
