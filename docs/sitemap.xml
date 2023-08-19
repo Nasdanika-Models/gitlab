@@ -2,312 +2,312 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" >
   <url>
     <loc>https://gitlab.models.nasdanika.org/classifiers.html</loc>
-    <lastmod>2023-08-19T09:47:00.619-04:00</lastmod>
+    <lastmod>2023-08-19T09:51:31.878-04:00</lastmod>
     <changefreq>weekly</changefreq>
   </url>
   <url>
     <loc>https://gitlab.models.nasdanika.org/glossary.html</loc>
-    <lastmod>2023-08-19T09:47:00.628-04:00</lastmod>
+    <lastmod>2023-08-19T09:51:31.884-04:00</lastmod>
     <changefreq>weekly</changefreq>
   </url>
   <url>
     <loc>https://gitlab.models.nasdanika.org/index.html</loc>
-    <lastmod>2023-08-19T09:47:00.357-04:00</lastmod>
+    <lastmod>2023-08-19T09:51:31.667-04:00</lastmod>
     <changefreq>weekly</changefreq>
   </url>
   <url>
     <loc>https://gitlab.models.nasdanika.org/references/eClassifiers/AccessLevel/index.html</loc>
-    <lastmod>2023-08-19T09:47:00.364-04:00</lastmod>
+    <lastmod>2023-08-19T09:51:31.673-04:00</lastmod>
     <changefreq>weekly</changefreq>
   </url>
   <url>
     <loc>https://gitlab.models.nasdanika.org/references/eClassifiers/AutoDevopsDeployStrategy/index.html</loc>
-    <lastmod>2023-08-19T09:47:00.366-04:00</lastmod>
+    <lastmod>2023-08-19T09:51:31.677-04:00</lastmod>
     <changefreq>weekly</changefreq>
   </url>
   <url>
     <loc>https://gitlab.models.nasdanika.org/references/eClassifiers/Branch/attributes.html</loc>
-    <lastmod>2023-08-19T09:47:00.374-04:00</lastmod>
+    <lastmod>2023-08-19T09:51:31.685-04:00</lastmod>
     <changefreq>weekly</changefreq>
   </url>
   <url>
     <loc>https://gitlab.models.nasdanika.org/references/eClassifiers/Branch/diagram.html</loc>
-    <lastmod>2023-08-19T09:47:00.379-04:00</lastmod>
+    <lastmod>2023-08-19T09:51:31.688-04:00</lastmod>
     <changefreq>weekly</changefreq>
   </url>
   <url>
     <loc>https://gitlab.models.nasdanika.org/references/eClassifiers/Branch/index.html</loc>
-    <lastmod>2023-08-19T09:47:00.369-04:00</lastmod>
+    <lastmod>2023-08-19T09:51:31.682-04:00</lastmod>
     <changefreq>weekly</changefreq>
   </url>
   <url>
     <loc>https://gitlab.models.nasdanika.org/references/eClassifiers/Branch/load-specification.html</loc>
-    <lastmod>2023-08-19T09:47:00.384-04:00</lastmod>
+    <lastmod>2023-08-19T09:51:31.695-04:00</lastmod>
     <changefreq>weekly</changefreq>
   </url>
   <url>
     <loc>https://gitlab.models.nasdanika.org/references/eClassifiers/BuildGitStrategy/index.html</loc>
-    <lastmod>2023-08-19T09:47:00.388-04:00</lastmod>
+    <lastmod>2023-08-19T09:51:31.701-04:00</lastmod>
     <changefreq>weekly</changefreq>
   </url>
   <url>
     <loc>https://gitlab.models.nasdanika.org/references/eClassifiers/Contributor/attributes.html</loc>
-    <lastmod>2023-08-19T09:47:00.403-04:00</lastmod>
+    <lastmod>2023-08-19T09:51:31.707-04:00</lastmod>
     <changefreq>weekly</changefreq>
   </url>
   <url>
     <loc>https://gitlab.models.nasdanika.org/references/eClassifiers/Contributor/diagram.html</loc>
-    <lastmod>2023-08-19T09:47:00.437-04:00</lastmod>
+    <lastmod>2023-08-19T09:51:31.714-04:00</lastmod>
     <changefreq>weekly</changefreq>
   </url>
   <url>
     <loc>https://gitlab.models.nasdanika.org/references/eClassifiers/Contributor/index.html</loc>
-    <lastmod>2023-08-19T09:47:00.396-04:00</lastmod>
+    <lastmod>2023-08-19T09:51:31.704-04:00</lastmod>
     <changefreq>weekly</changefreq>
   </url>
   <url>
     <loc>https://gitlab.models.nasdanika.org/references/eClassifiers/Contributor/load-specification.html</loc>
-    <lastmod>2023-08-19T09:47:00.441-04:00</lastmod>
+    <lastmod>2023-08-19T09:51:31.717-04:00</lastmod>
     <changefreq>weekly</changefreq>
   </url>
   <url>
     <loc>https://gitlab.models.nasdanika.org/references/eClassifiers/Contributor/references.html</loc>
-    <lastmod>2023-08-19T09:47:00.434-04:00</lastmod>
+    <lastmod>2023-08-19T09:51:31.710-04:00</lastmod>
     <changefreq>weekly</changefreq>
   </url>
   <url>
     <loc>https://gitlab.models.nasdanika.org/references/eClassifiers/CustomAttribute/attributes.html</loc>
-    <lastmod>2023-08-19T09:47:00.449-04:00</lastmod>
+    <lastmod>2023-08-19T09:51:31.723-04:00</lastmod>
     <changefreq>weekly</changefreq>
   </url>
   <url>
     <loc>https://gitlab.models.nasdanika.org/references/eClassifiers/CustomAttribute/diagram.html</loc>
-    <lastmod>2023-08-19T09:47:00.454-04:00</lastmod>
+    <lastmod>2023-08-19T09:51:31.725-04:00</lastmod>
     <changefreq>weekly</changefreq>
   </url>
   <url>
     <loc>https://gitlab.models.nasdanika.org/references/eClassifiers/CustomAttribute/index.html</loc>
-    <lastmod>2023-08-19T09:47:00.446-04:00</lastmod>
+    <lastmod>2023-08-19T09:51:31.721-04:00</lastmod>
     <changefreq>weekly</changefreq>
   </url>
   <url>
     <loc>https://gitlab.models.nasdanika.org/references/eClassifiers/CustomAttribute/load-specification.html</loc>
-    <lastmod>2023-08-19T09:47:00.462-04:00</lastmod>
+    <lastmod>2023-08-19T09:51:31.728-04:00</lastmod>
     <changefreq>weekly</changefreq>
   </url>
   <url>
     <loc>https://gitlab.models.nasdanika.org/references/eClassifiers/GitLab/attributes.html</loc>
-    <lastmod>2023-08-19T09:47:00.467-04:00</lastmod>
+    <lastmod>2023-08-19T09:51:31.736-04:00</lastmod>
     <changefreq>weekly</changefreq>
   </url>
   <url>
     <loc>https://gitlab.models.nasdanika.org/references/eClassifiers/GitLab/diagram.html</loc>
-    <lastmod>2023-08-19T09:47:00.471-04:00</lastmod>
+    <lastmod>2023-08-19T09:51:31.741-04:00</lastmod>
     <changefreq>weekly</changefreq>
   </url>
   <url>
     <loc>https://gitlab.models.nasdanika.org/references/eClassifiers/GitLab/index.html</loc>
-    <lastmod>2023-08-19T09:47:00.465-04:00</lastmod>
+    <lastmod>2023-08-19T09:51:31.732-04:00</lastmod>
     <changefreq>weekly</changefreq>
   </url>
   <url>
     <loc>https://gitlab.models.nasdanika.org/references/eClassifiers/GitLab/load-specification.html</loc>
-    <lastmod>2023-08-19T09:47:00.476-04:00</lastmod>
+    <lastmod>2023-08-19T09:51:31.747-04:00</lastmod>
     <changefreq>weekly</changefreq>
   </url>
   <url>
     <loc>https://gitlab.models.nasdanika.org/references/eClassifiers/GitLab/references.html</loc>
-    <lastmod>2023-08-19T09:47:00.468-04:00</lastmod>
+    <lastmod>2023-08-19T09:51:31.738-04:00</lastmod>
     <changefreq>weekly</changefreq>
   </url>
   <url>
     <loc>https://gitlab.models.nasdanika.org/references/eClassifiers/Group/attributes.html</loc>
-    <lastmod>2023-08-19T09:47:00.483-04:00</lastmod>
+    <lastmod>2023-08-19T09:51:31.754-04:00</lastmod>
     <changefreq>weekly</changefreq>
   </url>
   <url>
     <loc>https://gitlab.models.nasdanika.org/references/eClassifiers/Group/diagram.html</loc>
-    <lastmod>2023-08-19T09:47:00.487-04:00</lastmod>
+    <lastmod>2023-08-19T09:51:31.761-04:00</lastmod>
     <changefreq>weekly</changefreq>
   </url>
   <url>
     <loc>https://gitlab.models.nasdanika.org/references/eClassifiers/Group/index.html</loc>
-    <lastmod>2023-08-19T09:47:00.480-04:00</lastmod>
+    <lastmod>2023-08-19T09:51:31.751-04:00</lastmod>
     <changefreq>weekly</changefreq>
   </url>
   <url>
     <loc>https://gitlab.models.nasdanika.org/references/eClassifiers/Group/load-specification.html</loc>
-    <lastmod>2023-08-19T09:47:00.490-04:00</lastmod>
+    <lastmod>2023-08-19T09:51:31.766-04:00</lastmod>
     <changefreq>weekly</changefreq>
   </url>
   <url>
     <loc>https://gitlab.models.nasdanika.org/references/eClassifiers/Group/references.html</loc>
-    <lastmod>2023-08-19T09:47:00.485-04:00</lastmod>
+    <lastmod>2023-08-19T09:51:31.756-04:00</lastmod>
     <changefreq>weekly</changefreq>
   </url>
   <url>
     <loc>https://gitlab.models.nasdanika.org/references/eClassifiers/Member/attributes.html</loc>
-    <lastmod>2023-08-19T09:47:00.496-04:00</lastmod>
+    <lastmod>2023-08-19T09:51:31.772-04:00</lastmod>
     <changefreq>weekly</changefreq>
   </url>
   <url>
     <loc>https://gitlab.models.nasdanika.org/references/eClassifiers/Member/diagram.html</loc>
-    <lastmod>2023-08-19T09:47:00.504-04:00</lastmod>
+    <lastmod>2023-08-19T09:51:31.778-04:00</lastmod>
     <changefreq>weekly</changefreq>
   </url>
   <url>
     <loc>https://gitlab.models.nasdanika.org/references/eClassifiers/Member/index.html</loc>
-    <lastmod>2023-08-19T09:47:00.494-04:00</lastmod>
+    <lastmod>2023-08-19T09:51:31.770-04:00</lastmod>
     <changefreq>weekly</changefreq>
   </url>
   <url>
     <loc>https://gitlab.models.nasdanika.org/references/eClassifiers/Member/load-specification.html</loc>
-    <lastmod>2023-08-19T09:47:00.511-04:00</lastmod>
+    <lastmod>2023-08-19T09:51:31.782-04:00</lastmod>
     <changefreq>weekly</changefreq>
   </url>
   <url>
     <loc>https://gitlab.models.nasdanika.org/references/eClassifiers/Member/references.html</loc>
-    <lastmod>2023-08-19T09:47:00.500-04:00</lastmod>
+    <lastmod>2023-08-19T09:51:31.774-04:00</lastmod>
     <changefreq>weekly</changefreq>
   </url>
   <url>
     <loc>https://gitlab.models.nasdanika.org/references/eClassifiers/MergeMethod/index.html</loc>
-    <lastmod>2023-08-19T09:47:00.514-04:00</lastmod>
+    <lastmod>2023-08-19T09:51:31.785-04:00</lastmod>
     <changefreq>weekly</changefreq>
   </url>
   <url>
     <loc>https://gitlab.models.nasdanika.org/references/eClassifiers/Project/attributes.html</loc>
-    <lastmod>2023-08-19T09:47:00.535-04:00</lastmod>
+    <lastmod>2023-08-19T09:51:31.793-04:00</lastmod>
     <changefreq>weekly</changefreq>
   </url>
   <url>
     <loc>https://gitlab.models.nasdanika.org/references/eClassifiers/Project/diagram.html</loc>
-    <lastmod>2023-08-19T09:47:00.548-04:00</lastmod>
+    <lastmod>2023-08-19T09:51:31.803-04:00</lastmod>
     <changefreq>weekly</changefreq>
   </url>
   <url>
     <loc>https://gitlab.models.nasdanika.org/references/eClassifiers/Project/index.html</loc>
-    <lastmod>2023-08-19T09:47:00.519-04:00</lastmod>
+    <lastmod>2023-08-19T09:51:31.788-04:00</lastmod>
     <changefreq>weekly</changefreq>
   </url>
   <url>
     <loc>https://gitlab.models.nasdanika.org/references/eClassifiers/Project/load-specification.html</loc>
-    <lastmod>2023-08-19T09:47:00.552-04:00</lastmod>
+    <lastmod>2023-08-19T09:51:31.807-04:00</lastmod>
     <changefreq>weekly</changefreq>
   </url>
   <url>
     <loc>https://gitlab.models.nasdanika.org/references/eClassifiers/Project/references.html</loc>
-    <lastmod>2023-08-19T09:47:00.542-04:00</lastmod>
+    <lastmod>2023-08-19T09:51:31.797-04:00</lastmod>
     <changefreq>weekly</changefreq>
   </url>
   <url>
     <loc>https://gitlab.models.nasdanika.org/references/eClassifiers/ProjectAccess/attributes.html</loc>
-    <lastmod>2023-08-19T09:47:00.559-04:00</lastmod>
+    <lastmod>2023-08-19T09:51:31.817-04:00</lastmod>
     <changefreq>weekly</changefreq>
   </url>
   <url>
     <loc>https://gitlab.models.nasdanika.org/references/eClassifiers/ProjectAccess/diagram.html</loc>
-    <lastmod>2023-08-19T09:47:00.561-04:00</lastmod>
+    <lastmod>2023-08-19T09:51:31.820-04:00</lastmod>
     <changefreq>weekly</changefreq>
   </url>
   <url>
     <loc>https://gitlab.models.nasdanika.org/references/eClassifiers/ProjectAccess/index.html</loc>
-    <lastmod>2023-08-19T09:47:00.556-04:00</lastmod>
+    <lastmod>2023-08-19T09:51:31.815-04:00</lastmod>
     <changefreq>weekly</changefreq>
   </url>
   <url>
     <loc>https://gitlab.models.nasdanika.org/references/eClassifiers/ProjectAccess/load-specification.html</loc>
-    <lastmod>2023-08-19T09:47:00.563-04:00</lastmod>
+    <lastmod>2023-08-19T09:51:31.823-04:00</lastmod>
     <changefreq>weekly</changefreq>
   </url>
   <url>
     <loc>https://gitlab.models.nasdanika.org/references/eClassifiers/ProjectLicense/attributes.html</loc>
-    <lastmod>2023-08-19T09:47:00.570-04:00</lastmod>
+    <lastmod>2023-08-19T09:51:31.832-04:00</lastmod>
     <changefreq>weekly</changefreq>
   </url>
   <url>
     <loc>https://gitlab.models.nasdanika.org/references/eClassifiers/ProjectLicense/diagram.html</loc>
-    <lastmod>2023-08-19T09:47:00.577-04:00</lastmod>
+    <lastmod>2023-08-19T09:51:31.837-04:00</lastmod>
     <changefreq>weekly</changefreq>
   </url>
   <url>
     <loc>https://gitlab.models.nasdanika.org/references/eClassifiers/ProjectLicense/index.html</loc>
-    <lastmod>2023-08-19T09:47:00.568-04:00</lastmod>
+    <lastmod>2023-08-19T09:51:31.829-04:00</lastmod>
     <changefreq>weekly</changefreq>
   </url>
   <url>
     <loc>https://gitlab.models.nasdanika.org/references/eClassifiers/ProjectLicense/load-specification.html</loc>
-    <lastmod>2023-08-19T09:47:00.579-04:00</lastmod>
+    <lastmod>2023-08-19T09:51:31.839-04:00</lastmod>
     <changefreq>weekly</changefreq>
   </url>
   <url>
     <loc>https://gitlab.models.nasdanika.org/references/eClassifiers/ProjectLicense/references.html</loc>
-    <lastmod>2023-08-19T09:47:00.574-04:00</lastmod>
+    <lastmod>2023-08-19T09:51:31.835-04:00</lastmod>
     <changefreq>weekly</changefreq>
   </url>
   <url>
     <loc>https://gitlab.models.nasdanika.org/references/eClassifiers/ProjectStatistics/attributes.html</loc>
-    <lastmod>2023-08-19T09:47:00.584-04:00</lastmod>
+    <lastmod>2023-08-19T09:51:31.846-04:00</lastmod>
     <changefreq>weekly</changefreq>
   </url>
   <url>
     <loc>https://gitlab.models.nasdanika.org/references/eClassifiers/ProjectStatistics/diagram.html</loc>
-    <lastmod>2023-08-19T09:47:00.586-04:00</lastmod>
+    <lastmod>2023-08-19T09:51:31.849-04:00</lastmod>
     <changefreq>weekly</changefreq>
   </url>
   <url>
     <loc>https://gitlab.models.nasdanika.org/references/eClassifiers/ProjectStatistics/index.html</loc>
-    <lastmod>2023-08-19T09:47:00.582-04:00</lastmod>
+    <lastmod>2023-08-19T09:51:31.844-04:00</lastmod>
     <changefreq>weekly</changefreq>
   </url>
   <url>
     <loc>https://gitlab.models.nasdanika.org/references/eClassifiers/ProjectStatistics/load-specification.html</loc>
-    <lastmod>2023-08-19T09:47:00.587-04:00</lastmod>
+    <lastmod>2023-08-19T09:51:31.850-04:00</lastmod>
     <changefreq>weekly</changefreq>
   </url>
   <url>
     <loc>https://gitlab.models.nasdanika.org/references/eClassifiers/SquashOption/index.html</loc>
-    <lastmod>2023-08-19T09:47:00.591-04:00</lastmod>
+    <lastmod>2023-08-19T09:51:31.853-04:00</lastmod>
     <changefreq>weekly</changefreq>
   </url>
   <url>
     <loc>https://gitlab.models.nasdanika.org/references/eClassifiers/Status/index.html</loc>
-    <lastmod>2023-08-19T09:47:00.595-04:00</lastmod>
+    <lastmod>2023-08-19T09:51:31.856-04:00</lastmod>
     <changefreq>weekly</changefreq>
   </url>
   <url>
     <loc>https://gitlab.models.nasdanika.org/references/eClassifiers/User/attributes.html</loc>
-    <lastmod>2023-08-19T09:47:00.602-04:00</lastmod>
+    <lastmod>2023-08-19T09:51:31.864-04:00</lastmod>
     <changefreq>weekly</changefreq>
   </url>
   <url>
     <loc>https://gitlab.models.nasdanika.org/references/eClassifiers/User/diagram.html</loc>
-    <lastmod>2023-08-19T09:47:00.610-04:00</lastmod>
+    <lastmod>2023-08-19T09:51:31.869-04:00</lastmod>
     <changefreq>weekly</changefreq>
   </url>
   <url>
     <loc>https://gitlab.models.nasdanika.org/references/eClassifiers/User/index.html</loc>
-    <lastmod>2023-08-19T09:47:00.600-04:00</lastmod>
+    <lastmod>2023-08-19T09:51:31.861-04:00</lastmod>
     <changefreq>weekly</changefreq>
   </url>
   <url>
     <loc>https://gitlab.models.nasdanika.org/references/eClassifiers/User/load-specification.html</loc>
-    <lastmod>2023-08-19T09:47:00.612-04:00</lastmod>
+    <lastmod>2023-08-19T09:51:31.872-04:00</lastmod>
     <changefreq>weekly</changefreq>
   </url>
   <url>
     <loc>https://gitlab.models.nasdanika.org/references/eClassifiers/User/references.html</loc>
-    <lastmod>2023-08-19T09:47:00.604-04:00</lastmod>
+    <lastmod>2023-08-19T09:51:31.867-04:00</lastmod>
     <changefreq>weekly</changefreq>
   </url>
   <url>
     <loc>https://gitlab.models.nasdanika.org/references/eClassifiers/Visibility/index.html</loc>
-    <lastmod>2023-08-19T09:47:00.617-04:00</lastmod>
+    <lastmod>2023-08-19T09:51:31.875-04:00</lastmod>
     <changefreq>weekly</changefreq>
   </url>
   <url>
     <loc>https://gitlab.models.nasdanika.org/search.html</loc>
-    <lastmod>2023-08-19T09:47:00.623-04:00</lastmod>
+    <lastmod>2023-08-19T09:51:31.881-04:00</lastmod>
     <changefreq>weekly</changefreq>
   </url>
 </urlset>

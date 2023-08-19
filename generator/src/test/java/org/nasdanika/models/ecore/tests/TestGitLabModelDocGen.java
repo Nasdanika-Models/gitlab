@@ -169,7 +169,14 @@ public class TestGitLabModelDocGen {
 		URI pageTemplateURI = URI.createFileURI(new File(pageTemplateResource).getAbsolutePath());//.appendFragment("/");
 		
 		String siteMapDomain = "https://gitlab.models.nasdanika.org";		
-		ActionSiteGenerator actionSiteGenerator = new ActionSiteGenerator();		
+		ActionSiteGenerator actionSiteGenerator = new ActionSiteGenerator() {
+			
+			protected boolean isDeleteOutputPath(String path) {
+				return !"CNAME".equals(path);				
+			};
+			
+		};		
+		
 		Map<String, Collection<String>> errors = actionSiteGenerator.generate(rootActionURI, pageTemplateURI, siteMapDomain, new File("../docs"), new File("target/doc-site-work-dir"), true);
 				
 		int errorCount = 0;
