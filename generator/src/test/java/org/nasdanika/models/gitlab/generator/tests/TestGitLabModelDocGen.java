@@ -1,4 +1,4 @@
-package org.nasdanika.models.ecore.tests;
+package org.nasdanika.models.gitlab.generator.tests;
 
 import java.io.File;
 import java.io.IOException;
@@ -100,7 +100,7 @@ public class TestGitLabModelDocGen {
 		
 		WidgetFactory gitLabProcessor = null;
 		Collection<Throwable> resolveFailures = new ArrayList<>();		
-		URI baseActionURI = URI.createURI("tmp-https://gitlab.nasdanika.org/");
+		URI baseActionURI = URI.createURI("https://gitlab.models.nasdanika.org/");
 		
 		Map<EPackage, URI> packageURIMap = Map.ofEntries(
 			Map.entry(EcorePackage.eINSTANCE, URI.createURI("https://ecore.models.nasdanika.org/")),			
