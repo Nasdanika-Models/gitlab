@@ -14,6 +14,7 @@ import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.resource.impl.BinaryResourceImpl;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.nasdanika.common.PrintStreamProgressMonitor;
 import org.nasdanika.common.ProgressMonitor;
@@ -23,6 +24,12 @@ import org.nasdanika.models.gitlab.util.Loader;
 public class GitLabTests {
 	
 	@Test
+	public void testPlaceholder() {
+		
+	}
+	
+	@Test
+	@Disabled
 	public void testLoad() throws Exception {
 		ProgressMonitor progressMonitor = new PrintStreamProgressMonitor();
 		try (Loader loader = new Loader("https://gitlab.com/", System.getenv("GITLAB_ACCESS_TOKEN"))) {

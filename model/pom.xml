@@ -4,13 +4,14 @@
 	<modelVersion>4.0.0</modelVersion>
 	<parent>
 		<groupId>org.nasdanika.models.gitlab</groupId>
-		<version>2023.9.0</version>
+		<version>2023.8.0</version>
 		<artifactId>parent</artifactId>
 		<relativePath>..</relativePath>
 	</parent>
 	<artifactId>model</artifactId>
 	<packaging>jar</packaging>
 	<name>Ecore Model of GitLab</name>
+
 	<build>
 		<plugins>
 			<plugin>
