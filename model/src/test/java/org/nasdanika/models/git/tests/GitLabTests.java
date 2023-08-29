@@ -2,6 +2,7 @@ package org.nasdanika.models.git.tests;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.zip.GZIPInputStream;
 import java.util.zip.GZIPOutputStream;
@@ -22,18 +23,14 @@ import org.nasdanika.models.gitlab.GitLab;
 import org.nasdanika.models.gitlab.util.Loader;
 
 public class GitLabTests {
-	
-	@Test
-	public void testPlaceholder() {
 		
-	}
-	
 	@Test
-	@Disabled
+//	@Disabled
 	public void testLoad() throws Exception {
 		ProgressMonitor progressMonitor = new PrintStreamProgressMonitor();
 		try (Loader loader = new Loader("https://gitlab.com/", System.getenv("GITLAB_ACCESS_TOKEN"))) {
-			loader.setExecutor(Executors.newFixedThreadPool(10));
+			ExecutorService threadPool = Executors.newFixedThreadPool(10);
+			loader.setExecutor(threadPool);
 			GitLab gitLab = loader.loadGroups(progressMonitor);			
 			ResourceSet gitLabResourceSet = new ResourceSetImpl();
 			gitLabResourceSet.getResourceFactoryRegistry().getExtensionToFactoryMap().put(Resource.Factory.Registry.DEFAULT_EXTENSION, new XMIResourceFactoryImpl());
@@ -78,6 +75,7 @@ public class GitLabTests {
 			Resource gitLabResource = gitLabResourceSet.createResource(URI.createFileURI(output.getAbsolutePath()));
 			gitLabResource.getContents().add(gitLab);
 			gitLabResource.save(null);
+			threadPool.shutdown();
 		}
 	}
 

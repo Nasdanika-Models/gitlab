@@ -24,7 +24,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link org.nasdanika.models.gitlab.User#getId <em>Id</em>}</li>
  *   <li>{@link org.nasdanika.models.gitlab.User#getName <em>Name</em>}</li>
  *   <li>{@link org.nasdanika.models.gitlab.User#getState <em>State</em>}</li>
- *   <li>{@link org.nasdanika.models.gitlab.User#getUsername <em>Username</em>}</li>
+ *   <li>{@link org.nasdanika.models.gitlab.User#getUserName <em>User Name</em>}</li>
  *   <li>{@link org.nasdanika.models.gitlab.User#getWebUrl <em>Web Url</em>}</li>
  *   <li>{@link org.nasdanika.models.gitlab.User#getOwnedProjects <em>Owned Projects</em>}</li>
  *   <li>{@link org.nasdanika.models.gitlab.User#getCreatedProjects <em>Created Projects</em>}</li>
@@ -135,7 +135,7 @@ public interface User extends EObject {
 	 * @return the value of the '<em>Id</em>' attribute.
 	 * @see #setId(Long)
 	 * @see org.nasdanika.models.gitlab.GitLabPackage#getUser_Id()
-	 * @model id="true"
+	 * @model
 	 * @generated
 	 */
 	Long getId();
@@ -195,26 +195,26 @@ public interface User extends EObject {
 	void setState(String value);
 
 	/**
-	 * Returns the value of the '<em><b>Username</b></em>' attribute.
+	 * Returns the value of the '<em><b>User Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Username</em>' attribute.
-	 * @see #setUsername(String)
-	 * @see org.nasdanika.models.gitlab.GitLabPackage#getUser_Username()
+	 * @return the value of the '<em>User Name</em>' attribute.
+	 * @see #setUserName(String)
+	 * @see org.nasdanika.models.gitlab.GitLabPackage#getUser_UserName()
 	 * @model
 	 * @generated
 	 */
-	String getUsername();
+	String getUserName();
 
 	/**
-	 * Sets the value of the '{@link org.nasdanika.models.gitlab.User#getUsername <em>Username</em>}' attribute.
+	 * Sets the value of the '{@link org.nasdanika.models.gitlab.User#getUserName <em>User Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Username</em>' attribute.
-	 * @see #getUsername()
+	 * @param value the new value of the '<em>User Name</em>' attribute.
+	 * @see #getUserName()
 	 * @generated
 	 */
-	void setUsername(String value);
+	void setUserName(String value);
 
 	/**
 	 * Returns the value of the '<em><b>Web Url</b></em>' attribute.

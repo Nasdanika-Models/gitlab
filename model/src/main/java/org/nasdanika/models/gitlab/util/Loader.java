@@ -1,6 +1,7 @@
 package org.nasdanika.models.gitlab.util;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
@@ -128,7 +129,13 @@ public class Loader implements AutoCloseable {
 		Function<AbstractUser<?>, org.nasdanika.models.gitlab.User> userProvider = apiUser -> {
 			synchronized (Loader.this) {
 				for (org.nasdanika.models.gitlab.User modelUser: ret.getUsers()) {
-					if (Objects.equals(modelUser.getId(), apiUser.getId())) {
+					if (apiUser.getId() != null && Objects.equals(modelUser.getId(), apiUser.getId())) {
+						return modelUser;
+					}
+					if (apiUser.getUsername() != null && Objects.equals(modelUser.getUserName(), apiUser.getUsername())) {
+						return modelUser;
+					}
+					if (apiUser.getEmail() != null && Objects.equals(modelUser.getEMail(), apiUser.getEmail())) {
 						return modelUser;
 					}
 				}
@@ -178,7 +185,7 @@ public class Loader implements AutoCloseable {
 		user.setId(apiUser.getId());
 		user.setName(apiUser.getName());
 		user.setState(apiUser.getState());
-		user.setUsername(apiUser.getUsername());
+		user.setUserName(apiUser.getUsername());
 		user.setWebUrl(apiUser.getWebUrl());
 		return user;
 	}
@@ -201,6 +208,8 @@ public class Loader implements AutoCloseable {
 
 		List<org.nasdanika.models.gitlab.Group> rootGroups = Collections.synchronizedList(new ArrayList<>()); 
 		List<org.nasdanika.models.gitlab.Group> childGroups = Collections.synchronizedList(new ArrayList<>()); 
+		
+		Collection<CompletableFuture<Map.Entry<Group, org.nasdanika.models.gitlab.Group>>> groupCompletableFutures = Collections.synchronizedCollection(new ArrayList<>()); // Synchronizing just in case
 		try (ProgressMonitor groupsMonitor = progressMonitor.split("Loading groups", 1)) {
 			GroupApi groupApi = gitLabApi.getGroupApi();
 			List<Group> groups = groupApi.getGroups();
@@ -208,6 +217,8 @@ public class Loader implements AutoCloseable {
 				scaledGroupsMonitor.worked(Status.INFO, 1, "Retrieved " + groups.size() + " groups");
 				for (org.gitlab4j.api.models.Group group: groups) {
 					try (ProgressMonitor groupMonitor = scaledGroupsMonitor.split("Loading group " + group.getName() + " " + group.getId(), 1, group)) {
+						CompletableFuture<Map.Entry<Group,org.nasdanika.models.gitlab.Group>> modelGroupCompletableFuture = new CompletableFuture<>();
+						groupCompletableFutures.add(modelGroupCompletableFuture);
 						executor.execute(() -> { 
 							org.nasdanika.models.gitlab.Group modelGroup = loadGroup(
 									group, 
@@ -218,24 +229,32 @@ public class Loader implements AutoCloseable {
 									userProviderById,
 									licenseProvider, 
 									groupMonitor);
-							if (!groupProvider.apply(group.getId()).complete(modelGroup)) {
-								progressMonitor.worked(1, "Group completable future already completed for " + group.getId() + " " + group.getFullName(), group);
-							}
-							Long parentId = group.getParentId();
-							if (parentId == null) {
-								rootGroups.add(modelGroup);
-							} else {
-								groupProvider.apply(parentId).thenAccept(pg -> {
-									EList<org.nasdanika.models.gitlab.Group> subGroups = pg.getSubGroups();
-									synchronized (Loader.this) { // Global synchronization - to avoid concurrency issues in notifications
-										subGroups.add(modelGroup);
-									}
-								});					
-							}
+							
+							modelGroupCompletableFuture.complete(Map.entry(group, modelGroup));
 						});
 					}
 				}
 			}
+		}
+		
+		for (CompletableFuture<Map.Entry<Group, org.nasdanika.models.gitlab.Group>> gcf: groupCompletableFutures) {
+			Map.Entry<Group,org.nasdanika.models.gitlab.Group> groupEntry = gcf.join();
+			Group group = groupEntry.getKey();
+			org.nasdanika.models.gitlab.Group modelGroup = groupEntry.getValue();
+			if (!groupProvider.apply(group.getId()).complete(modelGroup)) {
+				progressMonitor.worked(1, "Group completable future already completed for " + group.getId() + " " + group.getFullName(), group);
+			}
+			Long parentId = group.getParentId();
+			if (parentId == null) {
+				rootGroups.add(modelGroup);
+			} else {
+				groupProvider.apply(parentId).thenAccept(pg -> {
+					EList<org.nasdanika.models.gitlab.Group> subGroups = pg.getSubGroups();
+					synchronized (Loader.this) { // Global synchronization - to avoid concurrency issues in notifications. Not needed here, just in case.
+						subGroups.add(modelGroup);
+					}
+				});					
+			}			
 		}
 		
 		long incomplete = groupMap.values().stream().filter(cf -> !cf.isDone()).count();

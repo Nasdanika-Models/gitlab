@@ -38,7 +38,7 @@ import org.nasdanika.models.gitlab.User;
  *   <li>{@link org.nasdanika.models.gitlab.impl.UserImpl#getId <em>Id</em>}</li>
  *   <li>{@link org.nasdanika.models.gitlab.impl.UserImpl#getName <em>Name</em>}</li>
  *   <li>{@link org.nasdanika.models.gitlab.impl.UserImpl#getState <em>State</em>}</li>
- *   <li>{@link org.nasdanika.models.gitlab.impl.UserImpl#getUsername <em>Username</em>}</li>
+ *   <li>{@link org.nasdanika.models.gitlab.impl.UserImpl#getUserName <em>User Name</em>}</li>
  *   <li>{@link org.nasdanika.models.gitlab.impl.UserImpl#getWebUrl <em>Web Url</em>}</li>
  *   <li>{@link org.nasdanika.models.gitlab.impl.UserImpl#getOwnedProjects <em>Owned Projects</em>}</li>
  *   <li>{@link org.nasdanika.models.gitlab.impl.UserImpl#getCreatedProjects <em>Created Projects</em>}</li>
@@ -103,14 +103,14 @@ public class UserImpl extends MinimalEObjectImpl.Container implements User {
 	 */
 	protected static final String STATE_EDEFAULT = null;
 	/**
-	 * The default value of the '{@link #getUsername() <em>Username</em>}' attribute.
+	 * The default value of the '{@link #getUserName() <em>User Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getUsername()
+	 * @see #getUserName()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final String USERNAME_EDEFAULT = null;
+	protected static final String USER_NAME_EDEFAULT = null;
 	/**
 	 * The default value of the '{@link #getWebUrl() <em>Web Url</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -298,8 +298,8 @@ public class UserImpl extends MinimalEObjectImpl.Container implements User {
 	 * @generated
 	 */
 	@Override
-	public String getUsername() {
-		return (String)eDynamicGet(GitLabPackage.USER__USERNAME, GitLabPackage.Literals.USER__USERNAME, true, true);
+	public String getUserName() {
+		return (String)eDynamicGet(GitLabPackage.USER__USER_NAME, GitLabPackage.Literals.USER__USER_NAME, true, true);
 	}
 
 	/**
@@ -308,8 +308,8 @@ public class UserImpl extends MinimalEObjectImpl.Container implements User {
 	 * @generated
 	 */
 	@Override
-	public void setUsername(String newUsername) {
-		eDynamicSet(GitLabPackage.USER__USERNAME, GitLabPackage.Literals.USER__USERNAME, newUsername);
+	public void setUserName(String newUserName) {
+		eDynamicSet(GitLabPackage.USER__USER_NAME, GitLabPackage.Literals.USER__USER_NAME, newUserName);
 	}
 
 	/**
@@ -432,8 +432,8 @@ public class UserImpl extends MinimalEObjectImpl.Container implements User {
 				return getName();
 			case GitLabPackage.USER__STATE:
 				return getState();
-			case GitLabPackage.USER__USERNAME:
-				return getUsername();
+			case GitLabPackage.USER__USER_NAME:
+				return getUserName();
 			case GitLabPackage.USER__WEB_URL:
 				return getWebUrl();
 			case GitLabPackage.USER__OWNED_PROJECTS:
@@ -481,8 +481,8 @@ public class UserImpl extends MinimalEObjectImpl.Container implements User {
 			case GitLabPackage.USER__STATE:
 				setState((String)newValue);
 				return;
-			case GitLabPackage.USER__USERNAME:
-				setUsername((String)newValue);
+			case GitLabPackage.USER__USER_NAME:
+				setUserName((String)newValue);
 				return;
 			case GitLabPackage.USER__WEB_URL:
 				setWebUrl((String)newValue);
@@ -535,8 +535,8 @@ public class UserImpl extends MinimalEObjectImpl.Container implements User {
 			case GitLabPackage.USER__STATE:
 				setState(STATE_EDEFAULT);
 				return;
-			case GitLabPackage.USER__USERNAME:
-				setUsername(USERNAME_EDEFAULT);
+			case GitLabPackage.USER__USER_NAME:
+				setUserName(USER_NAME_EDEFAULT);
 				return;
 			case GitLabPackage.USER__WEB_URL:
 				setWebUrl(WEB_URL_EDEFAULT);
@@ -578,8 +578,8 @@ public class UserImpl extends MinimalEObjectImpl.Container implements User {
 				return NAME_EDEFAULT == null ? getName() != null : !NAME_EDEFAULT.equals(getName());
 			case GitLabPackage.USER__STATE:
 				return STATE_EDEFAULT == null ? getState() != null : !STATE_EDEFAULT.equals(getState());
-			case GitLabPackage.USER__USERNAME:
-				return USERNAME_EDEFAULT == null ? getUsername() != null : !USERNAME_EDEFAULT.equals(getUsername());
+			case GitLabPackage.USER__USER_NAME:
+				return USER_NAME_EDEFAULT == null ? getUserName() != null : !USER_NAME_EDEFAULT.equals(getUserName());
 			case GitLabPackage.USER__WEB_URL:
 				return WEB_URL_EDEFAULT == null ? getWebUrl() != null : !WEB_URL_EDEFAULT.equals(getWebUrl());
 			case GitLabPackage.USER__OWNED_PROJECTS:

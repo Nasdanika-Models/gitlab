@@ -71,7 +71,7 @@ public interface GitLab extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Users</em>' containment reference list.
 	 * @see org.nasdanika.models.gitlab.GitLabPackage#getGitLab_Users()
-	 * @model containment="true" keys="id"
+	 * @model containment="true"
 	 * @generated
 	 */
 	EList<User> getUsers();

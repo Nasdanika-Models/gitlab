@@ -49,7 +49,7 @@ public interface Group extends EObject {
 	 * @return the value of the '<em>Id</em>' attribute.
 	 * @see #setId(Long)
 	 * @see org.nasdanika.models.gitlab.GitLabPackage#getGroup_Id()
-	 * @model id="true"
+	 * @model
 	 * @generated
 	 */
 	Long getId();
@@ -408,7 +408,7 @@ public interface Group extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Sub Groups</em>' containment reference list.
 	 * @see org.nasdanika.models.gitlab.GitLabPackage#getGroup_SubGroups()
-	 * @model containment="true"
+	 * @model containment="true" keys="id"
 	 * @generated
 	 */
 	EList<Group> getSubGroups();

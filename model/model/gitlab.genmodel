@@ -93,7 +93,7 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gitlab.ecore#//User/id"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gitlab.ecore#//User/name"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gitlab.ecore#//User/state"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gitlab.ecore#//User/username"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gitlab.ecore#//User/userName"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gitlab.ecore#//User/webUrl"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference gitlab.ecore#//User/ownedProjects"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference gitlab.ecore#//User/createdProjects"/>

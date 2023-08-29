@@ -459,13 +459,13 @@ public interface GitLabPackage extends EPackage {
 	int USER__STATE = 7;
 
 	/**
-	 * The feature id for the '<em><b>Username</b></em>' attribute.
+	 * The feature id for the '<em><b>User Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int USER__USERNAME = 8;
+	int USER__USER_NAME = 8;
 
 	/**
 	 * The feature id for the '<em><b>Web Url</b></em>' attribute.
@@ -2123,15 +2123,15 @@ public interface GitLabPackage extends EPackage {
 	EAttribute getUser_State();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.nasdanika.models.gitlab.User#getUsername <em>Username</em>}'.
+	 * Returns the meta object for the attribute '{@link org.nasdanika.models.gitlab.User#getUserName <em>User Name</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Username</em>'.
-	 * @see org.nasdanika.models.gitlab.User#getUsername()
+	 * @return the meta object for the attribute '<em>User Name</em>'.
+	 * @see org.nasdanika.models.gitlab.User#getUserName()
 	 * @see #getUser()
 	 * @generated
 	 */
-	EAttribute getUser_Username();
+	EAttribute getUser_UserName();
 
 	/**
 	 * Returns the meta object for the attribute '{@link org.nasdanika.models.gitlab.User#getWebUrl <em>Web Url</em>}'.
@@ -3739,12 +3739,12 @@ public interface GitLabPackage extends EPackage {
 		 */
 		EAttribute USER__STATE = eINSTANCE.getUser_State();
 		/**
-		 * The meta object literal for the '<em><b>Username</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>User Name</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute USER__USERNAME = eINSTANCE.getUser_Username();
+		EAttribute USER__USER_NAME = eINSTANCE.getUser_UserName();
 		/**
 		 * The meta object literal for the '<em><b>Web Url</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
