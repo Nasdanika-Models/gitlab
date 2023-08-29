@@ -294,7 +294,7 @@ public interface Group extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Projects</em>' containment reference list.
 	 * @see org.nasdanika.models.gitlab.GitLabPackage#getGroup_Projects()
-	 * @model containment="true"
+	 * @model containment="true" keys="id"
 	 * @generated
 	 */
 	EList<Project> getProjects();
@@ -308,7 +308,7 @@ public interface Group extends EObject {
 	 * @return the value of the '<em>Shared Projects</em>' reference list.
 	 * @see org.nasdanika.models.gitlab.GitLabPackage#getGroup_SharedProjects()
 	 * @see org.nasdanika.models.gitlab.Project#getSharedWithGroups
-	 * @model opposite="sharedWithGroups"
+	 * @model opposite="sharedWithGroups" keys="id"
 	 * @generated
 	 */
 	EList<Project> getSharedProjects();

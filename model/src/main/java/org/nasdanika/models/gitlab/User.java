@@ -43,7 +43,7 @@ public interface User extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Projects</em>' containment reference list.
 	 * @see org.nasdanika.models.gitlab.GitLabPackage#getUser_Projects()
-	 * @model containment="true"
+	 * @model containment="true" keys="id"
 	 * @generated
 	 */
 	EList<Project> getProjects();
@@ -247,7 +247,7 @@ public interface User extends EObject {
 	 * @return the value of the '<em>Owned Projects</em>' reference list.
 	 * @see org.nasdanika.models.gitlab.GitLabPackage#getUser_OwnedProjects()
 	 * @see org.nasdanika.models.gitlab.Project#getOwner
-	 * @model opposite="owner"
+	 * @model opposite="owner" keys="id"
 	 * @generated
 	 */
 	EList<Project> getOwnedProjects();
@@ -261,7 +261,7 @@ public interface User extends EObject {
 	 * @return the value of the '<em>Created Projects</em>' reference list.
 	 * @see org.nasdanika.models.gitlab.GitLabPackage#getUser_CreatedProjects()
 	 * @see org.nasdanika.models.gitlab.Project#getCreator
-	 * @model opposite="creator"
+	 * @model opposite="creator" keys="id"
 	 * @generated
 	 */
 	EList<Project> getCreatedProjects();

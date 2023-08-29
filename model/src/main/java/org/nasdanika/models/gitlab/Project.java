@@ -329,7 +329,7 @@ public interface Project extends EObject {
 	 * @return the value of the '<em>Forks</em>' reference list.
 	 * @see org.nasdanika.models.gitlab.GitLabPackage#getProject_Forks()
 	 * @see org.nasdanika.models.gitlab.Project#getForkedFrom
-	 * @model opposite="forkedFrom"
+	 * @model opposite="forkedFrom" keys="id"
 	 * @generated
 	 */
 	EList<Project> getForks();
@@ -810,7 +810,7 @@ public interface Project extends EObject {
 	 * @return the value of the '<em>Shared With Groups</em>' reference list.
 	 * @see org.nasdanika.models.gitlab.GitLabPackage#getProject_SharedWithGroups()
 	 * @see org.nasdanika.models.gitlab.Group#getSharedProjects
-	 * @model opposite="sharedProjects"
+	 * @model opposite="sharedProjects" keys="id"
 	 * @generated
 	 */
 	EList<Group> getSharedWithGroups();
@@ -1634,7 +1634,7 @@ public interface Project extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Branches</em>' containment reference list.
 	 * @see org.nasdanika.models.gitlab.GitLabPackage#getProject_Branches()
-	 * @model containment="true"
+	 * @model containment="true" keys="name"
 	 * @generated
 	 */
 	EList<Branch> getBranches();

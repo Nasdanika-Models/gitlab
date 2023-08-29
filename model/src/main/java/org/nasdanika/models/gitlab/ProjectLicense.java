@@ -147,7 +147,7 @@ public interface ProjectLicense extends EObject {
 	 * @return the value of the '<em>Projects</em>' reference list.
 	 * @see org.nasdanika.models.gitlab.GitLabPackage#getProjectLicense_Projects()
 	 * @see org.nasdanika.models.gitlab.Project#getLicense
-	 * @model opposite="license"
+	 * @model opposite="license" keys="id"
 	 * @generated
 	 */
 	EList<Project> getProjects();
