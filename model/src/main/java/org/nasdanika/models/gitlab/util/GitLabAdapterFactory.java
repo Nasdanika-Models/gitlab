@@ -81,6 +81,10 @@ public class GitLabAdapterFactory extends AdapterFactoryImpl {
 				return createMemberAdapter();
 			}
 			@Override
+			public Adapter caseAbstractUser(AbstractUser object) {
+				return createAbstractUserAdapter();
+			}
+			@Override
 			public Adapter caseUser(User object) {
 				return createUserAdapter();
 			}
@@ -111,6 +115,10 @@ public class GitLabAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter caseBranch(Branch object) {
 				return createBranchAdapter();
+			}
+			@Override
+			public Adapter caseOwner(Owner object) {
+				return createOwnerAdapter();
 			}
 			@Override
 			public Adapter defaultCase(EObject object) {
@@ -171,6 +179,20 @@ public class GitLabAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createMemberAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.nasdanika.models.gitlab.AbstractUser <em>Abstract User</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.nasdanika.models.gitlab.AbstractUser
+	 * @generated
+	 */
+	public Adapter createAbstractUserAdapter() {
 		return null;
 	}
 
@@ -283,6 +305,20 @@ public class GitLabAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createBranchAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.nasdanika.models.gitlab.Owner <em>Owner</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.nasdanika.models.gitlab.Owner
+	 * @generated
+	 */
+	public Adapter createOwnerAdapter() {
 		return null;
 	}
 

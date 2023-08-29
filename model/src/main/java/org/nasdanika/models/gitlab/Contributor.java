@@ -2,8 +2,6 @@
  */
 package org.nasdanika.models.gitlab;
 
-import org.eclipse.emf.ecore.EObject;
-
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Contributor</b></em>'.
@@ -23,12 +21,15 @@ import org.eclipse.emf.ecore.EObject;
  * @model
  * @generated
  */
-public interface Contributor extends EObject {
+public interface Contributor extends AbstractUser {
 	/**
 	 * Returns the value of the '<em><b>User</b></em>' reference.
 	 * It is bidirectional and its opposite is '{@link org.nasdanika.models.gitlab.User#getContributions <em>Contributions</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * A reference to a matching user 
+	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>User</em>' reference.
 	 * @see #setUser(User)
 	 * @see org.nasdanika.models.gitlab.GitLabPackage#getContributor_User()

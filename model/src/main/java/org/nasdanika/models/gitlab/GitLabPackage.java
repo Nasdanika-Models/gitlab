@@ -377,32 +377,14 @@ public interface GitLabPackage extends EPackage {
 	int MEMBER_OPERATION_COUNT = 0;
 
 	/**
-	 * The meta object id for the '{@link org.nasdanika.models.gitlab.impl.UserImpl <em>User</em>}' class.
+	 * The meta object id for the '{@link org.nasdanika.models.gitlab.impl.AbstractUserImpl <em>Abstract User</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see org.nasdanika.models.gitlab.impl.UserImpl
-	 * @see org.nasdanika.models.gitlab.impl.GitLabPackageImpl#getUser()
+	 * @see org.nasdanika.models.gitlab.impl.AbstractUserImpl
+	 * @see org.nasdanika.models.gitlab.impl.GitLabPackageImpl#getAbstractUser()
 	 * @generated
 	 */
-	int USER = 3;
-
-	/**
-	 * The feature id for the '<em><b>Projects</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int USER__PROJECTS = 0;
-
-	/**
-	 * The feature id for the '<em><b>Membership</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int USER__MEMBERSHIP = 1;
+	int ABSTRACT_USER = 3;
 
 	/**
 	 * The feature id for the '<em><b>Avatar Url</b></em>' attribute.
@@ -411,7 +393,7 @@ public interface GitLabPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int USER__AVATAR_URL = 2;
+	int ABSTRACT_USER__AVATAR_URL = 0;
 
 	/**
 	 * The feature id for the '<em><b>Created At</b></em>' attribute.
@@ -420,7 +402,7 @@ public interface GitLabPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int USER__CREATED_AT = 3;
+	int ABSTRACT_USER__CREATED_AT = 1;
 
 	/**
 	 * The feature id for the '<em><b>EMail</b></em>' attribute.
@@ -429,7 +411,7 @@ public interface GitLabPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int USER__EMAIL = 4;
+	int ABSTRACT_USER__EMAIL = 2;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -438,7 +420,7 @@ public interface GitLabPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int USER__ID = 5;
+	int ABSTRACT_USER__ID = 3;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -447,7 +429,7 @@ public interface GitLabPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int USER__NAME = 6;
+	int ABSTRACT_USER__NAME = 4;
 
 	/**
 	 * The feature id for the '<em><b>State</b></em>' attribute.
@@ -456,7 +438,7 @@ public interface GitLabPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int USER__STATE = 7;
+	int ABSTRACT_USER__STATE = 5;
 
 	/**
 	 * The feature id for the '<em><b>User Name</b></em>' attribute.
@@ -465,7 +447,7 @@ public interface GitLabPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int USER__USER_NAME = 8;
+	int ABSTRACT_USER__USER_NAME = 6;
 
 	/**
 	 * The feature id for the '<em><b>Web Url</b></em>' attribute.
@@ -474,16 +456,134 @@ public interface GitLabPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int USER__WEB_URL = 9;
+	int ABSTRACT_USER__WEB_URL = 7;
 
 	/**
-	 * The feature id for the '<em><b>Owned Projects</b></em>' reference list.
+	 * The number of structural features of the '<em>Abstract User</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int USER__OWNED_PROJECTS = 10;
+	int ABSTRACT_USER_FEATURE_COUNT = 8;
+
+	/**
+	 * The number of operations of the '<em>Abstract User</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ABSTRACT_USER_OPERATION_COUNT = 0;
+
+	/**
+	 * The meta object id for the '{@link org.nasdanika.models.gitlab.impl.UserImpl <em>User</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.nasdanika.models.gitlab.impl.UserImpl
+	 * @see org.nasdanika.models.gitlab.impl.GitLabPackageImpl#getUser()
+	 * @generated
+	 */
+	int USER = 4;
+
+	/**
+	 * The feature id for the '<em><b>Avatar Url</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int USER__AVATAR_URL = ABSTRACT_USER__AVATAR_URL;
+
+	/**
+	 * The feature id for the '<em><b>Created At</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int USER__CREATED_AT = ABSTRACT_USER__CREATED_AT;
+
+	/**
+	 * The feature id for the '<em><b>EMail</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int USER__EMAIL = ABSTRACT_USER__EMAIL;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int USER__ID = ABSTRACT_USER__ID;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int USER__NAME = ABSTRACT_USER__NAME;
+
+	/**
+	 * The feature id for the '<em><b>State</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int USER__STATE = ABSTRACT_USER__STATE;
+
+	/**
+	 * The feature id for the '<em><b>User Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int USER__USER_NAME = ABSTRACT_USER__USER_NAME;
+
+	/**
+	 * The feature id for the '<em><b>Web Url</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int USER__WEB_URL = ABSTRACT_USER__WEB_URL;
+
+	/**
+	 * The feature id for the '<em><b>Projects</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int USER__PROJECTS = ABSTRACT_USER_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Membership</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int USER__MEMBERSHIP = ABSTRACT_USER_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Owns</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int USER__OWNS = ABSTRACT_USER_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Created Projects</b></em>' reference list.
@@ -492,7 +592,7 @@ public interface GitLabPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int USER__CREATED_PROJECTS = 11;
+	int USER__CREATED_PROJECTS = ABSTRACT_USER_FEATURE_COUNT + 3;
 
 	/**
 	 * The feature id for the '<em><b>Contributions</b></em>' reference list.
@@ -501,7 +601,7 @@ public interface GitLabPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int USER__CONTRIBUTIONS = 12;
+	int USER__CONTRIBUTIONS = ABSTRACT_USER_FEATURE_COUNT + 4;
 
 	/**
 	 * The number of structural features of the '<em>User</em>' class.
@@ -510,7 +610,7 @@ public interface GitLabPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int USER_FEATURE_COUNT = 13;
+	int USER_FEATURE_COUNT = ABSTRACT_USER_FEATURE_COUNT + 5;
 
 	/**
 	 * The number of operations of the '<em>User</em>' class.
@@ -519,7 +619,7 @@ public interface GitLabPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int USER_OPERATION_COUNT = 0;
+	int USER_OPERATION_COUNT = ABSTRACT_USER_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link org.nasdanika.models.gitlab.impl.ProjectImpl <em>Project</em>}' class.
@@ -529,7 +629,7 @@ public interface GitLabPackage extends EPackage {
 	 * @see org.nasdanika.models.gitlab.impl.GitLabPackageImpl#getProject()
 	 * @generated
 	 */
-	int PROJECT = 4;
+	int PROJECT = 5;
 
 	/**
 	 * The feature id for the '<em><b>Approvals Before Merge</b></em>' attribute.
@@ -766,7 +866,7 @@ public interface GitLabPackage extends EPackage {
 	int PROJECT__OPEN_ISSUES_COUNT = 25;
 
 	/**
-	 * The feature id for the '<em><b>Owner</b></em>' reference.
+	 * The feature id for the '<em><b>Owner</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -1205,7 +1305,7 @@ public interface GitLabPackage extends EPackage {
 	 * @see org.nasdanika.models.gitlab.impl.GitLabPackageImpl#getProjectStatistics()
 	 * @generated
 	 */
-	int PROJECT_STATISTICS = 5;
+	int PROJECT_STATISTICS = 6;
 
 	/**
 	 * The feature id for the '<em><b>Commit Count</b></em>' attribute.
@@ -1296,7 +1396,7 @@ public interface GitLabPackage extends EPackage {
 	 * @see org.nasdanika.models.gitlab.impl.GitLabPackageImpl#getProjectLicense()
 	 * @generated
 	 */
-	int PROJECT_LICENSE = 6;
+	int PROJECT_LICENSE = 7;
 
 	/**
 	 * The feature id for the '<em><b>Key</b></em>' attribute.
@@ -1378,7 +1478,79 @@ public interface GitLabPackage extends EPackage {
 	 * @see org.nasdanika.models.gitlab.impl.GitLabPackageImpl#getContributor()
 	 * @generated
 	 */
-	int CONTRIBUTOR = 7;
+	int CONTRIBUTOR = 8;
+
+	/**
+	 * The feature id for the '<em><b>Avatar Url</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONTRIBUTOR__AVATAR_URL = ABSTRACT_USER__AVATAR_URL;
+
+	/**
+	 * The feature id for the '<em><b>Created At</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONTRIBUTOR__CREATED_AT = ABSTRACT_USER__CREATED_AT;
+
+	/**
+	 * The feature id for the '<em><b>EMail</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONTRIBUTOR__EMAIL = ABSTRACT_USER__EMAIL;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONTRIBUTOR__ID = ABSTRACT_USER__ID;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONTRIBUTOR__NAME = ABSTRACT_USER__NAME;
+
+	/**
+	 * The feature id for the '<em><b>State</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONTRIBUTOR__STATE = ABSTRACT_USER__STATE;
+
+	/**
+	 * The feature id for the '<em><b>User Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONTRIBUTOR__USER_NAME = ABSTRACT_USER__USER_NAME;
+
+	/**
+	 * The feature id for the '<em><b>Web Url</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONTRIBUTOR__WEB_URL = ABSTRACT_USER__WEB_URL;
 
 	/**
 	 * The feature id for the '<em><b>User</b></em>' reference.
@@ -1387,7 +1559,7 @@ public interface GitLabPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CONTRIBUTOR__USER = 0;
+	int CONTRIBUTOR__USER = ABSTRACT_USER_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Commits</b></em>' attribute.
@@ -1396,7 +1568,7 @@ public interface GitLabPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CONTRIBUTOR__COMMITS = 1;
+	int CONTRIBUTOR__COMMITS = ABSTRACT_USER_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Additions</b></em>' attribute.
@@ -1405,7 +1577,7 @@ public interface GitLabPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CONTRIBUTOR__ADDITIONS = 2;
+	int CONTRIBUTOR__ADDITIONS = ABSTRACT_USER_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Deletions</b></em>' attribute.
@@ -1414,7 +1586,7 @@ public interface GitLabPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CONTRIBUTOR__DELETIONS = 3;
+	int CONTRIBUTOR__DELETIONS = ABSTRACT_USER_FEATURE_COUNT + 3;
 
 	/**
 	 * The number of structural features of the '<em>Contributor</em>' class.
@@ -1423,7 +1595,7 @@ public interface GitLabPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CONTRIBUTOR_FEATURE_COUNT = 4;
+	int CONTRIBUTOR_FEATURE_COUNT = ABSTRACT_USER_FEATURE_COUNT + 4;
 
 	/**
 	 * The number of operations of the '<em>Contributor</em>' class.
@@ -1432,7 +1604,7 @@ public interface GitLabPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CONTRIBUTOR_OPERATION_COUNT = 0;
+	int CONTRIBUTOR_OPERATION_COUNT = ABSTRACT_USER_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link org.nasdanika.models.gitlab.impl.ProjectAccessImpl <em>Project Access</em>}' class.
@@ -1442,7 +1614,7 @@ public interface GitLabPackage extends EPackage {
 	 * @see org.nasdanika.models.gitlab.impl.GitLabPackageImpl#getProjectAccess()
 	 * @generated
 	 */
-	int PROJECT_ACCESS = 8;
+	int PROJECT_ACCESS = 9;
 
 	/**
 	 * The feature id for the '<em><b>Access Level</b></em>' attribute.
@@ -1488,7 +1660,7 @@ public interface GitLabPackage extends EPackage {
 	 * @see org.nasdanika.models.gitlab.impl.GitLabPackageImpl#getCustomAttribute()
 	 * @generated
 	 */
-	int CUSTOM_ATTRIBUTE = 9;
+	int CUSTOM_ATTRIBUTE = 10;
 
 	/**
 	 * The feature id for the '<em><b>Key</b></em>' attribute.
@@ -1534,7 +1706,7 @@ public interface GitLabPackage extends EPackage {
 	 * @see org.nasdanika.models.gitlab.impl.GitLabPackageImpl#getBranch()
 	 * @generated
 	 */
-	int BRANCH = 10;
+	int BRANCH = 11;
 
 	/**
 	 * The feature id for the '<em><b>Commit Date</b></em>' attribute.
@@ -1636,6 +1808,115 @@ public interface GitLabPackage extends EPackage {
 	int BRANCH_OPERATION_COUNT = 0;
 
 	/**
+	 * The meta object id for the '{@link org.nasdanika.models.gitlab.impl.OwnerImpl <em>Owner</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.nasdanika.models.gitlab.impl.OwnerImpl
+	 * @see org.nasdanika.models.gitlab.impl.GitLabPackageImpl#getOwner()
+	 * @generated
+	 */
+	int OWNER = 12;
+
+	/**
+	 * The feature id for the '<em><b>Avatar Url</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OWNER__AVATAR_URL = ABSTRACT_USER__AVATAR_URL;
+
+	/**
+	 * The feature id for the '<em><b>Created At</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OWNER__CREATED_AT = ABSTRACT_USER__CREATED_AT;
+
+	/**
+	 * The feature id for the '<em><b>EMail</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OWNER__EMAIL = ABSTRACT_USER__EMAIL;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OWNER__ID = ABSTRACT_USER__ID;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OWNER__NAME = ABSTRACT_USER__NAME;
+
+	/**
+	 * The feature id for the '<em><b>State</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OWNER__STATE = ABSTRACT_USER__STATE;
+
+	/**
+	 * The feature id for the '<em><b>User Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OWNER__USER_NAME = ABSTRACT_USER__USER_NAME;
+
+	/**
+	 * The feature id for the '<em><b>Web Url</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OWNER__WEB_URL = ABSTRACT_USER__WEB_URL;
+
+	/**
+	 * The feature id for the '<em><b>User</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OWNER__USER = ABSTRACT_USER_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Owner</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OWNER_FEATURE_COUNT = ABSTRACT_USER_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of operations of the '<em>Owner</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OWNER_OPERATION_COUNT = ABSTRACT_USER_OPERATION_COUNT + 0;
+
+	/**
 	 * The meta object id for the '{@link org.nasdanika.models.gitlab.Visibility <em>Visibility</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1643,7 +1924,7 @@ public interface GitLabPackage extends EPackage {
 	 * @see org.nasdanika.models.gitlab.impl.GitLabPackageImpl#getVisibility()
 	 * @generated
 	 */
-	int VISIBILITY = 11;
+	int VISIBILITY = 13;
 
 
 	/**
@@ -1654,7 +1935,7 @@ public interface GitLabPackage extends EPackage {
 	 * @see org.nasdanika.models.gitlab.impl.GitLabPackageImpl#getAccessLevel()
 	 * @generated
 	 */
-	int ACCESS_LEVEL = 12;
+	int ACCESS_LEVEL = 14;
 
 
 	/**
@@ -1665,7 +1946,7 @@ public interface GitLabPackage extends EPackage {
 	 * @see org.nasdanika.models.gitlab.impl.GitLabPackageImpl#getMergeMethod()
 	 * @generated
 	 */
-	int MERGE_METHOD = 13;
+	int MERGE_METHOD = 15;
 
 	/**
 	 * The meta object id for the '{@link org.nasdanika.models.gitlab.BuildGitStrategy <em>Build Git Strategy</em>}' enum.
@@ -1675,7 +1956,7 @@ public interface GitLabPackage extends EPackage {
 	 * @see org.nasdanika.models.gitlab.impl.GitLabPackageImpl#getBuildGitStrategy()
 	 * @generated
 	 */
-	int BUILD_GIT_STRATEGY = 14;
+	int BUILD_GIT_STRATEGY = 16;
 
 	/**
 	 * The meta object id for the '{@link org.nasdanika.models.gitlab.Status <em>Status</em>}' enum.
@@ -1685,7 +1966,7 @@ public interface GitLabPackage extends EPackage {
 	 * @see org.nasdanika.models.gitlab.impl.GitLabPackageImpl#getStatus()
 	 * @generated
 	 */
-	int STATUS = 15;
+	int STATUS = 17;
 
 	/**
 	 * The meta object id for the '{@link org.nasdanika.models.gitlab.AutoDevopsDeployStrategy <em>Auto Devops Deploy Strategy</em>}' enum.
@@ -1695,7 +1976,7 @@ public interface GitLabPackage extends EPackage {
 	 * @see org.nasdanika.models.gitlab.impl.GitLabPackageImpl#getAutoDevopsDeployStrategy()
 	 * @generated
 	 */
-	int AUTO_DEVOPS_DEPLOY_STRATEGY = 16;
+	int AUTO_DEVOPS_DEPLOY_STRATEGY = 18;
 
 	/**
 	 * The meta object id for the '{@link org.nasdanika.models.gitlab.SquashOption <em>Squash Option</em>}' enum.
@@ -1705,7 +1986,7 @@ public interface GitLabPackage extends EPackage {
 	 * @see org.nasdanika.models.gitlab.impl.GitLabPackageImpl#getSquashOption()
 	 * @generated
 	 */
-	int SQUASH_OPTION = 17;
+	int SQUASH_OPTION = 19;
 
 
 	/**
@@ -2025,6 +2306,104 @@ public interface GitLabPackage extends EPackage {
 	EAttribute getMember_ExpiresAt();
 
 	/**
+	 * Returns the meta object for class '{@link org.nasdanika.models.gitlab.AbstractUser <em>Abstract User</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Abstract User</em>'.
+	 * @see org.nasdanika.models.gitlab.AbstractUser
+	 * @generated
+	 */
+	EClass getAbstractUser();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.models.gitlab.AbstractUser#getAvatarUrl <em>Avatar Url</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Avatar Url</em>'.
+	 * @see org.nasdanika.models.gitlab.AbstractUser#getAvatarUrl()
+	 * @see #getAbstractUser()
+	 * @generated
+	 */
+	EAttribute getAbstractUser_AvatarUrl();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.models.gitlab.AbstractUser#getCreatedAt <em>Created At</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Created At</em>'.
+	 * @see org.nasdanika.models.gitlab.AbstractUser#getCreatedAt()
+	 * @see #getAbstractUser()
+	 * @generated
+	 */
+	EAttribute getAbstractUser_CreatedAt();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.models.gitlab.AbstractUser#getEMail <em>EMail</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>EMail</em>'.
+	 * @see org.nasdanika.models.gitlab.AbstractUser#getEMail()
+	 * @see #getAbstractUser()
+	 * @generated
+	 */
+	EAttribute getAbstractUser_EMail();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.models.gitlab.AbstractUser#getId <em>Id</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Id</em>'.
+	 * @see org.nasdanika.models.gitlab.AbstractUser#getId()
+	 * @see #getAbstractUser()
+	 * @generated
+	 */
+	EAttribute getAbstractUser_Id();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.models.gitlab.AbstractUser#getName <em>Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Name</em>'.
+	 * @see org.nasdanika.models.gitlab.AbstractUser#getName()
+	 * @see #getAbstractUser()
+	 * @generated
+	 */
+	EAttribute getAbstractUser_Name();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.models.gitlab.AbstractUser#getState <em>State</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>State</em>'.
+	 * @see org.nasdanika.models.gitlab.AbstractUser#getState()
+	 * @see #getAbstractUser()
+	 * @generated
+	 */
+	EAttribute getAbstractUser_State();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.models.gitlab.AbstractUser#getUserName <em>User Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>User Name</em>'.
+	 * @see org.nasdanika.models.gitlab.AbstractUser#getUserName()
+	 * @see #getAbstractUser()
+	 * @generated
+	 */
+	EAttribute getAbstractUser_UserName();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.models.gitlab.AbstractUser#getWebUrl <em>Web Url</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Web Url</em>'.
+	 * @see org.nasdanika.models.gitlab.AbstractUser#getWebUrl()
+	 * @see #getAbstractUser()
+	 * @generated
+	 */
+	EAttribute getAbstractUser_WebUrl();
+
+	/**
 	 * Returns the meta object for class '{@link org.nasdanika.models.gitlab.User <em>User</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2057,103 +2436,15 @@ public interface GitLabPackage extends EPackage {
 	EReference getUser_Membership();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.nasdanika.models.gitlab.User#getAvatarUrl <em>Avatar Url</em>}'.
+	 * Returns the meta object for the reference list '{@link org.nasdanika.models.gitlab.User#getOwns <em>Owns</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Avatar Url</em>'.
-	 * @see org.nasdanika.models.gitlab.User#getAvatarUrl()
+	 * @return the meta object for the reference list '<em>Owns</em>'.
+	 * @see org.nasdanika.models.gitlab.User#getOwns()
 	 * @see #getUser()
 	 * @generated
 	 */
-	EAttribute getUser_AvatarUrl();
-
-	/**
-	 * Returns the meta object for the attribute '{@link org.nasdanika.models.gitlab.User#getCreatedAt <em>Created At</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Created At</em>'.
-	 * @see org.nasdanika.models.gitlab.User#getCreatedAt()
-	 * @see #getUser()
-	 * @generated
-	 */
-	EAttribute getUser_CreatedAt();
-
-	/**
-	 * Returns the meta object for the attribute '{@link org.nasdanika.models.gitlab.User#getEMail <em>EMail</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>EMail</em>'.
-	 * @see org.nasdanika.models.gitlab.User#getEMail()
-	 * @see #getUser()
-	 * @generated
-	 */
-	EAttribute getUser_EMail();
-
-	/**
-	 * Returns the meta object for the attribute '{@link org.nasdanika.models.gitlab.User#getId <em>Id</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Id</em>'.
-	 * @see org.nasdanika.models.gitlab.User#getId()
-	 * @see #getUser()
-	 * @generated
-	 */
-	EAttribute getUser_Id();
-
-	/**
-	 * Returns the meta object for the attribute '{@link org.nasdanika.models.gitlab.User#getName <em>Name</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Name</em>'.
-	 * @see org.nasdanika.models.gitlab.User#getName()
-	 * @see #getUser()
-	 * @generated
-	 */
-	EAttribute getUser_Name();
-
-	/**
-	 * Returns the meta object for the attribute '{@link org.nasdanika.models.gitlab.User#getState <em>State</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>State</em>'.
-	 * @see org.nasdanika.models.gitlab.User#getState()
-	 * @see #getUser()
-	 * @generated
-	 */
-	EAttribute getUser_State();
-
-	/**
-	 * Returns the meta object for the attribute '{@link org.nasdanika.models.gitlab.User#getUserName <em>User Name</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>User Name</em>'.
-	 * @see org.nasdanika.models.gitlab.User#getUserName()
-	 * @see #getUser()
-	 * @generated
-	 */
-	EAttribute getUser_UserName();
-
-	/**
-	 * Returns the meta object for the attribute '{@link org.nasdanika.models.gitlab.User#getWebUrl <em>Web Url</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Web Url</em>'.
-	 * @see org.nasdanika.models.gitlab.User#getWebUrl()
-	 * @see #getUser()
-	 * @generated
-	 */
-	EAttribute getUser_WebUrl();
-
-	/**
-	 * Returns the meta object for the reference list '{@link org.nasdanika.models.gitlab.User#getOwnedProjects <em>Owned Projects</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Owned Projects</em>'.
-	 * @see org.nasdanika.models.gitlab.User#getOwnedProjects()
-	 * @see #getUser()
-	 * @generated
-	 */
-	EReference getUser_OwnedProjects();
+	EReference getUser_Owns();
 
 	/**
 	 * Returns the meta object for the reference list '{@link org.nasdanika.models.gitlab.User#getCreatedProjects <em>Created Projects</em>}'.
@@ -2474,10 +2765,10 @@ public interface GitLabPackage extends EPackage {
 	EAttribute getProject_OpenIssuesCount();
 
 	/**
-	 * Returns the meta object for the reference '{@link org.nasdanika.models.gitlab.Project#getOwner <em>Owner</em>}'.
+	 * Returns the meta object for the containment reference '{@link org.nasdanika.models.gitlab.Project#getOwner <em>Owner</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Owner</em>'.
+	 * @return the meta object for the containment reference '<em>Owner</em>'.
 	 * @see org.nasdanika.models.gitlab.Project#getOwner()
 	 * @see #getProject()
 	 * @generated
@@ -3372,6 +3663,27 @@ public interface GitLabPackage extends EPackage {
 	EAttribute getBranch_WebUrl();
 
 	/**
+	 * Returns the meta object for class '{@link org.nasdanika.models.gitlab.Owner <em>Owner</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Owner</em>'.
+	 * @see org.nasdanika.models.gitlab.Owner
+	 * @generated
+	 */
+	EClass getOwner();
+
+	/**
+	 * Returns the meta object for the reference '{@link org.nasdanika.models.gitlab.Owner#getUser <em>User</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>User</em>'.
+	 * @see org.nasdanika.models.gitlab.Owner#getUser()
+	 * @see #getOwner()
+	 * @generated
+	 */
+	EReference getOwner_User();
+
+	/**
 	 * Returns the meta object for enum '{@link org.nasdanika.models.gitlab.Visibility <em>Visibility</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3674,6 +3986,71 @@ public interface GitLabPackage extends EPackage {
 		 */
 		EAttribute MEMBER__EXPIRES_AT = eINSTANCE.getMember_ExpiresAt();
 		/**
+		 * The meta object literal for the '{@link org.nasdanika.models.gitlab.impl.AbstractUserImpl <em>Abstract User</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.nasdanika.models.gitlab.impl.AbstractUserImpl
+		 * @see org.nasdanika.models.gitlab.impl.GitLabPackageImpl#getAbstractUser()
+		 * @generated
+		 */
+		EClass ABSTRACT_USER = eINSTANCE.getAbstractUser();
+		/**
+		 * The meta object literal for the '<em><b>Avatar Url</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute ABSTRACT_USER__AVATAR_URL = eINSTANCE.getAbstractUser_AvatarUrl();
+		/**
+		 * The meta object literal for the '<em><b>Created At</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute ABSTRACT_USER__CREATED_AT = eINSTANCE.getAbstractUser_CreatedAt();
+		/**
+		 * The meta object literal for the '<em><b>EMail</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute ABSTRACT_USER__EMAIL = eINSTANCE.getAbstractUser_EMail();
+		/**
+		 * The meta object literal for the '<em><b>Id</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute ABSTRACT_USER__ID = eINSTANCE.getAbstractUser_Id();
+		/**
+		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute ABSTRACT_USER__NAME = eINSTANCE.getAbstractUser_Name();
+		/**
+		 * The meta object literal for the '<em><b>State</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute ABSTRACT_USER__STATE = eINSTANCE.getAbstractUser_State();
+		/**
+		 * The meta object literal for the '<em><b>User Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute ABSTRACT_USER__USER_NAME = eINSTANCE.getAbstractUser_UserName();
+		/**
+		 * The meta object literal for the '<em><b>Web Url</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute ABSTRACT_USER__WEB_URL = eINSTANCE.getAbstractUser_WebUrl();
+		/**
 		 * The meta object literal for the '{@link org.nasdanika.models.gitlab.impl.UserImpl <em>User</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -3697,68 +4074,12 @@ public interface GitLabPackage extends EPackage {
 		 */
 		EReference USER__MEMBERSHIP = eINSTANCE.getUser_Membership();
 		/**
-		 * The meta object literal for the '<em><b>Avatar Url</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Owns</b></em>' reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute USER__AVATAR_URL = eINSTANCE.getUser_AvatarUrl();
-		/**
-		 * The meta object literal for the '<em><b>Created At</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute USER__CREATED_AT = eINSTANCE.getUser_CreatedAt();
-		/**
-		 * The meta object literal for the '<em><b>EMail</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute USER__EMAIL = eINSTANCE.getUser_EMail();
-		/**
-		 * The meta object literal for the '<em><b>Id</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute USER__ID = eINSTANCE.getUser_Id();
-		/**
-		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute USER__NAME = eINSTANCE.getUser_Name();
-		/**
-		 * The meta object literal for the '<em><b>State</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute USER__STATE = eINSTANCE.getUser_State();
-		/**
-		 * The meta object literal for the '<em><b>User Name</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute USER__USER_NAME = eINSTANCE.getUser_UserName();
-		/**
-		 * The meta object literal for the '<em><b>Web Url</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute USER__WEB_URL = eINSTANCE.getUser_WebUrl();
-		/**
-		 * The meta object literal for the '<em><b>Owned Projects</b></em>' reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference USER__OWNED_PROJECTS = eINSTANCE.getUser_OwnedProjects();
+		EReference USER__OWNS = eINSTANCE.getUser_Owns();
 		/**
 		 * The meta object literal for the '<em><b>Created Projects</b></em>' reference list feature.
 		 * <!-- begin-user-doc -->
@@ -3965,7 +4286,7 @@ public interface GitLabPackage extends EPackage {
 		 */
 		EAttribute PROJECT__OPEN_ISSUES_COUNT = eINSTANCE.getProject_OpenIssuesCount();
 		/**
-		 * The meta object literal for the '<em><b>Owner</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Owner</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -4550,6 +4871,22 @@ public interface GitLabPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute BRANCH__WEB_URL = eINSTANCE.getBranch_WebUrl();
+		/**
+		 * The meta object literal for the '{@link org.nasdanika.models.gitlab.impl.OwnerImpl <em>Owner</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.nasdanika.models.gitlab.impl.OwnerImpl
+		 * @see org.nasdanika.models.gitlab.impl.GitLabPackageImpl#getOwner()
+		 * @generated
+		 */
+		EClass OWNER = eINSTANCE.getOwner();
+		/**
+		 * The meta object literal for the '<em><b>User</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference OWNER__USER = eINSTANCE.getOwner_User();
 		/**
 		 * The meta object literal for the '{@link org.nasdanika.models.gitlab.Visibility <em>Visibility</em>}' enum.
 		 * <!-- begin-user-doc -->

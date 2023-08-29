@@ -21,6 +21,7 @@ import org.nasdanika.models.gitlab.Contributor;
 import org.nasdanika.models.gitlab.GitLabPackage;
 import org.nasdanika.models.gitlab.Group;
 import org.nasdanika.models.gitlab.MergeMethod;
+import org.nasdanika.models.gitlab.Owner;
 import org.nasdanika.models.gitlab.Project;
 import org.nasdanika.models.gitlab.ProjectAccess;
 import org.nasdanika.models.gitlab.ProjectLicense;
@@ -1232,8 +1233,8 @@ public class ProjectImpl extends MinimalEObjectImpl.Container implements Project
 	 * @generated
 	 */
 	@Override
-	public User getOwner() {
-		return (User)eDynamicGet(GitLabPackage.PROJECT__OWNER, GitLabPackage.Literals.PROJECT__OWNER, true, true);
+	public Owner getOwner() {
+		return (Owner)eDynamicGet(GitLabPackage.PROJECT__OWNER, GitLabPackage.Literals.PROJECT__OWNER, true, true);
 	}
 
 	/**
@@ -1241,16 +1242,7 @@ public class ProjectImpl extends MinimalEObjectImpl.Container implements Project
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public User basicGetOwner() {
-		return (User)eDynamicGet(GitLabPackage.PROJECT__OWNER, GitLabPackage.Literals.PROJECT__OWNER, false, true);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetOwner(User newOwner, NotificationChain msgs) {
+	public NotificationChain basicSetOwner(Owner newOwner, NotificationChain msgs) {
 		msgs = eDynamicInverseAdd((InternalEObject)newOwner, GitLabPackage.PROJECT__OWNER, msgs);
 		return msgs;
 	}
@@ -1261,7 +1253,7 @@ public class ProjectImpl extends MinimalEObjectImpl.Container implements Project
 	 * @generated
 	 */
 	@Override
-	public void setOwner(User newOwner) {
+	public void setOwner(Owner newOwner) {
 		eDynamicSet(GitLabPackage.PROJECT__OWNER, GitLabPackage.Literals.PROJECT__OWNER, newOwner);
 	}
 
@@ -2190,11 +2182,6 @@ public class ProjectImpl extends MinimalEObjectImpl.Container implements Project
 				return basicSetForkedFrom((Project)otherEnd, msgs);
 			case GitLabPackage.PROJECT__FORKS:
 				return ((InternalEList<InternalEObject>)(InternalEList<?>)getForks()).basicAdd(otherEnd, msgs);
-			case GitLabPackage.PROJECT__OWNER:
-				User owner = basicGetOwner();
-				if (owner != null)
-					msgs = ((InternalEObject)owner).eInverseRemove(this, GitLabPackage.USER__OWNED_PROJECTS, User.class, msgs);
-				return basicSetOwner((User)otherEnd, msgs);
 			case GitLabPackage.PROJECT__SHARED_WITH_GROUPS:
 				return ((InternalEList<InternalEObject>)(InternalEList<?>)getSharedWithGroups()).basicAdd(otherEnd, msgs);
 			case GitLabPackage.PROJECT__LICENSE:
@@ -2305,8 +2292,7 @@ public class ProjectImpl extends MinimalEObjectImpl.Container implements Project
 			case GitLabPackage.PROJECT__OPEN_ISSUES_COUNT:
 				return getOpenIssuesCount();
 			case GitLabPackage.PROJECT__OWNER:
-				if (resolve) return getOwner();
-				return basicGetOwner();
+				return getOwner();
 			case GitLabPackage.PROJECT__PATH:
 				return getPath();
 			case GitLabPackage.PROJECT__PATH_WITH_NAMESPACE:
@@ -2492,7 +2478,7 @@ public class ProjectImpl extends MinimalEObjectImpl.Container implements Project
 				setOpenIssuesCount((Integer)newValue);
 				return;
 			case GitLabPackage.PROJECT__OWNER:
-				setOwner((User)newValue);
+				setOwner((Owner)newValue);
 				return;
 			case GitLabPackage.PROJECT__PATH:
 				setPath((String)newValue);
@@ -2724,7 +2710,7 @@ public class ProjectImpl extends MinimalEObjectImpl.Container implements Project
 				setOpenIssuesCount(OPEN_ISSUES_COUNT_EDEFAULT);
 				return;
 			case GitLabPackage.PROJECT__OWNER:
-				setOwner((User)null);
+				setOwner((Owner)null);
 				return;
 			case GitLabPackage.PROJECT__PATH:
 				setPath(PATH_EDEFAULT);
@@ -2926,7 +2912,7 @@ public class ProjectImpl extends MinimalEObjectImpl.Container implements Project
 			case GitLabPackage.PROJECT__OPEN_ISSUES_COUNT:
 				return OPEN_ISSUES_COUNT_EDEFAULT == null ? getOpenIssuesCount() != null : !OPEN_ISSUES_COUNT_EDEFAULT.equals(getOpenIssuesCount());
 			case GitLabPackage.PROJECT__OWNER:
-				return basicGetOwner() != null;
+				return getOwner() != null;
 			case GitLabPackage.PROJECT__PATH:
 				return PATH_EDEFAULT == null ? getPath() != null : !PATH_EDEFAULT.equals(getPath());
 			case GitLabPackage.PROJECT__PATH_WITH_NAMESPACE:

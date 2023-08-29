@@ -139,7 +139,8 @@ public class Loader implements AutoCloseable {
 						return modelUser;
 					}
 				}
-				org.nasdanika.models.gitlab.User modelUser = loadUser(apiUser, progressMonitor);
+				org.nasdanika.models.gitlab.User modelUser = factory.createUser();
+				populateAbstractUser(apiUser, modelUser);
 				ret.getUsers().add(modelUser);
 				userProviderById.apply(apiUser.getId()).complete(modelUser);
 				return modelUser;
@@ -176,9 +177,8 @@ public class Loader implements AutoCloseable {
 		modelLicense.setSourceUrl(apiLicense.getSourceUrl());
 		return modelLicense;
 	}
-	
-	protected org.nasdanika.models.gitlab.User loadUser(AbstractUser<?> apiUser, ProgressMonitor progressMonitor) {
-		org.nasdanika.models.gitlab.User user = factory.createUser();
+
+	protected void populateAbstractUser(AbstractUser<?> apiUser, org.nasdanika.models.gitlab.AbstractUser user) {
 		user.setAvatarUrl(apiUser.getAvatarUrl());
 		user.setCreatedAt(apiUser.getCreatedAt());
 		user.setEMail(apiUser.getEmail());
@@ -187,7 +187,6 @@ public class Loader implements AutoCloseable {
 		user.setState(apiUser.getState());
 		user.setUserName(apiUser.getUsername());
 		user.setWebUrl(apiUser.getWebUrl());
-		return user;
 	}
 
 	/**
@@ -323,7 +322,6 @@ public class Loader implements AutoCloseable {
 									project, 
 									groupProvider, 
 									projectProvider,
-									userProvider,
 									userProviderById, 
 									licenseProvider, 
 									projectMonitor);
@@ -350,7 +348,6 @@ public class Loader implements AutoCloseable {
 			org.gitlab4j.api.models.Project project, 
 			Function<Long, CompletableFuture<org.nasdanika.models.gitlab.Group>> groupProvider,
 			Function<Long, CompletableFuture<org.nasdanika.models.gitlab.Project>> projectProvider,			
-			Function<org.gitlab4j.api.models.AbstractUser<?>, org.nasdanika.models.gitlab.User> userProvider,
 			Function<Long, CompletableFuture<org.nasdanika.models.gitlab.User>> userProviderById,
 			Function<ProjectLicense, org.nasdanika.models.gitlab.ProjectLicense> licenseProvider,			
 			ProgressMonitor progressMonitor) {
@@ -390,7 +387,9 @@ public class Loader implements AutoCloseable {
 		
 		Owner owner = project.getOwner();
 		if (owner != null) {
-			modelProject.setOwner(userProvider.apply(owner));
+			org.nasdanika.models.gitlab.Owner modelOwner = factory.createOwner();
+			populateAbstractUser(owner, modelOwner);
+			modelProject.setOwner(modelOwner);
 		}
 		
 		modelProject.setPath(project.getPath());
@@ -543,10 +542,10 @@ public class Loader implements AutoCloseable {
 				EList<org.nasdanika.models.gitlab.Contributor> modelContributors = modelProject.getContributors();
 				for (Contributor contributor: contributors) {
 					org.nasdanika.models.gitlab.Contributor modelContributor = factory.createContributor();
+					populateAbstractUser(contributor, modelContributor);
 					modelContributor.setAdditions(contributor.getAdditions());
 					modelContributor.setCommits(contributor.getCommits());
 					modelContributor.setDeletions(contributor.getDeletions());
-					modelContributor.setUser(userProvider.apply(contributor));
 					modelContributors.add(modelContributor);
 				}			
 			}

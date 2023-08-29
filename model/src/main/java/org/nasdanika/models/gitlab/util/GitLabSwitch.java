@@ -85,9 +85,16 @@ public class GitLabSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case GitLabPackage.ABSTRACT_USER: {
+				AbstractUser abstractUser = (AbstractUser)theEObject;
+				T result = caseAbstractUser(abstractUser);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			case GitLabPackage.USER: {
 				User user = (User)theEObject;
 				T result = caseUser(user);
+				if (result == null) result = caseAbstractUser(user);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -112,6 +119,7 @@ public class GitLabSwitch<T> extends Switch<T> {
 			case GitLabPackage.CONTRIBUTOR: {
 				Contributor contributor = (Contributor)theEObject;
 				T result = caseContributor(contributor);
+				if (result == null) result = caseAbstractUser(contributor);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -130,6 +138,13 @@ public class GitLabSwitch<T> extends Switch<T> {
 			case GitLabPackage.BRANCH: {
 				Branch branch = (Branch)theEObject;
 				T result = caseBranch(branch);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case GitLabPackage.OWNER: {
+				Owner owner = (Owner)theEObject;
+				T result = caseOwner(owner);
+				if (result == null) result = caseAbstractUser(owner);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -179,6 +194,21 @@ public class GitLabSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseMember(Member object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Abstract User</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Abstract User</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseAbstractUser(AbstractUser object) {
 		return null;
 	}
 
@@ -299,6 +329,21 @@ public class GitLabSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseBranch(Branch object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Owner</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Owner</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseOwner(Owner object) {
 		return null;
 	}
 

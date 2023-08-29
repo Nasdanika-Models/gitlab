@@ -69,6 +69,7 @@ public class GitLabFactoryImpl extends EFactoryImpl implements GitLabFactory {
 			case GitLabPackage.PROJECT_ACCESS: return createProjectAccess();
 			case GitLabPackage.CUSTOM_ATTRIBUTE: return (EObject)createCustomAttribute();
 			case GitLabPackage.BRANCH: return createBranch();
+			case GitLabPackage.OWNER: return createOwner();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -246,6 +247,17 @@ public class GitLabFactoryImpl extends EFactoryImpl implements GitLabFactory {
 	public Branch createBranch() {
 		BranchImpl branch = new BranchImpl();
 		return branch;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Owner createOwner() {
+		OwnerImpl owner = new OwnerImpl();
+		return owner;
 	}
 
 	/**

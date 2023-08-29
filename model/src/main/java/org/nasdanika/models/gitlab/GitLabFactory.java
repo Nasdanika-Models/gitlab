@@ -112,6 +112,15 @@ public interface GitLabFactory extends EFactory {
 	Branch createBranch();
 
 	/**
+	 * Returns a new object of class '<em>Owner</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Owner</em>'.
+	 * @generated
+	 */
+	Owner createOwner();
+
+	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

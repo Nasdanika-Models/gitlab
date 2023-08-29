@@ -6,9 +6,6 @@ import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-
 import org.nasdanika.models.gitlab.Contributor;
 import org.nasdanika.models.gitlab.GitLabPackage;
 import org.nasdanika.models.gitlab.User;
@@ -29,7 +26,7 @@ import org.nasdanika.models.gitlab.User;
  *
  * @generated
  */
-public class ContributorImpl extends MinimalEObjectImpl.Container implements Contributor {
+public class ContributorImpl extends AbstractUserImpl implements Contributor {
 	/**
 	 * The default value of the '{@link #getCommits() <em>Commits</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -77,16 +74,6 @@ public class ContributorImpl extends MinimalEObjectImpl.Container implements Con
 	@Override
 	protected EClass eStaticClass() {
 		return GitLabPackage.Literals.CONTRIBUTOR;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	protected int eStaticFeatureCount() {
-		return 0;
 	}
 
 	/**

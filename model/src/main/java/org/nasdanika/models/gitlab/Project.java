@@ -668,28 +668,26 @@ public interface Project extends EObject {
 	void setOpenIssuesCount(Integer value);
 
 	/**
-	 * Returns the value of the '<em><b>Owner</b></em>' reference.
-	 * It is bidirectional and its opposite is '{@link org.nasdanika.models.gitlab.User#getOwnedProjects <em>Owned Projects</em>}'.
+	 * Returns the value of the '<em><b>Owner</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Owner</em>' reference.
-	 * @see #setOwner(User)
+	 * @return the value of the '<em>Owner</em>' containment reference.
+	 * @see #setOwner(Owner)
 	 * @see org.nasdanika.models.gitlab.GitLabPackage#getProject_Owner()
-	 * @see org.nasdanika.models.gitlab.User#getOwnedProjects
-	 * @model opposite="ownedProjects"
+	 * @model containment="true"
 	 * @generated
 	 */
-	User getOwner();
+	Owner getOwner();
 
 	/**
-	 * Sets the value of the '{@link org.nasdanika.models.gitlab.Project#getOwner <em>Owner</em>}' reference.
+	 * Sets the value of the '{@link org.nasdanika.models.gitlab.Project#getOwner <em>Owner</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Owner</em>' reference.
+	 * @param value the new value of the '<em>Owner</em>' containment reference.
 	 * @see #getOwner()
 	 * @generated
 	 */
-	void setOwner(User value);
+	void setOwner(Owner value);
 
 	/**
 	 * Returns the value of the '<em><b>Path</b></em>' attribute.
