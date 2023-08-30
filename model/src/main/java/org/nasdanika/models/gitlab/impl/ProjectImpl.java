@@ -20,6 +20,7 @@ import org.nasdanika.models.gitlab.BuildGitStrategy;
 import org.nasdanika.models.gitlab.Contributor;
 import org.nasdanika.models.gitlab.GitLabPackage;
 import org.nasdanika.models.gitlab.Group;
+import org.nasdanika.models.gitlab.Member;
 import org.nasdanika.models.gitlab.MergeMethod;
 import org.nasdanika.models.gitlab.Owner;
 import org.nasdanika.models.gitlab.Project;
@@ -44,6 +45,7 @@ import org.nasdanika.models.gitlab.Visibility;
  *   <li>{@link org.nasdanika.models.gitlab.impl.ProjectImpl#getAvatarUrl <em>Avatar Url</em>}</li>
  *   <li>{@link org.nasdanika.models.gitlab.impl.ProjectImpl#isContainerRegistryEnabled <em>Container Registry Enabled</em>}</li>
  *   <li>{@link org.nasdanika.models.gitlab.impl.ProjectImpl#getCreatedAt <em>Created At</em>}</li>
+ *   <li>{@link org.nasdanika.models.gitlab.impl.ProjectImpl#getCreatorId <em>Creator Id</em>}</li>
  *   <li>{@link org.nasdanika.models.gitlab.impl.ProjectImpl#getCreator <em>Creator</em>}</li>
  *   <li>{@link org.nasdanika.models.gitlab.impl.ProjectImpl#getDefaultBranch <em>Default Branch</em>}</li>
  *   <li>{@link org.nasdanika.models.gitlab.impl.ProjectImpl#getDescription <em>Description</em>}</li>
@@ -111,6 +113,7 @@ import org.nasdanika.models.gitlab.Visibility;
  *   <li>{@link org.nasdanika.models.gitlab.impl.ProjectImpl#getSquashOption <em>Squash Option</em>}</li>
  *   <li>{@link org.nasdanika.models.gitlab.impl.ProjectImpl#getBranches <em>Branches</em>}</li>
  *   <li>{@link org.nasdanika.models.gitlab.impl.ProjectImpl#getContributors <em>Contributors</em>}</li>
+ *   <li>{@link org.nasdanika.models.gitlab.impl.ProjectImpl#getMembers <em>Members</em>}</li>
  * </ul>
  *
  * @generated
@@ -161,6 +164,15 @@ public class ProjectImpl extends MinimalEObjectImpl.Container implements Project
 	 * @ordered
 	 */
 	protected static final Date CREATED_AT_EDEFAULT = null;
+	/**
+	 * The default value of the '{@link #getCreatorId() <em>Creator Id</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getCreatorId()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final Long CREATOR_ID_EDEFAULT = null;
 	/**
 	 * The default value of the '{@link #getDefaultBranch() <em>Default Branch</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -776,6 +788,26 @@ public class ProjectImpl extends MinimalEObjectImpl.Container implements Project
 	@Override
 	public void setCreatedAt(Date newCreatedAt) {
 		eDynamicSet(GitLabPackage.PROJECT__CREATED_AT, GitLabPackage.Literals.PROJECT__CREATED_AT, newCreatedAt);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Long getCreatorId() {
+		return (Long)eDynamicGet(GitLabPackage.PROJECT__CREATOR_ID, GitLabPackage.Literals.PROJECT__CREATOR_ID, true, true);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setCreatorId(Long newCreatorId) {
+		eDynamicSet(GitLabPackage.PROJECT__CREATOR_ID, GitLabPackage.Literals.PROJECT__CREATOR_ID, newCreatorId);
 	}
 
 	/**
@@ -1804,15 +1836,6 @@ public class ProjectImpl extends MinimalEObjectImpl.Container implements Project
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ProjectLicense basicGetLicense() {
-		return (ProjectLicense)eDynamicGet(GitLabPackage.PROJECT__LICENSE, GitLabPackage.Literals.PROJECT__LICENSE, false, true);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public NotificationChain basicSetLicense(ProjectLicense newLicense, NotificationChain msgs) {
 		msgs = eDynamicInverseAdd((InternalEObject)newLicense, GitLabPackage.PROJECT__LICENSE, msgs);
 		return msgs;
@@ -2168,6 +2191,17 @@ public class ProjectImpl extends MinimalEObjectImpl.Container implements Project
 	 */
 	@SuppressWarnings("unchecked")
 	@Override
+	public EList<Member> getMembers() {
+		return (EList<Member>)eDynamicGet(GitLabPackage.PROJECT__MEMBERS, GitLabPackage.Literals.PROJECT__MEMBERS, true, true);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@SuppressWarnings("unchecked")
+	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case GitLabPackage.PROJECT__CREATOR:
@@ -2184,11 +2218,6 @@ public class ProjectImpl extends MinimalEObjectImpl.Container implements Project
 				return ((InternalEList<InternalEObject>)(InternalEList<?>)getForks()).basicAdd(otherEnd, msgs);
 			case GitLabPackage.PROJECT__SHARED_WITH_GROUPS:
 				return ((InternalEList<InternalEObject>)(InternalEList<?>)getSharedWithGroups()).basicAdd(otherEnd, msgs);
-			case GitLabPackage.PROJECT__LICENSE:
-				ProjectLicense license = basicGetLicense();
-				if (license != null)
-					msgs = ((InternalEObject)license).eInverseRemove(this, GitLabPackage.PROJECT_LICENSE__PROJECTS, ProjectLicense.class, msgs);
-				return basicSetLicense((ProjectLicense)otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
@@ -2225,6 +2254,8 @@ public class ProjectImpl extends MinimalEObjectImpl.Container implements Project
 				return ((InternalEList<?>)getBranches()).basicRemove(otherEnd, msgs);
 			case GitLabPackage.PROJECT__CONTRIBUTORS:
 				return ((InternalEList<?>)getContributors()).basicRemove(otherEnd, msgs);
+			case GitLabPackage.PROJECT__MEMBERS:
+				return ((InternalEList<?>)getMembers()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -2247,6 +2278,8 @@ public class ProjectImpl extends MinimalEObjectImpl.Container implements Project
 				return isContainerRegistryEnabled();
 			case GitLabPackage.PROJECT__CREATED_AT:
 				return getCreatedAt();
+			case GitLabPackage.PROJECT__CREATOR_ID:
+				return getCreatorId();
 			case GitLabPackage.PROJECT__CREATOR:
 				if (resolve) return getCreator();
 				return basicGetCreator();
@@ -2346,8 +2379,7 @@ public class ProjectImpl extends MinimalEObjectImpl.Container implements Project
 			case GitLabPackage.PROJECT__LICENSE_URL:
 				return getLicenseUrl();
 			case GitLabPackage.PROJECT__LICENSE:
-				if (resolve) return getLicense();
-				return basicGetLicense();
+				return getLicense();
 			case GitLabPackage.PROJECT__CUSTOM_ATTRIBUTES:
 				if (coreType) return getCustomAttributes();
 				else return getCustomAttributes().map();
@@ -2385,6 +2417,8 @@ public class ProjectImpl extends MinimalEObjectImpl.Container implements Project
 				return getBranches();
 			case GitLabPackage.PROJECT__CONTRIBUTORS:
 				return getContributors();
+			case GitLabPackage.PROJECT__MEMBERS:
+				return getMembers();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -2412,6 +2446,9 @@ public class ProjectImpl extends MinimalEObjectImpl.Container implements Project
 				return;
 			case GitLabPackage.PROJECT__CREATED_AT:
 				setCreatedAt((Date)newValue);
+				return;
+			case GitLabPackage.PROJECT__CREATOR_ID:
+				setCreatorId((Long)newValue);
 				return;
 			case GitLabPackage.PROJECT__CREATOR:
 				setCreator((User)newValue);
@@ -2619,6 +2656,10 @@ public class ProjectImpl extends MinimalEObjectImpl.Container implements Project
 				getContributors().clear();
 				getContributors().addAll((Collection<? extends Contributor>)newValue);
 				return;
+			case GitLabPackage.PROJECT__MEMBERS:
+				getMembers().clear();
+				getMembers().addAll((Collection<? extends Member>)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -2645,6 +2686,9 @@ public class ProjectImpl extends MinimalEObjectImpl.Container implements Project
 				return;
 			case GitLabPackage.PROJECT__CREATED_AT:
 				setCreatedAt(CREATED_AT_EDEFAULT);
+				return;
+			case GitLabPackage.PROJECT__CREATOR_ID:
+				setCreatorId(CREATOR_ID_EDEFAULT);
 				return;
 			case GitLabPackage.PROJECT__CREATOR:
 				setCreator((User)null);
@@ -2847,6 +2891,9 @@ public class ProjectImpl extends MinimalEObjectImpl.Container implements Project
 			case GitLabPackage.PROJECT__CONTRIBUTORS:
 				getContributors().clear();
 				return;
+			case GitLabPackage.PROJECT__MEMBERS:
+				getMembers().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -2869,6 +2916,8 @@ public class ProjectImpl extends MinimalEObjectImpl.Container implements Project
 				return isContainerRegistryEnabled() != CONTAINER_REGISTRY_ENABLED_EDEFAULT;
 			case GitLabPackage.PROJECT__CREATED_AT:
 				return CREATED_AT_EDEFAULT == null ? getCreatedAt() != null : !CREATED_AT_EDEFAULT.equals(getCreatedAt());
+			case GitLabPackage.PROJECT__CREATOR_ID:
+				return CREATOR_ID_EDEFAULT == null ? getCreatorId() != null : !CREATOR_ID_EDEFAULT.equals(getCreatorId());
 			case GitLabPackage.PROJECT__CREATOR:
 				return basicGetCreator() != null;
 			case GitLabPackage.PROJECT__DEFAULT_BRANCH:
@@ -2966,7 +3015,7 @@ public class ProjectImpl extends MinimalEObjectImpl.Container implements Project
 			case GitLabPackage.PROJECT__LICENSE_URL:
 				return LICENSE_URL_EDEFAULT == null ? getLicenseUrl() != null : !LICENSE_URL_EDEFAULT.equals(getLicenseUrl());
 			case GitLabPackage.PROJECT__LICENSE:
-				return basicGetLicense() != null;
+				return getLicense() != null;
 			case GitLabPackage.PROJECT__CUSTOM_ATTRIBUTES:
 				return !getCustomAttributes().isEmpty();
 			case GitLabPackage.PROJECT__BUILD_COVERAGE_REGEX:
@@ -3003,6 +3052,8 @@ public class ProjectImpl extends MinimalEObjectImpl.Container implements Project
 				return !getBranches().isEmpty();
 			case GitLabPackage.PROJECT__CONTRIBUTORS:
 				return !getContributors().isEmpty();
+			case GitLabPackage.PROJECT__MEMBERS:
+				return !getMembers().isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

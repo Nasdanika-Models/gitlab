@@ -31,7 +31,7 @@ public class GitLabTests {
 		try (Loader loader = new Loader("https://gitlab.com/", System.getenv("GITLAB_ACCESS_TOKEN"))) {
 			ExecutorService threadPool = Executors.newFixedThreadPool(10);
 			loader.setExecutor(threadPool);
-			GitLab gitLab = loader.loadGroups(progressMonitor);			
+			GitLab gitLab = loader.loadGitLabGroups(progressMonitor);			
 			ResourceSet gitLabResourceSet = new ResourceSetImpl();
 			gitLabResourceSet.getResourceFactoryRegistry().getExtensionToFactoryMap().put(Resource.Factory.Registry.DEFAULT_EXTENSION, new XMIResourceFactoryImpl());
 

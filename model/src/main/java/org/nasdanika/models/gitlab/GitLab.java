@@ -22,7 +22,6 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link org.nasdanika.models.gitlab.GitLab#getUrl <em>Url</em>}</li>
  *   <li>{@link org.nasdanika.models.gitlab.GitLab#getGroups <em>Groups</em>}</li>
  *   <li>{@link org.nasdanika.models.gitlab.GitLab#getUsers <em>Users</em>}</li>
- *   <li>{@link org.nasdanika.models.gitlab.GitLab#getLicenses <em>Licenses</em>}</li>
  * </ul>
  *
  * @see org.nasdanika.models.gitlab.GitLabPackage#getGitLab()
@@ -75,17 +74,5 @@ public interface GitLab extends EObject {
 	 * @generated
 	 */
 	EList<User> getUsers();
-
-	/**
-	 * Returns the value of the '<em><b>Licenses</b></em>' containment reference list.
-	 * The list contents are of type {@link org.nasdanika.models.gitlab.ProjectLicense}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Licenses</em>' containment reference list.
-	 * @see org.nasdanika.models.gitlab.GitLabPackage#getGitLab_Licenses()
-	 * @model containment="true" keys="key"
-	 * @generated
-	 */
-	EList<ProjectLicense> getLicenses();
 
 } // GitLab

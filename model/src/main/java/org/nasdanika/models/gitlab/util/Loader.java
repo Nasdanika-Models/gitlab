@@ -22,6 +22,7 @@ import org.gitlab4j.api.Constants.SquashOption;
 import org.gitlab4j.api.GitLabApi;
 import org.gitlab4j.api.GitLabApiException;
 import org.gitlab4j.api.GroupApi;
+import org.gitlab4j.api.ProjectApi;
 import org.gitlab4j.api.ProjectLicense;
 import org.gitlab4j.api.RepositoryApi;
 import org.gitlab4j.api.models.AbstractUser;
@@ -121,50 +122,9 @@ public class Loader implements AutoCloseable {
 	 * @return Populated {@link GitLab} instance.
 	 * @throws GitLabApiException 
 	 */
-	public GitLab loadGroups(ProgressMonitor progressMonitor) throws GitLabApiException {
-		GitLab ret = factory.createGitLab();
-		Map<Long, CompletableFuture<org.nasdanika.models.gitlab.User>> userMap = Collections.synchronizedMap(new HashMap<>());
-		Function<Long, CompletableFuture<org.nasdanika.models.gitlab.User>> userProviderById = id -> userMap.computeIfAbsent(id, _id -> new CompletableFuture<>());
-						
-		Function<AbstractUser<?>, org.nasdanika.models.gitlab.User> userProvider = apiUser -> {
-			synchronized (Loader.this) {
-				for (org.nasdanika.models.gitlab.User modelUser: ret.getUsers()) {
-					if (apiUser.getId() != null && Objects.equals(modelUser.getId(), apiUser.getId())) {
-						return modelUser;
-					}
-					if (apiUser.getUsername() != null && Objects.equals(modelUser.getUserName(), apiUser.getUsername())) {
-						return modelUser;
-					}
-					if (apiUser.getEmail() != null && Objects.equals(modelUser.getEMail(), apiUser.getEmail())) {
-						return modelUser;
-					}
-				}
-				org.nasdanika.models.gitlab.User modelUser = factory.createUser();
-				populateAbstractUser(apiUser, modelUser);
-				ret.getUsers().add(modelUser);
-				userProviderById.apply(apiUser.getId()).complete(modelUser);
-				return modelUser;
-			}
-		};
-		
-		Function<ProjectLicense, org.nasdanika.models.gitlab.ProjectLicense> licenseProvider = apiLicense -> {
-			synchronized (Loader.this) {
-				for (org.nasdanika.models.gitlab.ProjectLicense modelLicense: ret.getLicenses()) {
-					if (Objects.equals(modelLicense.getKey(), apiLicense.getKey())) {
-						return modelLicense;
-					}
-				}
-				org.nasdanika.models.gitlab.ProjectLicense modelLicense = loadProjectLicense(apiLicense, progressMonitor);
-				ret.getLicenses().add(modelLicense);
-				return modelLicense;
-			}
-		};
-		
-		ret.getGroups().addAll(loadGroups(
-				userProvider, 
-				userProviderById, 
-				licenseProvider, 
-				progressMonitor));				
+	public GitLab loadGitLabGroups(ProgressMonitor progressMonitor) throws GitLabApiException {
+		GitLab ret = factory.createGitLab();		
+		ret.getGroups().addAll(loadGroups(progressMonitor));				
 		return ret;
 	}
 	
@@ -194,11 +154,7 @@ public class Loader implements AutoCloseable {
 	 * @return Top-level (root) groups with sub-groups mounted under them
 	 * @throws GitLabApiException
 	 */
-	public List<org.nasdanika.models.gitlab.Group> loadGroups(
-			Function<org.gitlab4j.api.models.AbstractUser<?>, org.nasdanika.models.gitlab.User> userProvider,
-			Function<Long, CompletableFuture<org.nasdanika.models.gitlab.User>> userProviderById,			
-			Function<ProjectLicense, org.nasdanika.models.gitlab.ProjectLicense> licenseProvider,			
-			ProgressMonitor progressMonitor) throws GitLabApiException {
+	public List<org.nasdanika.models.gitlab.Group> loadGroups(ProgressMonitor progressMonitor) throws GitLabApiException {
 		Map<Long, CompletableFuture<org.nasdanika.models.gitlab.Group>> groupMap = Collections.synchronizedMap(new HashMap<>());
 		Function<Long, CompletableFuture<org.nasdanika.models.gitlab.Group>> groupProvider = id -> groupMap.computeIfAbsent(id, _id -> new CompletableFuture<>());
 		
@@ -224,9 +180,6 @@ public class Loader implements AutoCloseable {
 									groupApi, 
 									groupProvider,	
 									projectProvider,
-									userProvider, 
-									userProviderById,
-									licenseProvider, 
 									groupMonitor);
 							
 							modelGroupCompletableFuture.complete(Map.entry(group, modelGroup));
@@ -283,9 +236,6 @@ public class Loader implements AutoCloseable {
 			GroupApi groupApi,
 			Function<Long, CompletableFuture<org.nasdanika.models.gitlab.Group>> groupProvider,
 			Function<Long, CompletableFuture<org.nasdanika.models.gitlab.Project>> projectProvider, 
-			Function<org.gitlab4j.api.models.AbstractUser<?>, org.nasdanika.models.gitlab.User> userProvider,
-			Function<Long, CompletableFuture<org.nasdanika.models.gitlab.User>> userProviderById,
-			Function<ProjectLicense, org.nasdanika.models.gitlab.ProjectLicense> licenseProvider,
 			ProgressMonitor progressMonitor) {
 		
 		org.nasdanika.models.gitlab.Group modelGroup = factory.createGroup();
@@ -322,8 +272,6 @@ public class Loader implements AutoCloseable {
 									project, 
 									groupProvider, 
 									projectProvider,
-									userProviderById, 
-									licenseProvider, 
 									projectMonitor);
 							modelGroupProjects.add(modelProject);
 						}
@@ -332,7 +280,7 @@ public class Loader implements AutoCloseable {
 				EList<org.nasdanika.models.gitlab.Member> modelGroupMembers = modelGroup.getMembers();
 				for (org.gitlab4j.api.models.Member member: groupMembers) {
 					try (ProgressMonitor memberMonitor = scaledGroupMonitor.split("Loading member " + member.getName() + " " + member.getId(), 1, member)) {				
-						org.nasdanika.models.gitlab.Member modelMember = loadMember(member, userProvider, memberMonitor);
+						org.nasdanika.models.gitlab.Member modelMember = loadMember(member, memberMonitor);
 						modelGroupMembers.add(modelMember);
 					}
 				}
@@ -348,8 +296,6 @@ public class Loader implements AutoCloseable {
 			org.gitlab4j.api.models.Project project, 
 			Function<Long, CompletableFuture<org.nasdanika.models.gitlab.Group>> groupProvider,
 			Function<Long, CompletableFuture<org.nasdanika.models.gitlab.Project>> projectProvider,			
-			Function<Long, CompletableFuture<org.nasdanika.models.gitlab.User>> userProviderById,
-			Function<ProjectLicense, org.nasdanika.models.gitlab.ProjectLicense> licenseProvider,			
 			ProgressMonitor progressMonitor) {
 		org.nasdanika.models.gitlab.Project modelProject = factory.createProject();
 		
@@ -359,10 +305,7 @@ public class Loader implements AutoCloseable {
 		modelProject.setAvatarUrl(project.getAvatarUrl());
 		modelProject.setContainerRegistryEnabled(project.getContainerRegistryEnabled());
 		modelProject.setCreatedAt(project.getCreatedAt());
-		Long creatorId = project.getCreatorId();
-		if (creatorId != null) {
-			userProviderById.apply(creatorId).thenAccept(modelProject::setCreator);
-		}
+		modelProject.setCreatorId(project.getCreatorId());
 		modelProject.setDefaultBranch(project.getDefaultBranch());
 		modelProject.setDescription(project.getDescription());		
 		modelProject.setForksCount(project.getForksCount());		
@@ -465,7 +408,7 @@ public class Loader implements AutoCloseable {
 		
 		ProjectLicense apiLicense = project.getLicense();
 		if (apiLicense != null) {
-			modelProject.setLicense(licenseProvider.apply(apiLicense));
+			modelProject.setLicense(loadProjectLicense(apiLicense, progressMonitor));
 		}
 
 		List<CustomAttribute> apiCustomAttributes = project.getCustomAttributes();
@@ -552,6 +495,18 @@ public class Loader implements AutoCloseable {
 		} catch (GitLabApiException e) {
 			progressMonitor.worked(Status.ERROR, 1, "Failed to load contributors", project, e);
 		}
+		
+		try {
+			ProjectApi projectApi = gitLabApi.getProjectApi();
+			List<Member> projectMembers = projectApi.getMembers(project.getId());			
+			EList<org.nasdanika.models.gitlab.Member> modelProjectMembers = modelProject.getMembers();
+			for (org.gitlab4j.api.models.Member member: projectMembers) {
+				org.nasdanika.models.gitlab.Member modelMember = loadMember(member, progressMonitor);
+				modelProjectMembers.add(modelMember);
+			}
+		} catch (GitLabApiException e) {
+			progressMonitor.worked(Status.ERROR, 1, "Failed to load members", project, e);			
+		}
 				
 //		CommitsApi commitsApi = gitLabApi.getCommitsApi();
 //		for (Commit commit: commitsApi.getCommits(project.getId())) {
@@ -568,23 +523,14 @@ public class Loader implements AutoCloseable {
 	 * @param progressMonitor
 	 * @return
 	 */
-	protected org.nasdanika.models.gitlab.Member loadMember(
-			org.gitlab4j.api.models.Member member,
-			Function<org.gitlab4j.api.models.AbstractUser<?>, org.nasdanika.models.gitlab.User> userProvider,
-			ProgressMonitor progressMonitor) {
+	protected org.nasdanika.models.gitlab.Member loadMember(org.gitlab4j.api.models.Member member, ProgressMonitor progressMonitor) {
 		org.nasdanika.models.gitlab.Member modelMember = factory.createMember();
+		populateAbstractUser(member, modelMember);
 		org.gitlab4j.api.models.AccessLevel accessLevel = member.getAccessLevel();
 		if (accessLevel != null) {
 			modelMember.setAccessLevel(org.nasdanika.models.gitlab.AccessLevel.get(accessLevel.value));
 		}
 		modelMember.setExpiresAt(member.getExpiresAt());		
-		if (userProvider != null) {
-			org.nasdanika.models.gitlab.User user = userProvider.apply(member);
-			if (user != null) {
-				modelMember.setUser(user);
-			}
-		}
-	
 		return modelMember;
 	}	
 	

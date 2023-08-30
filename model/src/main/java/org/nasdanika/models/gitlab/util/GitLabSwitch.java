@@ -82,6 +82,7 @@ public class GitLabSwitch<T> extends Switch<T> {
 			case GitLabPackage.MEMBER: {
 				Member member = (Member)theEObject;
 				T result = caseMember(member);
+				if (result == null) result = caseAbstractUser(member);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}

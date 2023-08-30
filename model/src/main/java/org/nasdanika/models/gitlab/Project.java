@@ -21,6 +21,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link org.nasdanika.models.gitlab.Project#getAvatarUrl <em>Avatar Url</em>}</li>
  *   <li>{@link org.nasdanika.models.gitlab.Project#isContainerRegistryEnabled <em>Container Registry Enabled</em>}</li>
  *   <li>{@link org.nasdanika.models.gitlab.Project#getCreatedAt <em>Created At</em>}</li>
+ *   <li>{@link org.nasdanika.models.gitlab.Project#getCreatorId <em>Creator Id</em>}</li>
  *   <li>{@link org.nasdanika.models.gitlab.Project#getCreator <em>Creator</em>}</li>
  *   <li>{@link org.nasdanika.models.gitlab.Project#getDefaultBranch <em>Default Branch</em>}</li>
  *   <li>{@link org.nasdanika.models.gitlab.Project#getDescription <em>Description</em>}</li>
@@ -88,6 +89,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link org.nasdanika.models.gitlab.Project#getSquashOption <em>Squash Option</em>}</li>
  *   <li>{@link org.nasdanika.models.gitlab.Project#getBranches <em>Branches</em>}</li>
  *   <li>{@link org.nasdanika.models.gitlab.Project#getContributors <em>Contributors</em>}</li>
+ *   <li>{@link org.nasdanika.models.gitlab.Project#getMembers <em>Members</em>}</li>
  * </ul>
  *
  * @see org.nasdanika.models.gitlab.GitLabPackage#getProject()
@@ -205,6 +207,28 @@ public interface Project extends EObject {
 	 * @generated
 	 */
 	void setCreatedAt(Date value);
+
+	/**
+	 * Returns the value of the '<em><b>Creator Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Creator Id</em>' attribute.
+	 * @see #setCreatorId(Long)
+	 * @see org.nasdanika.models.gitlab.GitLabPackage#getProject_CreatorId()
+	 * @model
+	 * @generated
+	 */
+	Long getCreatorId();
+
+	/**
+	 * Sets the value of the '{@link org.nasdanika.models.gitlab.Project#getCreatorId <em>Creator Id</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Creator Id</em>' attribute.
+	 * @see #getCreatorId()
+	 * @generated
+	 */
+	void setCreatorId(Long value);
 
 	/**
 	 * Returns the value of the '<em><b>Creator</b></em>' reference.
@@ -1247,24 +1271,22 @@ public interface Project extends EObject {
 	void setLicenseUrl(String value);
 
 	/**
-	 * Returns the value of the '<em><b>License</b></em>' reference.
-	 * It is bidirectional and its opposite is '{@link org.nasdanika.models.gitlab.ProjectLicense#getProjects <em>Projects</em>}'.
+	 * Returns the value of the '<em><b>License</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>License</em>' reference.
+	 * @return the value of the '<em>License</em>' containment reference.
 	 * @see #setLicense(ProjectLicense)
 	 * @see org.nasdanika.models.gitlab.GitLabPackage#getProject_License()
-	 * @see org.nasdanika.models.gitlab.ProjectLicense#getProjects
-	 * @model opposite="projects"
+	 * @model containment="true"
 	 * @generated
 	 */
 	ProjectLicense getLicense();
 
 	/**
-	 * Sets the value of the '{@link org.nasdanika.models.gitlab.Project#getLicense <em>License</em>}' reference.
+	 * Sets the value of the '{@link org.nasdanika.models.gitlab.Project#getLicense <em>License</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>License</em>' reference.
+	 * @param value the new value of the '<em>License</em>' containment reference.
 	 * @see #getLicense()
 	 * @generated
 	 */
@@ -1648,4 +1670,16 @@ public interface Project extends EObject {
 	 * @generated
 	 */
 	EList<Contributor> getContributors();
+
+	/**
+	 * Returns the value of the '<em><b>Members</b></em>' containment reference list.
+	 * The list contents are of type {@link org.nasdanika.models.gitlab.Member}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Members</em>' containment reference list.
+	 * @see org.nasdanika.models.gitlab.GitLabPackage#getProject_Members()
+	 * @model containment="true"
+	 * @generated
+	 */
+	EList<Member> getMembers();
 } // Project

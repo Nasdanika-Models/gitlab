@@ -10,8 +10,6 @@
         eType="#//Group" containment="true" eKeys="#//Group/id"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="users" upperBound="-1"
         eType="#//User" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="licenses" upperBound="-1"
-        eType="#//ProjectLicense" containment="true" eKeys="#//ProjectLicense/key"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Group">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//ELongObject"/>
@@ -38,7 +36,7 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="members" upperBound="-1"
         eType="#//Member" containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Member">
+  <eClassifiers xsi:type="ecore:EClass" name="Member" eSuperTypes="#//AbstractUser">
     <eStructuralFeatures xsi:type="ecore:EReference" name="user" eType="#//User" eOpposite="#//User/membership"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="accessLevel" eType="#//AccessLevel"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="expiresAt" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDate"/>
@@ -59,7 +57,7 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="membership" upperBound="-1"
         eType="#//Member" eOpposite="#//Member/user"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="owns" upperBound="-1" eType="#//Owner"
-        eOpposite="#//Owner/user" eKeys="#//Project/id"/>
+        eOpposite="#//Owner/user"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="createdProjects" upperBound="-1"
         eType="#//Project" eOpposite="#//Project/creator" eKeys="#//Project/id"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="contributions" upperBound="-1"
@@ -72,6 +70,7 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="containerRegistryEnabled"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="createdAt" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDate"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="creatorId" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//ELongObject"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="creator" eType="#//User"
         eOpposite="#//User/createdProjects"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="defaultBranch" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -134,7 +133,7 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="emptyRepo" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBooleanObject"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="licenseUrl" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="license" eType="#//ProjectLicense"
-        eOpposite="#//ProjectLicense/projects"/>
+        containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="customAttributes" upperBound="-1"
         eType="#//CustomAttribute" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="buildCoverageRegex" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -162,6 +161,8 @@
         eType="#//Branch" containment="true" eKeys="#//Branch/name"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="contributors" upperBound="-1"
         eType="#//Contributor" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="members" upperBound="-1"
+        eType="#//Member" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ProjectStatistics">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="commitCount" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//ELong"/>
@@ -178,8 +179,6 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="nickname" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="htmlUrl" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="sourceUrl" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="projects" upperBound="-1"
-        eType="#//Project" eOpposite="#//Project/license" eKeys="#//Project/id"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="Visibility">
     <eLiterals name="Public"/>

@@ -2,21 +2,9 @@
  */
 package org.nasdanika.models.gitlab.impl;
 
-import java.util.Collection;
-
-import org.eclipse.emf.common.notify.NotificationChain;
-
-import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.InternalEObject;
-
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-
-import org.eclipse.emf.ecore.util.InternalEList;
-
 import org.nasdanika.models.gitlab.GitLabPackage;
-import org.nasdanika.models.gitlab.Project;
 import org.nasdanika.models.gitlab.ProjectLicense;
 
 /**
@@ -32,7 +20,6 @@ import org.nasdanika.models.gitlab.ProjectLicense;
  *   <li>{@link org.nasdanika.models.gitlab.impl.ProjectLicenseImpl#getNickname <em>Nickname</em>}</li>
  *   <li>{@link org.nasdanika.models.gitlab.impl.ProjectLicenseImpl#getHtmlUrl <em>Html Url</em>}</li>
  *   <li>{@link org.nasdanika.models.gitlab.impl.ProjectLicenseImpl#getSourceUrl <em>Source Url</em>}</li>
- *   <li>{@link org.nasdanika.models.gitlab.impl.ProjectLicenseImpl#getProjects <em>Projects</em>}</li>
  * </ul>
  *
  * @generated
@@ -222,46 +209,6 @@ public class ProjectLicenseImpl extends MinimalEObjectImpl.Container implements 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@SuppressWarnings("unchecked")
-	@Override
-	public EList<Project> getProjects() {
-		return (EList<Project>)eDynamicGet(GitLabPackage.PROJECT_LICENSE__PROJECTS, GitLabPackage.Literals.PROJECT_LICENSE__PROJECTS, true, true);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@SuppressWarnings("unchecked")
-	@Override
-	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-		switch (featureID) {
-			case GitLabPackage.PROJECT_LICENSE__PROJECTS:
-				return ((InternalEList<InternalEObject>)(InternalEList<?>)getProjects()).basicAdd(otherEnd, msgs);
-		}
-		return super.eInverseAdd(otherEnd, featureID, msgs);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-		switch (featureID) {
-			case GitLabPackage.PROJECT_LICENSE__PROJECTS:
-				return ((InternalEList<?>)getProjects()).basicRemove(otherEnd, msgs);
-		}
-		return super.eInverseRemove(otherEnd, featureID, msgs);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
@@ -275,8 +222,6 @@ public class ProjectLicenseImpl extends MinimalEObjectImpl.Container implements 
 				return getHtmlUrl();
 			case GitLabPackage.PROJECT_LICENSE__SOURCE_URL:
 				return getSourceUrl();
-			case GitLabPackage.PROJECT_LICENSE__PROJECTS:
-				return getProjects();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -305,10 +250,6 @@ public class ProjectLicenseImpl extends MinimalEObjectImpl.Container implements 
 			case GitLabPackage.PROJECT_LICENSE__SOURCE_URL:
 				setSourceUrl((String)newValue);
 				return;
-			case GitLabPackage.PROJECT_LICENSE__PROJECTS:
-				getProjects().clear();
-				getProjects().addAll((Collection<? extends Project>)newValue);
-				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -336,9 +277,6 @@ public class ProjectLicenseImpl extends MinimalEObjectImpl.Container implements 
 			case GitLabPackage.PROJECT_LICENSE__SOURCE_URL:
 				setSourceUrl(SOURCE_URL_EDEFAULT);
 				return;
-			case GitLabPackage.PROJECT_LICENSE__PROJECTS:
-				getProjects().clear();
-				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -361,8 +299,6 @@ public class ProjectLicenseImpl extends MinimalEObjectImpl.Container implements 
 				return HTML_URL_EDEFAULT == null ? getHtmlUrl() != null : !HTML_URL_EDEFAULT.equals(getHtmlUrl());
 			case GitLabPackage.PROJECT_LICENSE__SOURCE_URL:
 				return SOURCE_URL_EDEFAULT == null ? getSourceUrl() != null : !SOURCE_URL_EDEFAULT.equals(getSourceUrl());
-			case GitLabPackage.PROJECT_LICENSE__PROJECTS:
-				return !getProjects().isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

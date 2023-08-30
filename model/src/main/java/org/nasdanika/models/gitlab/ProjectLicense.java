@@ -2,8 +2,6 @@
  */
 package org.nasdanika.models.gitlab;
 
-import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EObject;
 
 /**
@@ -20,7 +18,6 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link org.nasdanika.models.gitlab.ProjectLicense#getNickname <em>Nickname</em>}</li>
  *   <li>{@link org.nasdanika.models.gitlab.ProjectLicense#getHtmlUrl <em>Html Url</em>}</li>
  *   <li>{@link org.nasdanika.models.gitlab.ProjectLicense#getSourceUrl <em>Source Url</em>}</li>
- *   <li>{@link org.nasdanika.models.gitlab.ProjectLicense#getProjects <em>Projects</em>}</li>
  * </ul>
  *
  * @see org.nasdanika.models.gitlab.GitLabPackage#getProjectLicense()
@@ -137,19 +134,5 @@ public interface ProjectLicense extends EObject {
 	 * @generated
 	 */
 	void setSourceUrl(String value);
-
-	/**
-	 * Returns the value of the '<em><b>Projects</b></em>' reference list.
-	 * The list contents are of type {@link org.nasdanika.models.gitlab.Project}.
-	 * It is bidirectional and its opposite is '{@link org.nasdanika.models.gitlab.Project#getLicense <em>License</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Projects</em>' reference list.
-	 * @see org.nasdanika.models.gitlab.GitLabPackage#getProjectLicense_Projects()
-	 * @see org.nasdanika.models.gitlab.Project#getLicense
-	 * @model opposite="license" keys="id"
-	 * @generated
-	 */
-	EList<Project> getProjects();
 
 } // ProjectLicense

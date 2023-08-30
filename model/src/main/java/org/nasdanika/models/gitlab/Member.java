@@ -3,7 +3,6 @@
 package org.nasdanika.models.gitlab;
 
 import java.util.Date;
-import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
@@ -23,7 +22,7 @@ import org.eclipse.emf.ecore.EObject;
  * @model
  * @generated
  */
-public interface Member extends EObject {
+public interface Member extends AbstractUser {
 	/**
 	 * Returns the value of the '<em><b>User</b></em>' reference.
 	 * It is bidirectional and its opposite is '{@link org.nasdanika.models.gitlab.User#getMembership <em>Membership</em>}'.

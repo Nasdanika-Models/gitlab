@@ -7,8 +7,6 @@ import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.ecore.EClass;
 
 import org.eclipse.emf.ecore.InternalEObject;
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-
 import org.nasdanika.models.gitlab.AccessLevel;
 import org.nasdanika.models.gitlab.GitLabPackage;
 import org.nasdanika.models.gitlab.Member;
@@ -29,7 +27,7 @@ import org.nasdanika.models.gitlab.User;
  *
  * @generated
  */
-public class MemberImpl extends MinimalEObjectImpl.Container implements Member {
+public class MemberImpl extends AbstractUserImpl implements Member {
 	/**
 	 * The default value of the '{@link #getAccessLevel() <em>Access Level</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -66,16 +64,6 @@ public class MemberImpl extends MinimalEObjectImpl.Container implements Member {
 	@Override
 	protected EClass eStaticClass() {
 		return GitLabPackage.Literals.MEMBER;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	protected int eStaticFeatureCount() {
-		return 0;
 	}
 
 	/**

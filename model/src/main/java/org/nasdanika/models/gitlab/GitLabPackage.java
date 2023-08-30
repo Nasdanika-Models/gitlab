@@ -95,22 +95,13 @@ public interface GitLabPackage extends EPackage {
 	int GIT_LAB__USERS = 2;
 
 	/**
-	 * The feature id for the '<em><b>Licenses</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int GIT_LAB__LICENSES = 3;
-
-	/**
 	 * The number of structural features of the '<em>Git Lab</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int GIT_LAB_FEATURE_COUNT = 4;
+	int GIT_LAB_FEATURE_COUNT = 3;
 
 	/**
 	 * The number of operations of the '<em>Git Lab</em>' class.
@@ -332,51 +323,6 @@ public interface GitLabPackage extends EPackage {
 	int MEMBER = 2;
 
 	/**
-	 * The feature id for the '<em><b>User</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MEMBER__USER = 0;
-
-	/**
-	 * The feature id for the '<em><b>Access Level</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MEMBER__ACCESS_LEVEL = 1;
-
-	/**
-	 * The feature id for the '<em><b>Expires At</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MEMBER__EXPIRES_AT = 2;
-
-	/**
-	 * The number of structural features of the '<em>Member</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MEMBER_FEATURE_COUNT = 3;
-
-	/**
-	 * The number of operations of the '<em>Member</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MEMBER_OPERATION_COUNT = 0;
-
-	/**
 	 * The meta object id for the '{@link org.nasdanika.models.gitlab.impl.AbstractUserImpl <em>Abstract User</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -475,6 +421,123 @@ public interface GitLabPackage extends EPackage {
 	 * @ordered
 	 */
 	int ABSTRACT_USER_OPERATION_COUNT = 0;
+
+	/**
+	 * The feature id for the '<em><b>Avatar Url</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MEMBER__AVATAR_URL = ABSTRACT_USER__AVATAR_URL;
+
+	/**
+	 * The feature id for the '<em><b>Created At</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MEMBER__CREATED_AT = ABSTRACT_USER__CREATED_AT;
+
+	/**
+	 * The feature id for the '<em><b>EMail</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MEMBER__EMAIL = ABSTRACT_USER__EMAIL;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MEMBER__ID = ABSTRACT_USER__ID;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MEMBER__NAME = ABSTRACT_USER__NAME;
+
+	/**
+	 * The feature id for the '<em><b>State</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MEMBER__STATE = ABSTRACT_USER__STATE;
+
+	/**
+	 * The feature id for the '<em><b>User Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MEMBER__USER_NAME = ABSTRACT_USER__USER_NAME;
+
+	/**
+	 * The feature id for the '<em><b>Web Url</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MEMBER__WEB_URL = ABSTRACT_USER__WEB_URL;
+
+	/**
+	 * The feature id for the '<em><b>User</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MEMBER__USER = ABSTRACT_USER_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Access Level</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MEMBER__ACCESS_LEVEL = ABSTRACT_USER_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Expires At</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MEMBER__EXPIRES_AT = ABSTRACT_USER_FEATURE_COUNT + 2;
+
+	/**
+	 * The number of structural features of the '<em>Member</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MEMBER_FEATURE_COUNT = ABSTRACT_USER_FEATURE_COUNT + 3;
+
+	/**
+	 * The number of operations of the '<em>Member</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MEMBER_OPERATION_COUNT = ABSTRACT_USER_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link org.nasdanika.models.gitlab.impl.UserImpl <em>User</em>}' class.
@@ -677,13 +740,22 @@ public interface GitLabPackage extends EPackage {
 	int PROJECT__CREATED_AT = 4;
 
 	/**
+	 * The feature id for the '<em><b>Creator Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROJECT__CREATOR_ID = 5;
+
+	/**
 	 * The feature id for the '<em><b>Creator</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PROJECT__CREATOR = 5;
+	int PROJECT__CREATOR = 6;
 
 	/**
 	 * The feature id for the '<em><b>Default Branch</b></em>' attribute.
@@ -692,7 +764,7 @@ public interface GitLabPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROJECT__DEFAULT_BRANCH = 6;
+	int PROJECT__DEFAULT_BRANCH = 7;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' attribute.
@@ -701,7 +773,7 @@ public interface GitLabPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROJECT__DESCRIPTION = 7;
+	int PROJECT__DESCRIPTION = 8;
 
 	/**
 	 * The feature id for the '<em><b>Forks Count</b></em>' attribute.
@@ -710,7 +782,7 @@ public interface GitLabPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROJECT__FORKS_COUNT = 8;
+	int PROJECT__FORKS_COUNT = 9;
 
 	/**
 	 * The feature id for the '<em><b>Forked From</b></em>' reference.
@@ -719,7 +791,7 @@ public interface GitLabPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROJECT__FORKED_FROM = 9;
+	int PROJECT__FORKED_FROM = 10;
 
 	/**
 	 * The feature id for the '<em><b>Forks</b></em>' reference list.
@@ -728,7 +800,7 @@ public interface GitLabPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROJECT__FORKS = 10;
+	int PROJECT__FORKS = 11;
 
 	/**
 	 * The feature id for the '<em><b>Http Url To Repo</b></em>' attribute.
@@ -737,7 +809,7 @@ public interface GitLabPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROJECT__HTTP_URL_TO_REPO = 11;
+	int PROJECT__HTTP_URL_TO_REPO = 12;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -746,7 +818,7 @@ public interface GitLabPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROJECT__ID = 12;
+	int PROJECT__ID = 13;
 
 	/**
 	 * The feature id for the '<em><b>Is Public</b></em>' attribute.
@@ -755,7 +827,7 @@ public interface GitLabPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROJECT__IS_PUBLIC = 13;
+	int PROJECT__IS_PUBLIC = 14;
 
 	/**
 	 * The feature id for the '<em><b>Issues Enabled</b></em>' attribute.
@@ -764,7 +836,7 @@ public interface GitLabPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROJECT__ISSUES_ENABLED = 14;
+	int PROJECT__ISSUES_ENABLED = 15;
 
 	/**
 	 * The feature id for the '<em><b>Jobs Enabled</b></em>' attribute.
@@ -773,7 +845,7 @@ public interface GitLabPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROJECT__JOBS_ENABLED = 15;
+	int PROJECT__JOBS_ENABLED = 16;
 
 	/**
 	 * The feature id for the '<em><b>Lasts Activity At</b></em>' attribute.
@@ -782,7 +854,7 @@ public interface GitLabPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROJECT__LASTS_ACTIVITY_AT = 16;
+	int PROJECT__LASTS_ACTIVITY_AT = 17;
 
 	/**
 	 * The feature id for the '<em><b>Lfs Enabled</b></em>' attribute.
@@ -791,7 +863,7 @@ public interface GitLabPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROJECT__LFS_ENABLED = 17;
+	int PROJECT__LFS_ENABLED = 18;
 
 	/**
 	 * The feature id for the '<em><b>Merge Method</b></em>' attribute.
@@ -800,7 +872,7 @@ public interface GitLabPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROJECT__MERGE_METHOD = 18;
+	int PROJECT__MERGE_METHOD = 19;
 
 	/**
 	 * The feature id for the '<em><b>Merge Requests Enabled</b></em>' attribute.
@@ -809,7 +881,7 @@ public interface GitLabPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROJECT__MERGE_REQUESTS_ENABLED = 19;
+	int PROJECT__MERGE_REQUESTS_ENABLED = 20;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -818,7 +890,7 @@ public interface GitLabPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROJECT__NAME = 20;
+	int PROJECT__NAME = 21;
 
 	/**
 	 * The feature id for the '<em><b>Name With Namespace</b></em>' attribute.
@@ -827,7 +899,7 @@ public interface GitLabPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROJECT__NAME_WITH_NAMESPACE = 21;
+	int PROJECT__NAME_WITH_NAMESPACE = 22;
 
 	/**
 	 * The feature id for the '<em><b>Only Allow Merge If Pipeline Succeeds</b></em>' attribute.
@@ -836,7 +908,7 @@ public interface GitLabPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROJECT__ONLY_ALLOW_MERGE_IF_PIPELINE_SUCCEEDS = 22;
+	int PROJECT__ONLY_ALLOW_MERGE_IF_PIPELINE_SUCCEEDS = 23;
 
 	/**
 	 * The feature id for the '<em><b>Allow Merge On Skipped Pipeline</b></em>' attribute.
@@ -845,7 +917,7 @@ public interface GitLabPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROJECT__ALLOW_MERGE_ON_SKIPPED_PIPELINE = 23;
+	int PROJECT__ALLOW_MERGE_ON_SKIPPED_PIPELINE = 24;
 
 	/**
 	 * The feature id for the '<em><b>Only Allow Merge If All Discussions Are Resolved</b></em>' attribute.
@@ -854,7 +926,7 @@ public interface GitLabPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROJECT__ONLY_ALLOW_MERGE_IF_ALL_DISCUSSIONS_ARE_RESOLVED = 24;
+	int PROJECT__ONLY_ALLOW_MERGE_IF_ALL_DISCUSSIONS_ARE_RESOLVED = 25;
 
 	/**
 	 * The feature id for the '<em><b>Open Issues Count</b></em>' attribute.
@@ -863,7 +935,7 @@ public interface GitLabPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROJECT__OPEN_ISSUES_COUNT = 25;
+	int PROJECT__OPEN_ISSUES_COUNT = 26;
 
 	/**
 	 * The feature id for the '<em><b>Owner</b></em>' containment reference.
@@ -872,7 +944,7 @@ public interface GitLabPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROJECT__OWNER = 26;
+	int PROJECT__OWNER = 27;
 
 	/**
 	 * The feature id for the '<em><b>Path</b></em>' attribute.
@@ -881,7 +953,7 @@ public interface GitLabPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROJECT__PATH = 27;
+	int PROJECT__PATH = 28;
 
 	/**
 	 * The feature id for the '<em><b>Path With Namespace</b></em>' attribute.
@@ -890,7 +962,7 @@ public interface GitLabPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROJECT__PATH_WITH_NAMESPACE = 28;
+	int PROJECT__PATH_WITH_NAMESPACE = 29;
 
 	/**
 	 * The feature id for the '<em><b>Project Access</b></em>' containment reference.
@@ -899,7 +971,7 @@ public interface GitLabPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROJECT__PROJECT_ACCESS = 29;
+	int PROJECT__PROJECT_ACCESS = 30;
 
 	/**
 	 * The feature id for the '<em><b>Group Access</b></em>' containment reference.
@@ -908,7 +980,7 @@ public interface GitLabPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROJECT__GROUP_ACCESS = 30;
+	int PROJECT__GROUP_ACCESS = 31;
 
 	/**
 	 * The feature id for the '<em><b>Public Jobs</b></em>' attribute.
@@ -917,7 +989,7 @@ public interface GitLabPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROJECT__PUBLIC_JOBS = 31;
+	int PROJECT__PUBLIC_JOBS = 32;
 
 	/**
 	 * The feature id for the '<em><b>Shared With Groups</b></em>' reference list.
@@ -926,7 +998,7 @@ public interface GitLabPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROJECT__SHARED_WITH_GROUPS = 32;
+	int PROJECT__SHARED_WITH_GROUPS = 33;
 
 	/**
 	 * The feature id for the '<em><b>Repository Storage</b></em>' attribute.
@@ -935,7 +1007,7 @@ public interface GitLabPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROJECT__REPOSITORY_STORAGE = 33;
+	int PROJECT__REPOSITORY_STORAGE = 34;
 
 	/**
 	 * The feature id for the '<em><b>Request Access Enabled</b></em>' attribute.
@@ -944,7 +1016,7 @@ public interface GitLabPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROJECT__REQUEST_ACCESS_ENABLED = 34;
+	int PROJECT__REQUEST_ACCESS_ENABLED = 35;
 
 	/**
 	 * The feature id for the '<em><b>Runners Token</b></em>' attribute.
@@ -953,7 +1025,7 @@ public interface GitLabPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROJECT__RUNNERS_TOKEN = 35;
+	int PROJECT__RUNNERS_TOKEN = 36;
 
 	/**
 	 * The feature id for the '<em><b>Shared Runners Enabled</b></em>' attribute.
@@ -962,7 +1034,7 @@ public interface GitLabPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROJECT__SHARED_RUNNERS_ENABLED = 36;
+	int PROJECT__SHARED_RUNNERS_ENABLED = 37;
 
 	/**
 	 * The feature id for the '<em><b>Snippets Enabled</b></em>' attribute.
@@ -971,7 +1043,7 @@ public interface GitLabPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROJECT__SNIPPETS_ENABLED = 37;
+	int PROJECT__SNIPPETS_ENABLED = 38;
 
 	/**
 	 * The feature id for the '<em><b>Ssh Url To Repo</b></em>' attribute.
@@ -980,7 +1052,7 @@ public interface GitLabPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROJECT__SSH_URL_TO_REPO = 38;
+	int PROJECT__SSH_URL_TO_REPO = 39;
 
 	/**
 	 * The feature id for the '<em><b>Star Count</b></em>' attribute.
@@ -989,7 +1061,7 @@ public interface GitLabPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROJECT__STAR_COUNT = 39;
+	int PROJECT__STAR_COUNT = 40;
 
 	/**
 	 * The feature id for the '<em><b>Tags</b></em>' attribute list.
@@ -998,7 +1070,7 @@ public interface GitLabPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROJECT__TAGS = 40;
+	int PROJECT__TAGS = 41;
 
 	/**
 	 * The feature id for the '<em><b>Visibility Level</b></em>' attribute.
@@ -1007,7 +1079,7 @@ public interface GitLabPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROJECT__VISIBILITY_LEVEL = 41;
+	int PROJECT__VISIBILITY_LEVEL = 42;
 
 	/**
 	 * The feature id for the '<em><b>Visibility</b></em>' attribute.
@@ -1016,7 +1088,7 @@ public interface GitLabPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROJECT__VISIBILITY = 42;
+	int PROJECT__VISIBILITY = 43;
 
 	/**
 	 * The feature id for the '<em><b>Wall Enabled</b></em>' attribute.
@@ -1025,7 +1097,7 @@ public interface GitLabPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROJECT__WALL_ENABLED = 43;
+	int PROJECT__WALL_ENABLED = 44;
 
 	/**
 	 * The feature id for the '<em><b>Web Url</b></em>' attribute.
@@ -1034,7 +1106,7 @@ public interface GitLabPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROJECT__WEB_URL = 44;
+	int PROJECT__WEB_URL = 45;
 
 	/**
 	 * The feature id for the '<em><b>Wiki Enabled</b></em>' attribute.
@@ -1043,7 +1115,7 @@ public interface GitLabPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROJECT__WIKI_ENABLED = 45;
+	int PROJECT__WIKI_ENABLED = 46;
 
 	/**
 	 * The feature id for the '<em><b>Printing Merge Request Link Enabled</b></em>' attribute.
@@ -1052,7 +1124,7 @@ public interface GitLabPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROJECT__PRINTING_MERGE_REQUEST_LINK_ENABLED = 46;
+	int PROJECT__PRINTING_MERGE_REQUEST_LINK_ENABLED = 47;
 
 	/**
 	 * The feature id for the '<em><b>Resolve Outdated Diff Discussions</b></em>' attribute.
@@ -1061,7 +1133,7 @@ public interface GitLabPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROJECT__RESOLVE_OUTDATED_DIFF_DISCUSSIONS = 47;
+	int PROJECT__RESOLVE_OUTDATED_DIFF_DISCUSSIONS = 48;
 
 	/**
 	 * The feature id for the '<em><b>Statistics</b></em>' containment reference.
@@ -1070,7 +1142,7 @@ public interface GitLabPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROJECT__STATISTICS = 48;
+	int PROJECT__STATISTICS = 49;
 
 	/**
 	 * The feature id for the '<em><b>Initialize With Readme</b></em>' attribute.
@@ -1079,7 +1151,7 @@ public interface GitLabPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROJECT__INITIALIZE_WITH_README = 49;
+	int PROJECT__INITIALIZE_WITH_README = 50;
 
 	/**
 	 * The feature id for the '<em><b>Packages Enabled</b></em>' attribute.
@@ -1088,7 +1160,7 @@ public interface GitLabPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROJECT__PACKAGES_ENABLED = 50;
+	int PROJECT__PACKAGES_ENABLED = 51;
 
 	/**
 	 * The feature id for the '<em><b>Empty Repo</b></em>' attribute.
@@ -1097,7 +1169,7 @@ public interface GitLabPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROJECT__EMPTY_REPO = 51;
+	int PROJECT__EMPTY_REPO = 52;
 
 	/**
 	 * The feature id for the '<em><b>License Url</b></em>' attribute.
@@ -1106,16 +1178,16 @@ public interface GitLabPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROJECT__LICENSE_URL = 52;
+	int PROJECT__LICENSE_URL = 53;
 
 	/**
-	 * The feature id for the '<em><b>License</b></em>' reference.
+	 * The feature id for the '<em><b>License</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PROJECT__LICENSE = 53;
+	int PROJECT__LICENSE = 54;
 
 	/**
 	 * The feature id for the '<em><b>Custom Attributes</b></em>' map.
@@ -1124,7 +1196,7 @@ public interface GitLabPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROJECT__CUSTOM_ATTRIBUTES = 54;
+	int PROJECT__CUSTOM_ATTRIBUTES = 55;
 
 	/**
 	 * The feature id for the '<em><b>Build Coverage Regex</b></em>' attribute.
@@ -1133,7 +1205,7 @@ public interface GitLabPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROJECT__BUILD_COVERAGE_REGEX = 55;
+	int PROJECT__BUILD_COVERAGE_REGEX = 56;
 
 	/**
 	 * The feature id for the '<em><b>Build Git Strategy</b></em>' attribute.
@@ -1142,7 +1214,7 @@ public interface GitLabPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROJECT__BUILD_GIT_STRATEGY = 56;
+	int PROJECT__BUILD_GIT_STRATEGY = 57;
 
 	/**
 	 * The feature id for the '<em><b>Readme Url</b></em>' attribute.
@@ -1151,7 +1223,7 @@ public interface GitLabPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROJECT__README_URL = 57;
+	int PROJECT__README_URL = 58;
 
 	/**
 	 * The feature id for the '<em><b>Can Create Merge Request In</b></em>' attribute.
@@ -1160,7 +1232,7 @@ public interface GitLabPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROJECT__CAN_CREATE_MERGE_REQUEST_IN = 58;
+	int PROJECT__CAN_CREATE_MERGE_REQUEST_IN = 59;
 
 	/**
 	 * The feature id for the '<em><b>Import Status</b></em>' attribute.
@@ -1169,7 +1241,7 @@ public interface GitLabPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROJECT__IMPORT_STATUS = 59;
+	int PROJECT__IMPORT_STATUS = 60;
 
 	/**
 	 * The feature id for the '<em><b>Ci Default Git Depth</b></em>' attribute.
@@ -1178,7 +1250,7 @@ public interface GitLabPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROJECT__CI_DEFAULT_GIT_DEPTH = 60;
+	int PROJECT__CI_DEFAULT_GIT_DEPTH = 61;
 
 	/**
 	 * The feature id for the '<em><b>Ci Forward Deployment Enabled</b></em>' attribute.
@@ -1187,7 +1259,7 @@ public interface GitLabPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROJECT__CI_FORWARD_DEPLOYMENT_ENABLED = 61;
+	int PROJECT__CI_FORWARD_DEPLOYMENT_ENABLED = 62;
 
 	/**
 	 * The feature id for the '<em><b>Ci Config Path</b></em>' attribute.
@@ -1196,7 +1268,7 @@ public interface GitLabPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROJECT__CI_CONFIG_PATH = 62;
+	int PROJECT__CI_CONFIG_PATH = 63;
 
 	/**
 	 * The feature id for the '<em><b>Remove Source Branch After Merge</b></em>' attribute.
@@ -1205,7 +1277,7 @@ public interface GitLabPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROJECT__REMOVE_SOURCE_BRANCH_AFTER_MERGE = 63;
+	int PROJECT__REMOVE_SOURCE_BRANCH_AFTER_MERGE = 64;
 
 	/**
 	 * The feature id for the '<em><b>Auto Devops Enabled</b></em>' attribute.
@@ -1214,7 +1286,7 @@ public interface GitLabPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROJECT__AUTO_DEVOPS_ENABLED = 64;
+	int PROJECT__AUTO_DEVOPS_ENABLED = 65;
 
 	/**
 	 * The feature id for the '<em><b>Auto Devops Deploy Strategy</b></em>' attribute.
@@ -1223,7 +1295,7 @@ public interface GitLabPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROJECT__AUTO_DEVOPS_DEPLOY_STRATEGY = 65;
+	int PROJECT__AUTO_DEVOPS_DEPLOY_STRATEGY = 66;
 
 	/**
 	 * The feature id for the '<em><b>Autoclose Referenced Issues</b></em>' attribute.
@@ -1232,7 +1304,7 @@ public interface GitLabPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROJECT__AUTOCLOSE_REFERENCED_ISSUES = 66;
+	int PROJECT__AUTOCLOSE_REFERENCED_ISSUES = 67;
 
 	/**
 	 * The feature id for the '<em><b>Emails Disabled</b></em>' attribute.
@@ -1241,7 +1313,7 @@ public interface GitLabPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROJECT__EMAILS_DISABLED = 67;
+	int PROJECT__EMAILS_DISABLED = 68;
 
 	/**
 	 * The feature id for the '<em><b>Suggestion Commit Message</b></em>' attribute.
@@ -1250,7 +1322,7 @@ public interface GitLabPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROJECT__SUGGESTION_COMMIT_MESSAGE = 68;
+	int PROJECT__SUGGESTION_COMMIT_MESSAGE = 69;
 
 	/**
 	 * The feature id for the '<em><b>Squash Option</b></em>' attribute.
@@ -1259,7 +1331,7 @@ public interface GitLabPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROJECT__SQUASH_OPTION = 69;
+	int PROJECT__SQUASH_OPTION = 70;
 
 	/**
 	 * The feature id for the '<em><b>Branches</b></em>' containment reference list.
@@ -1268,7 +1340,7 @@ public interface GitLabPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROJECT__BRANCHES = 70;
+	int PROJECT__BRANCHES = 71;
 
 	/**
 	 * The feature id for the '<em><b>Contributors</b></em>' containment reference list.
@@ -1277,7 +1349,16 @@ public interface GitLabPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROJECT__CONTRIBUTORS = 71;
+	int PROJECT__CONTRIBUTORS = 72;
+
+	/**
+	 * The feature id for the '<em><b>Members</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROJECT__MEMBERS = 73;
 
 	/**
 	 * The number of structural features of the '<em>Project</em>' class.
@@ -1286,7 +1367,7 @@ public interface GitLabPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROJECT_FEATURE_COUNT = 72;
+	int PROJECT_FEATURE_COUNT = 74;
 
 	/**
 	 * The number of operations of the '<em>Project</em>' class.
@@ -1444,22 +1525,13 @@ public interface GitLabPackage extends EPackage {
 	int PROJECT_LICENSE__SOURCE_URL = 4;
 
 	/**
-	 * The feature id for the '<em><b>Projects</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PROJECT_LICENSE__PROJECTS = 5;
-
-	/**
 	 * The number of structural features of the '<em>Project License</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PROJECT_LICENSE_FEATURE_COUNT = 6;
+	int PROJECT_LICENSE_FEATURE_COUNT = 5;
 
 	/**
 	 * The number of operations of the '<em>Project License</em>' class.
@@ -2033,17 +2105,6 @@ public interface GitLabPackage extends EPackage {
 	EReference getGitLab_Users();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link org.nasdanika.models.gitlab.GitLab#getLicenses <em>Licenses</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Licenses</em>'.
-	 * @see org.nasdanika.models.gitlab.GitLab#getLicenses()
-	 * @see #getGitLab()
-	 * @generated
-	 */
-	EReference getGitLab_Licenses();
-
-	/**
 	 * Returns the meta object for class '{@link org.nasdanika.models.gitlab.Group <em>Group</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2532,6 +2593,17 @@ public interface GitLabPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getProject_CreatedAt();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.models.gitlab.Project#getCreatorId <em>Creator Id</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Creator Id</em>'.
+	 * @see org.nasdanika.models.gitlab.Project#getCreatorId()
+	 * @see #getProject()
+	 * @generated
+	 */
+	EAttribute getProject_CreatorId();
 
 	/**
 	 * Returns the meta object for the reference '{@link org.nasdanika.models.gitlab.Project#getCreator <em>Creator</em>}'.
@@ -3062,10 +3134,10 @@ public interface GitLabPackage extends EPackage {
 	EAttribute getProject_LicenseUrl();
 
 	/**
-	 * Returns the meta object for the reference '{@link org.nasdanika.models.gitlab.Project#getLicense <em>License</em>}'.
+	 * Returns the meta object for the containment reference '{@link org.nasdanika.models.gitlab.Project#getLicense <em>License</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>License</em>'.
+	 * @return the meta object for the containment reference '<em>License</em>'.
 	 * @see org.nasdanika.models.gitlab.Project#getLicense()
 	 * @see #getProject()
 	 * @generated
@@ -3271,6 +3343,17 @@ public interface GitLabPackage extends EPackage {
 	EReference getProject_Contributors();
 
 	/**
+	 * Returns the meta object for the containment reference list '{@link org.nasdanika.models.gitlab.Project#getMembers <em>Members</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Members</em>'.
+	 * @see org.nasdanika.models.gitlab.Project#getMembers()
+	 * @see #getProject()
+	 * @generated
+	 */
+	EReference getProject_Members();
+
+	/**
 	 * Returns the meta object for class '{@link org.nasdanika.models.gitlab.ProjectStatistics <em>Project Statistics</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3421,17 +3504,6 @@ public interface GitLabPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getProjectLicense_SourceUrl();
-
-	/**
-	 * Returns the meta object for the reference list '{@link org.nasdanika.models.gitlab.ProjectLicense#getProjects <em>Projects</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Projects</em>'.
-	 * @see org.nasdanika.models.gitlab.ProjectLicense#getProjects()
-	 * @see #getProjectLicense()
-	 * @generated
-	 */
-	EReference getProjectLicense_Projects();
 
 	/**
 	 * Returns the meta object for class '{@link org.nasdanika.models.gitlab.Contributor <em>Contributor</em>}'.
@@ -3807,13 +3879,6 @@ public interface GitLabPackage extends EPackage {
 		 */
 		EReference GIT_LAB__USERS = eINSTANCE.getGitLab_Users();
 		/**
-		 * The meta object literal for the '<em><b>Licenses</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference GIT_LAB__LICENSES = eINSTANCE.getGitLab_Licenses();
-		/**
 		 * The meta object literal for the '{@link org.nasdanika.models.gitlab.impl.GroupImpl <em>Group</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -4138,6 +4203,13 @@ public interface GitLabPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute PROJECT__CREATED_AT = eINSTANCE.getProject_CreatedAt();
+		/**
+		 * The meta object literal for the '<em><b>Creator Id</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute PROJECT__CREATOR_ID = eINSTANCE.getProject_CreatorId();
 		/**
 		 * The meta object literal for the '<em><b>Creator</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
@@ -4475,7 +4547,7 @@ public interface GitLabPackage extends EPackage {
 		 */
 		EAttribute PROJECT__LICENSE_URL = eINSTANCE.getProject_LicenseUrl();
 		/**
-		 * The meta object literal for the '<em><b>License</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>License</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -4608,6 +4680,13 @@ public interface GitLabPackage extends EPackage {
 		 */
 		EReference PROJECT__CONTRIBUTORS = eINSTANCE.getProject_Contributors();
 		/**
+		 * The meta object literal for the '<em><b>Members</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference PROJECT__MEMBERS = eINSTANCE.getProject_Members();
+		/**
 		 * The meta object literal for the '{@link org.nasdanika.models.gitlab.impl.ProjectStatisticsImpl <em>Project Statistics</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -4709,13 +4788,6 @@ public interface GitLabPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute PROJECT_LICENSE__SOURCE_URL = eINSTANCE.getProjectLicense_SourceUrl();
-		/**
-		 * The meta object literal for the '<em><b>Projects</b></em>' reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference PROJECT_LICENSE__PROJECTS = eINSTANCE.getProjectLicense_Projects();
 		/**
 		 * The meta object literal for the '{@link org.nasdanika.models.gitlab.impl.ContributorImpl <em>Contributor</em>}' class.
 		 * <!-- begin-user-doc -->

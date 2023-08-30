@@ -60,7 +60,7 @@ public interface User extends AbstractUser {
 	 * @return the value of the '<em>Owns</em>' reference list.
 	 * @see org.nasdanika.models.gitlab.GitLabPackage#getUser_Owns()
 	 * @see org.nasdanika.models.gitlab.Owner#getUser
-	 * @model opposite="user" keys="id"
+	 * @model opposite="user"
 	 * @generated
 	 */
 	EList<Owner> getOwns();
