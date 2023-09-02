@@ -22,6 +22,7 @@ import org.gitlab4j.api.Constants.SquashOption;
 import org.gitlab4j.api.GitLabApi;
 import org.gitlab4j.api.GitLabApiException;
 import org.gitlab4j.api.GroupApi;
+import org.gitlab4j.api.Pager;
 import org.gitlab4j.api.ProjectApi;
 import org.gitlab4j.api.ProjectLicense;
 import org.gitlab4j.api.RepositoryApi;
@@ -53,6 +54,19 @@ public class Loader implements AutoCloseable {
 	
 	private GitLabApi gitLabApi;
 	private GitLabFactory factory = GitLabFactory.eINSTANCE;
+	private int groupsPageSize = 10;
+	
+	public int getGroupsPageSize() {
+		return groupsPageSize;
+	}
+	
+	/**
+	 * Page size for retrieving groups.
+	 * @param groupsPageSize
+	 */
+	public void setGroupsPageSize(int groupsPageSize) {
+		this.groupsPageSize = groupsPageSize;
+	}
 	
 	// Caller thread executor
 	private Executor executor = r -> r.run();
@@ -167,23 +181,31 @@ public class Loader implements AutoCloseable {
 		Collection<CompletableFuture<Map.Entry<Group, org.nasdanika.models.gitlab.Group>>> groupCompletableFutures = Collections.synchronizedCollection(new ArrayList<>()); // Synchronizing just in case
 		try (ProgressMonitor groupsMonitor = progressMonitor.split("Loading groups", 1)) {
 			GroupApi groupApi = gitLabApi.getGroupApi();
-			List<Group> groups = groupApi.getGroups();
-			try (ProgressMonitor scaledGroupsMonitor = groupsMonitor.scale(groups.size() + 1)) {
-				scaledGroupsMonitor.worked(Status.INFO, 1, "Retrieved " + groups.size() + " groups");
-				for (org.gitlab4j.api.models.Group group: groups) {
-					try (ProgressMonitor groupMonitor = scaledGroupsMonitor.split("Loading group " + group.getName() + " " + group.getId(), 1, group)) {
-						CompletableFuture<Map.Entry<Group,org.nasdanika.models.gitlab.Group>> modelGroupCompletableFuture = new CompletableFuture<>();
-						groupCompletableFutures.add(modelGroupCompletableFuture);
-						executor.execute(() -> { 
-							org.nasdanika.models.gitlab.Group modelGroup = loadGroup(
-									group, 
-									groupApi, 
-									groupProvider,	
-									projectProvider,
-									groupMonitor);
-							
-							modelGroupCompletableFuture.complete(Map.entry(group, modelGroup));
-						});
+			Pager<Group> groupPager = groupApi.getGroups(getGroupsPageSize());
+			int pageNum = 0;
+			while (groupPager.hasNext()) {
+				++pageNum;
+				double monitorSize = 1.0/Math.pow(2.0, pageNum); // Unnownd number of pages, dividing each next by 2. I.e. 1/2 for the first page, 1/4 for the second, ...
+				try (ProgressMonitor groupPageMonitor = groupsMonitor.split("Group page " + pageNum, monitorSize)) {
+					List<Group> groups = groupPager.next();
+					try (ProgressMonitor scaledGroupsMonitor = groupPageMonitor.scale(groups.size() + 1)) {
+						scaledGroupsMonitor.worked(Status.INFO, 1, "Retrieved " + groups.size() + " groups");
+						for (org.gitlab4j.api.models.Group group: groups) {
+							try (ProgressMonitor groupMonitor = scaledGroupsMonitor.split("Loading group " + group.getName() + " " + group.getId(), 1, group)) {
+								CompletableFuture<Map.Entry<Group,org.nasdanika.models.gitlab.Group>> modelGroupCompletableFuture = new CompletableFuture<>();
+								groupCompletableFutures.add(modelGroupCompletableFuture);
+								executor.execute(() -> { 
+									org.nasdanika.models.gitlab.Group modelGroup = loadGroup(
+											group, 
+											groupApi, 
+											groupProvider,	
+											projectProvider,
+											groupMonitor);
+									
+									modelGroupCompletableFuture.complete(Map.entry(group, modelGroup));
+								});
+							}
+						}
 					}
 				}
 			}
