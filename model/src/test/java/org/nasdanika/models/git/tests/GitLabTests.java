@@ -25,7 +25,7 @@ import org.nasdanika.models.gitlab.util.Loader;
 public class GitLabTests {
 		
 	@Test
-//	@Disabled
+	@Disabled
 	public void testLoad() throws Exception {
 		ProgressMonitor progressMonitor = new PrintStreamProgressMonitor();
 		try (Loader loader = new Loader("https://gitlab.com/", System.getenv("GITLAB_ACCESS_TOKEN"))) {
