@@ -252,6 +252,16 @@ public class Loader implements AutoCloseable {
 		}		
 		return rootGroups;
 	}
+
+	protected org.nasdanika.models.gitlab.Group createGroup(
+			org.gitlab4j.api.models.Group group, 
+			GroupApi groupApi,
+			Function<Long, CompletableFuture<org.nasdanika.models.gitlab.Group>> groupProvider,
+			Function<Long, CompletableFuture<org.nasdanika.models.gitlab.Project>> projectProvider, 
+			ProgressMonitor progressMonitor) {
+		
+		return factory.createGroup();
+	}
 	
 	protected org.nasdanika.models.gitlab.Group loadGroup(
 			org.gitlab4j.api.models.Group group, 
@@ -260,7 +270,7 @@ public class Loader implements AutoCloseable {
 			Function<Long, CompletableFuture<org.nasdanika.models.gitlab.Project>> projectProvider, 
 			ProgressMonitor progressMonitor) {
 		
-		org.nasdanika.models.gitlab.Group modelGroup = factory.createGroup();
+		org.nasdanika.models.gitlab.Group modelGroup = createGroup(group, groupApi, groupProvider, projectProvider, progressMonitor); 
 		modelGroup.setAvatarUrl(group.getAvatarUrl());
 		modelGroup.setCreatedAt(group.getCreatedAt());
 		modelGroup.setDescription(group.getDescription());
@@ -314,12 +324,43 @@ public class Loader implements AutoCloseable {
 		return modelGroup;
 	}
 	
+	/**
+	 * Creates a new instance of model project. Called by loadProject(). 
+	 * This implementation calls factory.createProject(). Override to customize creation. 
+	 * E.g. create a subclass of Project, load a project from a prototypes with some information pre-filled, ...
+	 * @param project
+	 * @param groupProvider
+	 * @param projectProvider
+	 * @param progressMonitor
+	 * @return
+	 */
+	protected org.nasdanika.models.gitlab.Project createProject(
+			org.gitlab4j.api.models.Project project, 
+			Function<Long, CompletableFuture<org.nasdanika.models.gitlab.Group>> groupProvider,
+			Function<Long, CompletableFuture<org.nasdanika.models.gitlab.Project>> projectProvider,			
+			ProgressMonitor progressMonitor) {
+		return factory.createProject();
+	}	
+	
+	protected org.nasdanika.models.gitlab.Owner createOwner(Owner owner, ProgressMonitor progressMonitor) {
+		return factory.createOwner();
+	}
+	
+	protected org.nasdanika.models.gitlab.Branch createBranch(Branch branch, ProgressMonitor progressMonitor) {
+		return factory.createBranch();
+	}
+	
+	protected org.nasdanika.models.gitlab.Contributor createContributor(Contributor contributor, ProgressMonitor progressMonitor) {
+		return factory.createContributor();
+	}
+	
 	protected org.nasdanika.models.gitlab.Project loadProject(
 			org.gitlab4j.api.models.Project project, 
 			Function<Long, CompletableFuture<org.nasdanika.models.gitlab.Group>> groupProvider,
 			Function<Long, CompletableFuture<org.nasdanika.models.gitlab.Project>> projectProvider,			
 			ProgressMonitor progressMonitor) {
-		org.nasdanika.models.gitlab.Project modelProject = factory.createProject();
+				
+		org.nasdanika.models.gitlab.Project modelProject = createProject(project, groupProvider, projectProvider, progressMonitor);
 		
 		modelProject.setId(project.getId());
 		modelProject.setApprovalsBeforeMerge(project.getApprovalsBeforeMerge());
@@ -352,7 +393,7 @@ public class Loader implements AutoCloseable {
 		
 		Owner owner = project.getOwner();
 		if (owner != null) {
-			org.nasdanika.models.gitlab.Owner modelOwner = factory.createOwner();
+			org.nasdanika.models.gitlab.Owner modelOwner = createOwner(owner, progressMonitor);
 			populateAbstractUser(owner, modelOwner);
 			modelProject.setOwner(modelOwner);
 		}
@@ -479,7 +520,7 @@ public class Loader implements AutoCloseable {
 			if (branches != null) {
 				EList<org.nasdanika.models.gitlab.Branch> modelBranches = modelProject.getBranches();
 				for (Branch branch: branches) {
-					org.nasdanika.models.gitlab.Branch modelBranch = factory.createBranch();
+					org.nasdanika.models.gitlab.Branch modelBranch = createBranch(branch, progressMonitor);
 					modelBranch.setCanPush(branch.getCanPush());
 					
 					Commit commit = branch.getCommit();
@@ -506,7 +547,7 @@ public class Loader implements AutoCloseable {
 			if (contributors != null) {
 				EList<org.nasdanika.models.gitlab.Contributor> modelContributors = modelProject.getContributors();
 				for (Contributor contributor: contributors) {
-					org.nasdanika.models.gitlab.Contributor modelContributor = factory.createContributor();
+					org.nasdanika.models.gitlab.Contributor modelContributor = createContributor(contributor, progressMonitor);
 					populateAbstractUser(contributor, modelContributor);
 					modelContributor.setAdditions(contributor.getAdditions());
 					modelContributor.setCommits(contributor.getCommits());
