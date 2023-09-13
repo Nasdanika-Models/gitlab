@@ -2,6 +2,8 @@ package org.nasdanika.models.gitlab.util;
 
 import java.time.ZonedDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.concurrent.atomic.AtomicInteger;
+import java.util.concurrent.atomic.AtomicLong;
 import java.util.logging.Handler;
 import java.util.logging.LogRecord;
 import java.util.regex.Matcher;
@@ -23,19 +25,23 @@ public class ThrottlingHandler extends Handler {
 	
 	private int conservatism = 3;
 	private int factor = 10;
-	private int interval = -1;
-	private long lastRequest;
+	
+	// Client-provided rate window
+	private long clientRateLimitWindow = -1;
+	private int clientRateLimit = -1;
 	
 	public ThrottlingHandler() {
 	}
-	
+
 	/**
-	 * @param rateLimit Client imposed rate limit
+	 * Client rate limit is enforced before sending a request.
+	 * @param clientRateLimitWindow Client rate window in milliseconds. Client rate limit is enforced if this value and clientRateLimit are positive. 
+	 * @param clientRateLimit Client rate limit per rate window. Client rate limit is enforced if this value and clientRateLimitWindow are positive.
 	 */
-	public ThrottlingHandler(int rateLimit) {
-		if (rateLimit > 0) {
-			interval = 60000 / rateLimit;
-		}
+	public ThrottlingHandler(long clientRateLimitWindow, int clientRateLimit) {
+		
+		this.clientRateLimitWindow = clientRateLimitWindow;
+		this.clientRateLimit = clientRateLimit;
 	}
 	
 	public int getConservatism() {
@@ -43,7 +49,7 @@ public class ThrottlingHandler extends Handler {
 	}
 	
 	/**
-	 * Number in seconds to add to the rate window when computing throttling sleep interval. 
+	 * Number in seconds to add to the server rate window when computing throttling sleep interval. 
 	 * Non-zero conservatism ensures that not all rate is used before the window ends. The default value is 3.
 	 * @param conservatism
 	 */
@@ -56,31 +62,69 @@ public class ThrottlingHandler extends Handler {
 	}
 	
 	/**
-	 * Determines when to start throttling. Throttling starts when remaining rate limit is less than rate limit divided by factor. E.g. if factor is 20 then throttling will start when 95% of the rate has been used. 
+	 * Determines when to start throttling. 
+	 * Throttling starts when the remaining server rate limit is less than rate limit divided by factor.
+	 * E.g. if factor is 20 then throttling will start when 95% of the rate has been used. 
 	 * The default is 10 - throttling starts after 90% of the rate has been used. 
 	 * @param factor
 	 */
 	public void setFactor(int factor) {
 		this.factor = factor;
-	}	
+	}
+	
+	private AtomicLong clientRateLimitWindowEnd = new AtomicLong(); 
+	private AtomicInteger clientRateLimitWindowRequestsRemaining = new AtomicInteger();
+	
+	private AtomicInteger serverRateLimit = new AtomicInteger();
+	private AtomicInteger serverRateLimitRemaining = new AtomicInteger();
+	private AtomicLong serverRateLimitReset = new AtomicLong();
+	private AtomicLong serverResponseTime = new AtomicLong();	
 	
 	@Override
 	public void publish(LogRecord logRecord) {
 		String message = logRecord.getMessage();
 		String lines[] = message.split("\\r?\\n");
-		if (REQUEST_PATTERN.matcher(lines[0]).matches()) {
-			if (interval > 0) {
-				long sinceLastRequest = System.currentTimeMillis() - lastRequest;
-				if (sinceLastRequest < interval) {
-					try {
-						long toSleep = interval - sinceLastRequest;
-						Thread.sleep(toSleep);
-					} catch (InterruptedException e) {
-						e.printStackTrace();
-					};					
+		if (REQUEST_PATTERN.matcher(lines[0]).matches()) {			
+			long now = System.currentTimeMillis();
+			if (clientRateLimit > 0 && clientRateLimitWindow > 0) {				
+				long clientRateWindowDelta = now - clientRateLimitWindowEnd.get();
+				if (clientRateWindowDelta >= 0) {
+					// Updating window end and replenishing requests budget
+					clientRateLimitWindowEnd.set(now + clientRateLimitWindow);
+					clientRateLimitWindowRequestsRemaining.set(clientRateLimit);
 				}
-				lastRequest = System.currentTimeMillis();
+			}			
+			
+			int rateLimit = serverRateLimit.get();
+			int rateLimitRemaining = serverRateLimitRemaining.get();
+			long rateLimitReset = serverRateLimitReset.get();
+			
+			long toSleep = -1; 
+			
+			if (rateLimit > 0 
+					&& rateLimitRemaining > 0 
+					&& rateLimitRemaining * factor < rateLimit) { // Start throttling when less than rateLimit / factor remains
+				
+				long delta = rateLimitReset - serverResponseTime.get(); // Seconds remaining until reset
+				delta += conservatism; 
+				toSleep = delta * 1000 / rateLimitRemaining;
 			}
+			
+			if (clientRateLimit > 0	&& clientRateLimitWindow > 0) {
+				long clientRateWindowDelta = clientRateLimitWindowEnd.get() - now; // Milliseconds until window end (client rate reset)
+				long clientToSleep = clientRateWindowDelta / Math.max(clientRateLimitWindowRequestsRemaining.decrementAndGet(), 1); // If ran out of rate limit - wait until the end of the window
+				if (clientToSleep > toSleep) {
+					toSleep = clientToSleep;
+				}
+			}
+			
+			if (toSleep > 0) {
+				try {
+					Thread.sleep(toSleep);
+				} catch (InterruptedException e) {
+					e.printStackTrace();
+				};
+			}												
 		}
 				
 		if (RESPONSE_PATTERN.matcher(lines[0]).matches()) {
@@ -116,21 +160,10 @@ public class ThrottlingHandler extends Handler {
 				}
 			}
 			
-			if (rateLimit > 0 
-					&& rateLimitRemaining > 0 
-					&& rateLimitRemaining * factor < rateLimit) { // Start throttling when less than rateLimit / factor remains
-				
-				long delta = rateLimitReset - (date == null ? System.currentTimeMillis() / 1000 : date.toEpochSecond()); // Seconds remaining until reset
-				delta += conservatism; 
-				long toSleep = delta * 1000 / rateLimitRemaining;
-				if (toSleep > 0) { // Configurable sleep threshold?
-					try {
-						Thread.sleep(toSleep);
-					} catch (InterruptedException e) {
-						e.printStackTrace();
-					};
-				}						
-			}
+			serverRateLimit.set(rateLimit);
+			serverRateLimitRemaining.set(rateLimitRemaining);
+			serverRateLimitReset.set(rateLimitReset);
+			serverResponseTime.set(date == null ? System.currentTimeMillis() / 1000 : date.toEpochSecond());
 		}
 	}
 	

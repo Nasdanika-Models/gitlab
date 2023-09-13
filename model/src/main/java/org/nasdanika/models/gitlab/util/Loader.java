@@ -98,12 +98,27 @@ public class Loader implements AutoCloseable {
 		this(gitLabApi, new ThrottlingHandler());
 	}
 	
-	public Loader(String hostUrl, String accessToken, int rateLimit) {
-		this(new GitLabApi(hostUrl, accessToken), rateLimit);
+	/**
+	 * @param clientRateLimitWindow Client rate window in milliseconds. Client rate limit is enforced if this value and clientRateLimit are positive.
+	 * @param clientRateLimit Client rate limit per rate window. Client rate limit is enforced if this value and clientRateLimitWindow are positive.
+	 */	
+	public Loader(
+			String hostUrl, 
+			String accessToken, 
+			long clientRateLimitWindow,
+			int clientRateLimit) {
+		this(new GitLabApi(hostUrl, accessToken), clientRateLimitWindow, clientRateLimit);
 	}	
 	
-	public Loader(GitLabApi gitLabApi, int rateLimit) {
-		this(gitLabApi, new ThrottlingHandler(rateLimit));
+	/**
+	 * @param clientRateLimitWindow Client rate window in milliseconds. Client rate limit is enforced if this value and clientRateLimit are positive.
+	 * @param clientRateLimit Client rate limit per rate window. Client rate limit is enforced if this value and clientRateLimitWindow are positive.
+	 */	
+	public Loader(
+			GitLabApi gitLabApi,
+			long clientRateLimitWindow,
+			int clientRateLimit) {
+		this(gitLabApi, new ThrottlingHandler(clientRateLimitWindow, clientRateLimit));
 	}	
 	
 	public Loader(GitLabApi gitLabApi, Handler throttlingHandler) {
