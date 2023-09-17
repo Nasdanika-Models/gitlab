@@ -17,6 +17,7 @@ import org.nasdanika.models.gitlab.Group;
 import org.nasdanika.models.gitlab.Member;
 import org.nasdanika.models.gitlab.Project;
 import org.nasdanika.models.gitlab.Visibility;
+import org.nasdanika.models.gitlab.codeowners.CodeOwner;
 
 /**
  * <!-- begin-user-doc -->
@@ -45,6 +46,7 @@ import org.nasdanika.models.gitlab.Visibility;
  *   <li>{@link org.nasdanika.models.gitlab.impl.GroupImpl#getJobArtifactsSize <em>Job Artifacts Size</em>}</li>
  *   <li>{@link org.nasdanika.models.gitlab.impl.GroupImpl#getSubGroups <em>Sub Groups</em>}</li>
  *   <li>{@link org.nasdanika.models.gitlab.impl.GroupImpl#getMembers <em>Members</em>}</li>
+ *   <li>{@link org.nasdanika.models.gitlab.impl.GroupImpl#getCodeOwnership <em>Code Ownership</em>}</li>
  * </ul>
  *
  * @generated
@@ -566,10 +568,23 @@ public class GroupImpl extends MinimalEObjectImpl.Container implements Group {
 	 */
 	@SuppressWarnings("unchecked")
 	@Override
+	public EList<CodeOwner> getCodeOwnership() {
+		return (EList<CodeOwner>)eDynamicGet(GitLabPackage.GROUP__CODE_OWNERSHIP, GitLabPackage.Literals.GROUP__CODE_OWNERSHIP, true, true);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@SuppressWarnings("unchecked")
+	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case GitLabPackage.GROUP__SHARED_PROJECTS:
 				return ((InternalEList<InternalEObject>)(InternalEList<?>)getSharedProjects()).basicAdd(otherEnd, msgs);
+			case GitLabPackage.GROUP__CODE_OWNERSHIP:
+				return ((InternalEList<InternalEObject>)(InternalEList<?>)getCodeOwnership()).basicAdd(otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
@@ -590,6 +605,8 @@ public class GroupImpl extends MinimalEObjectImpl.Container implements Group {
 				return ((InternalEList<?>)getSubGroups()).basicRemove(otherEnd, msgs);
 			case GitLabPackage.GROUP__MEMBERS:
 				return ((InternalEList<?>)getMembers()).basicRemove(otherEnd, msgs);
+			case GitLabPackage.GROUP__CODE_OWNERSHIP:
+				return ((InternalEList<?>)getCodeOwnership()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -640,6 +657,8 @@ public class GroupImpl extends MinimalEObjectImpl.Container implements Group {
 				return getSubGroups();
 			case GitLabPackage.GROUP__MEMBERS:
 				return getMembers();
+			case GitLabPackage.GROUP__CODE_OWNERSHIP:
+				return getCodeOwnership();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -714,6 +733,10 @@ public class GroupImpl extends MinimalEObjectImpl.Container implements Group {
 				getMembers().clear();
 				getMembers().addAll((Collection<? extends Member>)newValue);
 				return;
+			case GitLabPackage.GROUP__CODE_OWNERSHIP:
+				getCodeOwnership().clear();
+				getCodeOwnership().addAll((Collection<? extends CodeOwner>)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -783,6 +806,9 @@ public class GroupImpl extends MinimalEObjectImpl.Container implements Group {
 			case GitLabPackage.GROUP__MEMBERS:
 				getMembers().clear();
 				return;
+			case GitLabPackage.GROUP__CODE_OWNERSHIP:
+				getCodeOwnership().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -833,6 +859,8 @@ public class GroupImpl extends MinimalEObjectImpl.Container implements Group {
 				return !getSubGroups().isEmpty();
 			case GitLabPackage.GROUP__MEMBERS:
 				return !getMembers().isEmpty();
+			case GitLabPackage.GROUP__CODE_OWNERSHIP:
+				return !getCodeOwnership().isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

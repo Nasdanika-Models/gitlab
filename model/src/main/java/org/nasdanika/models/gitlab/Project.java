@@ -1654,7 +1654,7 @@ public interface Project extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Branches</em>' containment reference list.
 	 * @see org.nasdanika.models.gitlab.GitLabPackage#getProject_Branches()
-	 * @model containment="true" keys="name"
+	 * @model containment="true"
 	 * @generated
 	 */
 	EList<Branch> getBranches();

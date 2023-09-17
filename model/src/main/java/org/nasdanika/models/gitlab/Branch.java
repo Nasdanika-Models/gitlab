@@ -4,8 +4,6 @@ package org.nasdanika.models.gitlab;
 
 import java.util.Date;
 
-import org.eclipse.emf.ecore.EObject;
-
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Branch</b></em>'.
@@ -19,7 +17,6 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link org.nasdanika.models.gitlab.Branch#getDevelopersCanMerge <em>Developers Can Merge</em>}</li>
  *   <li>{@link org.nasdanika.models.gitlab.Branch#getDevelopersCanPush <em>Developers Can Push</em>}</li>
  *   <li>{@link org.nasdanika.models.gitlab.Branch#getMerged <em>Merged</em>}</li>
- *   <li>{@link org.nasdanika.models.gitlab.Branch#getName <em>Name</em>}</li>
  *   <li>{@link org.nasdanika.models.gitlab.Branch#getIsProtected <em>Is Protected</em>}</li>
  *   <li>{@link org.nasdanika.models.gitlab.Branch#getIsDefault <em>Is Default</em>}</li>
  *   <li>{@link org.nasdanika.models.gitlab.Branch#getCanPush <em>Can Push</em>}</li>
@@ -30,7 +27,7 @@ import org.eclipse.emf.ecore.EObject;
  * @model
  * @generated
  */
-public interface Branch extends EObject {
+public interface Branch extends Tree {
 	/**
 	 * Returns the value of the '<em><b>Commit Date</b></em>' attribute.
 	 * <!-- begin-user-doc -->
@@ -118,28 +115,6 @@ public interface Branch extends EObject {
 	 * @generated
 	 */
 	void setMerged(Boolean value);
-
-	/**
-	 * Returns the value of the '<em><b>Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Name</em>' attribute.
-	 * @see #setName(String)
-	 * @see org.nasdanika.models.gitlab.GitLabPackage#getBranch_Name()
-	 * @model
-	 * @generated
-	 */
-	String getName();
-
-	/**
-	 * Sets the value of the '{@link org.nasdanika.models.gitlab.Branch#getName <em>Name</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Name</em>' attribute.
-	 * @see #getName()
-	 * @generated
-	 */
-	void setName(String value);
 
 	/**
 	 * Returns the value of the '<em><b>Is Protected</b></em>' attribute.

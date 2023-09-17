@@ -9,6 +9,9 @@ Bundle-Vendor: %providerName
 Bundle-Localization: plugin
 Bundle-RequiredExecutionEnvironment: JavaSE-17
 Export-Package: org.nasdanika.models.gitlab,
+ org.nasdanika.models.gitlab.codeowners,
+ org.nasdanika.models.gitlab.codeowners.impl,
+ org.nasdanika.models.gitlab.codeowners.util,
  org.nasdanika.models.gitlab.impl,
  org.nasdanika.models.gitlab.util
 Require-Bundle: org.eclipse.core.runtime,

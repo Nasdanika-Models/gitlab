@@ -5,9 +5,6 @@ package org.nasdanika.models.gitlab.impl;
 import java.util.Date;
 
 import org.eclipse.emf.ecore.EClass;
-
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-
 import org.nasdanika.models.gitlab.Branch;
 import org.nasdanika.models.gitlab.GitLabPackage;
 
@@ -23,7 +20,6 @@ import org.nasdanika.models.gitlab.GitLabPackage;
  *   <li>{@link org.nasdanika.models.gitlab.impl.BranchImpl#getDevelopersCanMerge <em>Developers Can Merge</em>}</li>
  *   <li>{@link org.nasdanika.models.gitlab.impl.BranchImpl#getDevelopersCanPush <em>Developers Can Push</em>}</li>
  *   <li>{@link org.nasdanika.models.gitlab.impl.BranchImpl#getMerged <em>Merged</em>}</li>
- *   <li>{@link org.nasdanika.models.gitlab.impl.BranchImpl#getName <em>Name</em>}</li>
  *   <li>{@link org.nasdanika.models.gitlab.impl.BranchImpl#getIsProtected <em>Is Protected</em>}</li>
  *   <li>{@link org.nasdanika.models.gitlab.impl.BranchImpl#getIsDefault <em>Is Default</em>}</li>
  *   <li>{@link org.nasdanika.models.gitlab.impl.BranchImpl#getCanPush <em>Can Push</em>}</li>
@@ -32,7 +28,7 @@ import org.nasdanika.models.gitlab.GitLabPackage;
  *
  * @generated
  */
-public class BranchImpl extends MinimalEObjectImpl.Container implements Branch {
+public class BranchImpl extends TreeImpl implements Branch {
 	/**
 	 * The default value of the '{@link #getCommitDate() <em>Commit Date</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -72,16 +68,6 @@ public class BranchImpl extends MinimalEObjectImpl.Container implements Branch {
 	 * @ordered
 	 */
 	protected static final Boolean MERGED_EDEFAULT = null;
-
-	/**
-	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getName()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final String NAME_EDEFAULT = null;
 
 	/**
 	 * The default value of the '{@link #getIsProtected() <em>Is Protected</em>}' attribute.
@@ -140,16 +126,6 @@ public class BranchImpl extends MinimalEObjectImpl.Container implements Branch {
 	@Override
 	protected EClass eStaticClass() {
 		return GitLabPackage.Literals.BRANCH;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	protected int eStaticFeatureCount() {
-		return 0;
 	}
 
 	/**
@@ -230,26 +206,6 @@ public class BranchImpl extends MinimalEObjectImpl.Container implements Branch {
 	@Override
 	public void setMerged(Boolean newMerged) {
 		eDynamicSet(GitLabPackage.BRANCH__MERGED, GitLabPackage.Literals.BRANCH__MERGED, newMerged);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public String getName() {
-		return (String)eDynamicGet(GitLabPackage.BRANCH__NAME, GitLabPackage.Literals.BRANCH__NAME, true, true);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public void setName(String newName) {
-		eDynamicSet(GitLabPackage.BRANCH__NAME, GitLabPackage.Literals.BRANCH__NAME, newName);
 	}
 
 	/**
@@ -348,8 +304,6 @@ public class BranchImpl extends MinimalEObjectImpl.Container implements Branch {
 				return getDevelopersCanPush();
 			case GitLabPackage.BRANCH__MERGED:
 				return getMerged();
-			case GitLabPackage.BRANCH__NAME:
-				return getName();
 			case GitLabPackage.BRANCH__IS_PROTECTED:
 				return getIsProtected();
 			case GitLabPackage.BRANCH__IS_DEFAULT:
@@ -381,9 +335,6 @@ public class BranchImpl extends MinimalEObjectImpl.Container implements Branch {
 				return;
 			case GitLabPackage.BRANCH__MERGED:
 				setMerged((Boolean)newValue);
-				return;
-			case GitLabPackage.BRANCH__NAME:
-				setName((String)newValue);
 				return;
 			case GitLabPackage.BRANCH__IS_PROTECTED:
 				setIsProtected((Boolean)newValue);
@@ -421,9 +372,6 @@ public class BranchImpl extends MinimalEObjectImpl.Container implements Branch {
 			case GitLabPackage.BRANCH__MERGED:
 				setMerged(MERGED_EDEFAULT);
 				return;
-			case GitLabPackage.BRANCH__NAME:
-				setName(NAME_EDEFAULT);
-				return;
 			case GitLabPackage.BRANCH__IS_PROTECTED:
 				setIsProtected(IS_PROTECTED_EDEFAULT);
 				return;
@@ -456,8 +404,6 @@ public class BranchImpl extends MinimalEObjectImpl.Container implements Branch {
 				return DEVELOPERS_CAN_PUSH_EDEFAULT == null ? getDevelopersCanPush() != null : !DEVELOPERS_CAN_PUSH_EDEFAULT.equals(getDevelopersCanPush());
 			case GitLabPackage.BRANCH__MERGED:
 				return MERGED_EDEFAULT == null ? getMerged() != null : !MERGED_EDEFAULT.equals(getMerged());
-			case GitLabPackage.BRANCH__NAME:
-				return NAME_EDEFAULT == null ? getName() != null : !NAME_EDEFAULT.equals(getName());
 			case GitLabPackage.BRANCH__IS_PROTECTED:
 				return IS_PROTECTED_EDEFAULT == null ? getIsProtected() != null : !IS_PROTECTED_EDEFAULT.equals(getIsProtected());
 			case GitLabPackage.BRANCH__IS_DEFAULT:

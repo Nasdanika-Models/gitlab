@@ -77,6 +77,7 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gitlab.ecore#//Group/jobArtifactsSize"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference gitlab.ecore#//Group/subGroups"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference gitlab.ecore#//Group/members"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference gitlab.ecore#//Group/codeOwnership"/>
     </genClasses>
     <genClasses ecoreClass="gitlab.ecore#//Member">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference gitlab.ecore#//Member/user"/>
@@ -99,6 +100,7 @@
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference gitlab.ecore#//User/owns"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference gitlab.ecore#//User/createdProjects"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference gitlab.ecore#//User/contributions"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference gitlab.ecore#//User/codeOwnership"/>
     </genClasses>
     <genClasses ecoreClass="gitlab.ecore#//Project">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gitlab.ecore#//Project/approvalsBeforeMerge"/>
@@ -211,7 +213,6 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gitlab.ecore#//Branch/developersCanMerge"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gitlab.ecore#//Branch/developersCanPush"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gitlab.ecore#//Branch/merged"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gitlab.ecore#//Branch/name"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gitlab.ecore#//Branch/isProtected"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gitlab.ecore#//Branch/isDefault"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gitlab.ecore#//Branch/canPush"/>
@@ -220,5 +221,57 @@
     <genClasses ecoreClass="gitlab.ecore#//Owner">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference gitlab.ecore#//Owner/user"/>
     </genClasses>
+    <genClasses ecoreClass="gitlab.ecore#//TreeItem">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gitlab.ecore#//TreeItem/id"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gitlab.ecore#//TreeItem/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gitlab.ecore#//TreeItem/path"/>
+    </genClasses>
+    <genClasses ecoreClass="gitlab.ecore#//Tree">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference gitlab.ecore#//Tree/treeItems"/>
+    </genClasses>
+    <genClasses ecoreClass="gitlab.ecore#//Blob"/>
+    <genClasses image="false" ecoreClass="gitlab.ecore#//RepositoryFile">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gitlab.ecore#//RepositoryFile/size"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gitlab.ecore#//RepositoryFile/ref"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gitlab.ecore#//RepositoryFile/commitId"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gitlab.ecore#//RepositoryFile/lastCommitId"/>
+    </genClasses>
+    <genClasses ecoreClass="gitlab.ecore#//TextRepositoryFile">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gitlab.ecore#//TextRepositoryFile/content"/>
+    </genClasses>
+    <genClasses ecoreClass="gitlab.ecore#//BinaryRepositoryFile">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gitlab.ecore#//BinaryRepositoryFile/content"/>
+    </genClasses>
+    <genClasses ecoreClass="gitlab.ecore#//EObjectRepositoryFile">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference gitlab.ecore#//EObjectRepositoryFile/content"/>
+    </genClasses>
+    <genClasses ecoreClass="gitlab.ecore#//ListRepositoryFile">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference gitlab.ecore#//ListRepositoryFile/content"/>
+    </genClasses>
+    <nestedGenPackages prefix="Codeowners" disposableProviderFactory="true" ecorePackage="gitlab.ecore#//codeowners">
+      <genClasses ecoreClass="gitlab.ecore#//codeowners/CodeOwner">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gitlab.ecore#//codeowners/CodeOwner/id"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference gitlab.ecore#//codeowners/CodeOwner/user"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference gitlab.ecore#//codeowners/CodeOwner/group"/>
+      </genClasses>
+      <genClasses ecoreClass="gitlab.ecore#//codeowners/Entry">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gitlab.ecore#//codeowners/Entry/pattern"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference gitlab.ecore#//codeowners/Entry/codeOwners"/>
+      </genClasses>
+      <genClasses ecoreClass="gitlab.ecore#//codeowners/DefaultSection">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gitlab.ecore#//codeowners/DefaultSection/approvers"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference gitlab.ecore#//codeowners/DefaultSection/codeOwners"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference gitlab.ecore#//codeowners/DefaultSection/entries"/>
+      </genClasses>
+      <genClasses ecoreClass="gitlab.ecore#//codeowners/Section">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gitlab.ecore#//codeowners/Section/name"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gitlab.ecore#//codeowners/Section/optional"/>
+      </genClasses>
+      <genClasses ecoreClass="gitlab.ecore#//codeowners/CodeOwners">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference gitlab.ecore#//codeowners/CodeOwners/sections"/>
+      </genClasses>
+    </nestedGenPackages>
   </genPackages>
 </genmodel:GenModel>

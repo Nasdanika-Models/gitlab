@@ -3,6 +3,7 @@
 package org.nasdanika.models.gitlab;
 
 import org.eclipse.emf.common.util.EList;
+import org.nasdanika.models.gitlab.codeowners.CodeOwner;
 
 /**
  * <!-- begin-user-doc -->
@@ -18,6 +19,7 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link org.nasdanika.models.gitlab.User#getOwns <em>Owns</em>}</li>
  *   <li>{@link org.nasdanika.models.gitlab.User#getCreatedProjects <em>Created Projects</em>}</li>
  *   <li>{@link org.nasdanika.models.gitlab.User#getContributions <em>Contributions</em>}</li>
+ *   <li>{@link org.nasdanika.models.gitlab.User#getCodeOwnership <em>Code Ownership</em>}</li>
  * </ul>
  *
  * @see org.nasdanika.models.gitlab.GitLabPackage#getUser()
@@ -92,5 +94,19 @@ public interface User extends AbstractUser {
 	 * @generated
 	 */
 	EList<Contributor> getContributions();
+
+	/**
+	 * Returns the value of the '<em><b>Code Ownership</b></em>' reference list.
+	 * The list contents are of type {@link org.nasdanika.models.gitlab.codeowners.CodeOwner}.
+	 * It is bidirectional and its opposite is '{@link org.nasdanika.models.gitlab.codeowners.CodeOwner#getUser <em>User</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Code Ownership</em>' reference list.
+	 * @see org.nasdanika.models.gitlab.GitLabPackage#getUser_CodeOwnership()
+	 * @see org.nasdanika.models.gitlab.codeowners.CodeOwner#getUser
+	 * @model opposite="user"
+	 * @generated
+	 */
+	EList<CodeOwner> getCodeOwnership();
 
 } // User

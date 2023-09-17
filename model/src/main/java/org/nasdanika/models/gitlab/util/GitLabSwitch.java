@@ -139,6 +139,8 @@ public class GitLabSwitch<T> extends Switch<T> {
 			case GitLabPackage.BRANCH: {
 				Branch branch = (Branch)theEObject;
 				T result = caseBranch(branch);
+				if (result == null) result = caseTree(branch);
+				if (result == null) result = caseTreeItem(branch);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -146,6 +148,70 @@ public class GitLabSwitch<T> extends Switch<T> {
 				Owner owner = (Owner)theEObject;
 				T result = caseOwner(owner);
 				if (result == null) result = caseAbstractUser(owner);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case GitLabPackage.TREE_ITEM: {
+				TreeItem treeItem = (TreeItem)theEObject;
+				T result = caseTreeItem(treeItem);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case GitLabPackage.TREE: {
+				Tree tree = (Tree)theEObject;
+				T result = caseTree(tree);
+				if (result == null) result = caseTreeItem(tree);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case GitLabPackage.BLOB: {
+				Blob blob = (Blob)theEObject;
+				T result = caseBlob(blob);
+				if (result == null) result = caseTreeItem(blob);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case GitLabPackage.REPOSITORY_FILE: {
+				RepositoryFile repositoryFile = (RepositoryFile)theEObject;
+				T result = caseRepositoryFile(repositoryFile);
+				if (result == null) result = caseBlob(repositoryFile);
+				if (result == null) result = caseTreeItem(repositoryFile);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case GitLabPackage.TEXT_REPOSITORY_FILE: {
+				TextRepositoryFile textRepositoryFile = (TextRepositoryFile)theEObject;
+				T result = caseTextRepositoryFile(textRepositoryFile);
+				if (result == null) result = caseRepositoryFile(textRepositoryFile);
+				if (result == null) result = caseBlob(textRepositoryFile);
+				if (result == null) result = caseTreeItem(textRepositoryFile);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case GitLabPackage.BINARY_REPOSITORY_FILE: {
+				BinaryRepositoryFile binaryRepositoryFile = (BinaryRepositoryFile)theEObject;
+				T result = caseBinaryRepositoryFile(binaryRepositoryFile);
+				if (result == null) result = caseRepositoryFile(binaryRepositoryFile);
+				if (result == null) result = caseBlob(binaryRepositoryFile);
+				if (result == null) result = caseTreeItem(binaryRepositoryFile);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case GitLabPackage.EOBJECT_REPOSITORY_FILE: {
+				EObjectRepositoryFile eObjectRepositoryFile = (EObjectRepositoryFile)theEObject;
+				T result = caseEObjectRepositoryFile(eObjectRepositoryFile);
+				if (result == null) result = caseRepositoryFile(eObjectRepositoryFile);
+				if (result == null) result = caseBlob(eObjectRepositoryFile);
+				if (result == null) result = caseTreeItem(eObjectRepositoryFile);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case GitLabPackage.LIST_REPOSITORY_FILE: {
+				ListRepositoryFile listRepositoryFile = (ListRepositoryFile)theEObject;
+				T result = caseListRepositoryFile(listRepositoryFile);
+				if (result == null) result = caseRepositoryFile(listRepositoryFile);
+				if (result == null) result = caseBlob(listRepositoryFile);
+				if (result == null) result = caseTreeItem(listRepositoryFile);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -345,6 +411,126 @@ public class GitLabSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseOwner(Owner object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Tree Item</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Tree Item</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseTreeItem(TreeItem object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Tree</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Tree</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseTree(Tree object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Blob</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Blob</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseBlob(Blob object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Repository File</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Repository File</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseRepositoryFile(RepositoryFile object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Text Repository File</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Text Repository File</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseTextRepositoryFile(TextRepositoryFile object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Binary Repository File</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Binary Repository File</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseBinaryRepositoryFile(BinaryRepositoryFile object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>EObject Repository File</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>EObject Repository File</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseEObjectRepositoryFile(EObjectRepositoryFile object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>List Repository File</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>List Repository File</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseListRepositoryFile(ListRepositoryFile object) {
 		return null;
 	}
 

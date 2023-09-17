@@ -17,6 +17,7 @@ import org.nasdanika.models.gitlab.Member;
 import org.nasdanika.models.gitlab.Owner;
 import org.nasdanika.models.gitlab.Project;
 import org.nasdanika.models.gitlab.User;
+import org.nasdanika.models.gitlab.codeowners.CodeOwner;
 
 /**
  * <!-- begin-user-doc -->
@@ -31,6 +32,7 @@ import org.nasdanika.models.gitlab.User;
  *   <li>{@link org.nasdanika.models.gitlab.impl.UserImpl#getOwns <em>Owns</em>}</li>
  *   <li>{@link org.nasdanika.models.gitlab.impl.UserImpl#getCreatedProjects <em>Created Projects</em>}</li>
  *   <li>{@link org.nasdanika.models.gitlab.impl.UserImpl#getContributions <em>Contributions</em>}</li>
+ *   <li>{@link org.nasdanika.models.gitlab.impl.UserImpl#getCodeOwnership <em>Code Ownership</em>}</li>
  * </ul>
  *
  * @generated
@@ -117,6 +119,17 @@ public class UserImpl extends AbstractUserImpl implements User {
 	 */
 	@SuppressWarnings("unchecked")
 	@Override
+	public EList<CodeOwner> getCodeOwnership() {
+		return (EList<CodeOwner>)eDynamicGet(GitLabPackage.USER__CODE_OWNERSHIP, GitLabPackage.Literals.USER__CODE_OWNERSHIP, true, true);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@SuppressWarnings("unchecked")
+	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case GitLabPackage.USER__MEMBERSHIP:
@@ -127,6 +140,8 @@ public class UserImpl extends AbstractUserImpl implements User {
 				return ((InternalEList<InternalEObject>)(InternalEList<?>)getCreatedProjects()).basicAdd(otherEnd, msgs);
 			case GitLabPackage.USER__CONTRIBUTIONS:
 				return ((InternalEList<InternalEObject>)(InternalEList<?>)getContributions()).basicAdd(otherEnd, msgs);
+			case GitLabPackage.USER__CODE_OWNERSHIP:
+				return ((InternalEList<InternalEObject>)(InternalEList<?>)getCodeOwnership()).basicAdd(otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
@@ -149,6 +164,8 @@ public class UserImpl extends AbstractUserImpl implements User {
 				return ((InternalEList<?>)getCreatedProjects()).basicRemove(otherEnd, msgs);
 			case GitLabPackage.USER__CONTRIBUTIONS:
 				return ((InternalEList<?>)getContributions()).basicRemove(otherEnd, msgs);
+			case GitLabPackage.USER__CODE_OWNERSHIP:
+				return ((InternalEList<?>)getCodeOwnership()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -171,6 +188,8 @@ public class UserImpl extends AbstractUserImpl implements User {
 				return getCreatedProjects();
 			case GitLabPackage.USER__CONTRIBUTIONS:
 				return getContributions();
+			case GitLabPackage.USER__CODE_OWNERSHIP:
+				return getCodeOwnership();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -204,6 +223,10 @@ public class UserImpl extends AbstractUserImpl implements User {
 				getContributions().clear();
 				getContributions().addAll((Collection<? extends Contributor>)newValue);
 				return;
+			case GitLabPackage.USER__CODE_OWNERSHIP:
+				getCodeOwnership().clear();
+				getCodeOwnership().addAll((Collection<? extends CodeOwner>)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -231,6 +254,9 @@ public class UserImpl extends AbstractUserImpl implements User {
 			case GitLabPackage.USER__CONTRIBUTIONS:
 				getContributions().clear();
 				return;
+			case GitLabPackage.USER__CODE_OWNERSHIP:
+				getCodeOwnership().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -253,6 +279,8 @@ public class UserImpl extends AbstractUserImpl implements User {
 				return !getCreatedProjects().isEmpty();
 			case GitLabPackage.USER__CONTRIBUTIONS:
 				return !getContributions().isEmpty();
+			case GitLabPackage.USER__CODE_OWNERSHIP:
+				return !getCodeOwnership().isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

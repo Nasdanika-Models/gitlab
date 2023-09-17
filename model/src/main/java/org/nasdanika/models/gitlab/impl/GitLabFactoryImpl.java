@@ -70,6 +70,14 @@ public class GitLabFactoryImpl extends EFactoryImpl implements GitLabFactory {
 			case GitLabPackage.CUSTOM_ATTRIBUTE: return (EObject)createCustomAttribute();
 			case GitLabPackage.BRANCH: return createBranch();
 			case GitLabPackage.OWNER: return createOwner();
+			case GitLabPackage.TREE_ITEM: return createTreeItem();
+			case GitLabPackage.TREE: return createTree();
+			case GitLabPackage.BLOB: return createBlob();
+			case GitLabPackage.REPOSITORY_FILE: return createRepositoryFile();
+			case GitLabPackage.TEXT_REPOSITORY_FILE: return createTextRepositoryFile();
+			case GitLabPackage.BINARY_REPOSITORY_FILE: return createBinaryRepositoryFile();
+			case GitLabPackage.EOBJECT_REPOSITORY_FILE: return createEObjectRepositoryFile();
+			case GitLabPackage.LIST_REPOSITORY_FILE: return createListRepositoryFile();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -258,6 +266,94 @@ public class GitLabFactoryImpl extends EFactoryImpl implements GitLabFactory {
 	public Owner createOwner() {
 		OwnerImpl owner = new OwnerImpl();
 		return owner;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public TreeItem createTreeItem() {
+		TreeItemImpl treeItem = new TreeItemImpl();
+		return treeItem;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Tree createTree() {
+		TreeImpl tree = new TreeImpl();
+		return tree;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Blob createBlob() {
+		BlobImpl blob = new BlobImpl();
+		return blob;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public RepositoryFile createRepositoryFile() {
+		RepositoryFileImpl repositoryFile = new RepositoryFileImpl();
+		return repositoryFile;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public TextRepositoryFile createTextRepositoryFile() {
+		TextRepositoryFileImpl textRepositoryFile = new TextRepositoryFileImpl();
+		return textRepositoryFile;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public BinaryRepositoryFile createBinaryRepositoryFile() {
+		BinaryRepositoryFileImpl binaryRepositoryFile = new BinaryRepositoryFileImpl();
+		return binaryRepositoryFile;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EObjectRepositoryFile createEObjectRepositoryFile() {
+		EObjectRepositoryFileImpl eObjectRepositoryFile = new EObjectRepositoryFileImpl();
+		return eObjectRepositoryFile;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public ListRepositoryFile createListRepositoryFile() {
+		ListRepositoryFileImpl listRepositoryFile = new ListRepositoryFileImpl();
+		return listRepositoryFile;
 	}
 
 	/**

@@ -5,6 +5,7 @@ package org.nasdanika.models.gitlab;
 import java.util.Date;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
+import org.nasdanika.models.gitlab.codeowners.CodeOwner;
 
 /**
  * <!-- begin-user-doc -->
@@ -34,6 +35,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link org.nasdanika.models.gitlab.Group#getJobArtifactsSize <em>Job Artifacts Size</em>}</li>
  *   <li>{@link org.nasdanika.models.gitlab.Group#getSubGroups <em>Sub Groups</em>}</li>
  *   <li>{@link org.nasdanika.models.gitlab.Group#getMembers <em>Members</em>}</li>
+ *   <li>{@link org.nasdanika.models.gitlab.Group#getCodeOwnership <em>Code Ownership</em>}</li>
  * </ul>
  *
  * @see org.nasdanika.models.gitlab.GitLabPackage#getGroup()
@@ -424,4 +426,18 @@ public interface Group extends EObject {
 	 * @generated
 	 */
 	EList<Member> getMembers();
+
+	/**
+	 * Returns the value of the '<em><b>Code Ownership</b></em>' reference list.
+	 * The list contents are of type {@link org.nasdanika.models.gitlab.codeowners.CodeOwner}.
+	 * It is bidirectional and its opposite is '{@link org.nasdanika.models.gitlab.codeowners.CodeOwner#getGroup <em>Group</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Code Ownership</em>' reference list.
+	 * @see org.nasdanika.models.gitlab.GitLabPackage#getGroup_CodeOwnership()
+	 * @see org.nasdanika.models.gitlab.codeowners.CodeOwner#getGroup
+	 * @model opposite="group"
+	 * @generated
+	 */
+	EList<CodeOwner> getCodeOwnership();
 } // Group

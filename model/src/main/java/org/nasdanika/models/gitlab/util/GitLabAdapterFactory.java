@@ -121,6 +121,38 @@ public class GitLabAdapterFactory extends AdapterFactoryImpl {
 				return createOwnerAdapter();
 			}
 			@Override
+			public Adapter caseTreeItem(TreeItem object) {
+				return createTreeItemAdapter();
+			}
+			@Override
+			public Adapter caseTree(Tree object) {
+				return createTreeAdapter();
+			}
+			@Override
+			public Adapter caseBlob(Blob object) {
+				return createBlobAdapter();
+			}
+			@Override
+			public Adapter caseRepositoryFile(RepositoryFile object) {
+				return createRepositoryFileAdapter();
+			}
+			@Override
+			public Adapter caseTextRepositoryFile(TextRepositoryFile object) {
+				return createTextRepositoryFileAdapter();
+			}
+			@Override
+			public Adapter caseBinaryRepositoryFile(BinaryRepositoryFile object) {
+				return createBinaryRepositoryFileAdapter();
+			}
+			@Override
+			public Adapter caseEObjectRepositoryFile(EObjectRepositoryFile object) {
+				return createEObjectRepositoryFileAdapter();
+			}
+			@Override
+			public Adapter caseListRepositoryFile(ListRepositoryFile object) {
+				return createListRepositoryFileAdapter();
+			}
+			@Override
 			public Adapter defaultCase(EObject object) {
 				return createEObjectAdapter();
 			}
@@ -319,6 +351,118 @@ public class GitLabAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createOwnerAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.nasdanika.models.gitlab.TreeItem <em>Tree Item</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.nasdanika.models.gitlab.TreeItem
+	 * @generated
+	 */
+	public Adapter createTreeItemAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.nasdanika.models.gitlab.Tree <em>Tree</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.nasdanika.models.gitlab.Tree
+	 * @generated
+	 */
+	public Adapter createTreeAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.nasdanika.models.gitlab.Blob <em>Blob</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.nasdanika.models.gitlab.Blob
+	 * @generated
+	 */
+	public Adapter createBlobAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.nasdanika.models.gitlab.RepositoryFile <em>Repository File</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.nasdanika.models.gitlab.RepositoryFile
+	 * @generated
+	 */
+	public Adapter createRepositoryFileAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.nasdanika.models.gitlab.TextRepositoryFile <em>Text Repository File</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.nasdanika.models.gitlab.TextRepositoryFile
+	 * @generated
+	 */
+	public Adapter createTextRepositoryFileAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.nasdanika.models.gitlab.BinaryRepositoryFile <em>Binary Repository File</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.nasdanika.models.gitlab.BinaryRepositoryFile
+	 * @generated
+	 */
+	public Adapter createBinaryRepositoryFileAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.nasdanika.models.gitlab.EObjectRepositoryFile <em>EObject Repository File</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.nasdanika.models.gitlab.EObjectRepositoryFile
+	 * @generated
+	 */
+	public Adapter createEObjectRepositoryFileAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.nasdanika.models.gitlab.ListRepositoryFile <em>List Repository File</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.nasdanika.models.gitlab.ListRepositoryFile
+	 * @generated
+	 */
+	public Adapter createListRepositoryFileAdapter() {
 		return null;
 	}
 

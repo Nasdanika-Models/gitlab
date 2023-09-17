@@ -121,6 +121,78 @@ public interface GitLabFactory extends EFactory {
 	Owner createOwner();
 
 	/**
+	 * Returns a new object of class '<em>Tree Item</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Tree Item</em>'.
+	 * @generated
+	 */
+	TreeItem createTreeItem();
+
+	/**
+	 * Returns a new object of class '<em>Tree</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Tree</em>'.
+	 * @generated
+	 */
+	Tree createTree();
+
+	/**
+	 * Returns a new object of class '<em>Blob</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Blob</em>'.
+	 * @generated
+	 */
+	Blob createBlob();
+
+	/**
+	 * Returns a new object of class '<em>Repository File</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Repository File</em>'.
+	 * @generated
+	 */
+	RepositoryFile createRepositoryFile();
+
+	/**
+	 * Returns a new object of class '<em>Text Repository File</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Text Repository File</em>'.
+	 * @generated
+	 */
+	TextRepositoryFile createTextRepositoryFile();
+
+	/**
+	 * Returns a new object of class '<em>Binary Repository File</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Binary Repository File</em>'.
+	 * @generated
+	 */
+	BinaryRepositoryFile createBinaryRepositoryFile();
+
+	/**
+	 * Returns a new object of class '<em>EObject Repository File</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>EObject Repository File</em>'.
+	 * @generated
+	 */
+	EObjectRepositoryFile createEObjectRepositoryFile();
+
+	/**
+	 * Returns a new object of class '<em>List Repository File</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>List Repository File</em>'.
+	 * @generated
+	 */
+	ListRepositoryFile createListRepositoryFile();
+
+	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

@@ -294,13 +294,22 @@ public interface GitLabPackage extends EPackage {
 	int GROUP__MEMBERS = 18;
 
 	/**
+	 * The feature id for the '<em><b>Code Ownership</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GROUP__CODE_OWNERSHIP = 19;
+
+	/**
 	 * The number of structural features of the '<em>Group</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int GROUP_FEATURE_COUNT = 19;
+	int GROUP_FEATURE_COUNT = 20;
 
 	/**
 	 * The number of operations of the '<em>Group</em>' class.
@@ -667,13 +676,22 @@ public interface GitLabPackage extends EPackage {
 	int USER__CONTRIBUTIONS = ABSTRACT_USER_FEATURE_COUNT + 4;
 
 	/**
+	 * The feature id for the '<em><b>Code Ownership</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int USER__CODE_OWNERSHIP = ABSTRACT_USER_FEATURE_COUNT + 5;
+
+	/**
 	 * The number of structural features of the '<em>User</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int USER_FEATURE_COUNT = ABSTRACT_USER_FEATURE_COUNT + 5;
+	int USER_FEATURE_COUNT = ABSTRACT_USER_FEATURE_COUNT + 6;
 
 	/**
 	 * The number of operations of the '<em>User</em>' class.
@@ -1771,6 +1789,125 @@ public interface GitLabPackage extends EPackage {
 	int CUSTOM_ATTRIBUTE_OPERATION_COUNT = 0;
 
 	/**
+	 * The meta object id for the '{@link org.nasdanika.models.gitlab.impl.TreeItemImpl <em>Tree Item</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.nasdanika.models.gitlab.impl.TreeItemImpl
+	 * @see org.nasdanika.models.gitlab.impl.GitLabPackageImpl#getTreeItem()
+	 * @generated
+	 */
+	int TREE_ITEM = 13;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TREE_ITEM__ID = 0;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TREE_ITEM__NAME = 1;
+
+	/**
+	 * The feature id for the '<em><b>Path</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TREE_ITEM__PATH = 2;
+
+	/**
+	 * The number of structural features of the '<em>Tree Item</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TREE_ITEM_FEATURE_COUNT = 3;
+
+	/**
+	 * The number of operations of the '<em>Tree Item</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TREE_ITEM_OPERATION_COUNT = 0;
+
+	/**
+	 * The meta object id for the '{@link org.nasdanika.models.gitlab.impl.TreeImpl <em>Tree</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.nasdanika.models.gitlab.impl.TreeImpl
+	 * @see org.nasdanika.models.gitlab.impl.GitLabPackageImpl#getTree()
+	 * @generated
+	 */
+	int TREE = 14;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TREE__ID = TREE_ITEM__ID;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TREE__NAME = TREE_ITEM__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Path</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TREE__PATH = TREE_ITEM__PATH;
+
+	/**
+	 * The feature id for the '<em><b>Tree Items</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TREE__TREE_ITEMS = TREE_ITEM_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Tree</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TREE_FEATURE_COUNT = TREE_ITEM_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of operations of the '<em>Tree</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TREE_OPERATION_COUNT = TREE_ITEM_OPERATION_COUNT + 0;
+
+	/**
 	 * The meta object id for the '{@link org.nasdanika.models.gitlab.impl.BranchImpl <em>Branch</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1781,40 +1918,13 @@ public interface GitLabPackage extends EPackage {
 	int BRANCH = 11;
 
 	/**
-	 * The feature id for the '<em><b>Commit Date</b></em>' attribute.
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int BRANCH__COMMIT_DATE = 0;
-
-	/**
-	 * The feature id for the '<em><b>Developers Can Merge</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int BRANCH__DEVELOPERS_CAN_MERGE = 1;
-
-	/**
-	 * The feature id for the '<em><b>Developers Can Push</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int BRANCH__DEVELOPERS_CAN_PUSH = 2;
-
-	/**
-	 * The feature id for the '<em><b>Merged</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int BRANCH__MERGED = 3;
+	int BRANCH__ID = TREE__ID;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1823,7 +1933,61 @@ public interface GitLabPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int BRANCH__NAME = 4;
+	int BRANCH__NAME = TREE__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Path</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BRANCH__PATH = TREE__PATH;
+
+	/**
+	 * The feature id for the '<em><b>Tree Items</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BRANCH__TREE_ITEMS = TREE__TREE_ITEMS;
+
+	/**
+	 * The feature id for the '<em><b>Commit Date</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BRANCH__COMMIT_DATE = TREE_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Developers Can Merge</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BRANCH__DEVELOPERS_CAN_MERGE = TREE_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Developers Can Push</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BRANCH__DEVELOPERS_CAN_PUSH = TREE_FEATURE_COUNT + 2;
+
+	/**
+	 * The feature id for the '<em><b>Merged</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BRANCH__MERGED = TREE_FEATURE_COUNT + 3;
 
 	/**
 	 * The feature id for the '<em><b>Is Protected</b></em>' attribute.
@@ -1832,7 +1996,7 @@ public interface GitLabPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int BRANCH__IS_PROTECTED = 5;
+	int BRANCH__IS_PROTECTED = TREE_FEATURE_COUNT + 4;
 
 	/**
 	 * The feature id for the '<em><b>Is Default</b></em>' attribute.
@@ -1841,7 +2005,7 @@ public interface GitLabPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int BRANCH__IS_DEFAULT = 6;
+	int BRANCH__IS_DEFAULT = TREE_FEATURE_COUNT + 5;
 
 	/**
 	 * The feature id for the '<em><b>Can Push</b></em>' attribute.
@@ -1850,7 +2014,7 @@ public interface GitLabPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int BRANCH__CAN_PUSH = 7;
+	int BRANCH__CAN_PUSH = TREE_FEATURE_COUNT + 6;
 
 	/**
 	 * The feature id for the '<em><b>Web Url</b></em>' attribute.
@@ -1859,7 +2023,7 @@ public interface GitLabPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int BRANCH__WEB_URL = 8;
+	int BRANCH__WEB_URL = TREE_FEATURE_COUNT + 7;
 
 	/**
 	 * The number of structural features of the '<em>Branch</em>' class.
@@ -1868,7 +2032,7 @@ public interface GitLabPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int BRANCH_FEATURE_COUNT = 9;
+	int BRANCH_FEATURE_COUNT = TREE_FEATURE_COUNT + 8;
 
 	/**
 	 * The number of operations of the '<em>Branch</em>' class.
@@ -1877,7 +2041,7 @@ public interface GitLabPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int BRANCH_OPERATION_COUNT = 0;
+	int BRANCH_OPERATION_COUNT = TREE_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link org.nasdanika.models.gitlab.impl.OwnerImpl <em>Owner</em>}' class.
@@ -1989,6 +2153,552 @@ public interface GitLabPackage extends EPackage {
 	int OWNER_OPERATION_COUNT = ABSTRACT_USER_OPERATION_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link org.nasdanika.models.gitlab.impl.BlobImpl <em>Blob</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.nasdanika.models.gitlab.impl.BlobImpl
+	 * @see org.nasdanika.models.gitlab.impl.GitLabPackageImpl#getBlob()
+	 * @generated
+	 */
+	int BLOB = 15;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BLOB__ID = TREE_ITEM__ID;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BLOB__NAME = TREE_ITEM__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Path</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BLOB__PATH = TREE_ITEM__PATH;
+
+	/**
+	 * The number of structural features of the '<em>Blob</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BLOB_FEATURE_COUNT = TREE_ITEM_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of operations of the '<em>Blob</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BLOB_OPERATION_COUNT = TREE_ITEM_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link org.nasdanika.models.gitlab.impl.RepositoryFileImpl <em>Repository File</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.nasdanika.models.gitlab.impl.RepositoryFileImpl
+	 * @see org.nasdanika.models.gitlab.impl.GitLabPackageImpl#getRepositoryFile()
+	 * @generated
+	 */
+	int REPOSITORY_FILE = 16;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int REPOSITORY_FILE__ID = BLOB__ID;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int REPOSITORY_FILE__NAME = BLOB__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Path</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int REPOSITORY_FILE__PATH = BLOB__PATH;
+
+	/**
+	 * The feature id for the '<em><b>Size</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int REPOSITORY_FILE__SIZE = BLOB_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Ref</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int REPOSITORY_FILE__REF = BLOB_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Commit Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int REPOSITORY_FILE__COMMIT_ID = BLOB_FEATURE_COUNT + 2;
+
+	/**
+	 * The feature id for the '<em><b>Last Commit Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int REPOSITORY_FILE__LAST_COMMIT_ID = BLOB_FEATURE_COUNT + 3;
+
+	/**
+	 * The number of structural features of the '<em>Repository File</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int REPOSITORY_FILE_FEATURE_COUNT = BLOB_FEATURE_COUNT + 4;
+
+	/**
+	 * The number of operations of the '<em>Repository File</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int REPOSITORY_FILE_OPERATION_COUNT = BLOB_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link org.nasdanika.models.gitlab.impl.TextRepositoryFileImpl <em>Text Repository File</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.nasdanika.models.gitlab.impl.TextRepositoryFileImpl
+	 * @see org.nasdanika.models.gitlab.impl.GitLabPackageImpl#getTextRepositoryFile()
+	 * @generated
+	 */
+	int TEXT_REPOSITORY_FILE = 17;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEXT_REPOSITORY_FILE__ID = REPOSITORY_FILE__ID;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEXT_REPOSITORY_FILE__NAME = REPOSITORY_FILE__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Path</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEXT_REPOSITORY_FILE__PATH = REPOSITORY_FILE__PATH;
+
+	/**
+	 * The feature id for the '<em><b>Size</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEXT_REPOSITORY_FILE__SIZE = REPOSITORY_FILE__SIZE;
+
+	/**
+	 * The feature id for the '<em><b>Ref</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEXT_REPOSITORY_FILE__REF = REPOSITORY_FILE__REF;
+
+	/**
+	 * The feature id for the '<em><b>Commit Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEXT_REPOSITORY_FILE__COMMIT_ID = REPOSITORY_FILE__COMMIT_ID;
+
+	/**
+	 * The feature id for the '<em><b>Last Commit Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEXT_REPOSITORY_FILE__LAST_COMMIT_ID = REPOSITORY_FILE__LAST_COMMIT_ID;
+
+	/**
+	 * The feature id for the '<em><b>Content</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEXT_REPOSITORY_FILE__CONTENT = REPOSITORY_FILE_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Text Repository File</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEXT_REPOSITORY_FILE_FEATURE_COUNT = REPOSITORY_FILE_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of operations of the '<em>Text Repository File</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEXT_REPOSITORY_FILE_OPERATION_COUNT = REPOSITORY_FILE_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link org.nasdanika.models.gitlab.impl.BinaryRepositoryFileImpl <em>Binary Repository File</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.nasdanika.models.gitlab.impl.BinaryRepositoryFileImpl
+	 * @see org.nasdanika.models.gitlab.impl.GitLabPackageImpl#getBinaryRepositoryFile()
+	 * @generated
+	 */
+	int BINARY_REPOSITORY_FILE = 18;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BINARY_REPOSITORY_FILE__ID = REPOSITORY_FILE__ID;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BINARY_REPOSITORY_FILE__NAME = REPOSITORY_FILE__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Path</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BINARY_REPOSITORY_FILE__PATH = REPOSITORY_FILE__PATH;
+
+	/**
+	 * The feature id for the '<em><b>Size</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BINARY_REPOSITORY_FILE__SIZE = REPOSITORY_FILE__SIZE;
+
+	/**
+	 * The feature id for the '<em><b>Ref</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BINARY_REPOSITORY_FILE__REF = REPOSITORY_FILE__REF;
+
+	/**
+	 * The feature id for the '<em><b>Commit Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BINARY_REPOSITORY_FILE__COMMIT_ID = REPOSITORY_FILE__COMMIT_ID;
+
+	/**
+	 * The feature id for the '<em><b>Last Commit Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BINARY_REPOSITORY_FILE__LAST_COMMIT_ID = REPOSITORY_FILE__LAST_COMMIT_ID;
+
+	/**
+	 * The feature id for the '<em><b>Content</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BINARY_REPOSITORY_FILE__CONTENT = REPOSITORY_FILE_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Binary Repository File</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BINARY_REPOSITORY_FILE_FEATURE_COUNT = REPOSITORY_FILE_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of operations of the '<em>Binary Repository File</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BINARY_REPOSITORY_FILE_OPERATION_COUNT = REPOSITORY_FILE_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link org.nasdanika.models.gitlab.impl.EObjectRepositoryFileImpl <em>EObject Repository File</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.nasdanika.models.gitlab.impl.EObjectRepositoryFileImpl
+	 * @see org.nasdanika.models.gitlab.impl.GitLabPackageImpl#getEObjectRepositoryFile()
+	 * @generated
+	 */
+	int EOBJECT_REPOSITORY_FILE = 19;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EOBJECT_REPOSITORY_FILE__ID = REPOSITORY_FILE__ID;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EOBJECT_REPOSITORY_FILE__NAME = REPOSITORY_FILE__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Path</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EOBJECT_REPOSITORY_FILE__PATH = REPOSITORY_FILE__PATH;
+
+	/**
+	 * The feature id for the '<em><b>Size</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EOBJECT_REPOSITORY_FILE__SIZE = REPOSITORY_FILE__SIZE;
+
+	/**
+	 * The feature id for the '<em><b>Ref</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EOBJECT_REPOSITORY_FILE__REF = REPOSITORY_FILE__REF;
+
+	/**
+	 * The feature id for the '<em><b>Commit Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EOBJECT_REPOSITORY_FILE__COMMIT_ID = REPOSITORY_FILE__COMMIT_ID;
+
+	/**
+	 * The feature id for the '<em><b>Last Commit Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EOBJECT_REPOSITORY_FILE__LAST_COMMIT_ID = REPOSITORY_FILE__LAST_COMMIT_ID;
+
+	/**
+	 * The feature id for the '<em><b>Content</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EOBJECT_REPOSITORY_FILE__CONTENT = REPOSITORY_FILE_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>EObject Repository File</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EOBJECT_REPOSITORY_FILE_FEATURE_COUNT = REPOSITORY_FILE_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of operations of the '<em>EObject Repository File</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EOBJECT_REPOSITORY_FILE_OPERATION_COUNT = REPOSITORY_FILE_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link org.nasdanika.models.gitlab.impl.ListRepositoryFileImpl <em>List Repository File</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.nasdanika.models.gitlab.impl.ListRepositoryFileImpl
+	 * @see org.nasdanika.models.gitlab.impl.GitLabPackageImpl#getListRepositoryFile()
+	 * @generated
+	 */
+	int LIST_REPOSITORY_FILE = 20;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LIST_REPOSITORY_FILE__ID = REPOSITORY_FILE__ID;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LIST_REPOSITORY_FILE__NAME = REPOSITORY_FILE__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Path</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LIST_REPOSITORY_FILE__PATH = REPOSITORY_FILE__PATH;
+
+	/**
+	 * The feature id for the '<em><b>Size</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LIST_REPOSITORY_FILE__SIZE = REPOSITORY_FILE__SIZE;
+
+	/**
+	 * The feature id for the '<em><b>Ref</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LIST_REPOSITORY_FILE__REF = REPOSITORY_FILE__REF;
+
+	/**
+	 * The feature id for the '<em><b>Commit Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LIST_REPOSITORY_FILE__COMMIT_ID = REPOSITORY_FILE__COMMIT_ID;
+
+	/**
+	 * The feature id for the '<em><b>Last Commit Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LIST_REPOSITORY_FILE__LAST_COMMIT_ID = REPOSITORY_FILE__LAST_COMMIT_ID;
+
+	/**
+	 * The feature id for the '<em><b>Content</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LIST_REPOSITORY_FILE__CONTENT = REPOSITORY_FILE_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>List Repository File</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LIST_REPOSITORY_FILE_FEATURE_COUNT = REPOSITORY_FILE_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of operations of the '<em>List Repository File</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LIST_REPOSITORY_FILE_OPERATION_COUNT = REPOSITORY_FILE_OPERATION_COUNT + 0;
+
+	/**
 	 * The meta object id for the '{@link org.nasdanika.models.gitlab.Visibility <em>Visibility</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1996,7 +2706,7 @@ public interface GitLabPackage extends EPackage {
 	 * @see org.nasdanika.models.gitlab.impl.GitLabPackageImpl#getVisibility()
 	 * @generated
 	 */
-	int VISIBILITY = 13;
+	int VISIBILITY = 21;
 
 
 	/**
@@ -2007,7 +2717,7 @@ public interface GitLabPackage extends EPackage {
 	 * @see org.nasdanika.models.gitlab.impl.GitLabPackageImpl#getAccessLevel()
 	 * @generated
 	 */
-	int ACCESS_LEVEL = 14;
+	int ACCESS_LEVEL = 22;
 
 
 	/**
@@ -2018,7 +2728,7 @@ public interface GitLabPackage extends EPackage {
 	 * @see org.nasdanika.models.gitlab.impl.GitLabPackageImpl#getMergeMethod()
 	 * @generated
 	 */
-	int MERGE_METHOD = 15;
+	int MERGE_METHOD = 23;
 
 	/**
 	 * The meta object id for the '{@link org.nasdanika.models.gitlab.BuildGitStrategy <em>Build Git Strategy</em>}' enum.
@@ -2028,7 +2738,7 @@ public interface GitLabPackage extends EPackage {
 	 * @see org.nasdanika.models.gitlab.impl.GitLabPackageImpl#getBuildGitStrategy()
 	 * @generated
 	 */
-	int BUILD_GIT_STRATEGY = 16;
+	int BUILD_GIT_STRATEGY = 24;
 
 	/**
 	 * The meta object id for the '{@link org.nasdanika.models.gitlab.Status <em>Status</em>}' enum.
@@ -2038,7 +2748,7 @@ public interface GitLabPackage extends EPackage {
 	 * @see org.nasdanika.models.gitlab.impl.GitLabPackageImpl#getStatus()
 	 * @generated
 	 */
-	int STATUS = 17;
+	int STATUS = 25;
 
 	/**
 	 * The meta object id for the '{@link org.nasdanika.models.gitlab.AutoDevopsDeployStrategy <em>Auto Devops Deploy Strategy</em>}' enum.
@@ -2048,7 +2758,7 @@ public interface GitLabPackage extends EPackage {
 	 * @see org.nasdanika.models.gitlab.impl.GitLabPackageImpl#getAutoDevopsDeployStrategy()
 	 * @generated
 	 */
-	int AUTO_DEVOPS_DEPLOY_STRATEGY = 18;
+	int AUTO_DEVOPS_DEPLOY_STRATEGY = 26;
 
 	/**
 	 * The meta object id for the '{@link org.nasdanika.models.gitlab.SquashOption <em>Squash Option</em>}' enum.
@@ -2058,7 +2768,7 @@ public interface GitLabPackage extends EPackage {
 	 * @see org.nasdanika.models.gitlab.impl.GitLabPackageImpl#getSquashOption()
 	 * @generated
 	 */
-	int SQUASH_OPTION = 19;
+	int SQUASH_OPTION = 27;
 
 
 	/**
@@ -2324,6 +3034,17 @@ public interface GitLabPackage extends EPackage {
 	EReference getGroup_Members();
 
 	/**
+	 * Returns the meta object for the reference list '{@link org.nasdanika.models.gitlab.Group#getCodeOwnership <em>Code Ownership</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Code Ownership</em>'.
+	 * @see org.nasdanika.models.gitlab.Group#getCodeOwnership()
+	 * @see #getGroup()
+	 * @generated
+	 */
+	EReference getGroup_CodeOwnership();
+
+	/**
 	 * Returns the meta object for class '{@link org.nasdanika.models.gitlab.Member <em>Member</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2528,6 +3249,17 @@ public interface GitLabPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getUser_Contributions();
+
+	/**
+	 * Returns the meta object for the reference list '{@link org.nasdanika.models.gitlab.User#getCodeOwnership <em>Code Ownership</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Code Ownership</em>'.
+	 * @see org.nasdanika.models.gitlab.User#getCodeOwnership()
+	 * @see #getUser()
+	 * @generated
+	 */
+	EReference getUser_CodeOwnership();
 
 	/**
 	 * Returns the meta object for class '{@link org.nasdanika.models.gitlab.Project <em>Project</em>}'.
@@ -3680,17 +4412,6 @@ public interface GitLabPackage extends EPackage {
 	EAttribute getBranch_Merged();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.nasdanika.models.gitlab.Branch#getName <em>Name</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Name</em>'.
-	 * @see org.nasdanika.models.gitlab.Branch#getName()
-	 * @see #getBranch()
-	 * @generated
-	 */
-	EAttribute getBranch_Name();
-
-	/**
 	 * Returns the meta object for the attribute '{@link org.nasdanika.models.gitlab.Branch#getIsProtected <em>Is Protected</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3754,6 +4475,218 @@ public interface GitLabPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getOwner_User();
+
+	/**
+	 * Returns the meta object for class '{@link org.nasdanika.models.gitlab.TreeItem <em>Tree Item</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Tree Item</em>'.
+	 * @see org.nasdanika.models.gitlab.TreeItem
+	 * @generated
+	 */
+	EClass getTreeItem();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.models.gitlab.TreeItem#getId <em>Id</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Id</em>'.
+	 * @see org.nasdanika.models.gitlab.TreeItem#getId()
+	 * @see #getTreeItem()
+	 * @generated
+	 */
+	EAttribute getTreeItem_Id();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.models.gitlab.TreeItem#getName <em>Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Name</em>'.
+	 * @see org.nasdanika.models.gitlab.TreeItem#getName()
+	 * @see #getTreeItem()
+	 * @generated
+	 */
+	EAttribute getTreeItem_Name();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.models.gitlab.TreeItem#getPath <em>Path</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Path</em>'.
+	 * @see org.nasdanika.models.gitlab.TreeItem#getPath()
+	 * @see #getTreeItem()
+	 * @generated
+	 */
+	EAttribute getTreeItem_Path();
+
+	/**
+	 * Returns the meta object for class '{@link org.nasdanika.models.gitlab.Tree <em>Tree</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Tree</em>'.
+	 * @see org.nasdanika.models.gitlab.Tree
+	 * @generated
+	 */
+	EClass getTree();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link org.nasdanika.models.gitlab.Tree#getTreeItems <em>Tree Items</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Tree Items</em>'.
+	 * @see org.nasdanika.models.gitlab.Tree#getTreeItems()
+	 * @see #getTree()
+	 * @generated
+	 */
+	EReference getTree_TreeItems();
+
+	/**
+	 * Returns the meta object for class '{@link org.nasdanika.models.gitlab.Blob <em>Blob</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Blob</em>'.
+	 * @see org.nasdanika.models.gitlab.Blob
+	 * @generated
+	 */
+	EClass getBlob();
+
+	/**
+	 * Returns the meta object for class '{@link org.nasdanika.models.gitlab.RepositoryFile <em>Repository File</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Repository File</em>'.
+	 * @see org.nasdanika.models.gitlab.RepositoryFile
+	 * @generated
+	 */
+	EClass getRepositoryFile();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.models.gitlab.RepositoryFile#getSize <em>Size</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Size</em>'.
+	 * @see org.nasdanika.models.gitlab.RepositoryFile#getSize()
+	 * @see #getRepositoryFile()
+	 * @generated
+	 */
+	EAttribute getRepositoryFile_Size();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.models.gitlab.RepositoryFile#getRef <em>Ref</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Ref</em>'.
+	 * @see org.nasdanika.models.gitlab.RepositoryFile#getRef()
+	 * @see #getRepositoryFile()
+	 * @generated
+	 */
+	EAttribute getRepositoryFile_Ref();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.models.gitlab.RepositoryFile#getCommitId <em>Commit Id</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Commit Id</em>'.
+	 * @see org.nasdanika.models.gitlab.RepositoryFile#getCommitId()
+	 * @see #getRepositoryFile()
+	 * @generated
+	 */
+	EAttribute getRepositoryFile_CommitId();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.models.gitlab.RepositoryFile#getLastCommitId <em>Last Commit Id</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Last Commit Id</em>'.
+	 * @see org.nasdanika.models.gitlab.RepositoryFile#getLastCommitId()
+	 * @see #getRepositoryFile()
+	 * @generated
+	 */
+	EAttribute getRepositoryFile_LastCommitId();
+
+	/**
+	 * Returns the meta object for class '{@link org.nasdanika.models.gitlab.TextRepositoryFile <em>Text Repository File</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Text Repository File</em>'.
+	 * @see org.nasdanika.models.gitlab.TextRepositoryFile
+	 * @generated
+	 */
+	EClass getTextRepositoryFile();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.models.gitlab.TextRepositoryFile#getContent <em>Content</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Content</em>'.
+	 * @see org.nasdanika.models.gitlab.TextRepositoryFile#getContent()
+	 * @see #getTextRepositoryFile()
+	 * @generated
+	 */
+	EAttribute getTextRepositoryFile_Content();
+
+	/**
+	 * Returns the meta object for class '{@link org.nasdanika.models.gitlab.BinaryRepositoryFile <em>Binary Repository File</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Binary Repository File</em>'.
+	 * @see org.nasdanika.models.gitlab.BinaryRepositoryFile
+	 * @generated
+	 */
+	EClass getBinaryRepositoryFile();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.models.gitlab.BinaryRepositoryFile#getContent <em>Content</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Content</em>'.
+	 * @see org.nasdanika.models.gitlab.BinaryRepositoryFile#getContent()
+	 * @see #getBinaryRepositoryFile()
+	 * @generated
+	 */
+	EAttribute getBinaryRepositoryFile_Content();
+
+	/**
+	 * Returns the meta object for class '{@link org.nasdanika.models.gitlab.EObjectRepositoryFile <em>EObject Repository File</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>EObject Repository File</em>'.
+	 * @see org.nasdanika.models.gitlab.EObjectRepositoryFile
+	 * @generated
+	 */
+	EClass getEObjectRepositoryFile();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link org.nasdanika.models.gitlab.EObjectRepositoryFile#getContent <em>Content</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Content</em>'.
+	 * @see org.nasdanika.models.gitlab.EObjectRepositoryFile#getContent()
+	 * @see #getEObjectRepositoryFile()
+	 * @generated
+	 */
+	EReference getEObjectRepositoryFile_Content();
+
+	/**
+	 * Returns the meta object for class '{@link org.nasdanika.models.gitlab.ListRepositoryFile <em>List Repository File</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>List Repository File</em>'.
+	 * @see org.nasdanika.models.gitlab.ListRepositoryFile
+	 * @generated
+	 */
+	EClass getListRepositoryFile();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link org.nasdanika.models.gitlab.ListRepositoryFile#getContent <em>Content</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Content</em>'.
+	 * @see org.nasdanika.models.gitlab.ListRepositoryFile#getContent()
+	 * @see #getListRepositoryFile()
+	 * @generated
+	 */
+	EReference getListRepositoryFile_Content();
 
 	/**
 	 * Returns the meta object for enum '{@link org.nasdanika.models.gitlab.Visibility <em>Visibility</em>}'.
@@ -4021,6 +4954,13 @@ public interface GitLabPackage extends EPackage {
 		 */
 		EReference GROUP__MEMBERS = eINSTANCE.getGroup_Members();
 		/**
+		 * The meta object literal for the '<em><b>Code Ownership</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference GROUP__CODE_OWNERSHIP = eINSTANCE.getGroup_CodeOwnership();
+		/**
 		 * The meta object literal for the '{@link org.nasdanika.models.gitlab.impl.MemberImpl <em>Member</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -4159,6 +5099,13 @@ public interface GitLabPackage extends EPackage {
 		 * @generated
 		 */
 		EReference USER__CONTRIBUTIONS = eINSTANCE.getUser_Contributions();
+		/**
+		 * The meta object literal for the '<em><b>Code Ownership</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference USER__CODE_OWNERSHIP = eINSTANCE.getUser_CodeOwnership();
 		/**
 		 * The meta object literal for the '{@link org.nasdanika.models.gitlab.impl.ProjectImpl <em>Project</em>}' class.
 		 * <!-- begin-user-doc -->
@@ -4909,13 +5856,6 @@ public interface GitLabPackage extends EPackage {
 		 */
 		EAttribute BRANCH__MERGED = eINSTANCE.getBranch_Merged();
 		/**
-		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute BRANCH__NAME = eINSTANCE.getBranch_Name();
-		/**
 		 * The meta object literal for the '<em><b>Is Protected</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -4959,6 +5899,162 @@ public interface GitLabPackage extends EPackage {
 		 * @generated
 		 */
 		EReference OWNER__USER = eINSTANCE.getOwner_User();
+		/**
+		 * The meta object literal for the '{@link org.nasdanika.models.gitlab.impl.TreeItemImpl <em>Tree Item</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.nasdanika.models.gitlab.impl.TreeItemImpl
+		 * @see org.nasdanika.models.gitlab.impl.GitLabPackageImpl#getTreeItem()
+		 * @generated
+		 */
+		EClass TREE_ITEM = eINSTANCE.getTreeItem();
+		/**
+		 * The meta object literal for the '<em><b>Id</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute TREE_ITEM__ID = eINSTANCE.getTreeItem_Id();
+		/**
+		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute TREE_ITEM__NAME = eINSTANCE.getTreeItem_Name();
+		/**
+		 * The meta object literal for the '<em><b>Path</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute TREE_ITEM__PATH = eINSTANCE.getTreeItem_Path();
+		/**
+		 * The meta object literal for the '{@link org.nasdanika.models.gitlab.impl.TreeImpl <em>Tree</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.nasdanika.models.gitlab.impl.TreeImpl
+		 * @see org.nasdanika.models.gitlab.impl.GitLabPackageImpl#getTree()
+		 * @generated
+		 */
+		EClass TREE = eINSTANCE.getTree();
+		/**
+		 * The meta object literal for the '<em><b>Tree Items</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference TREE__TREE_ITEMS = eINSTANCE.getTree_TreeItems();
+		/**
+		 * The meta object literal for the '{@link org.nasdanika.models.gitlab.impl.BlobImpl <em>Blob</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.nasdanika.models.gitlab.impl.BlobImpl
+		 * @see org.nasdanika.models.gitlab.impl.GitLabPackageImpl#getBlob()
+		 * @generated
+		 */
+		EClass BLOB = eINSTANCE.getBlob();
+		/**
+		 * The meta object literal for the '{@link org.nasdanika.models.gitlab.impl.RepositoryFileImpl <em>Repository File</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.nasdanika.models.gitlab.impl.RepositoryFileImpl
+		 * @see org.nasdanika.models.gitlab.impl.GitLabPackageImpl#getRepositoryFile()
+		 * @generated
+		 */
+		EClass REPOSITORY_FILE = eINSTANCE.getRepositoryFile();
+		/**
+		 * The meta object literal for the '<em><b>Size</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute REPOSITORY_FILE__SIZE = eINSTANCE.getRepositoryFile_Size();
+		/**
+		 * The meta object literal for the '<em><b>Ref</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute REPOSITORY_FILE__REF = eINSTANCE.getRepositoryFile_Ref();
+		/**
+		 * The meta object literal for the '<em><b>Commit Id</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute REPOSITORY_FILE__COMMIT_ID = eINSTANCE.getRepositoryFile_CommitId();
+		/**
+		 * The meta object literal for the '<em><b>Last Commit Id</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute REPOSITORY_FILE__LAST_COMMIT_ID = eINSTANCE.getRepositoryFile_LastCommitId();
+		/**
+		 * The meta object literal for the '{@link org.nasdanika.models.gitlab.impl.TextRepositoryFileImpl <em>Text Repository File</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.nasdanika.models.gitlab.impl.TextRepositoryFileImpl
+		 * @see org.nasdanika.models.gitlab.impl.GitLabPackageImpl#getTextRepositoryFile()
+		 * @generated
+		 */
+		EClass TEXT_REPOSITORY_FILE = eINSTANCE.getTextRepositoryFile();
+		/**
+		 * The meta object literal for the '<em><b>Content</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute TEXT_REPOSITORY_FILE__CONTENT = eINSTANCE.getTextRepositoryFile_Content();
+		/**
+		 * The meta object literal for the '{@link org.nasdanika.models.gitlab.impl.BinaryRepositoryFileImpl <em>Binary Repository File</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.nasdanika.models.gitlab.impl.BinaryRepositoryFileImpl
+		 * @see org.nasdanika.models.gitlab.impl.GitLabPackageImpl#getBinaryRepositoryFile()
+		 * @generated
+		 */
+		EClass BINARY_REPOSITORY_FILE = eINSTANCE.getBinaryRepositoryFile();
+		/**
+		 * The meta object literal for the '<em><b>Content</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute BINARY_REPOSITORY_FILE__CONTENT = eINSTANCE.getBinaryRepositoryFile_Content();
+		/**
+		 * The meta object literal for the '{@link org.nasdanika.models.gitlab.impl.EObjectRepositoryFileImpl <em>EObject Repository File</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.nasdanika.models.gitlab.impl.EObjectRepositoryFileImpl
+		 * @see org.nasdanika.models.gitlab.impl.GitLabPackageImpl#getEObjectRepositoryFile()
+		 * @generated
+		 */
+		EClass EOBJECT_REPOSITORY_FILE = eINSTANCE.getEObjectRepositoryFile();
+		/**
+		 * The meta object literal for the '<em><b>Content</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference EOBJECT_REPOSITORY_FILE__CONTENT = eINSTANCE.getEObjectRepositoryFile_Content();
+		/**
+		 * The meta object literal for the '{@link org.nasdanika.models.gitlab.impl.ListRepositoryFileImpl <em>List Repository File</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.nasdanika.models.gitlab.impl.ListRepositoryFileImpl
+		 * @see org.nasdanika.models.gitlab.impl.GitLabPackageImpl#getListRepositoryFile()
+		 * @generated
+		 */
+		EClass LIST_REPOSITORY_FILE = eINSTANCE.getListRepositoryFile();
+		/**
+		 * The meta object literal for the '<em><b>Content</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference LIST_REPOSITORY_FILE__CONTENT = eINSTANCE.getListRepositoryFile_Content();
 		/**
 		 * The meta object literal for the '{@link org.nasdanika.models.gitlab.Visibility <em>Visibility</em>}' enum.
 		 * <!-- begin-user-doc -->

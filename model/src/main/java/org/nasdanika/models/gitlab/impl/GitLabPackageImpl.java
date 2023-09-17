@@ -14,13 +14,17 @@ import org.eclipse.emf.ecore.impl.EPackageImpl;
 import org.nasdanika.models.gitlab.AbstractUser;
 import org.nasdanika.models.gitlab.AccessLevel;
 import org.nasdanika.models.gitlab.AutoDevopsDeployStrategy;
+import org.nasdanika.models.gitlab.BinaryRepositoryFile;
+import org.nasdanika.models.gitlab.Blob;
 import org.nasdanika.models.gitlab.Branch;
 import org.nasdanika.models.gitlab.BuildGitStrategy;
 import org.nasdanika.models.gitlab.Contributor;
+import org.nasdanika.models.gitlab.EObjectRepositoryFile;
 import org.nasdanika.models.gitlab.GitLab;
 import org.nasdanika.models.gitlab.GitLabFactory;
 import org.nasdanika.models.gitlab.GitLabPackage;
 import org.nasdanika.models.gitlab.Group;
+import org.nasdanika.models.gitlab.ListRepositoryFile;
 import org.nasdanika.models.gitlab.Member;
 import org.nasdanika.models.gitlab.MergeMethod;
 import org.nasdanika.models.gitlab.Owner;
@@ -28,10 +32,16 @@ import org.nasdanika.models.gitlab.Project;
 import org.nasdanika.models.gitlab.ProjectAccess;
 import org.nasdanika.models.gitlab.ProjectLicense;
 import org.nasdanika.models.gitlab.ProjectStatistics;
+import org.nasdanika.models.gitlab.RepositoryFile;
 import org.nasdanika.models.gitlab.SquashOption;
 import org.nasdanika.models.gitlab.Status;
+import org.nasdanika.models.gitlab.TextRepositoryFile;
+import org.nasdanika.models.gitlab.Tree;
+import org.nasdanika.models.gitlab.TreeItem;
 import org.nasdanika.models.gitlab.User;
 import org.nasdanika.models.gitlab.Visibility;
+import org.nasdanika.models.gitlab.codeowners.CodeownersPackage;
+import org.nasdanika.models.gitlab.codeowners.impl.CodeownersPackageImpl;
 
 /**
  * <!-- begin-user-doc -->
@@ -124,6 +134,54 @@ public class GitLabPackageImpl extends EPackageImpl implements GitLabPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	private EClass treeItemEClass = null;
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass treeEClass = null;
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass blobEClass = null;
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass repositoryFileEClass = null;
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass textRepositoryFileEClass = null;
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass binaryRepositoryFileEClass = null;
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass eObjectRepositoryFileEClass = null;
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass listRepositoryFileEClass = null;
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	private EEnum visibilityEEnum = null;
 
 	/**
@@ -210,11 +268,17 @@ public class GitLabPackageImpl extends EPackageImpl implements GitLabPackage {
 
 		isInited = true;
 
+		// Obtain or create and register interdependencies
+		Object registeredPackage = EPackage.Registry.INSTANCE.getEPackage(CodeownersPackage.eNS_URI);
+		CodeownersPackageImpl theCodeownersPackage = (CodeownersPackageImpl)(registeredPackage instanceof CodeownersPackageImpl ? registeredPackage : CodeownersPackage.eINSTANCE);
+
 		// Create package meta-data objects
 		theGitLabPackage.createPackageContents();
+		theCodeownersPackage.createPackageContents();
 
 		// Initialize created meta-data
 		theGitLabPackage.initializePackageContents();
+		theCodeownersPackage.initializePackageContents();
 
 		// Mark meta-data to indicate it can't be changed
 		theGitLabPackage.freeze();
@@ -470,6 +534,16 @@ public class GitLabPackageImpl extends EPackageImpl implements GitLabPackage {
 	 * @generated
 	 */
 	@Override
+	public EReference getGroup_CodeOwnership() {
+		return (EReference)groupEClass.getEStructuralFeatures().get(19);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EClass getMember() {
 		return memberEClass;
 	}
@@ -652,6 +726,16 @@ public class GitLabPackageImpl extends EPackageImpl implements GitLabPackage {
 	@Override
 	public EReference getUser_Contributions() {
 		return (EReference)userEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getUser_CodeOwnership() {
+		return (EReference)userEClass.getEStructuralFeatures().get(5);
 	}
 
 	/**
@@ -1710,7 +1794,7 @@ public class GitLabPackageImpl extends EPackageImpl implements GitLabPackage {
 	 * @generated
 	 */
 	@Override
-	public EAttribute getBranch_Name() {
+	public EAttribute getBranch_IsProtected() {
 		return (EAttribute)branchEClass.getEStructuralFeatures().get(4);
 	}
 
@@ -1720,7 +1804,7 @@ public class GitLabPackageImpl extends EPackageImpl implements GitLabPackage {
 	 * @generated
 	 */
 	@Override
-	public EAttribute getBranch_IsProtected() {
+	public EAttribute getBranch_IsDefault() {
 		return (EAttribute)branchEClass.getEStructuralFeatures().get(5);
 	}
 
@@ -1730,7 +1814,7 @@ public class GitLabPackageImpl extends EPackageImpl implements GitLabPackage {
 	 * @generated
 	 */
 	@Override
-	public EAttribute getBranch_IsDefault() {
+	public EAttribute getBranch_CanPush() {
 		return (EAttribute)branchEClass.getEStructuralFeatures().get(6);
 	}
 
@@ -1740,18 +1824,8 @@ public class GitLabPackageImpl extends EPackageImpl implements GitLabPackage {
 	 * @generated
 	 */
 	@Override
-	public EAttribute getBranch_CanPush() {
-		return (EAttribute)branchEClass.getEStructuralFeatures().get(7);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public EAttribute getBranch_WebUrl() {
-		return (EAttribute)branchEClass.getEStructuralFeatures().get(8);
+		return (EAttribute)branchEClass.getEStructuralFeatures().get(7);
 	}
 
 	/**
@@ -1772,6 +1846,206 @@ public class GitLabPackageImpl extends EPackageImpl implements GitLabPackage {
 	@Override
 	public EReference getOwner_User() {
 		return (EReference)ownerEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EClass getTreeItem() {
+		return treeItemEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getTreeItem_Id() {
+		return (EAttribute)treeItemEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getTreeItem_Name() {
+		return (EAttribute)treeItemEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getTreeItem_Path() {
+		return (EAttribute)treeItemEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EClass getTree() {
+		return treeEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getTree_TreeItems() {
+		return (EReference)treeEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EClass getBlob() {
+		return blobEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EClass getRepositoryFile() {
+		return repositoryFileEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getRepositoryFile_Size() {
+		return (EAttribute)repositoryFileEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getRepositoryFile_Ref() {
+		return (EAttribute)repositoryFileEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getRepositoryFile_CommitId() {
+		return (EAttribute)repositoryFileEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getRepositoryFile_LastCommitId() {
+		return (EAttribute)repositoryFileEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EClass getTextRepositoryFile() {
+		return textRepositoryFileEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getTextRepositoryFile_Content() {
+		return (EAttribute)textRepositoryFileEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EClass getBinaryRepositoryFile() {
+		return binaryRepositoryFileEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getBinaryRepositoryFile_Content() {
+		return (EAttribute)binaryRepositoryFileEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EClass getEObjectRepositoryFile() {
+		return eObjectRepositoryFileEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getEObjectRepositoryFile_Content() {
+		return (EReference)eObjectRepositoryFileEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EClass getListRepositoryFile() {
+		return listRepositoryFileEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getListRepositoryFile_Content() {
+		return (EReference)listRepositoryFileEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -1898,6 +2172,7 @@ public class GitLabPackageImpl extends EPackageImpl implements GitLabPackage {
 		createEAttribute(groupEClass, GROUP__JOB_ARTIFACTS_SIZE);
 		createEReference(groupEClass, GROUP__SUB_GROUPS);
 		createEReference(groupEClass, GROUP__MEMBERS);
+		createEReference(groupEClass, GROUP__CODE_OWNERSHIP);
 
 		memberEClass = createEClass(MEMBER);
 		createEReference(memberEClass, MEMBER__USER);
@@ -1920,6 +2195,7 @@ public class GitLabPackageImpl extends EPackageImpl implements GitLabPackage {
 		createEReference(userEClass, USER__OWNS);
 		createEReference(userEClass, USER__CREATED_PROJECTS);
 		createEReference(userEClass, USER__CONTRIBUTIONS);
+		createEReference(userEClass, USER__CODE_OWNERSHIP);
 
 		projectEClass = createEClass(PROJECT);
 		createEAttribute(projectEClass, PROJECT__APPROVALS_BEFORE_MERGE);
@@ -2032,7 +2308,6 @@ public class GitLabPackageImpl extends EPackageImpl implements GitLabPackage {
 		createEAttribute(branchEClass, BRANCH__DEVELOPERS_CAN_MERGE);
 		createEAttribute(branchEClass, BRANCH__DEVELOPERS_CAN_PUSH);
 		createEAttribute(branchEClass, BRANCH__MERGED);
-		createEAttribute(branchEClass, BRANCH__NAME);
 		createEAttribute(branchEClass, BRANCH__IS_PROTECTED);
 		createEAttribute(branchEClass, BRANCH__IS_DEFAULT);
 		createEAttribute(branchEClass, BRANCH__CAN_PUSH);
@@ -2040,6 +2315,34 @@ public class GitLabPackageImpl extends EPackageImpl implements GitLabPackage {
 
 		ownerEClass = createEClass(OWNER);
 		createEReference(ownerEClass, OWNER__USER);
+
+		treeItemEClass = createEClass(TREE_ITEM);
+		createEAttribute(treeItemEClass, TREE_ITEM__ID);
+		createEAttribute(treeItemEClass, TREE_ITEM__NAME);
+		createEAttribute(treeItemEClass, TREE_ITEM__PATH);
+
+		treeEClass = createEClass(TREE);
+		createEReference(treeEClass, TREE__TREE_ITEMS);
+
+		blobEClass = createEClass(BLOB);
+
+		repositoryFileEClass = createEClass(REPOSITORY_FILE);
+		createEAttribute(repositoryFileEClass, REPOSITORY_FILE__SIZE);
+		createEAttribute(repositoryFileEClass, REPOSITORY_FILE__REF);
+		createEAttribute(repositoryFileEClass, REPOSITORY_FILE__COMMIT_ID);
+		createEAttribute(repositoryFileEClass, REPOSITORY_FILE__LAST_COMMIT_ID);
+
+		textRepositoryFileEClass = createEClass(TEXT_REPOSITORY_FILE);
+		createEAttribute(textRepositoryFileEClass, TEXT_REPOSITORY_FILE__CONTENT);
+
+		binaryRepositoryFileEClass = createEClass(BINARY_REPOSITORY_FILE);
+		createEAttribute(binaryRepositoryFileEClass, BINARY_REPOSITORY_FILE__CONTENT);
+
+		eObjectRepositoryFileEClass = createEClass(EOBJECT_REPOSITORY_FILE);
+		createEReference(eObjectRepositoryFileEClass, EOBJECT_REPOSITORY_FILE__CONTENT);
+
+		listRepositoryFileEClass = createEClass(LIST_REPOSITORY_FILE);
+		createEReference(listRepositoryFileEClass, LIST_REPOSITORY_FILE__CONTENT);
 
 		// Create enums
 		visibilityEEnum = createEEnum(VISIBILITY);
@@ -2074,6 +2377,12 @@ public class GitLabPackageImpl extends EPackageImpl implements GitLabPackage {
 		setNsPrefix(eNS_PREFIX);
 		setNsURI(eNS_URI);
 
+		// Obtain other dependent packages
+		CodeownersPackage theCodeownersPackage = (CodeownersPackage)EPackage.Registry.INSTANCE.getEPackage(CodeownersPackage.eNS_URI);
+
+		// Add subpackages
+		getESubpackages().add(theCodeownersPackage);
+
 		// Create type parameters
 
 		// Set bounds for type parameters
@@ -2082,7 +2391,15 @@ public class GitLabPackageImpl extends EPackageImpl implements GitLabPackage {
 		memberEClass.getESuperTypes().add(this.getAbstractUser());
 		userEClass.getESuperTypes().add(this.getAbstractUser());
 		contributorEClass.getESuperTypes().add(this.getAbstractUser());
+		branchEClass.getESuperTypes().add(this.getTree());
 		ownerEClass.getESuperTypes().add(this.getAbstractUser());
+		treeEClass.getESuperTypes().add(this.getTreeItem());
+		blobEClass.getESuperTypes().add(this.getTreeItem());
+		repositoryFileEClass.getESuperTypes().add(this.getBlob());
+		textRepositoryFileEClass.getESuperTypes().add(this.getRepositoryFile());
+		binaryRepositoryFileEClass.getESuperTypes().add(this.getRepositoryFile());
+		eObjectRepositoryFileEClass.getESuperTypes().add(this.getRepositoryFile());
+		listRepositoryFileEClass.getESuperTypes().add(this.getRepositoryFile());
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(gitLabEClass, GitLab.class, "GitLab", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -2114,6 +2431,7 @@ public class GitLabPackageImpl extends EPackageImpl implements GitLabPackage {
 		initEReference(getGroup_SubGroups(), this.getGroup(), null, "subGroups", null, 0, -1, Group.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		getGroup_SubGroups().getEKeys().add(this.getGroup_Id());
 		initEReference(getGroup_Members(), this.getMember(), null, "members", null, 0, -1, Group.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getGroup_CodeOwnership(), theCodeownersPackage.getCodeOwner(), theCodeownersPackage.getCodeOwner_Group(), "codeOwnership", null, 0, -1, Group.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(memberEClass, Member.class, "Member", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getMember_User(), this.getUser(), this.getUser_Membership(), "user", null, 0, 1, Member.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -2138,6 +2456,7 @@ public class GitLabPackageImpl extends EPackageImpl implements GitLabPackage {
 		initEReference(getUser_CreatedProjects(), this.getProject(), this.getProject_Creator(), "createdProjects", null, 0, -1, User.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		getUser_CreatedProjects().getEKeys().add(this.getProject_Id());
 		initEReference(getUser_Contributions(), this.getContributor(), this.getContributor_User(), "contributions", null, 0, -1, User.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getUser_CodeOwnership(), theCodeownersPackage.getCodeOwner(), theCodeownersPackage.getCodeOwner_User(), "codeOwnership", null, 0, -1, User.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(projectEClass, Project.class, "Project", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getProject_ApprovalsBeforeMerge(), ecorePackage.getEIntegerObject(), "approvalsBeforeMerge", null, 0, 1, Project.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -2214,7 +2533,6 @@ public class GitLabPackageImpl extends EPackageImpl implements GitLabPackage {
 		initEAttribute(getProject_SuggestionCommitMessage(), ecorePackage.getEString(), "suggestionCommitMessage", null, 0, 1, Project.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getProject_SquashOption(), this.getSquashOption(), "squashOption", null, 0, 1, Project.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getProject_Branches(), this.getBranch(), null, "branches", null, 0, -1, Project.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		getProject_Branches().getEKeys().add(this.getBranch_Name());
 		initEReference(getProject_Contributors(), this.getContributor(), null, "contributors", null, 0, -1, Project.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getProject_Members(), this.getMember(), null, "members", null, 0, -1, Project.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
@@ -2253,7 +2571,6 @@ public class GitLabPackageImpl extends EPackageImpl implements GitLabPackage {
 		initEAttribute(getBranch_DevelopersCanMerge(), ecorePackage.getEBooleanObject(), "developersCanMerge", null, 0, 1, Branch.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getBranch_DevelopersCanPush(), ecorePackage.getEBooleanObject(), "developersCanPush", null, 0, 1, Branch.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getBranch_Merged(), ecorePackage.getEBooleanObject(), "merged", null, 0, 1, Branch.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getBranch_Name(), ecorePackage.getEString(), "name", null, 0, 1, Branch.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getBranch_IsProtected(), ecorePackage.getEBooleanObject(), "isProtected", null, 0, 1, Branch.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getBranch_IsDefault(), ecorePackage.getEBooleanObject(), "isDefault", null, 0, 1, Branch.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getBranch_CanPush(), ecorePackage.getEBooleanObject(), "canPush", null, 0, 1, Branch.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -2261,6 +2578,35 @@ public class GitLabPackageImpl extends EPackageImpl implements GitLabPackage {
 
 		initEClass(ownerEClass, Owner.class, "Owner", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getOwner_User(), this.getUser(), this.getUser_Owns(), "user", null, 0, 1, Owner.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(treeItemEClass, TreeItem.class, "TreeItem", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getTreeItem_Id(), ecorePackage.getEString(), "id", null, 0, 1, TreeItem.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getTreeItem_Name(), ecorePackage.getEString(), "name", null, 0, 1, TreeItem.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getTreeItem_Path(), ecorePackage.getEString(), "path", null, 0, 1, TreeItem.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(treeEClass, Tree.class, "Tree", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getTree_TreeItems(), this.getTreeItem(), null, "treeItems", null, 0, -1, Tree.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		getTree_TreeItems().getEKeys().add(this.getTreeItem_Name());
+
+		initEClass(blobEClass, Blob.class, "Blob", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(repositoryFileEClass, RepositoryFile.class, "RepositoryFile", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getRepositoryFile_Size(), ecorePackage.getEIntegerObject(), "size", null, 0, 1, RepositoryFile.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getRepositoryFile_Ref(), ecorePackage.getEString(), "ref", null, 0, 1, RepositoryFile.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getRepositoryFile_CommitId(), ecorePackage.getEString(), "commitId", null, 0, 1, RepositoryFile.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getRepositoryFile_LastCommitId(), ecorePackage.getEString(), "lastCommitId", null, 0, 1, RepositoryFile.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(textRepositoryFileEClass, TextRepositoryFile.class, "TextRepositoryFile", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getTextRepositoryFile_Content(), ecorePackage.getEString(), "content", null, 0, 1, TextRepositoryFile.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(binaryRepositoryFileEClass, BinaryRepositoryFile.class, "BinaryRepositoryFile", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getBinaryRepositoryFile_Content(), ecorePackage.getEByteArray(), "content", null, 0, 1, BinaryRepositoryFile.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(eObjectRepositoryFileEClass, EObjectRepositoryFile.class, "EObjectRepositoryFile", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getEObjectRepositoryFile_Content(), ecorePackage.getEObject(), null, "content", null, 0, 1, EObjectRepositoryFile.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(listRepositoryFileEClass, ListRepositoryFile.class, "ListRepositoryFile", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getListRepositoryFile_Content(), ecorePackage.getEObject(), null, "content", null, 0, -1, ListRepositoryFile.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Initialize enums and add enum literals
 		initEEnum(visibilityEEnum, Visibility.class, "Visibility");
@@ -2340,6 +2686,24 @@ public class GitLabPackageImpl extends EPackageImpl implements GitLabPackage {
 		   source,
 		   new String[] {
 			   "documentation", "A reference to a matching user "
+		   });
+		addAnnotation
+		  (repositoryFileEClass,
+		   source,
+		   new String[] {
+			   "documentation", "Base class for repository files with different types of content"
+		   });
+		addAnnotation
+		  (eObjectRepositoryFileEClass,
+		   source,
+		   new String[] {
+			   "documentation", "A repository file with content loaded as EObject. For example, Maven pom.xml file can be loaded as an object representing the file structure."
+		   });
+		addAnnotation
+		  (listRepositoryFileEClass,
+		   source,
+		   new String[] {
+			   "documentation", "Repository file which content gets decoded to a list of objects, e.g. a list of properties - key/value pairs"
 		   });
 	}
 
