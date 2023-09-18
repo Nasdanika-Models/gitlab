@@ -1,0 +1,280 @@
+<!doctype html>
+<html lang="EN">
+  <head>
+    <title>Default Graph</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootswatch/4.5.2/cerulean/bootstrap.min.css" id="nsd-bootstrap-theme-stylesheet">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.min.js"></script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Nasdanika/html@master/model/app.gen/web-resources/css/app.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/jstree@3.3.11/dist/themes/default/style.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@5.1.0/github-markdown.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.3.1/build/styles/default.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-vue@2.21.2/dist/bootstrap-vue.css">
+    <script src="https://cdn.jsdelivr.net/gh/Nasdanika/html@master/model/app.gen/web-resources/js/common.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/Nasdanika/html@master/model/app.gen/web-resources/js/dark-head.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jstree@3.3.11/dist/jstree.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.3.1/build/highlight.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap-vue@2.21.2/dist/bootstrap-vue.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/Nasdanika/html@master/model/app.gen/web-resources/js/components/table.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/Nasdanika-Models/ecore@master/graph/web-resources/components/table.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/echarts/5.4.3/echarts.min.js"></script><!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-9BRJVLK8CC"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-9BRJVLK8CC');
+</script>    
+
+<script src="search-documents.js"></script>
+
+<script src="https://cdn.jsdelivr.net/gh/olivernn/lunr.js@v2.3.9/lunr.js"></script>
+
+<script>
+// Script for full-text search of JsTree
+
+window.nsdJsTreeSearchCallback = function(str, node) { 
+    var sf = new $.vakata.search(str, true, { caseSensitive : false, fuzzy : false }); 
+    if (sf.search(node.text).isMatch) {
+		return true;
+	} 
+    let searchResult = this.search(str); 
+    for (const sr in searchResult) {
+        if (searchResult[sr].ref === node.original['data-nsd-label-uuid']) {
+            return true;
+        } 
+    } 
+    return false; 
+}.bind(lunr(function () {
+			  this.ref('id');
+			  this.field('title');
+			  this.field('content');
+
+			  for (const key in searchDocuments) {
+				  let doc = searchDocuments[key];
+				this.add({
+					id: doc['action-uuid'],
+					title: doc.title,
+					path: doc.path,
+					content: doc.content
+				});  
+			  }
+			}));
+</script>
+</head>
+  <body>
+    <div tabindex="-1" id="nsd_150" class="modal">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-body">Hover mouse over nodes elements to display tooltips.
+Double-click on nodes to navigate go documentation.
+Drag to rearrange.
+</div>
+        </div>
+      </div>
+    </div>
+    <div class="container-fluid nsd-app-container">
+      <div class="row">
+        <div class="col nsd-app-header">
+          <a href="https://github.com/Nasdanika-Models" data-nsd-label-uuid="142792be-1008-4ade-ab2f-0b143dba6bd2" class="nsd-app-header-title">
+            <img src="https://docs.nasdanika.org/images/nasdanika-logo.png" class="nsd-app-label-icon">Nasdanika Models</a>
+          <ul class="nav nsd-app-header-navs">
+            <li class="nav-item">
+              <a href="search.html" data-nsd-label-uuid="57628a68-96ee-449c-8ae4-2bd5884bd67e" class="nav-link"><span class="fas fa-search nsd-app-label-icon"></span>Search</a>
+            </li>
+            <li class="nav-item">
+              <a href="glossary.html" data-nsd-label-uuid="64d82925-c340-47ef-958f-0f53fb2bbf35" class="nav-link"><span class="fas fa-book nsd-app-label-icon"></span>Glossary</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col nsd-app-navbar">
+          <ul class="navbar navbar-light navbar-expand-lg">
+            <a href="index.html" data-nsd-label-uuid="39a860dc-2cc6-4514-a444-529734b7dd8b" class="navbar-brand">
+              <img src="https://cdn.jsdelivr.net/gh/Nasdanika-Models/ecore@master/graph/web-resources/icons/EPackage.gif" class="nsd-app-label-icon">gitlab</a>
+            <button type="button" data-toggle="collapse" data-target="#nsd_141" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler"><span class="navbar-toggler-icon"></span>
+            </button>
+            <div id="nsd_141" class="collapse navbar-collapse">
+              <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                  <a href="classifiers.html" data-nsd-label-uuid="0e3fb151-d1e3-48c6-9b42-4561e657cf71" class="nav-link">Classifiers</a>
+                </li>
+                <li class="nav-item">
+                  <a href="sub-packages.html" data-nsd-label-uuid="4bc77a9d-2941-4dd8-9d0f-b1d8eb73f7c8" class="nav-link">
+                    <img src="https://cdn.jsdelivr.net/gh/Nasdanika-Models/ecore@master/graph/web-resources/icons/EPackage.gif" class="nsd-app-label-icon">Sub-packages</a>
+                </li>
+                <li class="nav-item">
+                  <a href="diagram.html" data-nsd-label-uuid="21c9179d-762a-4cb1-8c4b-fdf49c35efc7" class="nav-link"><span class="fas fa-project-diagram nsd-app-label-icon"></span>Diagram</a>
+                </li>
+                <li class="nav-item">
+                  </li><li data-nsd-label-uuid="ad1aa182-1023-4d69-8968-65d01372f95d" class="dropdown">
+                    <a role="button" data-toggle="dropdown" class="nav-link dropdown-toggle">
+                      <img src="https://img.icons8.com/external-dreamstale-lineal-dreamstale/16/external-diagram-seo-media-dreamstale-lineal-dreamstale.png" class="nsd-app-label-icon">Graphs</a>
+                    <div class="dropdown-menu">
+                      <a href="default-graph.html" data-nsd-label-uuid="e1e41665-913a-43bd-8ab6-15f63874c2c1" class="dropdown-item">Default Graph</a>
+                      <a href="circular-layout-graph.html" data-nsd-label-uuid="001a5479-3f7b-49b1-80d6-1e70dbed0ee5" class="dropdown-item">Circular Graph</a>
+                      <a href="force-layout-graph.html" data-nsd-label-uuid="81863786-4021-4e4a-afe0-21826a3c29b0" class="dropdown-item">Force Graph</a>
+                      <div title="With dependencies and sub-packages" class="dropdown-divider"></div><span data-nsd-label-uuid="0ae70f1b-953e-46ce-aa7f-6f9953bda70a" class="active dropdown-item">Default Graph</span>
+                      <a href="circular-layout-graph-with-dependencies-and-subpackages.html" data-nsd-label-uuid="27f70fb0-059d-4726-8194-1621d3849b8c" class="dropdown-item">Circular Graph</a>
+                      <a href="force-layout-graph-with-dependencies-and-subpackages.html" data-nsd-label-uuid="4ca3ee79-c411-4168-8dcd-850d874823e1" class="dropdown-item">Force Graph</a>
+                    </div>
+                  </li>
+                
+              </ul>
+            </div>
+          </ul>
+        </div>
+      </div>
+      <div class="row nsd-app-content-row">
+        <div class="col nsd-app-navigation-panel">
+          <div class="list-group list-group-flush">
+            <a href="references/eClassifiers/AbstractUser/index.html" data-nsd-label-uuid="8ccc7eab-d876-4ba7-9543-0939e821a41a" class="list-group-item list-group-action">
+              <img src="https://cdn.jsdelivr.net/gh/Nasdanika-Models/ecore@master/graph/web-resources/icons/EClass.gif" class="nsd-app-label-icon"><i>AbstractUser</i></a>
+            <a href="references/eClassifiers/AccessLevel/index.html" data-nsd-label-uuid="aa5bd932-a993-450a-9ad6-d369f9acfbf2" class="list-group-item list-group-action">
+              <img src="https://cdn.jsdelivr.net/gh/Nasdanika-Models/ecore@master/graph/web-resources/icons/EEnum.gif" class="nsd-app-label-icon">AccessLevel</a>
+            <a href="references/eClassifiers/AutoDevopsDeployStrategy/index.html" data-nsd-label-uuid="7a8f116c-f69b-418f-b31f-8feaa14043c7" class="list-group-item list-group-action">
+              <img src="https://cdn.jsdelivr.net/gh/Nasdanika-Models/ecore@master/graph/web-resources/icons/EEnum.gif" class="nsd-app-label-icon">AutoDevopsDeployStrategy</a>
+            <a href="references/eClassifiers/BinaryRepositoryFile/index.html" data-nsd-label-uuid="73537d5c-21b2-43ba-be88-8e4e32a5c806" class="list-group-item list-group-action">
+              <img src="https://cdn.jsdelivr.net/gh/Nasdanika-Models/ecore@master/graph/web-resources/icons/EClass.gif" class="nsd-app-label-icon">BinaryRepositoryFile</a>
+            <a href="references/eClassifiers/Blob/index.html" data-nsd-label-uuid="969f6fc9-652e-4ae2-81d5-c2223c1f7ce3" class="list-group-item list-group-action">
+              <img src="https://cdn.jsdelivr.net/gh/Nasdanika-Models/ecore@master/graph/web-resources/icons/EClass.gif" class="nsd-app-label-icon">Blob</a>
+            <a href="references/eClassifiers/Branch/index.html" data-nsd-label-uuid="f7acc4c3-538a-460f-81a8-df3ab44831ad" class="list-group-item list-group-action">
+              <img src="https://cdn.jsdelivr.net/gh/Nasdanika-Models/ecore@master/graph/web-resources/icons/EClass.gif" class="nsd-app-label-icon">Branch</a>
+            <a href="references/eClassifiers/BuildGitStrategy/index.html" data-nsd-label-uuid="911d94d8-761b-4222-ab00-2eb99d354ae2" class="list-group-item list-group-action">
+              <img src="https://cdn.jsdelivr.net/gh/Nasdanika-Models/ecore@master/graph/web-resources/icons/EEnum.gif" class="nsd-app-label-icon">BuildGitStrategy</a>
+            <a href="references/eClassifiers/Contributor/index.html" data-nsd-label-uuid="ce69aaa9-c846-4b68-b2d8-af65fff5f057" class="list-group-item list-group-action">
+              <img src="https://cdn.jsdelivr.net/gh/Nasdanika-Models/ecore@master/graph/web-resources/icons/EClass.gif" class="nsd-app-label-icon">Contributor</a>
+            <a href="references/eClassifiers/CustomAttribute/index.html" data-nsd-label-uuid="94a9c058-b70c-44a0-9059-fb21bad34090" class="list-group-item list-group-action">
+              <img src="https://cdn.jsdelivr.net/gh/Nasdanika-Models/ecore@master/graph/web-resources/icons/EClass.gif" class="nsd-app-label-icon">CustomAttribute</a>
+            <a href="references/eClassifiers/EObjectRepositoryFile/index.html" title="A repository file with content loaded as EObject. For example, Maven pom.xml file can be loaded as an object representing the file structure." data-nsd-label-uuid="ead9c268-2b54-4dd6-9ad0-72b901c2d7ed" class="list-group-item list-group-action">
+              <img src="https://cdn.jsdelivr.net/gh/Nasdanika-Models/ecore@master/graph/web-resources/icons/EClass.gif" class="nsd-app-label-icon">EObjectRepositoryFile</a>
+            <a href="references/eClassifiers/GitLab/index.html" title="Represents a GitLab host/instance. The root of the GitLab model." data-nsd-label-uuid="6edc9bd8-fac1-4f20-a599-b860deccfef1" class="list-group-item list-group-action">
+              <img src="https://cdn.jsdelivr.net/gh/Nasdanika-Models/ecore@master/graph/web-resources/icons/EClass.gif" class="nsd-app-label-icon">GitLab</a>
+            <a href="references/eClassifiers/Group/index.html" data-nsd-label-uuid="ac4d099e-ed4b-4b8a-8320-d2eb149407c1" class="list-group-item list-group-action">
+              <img src="https://cdn.jsdelivr.net/gh/Nasdanika-Models/ecore@master/graph/web-resources/icons/EClass.gif" class="nsd-app-label-icon">Group</a>
+            <a href="references/eClassifiers/ListRepositoryFile/index.html" title="Repository file which content gets decoded to a list of objects, e.g. a list of properties - key/value pairs" data-nsd-label-uuid="3d65a483-eb15-44b6-a8d8-4779375032fa" class="list-group-item list-group-action">
+              <img src="https://cdn.jsdelivr.net/gh/Nasdanika-Models/ecore@master/graph/web-resources/icons/EClass.gif" class="nsd-app-label-icon">ListRepositoryFile</a>
+            <a href="references/eClassifiers/Member/index.html" data-nsd-label-uuid="ef9e47d4-fbe5-4a60-b4ab-ff556b5572c3" class="list-group-item list-group-action">
+              <img src="https://cdn.jsdelivr.net/gh/Nasdanika-Models/ecore@master/graph/web-resources/icons/EClass.gif" class="nsd-app-label-icon">Member</a>
+            <a href="references/eClassifiers/MergeMethod/index.html" data-nsd-label-uuid="96ed0f88-7ca5-4275-8ecb-6f2eb4180c81" class="list-group-item list-group-action">
+              <img src="https://cdn.jsdelivr.net/gh/Nasdanika-Models/ecore@master/graph/web-resources/icons/EEnum.gif" class="nsd-app-label-icon">MergeMethod</a>
+            <a href="references/eClassifiers/Owner/index.html" data-nsd-label-uuid="2fe2de8b-0b09-41a9-bbf9-2c4e7d2769d0" class="list-group-item list-group-action">
+              <img src="https://cdn.jsdelivr.net/gh/Nasdanika-Models/ecore@master/graph/web-resources/icons/EClass.gif" class="nsd-app-label-icon">Owner</a>
+            <a href="references/eClassifiers/Project/index.html" data-nsd-label-uuid="b62a6f96-36a3-4917-9f3c-b6b1b1408365" class="list-group-item list-group-action">
+              <img src="https://cdn.jsdelivr.net/gh/Nasdanika-Models/ecore@master/graph/web-resources/icons/EClass.gif" class="nsd-app-label-icon">Project</a>
+            <a href="references/eClassifiers/ProjectAccess/index.html" data-nsd-label-uuid="418ce61e-53d7-4d04-8062-2e3d2146c30e" class="list-group-item list-group-action">
+              <img src="https://cdn.jsdelivr.net/gh/Nasdanika-Models/ecore@master/graph/web-resources/icons/EClass.gif" class="nsd-app-label-icon">ProjectAccess</a>
+            <a href="references/eClassifiers/ProjectLicense/index.html" data-nsd-label-uuid="a3a9994a-a4f7-452d-b4f1-436d7720f9d8" class="list-group-item list-group-action">
+              <img src="https://cdn.jsdelivr.net/gh/Nasdanika-Models/ecore@master/graph/web-resources/icons/EClass.gif" class="nsd-app-label-icon">ProjectLicense</a>
+            <a href="references/eClassifiers/ProjectStatistics/index.html" data-nsd-label-uuid="76bdbb11-1825-42f2-9783-536ec6c30543" class="list-group-item list-group-action">
+              <img src="https://cdn.jsdelivr.net/gh/Nasdanika-Models/ecore@master/graph/web-resources/icons/EClass.gif" class="nsd-app-label-icon">ProjectStatistics</a>
+            <a href="references/eClassifiers/RepositoryFile/index.html" title="Base class for repository files with different types of content" data-nsd-label-uuid="e5efe0f9-31d1-4edd-9085-812d98eb1b8b" class="list-group-item list-group-action">
+              <img src="https://cdn.jsdelivr.net/gh/Nasdanika-Models/ecore@master/graph/web-resources/icons/EClass.gif" class="nsd-app-label-icon">RepositoryFile</a>
+            <a href="references/eClassifiers/SquashOption/index.html" data-nsd-label-uuid="2cc13d32-374b-49ae-852e-10c189fa7ff2" class="list-group-item list-group-action">
+              <img src="https://cdn.jsdelivr.net/gh/Nasdanika-Models/ecore@master/graph/web-resources/icons/EEnum.gif" class="nsd-app-label-icon">SquashOption</a>
+            <a href="references/eClassifiers/Status/index.html" data-nsd-label-uuid="c76a92e4-3d36-4a80-a062-88458cd47df3" class="list-group-item list-group-action">
+              <img src="https://cdn.jsdelivr.net/gh/Nasdanika-Models/ecore@master/graph/web-resources/icons/EEnum.gif" class="nsd-app-label-icon">Status</a>
+            <a href="references/eClassifiers/TextRepositoryFile/index.html" data-nsd-label-uuid="1f4ec9df-2eda-4053-b378-88fa179eff4e" class="list-group-item list-group-action">
+              <img src="https://cdn.jsdelivr.net/gh/Nasdanika-Models/ecore@master/graph/web-resources/icons/EClass.gif" class="nsd-app-label-icon">TextRepositoryFile</a>
+            <a href="references/eClassifiers/Tree/index.html" data-nsd-label-uuid="59cfdcb5-663c-4169-9672-169c5b3784c3" class="list-group-item list-group-action">
+              <img src="https://cdn.jsdelivr.net/gh/Nasdanika-Models/ecore@master/graph/web-resources/icons/EClass.gif" class="nsd-app-label-icon">Tree</a>
+            <a href="references/eClassifiers/TreeItem/index.html" data-nsd-label-uuid="ea38525e-b05c-49aa-849a-912972efc99c" class="list-group-item list-group-action">
+              <img src="https://cdn.jsdelivr.net/gh/Nasdanika-Models/ecore@master/graph/web-resources/icons/EClass.gif" class="nsd-app-label-icon">TreeItem</a>
+            <a href="references/eClassifiers/User/index.html" data-nsd-label-uuid="85b7912e-0f8f-46e4-b62d-d9894b1433fc" class="list-group-item list-group-action">
+              <img src="https://cdn.jsdelivr.net/gh/Nasdanika-Models/ecore@master/graph/web-resources/icons/EClass.gif" class="nsd-app-label-icon">User</a>
+            <a href="references/eClassifiers/Visibility/index.html" data-nsd-label-uuid="59935f5a-3f49-4559-bdd5-c6c21c95aa48" class="list-group-item list-group-action">
+              <img src="https://cdn.jsdelivr.net/gh/Nasdanika-Models/ecore@master/graph/web-resources/icons/EEnum.gif" class="nsd-app-label-icon">Visibility</a>
+          </div>
+          <div class="card">
+            <div class="card-header">
+              <a href="references/eSubpackages/codeowners/index.html">
+                <img src="https://cdn.jsdelivr.net/gh/Nasdanika-Models/ecore@master/graph/web-resources/icons/EPackage.gif" class="nsd-app-label-icon">codeowners</a>
+            </div>
+            <div class="list-group list-group-flush">
+              <a href="references/eSubpackages/codeowners/references/eClassifiers/CodeOwner/index.html" data-nsd-label-uuid="a2e9b724-d28e-45ba-a935-d40b7a284f4a" class="list-group-item list-group-action">
+                <img src="https://cdn.jsdelivr.net/gh/Nasdanika-Models/ecore@master/graph/web-resources/icons/EClass.gif" class="nsd-app-label-icon">CodeOwner</a>
+              <a href="references/eSubpackages/codeowners/references/eClassifiers/CodeOwners/index.html" data-nsd-label-uuid="358f5995-a6fb-4933-b7bd-5ed69a9de1e5" class="list-group-item list-group-action">
+                <img src="https://cdn.jsdelivr.net/gh/Nasdanika-Models/ecore@master/graph/web-resources/icons/EClass.gif" class="nsd-app-label-icon">CodeOwners</a>
+              <a href="references/eSubpackages/codeowners/references/eClassifiers/DefaultSection/index.html" data-nsd-label-uuid="a8f53317-2fd3-4e17-9379-6b98692ca30b" class="list-group-item list-group-action">
+                <img src="https://cdn.jsdelivr.net/gh/Nasdanika-Models/ecore@master/graph/web-resources/icons/EInterface.gif" class="nsd-app-label-icon"><i>DefaultSection</i></a>
+              <a href="references/eSubpackages/codeowners/references/eClassifiers/Entry/index.html" data-nsd-label-uuid="4a0fd50e-2d46-44e9-bdfc-e1808c6f18ab" class="list-group-item list-group-action">
+                <img src="https://cdn.jsdelivr.net/gh/Nasdanika-Models/ecore@master/graph/web-resources/icons/EClass.gif" class="nsd-app-label-icon">Entry</a>
+              <a href="references/eSubpackages/codeowners/references/eClassifiers/Section/index.html" data-nsd-label-uuid="2b6cf798-f0da-4cd0-be2c-107c49efb409" class="list-group-item list-group-action">
+                <img src="https://cdn.jsdelivr.net/gh/Nasdanika-Models/ecore@master/graph/web-resources/icons/EClass.gif" class="nsd-app-label-icon">Section</a>
+            </div>
+          </div>
+        </div>
+        <div data-nsd-label-uuid="0ae70f1b-953e-46ce-aa7f-6f9953bda70a" data-nsd-action-uris="uuid:0ae70f1b-953e-46ce-aa7f-6f9953bda70a" class="col nsd-app-content-panel">
+          <div class="container-fluid">
+            <div class="row nsd-app-content-panel-breadcrumb-row">
+              <div class="col">
+                <nav aria-label="breadcrumb" class="nsd-app-content-panel-breadcrumb">
+                  <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><span data-nsd-label-uuid="ad1aa182-1023-4d69-8968-65d01372f95d"><img src="https://img.icons8.com/external-dreamstale-lineal-dreamstale/16/external-diagram-seo-media-dreamstale-lineal-dreamstale.png" class="nsd-app-label-icon">Graphs</span>
+                    </li>
+                    <li class="breadcrumb-item active"><span data-nsd-label-uuid="0ae70f1b-953e-46ce-aa7f-6f9953bda70a">Default Graph</span>
+                    </li>
+                  </ol>
+                </nav>
+              </div>
+            </div>
+            <div class="row nsd-app-content-panel-title-and-items-row">
+              <div class="col-auto">
+                <h1><span data-nsd-label-uuid="0ae70f1b-953e-46ce-aa7f-6f9953bda70a" class="nsd-app-content-panel-title">Default Graph<a data-toggle="modal" data-target="#nsd_150" href="#" title="A fixed force-layout graph of package classifiers showing relationships between them" style="vertical-align:super;font-size:x-small;margin-left:0.2em"><span class="far fa-question-circle nsd-app-label-icon"></span></a></span>
+                </h1>
+              </div>
+            </div>
+            <div class="row nsd-app-content-panel-content-row">
+              <div class="col">
+                <div class="container-fluid">
+                  <div class="row">
+                    <div class="col"><div id="graph-container-88" class="row" style="height:80vh;width:100%">
+</div>
+<script type="text/javascript">
+	$(document).ready(function() {
+		var dom = document.getElementById("graph-container-88");
+		var myChart = echarts.init(dom, null, {
+			render: "canvas",
+			useDirtyRect: false
+		});
+		var option = {"legend":{},"series":[{"type":"graph","emphasis":{"focus":"adjacency"},"data":[{"symbol":"image://https://cdn.jsdelivr.net/gh/Nasdanika-Models/ecore@master/graph/web-resources/icons/EDataType.gif","id":"EString@http://www.eclipse.org/emf/2002/Ecore","name":"EString","value":{"externalLink":"https://ecore.models.nasdanika.org/references/eClassifiers/EString/index.html"},"x":676.0923215801704,"y":440.701606773825,"category":0},{"symbol":"image://https://cdn.jsdelivr.net/gh/Nasdanika-Models/ecore@master/graph/web-resources/icons/EDataType.gif","id":"ELongObject@http://www.eclipse.org/emf/2002/Ecore","name":"ELongObject","value":{"externalLink":"https://ecore.models.nasdanika.org/references/eClassifiers/ELongObject/index.html"},"x":449.6876277593357,"y":305.49129833433346,"category":0},{"symbol":"image://https://cdn.jsdelivr.net/gh/Nasdanika-Models/ecore@master/graph/web-resources/icons/EDataType.gif","id":"EDate@http://www.eclipse.org/emf/2002/Ecore","name":"EDate","value":{"externalLink":"https://ecore.models.nasdanika.org/references/eClassifiers/EDate/index.html"},"x":520.9625515552729,"y":316.2961254914728,"category":0},{"symbol":"image://https://cdn.jsdelivr.net/gh/Nasdanika-Models/ecore@master/graph/web-resources/icons/EClass.gif","id":"AbstractUser@ecore://nasdanika.org/models/gitlab","name":"AbstractUser","value":{"externalLink":"references/eClassifiers/AbstractUser/index.html"},"x":505.365460037771,"y":404.38635729402847,"category":1},{"symbol":"image://https://cdn.jsdelivr.net/gh/Nasdanika-Models/ecore@master/graph/web-resources/icons/EEnum.gif","id":"Visibility@ecore://nasdanika.org/models/gitlab","name":"Visibility","value":{"externalLink":"references/eClassifiers/Visibility/index.html"},"x":504.3220314936838,"y":231.60923996006696,"category":1},{"symbol":"image://https://cdn.jsdelivr.net/gh/Nasdanika-Models/ecore@master/graph/web-resources/icons/EEnum.gif","id":"AccessLevel@ecore://nasdanika.org/models/gitlab","name":"AccessLevel","value":{"externalLink":"references/eClassifiers/AccessLevel/index.html"},"x":300.40411542026123,"y":529.5122404917857,"category":1},{"symbol":"image://https://cdn.jsdelivr.net/gh/Nasdanika-Models/ecore@master/graph/web-resources/icons/EEnum.gif","id":"SquashOption@ecore://nasdanika.org/models/gitlab","name":"SquashOption","value":{"externalLink":"references/eClassifiers/SquashOption/index.html"},"x":317.07856256379597,"y":273.4949168842293,"category":1},{"symbol":"image://https://cdn.jsdelivr.net/gh/Nasdanika-Models/ecore@master/graph/web-resources/icons/EClass.gif","id":"User@ecore://nasdanika.org/models/gitlab","name":"User","value":{"externalLink":"references/eClassifiers/User/index.html"},"x":500.90363546859896,"y":449.90145872496424,"category":1},{"symbol":"image://https://cdn.jsdelivr.net/gh/Nasdanika-Models/ecore@master/graph/web-resources/icons/EClass.gif","id":"Group@ecore://nasdanika.org/models/gitlab","name":"Group","value":{"externalLink":"references/eClassifiers/Group/index.html"},"x":552.3959240298349,"y":357.2599162992469,"category":1},{"symbol":"image://https://cdn.jsdelivr.net/gh/Nasdanika-Models/ecore@master/graph/web-resources/icons/EClass.gif","id":"CodeOwner@ecore://nasdanika.org/models/gitlab/codeowners","name":"CodeOwner","value":{"externalLink":"references/eSubpackages/codeowners/references/eClassifiers/CodeOwner/index.html"},"x":614.8354850036317,"y":498.06001795386936,"category":2},{"symbol":"image://https://cdn.jsdelivr.net/gh/Nasdanika-Models/ecore@master/graph/web-resources/icons/EClass.gif","id":"RepositoryFile@ecore://nasdanika.org/models/gitlab","name":"RepositoryFile","value":{"description":"Base class for repository files with different types of content","externalLink":"references/eClassifiers/RepositoryFile/index.html"},"x":804.7222140517755,"y":617.4151747178962,"category":1},{"symbol":"image://https://cdn.jsdelivr.net/gh/Nasdanika-Models/ecore@master/graph/web-resources/icons/EClass.gif","id":"Section@ecore://nasdanika.org/models/gitlab/codeowners","name":"Section","value":{"externalLink":"references/eSubpackages/codeowners/references/eClassifiers/Section/index.html"},"x":679.8678227731307,"y":613.388863766399,"category":2},{"symbol":"image://https://cdn.jsdelivr.net/gh/Nasdanika-Models/ecore@master/graph/web-resources/icons/EInterface.gif","id":"DefaultSection@ecore://nasdanika.org/models/gitlab/codeowners","name":"DefaultSection","value":{"externalLink":"references/eSubpackages/codeowners/references/eClassifiers/DefaultSection/index.html"},"x":615.005695262836,"y":656.5533697276801,"category":2},{"symbol":"image://https://cdn.jsdelivr.net/gh/Nasdanika-Models/ecore@master/graph/web-resources/icons/EClass.gif","id":"CodeOwners@ecore://nasdanika.org/models/gitlab/codeowners","name":"CodeOwners","value":{"externalLink":"references/eSubpackages/codeowners/references/eClassifiers/CodeOwners/index.html"},"x":730.6630487046099,"y":694.741625143181,"category":2},{"symbol":"image://https://cdn.jsdelivr.net/gh/Nasdanika-Models/ecore@master/graph/web-resources/icons/EClass.gif","id":"TextRepositoryFile@ecore://nasdanika.org/models/gitlab","name":"TextRepositoryFile","value":{"externalLink":"references/eClassifiers/TextRepositoryFile/index.html"},"x":822.5087319990461,"y":512.617043865514,"category":1},{"symbol":"image://https://cdn.jsdelivr.net/gh/Nasdanika-Models/ecore@master/graph/web-resources/icons/EClass.gif","id":"GitLab@ecore://nasdanika.org/models/gitlab","name":"GitLab","value":{"description":"Represents a GitLab host/instance. The root of the GitLab model.","externalLink":"references/eClassifiers/GitLab/index.html"},"x":609.2381758213099,"y":415.49395854127994,"category":1},{"symbol":"image://https://cdn.jsdelivr.net/gh/Nasdanika-Models/ecore@master/graph/web-resources/icons/EClass.gif","id":"Blob@ecore://nasdanika.org/models/gitlab","name":"Blob","value":{"externalLink":"references/eClassifiers/Blob/index.html"},"x":924.9671705392437,"y":505.07140159484544,"category":1},{"symbol":"image://https://cdn.jsdelivr.net/gh/Nasdanika-Models/ecore@master/graph/web-resources/icons/EClass.gif","id":"TreeItem@ecore://nasdanika.org/models/gitlab","name":"TreeItem","value":{"externalLink":"references/eClassifiers/TreeItem/index.html"},"x":851.7520056181494,"y":384.5630769455035,"category":1},{"symbol":"image://https://cdn.jsdelivr.net/gh/Nasdanika-Models/ecore@master/graph/web-resources/icons/EDataType.gif","id":"ELong@http://www.eclipse.org/emf/2002/Ecore","name":"ELong","value":{"externalLink":"https://ecore.models.nasdanika.org/references/eClassifiers/ELong/index.html"},"x":292.43998218320314,"y":0.0,"category":0},{"symbol":"image://https://cdn.jsdelivr.net/gh/Nasdanika-Models/ecore@master/graph/web-resources/icons/EClass.gif","id":"ProjectStatistics@ecore://nasdanika.org/models/gitlab","name":"ProjectStatistics","value":{"externalLink":"references/eClassifiers/ProjectStatistics/index.html"},"x":365.955470119071,"y":140.31447339192061,"category":1},{"symbol":"image://https://cdn.jsdelivr.net/gh/Nasdanika-Models/ecore@master/graph/web-resources/icons/EClass.gif","id":"CustomAttribute@ecore://nasdanika.org/models/gitlab","name":"CustomAttribute","value":{"externalLink":"references/eClassifiers/CustomAttribute/index.html"},"x":651.9332343201417,"y":345.74226519621936,"category":1},{"symbol":"image://https://cdn.jsdelivr.net/gh/Nasdanika-Models/ecore@master/graph/web-resources/icons/EClass.gif","id":"Owner@ecore://nasdanika.org/models/gitlab","name":"Owner","value":{"externalLink":"references/eClassifiers/Owner/index.html"},"x":392.80788227506076,"y":420.24893508767406,"category":1},{"symbol":"image://https://cdn.jsdelivr.net/gh/Nasdanika-Models/ecore@master/graph/web-resources/icons/EDataType.gif","id":"EIntegerObject@http://www.eclipse.org/emf/2002/Ecore","name":"EIntegerObject","value":{"externalLink":"https://ecore.models.nasdanika.org/references/eClassifiers/EIntegerObject/index.html"},"x":612.3755624253567,"y":526.2398848171492,"category":0},{"symbol":"image://https://cdn.jsdelivr.net/gh/Nasdanika-Models/ecore@master/graph/web-resources/icons/EClass.gif","id":"ListRepositoryFile@ecore://nasdanika.org/models/gitlab","name":"ListRepositoryFile","value":{"description":"Repository file which content gets decoded to a list of objects, e.g. a list of properties - key/value pairs","externalLink":"references/eClassifiers/ListRepositoryFile/index.html"},"x":835.9656491844153,"y":752.0746875464104,"category":1},{"symbol":"image://https://cdn.jsdelivr.net/gh/Nasdanika-Models/ecore@master/graph/web-resources/icons/EClass.gif","id":"EObject@http://www.eclipse.org/emf/2002/Ecore","name":"EObject","value":{"externalLink":"https://ecore.models.nasdanika.org/references/eClassifiers/EObject/index.html"},"x":707.91311474988,"y":757.2957597045032,"category":0},{"symbol":"image://https://cdn.jsdelivr.net/gh/Nasdanika-Models/ecore@master/graph/web-resources/icons/EClass.gif","id":"Member@ecore://nasdanika.org/models/gitlab","name":"Member","value":{"externalLink":"references/eClassifiers/Member/index.html"},"x":433.2418723738609,"y":421.7885651502623,"category":1},{"symbol":"image://https://cdn.jsdelivr.net/gh/Nasdanika-Models/ecore@master/graph/web-resources/icons/EClass.gif","id":"ProjectAccess@ecore://nasdanika.org/models/gitlab","name":"ProjectAccess","value":{"externalLink":"references/eClassifiers/ProjectAccess/index.html"},"x":388.851966065795,"y":552.9526426090564,"category":1},{"symbol":"image://https://cdn.jsdelivr.net/gh/Nasdanika-Models/ecore@master/graph/web-resources/icons/EDataType.gif","id":"EInt@http://www.eclipse.org/emf/2002/Ecore","name":"EInt","value":{"externalLink":"https://ecore.models.nasdanika.org/references/eClassifiers/EInt/index.html"},"x":457.617517702026,"y":692.8814013118437,"category":0},{"symbol":"image://https://cdn.jsdelivr.net/gh/Nasdanika-Models/ecore@master/graph/web-resources/icons/EClass.gif","id":"Contributor@ecore://nasdanika.org/models/gitlab","name":"Contributor","value":{"externalLink":"references/eClassifiers/Contributor/index.html"},"x":493.75144704443045,"y":494.5884920952299,"category":1},{"symbol":"image://https://cdn.jsdelivr.net/gh/Nasdanika-Models/ecore@master/graph/web-resources/icons/EClass.gif","id":"Entry@ecore://nasdanika.org/models/gitlab/codeowners","name":"Entry","value":{"externalLink":"references/eSubpackages/codeowners/references/eClassifiers/Entry/index.html"},"x":693.1241904926414,"y":559.2283103907899,"category":2},{"symbol":"image://https://cdn.jsdelivr.net/gh/Nasdanika-Models/ecore@master/graph/web-resources/icons/EDataType.gif","id":"EBooleanObject@http://www.eclipse.org/emf/2002/Ecore","name":"EBooleanObject","value":{"externalLink":"https://ecore.models.nasdanika.org/references/eClassifiers/EBooleanObject/index.html"},"x":573.7044304051171,"y":241.14200365658186,"category":0},{"symbol":"image://https://cdn.jsdelivr.net/gh/Nasdanika-Models/ecore@master/graph/web-resources/icons/EClass.gif","id":"Project@ecore://nasdanika.org/models/gitlab","name":"Project","value":{"externalLink":"references/eClassifiers/Project/index.html"},"x":479.59573606491716,"y":358.76570989182386,"category":1},{"symbol":"image://https://cdn.jsdelivr.net/gh/Nasdanika-Models/ecore@master/graph/web-resources/icons/EClass.gif","id":"ProjectLicense@ecore://nasdanika.org/models/gitlab","name":"ProjectLicense","value":{"externalLink":"references/eClassifiers/ProjectLicense/index.html"},"x":616.354077037063,"y":322.6818883947119,"category":1},{"symbol":"image://https://cdn.jsdelivr.net/gh/Nasdanika-Models/ecore@master/graph/web-resources/icons/EEnum.gif","id":"AutoDevopsDeployStrategy@ecore://nasdanika.org/models/gitlab","name":"AutoDevopsDeployStrategy","value":{"externalLink":"references/eClassifiers/AutoDevopsDeployStrategy/index.html"},"x":425.6624640623931,"y":190.04106802609954,"category":1},{"symbol":"image://https://cdn.jsdelivr.net/gh/Nasdanika-Models/ecore@master/graph/web-resources/icons/EClass.gif","id":"Tree@ecore://nasdanika.org/models/gitlab","name":"Tree","value":{"externalLink":"references/eClassifiers/Tree/index.html"},"x":815.734810098859,"y":259.8260401504102,"category":1},{"symbol":"image://https://cdn.jsdelivr.net/gh/Nasdanika-Models/ecore@master/graph/web-resources/icons/EDataType.gif","id":"EBoolean@http://www.eclipse.org/emf/2002/Ecore","name":"EBoolean","value":{"externalLink":"https://ecore.models.nasdanika.org/references/eClassifiers/EBoolean/index.html"},"x":582.3954182325399,"y":591.7314396903695,"category":0},{"symbol":"image://https://cdn.jsdelivr.net/gh/Nasdanika-Models/ecore@master/graph/web-resources/icons/EClass.gif","id":"Branch@ecore://nasdanika.org/models/gitlab","name":"Branch","value":{"externalLink":"references/eClassifiers/Branch/index.html"},"x":651.2594391982302,"y":287.4363465391519,"category":1},{"symbol":"image://https://cdn.jsdelivr.net/gh/Nasdanika-Models/ecore@master/graph/web-resources/icons/EEnum.gif","id":"BuildGitStrategy@ecore://nasdanika.org/models/gitlab","name":"BuildGitStrategy","value":{"externalLink":"references/eClassifiers/BuildGitStrategy/index.html"},"x":354.7267921932232,"y":229.72135034890974,"category":1},{"symbol":"image://https://cdn.jsdelivr.net/gh/Nasdanika-Models/ecore@master/graph/web-resources/icons/EEnum.gif","id":"Status@ecore://nasdanika.org/models/gitlab","name":"Status","value":{"externalLink":"references/eClassifiers/Status/index.html"},"x":296.75650997701337,"y":384.2944239859863,"category":1},{"symbol":"image://https://cdn.jsdelivr.net/gh/Nasdanika-Models/ecore@master/graph/web-resources/icons/EEnum.gif","id":"MergeMethod@ecore://nasdanika.org/models/gitlab","name":"MergeMethod","value":{"externalLink":"references/eClassifiers/MergeMethod/index.html"},"x":296.61922787337267,"y":324.99884958965293,"category":1},{"symbol":"image://https://cdn.jsdelivr.net/gh/Nasdanika-Models/ecore@master/graph/web-resources/icons/EClass.gif","id":"EObjectRepositoryFile@ecore://nasdanika.org/models/gitlab","name":"EObjectRepositoryFile","value":{"description":"A repository file with content loaded as EObject. For example, Maven pom.xml file can be loaded as an object representing the file structure.","externalLink":"references/eClassifiers/EObjectRepositoryFile/index.html"},"x":803.3188111901931,"y":784.5016306783448,"category":1},{"symbol":"image://https://cdn.jsdelivr.net/gh/Nasdanika-Models/ecore@master/graph/web-resources/icons/EDataType.gif","id":"EByteArray@http://www.eclipse.org/emf/2002/Ecore","name":"EByteArray","value":{"externalLink":"https://ecore.models.nasdanika.org/references/eClassifiers/EByteArray/index.html"},"x":1000.0,"y":800.0,"category":0},{"symbol":"image://https://cdn.jsdelivr.net/gh/Nasdanika-Models/ecore@master/graph/web-resources/icons/EClass.gif","id":"BinaryRepositoryFile@ecore://nasdanika.org/models/gitlab","name":"BinaryRepositoryFile","value":{"externalLink":"references/eClassifiers/BinaryRepositoryFile/index.html"},"x":956.9801668342717,"y":716.4199695181408,"category":1}],"symbolSize":16,"roam":true,"layout":"none","links":[{"source":3,"target":0},{"source":3,"target":1},{"source":3,"target":2},{"source":7,"target":3},{"source":7,"target":9},{"source":7,"target":21},{"source":7,"target":25},{"source":7,"target":28},{"source":7,"target":31},{"source":8,"target":0},{"source":8,"target":1},{"source":8,"target":2},{"source":8,"target":4},{"source":8,"target":9},{"source":8,"target":25},{"source":8,"target":30},{"source":8,"target":31},{"source":9,"target":7},{"source":9,"target":0},{"source":9,"target":8},{"source":10,"target":0},{"source":10,"target":16},{"source":10,"target":22},{"source":11,"target":0},{"source":11,"target":12},{"source":11,"target":35},{"source":12,"target":9},{"source":12,"target":27},{"source":12,"target":29},{"source":13,"target":10},{"source":13,"target":11},{"source":13,"target":12},{"source":14,"target":10},{"source":14,"target":0},{"source":15,"target":7},{"source":15,"target":0},{"source":15,"target":8},{"source":16,"target":17},{"source":17,"target":0},{"source":19,"target":18},{"source":20,"target":0},{"source":21,"target":7},{"source":21,"target":3},{"source":23,"target":10},{"source":23,"target":24},{"source":24,"target":35},{"source":25,"target":7},{"source":25,"target":2},{"source":25,"target":3},{"source":25,"target":5},{"source":26,"target":5},{"source":26,"target":27},{"source":28,"target":7},{"source":28,"target":3},{"source":28,"target":22},{"source":29,"target":0},{"source":29,"target":9},{"source":31,"target":7},{"source":31,"target":20},{"source":31,"target":25},{"source":31,"target":0},{"source":31,"target":1},{"source":31,"target":21},{"source":31,"target":2},{"source":31,"target":30},{"source":31,"target":26},{"source":31,"target":28},{"source":31,"target":8},{"source":31,"target":19},{"source":31,"target":4},{"source":31,"target":22},{"source":31,"target":6},{"source":31,"target":32},{"source":31,"target":33},{"source":31,"target":35},{"source":31,"target":36},{"source":31,"target":37},{"source":31,"target":38},{"source":31,"target":39},{"source":32,"target":0},{"source":34,"target":17},{"source":36,"target":0},{"source":36,"target":34},{"source":36,"target":2},{"source":36,"target":30},{"source":40,"target":10},{"source":40,"target":24},{"source":42,"target":41},{"source":42,"target":10}],"categories":[{"name":"ecore"},{"name":"gitlab"},{"name":"codeowners"}],"draggable":true,"label":{"show":true,"position":"right"},"lineStyle":{"color":"source","curveness":0}}]};
+		option.tooltip = {};
+		option.series[0].tooltip = {
+			formatter: function(arg) {
+				return arg.value ? arg.value.description : null;
+			}
+		};
+		myChart.setOption(option);
+		myChart.on("dblclick", function(params) {
+			if (params.value) {
+				if (params.value.link) {
+					window.open(params.value.link, "_self");
+				} else if (params.value.externalLink) {
+					window.open(params.value.externalLink);
+				}
+			}
+		});
+		window.addEventListener("resize", myChart.resize);
+	});
+</script>
+</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
