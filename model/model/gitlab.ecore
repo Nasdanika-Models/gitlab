@@ -9,7 +9,7 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="groups" upperBound="-1"
         eType="#//Group" containment="true" eKeys="#//Group/id"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="users" upperBound="-1"
-        eType="#//User" containment="true"/>
+        eType="#//User" containment="true" eKeys="#//AbstractUser/id"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Group">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//ELongObject"/>
@@ -34,7 +34,7 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="subGroups" upperBound="-1"
         eType="#//Group" containment="true" eKeys="#//Group/id"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="members" upperBound="-1"
-        eType="#//Member" containment="true"/>
+        eType="#//Member" containment="true" eKeys="#//AbstractUser/id"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="codeOwnership" upperBound="-1"
         eType="#//codeowners/CodeOwner" eOpposite="#//codeowners/CodeOwner/group"/>
   </eClassifiers>
@@ -162,11 +162,11 @@
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="squashOption" eType="#//SquashOption"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="branches" upperBound="-1"
-        eType="#//Branch" containment="true"/>
+        eType="#//Branch" containment="true" eKeys="#//TreeItem/name"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="contributors" upperBound="-1"
-        eType="#//Contributor" containment="true"/>
+        eType="#//Contributor" containment="true" eKeys="#//AbstractUser/id"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="members" upperBound="-1"
-        eType="#//Member" containment="true"/>
+        eType="#//Member" containment="true" eKeys="#//AbstractUser/id"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ProjectStatistics">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="commitCount" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//ELong"/>

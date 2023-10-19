@@ -34,6 +34,7 @@ import org.gitlab4j.api.models.Contributor;
 import org.gitlab4j.api.models.CustomAttribute;
 import org.gitlab4j.api.models.Group;
 import org.gitlab4j.api.models.Group.Statistics;
+import org.gitlab4j.api.models.GroupFilter;
 import org.gitlab4j.api.models.Member;
 import org.gitlab4j.api.models.Owner;
 import org.gitlab4j.api.models.Permissions;
@@ -181,6 +182,15 @@ public class Loader implements AutoCloseable {
 		user.setUserName(apiUser.getUsername());
 		user.setWebUrl(apiUser.getWebUrl());
 	}
+	
+	/**
+	 * This implementation returns a new instance of {@link GroupFilter}.
+	 * Override to customize.
+	 * @return
+	 */
+	protected GroupFilter getGroupFilter() {
+		return new GroupFilter();
+	}
 
 	/**
 	 * @param progressMonitor
@@ -200,11 +210,11 @@ public class Loader implements AutoCloseable {
 		Collection<CompletableFuture<Map.Entry<Group, org.nasdanika.models.gitlab.Group>>> groupCompletableFutures = Collections.synchronizedCollection(new ArrayList<>()); // Synchronizing just in case
 		try (ProgressMonitor groupsMonitor = progressMonitor.split("Loading groups", 1)) {
 			GroupApi groupApi = gitLabApi.getGroupApi();
-			Pager<Group> groupPager = groupApi.getGroups(getGroupsPageSize());
+			Pager<Group> groupPager = groupApi.getGroups(getGroupFilter(), getGroupsPageSize());
 			int pageNum = 0;
 			while (groupPager.hasNext()) {
 				++pageNum;
-				double monitorSize = 1.0/Math.pow(2.0, pageNum); // Unnownd number of pages, dividing each next by 2. I.e. 1/2 for the first page, 1/4 for the second, ...
+				double monitorSize = 1.0/Math.pow(2.0, pageNum); // Unknown number of pages, dividing each next by 2. I.e. 1/2 for the first page, 1/4 for the second, ...
 				try (ProgressMonitor groupPageMonitor = groupsMonitor.split("Group page " + pageNum, monitorSize)) {
 					List<Group> groups = groupPager.next();
 					try (ProgressMonitor scaledGroupsMonitor = groupPageMonitor.scale(groups.size() + 1)) {
@@ -723,7 +733,7 @@ public class Loader implements AutoCloseable {
 
 		RepositoryFileApi repoFileApi = gitLabApi.getRepositoryFileApi();
 		RepositoryFile repoFile = repoFileApi.getFile(modelProject.getId(), blob.getPath(), modelBranch.getName());
-		return createRepositoryFile(
+		org.nasdanika.models.gitlab.RepositoryFile ret = createRepositoryFile(
 				modelProject, 
 				modelBranch, 
 				blob, 
@@ -731,6 +741,12 @@ public class Loader implements AutoCloseable {
 				groupProvider, 
 				projectProvider, 
 				progressMonitor);
+		
+		ret.setCommitId(ret.getCommitId());
+		ret.setLastCommitId(ret.getLastCommitId());
+		ret.setRef(ret.getRef());
+		ret.setSize(ret.getSize());
+		return ret;
 	}
 	
 	/**
@@ -750,13 +766,7 @@ public class Loader implements AutoCloseable {
 			Function<Long, CompletableFuture<org.nasdanika.models.gitlab.Project>> projectProvider,			
 			ProgressMonitor progressMonitor) {
 
-		org.nasdanika.models.gitlab.RepositoryFile ret = getFactory().createRepositoryFile();
-		ret.setCommitId(repositoryFile.getCommitId());
-		ret.setLastCommitId(repositoryFile.getLastCommitId());
-		ret.setRef(repositoryFile.getRef());
-		ret.setSize(repositoryFile.getSize());
-		
-		return ret;
+		return getFactory().createRepositoryFile();
 	}
 	
 	/**
