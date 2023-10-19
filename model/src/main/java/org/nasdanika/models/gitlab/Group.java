@@ -4,7 +4,6 @@ package org.nasdanika.models.gitlab;
 
 import java.util.Date;
 import org.eclipse.emf.common.util.EList;
-import org.eclipse.emf.ecore.EObject;
 import org.nasdanika.models.gitlab.codeowners.CodeOwner;
 
 /**
@@ -28,7 +27,7 @@ import org.nasdanika.models.gitlab.codeowners.CodeOwner;
  *   <li>{@link org.nasdanika.models.gitlab.Group#getLfsEnabled <em>Lfs Enabled</em>}</li>
  *   <li>{@link org.nasdanika.models.gitlab.Group#getCreatedAt <em>Created At</em>}</li>
  *   <li>{@link org.nasdanika.models.gitlab.Group#getProjects <em>Projects</em>}</li>
- *   <li>{@link org.nasdanika.models.gitlab.Group#getSharedProjects <em>Shared Projects</em>}</li>
+ *   <li>{@link org.nasdanika.models.gitlab.Group#getShares <em>Shares</em>}</li>
  *   <li>{@link org.nasdanika.models.gitlab.Group#getStorageSize <em>Storage Size</em>}</li>
  *   <li>{@link org.nasdanika.models.gitlab.Group#getRepositorySize <em>Repository Size</em>}</li>
  *   <li>{@link org.nasdanika.models.gitlab.Group#getLfsObjectsSize <em>Lfs Objects Size</em>}</li>
@@ -36,15 +35,15 @@ import org.nasdanika.models.gitlab.codeowners.CodeOwner;
  *   <li>{@link org.nasdanika.models.gitlab.Group#getSubGroups <em>Sub Groups</em>}</li>
  *   <li>{@link org.nasdanika.models.gitlab.Group#getMembers <em>Members</em>}</li>
  *   <li>{@link org.nasdanika.models.gitlab.Group#getCodeOwnership <em>Code Ownership</em>}</li>
- *   <li>{@link org.nasdanika.models.gitlab.Group#isSubGroupsLoaded <em>Sub Groups Loaded</em>}</li>
- *   <li>{@link org.nasdanika.models.gitlab.Group#isProjectsLoaded <em>Projects Loaded</em>}</li>
+ *   <li>{@link org.nasdanika.models.gitlab.Group#getSubGroupsLoaded <em>Sub Groups Loaded</em>}</li>
+ *   <li>{@link org.nasdanika.models.gitlab.Group#getProjectsGroupsLoaded <em>Projects Groups Loaded</em>}</li>
  * </ul>
  *
  * @see org.nasdanika.models.gitlab.GitLabPackage#getGroup()
  * @model
  * @generated
  */
-public interface Group extends EObject {
+public interface Group extends Loadable {
 
 	/**
 	 * Returns the value of the '<em><b>Id</b></em>' attribute.
@@ -304,18 +303,18 @@ public interface Group extends EObject {
 	EList<Project> getProjects();
 
 	/**
-	 * Returns the value of the '<em><b>Shared Projects</b></em>' reference list.
-	 * The list contents are of type {@link org.nasdanika.models.gitlab.Project}.
-	 * It is bidirectional and its opposite is '{@link org.nasdanika.models.gitlab.Project#getSharedWithGroups <em>Shared With Groups</em>}'.
+	 * Returns the value of the '<em><b>Shares</b></em>' reference list.
+	 * The list contents are of type {@link org.nasdanika.models.gitlab.ProjectSharedGroup}.
+	 * It is bidirectional and its opposite is '{@link org.nasdanika.models.gitlab.ProjectSharedGroup#getGroup <em>Group</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Shared Projects</em>' reference list.
-	 * @see org.nasdanika.models.gitlab.GitLabPackage#getGroup_SharedProjects()
-	 * @see org.nasdanika.models.gitlab.Project#getSharedWithGroups
-	 * @model opposite="sharedWithGroups" keys="id"
+	 * @return the value of the '<em>Shares</em>' reference list.
+	 * @see org.nasdanika.models.gitlab.GitLabPackage#getGroup_Shares()
+	 * @see org.nasdanika.models.gitlab.ProjectSharedGroup#getGroup
+	 * @model opposite="group"
 	 * @generated
 	 */
-	EList<Project> getSharedProjects();
+	EList<ProjectSharedGroup> getShares();
 
 	/**
 	 * Returns the value of the '<em><b>Storage Size</b></em>' attribute.
@@ -448,48 +447,48 @@ public interface Group extends EObject {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Indicates that all sub-groups of interest were successfully loaded - with or without their sub-groups and projects. This attribute is used by the Loader to support loading in stages and with restarts.
+	 * Timestamp when this group's sub-groups were loaded
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Sub Groups Loaded</em>' attribute.
-	 * @see #setSubGroupsLoaded(boolean)
+	 * @see #setSubGroupsLoaded(Date)
 	 * @see org.nasdanika.models.gitlab.GitLabPackage#getGroup_SubGroupsLoaded()
 	 * @model
 	 * @generated
 	 */
-	boolean isSubGroupsLoaded();
+	Date getSubGroupsLoaded();
 
 	/**
-	 * Sets the value of the '{@link org.nasdanika.models.gitlab.Group#isSubGroupsLoaded <em>Sub Groups Loaded</em>}' attribute.
+	 * Sets the value of the '{@link org.nasdanika.models.gitlab.Group#getSubGroupsLoaded <em>Sub Groups Loaded</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Sub Groups Loaded</em>' attribute.
-	 * @see #isSubGroupsLoaded()
+	 * @see #getSubGroupsLoaded()
 	 * @generated
 	 */
-	void setSubGroupsLoaded(boolean value);
+	void setSubGroupsLoaded(Date value);
 
 	/**
-	 * Returns the value of the '<em><b>Projects Loaded</b></em>' attribute.
+	 * Returns the value of the '<em><b>Projects Groups Loaded</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Indicates that all projects of interest were successfully loaded - with or without branches and trees. This attribute is used by the Loader to support loading in stages and with restarts.
+	 * Timestamp when this group projects were loaded
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Projects Loaded</em>' attribute.
-	 * @see #setProjectsLoaded(boolean)
-	 * @see org.nasdanika.models.gitlab.GitLabPackage#getGroup_ProjectsLoaded()
+	 * @return the value of the '<em>Projects Groups Loaded</em>' attribute.
+	 * @see #setProjectsGroupsLoaded(Date)
+	 * @see org.nasdanika.models.gitlab.GitLabPackage#getGroup_ProjectsGroupsLoaded()
 	 * @model
 	 * @generated
 	 */
-	boolean isProjectsLoaded();
+	Date getProjectsGroupsLoaded();
 
 	/**
-	 * Sets the value of the '{@link org.nasdanika.models.gitlab.Group#isProjectsLoaded <em>Projects Loaded</em>}' attribute.
+	 * Sets the value of the '{@link org.nasdanika.models.gitlab.Group#getProjectsGroupsLoaded <em>Projects Groups Loaded</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Projects Loaded</em>' attribute.
-	 * @see #isProjectsLoaded()
+	 * @param value the new value of the '<em>Projects Groups Loaded</em>' attribute.
+	 * @see #getProjectsGroupsLoaded()
 	 * @generated
 	 */
-	void setProjectsLoaded(boolean value);
+	void setProjectsGroupsLoaded(Date value);
 } // Group

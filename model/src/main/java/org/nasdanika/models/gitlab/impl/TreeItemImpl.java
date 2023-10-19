@@ -3,9 +3,6 @@
 package org.nasdanika.models.gitlab.impl;
 
 import org.eclipse.emf.ecore.EClass;
-
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-
 import org.nasdanika.models.gitlab.GitLabPackage;
 import org.nasdanika.models.gitlab.TreeItem;
 
@@ -20,12 +17,11 @@ import org.nasdanika.models.gitlab.TreeItem;
  *   <li>{@link org.nasdanika.models.gitlab.impl.TreeItemImpl#getId <em>Id</em>}</li>
  *   <li>{@link org.nasdanika.models.gitlab.impl.TreeItemImpl#getName <em>Name</em>}</li>
  *   <li>{@link org.nasdanika.models.gitlab.impl.TreeItemImpl#getPath <em>Path</em>}</li>
- *   <li>{@link org.nasdanika.models.gitlab.impl.TreeItemImpl#isLoaded <em>Loaded</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class TreeItemImpl extends MinimalEObjectImpl.Container implements TreeItem {
+public class TreeItemImpl extends LoadableImpl implements TreeItem {
 	/**
 	 * The default value of the '{@link #getId() <em>Id</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -57,16 +53,6 @@ public class TreeItemImpl extends MinimalEObjectImpl.Container implements TreeIt
 	protected static final String PATH_EDEFAULT = null;
 
 	/**
-	 * The default value of the '{@link #isLoaded() <em>Loaded</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #isLoaded()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final boolean LOADED_EDEFAULT = false;
-
-	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -83,16 +69,6 @@ public class TreeItemImpl extends MinimalEObjectImpl.Container implements TreeIt
 	@Override
 	protected EClass eStaticClass() {
 		return GitLabPackage.Literals.TREE_ITEM;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	protected int eStaticFeatureCount() {
-		return 0;
 	}
 
 	/**
@@ -161,26 +137,6 @@ public class TreeItemImpl extends MinimalEObjectImpl.Container implements TreeIt
 	 * @generated
 	 */
 	@Override
-	public boolean isLoaded() {
-		return (Boolean)eDynamicGet(GitLabPackage.TREE_ITEM__LOADED, GitLabPackage.Literals.TREE_ITEM__LOADED, true, true);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public void setLoaded(boolean newLoaded) {
-		eDynamicSet(GitLabPackage.TREE_ITEM__LOADED, GitLabPackage.Literals.TREE_ITEM__LOADED, newLoaded);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case GitLabPackage.TREE_ITEM__ID:
@@ -189,8 +145,6 @@ public class TreeItemImpl extends MinimalEObjectImpl.Container implements TreeIt
 				return getName();
 			case GitLabPackage.TREE_ITEM__PATH:
 				return getPath();
-			case GitLabPackage.TREE_ITEM__LOADED:
-				return isLoaded();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -211,9 +165,6 @@ public class TreeItemImpl extends MinimalEObjectImpl.Container implements TreeIt
 				return;
 			case GitLabPackage.TREE_ITEM__PATH:
 				setPath((String)newValue);
-				return;
-			case GitLabPackage.TREE_ITEM__LOADED:
-				setLoaded((Boolean)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -236,9 +187,6 @@ public class TreeItemImpl extends MinimalEObjectImpl.Container implements TreeIt
 			case GitLabPackage.TREE_ITEM__PATH:
 				setPath(PATH_EDEFAULT);
 				return;
-			case GitLabPackage.TREE_ITEM__LOADED:
-				setLoaded(LOADED_EDEFAULT);
-				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -257,8 +205,6 @@ public class TreeItemImpl extends MinimalEObjectImpl.Container implements TreeIt
 				return NAME_EDEFAULT == null ? getName() != null : !NAME_EDEFAULT.equals(getName());
 			case GitLabPackage.TREE_ITEM__PATH:
 				return PATH_EDEFAULT == null ? getPath() != null : !PATH_EDEFAULT.equals(getPath());
-			case GitLabPackage.TREE_ITEM__LOADED:
-				return isLoaded() != LOADED_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}

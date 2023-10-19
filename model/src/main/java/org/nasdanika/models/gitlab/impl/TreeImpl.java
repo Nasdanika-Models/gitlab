@@ -4,6 +4,7 @@ package org.nasdanika.models.gitlab.impl;
 
 import java.util.Collection;
 
+import java.util.Date;
 import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.common.util.EList;
@@ -26,11 +27,22 @@ import org.nasdanika.models.gitlab.TreeItem;
  * </p>
  * <ul>
  *   <li>{@link org.nasdanika.models.gitlab.impl.TreeImpl#getTreeItems <em>Tree Items</em>}</li>
+ *   <li>{@link org.nasdanika.models.gitlab.impl.TreeImpl#getTreeItemsLoaded <em>Tree Items Loaded</em>}</li>
  * </ul>
  *
  * @generated
  */
 public class TreeImpl extends TreeItemImpl implements Tree {
+	/**
+	 * The default value of the '{@link #getTreeItemsLoaded() <em>Tree Items Loaded</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getTreeItemsLoaded()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final Date TREE_ITEMS_LOADED_EDEFAULT = null;
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -67,6 +79,26 @@ public class TreeImpl extends TreeItemImpl implements Tree {
 	 * @generated
 	 */
 	@Override
+	public Date getTreeItemsLoaded() {
+		return (Date)eDynamicGet(GitLabPackage.TREE__TREE_ITEMS_LOADED, GitLabPackage.Literals.TREE__TREE_ITEMS_LOADED, true, true);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setTreeItemsLoaded(Date newTreeItemsLoaded) {
+		eDynamicSet(GitLabPackage.TREE__TREE_ITEMS_LOADED, GitLabPackage.Literals.TREE__TREE_ITEMS_LOADED, newTreeItemsLoaded);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case GitLabPackage.TREE__TREE_ITEMS:
@@ -85,6 +117,8 @@ public class TreeImpl extends TreeItemImpl implements Tree {
 		switch (featureID) {
 			case GitLabPackage.TREE__TREE_ITEMS:
 				return getTreeItems();
+			case GitLabPackage.TREE__TREE_ITEMS_LOADED:
+				return getTreeItemsLoaded();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -102,6 +136,9 @@ public class TreeImpl extends TreeItemImpl implements Tree {
 				getTreeItems().clear();
 				getTreeItems().addAll((Collection<? extends TreeItem>)newValue);
 				return;
+			case GitLabPackage.TREE__TREE_ITEMS_LOADED:
+				setTreeItemsLoaded((Date)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -117,6 +154,9 @@ public class TreeImpl extends TreeItemImpl implements Tree {
 			case GitLabPackage.TREE__TREE_ITEMS:
 				getTreeItems().clear();
 				return;
+			case GitLabPackage.TREE__TREE_ITEMS_LOADED:
+				setTreeItemsLoaded(TREE_ITEMS_LOADED_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -131,6 +171,8 @@ public class TreeImpl extends TreeItemImpl implements Tree {
 		switch (featureID) {
 			case GitLabPackage.TREE__TREE_ITEMS:
 				return !getTreeItems().isEmpty();
+			case GitLabPackage.TREE__TREE_ITEMS_LOADED:
+				return TREE_ITEMS_LOADED_EDEFAULT == null ? getTreeItemsLoaded() != null : !TREE_ITEMS_LOADED_EDEFAULT.equals(getTreeItemsLoaded());
 		}
 		return super.eIsSet(featureID);
 	}

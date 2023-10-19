@@ -69,6 +69,10 @@ public class GitLabAdapterFactory extends AdapterFactoryImpl {
 	protected GitLabSwitch<Adapter> modelSwitch =
 		new GitLabSwitch<Adapter>() {
 			@Override
+			public Adapter caseLoadable(Loadable object) {
+				return createLoadableAdapter();
+			}
+			@Override
 			public Adapter caseGitLab(GitLab object) {
 				return createGitLabAdapter();
 			}
@@ -91,6 +95,10 @@ public class GitLabAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter caseProject(Project object) {
 				return createProjectAdapter();
+			}
+			@Override
+			public Adapter caseProjectSharedGroup(ProjectSharedGroup object) {
+				return createProjectSharedGroupAdapter();
 			}
 			@Override
 			public Adapter caseProjectStatistics(ProjectStatistics object) {
@@ -173,6 +181,20 @@ public class GitLabAdapterFactory extends AdapterFactoryImpl {
 
 
 	/**
+	 * Creates a new adapter for an object of class '{@link org.nasdanika.models.gitlab.Loadable <em>Loadable</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.nasdanika.models.gitlab.Loadable
+	 * @generated
+	 */
+	public Adapter createLoadableAdapter() {
+		return null;
+	}
+
+	/**
 	 * Creates a new adapter for an object of class '{@link org.nasdanika.models.gitlab.GitLab <em>Git Lab</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -253,6 +275,20 @@ public class GitLabAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createProjectAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.nasdanika.models.gitlab.ProjectSharedGroup <em>Project Shared Group</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.nasdanika.models.gitlab.ProjectSharedGroup
+	 * @generated
+	 */
+	public Adapter createProjectSharedGroupAdapter() {
 		return null;
 	}
 

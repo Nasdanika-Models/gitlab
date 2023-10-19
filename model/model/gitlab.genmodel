@@ -52,6 +52,9 @@
       <genEnumLiterals ecoreEnumLiteral="gitlab.ecore#//SquashOption/DefaultOn"/>
       <genEnumLiterals ecoreEnumLiteral="gitlab.ecore#//SquashOption/DefaultOff"/>
     </genEnums>
+    <genClasses image="false" ecoreClass="gitlab.ecore#//Loadable">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gitlab.ecore#//Loadable/loaded"/>
+    </genClasses>
     <genClasses ecoreClass="gitlab.ecore#//GitLab">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gitlab.ecore#//GitLab/url"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference gitlab.ecore#//GitLab/groups"/>
@@ -71,7 +74,7 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gitlab.ecore#//Group/lfsEnabled"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gitlab.ecore#//Group/createdAt"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference gitlab.ecore#//Group/projects"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference gitlab.ecore#//Group/sharedProjects"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference gitlab.ecore#//Group/shares"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gitlab.ecore#//Group/storageSize"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gitlab.ecore#//Group/repositorySize"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gitlab.ecore#//Group/lfsObjectsSize"/>
@@ -80,7 +83,7 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference gitlab.ecore#//Group/members"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference gitlab.ecore#//Group/codeOwnership"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gitlab.ecore#//Group/subGroupsLoaded"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gitlab.ecore#//Group/projectsLoaded"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gitlab.ecore#//Group/projectsGroupsLoaded"/>
     </genClasses>
     <genClasses ecoreClass="gitlab.ecore#//Member">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference gitlab.ecore#//Member/user"/>
@@ -116,6 +119,7 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gitlab.ecore#//Project/defaultBranch"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gitlab.ecore#//Project/description"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gitlab.ecore#//Project/forksCount"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gitlab.ecore#//Project/forkedFromId"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference gitlab.ecore#//Project/forkedFrom"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference gitlab.ecore#//Project/forks"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gitlab.ecore#//Project/httpUrlToRepo"/>
@@ -182,6 +186,13 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference gitlab.ecore#//Project/members"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gitlab.ecore#//Project/branchesLoaded"/>
     </genClasses>
+    <genClasses ecoreClass="gitlab.ecore#//ProjectSharedGroup">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gitlab.ecore#//ProjectSharedGroup/id"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gitlab.ecore#//ProjectSharedGroup/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gitlab.ecore#//ProjectSharedGroup/fullPath"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gitlab.ecore#//ProjectSharedGroup/accessLevel"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference gitlab.ecore#//ProjectSharedGroup/group"/>
+    </genClasses>
     <genClasses ecoreClass="gitlab.ecore#//ProjectStatistics">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gitlab.ecore#//ProjectStatistics/commitCount"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gitlab.ecore#//ProjectStatistics/storageSize"/>
@@ -229,10 +240,10 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gitlab.ecore#//TreeItem/id"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gitlab.ecore#//TreeItem/name"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gitlab.ecore#//TreeItem/path"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gitlab.ecore#//TreeItem/loaded"/>
     </genClasses>
     <genClasses ecoreClass="gitlab.ecore#//Tree">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference gitlab.ecore#//Tree/treeItems"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gitlab.ecore#//Tree/treeItemsLoaded"/>
     </genClasses>
     <genClasses ecoreClass="gitlab.ecore#//Blob"/>
     <genClasses image="false" ecoreClass="gitlab.ecore#//RepositoryFile">

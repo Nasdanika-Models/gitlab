@@ -63,6 +63,7 @@ public class GitLabFactoryImpl extends EFactoryImpl implements GitLabFactory {
 			case GitLabPackage.MEMBER: return createMember();
 			case GitLabPackage.USER: return createUser();
 			case GitLabPackage.PROJECT: return createProject();
+			case GitLabPackage.PROJECT_SHARED_GROUP: return createProjectSharedGroup();
 			case GitLabPackage.PROJECT_STATISTICS: return createProjectStatistics();
 			case GitLabPackage.PROJECT_LICENSE: return createProjectLicense();
 			case GitLabPackage.CONTRIBUTOR: return createContributor();
@@ -190,6 +191,17 @@ public class GitLabFactoryImpl extends EFactoryImpl implements GitLabFactory {
 	public Project createProject() {
 		ProjectImpl project = new ProjectImpl();
 		return project;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public ProjectSharedGroup createProjectSharedGroup() {
+		ProjectSharedGroupImpl projectSharedGroup = new ProjectSharedGroupImpl();
+		return projectSharedGroup;
 	}
 
 	/**

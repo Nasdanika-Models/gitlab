@@ -5,7 +5,6 @@ package org.nasdanika.models.gitlab;
 import java.util.Date;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.EMap;
-import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
@@ -26,6 +25,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link org.nasdanika.models.gitlab.Project#getDefaultBranch <em>Default Branch</em>}</li>
  *   <li>{@link org.nasdanika.models.gitlab.Project#getDescription <em>Description</em>}</li>
  *   <li>{@link org.nasdanika.models.gitlab.Project#getForksCount <em>Forks Count</em>}</li>
+ *   <li>{@link org.nasdanika.models.gitlab.Project#getForkedFromId <em>Forked From Id</em>}</li>
  *   <li>{@link org.nasdanika.models.gitlab.Project#getForkedFrom <em>Forked From</em>}</li>
  *   <li>{@link org.nasdanika.models.gitlab.Project#getForks <em>Forks</em>}</li>
  *   <li>{@link org.nasdanika.models.gitlab.Project#getHttpUrlToRepo <em>Http Url To Repo</em>}</li>
@@ -90,14 +90,14 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link org.nasdanika.models.gitlab.Project#getBranches <em>Branches</em>}</li>
  *   <li>{@link org.nasdanika.models.gitlab.Project#getContributors <em>Contributors</em>}</li>
  *   <li>{@link org.nasdanika.models.gitlab.Project#getMembers <em>Members</em>}</li>
- *   <li>{@link org.nasdanika.models.gitlab.Project#isBranchesLoaded <em>Branches Loaded</em>}</li>
+ *   <li>{@link org.nasdanika.models.gitlab.Project#getBranchesLoaded <em>Branches Loaded</em>}</li>
  * </ul>
  *
  * @see org.nasdanika.models.gitlab.GitLabPackage#getProject()
  * @model
  * @generated
  */
-public interface Project extends EObject {
+public interface Project extends Loadable {
 
 	/**
 	 * Returns the value of the '<em><b>Approvals Before Merge</b></em>' attribute.
@@ -320,6 +320,28 @@ public interface Project extends EObject {
 	 * @generated
 	 */
 	void setForksCount(Integer value);
+
+	/**
+	 * Returns the value of the '<em><b>Forked From Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Forked From Id</em>' attribute.
+	 * @see #setForkedFromId(Long)
+	 * @see org.nasdanika.models.gitlab.GitLabPackage#getProject_ForkedFromId()
+	 * @model
+	 * @generated
+	 */
+	Long getForkedFromId();
+
+	/**
+	 * Sets the value of the '{@link org.nasdanika.models.gitlab.Project#getForkedFromId <em>Forked From Id</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Forked From Id</em>' attribute.
+	 * @see #getForkedFromId()
+	 * @generated
+	 */
+	void setForkedFromId(Long value);
 
 	/**
 	 * Returns the value of the '<em><b>Forked From</b></em>' reference.
@@ -825,18 +847,16 @@ public interface Project extends EObject {
 	void setPublicJobs(Boolean value);
 
 	/**
-	 * Returns the value of the '<em><b>Shared With Groups</b></em>' reference list.
-	 * The list contents are of type {@link org.nasdanika.models.gitlab.Group}.
-	 * It is bidirectional and its opposite is '{@link org.nasdanika.models.gitlab.Group#getSharedProjects <em>Shared Projects</em>}'.
+	 * Returns the value of the '<em><b>Shared With Groups</b></em>' containment reference list.
+	 * The list contents are of type {@link org.nasdanika.models.gitlab.ProjectSharedGroup}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Shared With Groups</em>' reference list.
+	 * @return the value of the '<em>Shared With Groups</em>' containment reference list.
 	 * @see org.nasdanika.models.gitlab.GitLabPackage#getProject_SharedWithGroups()
-	 * @see org.nasdanika.models.gitlab.Group#getSharedProjects
-	 * @model opposite="sharedProjects" keys="id"
+	 * @model containment="true" keys="id"
 	 * @generated
 	 */
-	EList<Group> getSharedWithGroups();
+	EList<ProjectSharedGroup> getSharedWithGroups();
 
 	/**
 	 * Returns the value of the '<em><b>Repository Storage</b></em>' attribute.
@@ -1689,23 +1709,23 @@ public interface Project extends EObject {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Indicates that all branches of interest were successfully loaded - with or without trees. This attribute is used by the Loader to support loading in stages and with restarts.
+	 * Timestamp when this project's branches were loaded
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Branches Loaded</em>' attribute.
-	 * @see #setBranchesLoaded(boolean)
+	 * @see #setBranchesLoaded(Date)
 	 * @see org.nasdanika.models.gitlab.GitLabPackage#getProject_BranchesLoaded()
 	 * @model
 	 * @generated
 	 */
-	boolean isBranchesLoaded();
+	Date getBranchesLoaded();
 
 	/**
-	 * Sets the value of the '{@link org.nasdanika.models.gitlab.Project#isBranchesLoaded <em>Branches Loaded</em>}' attribute.
+	 * Sets the value of the '{@link org.nasdanika.models.gitlab.Project#getBranchesLoaded <em>Branches Loaded</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Branches Loaded</em>' attribute.
-	 * @see #isBranchesLoaded()
+	 * @see #getBranchesLoaded()
 	 * @generated
 	 */
-	void setBranchesLoaded(boolean value);
+	void setBranchesLoaded(Date value);
 } // Project

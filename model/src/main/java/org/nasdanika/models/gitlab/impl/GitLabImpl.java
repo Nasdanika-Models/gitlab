@@ -4,15 +4,13 @@ package org.nasdanika.models.gitlab.impl;
 
 import java.util.Collection;
 
+import java.util.Date;
 import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-
 import org.eclipse.emf.ecore.util.InternalEList;
 
 import org.nasdanika.models.gitlab.GitLab;
@@ -31,12 +29,12 @@ import org.nasdanika.models.gitlab.User;
  *   <li>{@link org.nasdanika.models.gitlab.impl.GitLabImpl#getUrl <em>Url</em>}</li>
  *   <li>{@link org.nasdanika.models.gitlab.impl.GitLabImpl#getGroups <em>Groups</em>}</li>
  *   <li>{@link org.nasdanika.models.gitlab.impl.GitLabImpl#getUsers <em>Users</em>}</li>
- *   <li>{@link org.nasdanika.models.gitlab.impl.GitLabImpl#isTopLevelGroupsLoaded <em>Top Level Groups Loaded</em>}</li>
+ *   <li>{@link org.nasdanika.models.gitlab.impl.GitLabImpl#getTopLevelGroupsLoaded <em>Top Level Groups Loaded</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class GitLabImpl extends MinimalEObjectImpl.Container implements GitLab {
+public class GitLabImpl extends LoadableImpl implements GitLab {
 	/**
 	 * The default value of the '{@link #getUrl() <em>Url</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -48,14 +46,14 @@ public class GitLabImpl extends MinimalEObjectImpl.Container implements GitLab {
 	protected static final String URL_EDEFAULT = null;
 
 	/**
-	 * The default value of the '{@link #isTopLevelGroupsLoaded() <em>Top Level Groups Loaded</em>}' attribute.
+	 * The default value of the '{@link #getTopLevelGroupsLoaded() <em>Top Level Groups Loaded</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #isTopLevelGroupsLoaded()
+	 * @see #getTopLevelGroupsLoaded()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final boolean TOP_LEVEL_GROUPS_LOADED_EDEFAULT = false;
+	protected static final Date TOP_LEVEL_GROUPS_LOADED_EDEFAULT = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -74,16 +72,6 @@ public class GitLabImpl extends MinimalEObjectImpl.Container implements GitLab {
 	@Override
 	protected EClass eStaticClass() {
 		return GitLabPackage.Literals.GIT_LAB;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	protected int eStaticFeatureCount() {
-		return 0;
 	}
 
 	/**
@@ -134,8 +122,8 @@ public class GitLabImpl extends MinimalEObjectImpl.Container implements GitLab {
 	 * @generated
 	 */
 	@Override
-	public boolean isTopLevelGroupsLoaded() {
-		return (Boolean)eDynamicGet(GitLabPackage.GIT_LAB__TOP_LEVEL_GROUPS_LOADED, GitLabPackage.Literals.GIT_LAB__TOP_LEVEL_GROUPS_LOADED, true, true);
+	public Date getTopLevelGroupsLoaded() {
+		return (Date)eDynamicGet(GitLabPackage.GIT_LAB__TOP_LEVEL_GROUPS_LOADED, GitLabPackage.Literals.GIT_LAB__TOP_LEVEL_GROUPS_LOADED, true, true);
 	}
 
 	/**
@@ -144,7 +132,7 @@ public class GitLabImpl extends MinimalEObjectImpl.Container implements GitLab {
 	 * @generated
 	 */
 	@Override
-	public void setTopLevelGroupsLoaded(boolean newTopLevelGroupsLoaded) {
+	public void setTopLevelGroupsLoaded(Date newTopLevelGroupsLoaded) {
 		eDynamicSet(GitLabPackage.GIT_LAB__TOP_LEVEL_GROUPS_LOADED, GitLabPackage.Literals.GIT_LAB__TOP_LEVEL_GROUPS_LOADED, newTopLevelGroupsLoaded);
 	}
 
@@ -179,7 +167,7 @@ public class GitLabImpl extends MinimalEObjectImpl.Container implements GitLab {
 			case GitLabPackage.GIT_LAB__USERS:
 				return getUsers();
 			case GitLabPackage.GIT_LAB__TOP_LEVEL_GROUPS_LOADED:
-				return isTopLevelGroupsLoaded();
+				return getTopLevelGroupsLoaded();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -205,7 +193,7 @@ public class GitLabImpl extends MinimalEObjectImpl.Container implements GitLab {
 				getUsers().addAll((Collection<? extends User>)newValue);
 				return;
 			case GitLabPackage.GIT_LAB__TOP_LEVEL_GROUPS_LOADED:
-				setTopLevelGroupsLoaded((Boolean)newValue);
+				setTopLevelGroupsLoaded((Date)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -250,7 +238,7 @@ public class GitLabImpl extends MinimalEObjectImpl.Container implements GitLab {
 			case GitLabPackage.GIT_LAB__USERS:
 				return !getUsers().isEmpty();
 			case GitLabPackage.GIT_LAB__TOP_LEVEL_GROUPS_LOADED:
-				return isTopLevelGroupsLoaded() != TOP_LEVEL_GROUPS_LOADED_EDEFAULT;
+				return TOP_LEVEL_GROUPS_LOADED_EDEFAULT == null ? getTopLevelGroupsLoaded() != null : !TOP_LEVEL_GROUPS_LOADED_EDEFAULT.equals(getTopLevelGroupsLoaded());
 		}
 		return super.eIsSet(featureID);
 	}

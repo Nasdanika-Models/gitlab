@@ -10,6 +10,7 @@ import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
 import org.eclipse.emf.ecore.EObject;
 
 import org.nasdanika.models.gitlab.Blob;
+import org.nasdanika.models.gitlab.Loadable;
 import org.nasdanika.models.gitlab.RepositoryFile;
 import org.nasdanika.models.gitlab.TreeItem;
 
@@ -90,6 +91,10 @@ public class CodeownersAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter caseCodeOwners(CodeOwners object) {
 				return createCodeOwnersAdapter();
+			}
+			@Override
+			public Adapter caseLoadable(Loadable object) {
+				return createLoadableAdapter();
 			}
 			@Override
 			public Adapter caseTreeItem(TreeItem object) {
@@ -190,6 +195,20 @@ public class CodeownersAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createCodeOwnersAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.nasdanika.models.gitlab.Loadable <em>Loadable</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.nasdanika.models.gitlab.Loadable
+	 * @generated
+	 */
+	public Adapter createLoadableAdapter() {
 		return null;
 	}
 

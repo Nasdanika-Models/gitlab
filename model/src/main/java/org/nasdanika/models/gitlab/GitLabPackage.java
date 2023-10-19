@@ -58,6 +58,43 @@ public interface GitLabPackage extends EPackage {
 	GitLabPackage eINSTANCE = org.nasdanika.models.gitlab.impl.GitLabPackageImpl.init();
 
 	/**
+	 * The meta object id for the '{@link org.nasdanika.models.gitlab.impl.LoadableImpl <em>Loadable</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.nasdanika.models.gitlab.impl.LoadableImpl
+	 * @see org.nasdanika.models.gitlab.impl.GitLabPackageImpl#getLoadable()
+	 * @generated
+	 */
+	int LOADABLE = 0;
+
+	/**
+	 * The feature id for the '<em><b>Loaded</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LOADABLE__LOADED = 0;
+
+	/**
+	 * The number of structural features of the '<em>Loadable</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LOADABLE_FEATURE_COUNT = 1;
+
+	/**
+	 * The number of operations of the '<em>Loadable</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LOADABLE_OPERATION_COUNT = 0;
+
+	/**
 	 * The meta object id for the '{@link org.nasdanika.models.gitlab.impl.GitLabImpl <em>Git Lab</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -65,7 +102,16 @@ public interface GitLabPackage extends EPackage {
 	 * @see org.nasdanika.models.gitlab.impl.GitLabPackageImpl#getGitLab()
 	 * @generated
 	 */
-	int GIT_LAB = 0;
+	int GIT_LAB = 1;
+
+	/**
+	 * The feature id for the '<em><b>Loaded</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GIT_LAB__LOADED = LOADABLE__LOADED;
 
 	/**
 	 * The feature id for the '<em><b>Url</b></em>' attribute.
@@ -74,7 +120,7 @@ public interface GitLabPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GIT_LAB__URL = 0;
+	int GIT_LAB__URL = LOADABLE_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Groups</b></em>' containment reference list.
@@ -83,7 +129,7 @@ public interface GitLabPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GIT_LAB__GROUPS = 1;
+	int GIT_LAB__GROUPS = LOADABLE_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Users</b></em>' containment reference list.
@@ -92,7 +138,7 @@ public interface GitLabPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GIT_LAB__USERS = 2;
+	int GIT_LAB__USERS = LOADABLE_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Top Level Groups Loaded</b></em>' attribute.
@@ -101,7 +147,7 @@ public interface GitLabPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GIT_LAB__TOP_LEVEL_GROUPS_LOADED = 3;
+	int GIT_LAB__TOP_LEVEL_GROUPS_LOADED = LOADABLE_FEATURE_COUNT + 3;
 
 	/**
 	 * The number of structural features of the '<em>Git Lab</em>' class.
@@ -110,7 +156,7 @@ public interface GitLabPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GIT_LAB_FEATURE_COUNT = 4;
+	int GIT_LAB_FEATURE_COUNT = LOADABLE_FEATURE_COUNT + 4;
 
 	/**
 	 * The number of operations of the '<em>Git Lab</em>' class.
@@ -119,7 +165,7 @@ public interface GitLabPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GIT_LAB_OPERATION_COUNT = 0;
+	int GIT_LAB_OPERATION_COUNT = LOADABLE_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link org.nasdanika.models.gitlab.impl.GroupImpl <em>Group</em>}' class.
@@ -129,7 +175,16 @@ public interface GitLabPackage extends EPackage {
 	 * @see org.nasdanika.models.gitlab.impl.GitLabPackageImpl#getGroup()
 	 * @generated
 	 */
-	int GROUP = 1;
+	int GROUP = 2;
+
+	/**
+	 * The feature id for the '<em><b>Loaded</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GROUP__LOADED = LOADABLE__LOADED;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -138,7 +193,7 @@ public interface GitLabPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GROUP__ID = 0;
+	int GROUP__ID = LOADABLE_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -147,7 +202,7 @@ public interface GitLabPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GROUP__NAME = 1;
+	int GROUP__NAME = LOADABLE_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Avatar Url</b></em>' attribute.
@@ -156,7 +211,7 @@ public interface GitLabPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GROUP__AVATAR_URL = 2;
+	int GROUP__AVATAR_URL = LOADABLE_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Web Url</b></em>' attribute.
@@ -165,7 +220,7 @@ public interface GitLabPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GROUP__WEB_URL = 3;
+	int GROUP__WEB_URL = LOADABLE_FEATURE_COUNT + 3;
 
 	/**
 	 * The feature id for the '<em><b>Full Name</b></em>' attribute.
@@ -174,7 +229,7 @@ public interface GitLabPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GROUP__FULL_NAME = 4;
+	int GROUP__FULL_NAME = LOADABLE_FEATURE_COUNT + 4;
 
 	/**
 	 * The feature id for the '<em><b>Full Path</b></em>' attribute.
@@ -183,7 +238,7 @@ public interface GitLabPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GROUP__FULL_PATH = 5;
+	int GROUP__FULL_PATH = LOADABLE_FEATURE_COUNT + 5;
 
 	/**
 	 * The feature id for the '<em><b>Path</b></em>' attribute.
@@ -192,7 +247,7 @@ public interface GitLabPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GROUP__PATH = 6;
+	int GROUP__PATH = LOADABLE_FEATURE_COUNT + 6;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' attribute.
@@ -201,7 +256,7 @@ public interface GitLabPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GROUP__DESCRIPTION = 7;
+	int GROUP__DESCRIPTION = LOADABLE_FEATURE_COUNT + 7;
 
 	/**
 	 * The feature id for the '<em><b>Visibility</b></em>' attribute.
@@ -210,7 +265,7 @@ public interface GitLabPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GROUP__VISIBILITY = 8;
+	int GROUP__VISIBILITY = LOADABLE_FEATURE_COUNT + 8;
 
 	/**
 	 * The feature id for the '<em><b>Lfs Enabled</b></em>' attribute.
@@ -219,7 +274,7 @@ public interface GitLabPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GROUP__LFS_ENABLED = 9;
+	int GROUP__LFS_ENABLED = LOADABLE_FEATURE_COUNT + 9;
 
 	/**
 	 * The feature id for the '<em><b>Created At</b></em>' attribute.
@@ -228,7 +283,7 @@ public interface GitLabPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GROUP__CREATED_AT = 10;
+	int GROUP__CREATED_AT = LOADABLE_FEATURE_COUNT + 10;
 
 	/**
 	 * The feature id for the '<em><b>Projects</b></em>' containment reference list.
@@ -237,16 +292,16 @@ public interface GitLabPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GROUP__PROJECTS = 11;
+	int GROUP__PROJECTS = LOADABLE_FEATURE_COUNT + 11;
 
 	/**
-	 * The feature id for the '<em><b>Shared Projects</b></em>' reference list.
+	 * The feature id for the '<em><b>Shares</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int GROUP__SHARED_PROJECTS = 12;
+	int GROUP__SHARES = LOADABLE_FEATURE_COUNT + 12;
 
 	/**
 	 * The feature id for the '<em><b>Storage Size</b></em>' attribute.
@@ -255,7 +310,7 @@ public interface GitLabPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GROUP__STORAGE_SIZE = 13;
+	int GROUP__STORAGE_SIZE = LOADABLE_FEATURE_COUNT + 13;
 
 	/**
 	 * The feature id for the '<em><b>Repository Size</b></em>' attribute.
@@ -264,7 +319,7 @@ public interface GitLabPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GROUP__REPOSITORY_SIZE = 14;
+	int GROUP__REPOSITORY_SIZE = LOADABLE_FEATURE_COUNT + 14;
 
 	/**
 	 * The feature id for the '<em><b>Lfs Objects Size</b></em>' attribute.
@@ -273,7 +328,7 @@ public interface GitLabPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GROUP__LFS_OBJECTS_SIZE = 15;
+	int GROUP__LFS_OBJECTS_SIZE = LOADABLE_FEATURE_COUNT + 15;
 
 	/**
 	 * The feature id for the '<em><b>Job Artifacts Size</b></em>' attribute.
@@ -282,7 +337,7 @@ public interface GitLabPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GROUP__JOB_ARTIFACTS_SIZE = 16;
+	int GROUP__JOB_ARTIFACTS_SIZE = LOADABLE_FEATURE_COUNT + 16;
 
 	/**
 	 * The feature id for the '<em><b>Sub Groups</b></em>' containment reference list.
@@ -291,7 +346,7 @@ public interface GitLabPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GROUP__SUB_GROUPS = 17;
+	int GROUP__SUB_GROUPS = LOADABLE_FEATURE_COUNT + 17;
 
 	/**
 	 * The feature id for the '<em><b>Members</b></em>' containment reference list.
@@ -300,7 +355,7 @@ public interface GitLabPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GROUP__MEMBERS = 18;
+	int GROUP__MEMBERS = LOADABLE_FEATURE_COUNT + 18;
 
 	/**
 	 * The feature id for the '<em><b>Code Ownership</b></em>' reference list.
@@ -309,7 +364,7 @@ public interface GitLabPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GROUP__CODE_OWNERSHIP = 19;
+	int GROUP__CODE_OWNERSHIP = LOADABLE_FEATURE_COUNT + 19;
 
 	/**
 	 * The feature id for the '<em><b>Sub Groups Loaded</b></em>' attribute.
@@ -318,16 +373,16 @@ public interface GitLabPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GROUP__SUB_GROUPS_LOADED = 20;
+	int GROUP__SUB_GROUPS_LOADED = LOADABLE_FEATURE_COUNT + 20;
 
 	/**
-	 * The feature id for the '<em><b>Projects Loaded</b></em>' attribute.
+	 * The feature id for the '<em><b>Projects Groups Loaded</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int GROUP__PROJECTS_LOADED = 21;
+	int GROUP__PROJECTS_GROUPS_LOADED = LOADABLE_FEATURE_COUNT + 21;
 
 	/**
 	 * The number of structural features of the '<em>Group</em>' class.
@@ -336,7 +391,7 @@ public interface GitLabPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GROUP_FEATURE_COUNT = 22;
+	int GROUP_FEATURE_COUNT = LOADABLE_FEATURE_COUNT + 22;
 
 	/**
 	 * The number of operations of the '<em>Group</em>' class.
@@ -345,7 +400,7 @@ public interface GitLabPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GROUP_OPERATION_COUNT = 0;
+	int GROUP_OPERATION_COUNT = LOADABLE_OPERATION_COUNT + 0;
 
 
 	/**
@@ -356,7 +411,7 @@ public interface GitLabPackage extends EPackage {
 	 * @see org.nasdanika.models.gitlab.impl.GitLabPackageImpl#getMember()
 	 * @generated
 	 */
-	int MEMBER = 2;
+	int MEMBER = 3;
 
 	/**
 	 * The meta object id for the '{@link org.nasdanika.models.gitlab.impl.AbstractUserImpl <em>Abstract User</em>}' class.
@@ -366,7 +421,7 @@ public interface GitLabPackage extends EPackage {
 	 * @see org.nasdanika.models.gitlab.impl.GitLabPackageImpl#getAbstractUser()
 	 * @generated
 	 */
-	int ABSTRACT_USER = 3;
+	int ABSTRACT_USER = 4;
 
 	/**
 	 * The feature id for the '<em><b>Avatar Url</b></em>' attribute.
@@ -583,7 +638,7 @@ public interface GitLabPackage extends EPackage {
 	 * @see org.nasdanika.models.gitlab.impl.GitLabPackageImpl#getUser()
 	 * @generated
 	 */
-	int USER = 4;
+	int USER = 5;
 
 	/**
 	 * The feature id for the '<em><b>Avatar Url</b></em>' attribute.
@@ -737,7 +792,16 @@ public interface GitLabPackage extends EPackage {
 	 * @see org.nasdanika.models.gitlab.impl.GitLabPackageImpl#getProject()
 	 * @generated
 	 */
-	int PROJECT = 5;
+	int PROJECT = 6;
+
+	/**
+	 * The feature id for the '<em><b>Loaded</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROJECT__LOADED = LOADABLE__LOADED;
 
 	/**
 	 * The feature id for the '<em><b>Approvals Before Merge</b></em>' attribute.
@@ -746,7 +810,7 @@ public interface GitLabPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROJECT__APPROVALS_BEFORE_MERGE = 0;
+	int PROJECT__APPROVALS_BEFORE_MERGE = LOADABLE_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Archived</b></em>' attribute.
@@ -755,7 +819,7 @@ public interface GitLabPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROJECT__ARCHIVED = 1;
+	int PROJECT__ARCHIVED = LOADABLE_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Avatar Url</b></em>' attribute.
@@ -764,7 +828,7 @@ public interface GitLabPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROJECT__AVATAR_URL = 2;
+	int PROJECT__AVATAR_URL = LOADABLE_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Container Registry Enabled</b></em>' attribute.
@@ -773,7 +837,7 @@ public interface GitLabPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROJECT__CONTAINER_REGISTRY_ENABLED = 3;
+	int PROJECT__CONTAINER_REGISTRY_ENABLED = LOADABLE_FEATURE_COUNT + 3;
 
 	/**
 	 * The feature id for the '<em><b>Created At</b></em>' attribute.
@@ -782,7 +846,7 @@ public interface GitLabPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROJECT__CREATED_AT = 4;
+	int PROJECT__CREATED_AT = LOADABLE_FEATURE_COUNT + 4;
 
 	/**
 	 * The feature id for the '<em><b>Creator Id</b></em>' attribute.
@@ -791,7 +855,7 @@ public interface GitLabPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROJECT__CREATOR_ID = 5;
+	int PROJECT__CREATOR_ID = LOADABLE_FEATURE_COUNT + 5;
 
 	/**
 	 * The feature id for the '<em><b>Creator</b></em>' reference.
@@ -800,7 +864,7 @@ public interface GitLabPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROJECT__CREATOR = 6;
+	int PROJECT__CREATOR = LOADABLE_FEATURE_COUNT + 6;
 
 	/**
 	 * The feature id for the '<em><b>Default Branch</b></em>' attribute.
@@ -809,7 +873,7 @@ public interface GitLabPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROJECT__DEFAULT_BRANCH = 7;
+	int PROJECT__DEFAULT_BRANCH = LOADABLE_FEATURE_COUNT + 7;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' attribute.
@@ -818,7 +882,7 @@ public interface GitLabPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROJECT__DESCRIPTION = 8;
+	int PROJECT__DESCRIPTION = LOADABLE_FEATURE_COUNT + 8;
 
 	/**
 	 * The feature id for the '<em><b>Forks Count</b></em>' attribute.
@@ -827,7 +891,16 @@ public interface GitLabPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROJECT__FORKS_COUNT = 9;
+	int PROJECT__FORKS_COUNT = LOADABLE_FEATURE_COUNT + 9;
+
+	/**
+	 * The feature id for the '<em><b>Forked From Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROJECT__FORKED_FROM_ID = LOADABLE_FEATURE_COUNT + 10;
 
 	/**
 	 * The feature id for the '<em><b>Forked From</b></em>' reference.
@@ -836,7 +909,7 @@ public interface GitLabPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROJECT__FORKED_FROM = 10;
+	int PROJECT__FORKED_FROM = LOADABLE_FEATURE_COUNT + 11;
 
 	/**
 	 * The feature id for the '<em><b>Forks</b></em>' reference list.
@@ -845,7 +918,7 @@ public interface GitLabPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROJECT__FORKS = 11;
+	int PROJECT__FORKS = LOADABLE_FEATURE_COUNT + 12;
 
 	/**
 	 * The feature id for the '<em><b>Http Url To Repo</b></em>' attribute.
@@ -854,7 +927,7 @@ public interface GitLabPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROJECT__HTTP_URL_TO_REPO = 12;
+	int PROJECT__HTTP_URL_TO_REPO = LOADABLE_FEATURE_COUNT + 13;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -863,7 +936,7 @@ public interface GitLabPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROJECT__ID = 13;
+	int PROJECT__ID = LOADABLE_FEATURE_COUNT + 14;
 
 	/**
 	 * The feature id for the '<em><b>Is Public</b></em>' attribute.
@@ -872,7 +945,7 @@ public interface GitLabPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROJECT__IS_PUBLIC = 14;
+	int PROJECT__IS_PUBLIC = LOADABLE_FEATURE_COUNT + 15;
 
 	/**
 	 * The feature id for the '<em><b>Issues Enabled</b></em>' attribute.
@@ -881,7 +954,7 @@ public interface GitLabPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROJECT__ISSUES_ENABLED = 15;
+	int PROJECT__ISSUES_ENABLED = LOADABLE_FEATURE_COUNT + 16;
 
 	/**
 	 * The feature id for the '<em><b>Jobs Enabled</b></em>' attribute.
@@ -890,7 +963,7 @@ public interface GitLabPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROJECT__JOBS_ENABLED = 16;
+	int PROJECT__JOBS_ENABLED = LOADABLE_FEATURE_COUNT + 17;
 
 	/**
 	 * The feature id for the '<em><b>Lasts Activity At</b></em>' attribute.
@@ -899,7 +972,7 @@ public interface GitLabPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROJECT__LASTS_ACTIVITY_AT = 17;
+	int PROJECT__LASTS_ACTIVITY_AT = LOADABLE_FEATURE_COUNT + 18;
 
 	/**
 	 * The feature id for the '<em><b>Lfs Enabled</b></em>' attribute.
@@ -908,7 +981,7 @@ public interface GitLabPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROJECT__LFS_ENABLED = 18;
+	int PROJECT__LFS_ENABLED = LOADABLE_FEATURE_COUNT + 19;
 
 	/**
 	 * The feature id for the '<em><b>Merge Method</b></em>' attribute.
@@ -917,7 +990,7 @@ public interface GitLabPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROJECT__MERGE_METHOD = 19;
+	int PROJECT__MERGE_METHOD = LOADABLE_FEATURE_COUNT + 20;
 
 	/**
 	 * The feature id for the '<em><b>Merge Requests Enabled</b></em>' attribute.
@@ -926,7 +999,7 @@ public interface GitLabPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROJECT__MERGE_REQUESTS_ENABLED = 20;
+	int PROJECT__MERGE_REQUESTS_ENABLED = LOADABLE_FEATURE_COUNT + 21;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -935,7 +1008,7 @@ public interface GitLabPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROJECT__NAME = 21;
+	int PROJECT__NAME = LOADABLE_FEATURE_COUNT + 22;
 
 	/**
 	 * The feature id for the '<em><b>Name With Namespace</b></em>' attribute.
@@ -944,7 +1017,7 @@ public interface GitLabPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROJECT__NAME_WITH_NAMESPACE = 22;
+	int PROJECT__NAME_WITH_NAMESPACE = LOADABLE_FEATURE_COUNT + 23;
 
 	/**
 	 * The feature id for the '<em><b>Only Allow Merge If Pipeline Succeeds</b></em>' attribute.
@@ -953,7 +1026,7 @@ public interface GitLabPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROJECT__ONLY_ALLOW_MERGE_IF_PIPELINE_SUCCEEDS = 23;
+	int PROJECT__ONLY_ALLOW_MERGE_IF_PIPELINE_SUCCEEDS = LOADABLE_FEATURE_COUNT + 24;
 
 	/**
 	 * The feature id for the '<em><b>Allow Merge On Skipped Pipeline</b></em>' attribute.
@@ -962,7 +1035,7 @@ public interface GitLabPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROJECT__ALLOW_MERGE_ON_SKIPPED_PIPELINE = 24;
+	int PROJECT__ALLOW_MERGE_ON_SKIPPED_PIPELINE = LOADABLE_FEATURE_COUNT + 25;
 
 	/**
 	 * The feature id for the '<em><b>Only Allow Merge If All Discussions Are Resolved</b></em>' attribute.
@@ -971,7 +1044,7 @@ public interface GitLabPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROJECT__ONLY_ALLOW_MERGE_IF_ALL_DISCUSSIONS_ARE_RESOLVED = 25;
+	int PROJECT__ONLY_ALLOW_MERGE_IF_ALL_DISCUSSIONS_ARE_RESOLVED = LOADABLE_FEATURE_COUNT + 26;
 
 	/**
 	 * The feature id for the '<em><b>Open Issues Count</b></em>' attribute.
@@ -980,7 +1053,7 @@ public interface GitLabPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROJECT__OPEN_ISSUES_COUNT = 26;
+	int PROJECT__OPEN_ISSUES_COUNT = LOADABLE_FEATURE_COUNT + 27;
 
 	/**
 	 * The feature id for the '<em><b>Owner</b></em>' containment reference.
@@ -989,7 +1062,7 @@ public interface GitLabPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROJECT__OWNER = 27;
+	int PROJECT__OWNER = LOADABLE_FEATURE_COUNT + 28;
 
 	/**
 	 * The feature id for the '<em><b>Path</b></em>' attribute.
@@ -998,7 +1071,7 @@ public interface GitLabPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROJECT__PATH = 28;
+	int PROJECT__PATH = LOADABLE_FEATURE_COUNT + 29;
 
 	/**
 	 * The feature id for the '<em><b>Path With Namespace</b></em>' attribute.
@@ -1007,7 +1080,7 @@ public interface GitLabPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROJECT__PATH_WITH_NAMESPACE = 29;
+	int PROJECT__PATH_WITH_NAMESPACE = LOADABLE_FEATURE_COUNT + 30;
 
 	/**
 	 * The feature id for the '<em><b>Project Access</b></em>' containment reference.
@@ -1016,7 +1089,7 @@ public interface GitLabPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROJECT__PROJECT_ACCESS = 30;
+	int PROJECT__PROJECT_ACCESS = LOADABLE_FEATURE_COUNT + 31;
 
 	/**
 	 * The feature id for the '<em><b>Group Access</b></em>' containment reference.
@@ -1025,7 +1098,7 @@ public interface GitLabPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROJECT__GROUP_ACCESS = 31;
+	int PROJECT__GROUP_ACCESS = LOADABLE_FEATURE_COUNT + 32;
 
 	/**
 	 * The feature id for the '<em><b>Public Jobs</b></em>' attribute.
@@ -1034,16 +1107,16 @@ public interface GitLabPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROJECT__PUBLIC_JOBS = 32;
+	int PROJECT__PUBLIC_JOBS = LOADABLE_FEATURE_COUNT + 33;
 
 	/**
-	 * The feature id for the '<em><b>Shared With Groups</b></em>' reference list.
+	 * The feature id for the '<em><b>Shared With Groups</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PROJECT__SHARED_WITH_GROUPS = 33;
+	int PROJECT__SHARED_WITH_GROUPS = LOADABLE_FEATURE_COUNT + 34;
 
 	/**
 	 * The feature id for the '<em><b>Repository Storage</b></em>' attribute.
@@ -1052,7 +1125,7 @@ public interface GitLabPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROJECT__REPOSITORY_STORAGE = 34;
+	int PROJECT__REPOSITORY_STORAGE = LOADABLE_FEATURE_COUNT + 35;
 
 	/**
 	 * The feature id for the '<em><b>Request Access Enabled</b></em>' attribute.
@@ -1061,7 +1134,7 @@ public interface GitLabPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROJECT__REQUEST_ACCESS_ENABLED = 35;
+	int PROJECT__REQUEST_ACCESS_ENABLED = LOADABLE_FEATURE_COUNT + 36;
 
 	/**
 	 * The feature id for the '<em><b>Runners Token</b></em>' attribute.
@@ -1070,7 +1143,7 @@ public interface GitLabPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROJECT__RUNNERS_TOKEN = 36;
+	int PROJECT__RUNNERS_TOKEN = LOADABLE_FEATURE_COUNT + 37;
 
 	/**
 	 * The feature id for the '<em><b>Shared Runners Enabled</b></em>' attribute.
@@ -1079,7 +1152,7 @@ public interface GitLabPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROJECT__SHARED_RUNNERS_ENABLED = 37;
+	int PROJECT__SHARED_RUNNERS_ENABLED = LOADABLE_FEATURE_COUNT + 38;
 
 	/**
 	 * The feature id for the '<em><b>Snippets Enabled</b></em>' attribute.
@@ -1088,7 +1161,7 @@ public interface GitLabPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROJECT__SNIPPETS_ENABLED = 38;
+	int PROJECT__SNIPPETS_ENABLED = LOADABLE_FEATURE_COUNT + 39;
 
 	/**
 	 * The feature id for the '<em><b>Ssh Url To Repo</b></em>' attribute.
@@ -1097,7 +1170,7 @@ public interface GitLabPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROJECT__SSH_URL_TO_REPO = 39;
+	int PROJECT__SSH_URL_TO_REPO = LOADABLE_FEATURE_COUNT + 40;
 
 	/**
 	 * The feature id for the '<em><b>Star Count</b></em>' attribute.
@@ -1106,7 +1179,7 @@ public interface GitLabPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROJECT__STAR_COUNT = 40;
+	int PROJECT__STAR_COUNT = LOADABLE_FEATURE_COUNT + 41;
 
 	/**
 	 * The feature id for the '<em><b>Tags</b></em>' attribute list.
@@ -1115,7 +1188,7 @@ public interface GitLabPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROJECT__TAGS = 41;
+	int PROJECT__TAGS = LOADABLE_FEATURE_COUNT + 42;
 
 	/**
 	 * The feature id for the '<em><b>Visibility Level</b></em>' attribute.
@@ -1124,7 +1197,7 @@ public interface GitLabPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROJECT__VISIBILITY_LEVEL = 42;
+	int PROJECT__VISIBILITY_LEVEL = LOADABLE_FEATURE_COUNT + 43;
 
 	/**
 	 * The feature id for the '<em><b>Visibility</b></em>' attribute.
@@ -1133,7 +1206,7 @@ public interface GitLabPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROJECT__VISIBILITY = 43;
+	int PROJECT__VISIBILITY = LOADABLE_FEATURE_COUNT + 44;
 
 	/**
 	 * The feature id for the '<em><b>Wall Enabled</b></em>' attribute.
@@ -1142,7 +1215,7 @@ public interface GitLabPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROJECT__WALL_ENABLED = 44;
+	int PROJECT__WALL_ENABLED = LOADABLE_FEATURE_COUNT + 45;
 
 	/**
 	 * The feature id for the '<em><b>Web Url</b></em>' attribute.
@@ -1151,7 +1224,7 @@ public interface GitLabPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROJECT__WEB_URL = 45;
+	int PROJECT__WEB_URL = LOADABLE_FEATURE_COUNT + 46;
 
 	/**
 	 * The feature id for the '<em><b>Wiki Enabled</b></em>' attribute.
@@ -1160,7 +1233,7 @@ public interface GitLabPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROJECT__WIKI_ENABLED = 46;
+	int PROJECT__WIKI_ENABLED = LOADABLE_FEATURE_COUNT + 47;
 
 	/**
 	 * The feature id for the '<em><b>Printing Merge Request Link Enabled</b></em>' attribute.
@@ -1169,7 +1242,7 @@ public interface GitLabPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROJECT__PRINTING_MERGE_REQUEST_LINK_ENABLED = 47;
+	int PROJECT__PRINTING_MERGE_REQUEST_LINK_ENABLED = LOADABLE_FEATURE_COUNT + 48;
 
 	/**
 	 * The feature id for the '<em><b>Resolve Outdated Diff Discussions</b></em>' attribute.
@@ -1178,7 +1251,7 @@ public interface GitLabPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROJECT__RESOLVE_OUTDATED_DIFF_DISCUSSIONS = 48;
+	int PROJECT__RESOLVE_OUTDATED_DIFF_DISCUSSIONS = LOADABLE_FEATURE_COUNT + 49;
 
 	/**
 	 * The feature id for the '<em><b>Statistics</b></em>' containment reference.
@@ -1187,7 +1260,7 @@ public interface GitLabPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROJECT__STATISTICS = 49;
+	int PROJECT__STATISTICS = LOADABLE_FEATURE_COUNT + 50;
 
 	/**
 	 * The feature id for the '<em><b>Initialize With Readme</b></em>' attribute.
@@ -1196,7 +1269,7 @@ public interface GitLabPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROJECT__INITIALIZE_WITH_README = 50;
+	int PROJECT__INITIALIZE_WITH_README = LOADABLE_FEATURE_COUNT + 51;
 
 	/**
 	 * The feature id for the '<em><b>Packages Enabled</b></em>' attribute.
@@ -1205,7 +1278,7 @@ public interface GitLabPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROJECT__PACKAGES_ENABLED = 51;
+	int PROJECT__PACKAGES_ENABLED = LOADABLE_FEATURE_COUNT + 52;
 
 	/**
 	 * The feature id for the '<em><b>Empty Repo</b></em>' attribute.
@@ -1214,7 +1287,7 @@ public interface GitLabPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROJECT__EMPTY_REPO = 52;
+	int PROJECT__EMPTY_REPO = LOADABLE_FEATURE_COUNT + 53;
 
 	/**
 	 * The feature id for the '<em><b>License Url</b></em>' attribute.
@@ -1223,7 +1296,7 @@ public interface GitLabPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROJECT__LICENSE_URL = 53;
+	int PROJECT__LICENSE_URL = LOADABLE_FEATURE_COUNT + 54;
 
 	/**
 	 * The feature id for the '<em><b>License</b></em>' containment reference.
@@ -1232,7 +1305,7 @@ public interface GitLabPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROJECT__LICENSE = 54;
+	int PROJECT__LICENSE = LOADABLE_FEATURE_COUNT + 55;
 
 	/**
 	 * The feature id for the '<em><b>Custom Attributes</b></em>' map.
@@ -1241,7 +1314,7 @@ public interface GitLabPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROJECT__CUSTOM_ATTRIBUTES = 55;
+	int PROJECT__CUSTOM_ATTRIBUTES = LOADABLE_FEATURE_COUNT + 56;
 
 	/**
 	 * The feature id for the '<em><b>Build Coverage Regex</b></em>' attribute.
@@ -1250,7 +1323,7 @@ public interface GitLabPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROJECT__BUILD_COVERAGE_REGEX = 56;
+	int PROJECT__BUILD_COVERAGE_REGEX = LOADABLE_FEATURE_COUNT + 57;
 
 	/**
 	 * The feature id for the '<em><b>Build Git Strategy</b></em>' attribute.
@@ -1259,7 +1332,7 @@ public interface GitLabPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROJECT__BUILD_GIT_STRATEGY = 57;
+	int PROJECT__BUILD_GIT_STRATEGY = LOADABLE_FEATURE_COUNT + 58;
 
 	/**
 	 * The feature id for the '<em><b>Readme Url</b></em>' attribute.
@@ -1268,7 +1341,7 @@ public interface GitLabPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROJECT__README_URL = 58;
+	int PROJECT__README_URL = LOADABLE_FEATURE_COUNT + 59;
 
 	/**
 	 * The feature id for the '<em><b>Can Create Merge Request In</b></em>' attribute.
@@ -1277,7 +1350,7 @@ public interface GitLabPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROJECT__CAN_CREATE_MERGE_REQUEST_IN = 59;
+	int PROJECT__CAN_CREATE_MERGE_REQUEST_IN = LOADABLE_FEATURE_COUNT + 60;
 
 	/**
 	 * The feature id for the '<em><b>Import Status</b></em>' attribute.
@@ -1286,7 +1359,7 @@ public interface GitLabPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROJECT__IMPORT_STATUS = 60;
+	int PROJECT__IMPORT_STATUS = LOADABLE_FEATURE_COUNT + 61;
 
 	/**
 	 * The feature id for the '<em><b>Ci Default Git Depth</b></em>' attribute.
@@ -1295,7 +1368,7 @@ public interface GitLabPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROJECT__CI_DEFAULT_GIT_DEPTH = 61;
+	int PROJECT__CI_DEFAULT_GIT_DEPTH = LOADABLE_FEATURE_COUNT + 62;
 
 	/**
 	 * The feature id for the '<em><b>Ci Forward Deployment Enabled</b></em>' attribute.
@@ -1304,7 +1377,7 @@ public interface GitLabPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROJECT__CI_FORWARD_DEPLOYMENT_ENABLED = 62;
+	int PROJECT__CI_FORWARD_DEPLOYMENT_ENABLED = LOADABLE_FEATURE_COUNT + 63;
 
 	/**
 	 * The feature id for the '<em><b>Ci Config Path</b></em>' attribute.
@@ -1313,7 +1386,7 @@ public interface GitLabPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROJECT__CI_CONFIG_PATH = 63;
+	int PROJECT__CI_CONFIG_PATH = LOADABLE_FEATURE_COUNT + 64;
 
 	/**
 	 * The feature id for the '<em><b>Remove Source Branch After Merge</b></em>' attribute.
@@ -1322,7 +1395,7 @@ public interface GitLabPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROJECT__REMOVE_SOURCE_BRANCH_AFTER_MERGE = 64;
+	int PROJECT__REMOVE_SOURCE_BRANCH_AFTER_MERGE = LOADABLE_FEATURE_COUNT + 65;
 
 	/**
 	 * The feature id for the '<em><b>Auto Devops Enabled</b></em>' attribute.
@@ -1331,7 +1404,7 @@ public interface GitLabPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROJECT__AUTO_DEVOPS_ENABLED = 65;
+	int PROJECT__AUTO_DEVOPS_ENABLED = LOADABLE_FEATURE_COUNT + 66;
 
 	/**
 	 * The feature id for the '<em><b>Auto Devops Deploy Strategy</b></em>' attribute.
@@ -1340,7 +1413,7 @@ public interface GitLabPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROJECT__AUTO_DEVOPS_DEPLOY_STRATEGY = 66;
+	int PROJECT__AUTO_DEVOPS_DEPLOY_STRATEGY = LOADABLE_FEATURE_COUNT + 67;
 
 	/**
 	 * The feature id for the '<em><b>Autoclose Referenced Issues</b></em>' attribute.
@@ -1349,7 +1422,7 @@ public interface GitLabPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROJECT__AUTOCLOSE_REFERENCED_ISSUES = 67;
+	int PROJECT__AUTOCLOSE_REFERENCED_ISSUES = LOADABLE_FEATURE_COUNT + 68;
 
 	/**
 	 * The feature id for the '<em><b>Emails Disabled</b></em>' attribute.
@@ -1358,7 +1431,7 @@ public interface GitLabPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROJECT__EMAILS_DISABLED = 68;
+	int PROJECT__EMAILS_DISABLED = LOADABLE_FEATURE_COUNT + 69;
 
 	/**
 	 * The feature id for the '<em><b>Suggestion Commit Message</b></em>' attribute.
@@ -1367,7 +1440,7 @@ public interface GitLabPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROJECT__SUGGESTION_COMMIT_MESSAGE = 69;
+	int PROJECT__SUGGESTION_COMMIT_MESSAGE = LOADABLE_FEATURE_COUNT + 70;
 
 	/**
 	 * The feature id for the '<em><b>Squash Option</b></em>' attribute.
@@ -1376,7 +1449,7 @@ public interface GitLabPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROJECT__SQUASH_OPTION = 70;
+	int PROJECT__SQUASH_OPTION = LOADABLE_FEATURE_COUNT + 71;
 
 	/**
 	 * The feature id for the '<em><b>Branches</b></em>' containment reference list.
@@ -1385,7 +1458,7 @@ public interface GitLabPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROJECT__BRANCHES = 71;
+	int PROJECT__BRANCHES = LOADABLE_FEATURE_COUNT + 72;
 
 	/**
 	 * The feature id for the '<em><b>Contributors</b></em>' containment reference list.
@@ -1394,7 +1467,7 @@ public interface GitLabPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROJECT__CONTRIBUTORS = 72;
+	int PROJECT__CONTRIBUTORS = LOADABLE_FEATURE_COUNT + 73;
 
 	/**
 	 * The feature id for the '<em><b>Members</b></em>' containment reference list.
@@ -1403,7 +1476,7 @@ public interface GitLabPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROJECT__MEMBERS = 73;
+	int PROJECT__MEMBERS = LOADABLE_FEATURE_COUNT + 74;
 
 	/**
 	 * The feature id for the '<em><b>Branches Loaded</b></em>' attribute.
@@ -1412,7 +1485,7 @@ public interface GitLabPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROJECT__BRANCHES_LOADED = 74;
+	int PROJECT__BRANCHES_LOADED = LOADABLE_FEATURE_COUNT + 75;
 
 	/**
 	 * The number of structural features of the '<em>Project</em>' class.
@@ -1421,7 +1494,7 @@ public interface GitLabPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROJECT_FEATURE_COUNT = 75;
+	int PROJECT_FEATURE_COUNT = LOADABLE_FEATURE_COUNT + 76;
 
 	/**
 	 * The number of operations of the '<em>Project</em>' class.
@@ -1430,7 +1503,80 @@ public interface GitLabPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROJECT_OPERATION_COUNT = 0;
+	int PROJECT_OPERATION_COUNT = LOADABLE_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link org.nasdanika.models.gitlab.impl.ProjectSharedGroupImpl <em>Project Shared Group</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.nasdanika.models.gitlab.impl.ProjectSharedGroupImpl
+	 * @see org.nasdanika.models.gitlab.impl.GitLabPackageImpl#getProjectSharedGroup()
+	 * @generated
+	 */
+	int PROJECT_SHARED_GROUP = 7;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROJECT_SHARED_GROUP__ID = 0;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROJECT_SHARED_GROUP__NAME = 1;
+
+	/**
+	 * The feature id for the '<em><b>Full Path</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROJECT_SHARED_GROUP__FULL_PATH = 2;
+
+	/**
+	 * The feature id for the '<em><b>Access Level</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROJECT_SHARED_GROUP__ACCESS_LEVEL = 3;
+
+	/**
+	 * The feature id for the '<em><b>Group</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROJECT_SHARED_GROUP__GROUP = 4;
+
+	/**
+	 * The number of structural features of the '<em>Project Shared Group</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROJECT_SHARED_GROUP_FEATURE_COUNT = 5;
+
+	/**
+	 * The number of operations of the '<em>Project Shared Group</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROJECT_SHARED_GROUP_OPERATION_COUNT = 0;
 
 	/**
 	 * The meta object id for the '{@link org.nasdanika.models.gitlab.impl.ProjectStatisticsImpl <em>Project Statistics</em>}' class.
@@ -1440,7 +1586,7 @@ public interface GitLabPackage extends EPackage {
 	 * @see org.nasdanika.models.gitlab.impl.GitLabPackageImpl#getProjectStatistics()
 	 * @generated
 	 */
-	int PROJECT_STATISTICS = 6;
+	int PROJECT_STATISTICS = 8;
 
 	/**
 	 * The feature id for the '<em><b>Commit Count</b></em>' attribute.
@@ -1531,7 +1677,7 @@ public interface GitLabPackage extends EPackage {
 	 * @see org.nasdanika.models.gitlab.impl.GitLabPackageImpl#getProjectLicense()
 	 * @generated
 	 */
-	int PROJECT_LICENSE = 7;
+	int PROJECT_LICENSE = 9;
 
 	/**
 	 * The feature id for the '<em><b>Key</b></em>' attribute.
@@ -1604,7 +1750,7 @@ public interface GitLabPackage extends EPackage {
 	 * @see org.nasdanika.models.gitlab.impl.GitLabPackageImpl#getContributor()
 	 * @generated
 	 */
-	int CONTRIBUTOR = 8;
+	int CONTRIBUTOR = 10;
 
 	/**
 	 * The feature id for the '<em><b>Avatar Url</b></em>' attribute.
@@ -1740,7 +1886,7 @@ public interface GitLabPackage extends EPackage {
 	 * @see org.nasdanika.models.gitlab.impl.GitLabPackageImpl#getProjectAccess()
 	 * @generated
 	 */
-	int PROJECT_ACCESS = 9;
+	int PROJECT_ACCESS = 11;
 
 	/**
 	 * The feature id for the '<em><b>Access Level</b></em>' attribute.
@@ -1786,7 +1932,7 @@ public interface GitLabPackage extends EPackage {
 	 * @see org.nasdanika.models.gitlab.impl.GitLabPackageImpl#getCustomAttribute()
 	 * @generated
 	 */
-	int CUSTOM_ATTRIBUTE = 10;
+	int CUSTOM_ATTRIBUTE = 12;
 
 	/**
 	 * The feature id for the '<em><b>Key</b></em>' attribute.
@@ -1832,34 +1978,7 @@ public interface GitLabPackage extends EPackage {
 	 * @see org.nasdanika.models.gitlab.impl.GitLabPackageImpl#getTreeItem()
 	 * @generated
 	 */
-	int TREE_ITEM = 13;
-
-	/**
-	 * The feature id for the '<em><b>Id</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TREE_ITEM__ID = 0;
-
-	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TREE_ITEM__NAME = 1;
-
-	/**
-	 * The feature id for the '<em><b>Path</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TREE_ITEM__PATH = 2;
+	int TREE_ITEM = 15;
 
 	/**
 	 * The feature id for the '<em><b>Loaded</b></em>' attribute.
@@ -1868,7 +1987,34 @@ public interface GitLabPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TREE_ITEM__LOADED = 3;
+	int TREE_ITEM__LOADED = LOADABLE__LOADED;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TREE_ITEM__ID = LOADABLE_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TREE_ITEM__NAME = LOADABLE_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Path</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TREE_ITEM__PATH = LOADABLE_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of structural features of the '<em>Tree Item</em>' class.
@@ -1877,7 +2023,7 @@ public interface GitLabPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TREE_ITEM_FEATURE_COUNT = 4;
+	int TREE_ITEM_FEATURE_COUNT = LOADABLE_FEATURE_COUNT + 3;
 
 	/**
 	 * The number of operations of the '<em>Tree Item</em>' class.
@@ -1886,7 +2032,7 @@ public interface GitLabPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TREE_ITEM_OPERATION_COUNT = 0;
+	int TREE_ITEM_OPERATION_COUNT = LOADABLE_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link org.nasdanika.models.gitlab.impl.TreeImpl <em>Tree</em>}' class.
@@ -1896,7 +2042,16 @@ public interface GitLabPackage extends EPackage {
 	 * @see org.nasdanika.models.gitlab.impl.GitLabPackageImpl#getTree()
 	 * @generated
 	 */
-	int TREE = 14;
+	int TREE = 16;
+
+	/**
+	 * The feature id for the '<em><b>Loaded</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TREE__LOADED = TREE_ITEM__LOADED;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -1926,15 +2081,6 @@ public interface GitLabPackage extends EPackage {
 	int TREE__PATH = TREE_ITEM__PATH;
 
 	/**
-	 * The feature id for the '<em><b>Loaded</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TREE__LOADED = TREE_ITEM__LOADED;
-
-	/**
 	 * The feature id for the '<em><b>Tree Items</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1944,13 +2090,22 @@ public interface GitLabPackage extends EPackage {
 	int TREE__TREE_ITEMS = TREE_ITEM_FEATURE_COUNT + 0;
 
 	/**
+	 * The feature id for the '<em><b>Tree Items Loaded</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TREE__TREE_ITEMS_LOADED = TREE_ITEM_FEATURE_COUNT + 1;
+
+	/**
 	 * The number of structural features of the '<em>Tree</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TREE_FEATURE_COUNT = TREE_ITEM_FEATURE_COUNT + 1;
+	int TREE_FEATURE_COUNT = TREE_ITEM_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of operations of the '<em>Tree</em>' class.
@@ -1969,7 +2124,16 @@ public interface GitLabPackage extends EPackage {
 	 * @see org.nasdanika.models.gitlab.impl.GitLabPackageImpl#getBranch()
 	 * @generated
 	 */
-	int BRANCH = 11;
+	int BRANCH = 13;
+
+	/**
+	 * The feature id for the '<em><b>Loaded</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BRANCH__LOADED = TREE__LOADED;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -1999,15 +2163,6 @@ public interface GitLabPackage extends EPackage {
 	int BRANCH__PATH = TREE__PATH;
 
 	/**
-	 * The feature id for the '<em><b>Loaded</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int BRANCH__LOADED = TREE__LOADED;
-
-	/**
 	 * The feature id for the '<em><b>Tree Items</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2015,6 +2170,15 @@ public interface GitLabPackage extends EPackage {
 	 * @ordered
 	 */
 	int BRANCH__TREE_ITEMS = TREE__TREE_ITEMS;
+
+	/**
+	 * The feature id for the '<em><b>Tree Items Loaded</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BRANCH__TREE_ITEMS_LOADED = TREE__TREE_ITEMS_LOADED;
 
 	/**
 	 * The feature id for the '<em><b>Commit Date</b></em>' attribute.
@@ -2114,7 +2278,7 @@ public interface GitLabPackage extends EPackage {
 	 * @see org.nasdanika.models.gitlab.impl.GitLabPackageImpl#getOwner()
 	 * @generated
 	 */
-	int OWNER = 12;
+	int OWNER = 14;
 
 	/**
 	 * The feature id for the '<em><b>Avatar Url</b></em>' attribute.
@@ -2223,7 +2387,16 @@ public interface GitLabPackage extends EPackage {
 	 * @see org.nasdanika.models.gitlab.impl.GitLabPackageImpl#getBlob()
 	 * @generated
 	 */
-	int BLOB = 15;
+	int BLOB = 17;
+
+	/**
+	 * The feature id for the '<em><b>Loaded</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BLOB__LOADED = TREE_ITEM__LOADED;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -2253,15 +2426,6 @@ public interface GitLabPackage extends EPackage {
 	int BLOB__PATH = TREE_ITEM__PATH;
 
 	/**
-	 * The feature id for the '<em><b>Loaded</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int BLOB__LOADED = TREE_ITEM__LOADED;
-
-	/**
 	 * The number of structural features of the '<em>Blob</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2287,7 +2451,16 @@ public interface GitLabPackage extends EPackage {
 	 * @see org.nasdanika.models.gitlab.impl.GitLabPackageImpl#getRepositoryFile()
 	 * @generated
 	 */
-	int REPOSITORY_FILE = 16;
+	int REPOSITORY_FILE = 18;
+
+	/**
+	 * The feature id for the '<em><b>Loaded</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int REPOSITORY_FILE__LOADED = BLOB__LOADED;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -2315,15 +2488,6 @@ public interface GitLabPackage extends EPackage {
 	 * @ordered
 	 */
 	int REPOSITORY_FILE__PATH = BLOB__PATH;
-
-	/**
-	 * The feature id for the '<em><b>Loaded</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int REPOSITORY_FILE__LOADED = BLOB__LOADED;
 
 	/**
 	 * The feature id for the '<em><b>Size</b></em>' attribute.
@@ -2387,7 +2551,16 @@ public interface GitLabPackage extends EPackage {
 	 * @see org.nasdanika.models.gitlab.impl.GitLabPackageImpl#getTextRepositoryFile()
 	 * @generated
 	 */
-	int TEXT_REPOSITORY_FILE = 17;
+	int TEXT_REPOSITORY_FILE = 19;
+
+	/**
+	 * The feature id for the '<em><b>Loaded</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEXT_REPOSITORY_FILE__LOADED = REPOSITORY_FILE__LOADED;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -2415,15 +2588,6 @@ public interface GitLabPackage extends EPackage {
 	 * @ordered
 	 */
 	int TEXT_REPOSITORY_FILE__PATH = REPOSITORY_FILE__PATH;
-
-	/**
-	 * The feature id for the '<em><b>Loaded</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TEXT_REPOSITORY_FILE__LOADED = REPOSITORY_FILE__LOADED;
 
 	/**
 	 * The feature id for the '<em><b>Size</b></em>' attribute.
@@ -2496,7 +2660,16 @@ public interface GitLabPackage extends EPackage {
 	 * @see org.nasdanika.models.gitlab.impl.GitLabPackageImpl#getBinaryRepositoryFile()
 	 * @generated
 	 */
-	int BINARY_REPOSITORY_FILE = 18;
+	int BINARY_REPOSITORY_FILE = 20;
+
+	/**
+	 * The feature id for the '<em><b>Loaded</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BINARY_REPOSITORY_FILE__LOADED = REPOSITORY_FILE__LOADED;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -2524,15 +2697,6 @@ public interface GitLabPackage extends EPackage {
 	 * @ordered
 	 */
 	int BINARY_REPOSITORY_FILE__PATH = REPOSITORY_FILE__PATH;
-
-	/**
-	 * The feature id for the '<em><b>Loaded</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int BINARY_REPOSITORY_FILE__LOADED = REPOSITORY_FILE__LOADED;
 
 	/**
 	 * The feature id for the '<em><b>Size</b></em>' attribute.
@@ -2605,7 +2769,16 @@ public interface GitLabPackage extends EPackage {
 	 * @see org.nasdanika.models.gitlab.impl.GitLabPackageImpl#getEObjectRepositoryFile()
 	 * @generated
 	 */
-	int EOBJECT_REPOSITORY_FILE = 19;
+	int EOBJECT_REPOSITORY_FILE = 21;
+
+	/**
+	 * The feature id for the '<em><b>Loaded</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EOBJECT_REPOSITORY_FILE__LOADED = REPOSITORY_FILE__LOADED;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -2633,15 +2806,6 @@ public interface GitLabPackage extends EPackage {
 	 * @ordered
 	 */
 	int EOBJECT_REPOSITORY_FILE__PATH = REPOSITORY_FILE__PATH;
-
-	/**
-	 * The feature id for the '<em><b>Loaded</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EOBJECT_REPOSITORY_FILE__LOADED = REPOSITORY_FILE__LOADED;
 
 	/**
 	 * The feature id for the '<em><b>Size</b></em>' attribute.
@@ -2714,7 +2878,16 @@ public interface GitLabPackage extends EPackage {
 	 * @see org.nasdanika.models.gitlab.impl.GitLabPackageImpl#getListRepositoryFile()
 	 * @generated
 	 */
-	int LIST_REPOSITORY_FILE = 20;
+	int LIST_REPOSITORY_FILE = 22;
+
+	/**
+	 * The feature id for the '<em><b>Loaded</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LIST_REPOSITORY_FILE__LOADED = REPOSITORY_FILE__LOADED;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -2742,15 +2915,6 @@ public interface GitLabPackage extends EPackage {
 	 * @ordered
 	 */
 	int LIST_REPOSITORY_FILE__PATH = REPOSITORY_FILE__PATH;
-
-	/**
-	 * The feature id for the '<em><b>Loaded</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int LIST_REPOSITORY_FILE__LOADED = REPOSITORY_FILE__LOADED;
 
 	/**
 	 * The feature id for the '<em><b>Size</b></em>' attribute.
@@ -2823,7 +2987,7 @@ public interface GitLabPackage extends EPackage {
 	 * @see org.nasdanika.models.gitlab.impl.GitLabPackageImpl#getVisibility()
 	 * @generated
 	 */
-	int VISIBILITY = 21;
+	int VISIBILITY = 23;
 
 
 	/**
@@ -2834,7 +2998,7 @@ public interface GitLabPackage extends EPackage {
 	 * @see org.nasdanika.models.gitlab.impl.GitLabPackageImpl#getAccessLevel()
 	 * @generated
 	 */
-	int ACCESS_LEVEL = 22;
+	int ACCESS_LEVEL = 24;
 
 
 	/**
@@ -2845,7 +3009,7 @@ public interface GitLabPackage extends EPackage {
 	 * @see org.nasdanika.models.gitlab.impl.GitLabPackageImpl#getMergeMethod()
 	 * @generated
 	 */
-	int MERGE_METHOD = 23;
+	int MERGE_METHOD = 25;
 
 	/**
 	 * The meta object id for the '{@link org.nasdanika.models.gitlab.BuildGitStrategy <em>Build Git Strategy</em>}' enum.
@@ -2855,7 +3019,7 @@ public interface GitLabPackage extends EPackage {
 	 * @see org.nasdanika.models.gitlab.impl.GitLabPackageImpl#getBuildGitStrategy()
 	 * @generated
 	 */
-	int BUILD_GIT_STRATEGY = 24;
+	int BUILD_GIT_STRATEGY = 26;
 
 	/**
 	 * The meta object id for the '{@link org.nasdanika.models.gitlab.Status <em>Status</em>}' enum.
@@ -2865,7 +3029,7 @@ public interface GitLabPackage extends EPackage {
 	 * @see org.nasdanika.models.gitlab.impl.GitLabPackageImpl#getStatus()
 	 * @generated
 	 */
-	int STATUS = 25;
+	int STATUS = 27;
 
 	/**
 	 * The meta object id for the '{@link org.nasdanika.models.gitlab.AutoDevopsDeployStrategy <em>Auto Devops Deploy Strategy</em>}' enum.
@@ -2875,7 +3039,7 @@ public interface GitLabPackage extends EPackage {
 	 * @see org.nasdanika.models.gitlab.impl.GitLabPackageImpl#getAutoDevopsDeployStrategy()
 	 * @generated
 	 */
-	int AUTO_DEVOPS_DEPLOY_STRATEGY = 26;
+	int AUTO_DEVOPS_DEPLOY_STRATEGY = 28;
 
 	/**
 	 * The meta object id for the '{@link org.nasdanika.models.gitlab.SquashOption <em>Squash Option</em>}' enum.
@@ -2885,8 +3049,29 @@ public interface GitLabPackage extends EPackage {
 	 * @see org.nasdanika.models.gitlab.impl.GitLabPackageImpl#getSquashOption()
 	 * @generated
 	 */
-	int SQUASH_OPTION = 27;
+	int SQUASH_OPTION = 29;
 
+
+	/**
+	 * Returns the meta object for class '{@link org.nasdanika.models.gitlab.Loadable <em>Loadable</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Loadable</em>'.
+	 * @see org.nasdanika.models.gitlab.Loadable
+	 * @generated
+	 */
+	EClass getLoadable();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.models.gitlab.Loadable#getLoaded <em>Loaded</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Loaded</em>'.
+	 * @see org.nasdanika.models.gitlab.Loadable#getLoaded()
+	 * @see #getLoadable()
+	 * @generated
+	 */
+	EAttribute getLoadable_Loaded();
 
 	/**
 	 * Returns the meta object for class '{@link org.nasdanika.models.gitlab.GitLab <em>Git Lab</em>}'.
@@ -2932,11 +3117,11 @@ public interface GitLabPackage extends EPackage {
 	EReference getGitLab_Users();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.nasdanika.models.gitlab.GitLab#isTopLevelGroupsLoaded <em>Top Level Groups Loaded</em>}'.
+	 * Returns the meta object for the attribute '{@link org.nasdanika.models.gitlab.GitLab#getTopLevelGroupsLoaded <em>Top Level Groups Loaded</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Top Level Groups Loaded</em>'.
-	 * @see org.nasdanika.models.gitlab.GitLab#isTopLevelGroupsLoaded()
+	 * @see org.nasdanika.models.gitlab.GitLab#getTopLevelGroupsLoaded()
 	 * @see #getGitLab()
 	 * @generated
 	 */
@@ -3085,15 +3270,15 @@ public interface GitLabPackage extends EPackage {
 	EReference getGroup_Projects();
 
 	/**
-	 * Returns the meta object for the reference list '{@link org.nasdanika.models.gitlab.Group#getSharedProjects <em>Shared Projects</em>}'.
+	 * Returns the meta object for the reference list '{@link org.nasdanika.models.gitlab.Group#getShares <em>Shares</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Shared Projects</em>'.
-	 * @see org.nasdanika.models.gitlab.Group#getSharedProjects()
+	 * @return the meta object for the reference list '<em>Shares</em>'.
+	 * @see org.nasdanika.models.gitlab.Group#getShares()
 	 * @see #getGroup()
 	 * @generated
 	 */
-	EReference getGroup_SharedProjects();
+	EReference getGroup_Shares();
 
 	/**
 	 * Returns the meta object for the attribute '{@link org.nasdanika.models.gitlab.Group#getStorageSize <em>Storage Size</em>}'.
@@ -3173,26 +3358,26 @@ public interface GitLabPackage extends EPackage {
 	EReference getGroup_CodeOwnership();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.nasdanika.models.gitlab.Group#isSubGroupsLoaded <em>Sub Groups Loaded</em>}'.
+	 * Returns the meta object for the attribute '{@link org.nasdanika.models.gitlab.Group#getSubGroupsLoaded <em>Sub Groups Loaded</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Sub Groups Loaded</em>'.
-	 * @see org.nasdanika.models.gitlab.Group#isSubGroupsLoaded()
+	 * @see org.nasdanika.models.gitlab.Group#getSubGroupsLoaded()
 	 * @see #getGroup()
 	 * @generated
 	 */
 	EAttribute getGroup_SubGroupsLoaded();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.nasdanika.models.gitlab.Group#isProjectsLoaded <em>Projects Loaded</em>}'.
+	 * Returns the meta object for the attribute '{@link org.nasdanika.models.gitlab.Group#getProjectsGroupsLoaded <em>Projects Groups Loaded</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Projects Loaded</em>'.
-	 * @see org.nasdanika.models.gitlab.Group#isProjectsLoaded()
+	 * @return the meta object for the attribute '<em>Projects Groups Loaded</em>'.
+	 * @see org.nasdanika.models.gitlab.Group#getProjectsGroupsLoaded()
 	 * @see #getGroup()
 	 * @generated
 	 */
-	EAttribute getGroup_ProjectsLoaded();
+	EAttribute getGroup_ProjectsGroupsLoaded();
 
 	/**
 	 * Returns the meta object for class '{@link org.nasdanika.models.gitlab.Member <em>Member</em>}'.
@@ -3532,6 +3717,17 @@ public interface GitLabPackage extends EPackage {
 	EAttribute getProject_ForksCount();
 
 	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.models.gitlab.Project#getForkedFromId <em>Forked From Id</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Forked From Id</em>'.
+	 * @see org.nasdanika.models.gitlab.Project#getForkedFromId()
+	 * @see #getProject()
+	 * @generated
+	 */
+	EAttribute getProject_ForkedFromId();
+
+	/**
 	 * Returns the meta object for the reference '{@link org.nasdanika.models.gitlab.Project#getForkedFrom <em>Forked From</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3785,10 +3981,10 @@ public interface GitLabPackage extends EPackage {
 	EAttribute getProject_PublicJobs();
 
 	/**
-	 * Returns the meta object for the reference list '{@link org.nasdanika.models.gitlab.Project#getSharedWithGroups <em>Shared With Groups</em>}'.
+	 * Returns the meta object for the containment reference list '{@link org.nasdanika.models.gitlab.Project#getSharedWithGroups <em>Shared With Groups</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Shared With Groups</em>'.
+	 * @return the meta object for the containment reference list '<em>Shared With Groups</em>'.
 	 * @see org.nasdanika.models.gitlab.Project#getSharedWithGroups()
 	 * @see #getProject()
 	 * @generated
@@ -4236,15 +4432,80 @@ public interface GitLabPackage extends EPackage {
 	EReference getProject_Members();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.nasdanika.models.gitlab.Project#isBranchesLoaded <em>Branches Loaded</em>}'.
+	 * Returns the meta object for the attribute '{@link org.nasdanika.models.gitlab.Project#getBranchesLoaded <em>Branches Loaded</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Branches Loaded</em>'.
-	 * @see org.nasdanika.models.gitlab.Project#isBranchesLoaded()
+	 * @see org.nasdanika.models.gitlab.Project#getBranchesLoaded()
 	 * @see #getProject()
 	 * @generated
 	 */
 	EAttribute getProject_BranchesLoaded();
+
+	/**
+	 * Returns the meta object for class '{@link org.nasdanika.models.gitlab.ProjectSharedGroup <em>Project Shared Group</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Project Shared Group</em>'.
+	 * @see org.nasdanika.models.gitlab.ProjectSharedGroup
+	 * @generated
+	 */
+	EClass getProjectSharedGroup();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.models.gitlab.ProjectSharedGroup#getId <em>Id</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Id</em>'.
+	 * @see org.nasdanika.models.gitlab.ProjectSharedGroup#getId()
+	 * @see #getProjectSharedGroup()
+	 * @generated
+	 */
+	EAttribute getProjectSharedGroup_Id();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.models.gitlab.ProjectSharedGroup#getName <em>Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Name</em>'.
+	 * @see org.nasdanika.models.gitlab.ProjectSharedGroup#getName()
+	 * @see #getProjectSharedGroup()
+	 * @generated
+	 */
+	EAttribute getProjectSharedGroup_Name();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.models.gitlab.ProjectSharedGroup#getFullPath <em>Full Path</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Full Path</em>'.
+	 * @see org.nasdanika.models.gitlab.ProjectSharedGroup#getFullPath()
+	 * @see #getProjectSharedGroup()
+	 * @generated
+	 */
+	EAttribute getProjectSharedGroup_FullPath();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.models.gitlab.ProjectSharedGroup#getAccessLevel <em>Access Level</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Access Level</em>'.
+	 * @see org.nasdanika.models.gitlab.ProjectSharedGroup#getAccessLevel()
+	 * @see #getProjectSharedGroup()
+	 * @generated
+	 */
+	EAttribute getProjectSharedGroup_AccessLevel();
+
+	/**
+	 * Returns the meta object for the reference '{@link org.nasdanika.models.gitlab.ProjectSharedGroup#getGroup <em>Group</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Group</em>'.
+	 * @see org.nasdanika.models.gitlab.ProjectSharedGroup#getGroup()
+	 * @see #getProjectSharedGroup()
+	 * @generated
+	 */
+	EReference getProjectSharedGroup_Group();
 
 	/**
 	 * Returns the meta object for class '{@link org.nasdanika.models.gitlab.ProjectStatistics <em>Project Statistics</em>}'.
@@ -4681,17 +4942,6 @@ public interface GitLabPackage extends EPackage {
 	EAttribute getTreeItem_Path();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.nasdanika.models.gitlab.TreeItem#isLoaded <em>Loaded</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Loaded</em>'.
-	 * @see org.nasdanika.models.gitlab.TreeItem#isLoaded()
-	 * @see #getTreeItem()
-	 * @generated
-	 */
-	EAttribute getTreeItem_Loaded();
-
-	/**
 	 * Returns the meta object for class '{@link org.nasdanika.models.gitlab.Tree <em>Tree</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4711,6 +4961,17 @@ public interface GitLabPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getTree_TreeItems();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.models.gitlab.Tree#getTreeItemsLoaded <em>Tree Items Loaded</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Tree Items Loaded</em>'.
+	 * @see org.nasdanika.models.gitlab.Tree#getTreeItemsLoaded()
+	 * @see #getTree()
+	 * @generated
+	 */
+	EAttribute getTree_TreeItemsLoaded();
 
 	/**
 	 * Returns the meta object for class '{@link org.nasdanika.models.gitlab.Blob <em>Blob</em>}'.
@@ -4954,6 +5215,22 @@ public interface GitLabPackage extends EPackage {
 	 */
 	interface Literals {
 		/**
+		 * The meta object literal for the '{@link org.nasdanika.models.gitlab.impl.LoadableImpl <em>Loadable</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.nasdanika.models.gitlab.impl.LoadableImpl
+		 * @see org.nasdanika.models.gitlab.impl.GitLabPackageImpl#getLoadable()
+		 * @generated
+		 */
+		EClass LOADABLE = eINSTANCE.getLoadable();
+		/**
+		 * The meta object literal for the '<em><b>Loaded</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute LOADABLE__LOADED = eINSTANCE.getLoadable_Loaded();
+		/**
 		 * The meta object literal for the '{@link org.nasdanika.models.gitlab.impl.GitLabImpl <em>Git Lab</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -5084,12 +5361,12 @@ public interface GitLabPackage extends EPackage {
 		 */
 		EReference GROUP__PROJECTS = eINSTANCE.getGroup_Projects();
 		/**
-		 * The meta object literal for the '<em><b>Shared Projects</b></em>' reference list feature.
+		 * The meta object literal for the '<em><b>Shares</b></em>' reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference GROUP__SHARED_PROJECTS = eINSTANCE.getGroup_SharedProjects();
+		EReference GROUP__SHARES = eINSTANCE.getGroup_Shares();
 		/**
 		 * The meta object literal for the '<em><b>Storage Size</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
@@ -5147,12 +5424,12 @@ public interface GitLabPackage extends EPackage {
 		 */
 		EAttribute GROUP__SUB_GROUPS_LOADED = eINSTANCE.getGroup_SubGroupsLoaded();
 		/**
-		 * The meta object literal for the '<em><b>Projects Loaded</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Projects Groups Loaded</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute GROUP__PROJECTS_LOADED = eINSTANCE.getGroup_ProjectsLoaded();
+		EAttribute GROUP__PROJECTS_GROUPS_LOADED = eINSTANCE.getGroup_ProjectsGroupsLoaded();
 		/**
 		 * The meta object literal for the '{@link org.nasdanika.models.gitlab.impl.MemberImpl <em>Member</em>}' class.
 		 * <!-- begin-user-doc -->
@@ -5379,6 +5656,13 @@ public interface GitLabPackage extends EPackage {
 		 */
 		EAttribute PROJECT__FORKS_COUNT = eINSTANCE.getProject_ForksCount();
 		/**
+		 * The meta object literal for the '<em><b>Forked From Id</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute PROJECT__FORKED_FROM_ID = eINSTANCE.getProject_ForkedFromId();
+		/**
 		 * The meta object literal for the '<em><b>Forked From</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -5540,7 +5824,7 @@ public interface GitLabPackage extends EPackage {
 		 */
 		EAttribute PROJECT__PUBLIC_JOBS = eINSTANCE.getProject_PublicJobs();
 		/**
-		 * The meta object literal for the '<em><b>Shared With Groups</b></em>' reference list feature.
+		 * The meta object literal for the '<em><b>Shared With Groups</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -5833,6 +6117,50 @@ public interface GitLabPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute PROJECT__BRANCHES_LOADED = eINSTANCE.getProject_BranchesLoaded();
+		/**
+		 * The meta object literal for the '{@link org.nasdanika.models.gitlab.impl.ProjectSharedGroupImpl <em>Project Shared Group</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.nasdanika.models.gitlab.impl.ProjectSharedGroupImpl
+		 * @see org.nasdanika.models.gitlab.impl.GitLabPackageImpl#getProjectSharedGroup()
+		 * @generated
+		 */
+		EClass PROJECT_SHARED_GROUP = eINSTANCE.getProjectSharedGroup();
+		/**
+		 * The meta object literal for the '<em><b>Id</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute PROJECT_SHARED_GROUP__ID = eINSTANCE.getProjectSharedGroup_Id();
+		/**
+		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute PROJECT_SHARED_GROUP__NAME = eINSTANCE.getProjectSharedGroup_Name();
+		/**
+		 * The meta object literal for the '<em><b>Full Path</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute PROJECT_SHARED_GROUP__FULL_PATH = eINSTANCE.getProjectSharedGroup_FullPath();
+		/**
+		 * The meta object literal for the '<em><b>Access Level</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute PROJECT_SHARED_GROUP__ACCESS_LEVEL = eINSTANCE.getProjectSharedGroup_AccessLevel();
+		/**
+		 * The meta object literal for the '<em><b>Group</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference PROJECT_SHARED_GROUP__GROUP = eINSTANCE.getProjectSharedGroup_Group();
 		/**
 		 * The meta object literal for the '{@link org.nasdanika.models.gitlab.impl.ProjectStatisticsImpl <em>Project Statistics</em>}' class.
 		 * <!-- begin-user-doc -->
@@ -6130,13 +6458,6 @@ public interface GitLabPackage extends EPackage {
 		 */
 		EAttribute TREE_ITEM__PATH = eINSTANCE.getTreeItem_Path();
 		/**
-		 * The meta object literal for the '<em><b>Loaded</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute TREE_ITEM__LOADED = eINSTANCE.getTreeItem_Loaded();
-		/**
 		 * The meta object literal for the '{@link org.nasdanika.models.gitlab.impl.TreeImpl <em>Tree</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -6152,6 +6473,13 @@ public interface GitLabPackage extends EPackage {
 		 * @generated
 		 */
 		EReference TREE__TREE_ITEMS = eINSTANCE.getTree_TreeItems();
+		/**
+		 * The meta object literal for the '<em><b>Tree Items Loaded</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute TREE__TREE_ITEMS_LOADED = eINSTANCE.getTree_TreeItemsLoaded();
 		/**
 		 * The meta object literal for the '{@link org.nasdanika.models.gitlab.impl.BlobImpl <em>Blob</em>}' class.
 		 * <!-- begin-user-doc -->

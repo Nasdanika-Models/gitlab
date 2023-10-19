@@ -67,6 +67,15 @@ public interface GitLabFactory extends EFactory {
 	Project createProject();
 
 	/**
+	 * Returns a new object of class '<em>Project Shared Group</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Project Shared Group</em>'.
+	 * @generated
+	 */
+	ProjectSharedGroup createProjectSharedGroup();
+
+	/**
 	 * Returns a new object of class '<em>Project Statistics</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

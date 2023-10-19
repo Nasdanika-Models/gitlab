@@ -11,21 +11,19 @@ import org.eclipse.emf.ecore.EClass;
 
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.ecore.InternalEObject;
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-
 import org.eclipse.emf.ecore.util.InternalEList;
 import org.nasdanika.models.gitlab.AutoDevopsDeployStrategy;
 import org.nasdanika.models.gitlab.Branch;
 import org.nasdanika.models.gitlab.BuildGitStrategy;
 import org.nasdanika.models.gitlab.Contributor;
 import org.nasdanika.models.gitlab.GitLabPackage;
-import org.nasdanika.models.gitlab.Group;
 import org.nasdanika.models.gitlab.Member;
 import org.nasdanika.models.gitlab.MergeMethod;
 import org.nasdanika.models.gitlab.Owner;
 import org.nasdanika.models.gitlab.Project;
 import org.nasdanika.models.gitlab.ProjectAccess;
 import org.nasdanika.models.gitlab.ProjectLicense;
+import org.nasdanika.models.gitlab.ProjectSharedGroup;
 import org.nasdanika.models.gitlab.ProjectStatistics;
 import org.nasdanika.models.gitlab.SquashOption;
 import org.nasdanika.models.gitlab.Status;
@@ -50,6 +48,7 @@ import org.nasdanika.models.gitlab.Visibility;
  *   <li>{@link org.nasdanika.models.gitlab.impl.ProjectImpl#getDefaultBranch <em>Default Branch</em>}</li>
  *   <li>{@link org.nasdanika.models.gitlab.impl.ProjectImpl#getDescription <em>Description</em>}</li>
  *   <li>{@link org.nasdanika.models.gitlab.impl.ProjectImpl#getForksCount <em>Forks Count</em>}</li>
+ *   <li>{@link org.nasdanika.models.gitlab.impl.ProjectImpl#getForkedFromId <em>Forked From Id</em>}</li>
  *   <li>{@link org.nasdanika.models.gitlab.impl.ProjectImpl#getForkedFrom <em>Forked From</em>}</li>
  *   <li>{@link org.nasdanika.models.gitlab.impl.ProjectImpl#getForks <em>Forks</em>}</li>
  *   <li>{@link org.nasdanika.models.gitlab.impl.ProjectImpl#getHttpUrlToRepo <em>Http Url To Repo</em>}</li>
@@ -114,12 +113,12 @@ import org.nasdanika.models.gitlab.Visibility;
  *   <li>{@link org.nasdanika.models.gitlab.impl.ProjectImpl#getBranches <em>Branches</em>}</li>
  *   <li>{@link org.nasdanika.models.gitlab.impl.ProjectImpl#getContributors <em>Contributors</em>}</li>
  *   <li>{@link org.nasdanika.models.gitlab.impl.ProjectImpl#getMembers <em>Members</em>}</li>
- *   <li>{@link org.nasdanika.models.gitlab.impl.ProjectImpl#isBranchesLoaded <em>Branches Loaded</em>}</li>
+ *   <li>{@link org.nasdanika.models.gitlab.impl.ProjectImpl#getBranchesLoaded <em>Branches Loaded</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class ProjectImpl extends MinimalEObjectImpl.Container implements Project {
+public class ProjectImpl extends LoadableImpl implements Project {
 	/**
 	 * The default value of the '{@link #getApprovalsBeforeMerge() <em>Approvals Before Merge</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -201,6 +200,15 @@ public class ProjectImpl extends MinimalEObjectImpl.Container implements Project
 	 * @ordered
 	 */
 	protected static final Integer FORKS_COUNT_EDEFAULT = null;
+	/**
+	 * The default value of the '{@link #getForkedFromId() <em>Forked From Id</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getForkedFromId()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final Long FORKED_FROM_ID_EDEFAULT = null;
 	/**
 	 * The default value of the '{@link #getHttpUrlToRepo() <em>Http Url To Repo</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -663,14 +671,14 @@ public class ProjectImpl extends MinimalEObjectImpl.Container implements Project
 	protected static final SquashOption SQUASH_OPTION_EDEFAULT = SquashOption.NEVER;
 
 	/**
-	 * The default value of the '{@link #isBranchesLoaded() <em>Branches Loaded</em>}' attribute.
+	 * The default value of the '{@link #getBranchesLoaded() <em>Branches Loaded</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #isBranchesLoaded()
+	 * @see #getBranchesLoaded()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final boolean BRANCHES_LOADED_EDEFAULT = false;
+	protected static final Date BRANCHES_LOADED_EDEFAULT = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -689,16 +697,6 @@ public class ProjectImpl extends MinimalEObjectImpl.Container implements Project
 	@Override
 	protected EClass eStaticClass() {
 		return GitLabPackage.Literals.PROJECT;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	protected int eStaticFeatureCount() {
-		return 0;
 	}
 
 	/**
@@ -918,6 +916,26 @@ public class ProjectImpl extends MinimalEObjectImpl.Container implements Project
 	@Override
 	public void setForksCount(Integer newForksCount) {
 		eDynamicSet(GitLabPackage.PROJECT__FORKS_COUNT, GitLabPackage.Literals.PROJECT__FORKS_COUNT, newForksCount);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Long getForkedFromId() {
+		return (Long)eDynamicGet(GitLabPackage.PROJECT__FORKED_FROM_ID, GitLabPackage.Literals.PROJECT__FORKED_FROM_ID, true, true);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setForkedFromId(Long newForkedFromId) {
+		eDynamicSet(GitLabPackage.PROJECT__FORKED_FROM_ID, GitLabPackage.Literals.PROJECT__FORKED_FROM_ID, newForkedFromId);
 	}
 
 	/**
@@ -1427,8 +1445,8 @@ public class ProjectImpl extends MinimalEObjectImpl.Container implements Project
 	 */
 	@SuppressWarnings("unchecked")
 	@Override
-	public EList<Group> getSharedWithGroups() {
-		return (EList<Group>)eDynamicGet(GitLabPackage.PROJECT__SHARED_WITH_GROUPS, GitLabPackage.Literals.PROJECT__SHARED_WITH_GROUPS, true, true);
+	public EList<ProjectSharedGroup> getSharedWithGroups() {
+		return (EList<ProjectSharedGroup>)eDynamicGet(GitLabPackage.PROJECT__SHARED_WITH_GROUPS, GitLabPackage.Literals.PROJECT__SHARED_WITH_GROUPS, true, true);
 	}
 
 	/**
@@ -2212,8 +2230,8 @@ public class ProjectImpl extends MinimalEObjectImpl.Container implements Project
 	 * @generated
 	 */
 	@Override
-	public boolean isBranchesLoaded() {
-		return (Boolean)eDynamicGet(GitLabPackage.PROJECT__BRANCHES_LOADED, GitLabPackage.Literals.PROJECT__BRANCHES_LOADED, true, true);
+	public Date getBranchesLoaded() {
+		return (Date)eDynamicGet(GitLabPackage.PROJECT__BRANCHES_LOADED, GitLabPackage.Literals.PROJECT__BRANCHES_LOADED, true, true);
 	}
 
 	/**
@@ -2222,7 +2240,7 @@ public class ProjectImpl extends MinimalEObjectImpl.Container implements Project
 	 * @generated
 	 */
 	@Override
-	public void setBranchesLoaded(boolean newBranchesLoaded) {
+	public void setBranchesLoaded(Date newBranchesLoaded) {
 		eDynamicSet(GitLabPackage.PROJECT__BRANCHES_LOADED, GitLabPackage.Literals.PROJECT__BRANCHES_LOADED, newBranchesLoaded);
 	}
 
@@ -2247,8 +2265,6 @@ public class ProjectImpl extends MinimalEObjectImpl.Container implements Project
 				return basicSetForkedFrom((Project)otherEnd, msgs);
 			case GitLabPackage.PROJECT__FORKS:
 				return ((InternalEList<InternalEObject>)(InternalEList<?>)getForks()).basicAdd(otherEnd, msgs);
-			case GitLabPackage.PROJECT__SHARED_WITH_GROUPS:
-				return ((InternalEList<InternalEObject>)(InternalEList<?>)getSharedWithGroups()).basicAdd(otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
@@ -2320,6 +2336,8 @@ public class ProjectImpl extends MinimalEObjectImpl.Container implements Project
 				return getDescription();
 			case GitLabPackage.PROJECT__FORKS_COUNT:
 				return getForksCount();
+			case GitLabPackage.PROJECT__FORKED_FROM_ID:
+				return getForkedFromId();
 			case GitLabPackage.PROJECT__FORKED_FROM:
 				if (resolve) return getForkedFrom();
 				return basicGetForkedFrom();
@@ -2451,7 +2469,7 @@ public class ProjectImpl extends MinimalEObjectImpl.Container implements Project
 			case GitLabPackage.PROJECT__MEMBERS:
 				return getMembers();
 			case GitLabPackage.PROJECT__BRANCHES_LOADED:
-				return isBranchesLoaded();
+				return getBranchesLoaded();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -2494,6 +2512,9 @@ public class ProjectImpl extends MinimalEObjectImpl.Container implements Project
 				return;
 			case GitLabPackage.PROJECT__FORKS_COUNT:
 				setForksCount((Integer)newValue);
+				return;
+			case GitLabPackage.PROJECT__FORKED_FROM_ID:
+				setForkedFromId((Long)newValue);
 				return;
 			case GitLabPackage.PROJECT__FORKED_FROM:
 				setForkedFrom((Project)newValue);
@@ -2567,7 +2588,7 @@ public class ProjectImpl extends MinimalEObjectImpl.Container implements Project
 				return;
 			case GitLabPackage.PROJECT__SHARED_WITH_GROUPS:
 				getSharedWithGroups().clear();
-				getSharedWithGroups().addAll((Collection<? extends Group>)newValue);
+				getSharedWithGroups().addAll((Collection<? extends ProjectSharedGroup>)newValue);
 				return;
 			case GitLabPackage.PROJECT__REPOSITORY_STORAGE:
 				setRepositoryStorage((String)newValue);
@@ -2694,7 +2715,7 @@ public class ProjectImpl extends MinimalEObjectImpl.Container implements Project
 				getMembers().addAll((Collection<? extends Member>)newValue);
 				return;
 			case GitLabPackage.PROJECT__BRANCHES_LOADED:
-				setBranchesLoaded((Boolean)newValue);
+				setBranchesLoaded((Date)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -2737,6 +2758,9 @@ public class ProjectImpl extends MinimalEObjectImpl.Container implements Project
 				return;
 			case GitLabPackage.PROJECT__FORKS_COUNT:
 				setForksCount(FORKS_COUNT_EDEFAULT);
+				return;
+			case GitLabPackage.PROJECT__FORKED_FROM_ID:
+				setForkedFromId(FORKED_FROM_ID_EDEFAULT);
 				return;
 			case GitLabPackage.PROJECT__FORKED_FROM:
 				setForkedFrom((Project)null);
@@ -2965,6 +2989,8 @@ public class ProjectImpl extends MinimalEObjectImpl.Container implements Project
 				return DESCRIPTION_EDEFAULT == null ? getDescription() != null : !DESCRIPTION_EDEFAULT.equals(getDescription());
 			case GitLabPackage.PROJECT__FORKS_COUNT:
 				return FORKS_COUNT_EDEFAULT == null ? getForksCount() != null : !FORKS_COUNT_EDEFAULT.equals(getForksCount());
+			case GitLabPackage.PROJECT__FORKED_FROM_ID:
+				return FORKED_FROM_ID_EDEFAULT == null ? getForkedFromId() != null : !FORKED_FROM_ID_EDEFAULT.equals(getForkedFromId());
 			case GitLabPackage.PROJECT__FORKED_FROM:
 				return basicGetForkedFrom() != null;
 			case GitLabPackage.PROJECT__FORKS:
@@ -3094,7 +3120,7 @@ public class ProjectImpl extends MinimalEObjectImpl.Container implements Project
 			case GitLabPackage.PROJECT__MEMBERS:
 				return !getMembers().isEmpty();
 			case GitLabPackage.PROJECT__BRANCHES_LOADED:
-				return isBranchesLoaded() != BRANCHES_LOADED_EDEFAULT;
+				return BRANCHES_LOADED_EDEFAULT == null ? getBranchesLoaded() != null : !BRANCHES_LOADED_EDEFAULT.equals(getBranchesLoaded());
 		}
 		return super.eIsSet(featureID);
 	}

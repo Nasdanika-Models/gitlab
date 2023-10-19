@@ -1,15 +1,7 @@
 package org.nasdanika.models.gitlab.util;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Collections;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
-import java.util.Objects;
-import java.util.concurrent.CompletableFuture;
-import java.util.concurrent.Executor;
-import java.util.function.Function;
+import java.util.function.BiConsumer;
 import java.util.logging.Handler;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -32,7 +24,6 @@ import org.gitlab4j.api.models.Branch;
 import org.gitlab4j.api.models.Commit;
 import org.gitlab4j.api.models.Contributor;
 import org.gitlab4j.api.models.CustomAttribute;
-import org.gitlab4j.api.models.Group;
 import org.gitlab4j.api.models.Group.Statistics;
 import org.gitlab4j.api.models.GroupFilter;
 import org.gitlab4j.api.models.Member;
@@ -42,49 +33,35 @@ import org.gitlab4j.api.models.Project;
 import org.gitlab4j.api.models.ProjectAccess;
 import org.gitlab4j.api.models.ProjectSharedGroup;
 import org.gitlab4j.api.models.ProjectStatistics;
-import org.gitlab4j.api.models.RepositoryFile;
 import org.gitlab4j.api.models.TreeItem;
 import org.gitlab4j.api.models.Visibility;
 import org.nasdanika.common.ProgressMonitor;
 import org.nasdanika.common.Status;
-import org.nasdanika.models.gitlab.GitLab;
 import org.nasdanika.models.gitlab.GitLabFactory;
 import org.nasdanika.models.gitlab.MergeMethod;
 
 /**
- * Loads data into the model using {@link GitLabApi}.
+ * Loads GitLab model using {@link GitLabApi}.
+ * Provides low-level loading capabilities at a single element.
+ *  
  */
-public class Loader implements AutoCloseable {
+public class Loader  implements AutoCloseable {
 	
-	private static final String ROOT_PATH = "/";
+	public static final String ROOT_PATH = "/";
 	private GitLabApi gitLabApi;
 	private GitLabFactory factory = GitLabFactory.eINSTANCE;
-	private int groupsPageSize = 10;
+	private int pageSize = 20;
 	
-	public int getGroupsPageSize() {
-		return groupsPageSize;
+	public int getPageSize() {
+		return pageSize;
 	}
 	
 	/**
 	 * Page size for retrieving groups.
 	 * @param groupsPageSize
 	 */
-	public void setGroupsPageSize(int groupsPageSize) {
-		this.groupsPageSize = groupsPageSize;
-	}
-	
-	// Caller thread executor
-	private Executor executor = r -> r.run();
-	
-	public Executor getExecutor() {
-		return executor;
-	}
-	
-	/**
-	 * @param executor To execute loading in parallel
-	 */
-	public void setExecutor(Executor executor) {
-		this.executor = executor;
+	public void setPageSize(int pageSize) {
+		this.pageSize = pageSize;
 	}
 	
 	/**
@@ -150,37 +127,11 @@ public class Loader implements AutoCloseable {
 		this.factory = factory;
 	}
 	
-	/**
-	 * Loads groups, their projects, sub-groups, members and other related objects.
-	 * @param progressMonitor
-	 * @return Populated {@link GitLab} instance.
-	 * @throws GitLabApiException 
-	 */
-	public GitLab loadGitLabGroups(ProgressMonitor progressMonitor) throws GitLabApiException {
-		GitLab ret = getFactory().createGitLab();		
-		ret.getGroups().addAll(loadGroups(progressMonitor));				
-		return ret;
-	}
-	
-	protected org.nasdanika.models.gitlab.ProjectLicense loadProjectLicense(ProjectLicense apiLicense, ProgressMonitor progressMonitor) {
-		org.nasdanika.models.gitlab.ProjectLicense modelLicense = getFactory().createProjectLicense();
-		modelLicense.setHtmlUrl(apiLicense.getHtmlUrl());
-		modelLicense.setKey(apiLicense.getKey());
-		modelLicense.setName(apiLicense.getName());
-		modelLicense.setNickname(apiLicense.getNickname());
-		modelLicense.setSourceUrl(apiLicense.getSourceUrl());
-		return modelLicense;
-	}
-
-	protected void populateAbstractUser(AbstractUser<?> apiUser, org.nasdanika.models.gitlab.AbstractUser user) {
-		user.setAvatarUrl(apiUser.getAvatarUrl());
-		user.setCreatedAt(apiUser.getCreatedAt());
-		user.setEMail(apiUser.getEmail());
-		user.setId(apiUser.getId());
-		user.setName(apiUser.getName());
-		user.setState(apiUser.getState());
-		user.setUserName(apiUser.getUsername());
-		user.setWebUrl(apiUser.getWebUrl());
+	@Override
+	public void close() {
+		if (gitLabApi != null) {
+			gitLabApi.close();
+		}
 	}
 	
 	/**
@@ -191,115 +142,67 @@ public class Loader implements AutoCloseable {
 	protected GroupFilter getGroupFilter() {
 		return new GroupFilter();
 	}
+	
+	// ---
 
 	/**
+	 * @param groupConsumer Group bi-consumer which may trigger downstream operations such as loading sub-groups and projects. It takes a group and a progress monitor for group-related downstream operations. 
 	 * @param progressMonitor
-	 * @return Top-level (root) groups with sub-groups mounted under them
-	 * @throws GitLabApiException
 	 */
-	public List<org.nasdanika.models.gitlab.Group> loadGroups(ProgressMonitor progressMonitor) throws GitLabApiException {
-		Map<Long, CompletableFuture<org.nasdanika.models.gitlab.Group>> groupMap = Collections.synchronizedMap(new HashMap<>());
-		Function<Long, CompletableFuture<org.nasdanika.models.gitlab.Group>> groupProvider = id -> groupMap.computeIfAbsent(id, _id -> new CompletableFuture<>());
-		
-		Map<Long, CompletableFuture<org.nasdanika.models.gitlab.Project>> projectMap = Collections.synchronizedMap(new HashMap<>());
-		Function<Long, CompletableFuture<org.nasdanika.models.gitlab.Project>> projectProvider = id -> projectMap.computeIfAbsent(id, _id -> new CompletableFuture<>());
-
-		List<org.nasdanika.models.gitlab.Group> rootGroups = Collections.synchronizedList(new ArrayList<>()); 
-		List<org.nasdanika.models.gitlab.Group> childGroups = Collections.synchronizedList(new ArrayList<>()); 
-		
-		Collection<CompletableFuture<Map.Entry<Group, org.nasdanika.models.gitlab.Group>>> groupCompletableFutures = Collections.synchronizedCollection(new ArrayList<>()); // Synchronizing just in case
-		try (ProgressMonitor groupsMonitor = progressMonitor.split("Loading groups", 1)) {
+	public void loadTopLevelGroups(BiConsumer<org.nasdanika.models.gitlab.Group, ProgressMonitor> groupConsumer, ProgressMonitor progressMonitor) throws GitLabApiException {
+		try (ProgressMonitor groupsMonitor = progressMonitor.split("Loading top-level groups", 1)) {
 			GroupApi groupApi = gitLabApi.getGroupApi();
-			Pager<Group> groupPager = groupApi.getGroups(getGroupFilter(), getGroupsPageSize());
-			int pageNum = 0;
-			while (groupPager.hasNext()) {
-				++pageNum;
-				double monitorSize = 1.0/Math.pow(2.0, pageNum); // Unknown number of pages, dividing each next by 2. I.e. 1/2 for the first page, 1/4 for the second, ...
-				try (ProgressMonitor groupPageMonitor = groupsMonitor.split("Group page " + pageNum, monitorSize)) {
-					List<Group> groups = groupPager.next();
-					try (ProgressMonitor scaledGroupsMonitor = groupPageMonitor.scale(groups.size() + 1)) {
-						scaledGroupsMonitor.worked(Status.INFO, 1, "Retrieved " + groups.size() + " groups");
-						for (org.gitlab4j.api.models.Group group: groups) {
-							try (ProgressMonitor groupMonitor = scaledGroupsMonitor.split("Loading group " + group.getName() + " " + group.getId(), 1, group)) {
-								CompletableFuture<Map.Entry<Group,org.nasdanika.models.gitlab.Group>> modelGroupCompletableFuture = new CompletableFuture<>();
-								groupCompletableFutures.add(modelGroupCompletableFuture);
-								executor.execute(() -> { 
-									org.nasdanika.models.gitlab.Group modelGroup = loadGroup(
-											group, 
-											groupApi, 
-											groupProvider,	
-											projectProvider,
-											groupMonitor);
-									
-									modelGroupCompletableFuture.complete(Map.entry(group, modelGroup));
-								});
-							}
+			Pager<org.gitlab4j.api.models.Group> groupPager = groupApi.getGroups(getGroupFilter().withTopLevelOnly(true), getPageSize());
+			loadGroupPager(groupApi, groupPager, groupConsumer, groupsMonitor);
+		}
+	}
+	
+	/**
+	 * @param groupConsumer Group bi-consumer which may trigger downstream operations such as loading sub-groups and projects. It takes a group and a progress monitor for group-related downstream operations. 
+	 * @param progressMonitor
+	 */
+	public void loadSubGroups(long groupId, BiConsumer<org.nasdanika.models.gitlab.Group, ProgressMonitor> groupConsumer, ProgressMonitor progressMonitor) throws GitLabApiException {
+		try (ProgressMonitor groupsMonitor = progressMonitor.split("Loading sub-groups of " + groupId, 1)) {
+			GroupApi groupApi = gitLabApi.getGroupApi();
+			Pager<org.gitlab4j.api.models.Group> groupPager = groupApi.getDescendantGroups(groupId, getGroupFilter(), getPageSize());
+			loadGroupPager(groupApi, groupPager, groupConsumer, groupsMonitor);
+		}
+	}
+
+	protected void loadGroupPager(
+			GroupApi groupApi, 
+			Pager<org.gitlab4j.api.models.Group> groupPager,
+			BiConsumer<org.nasdanika.models.gitlab.Group, ProgressMonitor> groupConsumer,
+			ProgressMonitor groupsMonitor) throws GitLabApiException {
+		int pageNum = 0;
+		while (groupPager.hasNext()) {
+			++pageNum;
+			double monitorSize = 1.0/Math.pow(2.0, pageNum); // Unknown number of pages, dividing each next by 2. I.e. 1/2 for the first page, 1/4 for the second, ...
+			try (ProgressMonitor groupPageMonitor = groupsMonitor.split("Group page " + pageNum, monitorSize)) {
+				List<org.gitlab4j.api.models.Group> groups = groupPager.next();
+				try (ProgressMonitor scaledGroupsMonitor = groupPageMonitor.scale(groups.size()*2 + 1)) {
+					scaledGroupsMonitor.worked(Status.INFO, 1, "Retrieved " + groups.size() + " groups");
+					for (org.gitlab4j.api.models.Group group: groups) {
+						try (ProgressMonitor groupMonitor = scaledGroupsMonitor.split("Loading group " + group.getName() + " " + group.getId(), 2, group)) {
+							org.nasdanika.models.gitlab.Group modelGroup = loadGroup(group,	groupApi, groupMonitor.split("Loading group data and members", 1));
+							groupConsumer.accept(modelGroup, groupMonitor.split("Consuming group", 1));
 						}
 					}
 				}
 			}
 		}
-		
-		for (CompletableFuture<Map.Entry<Group, org.nasdanika.models.gitlab.Group>> gcf: groupCompletableFutures) {
-			Map.Entry<Group,org.nasdanika.models.gitlab.Group> groupEntry = gcf.join();
-			Group group = groupEntry.getKey();
-			org.nasdanika.models.gitlab.Group modelGroup = groupEntry.getValue();
-			if (!groupProvider.apply(group.getId()).complete(modelGroup)) {
-				progressMonitor.worked(1, "Group completable future already completed for " + group.getId() + " " + group.getFullName(), group);
-			}
-			Long parentId = group.getParentId();
-			if (parentId == null) {
-				rootGroups.add(modelGroup);
-			} else {
-				groupProvider.apply(parentId).thenAccept(pg -> {
-					EList<org.nasdanika.models.gitlab.Group> subGroups = pg.getSubGroups();
-					synchronized (Loader.this) { // Global synchronization - to avoid concurrency issues in notifications. Not needed here, just in case.
-						subGroups.add(modelGroup);
-					}
-				});					
-			}			
-		}
-		
-		long incomplete = groupMap.values().stream().filter(cf -> !cf.isDone()).count();
-		if (incomplete > 0) {
-			progressMonitor.worked(1, "There are incomplete set parent futures (orphan child groups): " + incomplete);
-			for (org.nasdanika.models.gitlab.Group childGroup: childGroups) {
-				rootGroups.add(childGroup);
-			}
-		}
-		long exceptionally = groupMap.values().stream().filter(cf -> cf.isCompletedExceptionally()).count();
-		if (exceptionally > 0) {
-			progressMonitor.worked(1, "There are exceptionally completed set parent futures: " + exceptionally);
-			for (CompletableFuture<org.nasdanika.models.gitlab.Group> cf: groupMap.values()) {
-				if (cf.isCompletedExceptionally()) {
-					cf.exceptionally(th -> {
-						progressMonitor.worked(1, "Exceptional completion: " + th, th);
-						return null;
-					});
-				}
-			}
-		}		
-		return rootGroups;
 	}
-
-	protected org.nasdanika.models.gitlab.Group createGroup(
-			org.gitlab4j.api.models.Group group, 
-			GroupApi groupApi,
-			Function<Long, CompletableFuture<org.nasdanika.models.gitlab.Group>> groupProvider,
-			Function<Long, CompletableFuture<org.nasdanika.models.gitlab.Project>> projectProvider, 
-			ProgressMonitor progressMonitor) {
 		
+	protected org.nasdanika.models.gitlab.Group createGroup(org.gitlab4j.api.models.Group group, ProgressMonitor progressMonitor) {		
 		return getFactory().createGroup();
 	}
 	
 	protected org.nasdanika.models.gitlab.Group loadGroup(
 			org.gitlab4j.api.models.Group group, 
-			GroupApi groupApi,
-			Function<Long, CompletableFuture<org.nasdanika.models.gitlab.Group>> groupProvider,
-			Function<Long, CompletableFuture<org.nasdanika.models.gitlab.Project>> projectProvider, 
-			ProgressMonitor progressMonitor) {
+			GroupApi groupApi,			
+			ProgressMonitor progressMonitor) throws GitLabApiException {
 		
-		org.nasdanika.models.gitlab.Group modelGroup = createGroup(group, groupApi, groupProvider, projectProvider, progressMonitor); 
+		org.nasdanika.models.gitlab.Group modelGroup = createGroup(group, progressMonitor); 
 		modelGroup.setAvatarUrl(group.getAvatarUrl());
 		modelGroup.setCreatedAt(group.getCreatedAt());
 		modelGroup.setDescription(group.getDescription());
@@ -319,38 +222,71 @@ public class Loader implements AutoCloseable {
 		modelGroup.setVisibility(org.nasdanika.models.gitlab.Visibility.get(group.getVisibility().ordinal()));
 		modelGroup.setWebUrl(group.getWebUrl());
 		
-		EList<org.nasdanika.models.gitlab.Project> modelGroupProjects = modelGroup.getProjects();
-		
-		try {
-			List<Project> groupProjects = groupApi.getProjects(group.getId());
-			List<Member> groupMembers = groupApi.getMembers(group.getId());
-			try (ProgressMonitor scaledGroupMonitor = progressMonitor.scale(1 + groupProjects.size() + groupMembers.size())) {
-				scaledGroupMonitor.worked(Status.INFO, 1, "Retrieved " + groupProjects.size() + " projects and " + groupMembers.size() + " members");							
-				for (org.gitlab4j.api.models.Project project: groupProjects) {
-					try (ProgressMonitor projectMonitor = scaledGroupMonitor.split("Loading project " + project.getName() + " " + project.getId(), 1, project)) {
-						if (Objects.equals(project.getNamespace().getId(), group.getId())) {
-							org.nasdanika.models.gitlab.Project modelProject = loadProject(
-									project, 
-									groupProvider, 
-									projectProvider,
-									projectMonitor);
-							modelGroupProjects.add(modelProject);
+		List<Member> groupMembers = groupApi.getMembers(group.getId());
+		try (ProgressMonitor scaledMembersMonitor = progressMonitor.scale(1 + groupMembers.size())) {
+			scaledMembersMonitor.worked(Status.INFO, 1, "Retrieved " + groupMembers.size() + " group members");							
+			EList<org.nasdanika.models.gitlab.Member> modelGroupMembers = modelGroup.getMembers();
+			for (org.gitlab4j.api.models.Member member: groupMembers) {
+				try (ProgressMonitor memberMonitor = scaledMembersMonitor.split("Loading member " + member.getName() + " " + member.getId(), 1, member)) {				
+					org.nasdanika.models.gitlab.Member modelMember = loadMember(member, memberMonitor);
+					modelGroupMembers.add(modelMember);
+				}
+			}
+		}
+		return modelGroup;
+	}
+
+	protected void populateAbstractUser(AbstractUser<?> apiUser, org.nasdanika.models.gitlab.AbstractUser user) {
+		user.setAvatarUrl(apiUser.getAvatarUrl());
+		user.setCreatedAt(apiUser.getCreatedAt());
+		user.setEMail(apiUser.getEmail());
+		user.setId(apiUser.getId());
+		user.setName(apiUser.getName());
+		user.setState(apiUser.getState());
+		user.setUserName(apiUser.getUsername());
+		user.setWebUrl(apiUser.getWebUrl());
+	}
+	
+	/**
+	 * 
+	 * @param member
+	 * @param userProvider Provides a user instance to reference by the member
+	 * @param progressMonitor
+	 * @return
+	 */
+	protected org.nasdanika.models.gitlab.Member loadMember(org.gitlab4j.api.models.Member member, ProgressMonitor progressMonitor) {
+		org.nasdanika.models.gitlab.Member modelMember = getFactory().createMember();
+		populateAbstractUser(member, modelMember);
+		org.gitlab4j.api.models.AccessLevel accessLevel = member.getAccessLevel();
+		if (accessLevel != null) {
+			modelMember.setAccessLevel(org.nasdanika.models.gitlab.AccessLevel.get(accessLevel.value));
+		}
+		modelMember.setExpiresAt(member.getExpiresAt());		
+		return modelMember;
+	}	
+	
+	public void loadProjects(long groupId, BiConsumer<org.nasdanika.models.gitlab.Project, ProgressMonitor> projectConsumer, ProgressMonitor progressMonitor) throws GitLabApiException {
+		try (ProgressMonitor projectsMonitor = progressMonitor.split("Loading projects of " + groupId, 1)) {
+			GroupApi groupApi = gitLabApi.getGroupApi();
+			Pager<org.gitlab4j.api.models.Project> projectPager = groupApi.getProjects(groupId, getPageSize());
+			int pageNum = 0;
+			while (projectPager.hasNext()) {
+				++pageNum;
+				double monitorSize = 1.0/Math.pow(2.0, pageNum); // Unknown number of pages, dividing each next by 2. I.e. 1/2 for the first page, 1/4 for the second, ...
+				try (ProgressMonitor projectPageMonitor = projectsMonitor.split("Project page " + pageNum, monitorSize)) {
+					List<org.gitlab4j.api.models.Project> projects = projectPager.next();
+					try (ProgressMonitor scaledProjectsMonitor = projectPageMonitor.scale(projects.size() * 2 + 1)) {
+						scaledProjectsMonitor.worked(Status.INFO, 1, "Retrieved " + projects.size() + " projects");
+						for (org.gitlab4j.api.models.Project project: projects) {
+							try (ProgressMonitor projectMonitor = scaledProjectsMonitor.split("Loading project " + project.getName() + " " + project.getId(), 2, project)) {
+								org.nasdanika.models.gitlab.Project modelProject = loadProject(project, projectMonitor.split("Loading project data", 1));
+								projectConsumer.accept(modelProject, projectMonitor.split("Consuming project", 1));
+							}
 						}
 					}
 				}
-				EList<org.nasdanika.models.gitlab.Member> modelGroupMembers = modelGroup.getMembers();
-				for (org.gitlab4j.api.models.Member member: groupMembers) {
-					try (ProgressMonitor memberMonitor = scaledGroupMonitor.split("Loading member " + member.getName() + " " + member.getId(), 1, member)) {				
-						org.nasdanika.models.gitlab.Member modelMember = loadMember(member, memberMonitor);
-						modelGroupMembers.add(modelMember);
-					}
-				}
 			}
-	
-		} catch (GitLabApiException e) {
-			progressMonitor.worked(Status.ERROR, 1, "Failed to load group", group, e);			
 		}
-		return modelGroup;
 	}
 	
 	/**
@@ -363,11 +299,7 @@ public class Loader implements AutoCloseable {
 	 * @param progressMonitor
 	 * @return
 	 */
-	protected org.nasdanika.models.gitlab.Project createProject(
-			org.gitlab4j.api.models.Project project, 
-			Function<Long, CompletableFuture<org.nasdanika.models.gitlab.Group>> groupProvider,
-			Function<Long, CompletableFuture<org.nasdanika.models.gitlab.Project>> projectProvider,			
-			ProgressMonitor progressMonitor) {
+	protected org.nasdanika.models.gitlab.Project createProject(org.gitlab4j.api.models.Project project, ProgressMonitor progressMonitor) {
 		return getFactory().createProject();
 	}	
 	
@@ -383,13 +315,19 @@ public class Loader implements AutoCloseable {
 		return getFactory().createContributor();
 	}
 	
-	protected org.nasdanika.models.gitlab.Project loadProject(
-			org.gitlab4j.api.models.Project project, 
-			Function<Long, CompletableFuture<org.nasdanika.models.gitlab.Group>> groupProvider,
-			Function<Long, CompletableFuture<org.nasdanika.models.gitlab.Project>> projectProvider,			
-			ProgressMonitor progressMonitor) {
+	protected org.nasdanika.models.gitlab.ProjectLicense loadProjectLicense(ProjectLicense apiLicense, ProgressMonitor progressMonitor) {
+		org.nasdanika.models.gitlab.ProjectLicense modelLicense = getFactory().createProjectLicense();
+		modelLicense.setHtmlUrl(apiLicense.getHtmlUrl());
+		modelLicense.setKey(apiLicense.getKey());
+		modelLicense.setName(apiLicense.getName());
+		modelLicense.setNickname(apiLicense.getNickname());
+		modelLicense.setSourceUrl(apiLicense.getSourceUrl());
+		return modelLicense;
+	}
+	
+	protected org.nasdanika.models.gitlab.Project loadProject(org.gitlab4j.api.models.Project project, ProgressMonitor progressMonitor) throws GitLabApiException {
 				
-		org.nasdanika.models.gitlab.Project modelProject = createProject(project, groupProvider, projectProvider, progressMonitor);
+		org.nasdanika.models.gitlab.Project modelProject = createProject(project, progressMonitor);
 		
 		modelProject.setId(project.getId());
 		modelProject.setApprovalsBeforeMerge(project.getApprovalsBeforeMerge());
@@ -402,9 +340,9 @@ public class Loader implements AutoCloseable {
 		modelProject.setDescription(project.getDescription());		
 		modelProject.setForksCount(project.getForksCount());		
 
-		Project forkedFrom = project.getForkedFromProject();
-		if (forkedFrom != null) {
-			projectProvider.apply(forkedFrom.getId()).thenAccept(modelProject::setForkedFrom);
+		Project forkedFromProject = project.getForkedFromProject();
+		if (forkedFromProject != null) {
+			modelProject.setForkedFromId(forkedFromProject.getId());
 		}
 		
 		modelProject.setHttpUrlToRepo(project.getHttpUrlToRepo());		
@@ -455,7 +393,14 @@ public class Loader implements AutoCloseable {
 		List<ProjectSharedGroup> sharedGroups = project.getSharedWithGroups();
 		if (sharedGroups != null) {
 			for (ProjectSharedGroup sg: sharedGroups) {
-				groupProvider.apply(sg.getGroupId()).thenAccept(modelProject.getSharedWithGroups()::add);
+				org.nasdanika.models.gitlab.ProjectSharedGroup psg = getFactory().createProjectSharedGroup();
+				org.gitlab4j.api.models.AccessLevel accessLevel = sg.getGroupAccessLevel();
+				if (accessLevel != null) {
+					psg.setAccessLevel(org.nasdanika.models.gitlab.AccessLevel.get(accessLevel.value));
+				}
+				psg.setFullPath(sg.getGroupFullPath());
+				psg.setId(sg.getGroupId());
+				psg.setName(sg.getGroupName());
 			}
 		}
 				
@@ -544,71 +489,25 @@ public class Loader implements AutoCloseable {
 		}		
 		
 		RepositoryApi repoApi = gitLabApi.getRepositoryApi();
-		try {
-			List<Branch> branches = repoApi.getBranches(project.getId());
-			if (branches != null) {
-				EList<org.nasdanika.models.gitlab.Branch> modelBranches = modelProject.getBranches();
-				for (Branch branch: branches) {
-					org.nasdanika.models.gitlab.Branch modelBranch = createBranch(branch, progressMonitor);
-					modelBranch.setCanPush(branch.getCanPush());
-					
-					Commit commit = branch.getCommit();
-					if (commit != null) {
-						modelBranch.setCommitDate(commit.getCommittedDate());
-					}
-					
-					modelBranch.setDevelopersCanMerge(branch.getDevelopersCanMerge());
-					modelBranch.setDevelopersCanPush(branch.getDevelopersCanPush());
-					modelBranch.setIsDefault(branch.getDefault());
-					modelBranch.setIsProtected(branch.getProtected());
-					modelBranch.setMerged(branch.getMerged());
-					modelBranch.setName(branch.getName());
-					modelBranch.setWebUrl(branch.getWebUrl());
-					modelBranches.add(modelBranch);
-					
-					if (isLoadPath(modelProject, modelBranch, ROOT_PATH)) {
-						modelBranch.getTreeItems().addAll(
-								loadTree(
-										modelProject, 
-										modelBranch, 
-										ROOT_PATH, 
-										groupProvider, 
-										projectProvider,
-										progressMonitor));
-					}
-				}			
-			}
-		} catch (GitLabApiException e) {
-			progressMonitor.worked(Status.ERROR, 1, "Failed to load branches", project, e);
+		List<Contributor> contributors = repoApi.getContributors(project.getId());
+		if (contributors != null) {
+			EList<org.nasdanika.models.gitlab.Contributor> modelContributors = modelProject.getContributors();
+			for (Contributor contributor: contributors) {
+				org.nasdanika.models.gitlab.Contributor modelContributor = createContributor(contributor, progressMonitor);
+				populateAbstractUser(contributor, modelContributor);
+				modelContributor.setAdditions(contributor.getAdditions());
+				modelContributor.setCommits(contributor.getCommits());
+				modelContributor.setDeletions(contributor.getDeletions());
+				modelContributors.add(modelContributor);
+			}			
 		}
 		
-		try {
-			List<Contributor> contributors = repoApi.getContributors(project.getId());
-			if (contributors != null) {
-				EList<org.nasdanika.models.gitlab.Contributor> modelContributors = modelProject.getContributors();
-				for (Contributor contributor: contributors) {
-					org.nasdanika.models.gitlab.Contributor modelContributor = createContributor(contributor, progressMonitor);
-					populateAbstractUser(contributor, modelContributor);
-					modelContributor.setAdditions(contributor.getAdditions());
-					modelContributor.setCommits(contributor.getCommits());
-					modelContributor.setDeletions(contributor.getDeletions());
-					modelContributors.add(modelContributor);
-				}			
-			}
-		} catch (GitLabApiException e) {
-			progressMonitor.worked(Status.ERROR, 1, "Failed to load contributors", project, e);
-		}
-		
-		try {
-			ProjectApi projectApi = gitLabApi.getProjectApi();
-			List<Member> projectMembers = projectApi.getMembers(project.getId());			
-			EList<org.nasdanika.models.gitlab.Member> modelProjectMembers = modelProject.getMembers();
-			for (org.gitlab4j.api.models.Member member: projectMembers) {
-				org.nasdanika.models.gitlab.Member modelMember = loadMember(member, progressMonitor);
-				modelProjectMembers.add(modelMember);
-			}
-		} catch (GitLabApiException e) {
-			progressMonitor.worked(Status.ERROR, 1, "Failed to load members", project, e);			
+		ProjectApi projectApi = gitLabApi.getProjectApi();
+		List<Member> projectMembers = projectApi.getMembers(project.getId());			
+		EList<org.nasdanika.models.gitlab.Member> modelProjectMembers = modelProject.getMembers();
+		for (org.gitlab4j.api.models.Member member: projectMembers) {
+			org.nasdanika.models.gitlab.Member modelMember = loadMember(member, progressMonitor);
+			modelProjectMembers.add(modelMember);
 		}
 				
 //		CommitsApi commitsApi = gitLabApi.getCommitsApi();
@@ -618,6 +517,49 @@ public class Loader implements AutoCloseable {
 			
 		return modelProject;
 	}	
+			
+	public void loadBranches(
+			long projectId, 
+			BiConsumer<org.nasdanika.models.gitlab.Branch, ProgressMonitor> branchConsumer, 
+			ProgressMonitor progressMonitor) throws GitLabApiException {
+		
+		try (ProgressMonitor branchesMonitor = progressMonitor.split("Loading branches of " + projectId, 1)) {
+			RepositoryApi repoApi = gitLabApi.getRepositoryApi();
+			Pager<org.gitlab4j.api.models.Branch> branchPager = repoApi.getBranches(projectId, getPageSize());
+			int pageNum = 0;
+			while (branchPager.hasNext()) {
+				++pageNum;
+				double monitorSize = 1.0/Math.pow(2.0, pageNum); // Unknown number of pages, dividing each next by 2. I.e. 1/2 for the first page, 1/4 for the second, ...
+				try (ProgressMonitor branchPageMonitor = branchesMonitor.split("Branch page " + pageNum, monitorSize)) {
+					List<org.gitlab4j.api.models.Branch> branches = branchPager.next();
+					try (ProgressMonitor scaledBranchPageMonitor = branchPageMonitor.scale(branches.size() + 1)) {
+						scaledBranchPageMonitor.worked(Status.INFO, 1, "Retrieved " + branches.size() + " branches");
+						for (org.gitlab4j.api.models.Branch branch: branches) {
+							try (ProgressMonitor branchMonitor = scaledBranchPageMonitor.split("Loading branch " + branch.getName(), 1, branch)) {
+								org.nasdanika.models.gitlab.Branch modelBranch = createBranch(branch, progressMonitor);
+								modelBranch.setCanPush(branch.getCanPush());
+								
+								Commit commit = branch.getCommit();
+								if (commit != null) {
+									modelBranch.setCommitDate(commit.getCommittedDate());
+								}
+								
+								modelBranch.setDevelopersCanMerge(branch.getDevelopersCanMerge());
+								modelBranch.setDevelopersCanPush(branch.getDevelopersCanPush());
+								modelBranch.setIsDefault(branch.getDefault());
+								modelBranch.setIsProtected(branch.getProtected());
+								modelBranch.setMerged(branch.getMerged());
+								modelBranch.setName(branch.getName());
+								modelBranch.setWebUrl(branch.getWebUrl());
+								
+								branchConsumer.accept(modelBranch, branchMonitor);
+							}
+						}
+					}
+				}
+			}
+		}
+	}
 	
 	/**
 	 * Loads branch tree
@@ -628,60 +570,62 @@ public class Loader implements AutoCloseable {
 	 * @return
 	 * @throws GitLabApiException 
 	 */
-	protected List<org.nasdanika.models.gitlab.TreeItem> loadTree(
-			org.nasdanika.models.gitlab.Project modelProject,
-			org.nasdanika.models.gitlab.Branch modelBranch,
+	public void loadTree(
+			long projectId,
+			String refName,
 			String path,
-			Function<Long, CompletableFuture<org.nasdanika.models.gitlab.Group>> groupProvider,
-			Function<Long, CompletableFuture<org.nasdanika.models.gitlab.Project>> projectProvider,			
+			BiConsumer<org.nasdanika.models.gitlab.TreeItem, ProgressMonitor> treeItemConsumer, 			
 			ProgressMonitor progressMonitor) throws GitLabApiException {
 		
-		List<org.nasdanika.models.gitlab.TreeItem> ret = new ArrayList<>();
-		RepositoryApi repoApi = gitLabApi.getRepositoryApi();
-		for (TreeItem treeItem: repoApi.getTree(modelProject.getId(), path, modelBranch.getName())) {
-			if (isLoadPath(modelProject, modelBranch, path)) {
-				switch (treeItem.getType()) {
-				case TREE:
-					org.nasdanika.models.gitlab.Tree subTree = createTree(modelProject, modelBranch, treeItem);
-					subTree.setId(treeItem.getId());
-					subTree.setName(treeItem.getName());
-					subTree.setPath(treeItem.getPath());
-					subTree.getTreeItems().addAll(
-							loadTree(
-									modelProject, 
-									modelBranch, 
-									treeItem.getPath(), 
-									groupProvider, 
-									projectProvider, 
-									progressMonitor));
-					ret.add(subTree);
-					break;
-				case BLOB:
-					org.nasdanika.models.gitlab.Blob blob = createBlob(
-							modelProject, 
-							modelBranch, 
-							treeItem, 
-							groupProvider, 
-							projectProvider, 
-							progressMonitor);
-					if (blob != null) {
-						blob.setId(treeItem.getId());
-						blob.setName(treeItem.getName());
-						blob.setPath(treeItem.getPath());
-						
-						ret.add(blob);
+		try (ProgressMonitor treeItemsMonitor = progressMonitor.split("Loading tree items of project: " + projectId + ", refName: " + refName + ", path: " + path, 1)) {
+			RepositoryApi repoApi = gitLabApi.getRepositoryApi();
+			Pager<org.gitlab4j.api.models.TreeItem> treeItemPager = repoApi.getTree(projectId, path, refName, getPageSize());
+			int pageNum = 0;
+			while (treeItemPager.hasNext()) {
+				++pageNum;
+				double monitorSize = 1.0/Math.pow(2.0, pageNum); // Unknown number of pages, dividing each next by 2. I.e. 1/2 for the first page, 1/4 for the second, ...
+				try (ProgressMonitor treeItemPagePageMonitor = treeItemsMonitor.split("Tree item page " + pageNum, monitorSize)) {
+					List<org.gitlab4j.api.models.TreeItem> treeItems = treeItemPager.next();
+					try (ProgressMonitor scaledTreeItemPageMonitor = treeItemPagePageMonitor.scale(treeItems.size() + 1)) {
+						scaledTreeItemPageMonitor.worked(Status.INFO, 1, "Retrieved " + treeItems.size() + " tree items");
+						for (org.gitlab4j.api.models.TreeItem treeItem: treeItems) {
+							try (ProgressMonitor treeItemMonitor = scaledTreeItemPageMonitor.split("Loading tree item " + treeItem.getName(), 1, treeItem)) {
+								switch (treeItem.getType()) {
+								case TREE:
+									org.nasdanika.models.gitlab.Tree subTree = createTree(projectId, refName, treeItem);
+									if (subTree != null) {
+										subTree.setId(treeItem.getId());
+										subTree.setName(treeItem.getName());
+										subTree.setPath(treeItem.getPath());
+										treeItemConsumer.accept(subTree, treeItemMonitor);
+									}
+									break;
+								case BLOB:
+									org.nasdanika.models.gitlab.Blob blob = createBlob(
+											projectId, 
+											refName, 
+											treeItem, 
+											progressMonitor);
+									if (blob != null) {
+										blob.setId(treeItem.getId());
+										blob.setName(treeItem.getName());
+										blob.setPath(treeItem.getPath());
+										treeItemConsumer.accept(blob, treeItemMonitor);
+									}
+									break;
+								case COMMIT:
+									break;
+								default:
+									break;
+								
+								}
+								
+							}
+						}
 					}
-					break;
-				case COMMIT:
-					break;
-				default:
-					break;
-				
 				}
 			}
 		}
-		
-		return ret;
 	}
 	
 	/**
@@ -691,29 +635,10 @@ public class Loader implements AutoCloseable {
 	 * @param tree
 	 * @return
 	 */
-	protected org.nasdanika.models.gitlab.Tree createTree(
-			org.nasdanika.models.gitlab.Project modelProject,
-			org.nasdanika.models.gitlab.Branch modelBranch,
-			TreeItem tree) {
-		
+	protected org.nasdanika.models.gitlab.Tree createTree(long projectId, String refName, TreeItem tree) {		
 		return getFactory().createTree();
 	}
-		
-	/**
-	 * Returns true if a tree items at the specified path shall be loaded. This method returns false.
-	 * Override to load items of interest.
-	 * @param modelProject
-	 * @param modelBranch
-	 * @param path
-	 * @return 
-	 */
-	protected boolean isLoadPath(
-			org.nasdanika.models.gitlab.Project modelProject,
-			org.nasdanika.models.gitlab.Branch modelBranch,
-			String path) {
-		return false;
-	}
-	
+			
 	/**
 	 * Creates and populates a model blob. This implementation returns RepositoryFile. Override to create specialized blobs, e.g. TextRepositoryFile.
 	 * This method may return null or an instance of org.nasdanika.models.gitlab.Blob to avoid calling to repository file API. 
@@ -724,22 +649,15 @@ public class Loader implements AutoCloseable {
 	 * @throws GitLabApiException 
 	 */
 	protected org.nasdanika.models.gitlab.Blob createBlob(
-			org.nasdanika.models.gitlab.Project modelProject,
-			org.nasdanika.models.gitlab.Branch modelBranch,
-			TreeItem blob,
-			Function<Long, CompletableFuture<org.nasdanika.models.gitlab.Group>> groupProvider,
-			Function<Long, CompletableFuture<org.nasdanika.models.gitlab.Project>> projectProvider,			
+			long projectId, 
+			String refName, 
+			TreeItem blob, 			
 			ProgressMonitor progressMonitor) throws GitLabApiException {
 
-		RepositoryFileApi repoFileApi = gitLabApi.getRepositoryFileApi();
-		RepositoryFile repoFile = repoFileApi.getFile(modelProject.getId(), blob.getPath(), modelBranch.getName());
 		org.nasdanika.models.gitlab.RepositoryFile ret = createRepositoryFile(
-				modelProject, 
-				modelBranch, 
+				projectId, 
+				refName, 
 				blob, 
-				repoFile, 
-				groupProvider, 
-				projectProvider, 
 				progressMonitor);
 		
 		ret.setCommitId(ret.getCommitId());
@@ -750,7 +668,7 @@ public class Loader implements AutoCloseable {
 	}
 	
 	/**
-	 * Creates and populates a model repository file. This implementation returns RepositoryFile. Override to create specialized blobs, e.g. TextRepositoryFile.
+	 * Creates a model repository file. This implementation returns RepositoryFile. Override to create specialized blobs, e.g. TextRepositoryFile.
 	 * @param modelProject
 	 * @param modelBranch
 	 * @param blob
@@ -758,40 +676,17 @@ public class Loader implements AutoCloseable {
 	 * @return
 	 */
 	protected org.nasdanika.models.gitlab.RepositoryFile createRepositoryFile(
-			org.nasdanika.models.gitlab.Project modelProject,
-			org.nasdanika.models.gitlab.Branch modelBranch,
-			TreeItem blob,
-			RepositoryFile repositoryFile,
-			Function<Long, CompletableFuture<org.nasdanika.models.gitlab.Group>> groupProvider,
-			Function<Long, CompletableFuture<org.nasdanika.models.gitlab.Project>> projectProvider,			
+			long projectId, 
+			String refName, 
+			TreeItem blob, 			
 			ProgressMonitor progressMonitor) {
 
 		return getFactory().createRepositoryFile();
 	}
-	
-	/**
-	 * 
-	 * @param member
-	 * @param userProvider Provides a user instance to reference by the member
-	 * @param progressMonitor
-	 * @return
-	 */
-	protected org.nasdanika.models.gitlab.Member loadMember(org.gitlab4j.api.models.Member member, ProgressMonitor progressMonitor) {
-		org.nasdanika.models.gitlab.Member modelMember = getFactory().createMember();
-		populateAbstractUser(member, modelMember);
-		org.gitlab4j.api.models.AccessLevel accessLevel = member.getAccessLevel();
-		if (accessLevel != null) {
-			modelMember.setAccessLevel(org.nasdanika.models.gitlab.AccessLevel.get(accessLevel.value));
-		}
-		modelMember.setExpiresAt(member.getExpiresAt());		
-		return modelMember;
-	}	
-	
-	@Override
-	public void close() {
-		if (gitLabApi != null) {
-			gitLabApi.close();
-		}
-	}
 
+	public org.gitlab4j.api.models.RepositoryFile loadRepositoryFile(long projectId, String path, String refName) throws GitLabApiException {
+		RepositoryFileApi repoFileApi = gitLabApi.getRepositoryFileApi();
+		return repoFileApi.getFile(projectId, path, refName);
+	}
+	
 }

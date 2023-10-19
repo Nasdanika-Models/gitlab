@@ -1,128 +1,98 @@
 package org.nasdanika.models.git.tests;
 
-import java.io.File;
-import java.io.IOException;
-import java.util.concurrent.CompletableFuture;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
-import java.util.function.Function;
-import java.util.zip.GZIPInputStream;
-import java.util.zip.GZIPOutputStream;
+import java.util.function.BiConsumer;
 
-import org.eclipse.emf.common.util.URI;
-import org.eclipse.emf.ecore.EObject;
-import org.eclipse.emf.ecore.resource.Resource;
-import org.eclipse.emf.ecore.resource.Resource.Factory;
-import org.eclipse.emf.ecore.resource.ResourceSet;
-import org.eclipse.emf.ecore.resource.impl.BinaryResourceImpl;
-import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
-import org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl;
-import org.gitlab4j.api.models.RepositoryFile;
-import org.gitlab4j.api.models.TreeItem;
-import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.nasdanika.common.PrintStreamProgressMonitor;
 import org.nasdanika.common.ProgressMonitor;
-import org.nasdanika.models.gitlab.GitLab;
+import org.nasdanika.common.Util;
+import org.nasdanika.models.gitlab.Branch;
+import org.nasdanika.models.gitlab.Group;
+import org.nasdanika.models.gitlab.Project;
+import org.nasdanika.models.gitlab.TreeItem;
 import org.nasdanika.models.gitlab.util.Loader;
 
 public class GitLabTests {
-		
+
 	@Test
-	@Disabled
-	public void testLoad() throws Exception {
+	public void testLoadTopLevelGroups() throws Exception {
 		ProgressMonitor progressMonitor = new PrintStreamProgressMonitor();
-		try (Loader loader = new Loader("https://gitlab.com/", System.getenv("GITLAB_ACCESS_TOKEN")) {
-			
-			@Override
-			protected boolean isLoadPath(
-					org.nasdanika.models.gitlab.Project modelProject, 
-					org.nasdanika.models.gitlab.Branch modelBranch, 
-					String path) {
-				
-				System.out.println("Loading path: " + path);
-				return true;
-			};
-			
-			@Override
-			protected org.nasdanika.models.gitlab.RepositoryFile createRepositoryFile(
-					org.nasdanika.models.gitlab.Project modelProject,
-					org.nasdanika.models.gitlab.Branch modelBranch,
-					TreeItem blob,
-					RepositoryFile repositoryFile,
-					Function<Long, CompletableFuture<org.nasdanika.models.gitlab.Group>> groupProvider,
-					Function<Long, CompletableFuture<org.nasdanika.models.gitlab.Project>> projectProvider,			
-					ProgressMonitor progressMonitor) {
-
-				if (blob.getName().toLowerCase().endsWith(".md")) {
-					org.nasdanika.models.gitlab.TextRepositoryFile ret = getFactory().createTextRepositoryFile();
-					ret.setCommitId(repositoryFile.getCommitId());
-					ret.setLastCommitId(repositoryFile.getLastCommitId());
-					ret.setRef(repositoryFile.getRef());
-					ret.setSize(repositoryFile.getSize());
-					ret.setContent(repositoryFile.getDecodedContentAsString());
-					return ret;
-				}
-				
-				return super.createRepositoryFile(
-						modelProject, 
-						modelBranch, 
-						blob, 
-						repositoryFile, 
-						groupProvider, 
-						projectProvider, 
-						progressMonitor);
+		String accessToken = System.getenv("GITLAB_ACCESS_TOKEN");
+		if (!Util.isBlank(accessToken)) {	
+			System.out.println("Loading top level groups");
+			try (Loader loader = new Loader("https://gitlab.com/", accessToken)) {				
+				BiConsumer<Group, ProgressMonitor> tlgConsumer = (tlg, pm) -> {
+					System.out.println(tlg.getId() + " " + tlg.getName());
+				};
+				loader.loadTopLevelGroups(tlgConsumer, progressMonitor);
 			}
-			
-			
-		}) {
-			ExecutorService threadPool = Executors.newFixedThreadPool(10);
-			loader.setExecutor(threadPool);
-			GitLab gitLab = loader.loadGitLabGroups(progressMonitor);			
-			ResourceSet gitLabResourceSet = new ResourceSetImpl();
-			gitLabResourceSet.getResourceFactoryRegistry().getExtensionToFactoryMap().put(Resource.Factory.Registry.DEFAULT_EXTENSION, new XMIResourceFactoryImpl());
-
-			Factory binaryResourceFactory = new Resource.Factory() {
-
-				@Override
-				public Resource createResource(URI uri) {
-					return new BinaryResourceImpl(uri) {
-						
-						@Override
-						protected void doSave(java.io.OutputStream outputStream, java.util.Map<?,?> options) throws IOException {
-							try (java.io.OutputStream gzOut = new GZIPOutputStream(outputStream)) {
-								super.doSave(gzOut, options);
-							}
-						}
-						
-						@Override
-						protected void doLoad(java.io.InputStream inputStream, java.util.Map<?,?> options) throws IOException {
-							try (java.io.InputStream gzIn = new GZIPInputStream(inputStream)) {
-								super.doLoad(gzIn, options);
-							}						
-						}
-						
-						@Override
-						public EObject getEObject(String uriFragment) {
-							return super.getEObject(uriFragment);
-						};
-																
-					};
-				}
+		}
+	}
+	
+	@Test
+	public void testLoadSubGroups() throws Exception {
+		ProgressMonitor progressMonitor = new PrintStreamProgressMonitor();
+		String accessToken = System.getenv("GITLAB_ACCESS_TOKEN");
+		if (!Util.isBlank(accessToken)) {	
+			System.out.println("Loading sub-groups");
+			try (Loader loader = new Loader("https://gitlab.com/", accessToken) {
 				
-			};
-			
-			// Testing binary resource
-			gitLabResourceSet.getResourceFactoryRegistry().getExtensionToFactoryMap().put("gz", binaryResourceFactory);		
-			
-			File modelsDir = new File("target\\models\\");
-			modelsDir.mkdirs();
-			
-			File output = new File(modelsDir, "gitLab.xmi");
-			Resource gitLabResource = gitLabResourceSet.createResource(URI.createFileURI(output.getAbsolutePath()));
-			gitLabResource.getContents().add(gitLab);
-			gitLabResource.save(null);
-			threadPool.shutdown();
+				@Override
+				protected org.gitlab4j.api.models.GroupFilter getGroupFilter() {
+					return super.getGroupFilter().withStatistics(true);					
+				};
+				
+			}) {				
+				BiConsumer<Group, ProgressMonitor> groupConsumer = (tlg, pm) -> {
+					System.out.println(tlg.getId() + " " + tlg.getName());
+				};
+				loader.loadSubGroups(71435473L, groupConsumer, progressMonitor);
+			}
+		}
+	}
+	
+	@Test
+	public void testLoadProjects() throws Exception {
+		ProgressMonitor progressMonitor = new PrintStreamProgressMonitor();
+		String accessToken = System.getenv("GITLAB_ACCESS_TOKEN");
+		if (!Util.isBlank(accessToken)) {	
+			System.out.println("Loading projects");
+			try (Loader loader = new Loader("https://gitlab.com/", accessToken)) {				
+				BiConsumer<Project, ProgressMonitor> projectConsumer = (project, pm) -> {
+					System.out.println(project.getId() + " " + project.getName());
+				};
+				loader.loadProjects(71457619L, projectConsumer, progressMonitor);
+			}
+		}
+	}
+	
+	@Test
+	public void testLoadBranches() throws Exception {
+		ProgressMonitor progressMonitor = new PrintStreamProgressMonitor();
+		String accessToken = System.getenv("GITLAB_ACCESS_TOKEN");
+		if (!Util.isBlank(accessToken)) {	
+			System.out.println("Loading branches");
+			try (Loader loader = new Loader("https://gitlab.com/", accessToken)) {				
+				BiConsumer<Branch, ProgressMonitor> branchConsumer = (branch, pm) -> {
+					System.out.println(branch.getName());
+				};
+				loader.loadBranches(48523784L, branchConsumer, progressMonitor);
+			}
+		}
+	}
+	
+	@Test
+	public void testLoadTree() throws Exception {
+		ProgressMonitor progressMonitor = new PrintStreamProgressMonitor();
+		String accessToken = System.getenv("GITLAB_ACCESS_TOKEN");
+		if (!Util.isBlank(accessToken)) {	
+			System.out.println("Loading tree");
+			try (Loader loader = new Loader("https://gitlab.com/", accessToken)) {				
+				BiConsumer<TreeItem, ProgressMonitor> treeItemConsumer = (treeItem, pm) -> {
+					System.out.println(treeItem.getName() + " " + treeItem.eClass().getName());
+				};
+				loader.loadTree(48523784L, null, Loader.ROOT_PATH, treeItemConsumer, progressMonitor);
+			}
 		}
 	}
 

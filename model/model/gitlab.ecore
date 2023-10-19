@@ -1,7 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="gitlab" nsURI="ecore://nasdanika.org/models/gitlab" nsPrefix="org.nasdanika.models.gitlab">
-  <eClassifiers xsi:type="ecore:EClass" name="GitLab">
+  <eClassifiers xsi:type="ecore:EClass" name="Loadable" abstract="true">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="loaded" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDate">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Timestamp when this object was loded excluding contents, which might be loaded separately."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="GitLab" eSuperTypes="#//Loadable">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
       <details key="documentation" value="Represents a GitLab host/instance. The root of the GitLab model."/>
     </eAnnotations>
@@ -10,13 +17,13 @@
         eType="#//Group" containment="true" eKeys="#//Group/id"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="users" upperBound="-1"
         eType="#//User" containment="true" eKeys="#//AbstractUser/id"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="topLevelGroupsLoaded" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="topLevelGroupsLoaded" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDate">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="Indicates that all top level groups of interest were successfully loaded - with or without their sub-groups and projects. This attribute is used by the Loader to support loading in stages and with restarts."/>
+        <details key="documentation" value="Timestamp when the top level groups were loaded"/>
       </eAnnotations>
     </eStructuralFeatures>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Group">
+  <eClassifiers xsi:type="ecore:EClass" name="Group" eSuperTypes="#//Loadable">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//ELongObject"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="avatarUrl" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -30,8 +37,8 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="createdAt" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDate"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="projects" upperBound="-1"
         eType="#//Project" containment="true" eKeys="#//Project/id"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="sharedProjects" upperBound="-1"
-        eType="#//Project" eOpposite="#//Project/sharedWithGroups" eKeys="#//Project/id"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="shares" upperBound="-1"
+        eType="#//ProjectSharedGroup" eOpposite="#//ProjectSharedGroup/group"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="storageSize" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//ELongObject"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="repositorySize" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//ELongObject"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="lfsObjectsSize" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//ELongObject"/>
@@ -42,14 +49,14 @@
         eType="#//Member" containment="true" eKeys="#//AbstractUser/id"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="codeOwnership" upperBound="-1"
         eType="#//codeowners/CodeOwner" eOpposite="#//codeowners/CodeOwner/group"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="subGroupsLoaded" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="subGroupsLoaded" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDate">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="Indicates that all sub-groups of interest were successfully loaded - with or without their sub-groups and projects. This attribute is used by the Loader to support loading in stages and with restarts."/>
+        <details key="documentation" value="Timestamp when this group's sub-groups were loaded"/>
       </eAnnotations>
     </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="projectsLoaded" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="projectsGroupsLoaded" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDate">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="Indicates that all projects of interest were successfully loaded - with or without branches and trees. This attribute is used by the Loader to support loading in stages and with restarts."/>
+        <details key="documentation" value="Timestamp when this group projects were loaded"/>
       </eAnnotations>
     </eStructuralFeatures>
   </eClassifiers>
@@ -82,7 +89,7 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="codeOwnership" upperBound="-1"
         eType="#//codeowners/CodeOwner" eOpposite="#//codeowners/CodeOwner/user"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Project">
+  <eClassifiers xsi:type="ecore:EClass" name="Project" eSuperTypes="#//Loadable">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="approvalsBeforeMerge" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EIntegerObject"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="archived" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBooleanObject"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="avatarUrl" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -95,6 +102,7 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="defaultBranch" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="forksCount" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EIntegerObject"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="forkedFromId" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//ELongObject"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="forkedFrom" eType="#//Project"
         eOpposite="#//Project/forks"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="forks" upperBound="-1"
@@ -127,7 +135,7 @@
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="publicJobs" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBooleanObject"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="sharedWithGroups" upperBound="-1"
-        eType="#//Group" eOpposite="#//Group/sharedProjects" eKeys="#//Group/id"/>
+        eType="#//ProjectSharedGroup" containment="true" eKeys="#//ProjectSharedGroup/id"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="repositoryStorage" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="requestAccessEnabled" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBooleanObject"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="runnersToken" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -182,11 +190,19 @@
         eType="#//Contributor" containment="true" eKeys="#//AbstractUser/id"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="members" upperBound="-1"
         eType="#//Member" containment="true" eKeys="#//AbstractUser/id"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="branchesLoaded" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="branchesLoaded" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDate">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="Indicates that all branches of interest were successfully loaded - with or without trees. This attribute is used by the Loader to support loading in stages and with restarts."/>
+        <details key="documentation" value="Timestamp when this project's branches were loaded"/>
       </eAnnotations>
     </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ProjectSharedGroup">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//ELongObject"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="fullPath" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="accessLevel" eType="#//AccessLevel"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="group" eType="#//Group"
+        eOpposite="#//Group/shares"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ProjectStatistics">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="commitCount" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//ELong"/>
@@ -283,19 +299,19 @@
       </eAnnotations>
     </eStructuralFeatures>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="TreeItem">
+  <eClassifiers xsi:type="ecore:EClass" name="TreeItem" eSuperTypes="#//Loadable">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="path" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="loaded" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
-      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="Indicates that this tree item (branch, tree, or blob) was sucessfully loaded. For blobs it means that the contents was loaded, for trees/branches that the list of children was loaded, but not necesserily children's contents. This attribute is used by the Loader to support loading in stages and with restarts."/>
-      </eAnnotations>
-    </eStructuralFeatures>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Tree" eSuperTypes="#//TreeItem">
     <eStructuralFeatures xsi:type="ecore:EReference" name="treeItems" upperBound="-1"
         eType="#//TreeItem" containment="true" eKeys="#//TreeItem/name"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="treeItemsLoaded" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDate">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Timestamp when this tree's items were loaded"/>
+      </eAnnotations>
+    </eStructuralFeatures>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Blob" eSuperTypes="#//TreeItem"/>
   <eClassifiers xsi:type="ecore:EClass" name="RepositoryFile" eSuperTypes="#//Blob">

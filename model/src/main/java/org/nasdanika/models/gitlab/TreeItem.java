@@ -2,8 +2,6 @@
  */
 package org.nasdanika.models.gitlab;
 
-import org.eclipse.emf.ecore.EObject;
-
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Tree Item</b></em>'.
@@ -16,14 +14,13 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link org.nasdanika.models.gitlab.TreeItem#getId <em>Id</em>}</li>
  *   <li>{@link org.nasdanika.models.gitlab.TreeItem#getName <em>Name</em>}</li>
  *   <li>{@link org.nasdanika.models.gitlab.TreeItem#getPath <em>Path</em>}</li>
- *   <li>{@link org.nasdanika.models.gitlab.TreeItem#isLoaded <em>Loaded</em>}</li>
  * </ul>
  *
  * @see org.nasdanika.models.gitlab.GitLabPackage#getTreeItem()
  * @model
  * @generated
  */
-public interface TreeItem extends EObject {
+public interface TreeItem extends Loadable {
 	/**
 	 * Returns the value of the '<em><b>Id</b></em>' attribute.
 	 * <!-- begin-user-doc -->
@@ -89,30 +86,5 @@ public interface TreeItem extends EObject {
 	 * @generated
 	 */
 	void setPath(String value);
-
-	/**
-	 * Returns the value of the '<em><b>Loaded</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * Indicates that this tree item (branch, tree, or blob) was sucessfully loaded. For blobs it means that the contents was loaded, for trees/branches that the list of children was loaded, but not necesserily children's contents. This attribute is used by the Loader to support loading in stages and with restarts.
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Loaded</em>' attribute.
-	 * @see #setLoaded(boolean)
-	 * @see org.nasdanika.models.gitlab.GitLabPackage#getTreeItem_Loaded()
-	 * @model
-	 * @generated
-	 */
-	boolean isLoaded();
-
-	/**
-	 * Sets the value of the '{@link org.nasdanika.models.gitlab.TreeItem#isLoaded <em>Loaded</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Loaded</em>' attribute.
-	 * @see #isLoaded()
-	 * @generated
-	 */
-	void setLoaded(boolean value);
 
 } // TreeItem

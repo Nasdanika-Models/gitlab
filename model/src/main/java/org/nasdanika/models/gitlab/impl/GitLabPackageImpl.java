@@ -25,12 +25,14 @@ import org.nasdanika.models.gitlab.GitLabFactory;
 import org.nasdanika.models.gitlab.GitLabPackage;
 import org.nasdanika.models.gitlab.Group;
 import org.nasdanika.models.gitlab.ListRepositoryFile;
+import org.nasdanika.models.gitlab.Loadable;
 import org.nasdanika.models.gitlab.Member;
 import org.nasdanika.models.gitlab.MergeMethod;
 import org.nasdanika.models.gitlab.Owner;
 import org.nasdanika.models.gitlab.Project;
 import org.nasdanika.models.gitlab.ProjectAccess;
 import org.nasdanika.models.gitlab.ProjectLicense;
+import org.nasdanika.models.gitlab.ProjectSharedGroup;
 import org.nasdanika.models.gitlab.ProjectStatistics;
 import org.nasdanika.models.gitlab.RepositoryFile;
 import org.nasdanika.models.gitlab.SquashOption;
@@ -50,6 +52,12 @@ import org.nasdanika.models.gitlab.codeowners.impl.CodeownersPackageImpl;
  * @generated
  */
 public class GitLabPackageImpl extends EPackageImpl implements GitLabPackage {
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass loadableEClass = null;
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -87,6 +95,12 @@ public class GitLabPackageImpl extends EPackageImpl implements GitLabPackage {
 	 * @generated
 	 */
 	private EClass projectEClass = null;
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass projectSharedGroupEClass = null;
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -294,6 +308,26 @@ public class GitLabPackageImpl extends EPackageImpl implements GitLabPackage {
 	 * @generated
 	 */
 	@Override
+	public EClass getLoadable() {
+		return loadableEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getLoadable_Loaded() {
+		return (EAttribute)loadableEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EClass getGitLab() {
 		return gitLabEClass;
 	}
@@ -474,7 +508,7 @@ public class GitLabPackageImpl extends EPackageImpl implements GitLabPackage {
 	 * @generated
 	 */
 	@Override
-	public EReference getGroup_SharedProjects() {
+	public EReference getGroup_Shares() {
 		return (EReference)groupEClass.getEStructuralFeatures().get(12);
 	}
 
@@ -564,7 +598,7 @@ public class GitLabPackageImpl extends EPackageImpl implements GitLabPackage {
 	 * @generated
 	 */
 	@Override
-	public EAttribute getGroup_ProjectsLoaded() {
+	public EAttribute getGroup_ProjectsGroupsLoaded() {
 		return (EAttribute)groupEClass.getEStructuralFeatures().get(21);
 	}
 
@@ -884,8 +918,8 @@ public class GitLabPackageImpl extends EPackageImpl implements GitLabPackage {
 	 * @generated
 	 */
 	@Override
-	public EReference getProject_ForkedFrom() {
-		return (EReference)projectEClass.getEStructuralFeatures().get(10);
+	public EAttribute getProject_ForkedFromId() {
+		return (EAttribute)projectEClass.getEStructuralFeatures().get(10);
 	}
 
 	/**
@@ -894,7 +928,7 @@ public class GitLabPackageImpl extends EPackageImpl implements GitLabPackage {
 	 * @generated
 	 */
 	@Override
-	public EReference getProject_Forks() {
+	public EReference getProject_ForkedFrom() {
 		return (EReference)projectEClass.getEStructuralFeatures().get(11);
 	}
 
@@ -904,8 +938,8 @@ public class GitLabPackageImpl extends EPackageImpl implements GitLabPackage {
 	 * @generated
 	 */
 	@Override
-	public EAttribute getProject_HttpUrlToRepo() {
-		return (EAttribute)projectEClass.getEStructuralFeatures().get(12);
+	public EReference getProject_Forks() {
+		return (EReference)projectEClass.getEStructuralFeatures().get(12);
 	}
 
 	/**
@@ -914,7 +948,7 @@ public class GitLabPackageImpl extends EPackageImpl implements GitLabPackage {
 	 * @generated
 	 */
 	@Override
-	public EAttribute getProject_Id() {
+	public EAttribute getProject_HttpUrlToRepo() {
 		return (EAttribute)projectEClass.getEStructuralFeatures().get(13);
 	}
 
@@ -924,7 +958,7 @@ public class GitLabPackageImpl extends EPackageImpl implements GitLabPackage {
 	 * @generated
 	 */
 	@Override
-	public EAttribute getProject_IsPublic() {
+	public EAttribute getProject_Id() {
 		return (EAttribute)projectEClass.getEStructuralFeatures().get(14);
 	}
 
@@ -934,7 +968,7 @@ public class GitLabPackageImpl extends EPackageImpl implements GitLabPackage {
 	 * @generated
 	 */
 	@Override
-	public EAttribute getProject_IssuesEnabled() {
+	public EAttribute getProject_IsPublic() {
 		return (EAttribute)projectEClass.getEStructuralFeatures().get(15);
 	}
 
@@ -944,7 +978,7 @@ public class GitLabPackageImpl extends EPackageImpl implements GitLabPackage {
 	 * @generated
 	 */
 	@Override
-	public EAttribute getProject_JobsEnabled() {
+	public EAttribute getProject_IssuesEnabled() {
 		return (EAttribute)projectEClass.getEStructuralFeatures().get(16);
 	}
 
@@ -954,7 +988,7 @@ public class GitLabPackageImpl extends EPackageImpl implements GitLabPackage {
 	 * @generated
 	 */
 	@Override
-	public EAttribute getProject_LastsActivityAt() {
+	public EAttribute getProject_JobsEnabled() {
 		return (EAttribute)projectEClass.getEStructuralFeatures().get(17);
 	}
 
@@ -964,7 +998,7 @@ public class GitLabPackageImpl extends EPackageImpl implements GitLabPackage {
 	 * @generated
 	 */
 	@Override
-	public EAttribute getProject_LfsEnabled() {
+	public EAttribute getProject_LastsActivityAt() {
 		return (EAttribute)projectEClass.getEStructuralFeatures().get(18);
 	}
 
@@ -974,7 +1008,7 @@ public class GitLabPackageImpl extends EPackageImpl implements GitLabPackage {
 	 * @generated
 	 */
 	@Override
-	public EAttribute getProject_MergeMethod() {
+	public EAttribute getProject_LfsEnabled() {
 		return (EAttribute)projectEClass.getEStructuralFeatures().get(19);
 	}
 
@@ -984,7 +1018,7 @@ public class GitLabPackageImpl extends EPackageImpl implements GitLabPackage {
 	 * @generated
 	 */
 	@Override
-	public EAttribute getProject_MergeRequestsEnabled() {
+	public EAttribute getProject_MergeMethod() {
 		return (EAttribute)projectEClass.getEStructuralFeatures().get(20);
 	}
 
@@ -994,7 +1028,7 @@ public class GitLabPackageImpl extends EPackageImpl implements GitLabPackage {
 	 * @generated
 	 */
 	@Override
-	public EAttribute getProject_Name() {
+	public EAttribute getProject_MergeRequestsEnabled() {
 		return (EAttribute)projectEClass.getEStructuralFeatures().get(21);
 	}
 
@@ -1004,7 +1038,7 @@ public class GitLabPackageImpl extends EPackageImpl implements GitLabPackage {
 	 * @generated
 	 */
 	@Override
-	public EAttribute getProject_NameWithNamespace() {
+	public EAttribute getProject_Name() {
 		return (EAttribute)projectEClass.getEStructuralFeatures().get(22);
 	}
 
@@ -1014,7 +1048,7 @@ public class GitLabPackageImpl extends EPackageImpl implements GitLabPackage {
 	 * @generated
 	 */
 	@Override
-	public EAttribute getProject_OnlyAllowMergeIfPipelineSucceeds() {
+	public EAttribute getProject_NameWithNamespace() {
 		return (EAttribute)projectEClass.getEStructuralFeatures().get(23);
 	}
 
@@ -1024,7 +1058,7 @@ public class GitLabPackageImpl extends EPackageImpl implements GitLabPackage {
 	 * @generated
 	 */
 	@Override
-	public EAttribute getProject_AllowMergeOnSkippedPipeline() {
+	public EAttribute getProject_OnlyAllowMergeIfPipelineSucceeds() {
 		return (EAttribute)projectEClass.getEStructuralFeatures().get(24);
 	}
 
@@ -1034,7 +1068,7 @@ public class GitLabPackageImpl extends EPackageImpl implements GitLabPackage {
 	 * @generated
 	 */
 	@Override
-	public EAttribute getProject_OnlyAllowMergeIfAllDiscussionsAreResolved() {
+	public EAttribute getProject_AllowMergeOnSkippedPipeline() {
 		return (EAttribute)projectEClass.getEStructuralFeatures().get(25);
 	}
 
@@ -1044,7 +1078,7 @@ public class GitLabPackageImpl extends EPackageImpl implements GitLabPackage {
 	 * @generated
 	 */
 	@Override
-	public EAttribute getProject_OpenIssuesCount() {
+	public EAttribute getProject_OnlyAllowMergeIfAllDiscussionsAreResolved() {
 		return (EAttribute)projectEClass.getEStructuralFeatures().get(26);
 	}
 
@@ -1054,8 +1088,18 @@ public class GitLabPackageImpl extends EPackageImpl implements GitLabPackage {
 	 * @generated
 	 */
 	@Override
+	public EAttribute getProject_OpenIssuesCount() {
+		return (EAttribute)projectEClass.getEStructuralFeatures().get(27);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EReference getProject_Owner() {
-		return (EReference)projectEClass.getEStructuralFeatures().get(27);
+		return (EReference)projectEClass.getEStructuralFeatures().get(28);
 	}
 
 	/**
@@ -1065,16 +1109,6 @@ public class GitLabPackageImpl extends EPackageImpl implements GitLabPackage {
 	 */
 	@Override
 	public EAttribute getProject_Path() {
-		return (EAttribute)projectEClass.getEStructuralFeatures().get(28);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EAttribute getProject_PathWithNamespace() {
 		return (EAttribute)projectEClass.getEStructuralFeatures().get(29);
 	}
 
@@ -1084,8 +1118,8 @@ public class GitLabPackageImpl extends EPackageImpl implements GitLabPackage {
 	 * @generated
 	 */
 	@Override
-	public EReference getProject_ProjectAccess() {
-		return (EReference)projectEClass.getEStructuralFeatures().get(30);
+	public EAttribute getProject_PathWithNamespace() {
+		return (EAttribute)projectEClass.getEStructuralFeatures().get(30);
 	}
 
 	/**
@@ -1094,7 +1128,7 @@ public class GitLabPackageImpl extends EPackageImpl implements GitLabPackage {
 	 * @generated
 	 */
 	@Override
-	public EReference getProject_GroupAccess() {
+	public EReference getProject_ProjectAccess() {
 		return (EReference)projectEClass.getEStructuralFeatures().get(31);
 	}
 
@@ -1104,8 +1138,18 @@ public class GitLabPackageImpl extends EPackageImpl implements GitLabPackage {
 	 * @generated
 	 */
 	@Override
+	public EReference getProject_GroupAccess() {
+		return (EReference)projectEClass.getEStructuralFeatures().get(32);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EAttribute getProject_PublicJobs() {
-		return (EAttribute)projectEClass.getEStructuralFeatures().get(32);
+		return (EAttribute)projectEClass.getEStructuralFeatures().get(33);
 	}
 
 	/**
@@ -1115,7 +1159,7 @@ public class GitLabPackageImpl extends EPackageImpl implements GitLabPackage {
 	 */
 	@Override
 	public EReference getProject_SharedWithGroups() {
-		return (EReference)projectEClass.getEStructuralFeatures().get(33);
+		return (EReference)projectEClass.getEStructuralFeatures().get(34);
 	}
 
 	/**
@@ -1125,16 +1169,6 @@ public class GitLabPackageImpl extends EPackageImpl implements GitLabPackage {
 	 */
 	@Override
 	public EAttribute getProject_RepositoryStorage() {
-		return (EAttribute)projectEClass.getEStructuralFeatures().get(34);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EAttribute getProject_RequestAccessEnabled() {
 		return (EAttribute)projectEClass.getEStructuralFeatures().get(35);
 	}
 
@@ -1144,7 +1178,7 @@ public class GitLabPackageImpl extends EPackageImpl implements GitLabPackage {
 	 * @generated
 	 */
 	@Override
-	public EAttribute getProject_RunnersToken() {
+	public EAttribute getProject_RequestAccessEnabled() {
 		return (EAttribute)projectEClass.getEStructuralFeatures().get(36);
 	}
 
@@ -1154,7 +1188,7 @@ public class GitLabPackageImpl extends EPackageImpl implements GitLabPackage {
 	 * @generated
 	 */
 	@Override
-	public EAttribute getProject_SharedRunnersEnabled() {
+	public EAttribute getProject_RunnersToken() {
 		return (EAttribute)projectEClass.getEStructuralFeatures().get(37);
 	}
 
@@ -1164,7 +1198,7 @@ public class GitLabPackageImpl extends EPackageImpl implements GitLabPackage {
 	 * @generated
 	 */
 	@Override
-	public EAttribute getProject_SnippetsEnabled() {
+	public EAttribute getProject_SharedRunnersEnabled() {
 		return (EAttribute)projectEClass.getEStructuralFeatures().get(38);
 	}
 
@@ -1174,7 +1208,7 @@ public class GitLabPackageImpl extends EPackageImpl implements GitLabPackage {
 	 * @generated
 	 */
 	@Override
-	public EAttribute getProject_SshUrlToRepo() {
+	public EAttribute getProject_SnippetsEnabled() {
 		return (EAttribute)projectEClass.getEStructuralFeatures().get(39);
 	}
 
@@ -1184,7 +1218,7 @@ public class GitLabPackageImpl extends EPackageImpl implements GitLabPackage {
 	 * @generated
 	 */
 	@Override
-	public EAttribute getProject_StarCount() {
+	public EAttribute getProject_SshUrlToRepo() {
 		return (EAttribute)projectEClass.getEStructuralFeatures().get(40);
 	}
 
@@ -1194,7 +1228,7 @@ public class GitLabPackageImpl extends EPackageImpl implements GitLabPackage {
 	 * @generated
 	 */
 	@Override
-	public EAttribute getProject_Tags() {
+	public EAttribute getProject_StarCount() {
 		return (EAttribute)projectEClass.getEStructuralFeatures().get(41);
 	}
 
@@ -1204,7 +1238,7 @@ public class GitLabPackageImpl extends EPackageImpl implements GitLabPackage {
 	 * @generated
 	 */
 	@Override
-	public EAttribute getProject_VisibilityLevel() {
+	public EAttribute getProject_Tags() {
 		return (EAttribute)projectEClass.getEStructuralFeatures().get(42);
 	}
 
@@ -1214,7 +1248,7 @@ public class GitLabPackageImpl extends EPackageImpl implements GitLabPackage {
 	 * @generated
 	 */
 	@Override
-	public EAttribute getProject_Visibility() {
+	public EAttribute getProject_VisibilityLevel() {
 		return (EAttribute)projectEClass.getEStructuralFeatures().get(43);
 	}
 
@@ -1224,7 +1258,7 @@ public class GitLabPackageImpl extends EPackageImpl implements GitLabPackage {
 	 * @generated
 	 */
 	@Override
-	public EAttribute getProject_WallEnabled() {
+	public EAttribute getProject_Visibility() {
 		return (EAttribute)projectEClass.getEStructuralFeatures().get(44);
 	}
 
@@ -1234,7 +1268,7 @@ public class GitLabPackageImpl extends EPackageImpl implements GitLabPackage {
 	 * @generated
 	 */
 	@Override
-	public EAttribute getProject_WebUrl() {
+	public EAttribute getProject_WallEnabled() {
 		return (EAttribute)projectEClass.getEStructuralFeatures().get(45);
 	}
 
@@ -1244,7 +1278,7 @@ public class GitLabPackageImpl extends EPackageImpl implements GitLabPackage {
 	 * @generated
 	 */
 	@Override
-	public EAttribute getProject_WikiEnabled() {
+	public EAttribute getProject_WebUrl() {
 		return (EAttribute)projectEClass.getEStructuralFeatures().get(46);
 	}
 
@@ -1254,7 +1288,7 @@ public class GitLabPackageImpl extends EPackageImpl implements GitLabPackage {
 	 * @generated
 	 */
 	@Override
-	public EAttribute getProject_PrintingMergeRequestLinkEnabled() {
+	public EAttribute getProject_WikiEnabled() {
 		return (EAttribute)projectEClass.getEStructuralFeatures().get(47);
 	}
 
@@ -1264,7 +1298,7 @@ public class GitLabPackageImpl extends EPackageImpl implements GitLabPackage {
 	 * @generated
 	 */
 	@Override
-	public EAttribute getProject_ResolveOutdatedDiffDiscussions() {
+	public EAttribute getProject_PrintingMergeRequestLinkEnabled() {
 		return (EAttribute)projectEClass.getEStructuralFeatures().get(48);
 	}
 
@@ -1274,8 +1308,18 @@ public class GitLabPackageImpl extends EPackageImpl implements GitLabPackage {
 	 * @generated
 	 */
 	@Override
+	public EAttribute getProject_ResolveOutdatedDiffDiscussions() {
+		return (EAttribute)projectEClass.getEStructuralFeatures().get(49);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EReference getProject_Statistics() {
-		return (EReference)projectEClass.getEStructuralFeatures().get(49);
+		return (EReference)projectEClass.getEStructuralFeatures().get(50);
 	}
 
 	/**
@@ -1285,16 +1329,6 @@ public class GitLabPackageImpl extends EPackageImpl implements GitLabPackage {
 	 */
 	@Override
 	public EAttribute getProject_InitializeWithReadme() {
-		return (EAttribute)projectEClass.getEStructuralFeatures().get(50);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EAttribute getProject_PackagesEnabled() {
 		return (EAttribute)projectEClass.getEStructuralFeatures().get(51);
 	}
 
@@ -1304,7 +1338,7 @@ public class GitLabPackageImpl extends EPackageImpl implements GitLabPackage {
 	 * @generated
 	 */
 	@Override
-	public EAttribute getProject_EmptyRepo() {
+	public EAttribute getProject_PackagesEnabled() {
 		return (EAttribute)projectEClass.getEStructuralFeatures().get(52);
 	}
 
@@ -1314,7 +1348,7 @@ public class GitLabPackageImpl extends EPackageImpl implements GitLabPackage {
 	 * @generated
 	 */
 	@Override
-	public EAttribute getProject_LicenseUrl() {
+	public EAttribute getProject_EmptyRepo() {
 		return (EAttribute)projectEClass.getEStructuralFeatures().get(53);
 	}
 
@@ -1324,8 +1358,8 @@ public class GitLabPackageImpl extends EPackageImpl implements GitLabPackage {
 	 * @generated
 	 */
 	@Override
-	public EReference getProject_License() {
-		return (EReference)projectEClass.getEStructuralFeatures().get(54);
+	public EAttribute getProject_LicenseUrl() {
+		return (EAttribute)projectEClass.getEStructuralFeatures().get(54);
 	}
 
 	/**
@@ -1334,7 +1368,7 @@ public class GitLabPackageImpl extends EPackageImpl implements GitLabPackage {
 	 * @generated
 	 */
 	@Override
-	public EReference getProject_CustomAttributes() {
+	public EReference getProject_License() {
 		return (EReference)projectEClass.getEStructuralFeatures().get(55);
 	}
 
@@ -1344,8 +1378,8 @@ public class GitLabPackageImpl extends EPackageImpl implements GitLabPackage {
 	 * @generated
 	 */
 	@Override
-	public EAttribute getProject_BuildCoverageRegex() {
-		return (EAttribute)projectEClass.getEStructuralFeatures().get(56);
+	public EReference getProject_CustomAttributes() {
+		return (EReference)projectEClass.getEStructuralFeatures().get(56);
 	}
 
 	/**
@@ -1354,7 +1388,7 @@ public class GitLabPackageImpl extends EPackageImpl implements GitLabPackage {
 	 * @generated
 	 */
 	@Override
-	public EAttribute getProject_BuildGitStrategy() {
+	public EAttribute getProject_BuildCoverageRegex() {
 		return (EAttribute)projectEClass.getEStructuralFeatures().get(57);
 	}
 
@@ -1364,7 +1398,7 @@ public class GitLabPackageImpl extends EPackageImpl implements GitLabPackage {
 	 * @generated
 	 */
 	@Override
-	public EAttribute getProject_ReadmeUrl() {
+	public EAttribute getProject_BuildGitStrategy() {
 		return (EAttribute)projectEClass.getEStructuralFeatures().get(58);
 	}
 
@@ -1374,7 +1408,7 @@ public class GitLabPackageImpl extends EPackageImpl implements GitLabPackage {
 	 * @generated
 	 */
 	@Override
-	public EAttribute getProject_CanCreateMergeRequestIn() {
+	public EAttribute getProject_ReadmeUrl() {
 		return (EAttribute)projectEClass.getEStructuralFeatures().get(59);
 	}
 
@@ -1384,7 +1418,7 @@ public class GitLabPackageImpl extends EPackageImpl implements GitLabPackage {
 	 * @generated
 	 */
 	@Override
-	public EAttribute getProject_ImportStatus() {
+	public EAttribute getProject_CanCreateMergeRequestIn() {
 		return (EAttribute)projectEClass.getEStructuralFeatures().get(60);
 	}
 
@@ -1394,7 +1428,7 @@ public class GitLabPackageImpl extends EPackageImpl implements GitLabPackage {
 	 * @generated
 	 */
 	@Override
-	public EAttribute getProject_CiDefaultGitDepth() {
+	public EAttribute getProject_ImportStatus() {
 		return (EAttribute)projectEClass.getEStructuralFeatures().get(61);
 	}
 
@@ -1404,7 +1438,7 @@ public class GitLabPackageImpl extends EPackageImpl implements GitLabPackage {
 	 * @generated
 	 */
 	@Override
-	public EAttribute getProject_CiForwardDeploymentEnabled() {
+	public EAttribute getProject_CiDefaultGitDepth() {
 		return (EAttribute)projectEClass.getEStructuralFeatures().get(62);
 	}
 
@@ -1414,7 +1448,7 @@ public class GitLabPackageImpl extends EPackageImpl implements GitLabPackage {
 	 * @generated
 	 */
 	@Override
-	public EAttribute getProject_CiConfigPath() {
+	public EAttribute getProject_CiForwardDeploymentEnabled() {
 		return (EAttribute)projectEClass.getEStructuralFeatures().get(63);
 	}
 
@@ -1424,7 +1458,7 @@ public class GitLabPackageImpl extends EPackageImpl implements GitLabPackage {
 	 * @generated
 	 */
 	@Override
-	public EAttribute getProject_RemoveSourceBranchAfterMerge() {
+	public EAttribute getProject_CiConfigPath() {
 		return (EAttribute)projectEClass.getEStructuralFeatures().get(64);
 	}
 
@@ -1434,7 +1468,7 @@ public class GitLabPackageImpl extends EPackageImpl implements GitLabPackage {
 	 * @generated
 	 */
 	@Override
-	public EAttribute getProject_AutoDevopsEnabled() {
+	public EAttribute getProject_RemoveSourceBranchAfterMerge() {
 		return (EAttribute)projectEClass.getEStructuralFeatures().get(65);
 	}
 
@@ -1444,7 +1478,7 @@ public class GitLabPackageImpl extends EPackageImpl implements GitLabPackage {
 	 * @generated
 	 */
 	@Override
-	public EAttribute getProject_AutoDevopsDeployStrategy() {
+	public EAttribute getProject_AutoDevopsEnabled() {
 		return (EAttribute)projectEClass.getEStructuralFeatures().get(66);
 	}
 
@@ -1454,7 +1488,7 @@ public class GitLabPackageImpl extends EPackageImpl implements GitLabPackage {
 	 * @generated
 	 */
 	@Override
-	public EAttribute getProject_AutocloseReferencedIssues() {
+	public EAttribute getProject_AutoDevopsDeployStrategy() {
 		return (EAttribute)projectEClass.getEStructuralFeatures().get(67);
 	}
 
@@ -1464,7 +1498,7 @@ public class GitLabPackageImpl extends EPackageImpl implements GitLabPackage {
 	 * @generated
 	 */
 	@Override
-	public EAttribute getProject_EmailsDisabled() {
+	public EAttribute getProject_AutocloseReferencedIssues() {
 		return (EAttribute)projectEClass.getEStructuralFeatures().get(68);
 	}
 
@@ -1474,7 +1508,7 @@ public class GitLabPackageImpl extends EPackageImpl implements GitLabPackage {
 	 * @generated
 	 */
 	@Override
-	public EAttribute getProject_SuggestionCommitMessage() {
+	public EAttribute getProject_EmailsDisabled() {
 		return (EAttribute)projectEClass.getEStructuralFeatures().get(69);
 	}
 
@@ -1484,7 +1518,7 @@ public class GitLabPackageImpl extends EPackageImpl implements GitLabPackage {
 	 * @generated
 	 */
 	@Override
-	public EAttribute getProject_SquashOption() {
+	public EAttribute getProject_SuggestionCommitMessage() {
 		return (EAttribute)projectEClass.getEStructuralFeatures().get(70);
 	}
 
@@ -1494,8 +1528,8 @@ public class GitLabPackageImpl extends EPackageImpl implements GitLabPackage {
 	 * @generated
 	 */
 	@Override
-	public EReference getProject_Branches() {
-		return (EReference)projectEClass.getEStructuralFeatures().get(71);
+	public EAttribute getProject_SquashOption() {
+		return (EAttribute)projectEClass.getEStructuralFeatures().get(71);
 	}
 
 	/**
@@ -1504,7 +1538,7 @@ public class GitLabPackageImpl extends EPackageImpl implements GitLabPackage {
 	 * @generated
 	 */
 	@Override
-	public EReference getProject_Contributors() {
+	public EReference getProject_Branches() {
 		return (EReference)projectEClass.getEStructuralFeatures().get(72);
 	}
 
@@ -1514,7 +1548,7 @@ public class GitLabPackageImpl extends EPackageImpl implements GitLabPackage {
 	 * @generated
 	 */
 	@Override
-	public EReference getProject_Members() {
+	public EReference getProject_Contributors() {
 		return (EReference)projectEClass.getEStructuralFeatures().get(73);
 	}
 
@@ -1524,8 +1558,78 @@ public class GitLabPackageImpl extends EPackageImpl implements GitLabPackage {
 	 * @generated
 	 */
 	@Override
+	public EReference getProject_Members() {
+		return (EReference)projectEClass.getEStructuralFeatures().get(74);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EAttribute getProject_BranchesLoaded() {
-		return (EAttribute)projectEClass.getEStructuralFeatures().get(74);
+		return (EAttribute)projectEClass.getEStructuralFeatures().get(75);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EClass getProjectSharedGroup() {
+		return projectSharedGroupEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getProjectSharedGroup_Id() {
+		return (EAttribute)projectSharedGroupEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getProjectSharedGroup_Name() {
+		return (EAttribute)projectSharedGroupEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getProjectSharedGroup_FullPath() {
+		return (EAttribute)projectSharedGroupEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getProjectSharedGroup_AccessLevel() {
+		return (EAttribute)projectSharedGroupEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getProjectSharedGroup_Group() {
+		return (EReference)projectSharedGroupEClass.getEStructuralFeatures().get(4);
 	}
 
 	/**
@@ -1934,16 +2038,6 @@ public class GitLabPackageImpl extends EPackageImpl implements GitLabPackage {
 	 * @generated
 	 */
 	@Override
-	public EAttribute getTreeItem_Loaded() {
-		return (EAttribute)treeItemEClass.getEStructuralFeatures().get(3);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public EClass getTree() {
 		return treeEClass;
 	}
@@ -1956,6 +2050,16 @@ public class GitLabPackageImpl extends EPackageImpl implements GitLabPackage {
 	@Override
 	public EReference getTree_TreeItems() {
 		return (EReference)treeEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getTree_TreeItemsLoaded() {
+		return (EAttribute)treeEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -2197,6 +2301,9 @@ public class GitLabPackageImpl extends EPackageImpl implements GitLabPackage {
 		isCreated = true;
 
 		// Create classes and their features
+		loadableEClass = createEClass(LOADABLE);
+		createEAttribute(loadableEClass, LOADABLE__LOADED);
+
 		gitLabEClass = createEClass(GIT_LAB);
 		createEAttribute(gitLabEClass, GIT_LAB__URL);
 		createEReference(gitLabEClass, GIT_LAB__GROUPS);
@@ -2216,7 +2323,7 @@ public class GitLabPackageImpl extends EPackageImpl implements GitLabPackage {
 		createEAttribute(groupEClass, GROUP__LFS_ENABLED);
 		createEAttribute(groupEClass, GROUP__CREATED_AT);
 		createEReference(groupEClass, GROUP__PROJECTS);
-		createEReference(groupEClass, GROUP__SHARED_PROJECTS);
+		createEReference(groupEClass, GROUP__SHARES);
 		createEAttribute(groupEClass, GROUP__STORAGE_SIZE);
 		createEAttribute(groupEClass, GROUP__REPOSITORY_SIZE);
 		createEAttribute(groupEClass, GROUP__LFS_OBJECTS_SIZE);
@@ -2225,7 +2332,7 @@ public class GitLabPackageImpl extends EPackageImpl implements GitLabPackage {
 		createEReference(groupEClass, GROUP__MEMBERS);
 		createEReference(groupEClass, GROUP__CODE_OWNERSHIP);
 		createEAttribute(groupEClass, GROUP__SUB_GROUPS_LOADED);
-		createEAttribute(groupEClass, GROUP__PROJECTS_LOADED);
+		createEAttribute(groupEClass, GROUP__PROJECTS_GROUPS_LOADED);
 
 		memberEClass = createEClass(MEMBER);
 		createEReference(memberEClass, MEMBER__USER);
@@ -2261,6 +2368,7 @@ public class GitLabPackageImpl extends EPackageImpl implements GitLabPackage {
 		createEAttribute(projectEClass, PROJECT__DEFAULT_BRANCH);
 		createEAttribute(projectEClass, PROJECT__DESCRIPTION);
 		createEAttribute(projectEClass, PROJECT__FORKS_COUNT);
+		createEAttribute(projectEClass, PROJECT__FORKED_FROM_ID);
 		createEReference(projectEClass, PROJECT__FORKED_FROM);
 		createEReference(projectEClass, PROJECT__FORKS);
 		createEAttribute(projectEClass, PROJECT__HTTP_URL_TO_REPO);
@@ -2327,6 +2435,13 @@ public class GitLabPackageImpl extends EPackageImpl implements GitLabPackage {
 		createEReference(projectEClass, PROJECT__MEMBERS);
 		createEAttribute(projectEClass, PROJECT__BRANCHES_LOADED);
 
+		projectSharedGroupEClass = createEClass(PROJECT_SHARED_GROUP);
+		createEAttribute(projectSharedGroupEClass, PROJECT_SHARED_GROUP__ID);
+		createEAttribute(projectSharedGroupEClass, PROJECT_SHARED_GROUP__NAME);
+		createEAttribute(projectSharedGroupEClass, PROJECT_SHARED_GROUP__FULL_PATH);
+		createEAttribute(projectSharedGroupEClass, PROJECT_SHARED_GROUP__ACCESS_LEVEL);
+		createEReference(projectSharedGroupEClass, PROJECT_SHARED_GROUP__GROUP);
+
 		projectStatisticsEClass = createEClass(PROJECT_STATISTICS);
 		createEAttribute(projectStatisticsEClass, PROJECT_STATISTICS__COMMIT_COUNT);
 		createEAttribute(projectStatisticsEClass, PROJECT_STATISTICS__STORAGE_SIZE);
@@ -2374,10 +2489,10 @@ public class GitLabPackageImpl extends EPackageImpl implements GitLabPackage {
 		createEAttribute(treeItemEClass, TREE_ITEM__ID);
 		createEAttribute(treeItemEClass, TREE_ITEM__NAME);
 		createEAttribute(treeItemEClass, TREE_ITEM__PATH);
-		createEAttribute(treeItemEClass, TREE_ITEM__LOADED);
 
 		treeEClass = createEClass(TREE);
 		createEReference(treeEClass, TREE__TREE_ITEMS);
+		createEAttribute(treeEClass, TREE__TREE_ITEMS_LOADED);
 
 		blobEClass = createEClass(BLOB);
 
@@ -2443,11 +2558,15 @@ public class GitLabPackageImpl extends EPackageImpl implements GitLabPackage {
 		// Set bounds for type parameters
 
 		// Add supertypes to classes
+		gitLabEClass.getESuperTypes().add(this.getLoadable());
+		groupEClass.getESuperTypes().add(this.getLoadable());
 		memberEClass.getESuperTypes().add(this.getAbstractUser());
 		userEClass.getESuperTypes().add(this.getAbstractUser());
+		projectEClass.getESuperTypes().add(this.getLoadable());
 		contributorEClass.getESuperTypes().add(this.getAbstractUser());
 		branchEClass.getESuperTypes().add(this.getTree());
 		ownerEClass.getESuperTypes().add(this.getAbstractUser());
+		treeItemEClass.getESuperTypes().add(this.getLoadable());
 		treeEClass.getESuperTypes().add(this.getTreeItem());
 		blobEClass.getESuperTypes().add(this.getTreeItem());
 		repositoryFileEClass.getESuperTypes().add(this.getBlob());
@@ -2457,13 +2576,16 @@ public class GitLabPackageImpl extends EPackageImpl implements GitLabPackage {
 		listRepositoryFileEClass.getESuperTypes().add(this.getRepositoryFile());
 
 		// Initialize classes, features, and operations; add parameters
+		initEClass(loadableEClass, Loadable.class, "Loadable", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getLoadable_Loaded(), ecorePackage.getEDate(), "loaded", null, 0, 1, Loadable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
 		initEClass(gitLabEClass, GitLab.class, "GitLab", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getGitLab_Url(), ecorePackage.getEString(), "url", null, 0, 1, GitLab.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getGitLab_Groups(), this.getGroup(), null, "groups", null, 0, -1, GitLab.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		getGitLab_Groups().getEKeys().add(this.getGroup_Id());
 		initEReference(getGitLab_Users(), this.getUser(), null, "users", null, 0, -1, GitLab.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		getGitLab_Users().getEKeys().add(this.getAbstractUser_Id());
-		initEAttribute(getGitLab_TopLevelGroupsLoaded(), ecorePackage.getEBoolean(), "topLevelGroupsLoaded", null, 0, 1, GitLab.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getGitLab_TopLevelGroupsLoaded(), ecorePackage.getEDate(), "topLevelGroupsLoaded", null, 0, 1, GitLab.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(groupEClass, Group.class, "Group", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getGroup_Id(), ecorePackage.getELongObject(), "id", null, 0, 1, Group.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -2479,8 +2601,7 @@ public class GitLabPackageImpl extends EPackageImpl implements GitLabPackage {
 		initEAttribute(getGroup_CreatedAt(), ecorePackage.getEDate(), "createdAt", null, 0, 1, Group.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getGroup_Projects(), this.getProject(), null, "projects", null, 0, -1, Group.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		getGroup_Projects().getEKeys().add(this.getProject_Id());
-		initEReference(getGroup_SharedProjects(), this.getProject(), this.getProject_SharedWithGroups(), "sharedProjects", null, 0, -1, Group.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		getGroup_SharedProjects().getEKeys().add(this.getProject_Id());
+		initEReference(getGroup_Shares(), this.getProjectSharedGroup(), this.getProjectSharedGroup_Group(), "shares", null, 0, -1, Group.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getGroup_StorageSize(), ecorePackage.getELongObject(), "storageSize", null, 0, 1, Group.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getGroup_RepositorySize(), ecorePackage.getELongObject(), "repositorySize", null, 0, 1, Group.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getGroup_LfsObjectsSize(), ecorePackage.getELongObject(), "lfsObjectsSize", null, 0, 1, Group.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -2490,8 +2611,8 @@ public class GitLabPackageImpl extends EPackageImpl implements GitLabPackage {
 		initEReference(getGroup_Members(), this.getMember(), null, "members", null, 0, -1, Group.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		getGroup_Members().getEKeys().add(this.getAbstractUser_Id());
 		initEReference(getGroup_CodeOwnership(), theCodeownersPackage.getCodeOwner(), theCodeownersPackage.getCodeOwner_Group(), "codeOwnership", null, 0, -1, Group.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getGroup_SubGroupsLoaded(), ecorePackage.getEBoolean(), "subGroupsLoaded", null, 0, 1, Group.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getGroup_ProjectsLoaded(), ecorePackage.getEBoolean(), "projectsLoaded", null, 0, 1, Group.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getGroup_SubGroupsLoaded(), ecorePackage.getEDate(), "subGroupsLoaded", null, 0, 1, Group.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getGroup_ProjectsGroupsLoaded(), ecorePackage.getEDate(), "projectsGroupsLoaded", null, 0, 1, Group.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(memberEClass, Member.class, "Member", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getMember_User(), this.getUser(), this.getUser_Membership(), "user", null, 0, 1, Member.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -2529,6 +2650,7 @@ public class GitLabPackageImpl extends EPackageImpl implements GitLabPackage {
 		initEAttribute(getProject_DefaultBranch(), ecorePackage.getEString(), "defaultBranch", null, 0, 1, Project.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getProject_Description(), ecorePackage.getEString(), "description", null, 0, 1, Project.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getProject_ForksCount(), ecorePackage.getEIntegerObject(), "forksCount", null, 0, 1, Project.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getProject_ForkedFromId(), ecorePackage.getELongObject(), "forkedFromId", null, 0, 1, Project.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getProject_ForkedFrom(), this.getProject(), this.getProject_Forks(), "forkedFrom", null, 0, 1, Project.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getProject_Forks(), this.getProject(), this.getProject_ForkedFrom(), "forks", null, 0, -1, Project.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		getProject_Forks().getEKeys().add(this.getProject_Id());
@@ -2553,8 +2675,8 @@ public class GitLabPackageImpl extends EPackageImpl implements GitLabPackage {
 		initEReference(getProject_ProjectAccess(), this.getProjectAccess(), null, "projectAccess", null, 0, 1, Project.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getProject_GroupAccess(), this.getProjectAccess(), null, "groupAccess", null, 0, 1, Project.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getProject_PublicJobs(), ecorePackage.getEBooleanObject(), "publicJobs", null, 0, 1, Project.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getProject_SharedWithGroups(), this.getGroup(), this.getGroup_SharedProjects(), "sharedWithGroups", null, 0, -1, Project.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		getProject_SharedWithGroups().getEKeys().add(this.getGroup_Id());
+		initEReference(getProject_SharedWithGroups(), this.getProjectSharedGroup(), null, "sharedWithGroups", null, 0, -1, Project.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		getProject_SharedWithGroups().getEKeys().add(this.getProjectSharedGroup_Id());
 		initEAttribute(getProject_RepositoryStorage(), ecorePackage.getEString(), "repositoryStorage", null, 0, 1, Project.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getProject_RequestAccessEnabled(), ecorePackage.getEBooleanObject(), "requestAccessEnabled", null, 0, 1, Project.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getProject_RunnersToken(), ecorePackage.getEString(), "runnersToken", null, 0, 1, Project.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -2598,7 +2720,14 @@ public class GitLabPackageImpl extends EPackageImpl implements GitLabPackage {
 		getProject_Contributors().getEKeys().add(this.getAbstractUser_Id());
 		initEReference(getProject_Members(), this.getMember(), null, "members", null, 0, -1, Project.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		getProject_Members().getEKeys().add(this.getAbstractUser_Id());
-		initEAttribute(getProject_BranchesLoaded(), ecorePackage.getEBoolean(), "branchesLoaded", null, 0, 1, Project.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getProject_BranchesLoaded(), ecorePackage.getEDate(), "branchesLoaded", null, 0, 1, Project.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(projectSharedGroupEClass, ProjectSharedGroup.class, "ProjectSharedGroup", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getProjectSharedGroup_Id(), ecorePackage.getELongObject(), "id", null, 0, 1, ProjectSharedGroup.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getProjectSharedGroup_Name(), ecorePackage.getEString(), "name", null, 0, 1, ProjectSharedGroup.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getProjectSharedGroup_FullPath(), ecorePackage.getEString(), "fullPath", null, 0, 1, ProjectSharedGroup.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getProjectSharedGroup_AccessLevel(), this.getAccessLevel(), "accessLevel", null, 0, 1, ProjectSharedGroup.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getProjectSharedGroup_Group(), this.getGroup(), this.getGroup_Shares(), "group", null, 0, 1, ProjectSharedGroup.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(projectStatisticsEClass, ProjectStatistics.class, "ProjectStatistics", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getProjectStatistics_CommitCount(), ecorePackage.getELong(), "commitCount", null, 0, 1, ProjectStatistics.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -2647,11 +2776,11 @@ public class GitLabPackageImpl extends EPackageImpl implements GitLabPackage {
 		initEAttribute(getTreeItem_Id(), ecorePackage.getEString(), "id", null, 0, 1, TreeItem.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getTreeItem_Name(), ecorePackage.getEString(), "name", null, 0, 1, TreeItem.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getTreeItem_Path(), ecorePackage.getEString(), "path", null, 0, 1, TreeItem.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getTreeItem_Loaded(), ecorePackage.getEBoolean(), "loaded", null, 0, 1, TreeItem.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(treeEClass, Tree.class, "Tree", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getTree_TreeItems(), this.getTreeItem(), null, "treeItems", null, 0, -1, Tree.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		getTree_TreeItems().getEKeys().add(this.getTreeItem_Name());
+		initEAttribute(getTree_TreeItemsLoaded(), ecorePackage.getEDate(), "treeItemsLoaded", null, 0, 1, Tree.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(blobEClass, Blob.class, "Blob", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
@@ -2735,6 +2864,12 @@ public class GitLabPackageImpl extends EPackageImpl implements GitLabPackage {
 	protected void createGenModelAnnotations() {
 		String source = "http://www.eclipse.org/emf/2002/GenModel";
 		addAnnotation
+		  (getLoadable_Loaded(),
+		   source,
+		   new String[] {
+			   "documentation", "Timestamp when this object was loded excluding contents, which might be loaded separately."
+		   });
+		addAnnotation
 		  (gitLabEClass,
 		   source,
 		   new String[] {
@@ -2744,25 +2879,25 @@ public class GitLabPackageImpl extends EPackageImpl implements GitLabPackage {
 		  (getGitLab_TopLevelGroupsLoaded(),
 		   source,
 		   new String[] {
-			   "documentation", "Indicates that all top level groups of interest were successfully loaded - with or without their sub-groups and projects. This attribute is used by the Loader to support loading in stages and with restarts."
+			   "documentation", "Timestamp when the top level groups were loaded"
 		   });
 		addAnnotation
 		  (getGroup_SubGroupsLoaded(),
 		   source,
 		   new String[] {
-			   "documentation", "Indicates that all sub-groups of interest were successfully loaded - with or without their sub-groups and projects. This attribute is used by the Loader to support loading in stages and with restarts."
+			   "documentation", "Timestamp when this group\'s sub-groups were loaded"
 		   });
 		addAnnotation
-		  (getGroup_ProjectsLoaded(),
+		  (getGroup_ProjectsGroupsLoaded(),
 		   source,
 		   new String[] {
-			   "documentation", "Indicates that all projects of interest were successfully loaded - with or without branches and trees. This attribute is used by the Loader to support loading in stages and with restarts."
+			   "documentation", "Timestamp when this group projects were loaded"
 		   });
 		addAnnotation
 		  (getProject_BranchesLoaded(),
 		   source,
 		   new String[] {
-			   "documentation", "Indicates that all branches of interest were successfully loaded - with or without trees. This attribute is used by the Loader to support loading in stages and with restarts."
+			   "documentation", "Timestamp when this project\'s branches were loaded"
 		   });
 		addAnnotation
 		  (getContributor_User(),
@@ -2777,10 +2912,10 @@ public class GitLabPackageImpl extends EPackageImpl implements GitLabPackage {
 			   "documentation", "A reference to a matching user "
 		   });
 		addAnnotation
-		  (getTreeItem_Loaded(),
+		  (getTree_TreeItemsLoaded(),
 		   source,
 		   new String[] {
-			   "documentation", "Indicates that this tree item (branch, tree, or blob) was sucessfully loaded. For blobs it means that the contents was loaded, for trees/branches that the list of children was loaded, but not necesserily children\'s contents. This attribute is used by the Loader to support loading in stages and with restarts."
+			   "documentation", "Timestamp when this tree\'s items were loaded"
 		   });
 		addAnnotation
 		  (repositoryFileEClass,

@@ -8,6 +8,7 @@ import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.util.Switch;
 
 import org.nasdanika.models.gitlab.Blob;
+import org.nasdanika.models.gitlab.Loadable;
 import org.nasdanika.models.gitlab.RepositoryFile;
 import org.nasdanika.models.gitlab.TreeItem;
 
@@ -102,6 +103,7 @@ public class CodeownersSwitch<T> extends Switch<T> {
 				if (result == null) result = caseDefaultSection(codeOwners);
 				if (result == null) result = caseBlob(codeOwners);
 				if (result == null) result = caseTreeItem(codeOwners);
+				if (result == null) result = caseLoadable(codeOwners);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -181,6 +183,21 @@ public class CodeownersSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseCodeOwners(CodeOwners object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Loadable</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Loadable</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseLoadable(Loadable object) {
 		return null;
 	}
 

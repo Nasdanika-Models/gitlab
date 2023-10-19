@@ -9,13 +9,12 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 
 import org.eclipse.emf.ecore.InternalEObject;
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-
 import org.eclipse.emf.ecore.util.InternalEList;
 import org.nasdanika.models.gitlab.GitLabPackage;
 import org.nasdanika.models.gitlab.Group;
 import org.nasdanika.models.gitlab.Member;
 import org.nasdanika.models.gitlab.Project;
+import org.nasdanika.models.gitlab.ProjectSharedGroup;
 import org.nasdanika.models.gitlab.Visibility;
 import org.nasdanika.models.gitlab.codeowners.CodeOwner;
 
@@ -39,7 +38,7 @@ import org.nasdanika.models.gitlab.codeowners.CodeOwner;
  *   <li>{@link org.nasdanika.models.gitlab.impl.GroupImpl#getLfsEnabled <em>Lfs Enabled</em>}</li>
  *   <li>{@link org.nasdanika.models.gitlab.impl.GroupImpl#getCreatedAt <em>Created At</em>}</li>
  *   <li>{@link org.nasdanika.models.gitlab.impl.GroupImpl#getProjects <em>Projects</em>}</li>
- *   <li>{@link org.nasdanika.models.gitlab.impl.GroupImpl#getSharedProjects <em>Shared Projects</em>}</li>
+ *   <li>{@link org.nasdanika.models.gitlab.impl.GroupImpl#getShares <em>Shares</em>}</li>
  *   <li>{@link org.nasdanika.models.gitlab.impl.GroupImpl#getStorageSize <em>Storage Size</em>}</li>
  *   <li>{@link org.nasdanika.models.gitlab.impl.GroupImpl#getRepositorySize <em>Repository Size</em>}</li>
  *   <li>{@link org.nasdanika.models.gitlab.impl.GroupImpl#getLfsObjectsSize <em>Lfs Objects Size</em>}</li>
@@ -47,13 +46,13 @@ import org.nasdanika.models.gitlab.codeowners.CodeOwner;
  *   <li>{@link org.nasdanika.models.gitlab.impl.GroupImpl#getSubGroups <em>Sub Groups</em>}</li>
  *   <li>{@link org.nasdanika.models.gitlab.impl.GroupImpl#getMembers <em>Members</em>}</li>
  *   <li>{@link org.nasdanika.models.gitlab.impl.GroupImpl#getCodeOwnership <em>Code Ownership</em>}</li>
- *   <li>{@link org.nasdanika.models.gitlab.impl.GroupImpl#isSubGroupsLoaded <em>Sub Groups Loaded</em>}</li>
- *   <li>{@link org.nasdanika.models.gitlab.impl.GroupImpl#isProjectsLoaded <em>Projects Loaded</em>}</li>
+ *   <li>{@link org.nasdanika.models.gitlab.impl.GroupImpl#getSubGroupsLoaded <em>Sub Groups Loaded</em>}</li>
+ *   <li>{@link org.nasdanika.models.gitlab.impl.GroupImpl#getProjectsGroupsLoaded <em>Projects Groups Loaded</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class GroupImpl extends MinimalEObjectImpl.Container implements Group {
+public class GroupImpl extends LoadableImpl implements Group {
 	/**
 	 * The default value of the '{@link #getId() <em>Id</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -191,24 +190,23 @@ public class GroupImpl extends MinimalEObjectImpl.Container implements Group {
 	protected static final Long JOB_ARTIFACTS_SIZE_EDEFAULT = null;
 
 	/**
-	 * The default value of the '{@link #isSubGroupsLoaded() <em>Sub Groups Loaded</em>}' attribute.
+	 * The default value of the '{@link #getSubGroupsLoaded() <em>Sub Groups Loaded</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #isSubGroupsLoaded()
+	 * @see #getSubGroupsLoaded()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final boolean SUB_GROUPS_LOADED_EDEFAULT = false;
+	protected static final Date SUB_GROUPS_LOADED_EDEFAULT = null;
 	/**
-	 * The default value of the '{@link #isProjectsLoaded() <em>Projects Loaded</em>}' attribute.
+	 * The default value of the '{@link #getProjectsGroupsLoaded() <em>Projects Groups Loaded</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #isProjectsLoaded()
+	 * @see #getProjectsGroupsLoaded()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final boolean PROJECTS_LOADED_EDEFAULT = false;
-
+	protected static final Date PROJECTS_GROUPS_LOADED_EDEFAULT = null;
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -226,16 +224,6 @@ public class GroupImpl extends MinimalEObjectImpl.Container implements Group {
 	@Override
 	protected EClass eStaticClass() {
 		return GitLabPackage.Literals.GROUP;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	protected int eStaticFeatureCount() {
-		return 0;
 	}
 
 	/**
@@ -476,8 +464,8 @@ public class GroupImpl extends MinimalEObjectImpl.Container implements Group {
 	 */
 	@SuppressWarnings("unchecked")
 	@Override
-	public EList<Project> getSharedProjects() {
-		return (EList<Project>)eDynamicGet(GitLabPackage.GROUP__SHARED_PROJECTS, GitLabPackage.Literals.GROUP__SHARED_PROJECTS, true, true);
+	public EList<ProjectSharedGroup> getShares() {
+		return (EList<ProjectSharedGroup>)eDynamicGet(GitLabPackage.GROUP__SHARES, GitLabPackage.Literals.GROUP__SHARES, true, true);
 	}
 
 	/**
@@ -599,8 +587,8 @@ public class GroupImpl extends MinimalEObjectImpl.Container implements Group {
 	 * @generated
 	 */
 	@Override
-	public boolean isSubGroupsLoaded() {
-		return (Boolean)eDynamicGet(GitLabPackage.GROUP__SUB_GROUPS_LOADED, GitLabPackage.Literals.GROUP__SUB_GROUPS_LOADED, true, true);
+	public Date getSubGroupsLoaded() {
+		return (Date)eDynamicGet(GitLabPackage.GROUP__SUB_GROUPS_LOADED, GitLabPackage.Literals.GROUP__SUB_GROUPS_LOADED, true, true);
 	}
 
 	/**
@@ -609,7 +597,7 @@ public class GroupImpl extends MinimalEObjectImpl.Container implements Group {
 	 * @generated
 	 */
 	@Override
-	public void setSubGroupsLoaded(boolean newSubGroupsLoaded) {
+	public void setSubGroupsLoaded(Date newSubGroupsLoaded) {
 		eDynamicSet(GitLabPackage.GROUP__SUB_GROUPS_LOADED, GitLabPackage.Literals.GROUP__SUB_GROUPS_LOADED, newSubGroupsLoaded);
 	}
 
@@ -619,8 +607,8 @@ public class GroupImpl extends MinimalEObjectImpl.Container implements Group {
 	 * @generated
 	 */
 	@Override
-	public boolean isProjectsLoaded() {
-		return (Boolean)eDynamicGet(GitLabPackage.GROUP__PROJECTS_LOADED, GitLabPackage.Literals.GROUP__PROJECTS_LOADED, true, true);
+	public Date getProjectsGroupsLoaded() {
+		return (Date)eDynamicGet(GitLabPackage.GROUP__PROJECTS_GROUPS_LOADED, GitLabPackage.Literals.GROUP__PROJECTS_GROUPS_LOADED, true, true);
 	}
 
 	/**
@@ -629,8 +617,8 @@ public class GroupImpl extends MinimalEObjectImpl.Container implements Group {
 	 * @generated
 	 */
 	@Override
-	public void setProjectsLoaded(boolean newProjectsLoaded) {
-		eDynamicSet(GitLabPackage.GROUP__PROJECTS_LOADED, GitLabPackage.Literals.GROUP__PROJECTS_LOADED, newProjectsLoaded);
+	public void setProjectsGroupsLoaded(Date newProjectsGroupsLoaded) {
+		eDynamicSet(GitLabPackage.GROUP__PROJECTS_GROUPS_LOADED, GitLabPackage.Literals.GROUP__PROJECTS_GROUPS_LOADED, newProjectsGroupsLoaded);
 	}
 
 	/**
@@ -642,8 +630,8 @@ public class GroupImpl extends MinimalEObjectImpl.Container implements Group {
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case GitLabPackage.GROUP__SHARED_PROJECTS:
-				return ((InternalEList<InternalEObject>)(InternalEList<?>)getSharedProjects()).basicAdd(otherEnd, msgs);
+			case GitLabPackage.GROUP__SHARES:
+				return ((InternalEList<InternalEObject>)(InternalEList<?>)getShares()).basicAdd(otherEnd, msgs);
 			case GitLabPackage.GROUP__CODE_OWNERSHIP:
 				return ((InternalEList<InternalEObject>)(InternalEList<?>)getCodeOwnership()).basicAdd(otherEnd, msgs);
 		}
@@ -660,8 +648,8 @@ public class GroupImpl extends MinimalEObjectImpl.Container implements Group {
 		switch (featureID) {
 			case GitLabPackage.GROUP__PROJECTS:
 				return ((InternalEList<?>)getProjects()).basicRemove(otherEnd, msgs);
-			case GitLabPackage.GROUP__SHARED_PROJECTS:
-				return ((InternalEList<?>)getSharedProjects()).basicRemove(otherEnd, msgs);
+			case GitLabPackage.GROUP__SHARES:
+				return ((InternalEList<?>)getShares()).basicRemove(otherEnd, msgs);
 			case GitLabPackage.GROUP__SUB_GROUPS:
 				return ((InternalEList<?>)getSubGroups()).basicRemove(otherEnd, msgs);
 			case GitLabPackage.GROUP__MEMBERS:
@@ -704,8 +692,8 @@ public class GroupImpl extends MinimalEObjectImpl.Container implements Group {
 				return getCreatedAt();
 			case GitLabPackage.GROUP__PROJECTS:
 				return getProjects();
-			case GitLabPackage.GROUP__SHARED_PROJECTS:
-				return getSharedProjects();
+			case GitLabPackage.GROUP__SHARES:
+				return getShares();
 			case GitLabPackage.GROUP__STORAGE_SIZE:
 				return getStorageSize();
 			case GitLabPackage.GROUP__REPOSITORY_SIZE:
@@ -721,9 +709,9 @@ public class GroupImpl extends MinimalEObjectImpl.Container implements Group {
 			case GitLabPackage.GROUP__CODE_OWNERSHIP:
 				return getCodeOwnership();
 			case GitLabPackage.GROUP__SUB_GROUPS_LOADED:
-				return isSubGroupsLoaded();
-			case GitLabPackage.GROUP__PROJECTS_LOADED:
-				return isProjectsLoaded();
+				return getSubGroupsLoaded();
+			case GitLabPackage.GROUP__PROJECTS_GROUPS_LOADED:
+				return getProjectsGroupsLoaded();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -774,9 +762,9 @@ public class GroupImpl extends MinimalEObjectImpl.Container implements Group {
 				getProjects().clear();
 				getProjects().addAll((Collection<? extends Project>)newValue);
 				return;
-			case GitLabPackage.GROUP__SHARED_PROJECTS:
-				getSharedProjects().clear();
-				getSharedProjects().addAll((Collection<? extends Project>)newValue);
+			case GitLabPackage.GROUP__SHARES:
+				getShares().clear();
+				getShares().addAll((Collection<? extends ProjectSharedGroup>)newValue);
 				return;
 			case GitLabPackage.GROUP__STORAGE_SIZE:
 				setStorageSize((Long)newValue);
@@ -803,10 +791,10 @@ public class GroupImpl extends MinimalEObjectImpl.Container implements Group {
 				getCodeOwnership().addAll((Collection<? extends CodeOwner>)newValue);
 				return;
 			case GitLabPackage.GROUP__SUB_GROUPS_LOADED:
-				setSubGroupsLoaded((Boolean)newValue);
+				setSubGroupsLoaded((Date)newValue);
 				return;
-			case GitLabPackage.GROUP__PROJECTS_LOADED:
-				setProjectsLoaded((Boolean)newValue);
+			case GitLabPackage.GROUP__PROJECTS_GROUPS_LOADED:
+				setProjectsGroupsLoaded((Date)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -856,8 +844,8 @@ public class GroupImpl extends MinimalEObjectImpl.Container implements Group {
 			case GitLabPackage.GROUP__PROJECTS:
 				getProjects().clear();
 				return;
-			case GitLabPackage.GROUP__SHARED_PROJECTS:
-				getSharedProjects().clear();
+			case GitLabPackage.GROUP__SHARES:
+				getShares().clear();
 				return;
 			case GitLabPackage.GROUP__STORAGE_SIZE:
 				setStorageSize(STORAGE_SIZE_EDEFAULT);
@@ -883,8 +871,8 @@ public class GroupImpl extends MinimalEObjectImpl.Container implements Group {
 			case GitLabPackage.GROUP__SUB_GROUPS_LOADED:
 				setSubGroupsLoaded(SUB_GROUPS_LOADED_EDEFAULT);
 				return;
-			case GitLabPackage.GROUP__PROJECTS_LOADED:
-				setProjectsLoaded(PROJECTS_LOADED_EDEFAULT);
+			case GitLabPackage.GROUP__PROJECTS_GROUPS_LOADED:
+				setProjectsGroupsLoaded(PROJECTS_GROUPS_LOADED_EDEFAULT);
 				return;
 		}
 		super.eUnset(featureID);
@@ -922,8 +910,8 @@ public class GroupImpl extends MinimalEObjectImpl.Container implements Group {
 				return CREATED_AT_EDEFAULT == null ? getCreatedAt() != null : !CREATED_AT_EDEFAULT.equals(getCreatedAt());
 			case GitLabPackage.GROUP__PROJECTS:
 				return !getProjects().isEmpty();
-			case GitLabPackage.GROUP__SHARED_PROJECTS:
-				return !getSharedProjects().isEmpty();
+			case GitLabPackage.GROUP__SHARES:
+				return !getShares().isEmpty();
 			case GitLabPackage.GROUP__STORAGE_SIZE:
 				return STORAGE_SIZE_EDEFAULT == null ? getStorageSize() != null : !STORAGE_SIZE_EDEFAULT.equals(getStorageSize());
 			case GitLabPackage.GROUP__REPOSITORY_SIZE:
@@ -939,9 +927,9 @@ public class GroupImpl extends MinimalEObjectImpl.Container implements Group {
 			case GitLabPackage.GROUP__CODE_OWNERSHIP:
 				return !getCodeOwnership().isEmpty();
 			case GitLabPackage.GROUP__SUB_GROUPS_LOADED:
-				return isSubGroupsLoaded() != SUB_GROUPS_LOADED_EDEFAULT;
-			case GitLabPackage.GROUP__PROJECTS_LOADED:
-				return isProjectsLoaded() != PROJECTS_LOADED_EDEFAULT;
+				return SUB_GROUPS_LOADED_EDEFAULT == null ? getSubGroupsLoaded() != null : !SUB_GROUPS_LOADED_EDEFAULT.equals(getSubGroupsLoaded());
+			case GitLabPackage.GROUP__PROJECTS_GROUPS_LOADED:
+				return PROJECTS_GROUPS_LOADED_EDEFAULT == null ? getProjectsGroupsLoaded() != null : !PROJECTS_GROUPS_LOADED_EDEFAULT.equals(getProjectsGroupsLoaded());
 		}
 		return super.eIsSet(featureID);
 	}

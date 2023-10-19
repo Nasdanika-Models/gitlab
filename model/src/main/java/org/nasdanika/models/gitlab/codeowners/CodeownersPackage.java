@@ -298,6 +298,15 @@ public interface CodeownersPackage extends EPackage {
 	int CODE_OWNERS = 4;
 
 	/**
+	 * The feature id for the '<em><b>Loaded</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CODE_OWNERS__LOADED = GitLabPackage.REPOSITORY_FILE__LOADED;
+
+	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -323,15 +332,6 @@ public interface CodeownersPackage extends EPackage {
 	 * @ordered
 	 */
 	int CODE_OWNERS__PATH = GitLabPackage.REPOSITORY_FILE__PATH;
-
-	/**
-	 * The feature id for the '<em><b>Loaded</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CODE_OWNERS__LOADED = GitLabPackage.REPOSITORY_FILE__LOADED;
 
 	/**
 	 * The feature id for the '<em><b>Size</b></em>' attribute.
