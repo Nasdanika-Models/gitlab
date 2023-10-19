@@ -10,6 +10,11 @@
         eType="#//Group" containment="true" eKeys="#//Group/id"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="users" upperBound="-1"
         eType="#//User" containment="true" eKeys="#//AbstractUser/id"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="topLevelGroupsLoaded" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Indicates that all top level groups of interest were successfully loaded - with or without their sub-groups and projects. This attribute is used by the Loader to support loading in stages and with restarts."/>
+      </eAnnotations>
+    </eStructuralFeatures>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Group">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//ELongObject"/>
@@ -37,6 +42,16 @@
         eType="#//Member" containment="true" eKeys="#//AbstractUser/id"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="codeOwnership" upperBound="-1"
         eType="#//codeowners/CodeOwner" eOpposite="#//codeowners/CodeOwner/group"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="subGroupsLoaded" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Indicates that all sub-groups of interest were successfully loaded - with or without their sub-groups and projects. This attribute is used by the Loader to support loading in stages and with restarts."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="projectsLoaded" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Indicates that all projects of interest were successfully loaded - with or without branches and trees. This attribute is used by the Loader to support loading in stages and with restarts."/>
+      </eAnnotations>
+    </eStructuralFeatures>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Member" eSuperTypes="#//AbstractUser">
     <eStructuralFeatures xsi:type="ecore:EReference" name="user" eType="#//User" eOpposite="#//User/membership"/>
@@ -167,6 +182,11 @@
         eType="#//Contributor" containment="true" eKeys="#//AbstractUser/id"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="members" upperBound="-1"
         eType="#//Member" containment="true" eKeys="#//AbstractUser/id"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="branchesLoaded" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Indicates that all branches of interest were successfully loaded - with or without trees. This attribute is used by the Loader to support loading in stages and with restarts."/>
+      </eAnnotations>
+    </eStructuralFeatures>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ProjectStatistics">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="commitCount" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//ELong"/>
@@ -267,6 +287,11 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="path" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="loaded" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Indicates that this tree item (branch, tree, or blob) was sucessfully loaded. For blobs it means that the contents was loaded, for trees/branches that the list of children was loaded, but not necesserily children's contents. This attribute is used by the Loader to support loading in stages and with restarts."/>
+      </eAnnotations>
+    </eStructuralFeatures>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Tree" eSuperTypes="#//TreeItem">
     <eStructuralFeatures xsi:type="ecore:EReference" name="treeItems" upperBound="-1"

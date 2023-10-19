@@ -90,6 +90,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link org.nasdanika.models.gitlab.Project#getBranches <em>Branches</em>}</li>
  *   <li>{@link org.nasdanika.models.gitlab.Project#getContributors <em>Contributors</em>}</li>
  *   <li>{@link org.nasdanika.models.gitlab.Project#getMembers <em>Members</em>}</li>
+ *   <li>{@link org.nasdanika.models.gitlab.Project#isBranchesLoaded <em>Branches Loaded</em>}</li>
  * </ul>
  *
  * @see org.nasdanika.models.gitlab.GitLabPackage#getProject()
@@ -1654,7 +1655,7 @@ public interface Project extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Branches</em>' containment reference list.
 	 * @see org.nasdanika.models.gitlab.GitLabPackage#getProject_Branches()
-	 * @model containment="true"
+	 * @model containment="true" keys="name"
 	 * @generated
 	 */
 	EList<Branch> getBranches();
@@ -1666,7 +1667,7 @@ public interface Project extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Contributors</em>' containment reference list.
 	 * @see org.nasdanika.models.gitlab.GitLabPackage#getProject_Contributors()
-	 * @model containment="true"
+	 * @model containment="true" keys="id"
 	 * @generated
 	 */
 	EList<Contributor> getContributors();
@@ -1678,8 +1679,33 @@ public interface Project extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Members</em>' containment reference list.
 	 * @see org.nasdanika.models.gitlab.GitLabPackage#getProject_Members()
-	 * @model containment="true"
+	 * @model containment="true" keys="id"
 	 * @generated
 	 */
 	EList<Member> getMembers();
+
+	/**
+	 * Returns the value of the '<em><b>Branches Loaded</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Indicates that all branches of interest were successfully loaded - with or without trees. This attribute is used by the Loader to support loading in stages and with restarts.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Branches Loaded</em>' attribute.
+	 * @see #setBranchesLoaded(boolean)
+	 * @see org.nasdanika.models.gitlab.GitLabPackage#getProject_BranchesLoaded()
+	 * @model
+	 * @generated
+	 */
+	boolean isBranchesLoaded();
+
+	/**
+	 * Sets the value of the '{@link org.nasdanika.models.gitlab.Project#isBranchesLoaded <em>Branches Loaded</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Branches Loaded</em>' attribute.
+	 * @see #isBranchesLoaded()
+	 * @generated
+	 */
+	void setBranchesLoaded(boolean value);
 } // Project

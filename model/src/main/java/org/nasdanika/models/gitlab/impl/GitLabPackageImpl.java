@@ -334,6 +334,16 @@ public class GitLabPackageImpl extends EPackageImpl implements GitLabPackage {
 	 * @generated
 	 */
 	@Override
+	public EAttribute getGitLab_TopLevelGroupsLoaded() {
+		return (EAttribute)gitLabEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EClass getGroup() {
 		return groupEClass;
 	}
@@ -536,6 +546,26 @@ public class GitLabPackageImpl extends EPackageImpl implements GitLabPackage {
 	@Override
 	public EReference getGroup_CodeOwnership() {
 		return (EReference)groupEClass.getEStructuralFeatures().get(19);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getGroup_SubGroupsLoaded() {
+		return (EAttribute)groupEClass.getEStructuralFeatures().get(20);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getGroup_ProjectsLoaded() {
+		return (EAttribute)groupEClass.getEStructuralFeatures().get(21);
 	}
 
 	/**
@@ -1494,6 +1524,16 @@ public class GitLabPackageImpl extends EPackageImpl implements GitLabPackage {
 	 * @generated
 	 */
 	@Override
+	public EAttribute getProject_BranchesLoaded() {
+		return (EAttribute)projectEClass.getEStructuralFeatures().get(74);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EClass getProjectStatistics() {
 		return projectStatisticsEClass;
 	}
@@ -1894,6 +1934,16 @@ public class GitLabPackageImpl extends EPackageImpl implements GitLabPackage {
 	 * @generated
 	 */
 	@Override
+	public EAttribute getTreeItem_Loaded() {
+		return (EAttribute)treeItemEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EClass getTree() {
 		return treeEClass;
 	}
@@ -2151,6 +2201,7 @@ public class GitLabPackageImpl extends EPackageImpl implements GitLabPackage {
 		createEAttribute(gitLabEClass, GIT_LAB__URL);
 		createEReference(gitLabEClass, GIT_LAB__GROUPS);
 		createEReference(gitLabEClass, GIT_LAB__USERS);
+		createEAttribute(gitLabEClass, GIT_LAB__TOP_LEVEL_GROUPS_LOADED);
 
 		groupEClass = createEClass(GROUP);
 		createEAttribute(groupEClass, GROUP__ID);
@@ -2173,6 +2224,8 @@ public class GitLabPackageImpl extends EPackageImpl implements GitLabPackage {
 		createEReference(groupEClass, GROUP__SUB_GROUPS);
 		createEReference(groupEClass, GROUP__MEMBERS);
 		createEReference(groupEClass, GROUP__CODE_OWNERSHIP);
+		createEAttribute(groupEClass, GROUP__SUB_GROUPS_LOADED);
+		createEAttribute(groupEClass, GROUP__PROJECTS_LOADED);
 
 		memberEClass = createEClass(MEMBER);
 		createEReference(memberEClass, MEMBER__USER);
@@ -2272,6 +2325,7 @@ public class GitLabPackageImpl extends EPackageImpl implements GitLabPackage {
 		createEReference(projectEClass, PROJECT__BRANCHES);
 		createEReference(projectEClass, PROJECT__CONTRIBUTORS);
 		createEReference(projectEClass, PROJECT__MEMBERS);
+		createEAttribute(projectEClass, PROJECT__BRANCHES_LOADED);
 
 		projectStatisticsEClass = createEClass(PROJECT_STATISTICS);
 		createEAttribute(projectStatisticsEClass, PROJECT_STATISTICS__COMMIT_COUNT);
@@ -2320,6 +2374,7 @@ public class GitLabPackageImpl extends EPackageImpl implements GitLabPackage {
 		createEAttribute(treeItemEClass, TREE_ITEM__ID);
 		createEAttribute(treeItemEClass, TREE_ITEM__NAME);
 		createEAttribute(treeItemEClass, TREE_ITEM__PATH);
+		createEAttribute(treeItemEClass, TREE_ITEM__LOADED);
 
 		treeEClass = createEClass(TREE);
 		createEReference(treeEClass, TREE__TREE_ITEMS);
@@ -2407,6 +2462,8 @@ public class GitLabPackageImpl extends EPackageImpl implements GitLabPackage {
 		initEReference(getGitLab_Groups(), this.getGroup(), null, "groups", null, 0, -1, GitLab.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		getGitLab_Groups().getEKeys().add(this.getGroup_Id());
 		initEReference(getGitLab_Users(), this.getUser(), null, "users", null, 0, -1, GitLab.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		getGitLab_Users().getEKeys().add(this.getAbstractUser_Id());
+		initEAttribute(getGitLab_TopLevelGroupsLoaded(), ecorePackage.getEBoolean(), "topLevelGroupsLoaded", null, 0, 1, GitLab.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(groupEClass, Group.class, "Group", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getGroup_Id(), ecorePackage.getELongObject(), "id", null, 0, 1, Group.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -2431,7 +2488,10 @@ public class GitLabPackageImpl extends EPackageImpl implements GitLabPackage {
 		initEReference(getGroup_SubGroups(), this.getGroup(), null, "subGroups", null, 0, -1, Group.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		getGroup_SubGroups().getEKeys().add(this.getGroup_Id());
 		initEReference(getGroup_Members(), this.getMember(), null, "members", null, 0, -1, Group.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		getGroup_Members().getEKeys().add(this.getAbstractUser_Id());
 		initEReference(getGroup_CodeOwnership(), theCodeownersPackage.getCodeOwner(), theCodeownersPackage.getCodeOwner_Group(), "codeOwnership", null, 0, -1, Group.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getGroup_SubGroupsLoaded(), ecorePackage.getEBoolean(), "subGroupsLoaded", null, 0, 1, Group.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getGroup_ProjectsLoaded(), ecorePackage.getEBoolean(), "projectsLoaded", null, 0, 1, Group.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(memberEClass, Member.class, "Member", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getMember_User(), this.getUser(), this.getUser_Membership(), "user", null, 0, 1, Member.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -2533,8 +2593,12 @@ public class GitLabPackageImpl extends EPackageImpl implements GitLabPackage {
 		initEAttribute(getProject_SuggestionCommitMessage(), ecorePackage.getEString(), "suggestionCommitMessage", null, 0, 1, Project.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getProject_SquashOption(), this.getSquashOption(), "squashOption", null, 0, 1, Project.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getProject_Branches(), this.getBranch(), null, "branches", null, 0, -1, Project.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		getProject_Branches().getEKeys().add(this.getTreeItem_Name());
 		initEReference(getProject_Contributors(), this.getContributor(), null, "contributors", null, 0, -1, Project.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		getProject_Contributors().getEKeys().add(this.getAbstractUser_Id());
 		initEReference(getProject_Members(), this.getMember(), null, "members", null, 0, -1, Project.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		getProject_Members().getEKeys().add(this.getAbstractUser_Id());
+		initEAttribute(getProject_BranchesLoaded(), ecorePackage.getEBoolean(), "branchesLoaded", null, 0, 1, Project.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(projectStatisticsEClass, ProjectStatistics.class, "ProjectStatistics", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getProjectStatistics_CommitCount(), ecorePackage.getELong(), "commitCount", null, 0, 1, ProjectStatistics.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -2583,6 +2647,7 @@ public class GitLabPackageImpl extends EPackageImpl implements GitLabPackage {
 		initEAttribute(getTreeItem_Id(), ecorePackage.getEString(), "id", null, 0, 1, TreeItem.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getTreeItem_Name(), ecorePackage.getEString(), "name", null, 0, 1, TreeItem.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getTreeItem_Path(), ecorePackage.getEString(), "path", null, 0, 1, TreeItem.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getTreeItem_Loaded(), ecorePackage.getEBoolean(), "loaded", null, 0, 1, TreeItem.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(treeEClass, Tree.class, "Tree", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getTree_TreeItems(), this.getTreeItem(), null, "treeItems", null, 0, -1, Tree.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -2676,6 +2741,30 @@ public class GitLabPackageImpl extends EPackageImpl implements GitLabPackage {
 			   "documentation", "Represents a GitLab host/instance. The root of the GitLab model."
 		   });
 		addAnnotation
+		  (getGitLab_TopLevelGroupsLoaded(),
+		   source,
+		   new String[] {
+			   "documentation", "Indicates that all top level groups of interest were successfully loaded - with or without their sub-groups and projects. This attribute is used by the Loader to support loading in stages and with restarts."
+		   });
+		addAnnotation
+		  (getGroup_SubGroupsLoaded(),
+		   source,
+		   new String[] {
+			   "documentation", "Indicates that all sub-groups of interest were successfully loaded - with or without their sub-groups and projects. This attribute is used by the Loader to support loading in stages and with restarts."
+		   });
+		addAnnotation
+		  (getGroup_ProjectsLoaded(),
+		   source,
+		   new String[] {
+			   "documentation", "Indicates that all projects of interest were successfully loaded - with or without branches and trees. This attribute is used by the Loader to support loading in stages and with restarts."
+		   });
+		addAnnotation
+		  (getProject_BranchesLoaded(),
+		   source,
+		   new String[] {
+			   "documentation", "Indicates that all branches of interest were successfully loaded - with or without trees. This attribute is used by the Loader to support loading in stages and with restarts."
+		   });
+		addAnnotation
 		  (getContributor_User(),
 		   source,
 		   new String[] {
@@ -2686,6 +2775,12 @@ public class GitLabPackageImpl extends EPackageImpl implements GitLabPackage {
 		   source,
 		   new String[] {
 			   "documentation", "A reference to a matching user "
+		   });
+		addAnnotation
+		  (getTreeItem_Loaded(),
+		   source,
+		   new String[] {
+			   "documentation", "Indicates that this tree item (branch, tree, or blob) was sucessfully loaded. For blobs it means that the contents was loaded, for trees/branches that the list of children was loaded, but not necesserily children\'s contents. This attribute is used by the Loader to support loading in stages and with restarts."
 		   });
 		addAnnotation
 		  (repositoryFileEClass,

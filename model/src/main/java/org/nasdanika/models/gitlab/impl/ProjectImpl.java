@@ -114,6 +114,7 @@ import org.nasdanika.models.gitlab.Visibility;
  *   <li>{@link org.nasdanika.models.gitlab.impl.ProjectImpl#getBranches <em>Branches</em>}</li>
  *   <li>{@link org.nasdanika.models.gitlab.impl.ProjectImpl#getContributors <em>Contributors</em>}</li>
  *   <li>{@link org.nasdanika.models.gitlab.impl.ProjectImpl#getMembers <em>Members</em>}</li>
+ *   <li>{@link org.nasdanika.models.gitlab.impl.ProjectImpl#isBranchesLoaded <em>Branches Loaded</em>}</li>
  * </ul>
  *
  * @generated
@@ -660,6 +661,16 @@ public class ProjectImpl extends MinimalEObjectImpl.Container implements Project
 	 * @ordered
 	 */
 	protected static final SquashOption SQUASH_OPTION_EDEFAULT = SquashOption.NEVER;
+
+	/**
+	 * The default value of the '{@link #isBranchesLoaded() <em>Branches Loaded</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isBranchesLoaded()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean BRANCHES_LOADED_EDEFAULT = false;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -2200,6 +2211,26 @@ public class ProjectImpl extends MinimalEObjectImpl.Container implements Project
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
+	public boolean isBranchesLoaded() {
+		return (Boolean)eDynamicGet(GitLabPackage.PROJECT__BRANCHES_LOADED, GitLabPackage.Literals.PROJECT__BRANCHES_LOADED, true, true);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setBranchesLoaded(boolean newBranchesLoaded) {
+		eDynamicSet(GitLabPackage.PROJECT__BRANCHES_LOADED, GitLabPackage.Literals.PROJECT__BRANCHES_LOADED, newBranchesLoaded);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@SuppressWarnings("unchecked")
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
@@ -2419,6 +2450,8 @@ public class ProjectImpl extends MinimalEObjectImpl.Container implements Project
 				return getContributors();
 			case GitLabPackage.PROJECT__MEMBERS:
 				return getMembers();
+			case GitLabPackage.PROJECT__BRANCHES_LOADED:
+				return isBranchesLoaded();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -2660,6 +2693,9 @@ public class ProjectImpl extends MinimalEObjectImpl.Container implements Project
 				getMembers().clear();
 				getMembers().addAll((Collection<? extends Member>)newValue);
 				return;
+			case GitLabPackage.PROJECT__BRANCHES_LOADED:
+				setBranchesLoaded((Boolean)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -2894,6 +2930,9 @@ public class ProjectImpl extends MinimalEObjectImpl.Container implements Project
 			case GitLabPackage.PROJECT__MEMBERS:
 				getMembers().clear();
 				return;
+			case GitLabPackage.PROJECT__BRANCHES_LOADED:
+				setBranchesLoaded(BRANCHES_LOADED_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -3054,6 +3093,8 @@ public class ProjectImpl extends MinimalEObjectImpl.Container implements Project
 				return !getContributors().isEmpty();
 			case GitLabPackage.PROJECT__MEMBERS:
 				return !getMembers().isEmpty();
+			case GitLabPackage.PROJECT__BRANCHES_LOADED:
+				return isBranchesLoaded() != BRANCHES_LOADED_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}

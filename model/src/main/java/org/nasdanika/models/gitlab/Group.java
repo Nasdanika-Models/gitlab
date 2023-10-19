@@ -36,6 +36,8 @@ import org.nasdanika.models.gitlab.codeowners.CodeOwner;
  *   <li>{@link org.nasdanika.models.gitlab.Group#getSubGroups <em>Sub Groups</em>}</li>
  *   <li>{@link org.nasdanika.models.gitlab.Group#getMembers <em>Members</em>}</li>
  *   <li>{@link org.nasdanika.models.gitlab.Group#getCodeOwnership <em>Code Ownership</em>}</li>
+ *   <li>{@link org.nasdanika.models.gitlab.Group#isSubGroupsLoaded <em>Sub Groups Loaded</em>}</li>
+ *   <li>{@link org.nasdanika.models.gitlab.Group#isProjectsLoaded <em>Projects Loaded</em>}</li>
  * </ul>
  *
  * @see org.nasdanika.models.gitlab.GitLabPackage#getGroup()
@@ -422,7 +424,7 @@ public interface Group extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Members</em>' containment reference list.
 	 * @see org.nasdanika.models.gitlab.GitLabPackage#getGroup_Members()
-	 * @model containment="true"
+	 * @model containment="true" keys="id"
 	 * @generated
 	 */
 	EList<Member> getMembers();
@@ -440,4 +442,54 @@ public interface Group extends EObject {
 	 * @generated
 	 */
 	EList<CodeOwner> getCodeOwnership();
+
+	/**
+	 * Returns the value of the '<em><b>Sub Groups Loaded</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Indicates that all sub-groups of interest were successfully loaded - with or without their sub-groups and projects. This attribute is used by the Loader to support loading in stages and with restarts.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Sub Groups Loaded</em>' attribute.
+	 * @see #setSubGroupsLoaded(boolean)
+	 * @see org.nasdanika.models.gitlab.GitLabPackage#getGroup_SubGroupsLoaded()
+	 * @model
+	 * @generated
+	 */
+	boolean isSubGroupsLoaded();
+
+	/**
+	 * Sets the value of the '{@link org.nasdanika.models.gitlab.Group#isSubGroupsLoaded <em>Sub Groups Loaded</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Sub Groups Loaded</em>' attribute.
+	 * @see #isSubGroupsLoaded()
+	 * @generated
+	 */
+	void setSubGroupsLoaded(boolean value);
+
+	/**
+	 * Returns the value of the '<em><b>Projects Loaded</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Indicates that all projects of interest were successfully loaded - with or without branches and trees. This attribute is used by the Loader to support loading in stages and with restarts.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Projects Loaded</em>' attribute.
+	 * @see #setProjectsLoaded(boolean)
+	 * @see org.nasdanika.models.gitlab.GitLabPackage#getGroup_ProjectsLoaded()
+	 * @model
+	 * @generated
+	 */
+	boolean isProjectsLoaded();
+
+	/**
+	 * Sets the value of the '{@link org.nasdanika.models.gitlab.Group#isProjectsLoaded <em>Projects Loaded</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Projects Loaded</em>' attribute.
+	 * @see #isProjectsLoaded()
+	 * @generated
+	 */
+	void setProjectsLoaded(boolean value);
 } // Group

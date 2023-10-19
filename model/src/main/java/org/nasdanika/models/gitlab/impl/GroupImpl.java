@@ -47,6 +47,8 @@ import org.nasdanika.models.gitlab.codeowners.CodeOwner;
  *   <li>{@link org.nasdanika.models.gitlab.impl.GroupImpl#getSubGroups <em>Sub Groups</em>}</li>
  *   <li>{@link org.nasdanika.models.gitlab.impl.GroupImpl#getMembers <em>Members</em>}</li>
  *   <li>{@link org.nasdanika.models.gitlab.impl.GroupImpl#getCodeOwnership <em>Code Ownership</em>}</li>
+ *   <li>{@link org.nasdanika.models.gitlab.impl.GroupImpl#isSubGroupsLoaded <em>Sub Groups Loaded</em>}</li>
+ *   <li>{@link org.nasdanika.models.gitlab.impl.GroupImpl#isProjectsLoaded <em>Projects Loaded</em>}</li>
  * </ul>
  *
  * @generated
@@ -187,6 +189,25 @@ public class GroupImpl extends MinimalEObjectImpl.Container implements Group {
 	 * @ordered
 	 */
 	protected static final Long JOB_ARTIFACTS_SIZE_EDEFAULT = null;
+
+	/**
+	 * The default value of the '{@link #isSubGroupsLoaded() <em>Sub Groups Loaded</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isSubGroupsLoaded()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean SUB_GROUPS_LOADED_EDEFAULT = false;
+	/**
+	 * The default value of the '{@link #isProjectsLoaded() <em>Projects Loaded</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isProjectsLoaded()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean PROJECTS_LOADED_EDEFAULT = false;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -577,6 +598,46 @@ public class GroupImpl extends MinimalEObjectImpl.Container implements Group {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
+	public boolean isSubGroupsLoaded() {
+		return (Boolean)eDynamicGet(GitLabPackage.GROUP__SUB_GROUPS_LOADED, GitLabPackage.Literals.GROUP__SUB_GROUPS_LOADED, true, true);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setSubGroupsLoaded(boolean newSubGroupsLoaded) {
+		eDynamicSet(GitLabPackage.GROUP__SUB_GROUPS_LOADED, GitLabPackage.Literals.GROUP__SUB_GROUPS_LOADED, newSubGroupsLoaded);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public boolean isProjectsLoaded() {
+		return (Boolean)eDynamicGet(GitLabPackage.GROUP__PROJECTS_LOADED, GitLabPackage.Literals.GROUP__PROJECTS_LOADED, true, true);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setProjectsLoaded(boolean newProjectsLoaded) {
+		eDynamicSet(GitLabPackage.GROUP__PROJECTS_LOADED, GitLabPackage.Literals.GROUP__PROJECTS_LOADED, newProjectsLoaded);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@SuppressWarnings("unchecked")
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
@@ -659,6 +720,10 @@ public class GroupImpl extends MinimalEObjectImpl.Container implements Group {
 				return getMembers();
 			case GitLabPackage.GROUP__CODE_OWNERSHIP:
 				return getCodeOwnership();
+			case GitLabPackage.GROUP__SUB_GROUPS_LOADED:
+				return isSubGroupsLoaded();
+			case GitLabPackage.GROUP__PROJECTS_LOADED:
+				return isProjectsLoaded();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -737,6 +802,12 @@ public class GroupImpl extends MinimalEObjectImpl.Container implements Group {
 				getCodeOwnership().clear();
 				getCodeOwnership().addAll((Collection<? extends CodeOwner>)newValue);
 				return;
+			case GitLabPackage.GROUP__SUB_GROUPS_LOADED:
+				setSubGroupsLoaded((Boolean)newValue);
+				return;
+			case GitLabPackage.GROUP__PROJECTS_LOADED:
+				setProjectsLoaded((Boolean)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -809,6 +880,12 @@ public class GroupImpl extends MinimalEObjectImpl.Container implements Group {
 			case GitLabPackage.GROUP__CODE_OWNERSHIP:
 				getCodeOwnership().clear();
 				return;
+			case GitLabPackage.GROUP__SUB_GROUPS_LOADED:
+				setSubGroupsLoaded(SUB_GROUPS_LOADED_EDEFAULT);
+				return;
+			case GitLabPackage.GROUP__PROJECTS_LOADED:
+				setProjectsLoaded(PROJECTS_LOADED_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -861,6 +938,10 @@ public class GroupImpl extends MinimalEObjectImpl.Container implements Group {
 				return !getMembers().isEmpty();
 			case GitLabPackage.GROUP__CODE_OWNERSHIP:
 				return !getCodeOwnership().isEmpty();
+			case GitLabPackage.GROUP__SUB_GROUPS_LOADED:
+				return isSubGroupsLoaded() != SUB_GROUPS_LOADED_EDEFAULT;
+			case GitLabPackage.GROUP__PROJECTS_LOADED:
+				return isProjectsLoaded() != PROJECTS_LOADED_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}

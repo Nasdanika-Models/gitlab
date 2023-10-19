@@ -22,6 +22,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link org.nasdanika.models.gitlab.GitLab#getUrl <em>Url</em>}</li>
  *   <li>{@link org.nasdanika.models.gitlab.GitLab#getGroups <em>Groups</em>}</li>
  *   <li>{@link org.nasdanika.models.gitlab.GitLab#getUsers <em>Users</em>}</li>
+ *   <li>{@link org.nasdanika.models.gitlab.GitLab#isTopLevelGroupsLoaded <em>Top Level Groups Loaded</em>}</li>
  * </ul>
  *
  * @see org.nasdanika.models.gitlab.GitLabPackage#getGitLab()
@@ -70,9 +71,34 @@ public interface GitLab extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Users</em>' containment reference list.
 	 * @see org.nasdanika.models.gitlab.GitLabPackage#getGitLab_Users()
-	 * @model containment="true"
+	 * @model containment="true" keys="id"
 	 * @generated
 	 */
 	EList<User> getUsers();
+
+	/**
+	 * Returns the value of the '<em><b>Top Level Groups Loaded</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Indicates that all top level groups of interest were successfully loaded - with or without their sub-groups and projects. This attribute is used by the Loader to support loading in stages and with restarts.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Top Level Groups Loaded</em>' attribute.
+	 * @see #setTopLevelGroupsLoaded(boolean)
+	 * @see org.nasdanika.models.gitlab.GitLabPackage#getGitLab_TopLevelGroupsLoaded()
+	 * @model
+	 * @generated
+	 */
+	boolean isTopLevelGroupsLoaded();
+
+	/**
+	 * Sets the value of the '{@link org.nasdanika.models.gitlab.GitLab#isTopLevelGroupsLoaded <em>Top Level Groups Loaded</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Top Level Groups Loaded</em>' attribute.
+	 * @see #isTopLevelGroupsLoaded()
+	 * @generated
+	 */
+	void setTopLevelGroupsLoaded(boolean value);
 
 } // GitLab
