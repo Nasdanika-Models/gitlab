@@ -222,18 +222,31 @@ public class Loader  implements AutoCloseable {
 		modelGroup.setVisibility(org.nasdanika.models.gitlab.Visibility.get(group.getVisibility().ordinal()));
 		modelGroup.setWebUrl(group.getWebUrl());
 		
-		List<Member> groupMembers = groupApi.getMembers(group.getId());
-		try (ProgressMonitor scaledMembersMonitor = progressMonitor.scale(1 + groupMembers.size())) {
-			scaledMembersMonitor.worked(Status.INFO, 1, "Retrieved " + groupMembers.size() + " group members");							
-			EList<org.nasdanika.models.gitlab.Member> modelGroupMembers = modelGroup.getMembers();
-			for (org.gitlab4j.api.models.Member member: groupMembers) {
-				try (ProgressMonitor memberMonitor = scaledMembersMonitor.split("Loading member " + member.getName() + " " + member.getId(), 1, member)) {				
-					org.nasdanika.models.gitlab.Member modelMember = loadMember(member, memberMonitor);
-					modelGroupMembers.add(modelMember);
+		return modelGroup;
+	}
+	
+	public void loadGroupMembers(long groupId, BiConsumer<org.nasdanika.models.gitlab.Member, ProgressMonitor> memberConsumer, ProgressMonitor progressMonitor) throws GitLabApiException {
+		try (ProgressMonitor membersMonitor = progressMonitor.split("Loading group members of " + groupId, 1)) {
+			GroupApi groupApi = gitLabApi.getGroupApi();
+			Pager<org.gitlab4j.api.models.Member> memberPager = groupApi.getMembers(groupId, getPageSize());
+			int pageNum = 0;
+			while (memberPager.hasNext()) {
+				++pageNum;
+				double monitorSize = 1.0/Math.pow(2.0, pageNum); // Unknown number of pages, dividing each next by 2. I.e. 1/2 for the first page, 1/4 for the second, ...
+				try (ProgressMonitor memberPageMonitor = membersMonitor.split("Group members page " + pageNum, monitorSize)) {
+					List<org.gitlab4j.api.models.Member> members = memberPager.next();
+					try (ProgressMonitor scaledMembersMonitor = memberPageMonitor.scale(members.size() * 2 + 1)) {
+						scaledMembersMonitor.worked(Status.INFO, 1, "Retrieved " + members.size() + " members");
+						for (org.gitlab4j.api.models.Member member: members) {
+							try (ProgressMonitor memberMonitor = scaledMembersMonitor.split("Loading member " + member.getName() + " " + member.getId(), 2, member)) {
+								org.nasdanika.models.gitlab.Member modelMember = loadMember(member, memberMonitor.split("Loading member data", 1));
+								memberConsumer.accept(modelMember, memberMonitor.split("Consuming member", 1));
+							}
+						}
+					}
 				}
 			}
 		}
-		return modelGroup;
 	}
 
 	protected void populateAbstractUser(AbstractUser<?> apiUser, org.nasdanika.models.gitlab.AbstractUser user) {
@@ -487,36 +500,66 @@ public class Loader  implements AutoCloseable {
 		if (squashOption != null) {
 			modelProject.setSquashOption(org.nasdanika.models.gitlab.SquashOption.get(squashOption.ordinal()));
 		}		
-		
-		RepositoryApi repoApi = gitLabApi.getRepositoryApi();
-		List<Contributor> contributors = repoApi.getContributors(project.getId());
-		if (contributors != null) {
-			EList<org.nasdanika.models.gitlab.Contributor> modelContributors = modelProject.getContributors();
-			for (Contributor contributor: contributors) {
-				org.nasdanika.models.gitlab.Contributor modelContributor = createContributor(contributor, progressMonitor);
-				populateAbstractUser(contributor, modelContributor);
-				modelContributor.setAdditions(contributor.getAdditions());
-				modelContributor.setCommits(contributor.getCommits());
-				modelContributor.setDeletions(contributor.getDeletions());
-				modelContributors.add(modelContributor);
-			}			
-		}
-		
-		ProjectApi projectApi = gitLabApi.getProjectApi();
-		List<Member> projectMembers = projectApi.getMembers(project.getId());			
-		EList<org.nasdanika.models.gitlab.Member> modelProjectMembers = modelProject.getMembers();
-		for (org.gitlab4j.api.models.Member member: projectMembers) {
-			org.nasdanika.models.gitlab.Member modelMember = loadMember(member, progressMonitor);
-			modelProjectMembers.add(modelMember);
-		}
-				
-//		CommitsApi commitsApi = gitLabApi.getCommitsApi();
-//		for (Commit commit: commitsApi.getCommits(project.getId())) {
-//			System.out.println("Commit: " + commit);
-//		}
-			
+					
 		return modelProject;
 	}	
+			
+	public void loadProjectMembers(long projectId, BiConsumer<org.nasdanika.models.gitlab.Member, ProgressMonitor> memberConsumer, ProgressMonitor progressMonitor) throws GitLabApiException {
+		try (ProgressMonitor membersMonitor = progressMonitor.split("Loading project members of " + projectId, 1)) {
+			ProjectApi projectApi = gitLabApi.getProjectApi();
+			Pager<org.gitlab4j.api.models.Member> memberPager = projectApi.getMembers(projectId, getPageSize());
+			int pageNum = 0;
+			while (memberPager.hasNext()) {
+				++pageNum;
+				double monitorSize = 1.0/Math.pow(2.0, pageNum); // Unknown number of pages, dividing each next by 2. I.e. 1/2 for the first page, 1/4 for the second, ...
+				try (ProgressMonitor memberPageMonitor = membersMonitor.split("Project members page " + pageNum, monitorSize)) {
+					List<org.gitlab4j.api.models.Member> members = memberPager.next();
+					try (ProgressMonitor scaledMembersMonitor = memberPageMonitor.scale(members.size() * 2 + 1)) {
+						scaledMembersMonitor.worked(Status.INFO, 1, "Retrieved " + members.size() + " members");
+						for (org.gitlab4j.api.models.Member member: members) {
+							try (ProgressMonitor memberMonitor = scaledMembersMonitor.split("Loading member " + member.getName() + " " + member.getId(), 2, member)) {
+								org.nasdanika.models.gitlab.Member modelMember = loadMember(member, memberMonitor.split("Loading member data", 1));
+								memberConsumer.accept(modelMember, memberMonitor.split("Consuming member", 1));
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+	
+	public void loadProjectContributors(long projectId, BiConsumer<org.nasdanika.models.gitlab.Contributor, ProgressMonitor> contributorConsumer, ProgressMonitor progressMonitor) throws GitLabApiException {
+		try (ProgressMonitor contributorsMonitor = progressMonitor.split("Loading project contributors of " + projectId, 1)) {
+			RepositoryApi repoApi = gitLabApi.getRepositoryApi();
+			Pager<org.gitlab4j.api.models.Contributor> contributorPager = repoApi.getContributors(projectId, getPageSize());
+			int pageNum = 0;
+			while (contributorPager.hasNext()) {
+				++pageNum;
+				double monitorSize = 1.0/Math.pow(2.0, pageNum); // Unknown number of pages, dividing each next by 2. I.e. 1/2 for the first page, 1/4 for the second, ...
+				try (ProgressMonitor contributorPageMonitor = contributorsMonitor.split("Project contributors page " + pageNum, monitorSize)) {
+					List<org.gitlab4j.api.models.Contributor> contributors = contributorPager.next();
+					try (ProgressMonitor scaledContributorsMonitor = contributorPageMonitor.scale(contributors.size() + 1)) {
+						scaledContributorsMonitor.worked(Status.INFO, 1, "Retrieved " + contributors.size() + " contributors");
+						for (org.gitlab4j.api.models.Contributor contributor: contributors) {
+							try (ProgressMonitor contributorMonitor = scaledContributorsMonitor.split("Loading contributor " + contributor.getName() + " " + contributor.getId(), 1, contributor)) {
+								org.nasdanika.models.gitlab.Contributor modelContributor = createContributor(contributor, contributorMonitor);
+								populateAbstractUser(contributor, modelContributor);
+								modelContributor.setAdditions(contributor.getAdditions());
+								modelContributor.setCommits(contributor.getCommits());
+								modelContributor.setDeletions(contributor.getDeletions());
+								contributorConsumer.accept(modelContributor, contributorMonitor);
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+			
+//	CommitsApi commitsApi = gitLabApi.getCommitsApi();
+//	for (Commit commit: commitsApi.getCommits(project.getId())) {
+//		System.out.println("Commit: " + commit);
+//	}
 			
 	public void loadBranches(
 			long projectId, 

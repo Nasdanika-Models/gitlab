@@ -47,7 +47,7 @@ import org.nasdanika.models.gitlab.codeowners.CodeOwner;
  *   <li>{@link org.nasdanika.models.gitlab.impl.GroupImpl#getMembers <em>Members</em>}</li>
  *   <li>{@link org.nasdanika.models.gitlab.impl.GroupImpl#getCodeOwnership <em>Code Ownership</em>}</li>
  *   <li>{@link org.nasdanika.models.gitlab.impl.GroupImpl#getSubGroupsLoaded <em>Sub Groups Loaded</em>}</li>
- *   <li>{@link org.nasdanika.models.gitlab.impl.GroupImpl#getProjectsGroupsLoaded <em>Projects Groups Loaded</em>}</li>
+ *   <li>{@link org.nasdanika.models.gitlab.impl.GroupImpl#getProjectsLoaded <em>Projects Loaded</em>}</li>
  * </ul>
  *
  * @generated
@@ -199,14 +199,14 @@ public class GroupImpl extends LoadableImpl implements Group {
 	 */
 	protected static final Date SUB_GROUPS_LOADED_EDEFAULT = null;
 	/**
-	 * The default value of the '{@link #getProjectsGroupsLoaded() <em>Projects Groups Loaded</em>}' attribute.
+	 * The default value of the '{@link #getProjectsLoaded() <em>Projects Loaded</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getProjectsGroupsLoaded()
+	 * @see #getProjectsLoaded()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final Date PROJECTS_GROUPS_LOADED_EDEFAULT = null;
+	protected static final Date PROJECTS_LOADED_EDEFAULT = null;
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -607,8 +607,8 @@ public class GroupImpl extends LoadableImpl implements Group {
 	 * @generated
 	 */
 	@Override
-	public Date getProjectsGroupsLoaded() {
-		return (Date)eDynamicGet(GitLabPackage.GROUP__PROJECTS_GROUPS_LOADED, GitLabPackage.Literals.GROUP__PROJECTS_GROUPS_LOADED, true, true);
+	public Date getProjectsLoaded() {
+		return (Date)eDynamicGet(GitLabPackage.GROUP__PROJECTS_LOADED, GitLabPackage.Literals.GROUP__PROJECTS_LOADED, true, true);
 	}
 
 	/**
@@ -617,8 +617,8 @@ public class GroupImpl extends LoadableImpl implements Group {
 	 * @generated
 	 */
 	@Override
-	public void setProjectsGroupsLoaded(Date newProjectsGroupsLoaded) {
-		eDynamicSet(GitLabPackage.GROUP__PROJECTS_GROUPS_LOADED, GitLabPackage.Literals.GROUP__PROJECTS_GROUPS_LOADED, newProjectsGroupsLoaded);
+	public void setProjectsLoaded(Date newProjectsLoaded) {
+		eDynamicSet(GitLabPackage.GROUP__PROJECTS_LOADED, GitLabPackage.Literals.GROUP__PROJECTS_LOADED, newProjectsLoaded);
 	}
 
 	/**
@@ -710,8 +710,8 @@ public class GroupImpl extends LoadableImpl implements Group {
 				return getCodeOwnership();
 			case GitLabPackage.GROUP__SUB_GROUPS_LOADED:
 				return getSubGroupsLoaded();
-			case GitLabPackage.GROUP__PROJECTS_GROUPS_LOADED:
-				return getProjectsGroupsLoaded();
+			case GitLabPackage.GROUP__PROJECTS_LOADED:
+				return getProjectsLoaded();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -793,8 +793,8 @@ public class GroupImpl extends LoadableImpl implements Group {
 			case GitLabPackage.GROUP__SUB_GROUPS_LOADED:
 				setSubGroupsLoaded((Date)newValue);
 				return;
-			case GitLabPackage.GROUP__PROJECTS_GROUPS_LOADED:
-				setProjectsGroupsLoaded((Date)newValue);
+			case GitLabPackage.GROUP__PROJECTS_LOADED:
+				setProjectsLoaded((Date)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -871,8 +871,8 @@ public class GroupImpl extends LoadableImpl implements Group {
 			case GitLabPackage.GROUP__SUB_GROUPS_LOADED:
 				setSubGroupsLoaded(SUB_GROUPS_LOADED_EDEFAULT);
 				return;
-			case GitLabPackage.GROUP__PROJECTS_GROUPS_LOADED:
-				setProjectsGroupsLoaded(PROJECTS_GROUPS_LOADED_EDEFAULT);
+			case GitLabPackage.GROUP__PROJECTS_LOADED:
+				setProjectsLoaded(PROJECTS_LOADED_EDEFAULT);
 				return;
 		}
 		super.eUnset(featureID);
@@ -928,8 +928,8 @@ public class GroupImpl extends LoadableImpl implements Group {
 				return !getCodeOwnership().isEmpty();
 			case GitLabPackage.GROUP__SUB_GROUPS_LOADED:
 				return SUB_GROUPS_LOADED_EDEFAULT == null ? getSubGroupsLoaded() != null : !SUB_GROUPS_LOADED_EDEFAULT.equals(getSubGroupsLoaded());
-			case GitLabPackage.GROUP__PROJECTS_GROUPS_LOADED:
-				return PROJECTS_GROUPS_LOADED_EDEFAULT == null ? getProjectsGroupsLoaded() != null : !PROJECTS_GROUPS_LOADED_EDEFAULT.equals(getProjectsGroupsLoaded());
+			case GitLabPackage.GROUP__PROJECTS_LOADED:
+				return PROJECTS_LOADED_EDEFAULT == null ? getProjectsLoaded() != null : !PROJECTS_LOADED_EDEFAULT.equals(getProjectsLoaded());
 		}
 		return super.eIsSet(featureID);
 	}

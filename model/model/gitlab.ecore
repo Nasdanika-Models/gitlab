@@ -54,7 +54,7 @@
         <details key="documentation" value="Timestamp when this group's sub-groups were loaded"/>
       </eAnnotations>
     </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="projectsGroupsLoaded" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDate">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="projectsLoaded" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDate">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="Timestamp when this group projects were loaded"/>
       </eAnnotations>

@@ -376,13 +376,13 @@ public interface GitLabPackage extends EPackage {
 	int GROUP__SUB_GROUPS_LOADED = LOADABLE_FEATURE_COUNT + 20;
 
 	/**
-	 * The feature id for the '<em><b>Projects Groups Loaded</b></em>' attribute.
+	 * The feature id for the '<em><b>Projects Loaded</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int GROUP__PROJECTS_GROUPS_LOADED = LOADABLE_FEATURE_COUNT + 21;
+	int GROUP__PROJECTS_LOADED = LOADABLE_FEATURE_COUNT + 21;
 
 	/**
 	 * The number of structural features of the '<em>Group</em>' class.
@@ -3369,15 +3369,15 @@ public interface GitLabPackage extends EPackage {
 	EAttribute getGroup_SubGroupsLoaded();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.nasdanika.models.gitlab.Group#getProjectsGroupsLoaded <em>Projects Groups Loaded</em>}'.
+	 * Returns the meta object for the attribute '{@link org.nasdanika.models.gitlab.Group#getProjectsLoaded <em>Projects Loaded</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Projects Groups Loaded</em>'.
-	 * @see org.nasdanika.models.gitlab.Group#getProjectsGroupsLoaded()
+	 * @return the meta object for the attribute '<em>Projects Loaded</em>'.
+	 * @see org.nasdanika.models.gitlab.Group#getProjectsLoaded()
 	 * @see #getGroup()
 	 * @generated
 	 */
-	EAttribute getGroup_ProjectsGroupsLoaded();
+	EAttribute getGroup_ProjectsLoaded();
 
 	/**
 	 * Returns the meta object for class '{@link org.nasdanika.models.gitlab.Member <em>Member</em>}'.
@@ -5424,12 +5424,12 @@ public interface GitLabPackage extends EPackage {
 		 */
 		EAttribute GROUP__SUB_GROUPS_LOADED = eINSTANCE.getGroup_SubGroupsLoaded();
 		/**
-		 * The meta object literal for the '<em><b>Projects Groups Loaded</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Projects Loaded</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute GROUP__PROJECTS_GROUPS_LOADED = eINSTANCE.getGroup_ProjectsGroupsLoaded();
+		EAttribute GROUP__PROJECTS_LOADED = eINSTANCE.getGroup_ProjectsLoaded();
 		/**
 		 * The meta object literal for the '{@link org.nasdanika.models.gitlab.impl.MemberImpl <em>Member</em>}' class.
 		 * <!-- begin-user-doc -->

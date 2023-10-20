@@ -83,7 +83,7 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference gitlab.ecore#//Group/members"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference gitlab.ecore#//Group/codeOwnership"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gitlab.ecore#//Group/subGroupsLoaded"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gitlab.ecore#//Group/projectsGroupsLoaded"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gitlab.ecore#//Group/projectsLoaded"/>
     </genClasses>
     <genClasses ecoreClass="gitlab.ecore#//Member">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference gitlab.ecore#//Member/user"/>

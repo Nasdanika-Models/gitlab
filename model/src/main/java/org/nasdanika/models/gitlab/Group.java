@@ -36,7 +36,7 @@ import org.nasdanika.models.gitlab.codeowners.CodeOwner;
  *   <li>{@link org.nasdanika.models.gitlab.Group#getMembers <em>Members</em>}</li>
  *   <li>{@link org.nasdanika.models.gitlab.Group#getCodeOwnership <em>Code Ownership</em>}</li>
  *   <li>{@link org.nasdanika.models.gitlab.Group#getSubGroupsLoaded <em>Sub Groups Loaded</em>}</li>
- *   <li>{@link org.nasdanika.models.gitlab.Group#getProjectsGroupsLoaded <em>Projects Groups Loaded</em>}</li>
+ *   <li>{@link org.nasdanika.models.gitlab.Group#getProjectsLoaded <em>Projects Loaded</em>}</li>
  * </ul>
  *
  * @see org.nasdanika.models.gitlab.GitLabPackage#getGroup()
@@ -468,27 +468,27 @@ public interface Group extends Loadable {
 	void setSubGroupsLoaded(Date value);
 
 	/**
-	 * Returns the value of the '<em><b>Projects Groups Loaded</b></em>' attribute.
+	 * Returns the value of the '<em><b>Projects Loaded</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
 	 * Timestamp when this group projects were loaded
 	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Projects Groups Loaded</em>' attribute.
-	 * @see #setProjectsGroupsLoaded(Date)
-	 * @see org.nasdanika.models.gitlab.GitLabPackage#getGroup_ProjectsGroupsLoaded()
+	 * @return the value of the '<em>Projects Loaded</em>' attribute.
+	 * @see #setProjectsLoaded(Date)
+	 * @see org.nasdanika.models.gitlab.GitLabPackage#getGroup_ProjectsLoaded()
 	 * @model
 	 * @generated
 	 */
-	Date getProjectsGroupsLoaded();
+	Date getProjectsLoaded();
 
 	/**
-	 * Sets the value of the '{@link org.nasdanika.models.gitlab.Group#getProjectsGroupsLoaded <em>Projects Groups Loaded</em>}' attribute.
+	 * Sets the value of the '{@link org.nasdanika.models.gitlab.Group#getProjectsLoaded <em>Projects Loaded</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Projects Groups Loaded</em>' attribute.
-	 * @see #getProjectsGroupsLoaded()
+	 * @param value the new value of the '<em>Projects Loaded</em>' attribute.
+	 * @see #getProjectsLoaded()
 	 * @generated
 	 */
-	void setProjectsGroupsLoaded(Date value);
+	void setProjectsLoaded(Date value);
 } // Group

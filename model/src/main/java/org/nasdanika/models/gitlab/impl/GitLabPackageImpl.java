@@ -598,7 +598,7 @@ public class GitLabPackageImpl extends EPackageImpl implements GitLabPackage {
 	 * @generated
 	 */
 	@Override
-	public EAttribute getGroup_ProjectsGroupsLoaded() {
+	public EAttribute getGroup_ProjectsLoaded() {
 		return (EAttribute)groupEClass.getEStructuralFeatures().get(21);
 	}
 
@@ -2332,7 +2332,7 @@ public class GitLabPackageImpl extends EPackageImpl implements GitLabPackage {
 		createEReference(groupEClass, GROUP__MEMBERS);
 		createEReference(groupEClass, GROUP__CODE_OWNERSHIP);
 		createEAttribute(groupEClass, GROUP__SUB_GROUPS_LOADED);
-		createEAttribute(groupEClass, GROUP__PROJECTS_GROUPS_LOADED);
+		createEAttribute(groupEClass, GROUP__PROJECTS_LOADED);
 
 		memberEClass = createEClass(MEMBER);
 		createEReference(memberEClass, MEMBER__USER);
@@ -2612,7 +2612,7 @@ public class GitLabPackageImpl extends EPackageImpl implements GitLabPackage {
 		getGroup_Members().getEKeys().add(this.getAbstractUser_Id());
 		initEReference(getGroup_CodeOwnership(), theCodeownersPackage.getCodeOwner(), theCodeownersPackage.getCodeOwner_Group(), "codeOwnership", null, 0, -1, Group.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getGroup_SubGroupsLoaded(), ecorePackage.getEDate(), "subGroupsLoaded", null, 0, 1, Group.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getGroup_ProjectsGroupsLoaded(), ecorePackage.getEDate(), "projectsGroupsLoaded", null, 0, 1, Group.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getGroup_ProjectsLoaded(), ecorePackage.getEDate(), "projectsLoaded", null, 0, 1, Group.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(memberEClass, Member.class, "Member", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getMember_User(), this.getUser(), this.getUser_Membership(), "user", null, 0, 1, Member.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -2888,7 +2888,7 @@ public class GitLabPackageImpl extends EPackageImpl implements GitLabPackage {
 			   "documentation", "Timestamp when this group\'s sub-groups were loaded"
 		   });
 		addAnnotation
-		  (getGroup_ProjectsGroupsLoaded(),
+		  (getGroup_ProjectsLoaded(),
 		   source,
 		   new String[] {
 			   "documentation", "Timestamp when this group projects were loaded"
