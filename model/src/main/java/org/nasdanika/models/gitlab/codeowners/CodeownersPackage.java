@@ -307,7 +307,7 @@ public interface CodeownersPackage extends EPackage {
 	int CODE_OWNERS__LOADED = GitLabPackage.REPOSITORY_FILE__LOADED;
 
 	/**
-	 * The feature id for the '<em><b>Loads</b></em>' reference.
+	 * The feature id for the '<em><b>Loads</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated

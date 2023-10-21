@@ -85,12 +85,12 @@ public class GitLabAdapterFactory extends AdapterFactoryImpl {
 				return createGroupAdapter();
 			}
 			@Override
-			public Adapter caseMember(Member object) {
-				return createMemberAdapter();
-			}
-			@Override
 			public Adapter caseAbstractUser(AbstractUser object) {
 				return createAbstractUserAdapter();
+			}
+			@Override
+			public Adapter caseMember(Member object) {
+				return createMemberAdapter();
 			}
 			@Override
 			public Adapter caseUser(User object) {
@@ -125,10 +125,6 @@ public class GitLabAdapterFactory extends AdapterFactoryImpl {
 				return createCustomAttributeAdapter();
 			}
 			@Override
-			public Adapter caseBranch(Branch object) {
-				return createBranchAdapter();
-			}
-			@Override
 			public Adapter caseOwner(Owner object) {
 				return createOwnerAdapter();
 			}
@@ -139,6 +135,10 @@ public class GitLabAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter caseTree(Tree object) {
 				return createTreeAdapter();
+			}
+			@Override
+			public Adapter caseBranch(Branch object) {
+				return createBranchAdapter();
 			}
 			@Override
 			public Adapter caseBlob(Blob object) {

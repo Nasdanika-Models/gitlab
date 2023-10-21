@@ -2440,11 +2440,6 @@ public class GitLabPackageImpl extends EPackageImpl implements GitLabPackage {
 		createEAttribute(groupEClass, GROUP__SUB_GROUPS_LOADED);
 		createEAttribute(groupEClass, GROUP__PROJECTS_LOADED);
 
-		memberEClass = createEClass(MEMBER);
-		createEReference(memberEClass, MEMBER__USER);
-		createEAttribute(memberEClass, MEMBER__ACCESS_LEVEL);
-		createEAttribute(memberEClass, MEMBER__EXPIRES_AT);
-
 		abstractUserEClass = createEClass(ABSTRACT_USER);
 		createEAttribute(abstractUserEClass, ABSTRACT_USER__AVATAR_URL);
 		createEAttribute(abstractUserEClass, ABSTRACT_USER__CREATED_AT);
@@ -2454,6 +2449,11 @@ public class GitLabPackageImpl extends EPackageImpl implements GitLabPackage {
 		createEAttribute(abstractUserEClass, ABSTRACT_USER__STATE);
 		createEAttribute(abstractUserEClass, ABSTRACT_USER__USER_NAME);
 		createEAttribute(abstractUserEClass, ABSTRACT_USER__WEB_URL);
+
+		memberEClass = createEClass(MEMBER);
+		createEReference(memberEClass, MEMBER__USER);
+		createEAttribute(memberEClass, MEMBER__ACCESS_LEVEL);
+		createEAttribute(memberEClass, MEMBER__EXPIRES_AT);
 
 		userEClass = createEClass(USER);
 		createEReference(userEClass, USER__PROJECTS);
@@ -2579,16 +2579,6 @@ public class GitLabPackageImpl extends EPackageImpl implements GitLabPackage {
 		createEAttribute(customAttributeEClass, CUSTOM_ATTRIBUTE__KEY);
 		createEAttribute(customAttributeEClass, CUSTOM_ATTRIBUTE__VALUE);
 
-		branchEClass = createEClass(BRANCH);
-		createEAttribute(branchEClass, BRANCH__COMMIT_DATE);
-		createEAttribute(branchEClass, BRANCH__DEVELOPERS_CAN_MERGE);
-		createEAttribute(branchEClass, BRANCH__DEVELOPERS_CAN_PUSH);
-		createEAttribute(branchEClass, BRANCH__MERGED);
-		createEAttribute(branchEClass, BRANCH__IS_PROTECTED);
-		createEAttribute(branchEClass, BRANCH__IS_DEFAULT);
-		createEAttribute(branchEClass, BRANCH__CAN_PUSH);
-		createEAttribute(branchEClass, BRANCH__WEB_URL);
-
 		ownerEClass = createEClass(OWNER);
 		createEReference(ownerEClass, OWNER__USER);
 
@@ -2600,6 +2590,16 @@ public class GitLabPackageImpl extends EPackageImpl implements GitLabPackage {
 		treeEClass = createEClass(TREE);
 		createEReference(treeEClass, TREE__TREE_ITEMS);
 		createEAttribute(treeEClass, TREE__TREE_ITEMS_LOADED);
+
+		branchEClass = createEClass(BRANCH);
+		createEAttribute(branchEClass, BRANCH__COMMIT_DATE);
+		createEAttribute(branchEClass, BRANCH__DEVELOPERS_CAN_MERGE);
+		createEAttribute(branchEClass, BRANCH__DEVELOPERS_CAN_PUSH);
+		createEAttribute(branchEClass, BRANCH__MERGED);
+		createEAttribute(branchEClass, BRANCH__IS_PROTECTED);
+		createEAttribute(branchEClass, BRANCH__IS_DEFAULT);
+		createEAttribute(branchEClass, BRANCH__CAN_PUSH);
+		createEAttribute(branchEClass, BRANCH__WEB_URL);
 
 		blobEClass = createEClass(BLOB);
 
@@ -2667,14 +2667,15 @@ public class GitLabPackageImpl extends EPackageImpl implements GitLabPackage {
 		// Add supertypes to classes
 		gitLabEClass.getESuperTypes().add(this.getLoadable());
 		groupEClass.getESuperTypes().add(this.getLoadable());
+		abstractUserEClass.getESuperTypes().add(this.getLoadable());
 		memberEClass.getESuperTypes().add(this.getAbstractUser());
 		userEClass.getESuperTypes().add(this.getAbstractUser());
 		projectEClass.getESuperTypes().add(this.getLoadable());
 		contributorEClass.getESuperTypes().add(this.getAbstractUser());
-		branchEClass.getESuperTypes().add(this.getTree());
 		ownerEClass.getESuperTypes().add(this.getAbstractUser());
 		treeItemEClass.getESuperTypes().add(this.getLoadable());
 		treeEClass.getESuperTypes().add(this.getTreeItem());
+		branchEClass.getESuperTypes().add(this.getTree());
 		blobEClass.getESuperTypes().add(this.getTreeItem());
 		repositoryFileEClass.getESuperTypes().add(this.getBlob());
 		textRepositoryFileEClass.getESuperTypes().add(this.getRepositoryFile());
@@ -2685,7 +2686,7 @@ public class GitLabPackageImpl extends EPackageImpl implements GitLabPackage {
 		// Initialize classes, features, and operations; add parameters
 		initEClass(loadableEClass, Loadable.class, "Loadable", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getLoadable_Loaded(), ecorePackage.getEDate(), "loaded", null, 0, 1, Loadable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getLoadable_Loads(), this.getLoad(), null, "loads", null, 0, 1, Loadable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getLoadable_Loads(), this.getLoad(), null, "loads", null, 0, -1, Loadable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(loadEClass, Load.class, "Load", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getLoad_Source(), ecorePackage.getEString(), "source", null, 0, 1, Load.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -2730,11 +2731,6 @@ public class GitLabPackageImpl extends EPackageImpl implements GitLabPackage {
 		initEAttribute(getGroup_SubGroupsLoaded(), ecorePackage.getEDate(), "subGroupsLoaded", null, 0, 1, Group.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getGroup_ProjectsLoaded(), ecorePackage.getEDate(), "projectsLoaded", null, 0, 1, Group.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(memberEClass, Member.class, "Member", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getMember_User(), this.getUser(), this.getUser_Membership(), "user", null, 0, 1, Member.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getMember_AccessLevel(), this.getAccessLevel(), "accessLevel", null, 0, 1, Member.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getMember_ExpiresAt(), ecorePackage.getEDate(), "expiresAt", null, 0, 1, Member.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
 		initEClass(abstractUserEClass, AbstractUser.class, "AbstractUser", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getAbstractUser_AvatarUrl(), ecorePackage.getEString(), "avatarUrl", null, 0, 1, AbstractUser.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getAbstractUser_CreatedAt(), ecorePackage.getEDate(), "createdAt", null, 0, 1, AbstractUser.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -2744,6 +2740,11 @@ public class GitLabPackageImpl extends EPackageImpl implements GitLabPackage {
 		initEAttribute(getAbstractUser_State(), ecorePackage.getEString(), "state", null, 0, 1, AbstractUser.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getAbstractUser_UserName(), ecorePackage.getEString(), "userName", null, 0, 1, AbstractUser.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getAbstractUser_WebUrl(), ecorePackage.getEString(), "webUrl", null, 0, 1, AbstractUser.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(memberEClass, Member.class, "Member", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getMember_User(), this.getUser(), this.getUser_Membership(), "user", null, 0, 1, Member.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getMember_AccessLevel(), this.getAccessLevel(), "accessLevel", null, 0, 1, Member.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getMember_ExpiresAt(), ecorePackage.getEDate(), "expiresAt", null, 0, 1, Member.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(userEClass, User.class, "User", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getUser_Projects(), this.getProject(), null, "projects", null, 0, -1, User.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -2876,16 +2877,6 @@ public class GitLabPackageImpl extends EPackageImpl implements GitLabPackage {
 		initEAttribute(getCustomAttribute_Key(), ecorePackage.getEString(), "key", null, 0, 1, Map.Entry.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getCustomAttribute_Value(), ecorePackage.getEString(), "value", null, 0, 1, Map.Entry.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(branchEClass, Branch.class, "Branch", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getBranch_CommitDate(), ecorePackage.getEDate(), "commitDate", null, 0, 1, Branch.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getBranch_DevelopersCanMerge(), ecorePackage.getEBooleanObject(), "developersCanMerge", null, 0, 1, Branch.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getBranch_DevelopersCanPush(), ecorePackage.getEBooleanObject(), "developersCanPush", null, 0, 1, Branch.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getBranch_Merged(), ecorePackage.getEBooleanObject(), "merged", null, 0, 1, Branch.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getBranch_IsProtected(), ecorePackage.getEBooleanObject(), "isProtected", null, 0, 1, Branch.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getBranch_IsDefault(), ecorePackage.getEBooleanObject(), "isDefault", null, 0, 1, Branch.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getBranch_CanPush(), ecorePackage.getEBooleanObject(), "canPush", null, 0, 1, Branch.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getBranch_WebUrl(), ecorePackage.getEString(), "webUrl", null, 0, 1, Branch.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
 		initEClass(ownerEClass, Owner.class, "Owner", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getOwner_User(), this.getUser(), this.getUser_Owns(), "user", null, 0, 1, Owner.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
@@ -2898,6 +2889,16 @@ public class GitLabPackageImpl extends EPackageImpl implements GitLabPackage {
 		initEReference(getTree_TreeItems(), this.getTreeItem(), null, "treeItems", null, 0, -1, Tree.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		getTree_TreeItems().getEKeys().add(this.getTreeItem_Name());
 		initEAttribute(getTree_TreeItemsLoaded(), ecorePackage.getEDate(), "treeItemsLoaded", null, 0, 1, Tree.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(branchEClass, Branch.class, "Branch", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getBranch_CommitDate(), ecorePackage.getEDate(), "commitDate", null, 0, 1, Branch.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getBranch_DevelopersCanMerge(), ecorePackage.getEBooleanObject(), "developersCanMerge", null, 0, 1, Branch.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getBranch_DevelopersCanPush(), ecorePackage.getEBooleanObject(), "developersCanPush", null, 0, 1, Branch.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getBranch_Merged(), ecorePackage.getEBooleanObject(), "merged", null, 0, 1, Branch.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getBranch_IsProtected(), ecorePackage.getEBooleanObject(), "isProtected", null, 0, 1, Branch.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getBranch_IsDefault(), ecorePackage.getEBooleanObject(), "isDefault", null, 0, 1, Branch.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getBranch_CanPush(), ecorePackage.getEBooleanObject(), "canPush", null, 0, 1, Branch.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getBranch_WebUrl(), ecorePackage.getEString(), "webUrl", null, 0, 1, Branch.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(blobEClass, Blob.class, "Blob", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 

@@ -77,7 +77,7 @@ public interface GitLabPackage extends EPackage {
 	int LOADABLE__LOADED = 0;
 
 	/**
-	 * The feature id for the '<em><b>Loads</b></em>' reference.
+	 * The feature id for the '<em><b>Loads</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -205,7 +205,7 @@ public interface GitLabPackage extends EPackage {
 	int GIT_LAB__LOADED = LOADABLE__LOADED;
 
 	/**
-	 * The feature id for the '<em><b>Loads</b></em>' reference.
+	 * The feature id for the '<em><b>Loads</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -287,7 +287,7 @@ public interface GitLabPackage extends EPackage {
 	int GROUP__LOADED = LOADABLE__LOADED;
 
 	/**
-	 * The feature id for the '<em><b>Loads</b></em>' reference.
+	 * The feature id for the '<em><b>Loads</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -520,7 +520,7 @@ public interface GitLabPackage extends EPackage {
 	 * @see org.nasdanika.models.gitlab.impl.GitLabPackageImpl#getMember()
 	 * @generated
 	 */
-	int MEMBER = 4;
+	int MEMBER = 5;
 
 	/**
 	 * The meta object id for the '{@link org.nasdanika.models.gitlab.impl.AbstractUserImpl <em>Abstract User</em>}' class.
@@ -530,7 +530,25 @@ public interface GitLabPackage extends EPackage {
 	 * @see org.nasdanika.models.gitlab.impl.GitLabPackageImpl#getAbstractUser()
 	 * @generated
 	 */
-	int ABSTRACT_USER = 5;
+	int ABSTRACT_USER = 4;
+
+	/**
+	 * The feature id for the '<em><b>Loaded</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ABSTRACT_USER__LOADED = LOADABLE__LOADED;
+
+	/**
+	 * The feature id for the '<em><b>Loads</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ABSTRACT_USER__LOADS = LOADABLE__LOADS;
 
 	/**
 	 * The feature id for the '<em><b>Avatar Url</b></em>' attribute.
@@ -539,7 +557,7 @@ public interface GitLabPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ABSTRACT_USER__AVATAR_URL = 0;
+	int ABSTRACT_USER__AVATAR_URL = LOADABLE_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Created At</b></em>' attribute.
@@ -548,7 +566,7 @@ public interface GitLabPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ABSTRACT_USER__CREATED_AT = 1;
+	int ABSTRACT_USER__CREATED_AT = LOADABLE_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>EMail</b></em>' attribute.
@@ -557,7 +575,7 @@ public interface GitLabPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ABSTRACT_USER__EMAIL = 2;
+	int ABSTRACT_USER__EMAIL = LOADABLE_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -566,7 +584,7 @@ public interface GitLabPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ABSTRACT_USER__ID = 3;
+	int ABSTRACT_USER__ID = LOADABLE_FEATURE_COUNT + 3;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -575,7 +593,7 @@ public interface GitLabPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ABSTRACT_USER__NAME = 4;
+	int ABSTRACT_USER__NAME = LOADABLE_FEATURE_COUNT + 4;
 
 	/**
 	 * The feature id for the '<em><b>State</b></em>' attribute.
@@ -584,7 +602,7 @@ public interface GitLabPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ABSTRACT_USER__STATE = 5;
+	int ABSTRACT_USER__STATE = LOADABLE_FEATURE_COUNT + 5;
 
 	/**
 	 * The feature id for the '<em><b>User Name</b></em>' attribute.
@@ -593,7 +611,7 @@ public interface GitLabPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ABSTRACT_USER__USER_NAME = 6;
+	int ABSTRACT_USER__USER_NAME = LOADABLE_FEATURE_COUNT + 6;
 
 	/**
 	 * The feature id for the '<em><b>Web Url</b></em>' attribute.
@@ -602,7 +620,7 @@ public interface GitLabPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ABSTRACT_USER__WEB_URL = 7;
+	int ABSTRACT_USER__WEB_URL = LOADABLE_FEATURE_COUNT + 7;
 
 	/**
 	 * The number of structural features of the '<em>Abstract User</em>' class.
@@ -611,7 +629,7 @@ public interface GitLabPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ABSTRACT_USER_FEATURE_COUNT = 8;
+	int ABSTRACT_USER_FEATURE_COUNT = LOADABLE_FEATURE_COUNT + 8;
 
 	/**
 	 * The number of operations of the '<em>Abstract User</em>' class.
@@ -620,7 +638,25 @@ public interface GitLabPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ABSTRACT_USER_OPERATION_COUNT = 0;
+	int ABSTRACT_USER_OPERATION_COUNT = LOADABLE_OPERATION_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Loaded</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MEMBER__LOADED = ABSTRACT_USER__LOADED;
+
+	/**
+	 * The feature id for the '<em><b>Loads</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MEMBER__LOADS = ABSTRACT_USER__LOADS;
 
 	/**
 	 * The feature id for the '<em><b>Avatar Url</b></em>' attribute.
@@ -748,6 +784,24 @@ public interface GitLabPackage extends EPackage {
 	 * @generated
 	 */
 	int USER = 6;
+
+	/**
+	 * The feature id for the '<em><b>Loaded</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int USER__LOADED = ABSTRACT_USER__LOADED;
+
+	/**
+	 * The feature id for the '<em><b>Loads</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int USER__LOADS = ABSTRACT_USER__LOADS;
 
 	/**
 	 * The feature id for the '<em><b>Avatar Url</b></em>' attribute.
@@ -913,7 +967,7 @@ public interface GitLabPackage extends EPackage {
 	int PROJECT__LOADED = LOADABLE__LOADED;
 
 	/**
-	 * The feature id for the '<em><b>Loads</b></em>' reference.
+	 * The feature id for the '<em><b>Loads</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -1880,6 +1934,24 @@ public interface GitLabPackage extends EPackage {
 	int CONTRIBUTOR = 11;
 
 	/**
+	 * The feature id for the '<em><b>Loaded</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONTRIBUTOR__LOADED = ABSTRACT_USER__LOADED;
+
+	/**
+	 * The feature id for the '<em><b>Loads</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONTRIBUTOR__LOADS = ABSTRACT_USER__LOADS;
+
+	/**
 	 * The feature id for the '<em><b>Avatar Url</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2105,7 +2177,154 @@ public interface GitLabPackage extends EPackage {
 	 * @see org.nasdanika.models.gitlab.impl.GitLabPackageImpl#getTreeItem()
 	 * @generated
 	 */
-	int TREE_ITEM = 16;
+	int TREE_ITEM = 15;
+
+	/**
+	 * The meta object id for the '{@link org.nasdanika.models.gitlab.impl.TreeImpl <em>Tree</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.nasdanika.models.gitlab.impl.TreeImpl
+	 * @see org.nasdanika.models.gitlab.impl.GitLabPackageImpl#getTree()
+	 * @generated
+	 */
+	int TREE = 16;
+
+	/**
+	 * The meta object id for the '{@link org.nasdanika.models.gitlab.impl.BranchImpl <em>Branch</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.nasdanika.models.gitlab.impl.BranchImpl
+	 * @see org.nasdanika.models.gitlab.impl.GitLabPackageImpl#getBranch()
+	 * @generated
+	 */
+	int BRANCH = 17;
+
+	/**
+	 * The meta object id for the '{@link org.nasdanika.models.gitlab.impl.OwnerImpl <em>Owner</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.nasdanika.models.gitlab.impl.OwnerImpl
+	 * @see org.nasdanika.models.gitlab.impl.GitLabPackageImpl#getOwner()
+	 * @generated
+	 */
+	int OWNER = 14;
+
+	/**
+	 * The feature id for the '<em><b>Loaded</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OWNER__LOADED = ABSTRACT_USER__LOADED;
+
+	/**
+	 * The feature id for the '<em><b>Loads</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OWNER__LOADS = ABSTRACT_USER__LOADS;
+
+	/**
+	 * The feature id for the '<em><b>Avatar Url</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OWNER__AVATAR_URL = ABSTRACT_USER__AVATAR_URL;
+
+	/**
+	 * The feature id for the '<em><b>Created At</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OWNER__CREATED_AT = ABSTRACT_USER__CREATED_AT;
+
+	/**
+	 * The feature id for the '<em><b>EMail</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OWNER__EMAIL = ABSTRACT_USER__EMAIL;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OWNER__ID = ABSTRACT_USER__ID;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OWNER__NAME = ABSTRACT_USER__NAME;
+
+	/**
+	 * The feature id for the '<em><b>State</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OWNER__STATE = ABSTRACT_USER__STATE;
+
+	/**
+	 * The feature id for the '<em><b>User Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OWNER__USER_NAME = ABSTRACT_USER__USER_NAME;
+
+	/**
+	 * The feature id for the '<em><b>Web Url</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OWNER__WEB_URL = ABSTRACT_USER__WEB_URL;
+
+	/**
+	 * The feature id for the '<em><b>User</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OWNER__USER = ABSTRACT_USER_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Owner</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OWNER_FEATURE_COUNT = ABSTRACT_USER_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of operations of the '<em>Owner</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OWNER_OPERATION_COUNT = ABSTRACT_USER_OPERATION_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Loaded</b></em>' attribute.
@@ -2117,7 +2336,7 @@ public interface GitLabPackage extends EPackage {
 	int TREE_ITEM__LOADED = LOADABLE__LOADED;
 
 	/**
-	 * The feature id for the '<em><b>Loads</b></em>' reference.
+	 * The feature id for the '<em><b>Loads</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -2171,16 +2390,6 @@ public interface GitLabPackage extends EPackage {
 	int TREE_ITEM_OPERATION_COUNT = LOADABLE_OPERATION_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link org.nasdanika.models.gitlab.impl.TreeImpl <em>Tree</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see org.nasdanika.models.gitlab.impl.TreeImpl
-	 * @see org.nasdanika.models.gitlab.impl.GitLabPackageImpl#getTree()
-	 * @generated
-	 */
-	int TREE = 17;
-
-	/**
 	 * The feature id for the '<em><b>Loaded</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2190,7 +2399,7 @@ public interface GitLabPackage extends EPackage {
 	int TREE__LOADED = TREE_ITEM__LOADED;
 
 	/**
-	 * The feature id for the '<em><b>Loads</b></em>' reference.
+	 * The feature id for the '<em><b>Loads</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -2262,16 +2471,6 @@ public interface GitLabPackage extends EPackage {
 	int TREE_OPERATION_COUNT = TREE_ITEM_OPERATION_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link org.nasdanika.models.gitlab.impl.BranchImpl <em>Branch</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see org.nasdanika.models.gitlab.impl.BranchImpl
-	 * @see org.nasdanika.models.gitlab.impl.GitLabPackageImpl#getBranch()
-	 * @generated
-	 */
-	int BRANCH = 14;
-
-	/**
 	 * The feature id for the '<em><b>Loaded</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2281,7 +2480,7 @@ public interface GitLabPackage extends EPackage {
 	int BRANCH__LOADED = TREE__LOADED;
 
 	/**
-	 * The feature id for the '<em><b>Loads</b></em>' reference.
+	 * The feature id for the '<em><b>Loads</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -2425,115 +2624,6 @@ public interface GitLabPackage extends EPackage {
 	int BRANCH_OPERATION_COUNT = TREE_OPERATION_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link org.nasdanika.models.gitlab.impl.OwnerImpl <em>Owner</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see org.nasdanika.models.gitlab.impl.OwnerImpl
-	 * @see org.nasdanika.models.gitlab.impl.GitLabPackageImpl#getOwner()
-	 * @generated
-	 */
-	int OWNER = 15;
-
-	/**
-	 * The feature id for the '<em><b>Avatar Url</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int OWNER__AVATAR_URL = ABSTRACT_USER__AVATAR_URL;
-
-	/**
-	 * The feature id for the '<em><b>Created At</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int OWNER__CREATED_AT = ABSTRACT_USER__CREATED_AT;
-
-	/**
-	 * The feature id for the '<em><b>EMail</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int OWNER__EMAIL = ABSTRACT_USER__EMAIL;
-
-	/**
-	 * The feature id for the '<em><b>Id</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int OWNER__ID = ABSTRACT_USER__ID;
-
-	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int OWNER__NAME = ABSTRACT_USER__NAME;
-
-	/**
-	 * The feature id for the '<em><b>State</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int OWNER__STATE = ABSTRACT_USER__STATE;
-
-	/**
-	 * The feature id for the '<em><b>User Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int OWNER__USER_NAME = ABSTRACT_USER__USER_NAME;
-
-	/**
-	 * The feature id for the '<em><b>Web Url</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int OWNER__WEB_URL = ABSTRACT_USER__WEB_URL;
-
-	/**
-	 * The feature id for the '<em><b>User</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int OWNER__USER = ABSTRACT_USER_FEATURE_COUNT + 0;
-
-	/**
-	 * The number of structural features of the '<em>Owner</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int OWNER_FEATURE_COUNT = ABSTRACT_USER_FEATURE_COUNT + 1;
-
-	/**
-	 * The number of operations of the '<em>Owner</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int OWNER_OPERATION_COUNT = ABSTRACT_USER_OPERATION_COUNT + 0;
-
-	/**
 	 * The meta object id for the '{@link org.nasdanika.models.gitlab.impl.BlobImpl <em>Blob</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2553,7 +2643,7 @@ public interface GitLabPackage extends EPackage {
 	int BLOB__LOADED = TREE_ITEM__LOADED;
 
 	/**
-	 * The feature id for the '<em><b>Loads</b></em>' reference.
+	 * The feature id for the '<em><b>Loads</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -2626,7 +2716,7 @@ public interface GitLabPackage extends EPackage {
 	int REPOSITORY_FILE__LOADED = BLOB__LOADED;
 
 	/**
-	 * The feature id for the '<em><b>Loads</b></em>' reference.
+	 * The feature id for the '<em><b>Loads</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -2735,7 +2825,7 @@ public interface GitLabPackage extends EPackage {
 	int TEXT_REPOSITORY_FILE__LOADED = REPOSITORY_FILE__LOADED;
 
 	/**
-	 * The feature id for the '<em><b>Loads</b></em>' reference.
+	 * The feature id for the '<em><b>Loads</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -2853,7 +2943,7 @@ public interface GitLabPackage extends EPackage {
 	int BINARY_REPOSITORY_FILE__LOADED = REPOSITORY_FILE__LOADED;
 
 	/**
-	 * The feature id for the '<em><b>Loads</b></em>' reference.
+	 * The feature id for the '<em><b>Loads</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -2971,7 +3061,7 @@ public interface GitLabPackage extends EPackage {
 	int EOBJECT_REPOSITORY_FILE__LOADED = REPOSITORY_FILE__LOADED;
 
 	/**
-	 * The feature id for the '<em><b>Loads</b></em>' reference.
+	 * The feature id for the '<em><b>Loads</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -3089,7 +3179,7 @@ public interface GitLabPackage extends EPackage {
 	int LIST_REPOSITORY_FILE__LOADED = REPOSITORY_FILE__LOADED;
 
 	/**
-	 * The feature id for the '<em><b>Loads</b></em>' reference.
+	 * The feature id for the '<em><b>Loads</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -3282,10 +3372,10 @@ public interface GitLabPackage extends EPackage {
 	EAttribute getLoadable_Loaded();
 
 	/**
-	 * Returns the meta object for the reference '{@link org.nasdanika.models.gitlab.Loadable#getLoads <em>Loads</em>}'.
+	 * Returns the meta object for the containment reference list '{@link org.nasdanika.models.gitlab.Loadable#getLoads <em>Loads</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Loads</em>'.
+	 * @return the meta object for the containment reference list '<em>Loads</em>'.
 	 * @see org.nasdanika.models.gitlab.Loadable#getLoads()
 	 * @see #getLoadable()
 	 * @generated
@@ -5537,7 +5627,7 @@ public interface GitLabPackage extends EPackage {
 		 */
 		EAttribute LOADABLE__LOADED = eINSTANCE.getLoadable_Loaded();
 		/**
-		 * The meta object literal for the '<em><b>Loads</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Loads</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated

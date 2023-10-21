@@ -4,6 +4,7 @@ package org.nasdanika.models.gitlab;
 
 import java.util.Date;
 
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 
 /**
@@ -50,25 +51,15 @@ public interface Loadable extends EObject {
 	void setLoaded(Date value);
 
 	/**
-	 * Returns the value of the '<em><b>Loads</b></em>' reference.
+	 * Returns the value of the '<em><b>Loads</b></em>' containment reference list.
+	 * The list contents are of type {@link org.nasdanika.models.gitlab.Load}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Loads</em>' reference.
-	 * @see #setLoads(Load)
+	 * @return the value of the '<em>Loads</em>' containment reference list.
 	 * @see org.nasdanika.models.gitlab.GitLabPackage#getLoadable_Loads()
-	 * @model
+	 * @model containment="true"
 	 * @generated
 	 */
-	Load getLoads();
-
-	/**
-	 * Sets the value of the '{@link org.nasdanika.models.gitlab.Loadable#getLoads <em>Loads</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Loads</em>' reference.
-	 * @see #getLoads()
-	 * @generated
-	 */
-	void setLoads(Load value);
+	EList<Load> getLoads();
 
 } // Loadable

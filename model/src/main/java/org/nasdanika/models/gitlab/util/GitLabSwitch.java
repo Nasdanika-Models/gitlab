@@ -93,16 +93,18 @@ public class GitLabSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case GitLabPackage.ABSTRACT_USER: {
+				AbstractUser abstractUser = (AbstractUser)theEObject;
+				T result = caseAbstractUser(abstractUser);
+				if (result == null) result = caseLoadable(abstractUser);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			case GitLabPackage.MEMBER: {
 				Member member = (Member)theEObject;
 				T result = caseMember(member);
 				if (result == null) result = caseAbstractUser(member);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case GitLabPackage.ABSTRACT_USER: {
-				AbstractUser abstractUser = (AbstractUser)theEObject;
-				T result = caseAbstractUser(abstractUser);
+				if (result == null) result = caseLoadable(member);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -110,6 +112,7 @@ public class GitLabSwitch<T> extends Switch<T> {
 				User user = (User)theEObject;
 				T result = caseUser(user);
 				if (result == null) result = caseAbstractUser(user);
+				if (result == null) result = caseLoadable(user);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -142,6 +145,7 @@ public class GitLabSwitch<T> extends Switch<T> {
 				Contributor contributor = (Contributor)theEObject;
 				T result = caseContributor(contributor);
 				if (result == null) result = caseAbstractUser(contributor);
+				if (result == null) result = caseLoadable(contributor);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -157,19 +161,11 @@ public class GitLabSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case GitLabPackage.BRANCH: {
-				Branch branch = (Branch)theEObject;
-				T result = caseBranch(branch);
-				if (result == null) result = caseTree(branch);
-				if (result == null) result = caseTreeItem(branch);
-				if (result == null) result = caseLoadable(branch);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
 			case GitLabPackage.OWNER: {
 				Owner owner = (Owner)theEObject;
 				T result = caseOwner(owner);
 				if (result == null) result = caseAbstractUser(owner);
+				if (result == null) result = caseLoadable(owner);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -185,6 +181,15 @@ public class GitLabSwitch<T> extends Switch<T> {
 				T result = caseTree(tree);
 				if (result == null) result = caseTreeItem(tree);
 				if (result == null) result = caseLoadable(tree);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case GitLabPackage.BRANCH: {
+				Branch branch = (Branch)theEObject;
+				T result = caseBranch(branch);
+				if (result == null) result = caseTree(branch);
+				if (result == null) result = caseTreeItem(branch);
+				if (result == null) result = caseLoadable(branch);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}

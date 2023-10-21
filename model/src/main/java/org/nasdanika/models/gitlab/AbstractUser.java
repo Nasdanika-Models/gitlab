@@ -4,8 +4,6 @@ package org.nasdanika.models.gitlab;
 
 import java.util.Date;
 
-import org.eclipse.emf.ecore.EObject;
-
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Abstract User</b></em>'.
@@ -29,7 +27,7 @@ import org.eclipse.emf.ecore.EObject;
  * @model abstract="true"
  * @generated
  */
-public interface AbstractUser extends EObject {
+public interface AbstractUser extends Loadable {
 	/**
 	 * Returns the value of the '<em><b>Avatar Url</b></em>' attribute.
 	 * <!-- begin-user-doc -->

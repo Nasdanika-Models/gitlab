@@ -70,10 +70,10 @@ public class GitLabFactoryImpl extends EFactoryImpl implements GitLabFactory {
 			case GitLabPackage.CONTRIBUTOR: return createContributor();
 			case GitLabPackage.PROJECT_ACCESS: return createProjectAccess();
 			case GitLabPackage.CUSTOM_ATTRIBUTE: return (EObject)createCustomAttribute();
-			case GitLabPackage.BRANCH: return createBranch();
 			case GitLabPackage.OWNER: return createOwner();
 			case GitLabPackage.TREE_ITEM: return createTreeItem();
 			case GitLabPackage.TREE: return createTree();
+			case GitLabPackage.BRANCH: return createBranch();
 			case GitLabPackage.BLOB: return createBlob();
 			case GitLabPackage.REPOSITORY_FILE: return createRepositoryFile();
 			case GitLabPackage.TEXT_REPOSITORY_FILE: return createTextRepositoryFile();

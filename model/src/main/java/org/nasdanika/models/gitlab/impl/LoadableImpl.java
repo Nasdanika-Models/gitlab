@@ -2,12 +2,17 @@
  */
 package org.nasdanika.models.gitlab.impl;
 
+import java.util.Collection;
 import java.util.Date;
 
+import org.eclipse.emf.common.notify.NotificationChain;
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 
+import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
+import org.eclipse.emf.ecore.util.InternalEList;
 import org.nasdanika.models.gitlab.GitLabPackage;
 import org.nasdanika.models.gitlab.Load;
 import org.nasdanika.models.gitlab.Loadable;
@@ -91,18 +96,10 @@ public abstract class LoadableImpl extends MinimalEObjectImpl.Container implemen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
 	@Override
-	public Load getLoads() {
-		return (Load)eDynamicGet(GitLabPackage.LOADABLE__LOADS, GitLabPackage.Literals.LOADABLE__LOADS, true, true);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Load basicGetLoads() {
-		return (Load)eDynamicGet(GitLabPackage.LOADABLE__LOADS, GitLabPackage.Literals.LOADABLE__LOADS, false, true);
+	public EList<Load> getLoads() {
+		return (EList<Load>)eDynamicGet(GitLabPackage.LOADABLE__LOADS, GitLabPackage.Literals.LOADABLE__LOADS, true, true);
 	}
 
 	/**
@@ -111,8 +108,12 @@ public abstract class LoadableImpl extends MinimalEObjectImpl.Container implemen
 	 * @generated
 	 */
 	@Override
-	public void setLoads(Load newLoads) {
-		eDynamicSet(GitLabPackage.LOADABLE__LOADS, GitLabPackage.Literals.LOADABLE__LOADS, newLoads);
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case GitLabPackage.LOADABLE__LOADS:
+				return ((InternalEList<?>)getLoads()).basicRemove(otherEnd, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
 
 	/**
@@ -126,8 +127,7 @@ public abstract class LoadableImpl extends MinimalEObjectImpl.Container implemen
 			case GitLabPackage.LOADABLE__LOADED:
 				return getLoaded();
 			case GitLabPackage.LOADABLE__LOADS:
-				if (resolve) return getLoads();
-				return basicGetLoads();
+				return getLoads();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -137,6 +137,7 @@ public abstract class LoadableImpl extends MinimalEObjectImpl.Container implemen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
@@ -144,7 +145,8 @@ public abstract class LoadableImpl extends MinimalEObjectImpl.Container implemen
 				setLoaded((Date)newValue);
 				return;
 			case GitLabPackage.LOADABLE__LOADS:
-				setLoads((Load)newValue);
+				getLoads().clear();
+				getLoads().addAll((Collection<? extends Load>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -162,7 +164,7 @@ public abstract class LoadableImpl extends MinimalEObjectImpl.Container implemen
 				setLoaded(LOADED_EDEFAULT);
 				return;
 			case GitLabPackage.LOADABLE__LOADS:
-				setLoads((Load)null);
+				getLoads().clear();
 				return;
 		}
 		super.eUnset(featureID);
@@ -179,7 +181,7 @@ public abstract class LoadableImpl extends MinimalEObjectImpl.Container implemen
 			case GitLabPackage.LOADABLE__LOADED:
 				return LOADED_EDEFAULT == null ? getLoaded() != null : !LOADED_EDEFAULT.equals(getLoaded());
 			case GitLabPackage.LOADABLE__LOADS:
-				return basicGetLoads() != null;
+				return !getLoads().isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

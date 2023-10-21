@@ -5,9 +5,6 @@ package org.nasdanika.models.gitlab.impl;
 import java.util.Date;
 
 import org.eclipse.emf.ecore.EClass;
-
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-
 import org.nasdanika.models.gitlab.AbstractUser;
 import org.nasdanika.models.gitlab.GitLabPackage;
 
@@ -31,7 +28,7 @@ import org.nasdanika.models.gitlab.GitLabPackage;
  *
  * @generated
  */
-public abstract class AbstractUserImpl extends MinimalEObjectImpl.Container implements AbstractUser {
+public abstract class AbstractUserImpl extends LoadableImpl implements AbstractUser {
 	/**
 	 * The default value of the '{@link #getAvatarUrl() <em>Avatar Url</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -129,16 +126,6 @@ public abstract class AbstractUserImpl extends MinimalEObjectImpl.Container impl
 	@Override
 	protected EClass eStaticClass() {
 		return GitLabPackage.Literals.ABSTRACT_USER;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	protected int eStaticFeatureCount() {
-		return 0;
 	}
 
 	/**
