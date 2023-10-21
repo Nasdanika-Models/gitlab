@@ -58,6 +58,7 @@ public class GitLabFactoryImpl extends EFactoryImpl implements GitLabFactory {
 	@Override
 	public EObject create(EClass eClass) {
 		switch (eClass.getClassifierID()) {
+			case GitLabPackage.LOAD: return createLoad();
 			case GitLabPackage.GIT_LAB: return createGitLab();
 			case GitLabPackage.GROUP: return createGroup();
 			case GitLabPackage.MEMBER: return createMember();
@@ -136,6 +137,17 @@ public class GitLabFactoryImpl extends EFactoryImpl implements GitLabFactory {
 			default:
 				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Load createLoad() {
+		LoadImpl load = new LoadImpl();
+		return load;
 	}
 
 	/**

@@ -91,6 +91,7 @@ import org.eclipse.emf.common.util.EMap;
  *   <li>{@link org.nasdanika.models.gitlab.Project#getContributors <em>Contributors</em>}</li>
  *   <li>{@link org.nasdanika.models.gitlab.Project#getMembers <em>Members</em>}</li>
  *   <li>{@link org.nasdanika.models.gitlab.Project#getBranchesLoaded <em>Branches Loaded</em>}</li>
+ *   <li>{@link org.nasdanika.models.gitlab.Project#getBranchesLoadError <em>Branches Load Error</em>}</li>
  * </ul>
  *
  * @see org.nasdanika.models.gitlab.GitLabPackage#getProject()
@@ -1709,7 +1710,7 @@ public interface Project extends Loadable {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Timestamp when this project's branches were loaded
+	 * Timestamp when this project's branches were loaded. Deprecated, use loads
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Branches Loaded</em>' attribute.
 	 * @see #setBranchesLoaded(Date)
@@ -1728,4 +1729,29 @@ public interface Project extends Loadable {
 	 * @generated
 	 */
 	void setBranchesLoaded(Date value);
+
+	/**
+	 * Returns the value of the '<em><b>Branches Load Error</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * Branches load error. Deprecated, use loads
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Branches Load Error</em>' attribute.
+	 * @see #setBranchesLoadError(String)
+	 * @see org.nasdanika.models.gitlab.GitLabPackage#getProject_BranchesLoadError()
+	 * @model
+	 * @generated
+	 */
+	String getBranchesLoadError();
+
+	/**
+	 * Sets the value of the '{@link org.nasdanika.models.gitlab.Project#getBranchesLoadError <em>Branches Load Error</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Branches Load Error</em>' attribute.
+	 * @see #getBranchesLoadError()
+	 * @generated
+	 */
+	void setBranchesLoadError(String value);
 } // Project

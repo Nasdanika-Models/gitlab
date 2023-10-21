@@ -114,6 +114,7 @@ import org.nasdanika.models.gitlab.Visibility;
  *   <li>{@link org.nasdanika.models.gitlab.impl.ProjectImpl#getContributors <em>Contributors</em>}</li>
  *   <li>{@link org.nasdanika.models.gitlab.impl.ProjectImpl#getMembers <em>Members</em>}</li>
  *   <li>{@link org.nasdanika.models.gitlab.impl.ProjectImpl#getBranchesLoaded <em>Branches Loaded</em>}</li>
+ *   <li>{@link org.nasdanika.models.gitlab.impl.ProjectImpl#getBranchesLoadError <em>Branches Load Error</em>}</li>
  * </ul>
  *
  * @generated
@@ -679,6 +680,16 @@ public class ProjectImpl extends LoadableImpl implements Project {
 	 * @ordered
 	 */
 	protected static final Date BRANCHES_LOADED_EDEFAULT = null;
+
+	/**
+	 * The default value of the '{@link #getBranchesLoadError() <em>Branches Load Error</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getBranchesLoadError()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String BRANCHES_LOAD_ERROR_EDEFAULT = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -2249,6 +2260,26 @@ public class ProjectImpl extends LoadableImpl implements Project {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
+	public String getBranchesLoadError() {
+		return (String)eDynamicGet(GitLabPackage.PROJECT__BRANCHES_LOAD_ERROR, GitLabPackage.Literals.PROJECT__BRANCHES_LOAD_ERROR, true, true);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setBranchesLoadError(String newBranchesLoadError) {
+		eDynamicSet(GitLabPackage.PROJECT__BRANCHES_LOAD_ERROR, GitLabPackage.Literals.PROJECT__BRANCHES_LOAD_ERROR, newBranchesLoadError);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@SuppressWarnings("unchecked")
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
@@ -2470,6 +2501,8 @@ public class ProjectImpl extends LoadableImpl implements Project {
 				return getMembers();
 			case GitLabPackage.PROJECT__BRANCHES_LOADED:
 				return getBranchesLoaded();
+			case GitLabPackage.PROJECT__BRANCHES_LOAD_ERROR:
+				return getBranchesLoadError();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -2717,6 +2750,9 @@ public class ProjectImpl extends LoadableImpl implements Project {
 			case GitLabPackage.PROJECT__BRANCHES_LOADED:
 				setBranchesLoaded((Date)newValue);
 				return;
+			case GitLabPackage.PROJECT__BRANCHES_LOAD_ERROR:
+				setBranchesLoadError((String)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -2957,6 +2993,9 @@ public class ProjectImpl extends LoadableImpl implements Project {
 			case GitLabPackage.PROJECT__BRANCHES_LOADED:
 				setBranchesLoaded(BRANCHES_LOADED_EDEFAULT);
 				return;
+			case GitLabPackage.PROJECT__BRANCHES_LOAD_ERROR:
+				setBranchesLoadError(BRANCHES_LOAD_ERROR_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -3121,6 +3160,8 @@ public class ProjectImpl extends LoadableImpl implements Project {
 				return !getMembers().isEmpty();
 			case GitLabPackage.PROJECT__BRANCHES_LOADED:
 				return BRANCHES_LOADED_EDEFAULT == null ? getBranchesLoaded() != null : !BRANCHES_LOADED_EDEFAULT.equals(getBranchesLoaded());
+			case GitLabPackage.PROJECT__BRANCHES_LOAD_ERROR:
+				return BRANCHES_LOAD_ERROR_EDEFAULT == null ? getBranchesLoadError() != null : !BRANCHES_LOAD_ERROR_EDEFAULT.equals(getBranchesLoadError());
 		}
 		return super.eIsSet(featureID);
 	}

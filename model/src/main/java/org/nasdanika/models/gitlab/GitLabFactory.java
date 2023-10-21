@@ -22,6 +22,15 @@ public interface GitLabFactory extends EFactory {
 	GitLabFactory eINSTANCE = org.nasdanika.models.gitlab.impl.GitLabFactoryImpl.init();
 
 	/**
+	 * Returns a new object of class '<em>Load</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Load</em>'.
+	 * @generated
+	 */
+	Load createLoad();
+
+	/**
 	 * Returns a new object of class '<em>Git Lab</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

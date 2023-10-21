@@ -447,7 +447,7 @@ public interface Group extends Loadable {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Timestamp when this group's sub-groups were loaded
+	 * Timestamp when this group's sub-groups were loaded. Deprecated, use loads
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Sub Groups Loaded</em>' attribute.
 	 * @see #setSubGroupsLoaded(Date)
@@ -472,7 +472,7 @@ public interface Group extends Loadable {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Timestamp when this group projects were loaded
+	 * Timestamp when this group projects were loaded. Deprecated use loads
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Projects Loaded</em>' attribute.
 	 * @see #setProjectsLoaded(Date)

@@ -54,6 +54,15 @@
     </genEnums>
     <genClasses image="false" ecoreClass="gitlab.ecore#//Loadable">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gitlab.ecore#//Loadable/loaded"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference gitlab.ecore#//Loadable/loads"/>
+    </genClasses>
+    <genClasses ecoreClass="gitlab.ecore#//Load">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gitlab.ecore#//Load/source"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gitlab.ecore#//Load/reference"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gitlab.ecore#//Load/start"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gitlab.ecore#//Load/end"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gitlab.ecore#//Load/error"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gitlab.ecore#//Load/size"/>
     </genClasses>
     <genClasses ecoreClass="gitlab.ecore#//GitLab">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gitlab.ecore#//GitLab/url"/>
@@ -185,6 +194,7 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference gitlab.ecore#//Project/contributors"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference gitlab.ecore#//Project/members"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gitlab.ecore#//Project/branchesLoaded"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gitlab.ecore#//Project/branchesLoadError"/>
     </genClasses>
     <genClasses ecoreClass="gitlab.ecore#//ProjectSharedGroup">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gitlab.ecore#//ProjectSharedGroup/id"/>

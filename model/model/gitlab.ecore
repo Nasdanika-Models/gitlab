@@ -4,7 +4,43 @@
   <eClassifiers xsi:type="ecore:EClass" name="Loadable" abstract="true">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="loaded" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDate">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="Timestamp when this object was loded excluding contents, which might be loaded separately."/>
+        <details key="documentation" value="Timestamp when this object was loded excluding contents, which might be loaded separately. Deprecated, use loads"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="loads" eType="#//Load"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Load">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="Provides information about data load"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="source" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Source system. E.g. URL or user account and URL"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="reference" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Reference name, e.g. branches. The containing object (self) if empty."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="start" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDate">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Load start"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="end" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDate">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Load end"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="error" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Error if load failed"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="size" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Number of elements loaded"/>
       </eAnnotations>
     </eStructuralFeatures>
   </eClassifiers>
@@ -19,7 +55,7 @@
         eType="#//User" containment="true" eKeys="#//AbstractUser/id"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="topLevelGroupsLoaded" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDate">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="Timestamp when the top level groups were loaded"/>
+        <details key="documentation" value="Timestamp when the top level groups were loaded. Deprecated, use loads"/>
       </eAnnotations>
     </eStructuralFeatures>
   </eClassifiers>
@@ -51,12 +87,12 @@
         eType="#//codeowners/CodeOwner" eOpposite="#//codeowners/CodeOwner/group"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="subGroupsLoaded" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDate">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="Timestamp when this group's sub-groups were loaded"/>
+        <details key="documentation" value="Timestamp when this group's sub-groups were loaded. Deprecated, use loads"/>
       </eAnnotations>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="projectsLoaded" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDate">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="Timestamp when this group projects were loaded"/>
+        <details key="documentation" value="Timestamp when this group projects were loaded. Deprecated use loads"/>
       </eAnnotations>
     </eStructuralFeatures>
   </eClassifiers>
@@ -192,7 +228,12 @@
         eType="#//Member" containment="true" eKeys="#//AbstractUser/id"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="branchesLoaded" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDate">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="Timestamp when this project's branches were loaded"/>
+        <details key="documentation" value="Timestamp when this project's branches were loaded. Deprecated, use loads"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="branchesLoadError" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Branches load error. Deprecated, use loads"/>
       </eAnnotations>
     </eStructuralFeatures>
   </eClassifiers>

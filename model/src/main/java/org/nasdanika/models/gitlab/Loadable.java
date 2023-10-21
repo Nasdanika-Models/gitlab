@@ -16,6 +16,7 @@ import org.eclipse.emf.ecore.EObject;
  * </p>
  * <ul>
  *   <li>{@link org.nasdanika.models.gitlab.Loadable#getLoaded <em>Loaded</em>}</li>
+ *   <li>{@link org.nasdanika.models.gitlab.Loadable#getLoads <em>Loads</em>}</li>
  * </ul>
  *
  * @see org.nasdanika.models.gitlab.GitLabPackage#getLoadable()
@@ -28,7 +29,7 @@ public interface Loadable extends EObject {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Timestamp when this object was loded excluding contents, which might be loaded separately.
+	 * Timestamp when this object was loded excluding contents, which might be loaded separately. Deprecated, use loads
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Loaded</em>' attribute.
 	 * @see #setLoaded(Date)
@@ -47,5 +48,27 @@ public interface Loadable extends EObject {
 	 * @generated
 	 */
 	void setLoaded(Date value);
+
+	/**
+	 * Returns the value of the '<em><b>Loads</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Loads</em>' reference.
+	 * @see #setLoads(Load)
+	 * @see org.nasdanika.models.gitlab.GitLabPackage#getLoadable_Loads()
+	 * @model
+	 * @generated
+	 */
+	Load getLoads();
+
+	/**
+	 * Sets the value of the '{@link org.nasdanika.models.gitlab.Loadable#getLoads <em>Loads</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Loads</em>' reference.
+	 * @see #getLoads()
+	 * @generated
+	 */
+	void setLoads(Load value);
 
 } // Loadable

@@ -25,6 +25,7 @@ import org.nasdanika.models.gitlab.GitLabFactory;
 import org.nasdanika.models.gitlab.GitLabPackage;
 import org.nasdanika.models.gitlab.Group;
 import org.nasdanika.models.gitlab.ListRepositoryFile;
+import org.nasdanika.models.gitlab.Load;
 import org.nasdanika.models.gitlab.Loadable;
 import org.nasdanika.models.gitlab.Member;
 import org.nasdanika.models.gitlab.MergeMethod;
@@ -58,6 +59,12 @@ public class GitLabPackageImpl extends EPackageImpl implements GitLabPackage {
 	 * @generated
 	 */
 	private EClass loadableEClass = null;
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass loadEClass = null;
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -320,6 +327,86 @@ public class GitLabPackageImpl extends EPackageImpl implements GitLabPackage {
 	@Override
 	public EAttribute getLoadable_Loaded() {
 		return (EAttribute)loadableEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getLoadable_Loads() {
+		return (EReference)loadableEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EClass getLoad() {
+		return loadEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getLoad_Source() {
+		return (EAttribute)loadEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getLoad_Reference() {
+		return (EAttribute)loadEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getLoad_Start() {
+		return (EAttribute)loadEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getLoad_End() {
+		return (EAttribute)loadEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getLoad_Error() {
+		return (EAttribute)loadEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getLoad_Size() {
+		return (EAttribute)loadEClass.getEStructuralFeatures().get(5);
 	}
 
 	/**
@@ -1578,6 +1665,16 @@ public class GitLabPackageImpl extends EPackageImpl implements GitLabPackage {
 	 * @generated
 	 */
 	@Override
+	public EAttribute getProject_BranchesLoadError() {
+		return (EAttribute)projectEClass.getEStructuralFeatures().get(76);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EClass getProjectSharedGroup() {
 		return projectSharedGroupEClass;
 	}
@@ -2303,6 +2400,15 @@ public class GitLabPackageImpl extends EPackageImpl implements GitLabPackage {
 		// Create classes and their features
 		loadableEClass = createEClass(LOADABLE);
 		createEAttribute(loadableEClass, LOADABLE__LOADED);
+		createEReference(loadableEClass, LOADABLE__LOADS);
+
+		loadEClass = createEClass(LOAD);
+		createEAttribute(loadEClass, LOAD__SOURCE);
+		createEAttribute(loadEClass, LOAD__REFERENCE);
+		createEAttribute(loadEClass, LOAD__START);
+		createEAttribute(loadEClass, LOAD__END);
+		createEAttribute(loadEClass, LOAD__ERROR);
+		createEAttribute(loadEClass, LOAD__SIZE);
 
 		gitLabEClass = createEClass(GIT_LAB);
 		createEAttribute(gitLabEClass, GIT_LAB__URL);
@@ -2434,6 +2540,7 @@ public class GitLabPackageImpl extends EPackageImpl implements GitLabPackage {
 		createEReference(projectEClass, PROJECT__CONTRIBUTORS);
 		createEReference(projectEClass, PROJECT__MEMBERS);
 		createEAttribute(projectEClass, PROJECT__BRANCHES_LOADED);
+		createEAttribute(projectEClass, PROJECT__BRANCHES_LOAD_ERROR);
 
 		projectSharedGroupEClass = createEClass(PROJECT_SHARED_GROUP);
 		createEAttribute(projectSharedGroupEClass, PROJECT_SHARED_GROUP__ID);
@@ -2578,6 +2685,15 @@ public class GitLabPackageImpl extends EPackageImpl implements GitLabPackage {
 		// Initialize classes, features, and operations; add parameters
 		initEClass(loadableEClass, Loadable.class, "Loadable", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getLoadable_Loaded(), ecorePackage.getEDate(), "loaded", null, 0, 1, Loadable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getLoadable_Loads(), this.getLoad(), null, "loads", null, 0, 1, Loadable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(loadEClass, Load.class, "Load", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getLoad_Source(), ecorePackage.getEString(), "source", null, 0, 1, Load.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getLoad_Reference(), ecorePackage.getEString(), "reference", null, 0, 1, Load.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getLoad_Start(), ecorePackage.getEDate(), "start", null, 0, 1, Load.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getLoad_End(), ecorePackage.getEDate(), "end", null, 0, 1, Load.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getLoad_Error(), ecorePackage.getEString(), "error", null, 0, 1, Load.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getLoad_Size(), ecorePackage.getEInt(), "size", null, 0, 1, Load.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(gitLabEClass, GitLab.class, "GitLab", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getGitLab_Url(), ecorePackage.getEString(), "url", null, 0, 1, GitLab.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -2721,6 +2837,7 @@ public class GitLabPackageImpl extends EPackageImpl implements GitLabPackage {
 		initEReference(getProject_Members(), this.getMember(), null, "members", null, 0, -1, Project.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		getProject_Members().getEKeys().add(this.getAbstractUser_Id());
 		initEAttribute(getProject_BranchesLoaded(), ecorePackage.getEDate(), "branchesLoaded", null, 0, 1, Project.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getProject_BranchesLoadError(), ecorePackage.getEString(), "branchesLoadError", null, 0, 1, Project.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(projectSharedGroupEClass, ProjectSharedGroup.class, "ProjectSharedGroup", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getProjectSharedGroup_Id(), ecorePackage.getELongObject(), "id", null, 0, 1, ProjectSharedGroup.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -2867,7 +2984,49 @@ public class GitLabPackageImpl extends EPackageImpl implements GitLabPackage {
 		  (getLoadable_Loaded(),
 		   source,
 		   new String[] {
-			   "documentation", "Timestamp when this object was loded excluding contents, which might be loaded separately."
+			   "documentation", "Timestamp when this object was loded excluding contents, which might be loaded separately. Deprecated, use loads"
+		   });
+		addAnnotation
+		  (loadEClass,
+		   source,
+		   new String[] {
+			   "documentation", "Provides information about data load"
+		   });
+		addAnnotation
+		  (getLoad_Source(),
+		   source,
+		   new String[] {
+			   "documentation", "Source system. E.g. URL or user account and URL"
+		   });
+		addAnnotation
+		  (getLoad_Reference(),
+		   source,
+		   new String[] {
+			   "documentation", "Reference name, e.g. branches. The containing object (self) if empty."
+		   });
+		addAnnotation
+		  (getLoad_Start(),
+		   source,
+		   new String[] {
+			   "documentation", "Load start"
+		   });
+		addAnnotation
+		  (getLoad_End(),
+		   source,
+		   new String[] {
+			   "documentation", "Load end"
+		   });
+		addAnnotation
+		  (getLoad_Error(),
+		   source,
+		   new String[] {
+			   "documentation", "Error if load failed"
+		   });
+		addAnnotation
+		  (getLoad_Size(),
+		   source,
+		   new String[] {
+			   "documentation", "Number of elements loaded"
 		   });
 		addAnnotation
 		  (gitLabEClass,
@@ -2879,25 +3038,31 @@ public class GitLabPackageImpl extends EPackageImpl implements GitLabPackage {
 		  (getGitLab_TopLevelGroupsLoaded(),
 		   source,
 		   new String[] {
-			   "documentation", "Timestamp when the top level groups were loaded"
+			   "documentation", "Timestamp when the top level groups were loaded. Deprecated, use loads"
 		   });
 		addAnnotation
 		  (getGroup_SubGroupsLoaded(),
 		   source,
 		   new String[] {
-			   "documentation", "Timestamp when this group\'s sub-groups were loaded"
+			   "documentation", "Timestamp when this group\'s sub-groups were loaded. Deprecated, use loads"
 		   });
 		addAnnotation
 		  (getGroup_ProjectsLoaded(),
 		   source,
 		   new String[] {
-			   "documentation", "Timestamp when this group projects were loaded"
+			   "documentation", "Timestamp when this group projects were loaded. Deprecated use loads"
 		   });
 		addAnnotation
 		  (getProject_BranchesLoaded(),
 		   source,
 		   new String[] {
-			   "documentation", "Timestamp when this project\'s branches were loaded"
+			   "documentation", "Timestamp when this project\'s branches were loaded. Deprecated, use loads"
+		   });
+		addAnnotation
+		  (getProject_BranchesLoadError(),
+		   source,
+		   new String[] {
+			   "documentation", "Branches load error. Deprecated, use loads"
 		   });
 		addAnnotation
 		  (getContributor_User(),

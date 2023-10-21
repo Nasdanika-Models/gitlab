@@ -307,6 +307,15 @@ public interface CodeownersPackage extends EPackage {
 	int CODE_OWNERS__LOADED = GitLabPackage.REPOSITORY_FILE__LOADED;
 
 	/**
+	 * The feature id for the '<em><b>Loads</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CODE_OWNERS__LOADS = GitLabPackage.REPOSITORY_FILE__LOADS;
+
+	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

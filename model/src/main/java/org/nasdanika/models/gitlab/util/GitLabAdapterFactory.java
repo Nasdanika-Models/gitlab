@@ -73,6 +73,10 @@ public class GitLabAdapterFactory extends AdapterFactoryImpl {
 				return createLoadableAdapter();
 			}
 			@Override
+			public Adapter caseLoad(Load object) {
+				return createLoadAdapter();
+			}
+			@Override
 			public Adapter caseGitLab(GitLab object) {
 				return createGitLabAdapter();
 			}
@@ -191,6 +195,20 @@ public class GitLabAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createLoadableAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.nasdanika.models.gitlab.Load <em>Load</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.nasdanika.models.gitlab.Load
+	 * @generated
+	 */
+	public Adapter createLoadAdapter() {
 		return null;
 	}
 

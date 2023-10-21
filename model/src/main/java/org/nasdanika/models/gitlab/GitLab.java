@@ -80,7 +80,7 @@ public interface GitLab extends Loadable {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Timestamp when the top level groups were loaded
+	 * Timestamp when the top level groups were loaded. Deprecated, use loads
 	 * <!-- end-model-doc -->
 	 * @return the value of the '<em>Top Level Groups Loaded</em>' attribute.
 	 * @see #setTopLevelGroupsLoaded(Date)
