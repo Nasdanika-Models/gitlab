@@ -6,7 +6,6 @@ import java.util.logging.Handler;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.EMap;
 import org.gitlab4j.api.Constants.AutoDevopsDeployStrategy;
 import org.gitlab4j.api.Constants.BuildGitStrategy;
@@ -26,7 +25,6 @@ import org.gitlab4j.api.models.Contributor;
 import org.gitlab4j.api.models.CustomAttribute;
 import org.gitlab4j.api.models.Group.Statistics;
 import org.gitlab4j.api.models.GroupFilter;
-import org.gitlab4j.api.models.Member;
 import org.gitlab4j.api.models.Owner;
 import org.gitlab4j.api.models.Permissions;
 import org.gitlab4j.api.models.Project;
