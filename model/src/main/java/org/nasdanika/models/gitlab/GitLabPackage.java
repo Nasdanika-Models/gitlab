@@ -2345,22 +2345,22 @@ public interface GitLabPackage extends EPackage {
 	int TREE_ITEM__LOADS = LOADABLE__LOADS;
 
 	/**
-	 * The feature id for the '<em><b>Id</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TREE_ITEM__ID = LOADABLE_FEATURE_COUNT + 0;
-
-	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TREE_ITEM__NAME = LOADABLE_FEATURE_COUNT + 1;
+	int TREE_ITEM__NAME = LOADABLE_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TREE_ITEM__ID = LOADABLE_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Path</b></em>' attribute.
@@ -2408,15 +2408,6 @@ public interface GitLabPackage extends EPackage {
 	int TREE__LOADS = TREE_ITEM__LOADS;
 
 	/**
-	 * The feature id for the '<em><b>Id</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TREE__ID = TREE_ITEM__ID;
-
-	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2424,6 +2415,15 @@ public interface GitLabPackage extends EPackage {
 	 * @ordered
 	 */
 	int TREE__NAME = TREE_ITEM__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TREE__ID = TREE_ITEM__ID;
 
 	/**
 	 * The feature id for the '<em><b>Path</b></em>' attribute.
@@ -2489,15 +2489,6 @@ public interface GitLabPackage extends EPackage {
 	int BRANCH__LOADS = TREE__LOADS;
 
 	/**
-	 * The feature id for the '<em><b>Id</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int BRANCH__ID = TREE__ID;
-
-	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2505,6 +2496,15 @@ public interface GitLabPackage extends EPackage {
 	 * @ordered
 	 */
 	int BRANCH__NAME = TREE__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BRANCH__ID = TREE__ID;
 
 	/**
 	 * The feature id for the '<em><b>Path</b></em>' attribute.
@@ -2652,15 +2652,6 @@ public interface GitLabPackage extends EPackage {
 	int BLOB__LOADS = TREE_ITEM__LOADS;
 
 	/**
-	 * The feature id for the '<em><b>Id</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int BLOB__ID = TREE_ITEM__ID;
-
-	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2668,6 +2659,15 @@ public interface GitLabPackage extends EPackage {
 	 * @ordered
 	 */
 	int BLOB__NAME = TREE_ITEM__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BLOB__ID = TREE_ITEM__ID;
 
 	/**
 	 * The feature id for the '<em><b>Path</b></em>' attribute.
@@ -2725,15 +2725,6 @@ public interface GitLabPackage extends EPackage {
 	int REPOSITORY_FILE__LOADS = BLOB__LOADS;
 
 	/**
-	 * The feature id for the '<em><b>Id</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int REPOSITORY_FILE__ID = BLOB__ID;
-
-	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2741,6 +2732,15 @@ public interface GitLabPackage extends EPackage {
 	 * @ordered
 	 */
 	int REPOSITORY_FILE__NAME = BLOB__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int REPOSITORY_FILE__ID = BLOB__ID;
 
 	/**
 	 * The feature id for the '<em><b>Path</b></em>' attribute.
@@ -2834,15 +2834,6 @@ public interface GitLabPackage extends EPackage {
 	int TEXT_REPOSITORY_FILE__LOADS = REPOSITORY_FILE__LOADS;
 
 	/**
-	 * The feature id for the '<em><b>Id</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TEXT_REPOSITORY_FILE__ID = REPOSITORY_FILE__ID;
-
-	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2850,6 +2841,15 @@ public interface GitLabPackage extends EPackage {
 	 * @ordered
 	 */
 	int TEXT_REPOSITORY_FILE__NAME = REPOSITORY_FILE__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEXT_REPOSITORY_FILE__ID = REPOSITORY_FILE__ID;
 
 	/**
 	 * The feature id for the '<em><b>Path</b></em>' attribute.
@@ -2952,15 +2952,6 @@ public interface GitLabPackage extends EPackage {
 	int BINARY_REPOSITORY_FILE__LOADS = REPOSITORY_FILE__LOADS;
 
 	/**
-	 * The feature id for the '<em><b>Id</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int BINARY_REPOSITORY_FILE__ID = REPOSITORY_FILE__ID;
-
-	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2968,6 +2959,15 @@ public interface GitLabPackage extends EPackage {
 	 * @ordered
 	 */
 	int BINARY_REPOSITORY_FILE__NAME = REPOSITORY_FILE__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BINARY_REPOSITORY_FILE__ID = REPOSITORY_FILE__ID;
 
 	/**
 	 * The feature id for the '<em><b>Path</b></em>' attribute.
@@ -3070,15 +3070,6 @@ public interface GitLabPackage extends EPackage {
 	int EOBJECT_REPOSITORY_FILE__LOADS = REPOSITORY_FILE__LOADS;
 
 	/**
-	 * The feature id for the '<em><b>Id</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EOBJECT_REPOSITORY_FILE__ID = REPOSITORY_FILE__ID;
-
-	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3086,6 +3077,15 @@ public interface GitLabPackage extends EPackage {
 	 * @ordered
 	 */
 	int EOBJECT_REPOSITORY_FILE__NAME = REPOSITORY_FILE__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EOBJECT_REPOSITORY_FILE__ID = REPOSITORY_FILE__ID;
 
 	/**
 	 * The feature id for the '<em><b>Path</b></em>' attribute.
@@ -3188,15 +3188,6 @@ public interface GitLabPackage extends EPackage {
 	int LIST_REPOSITORY_FILE__LOADS = REPOSITORY_FILE__LOADS;
 
 	/**
-	 * The feature id for the '<em><b>Id</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int LIST_REPOSITORY_FILE__ID = REPOSITORY_FILE__ID;
-
-	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3204,6 +3195,15 @@ public interface GitLabPackage extends EPackage {
 	 * @ordered
 	 */
 	int LIST_REPOSITORY_FILE__NAME = REPOSITORY_FILE__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LIST_REPOSITORY_FILE__ID = REPOSITORY_FILE__ID;
 
 	/**
 	 * The feature id for the '<em><b>Path</b></em>' attribute.
@@ -5316,17 +5316,6 @@ public interface GitLabPackage extends EPackage {
 	EAttribute getTreeItem_Id();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.nasdanika.models.gitlab.TreeItem#getName <em>Name</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Name</em>'.
-	 * @see org.nasdanika.models.gitlab.TreeItem#getName()
-	 * @see #getTreeItem()
-	 * @generated
-	 */
-	EAttribute getTreeItem_Name();
-
-	/**
 	 * Returns the meta object for the attribute '{@link org.nasdanika.models.gitlab.TreeItem#getPath <em>Path</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -5346,17 +5335,6 @@ public interface GitLabPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getTree();
-
-	/**
-	 * Returns the meta object for the containment reference list '{@link org.nasdanika.models.gitlab.Tree#getTreeItems <em>Tree Items</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Tree Items</em>'.
-	 * @see org.nasdanika.models.gitlab.Tree#getTreeItems()
-	 * @see #getTree()
-	 * @generated
-	 */
-	EReference getTree_TreeItems();
 
 	/**
 	 * Returns the meta object for the attribute '{@link org.nasdanika.models.gitlab.Tree#getTreeItemsLoaded <em>Tree Items Loaded</em>}'.
@@ -6905,13 +6883,6 @@ public interface GitLabPackage extends EPackage {
 		 */
 		EAttribute TREE_ITEM__ID = eINSTANCE.getTreeItem_Id();
 		/**
-		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute TREE_ITEM__NAME = eINSTANCE.getTreeItem_Name();
-		/**
 		 * The meta object literal for the '<em><b>Path</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -6927,13 +6898,6 @@ public interface GitLabPackage extends EPackage {
 		 * @generated
 		 */
 		EClass TREE = eINSTANCE.getTree();
-		/**
-		 * The meta object literal for the '<em><b>Tree Items</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference TREE__TREE_ITEMS = eINSTANCE.getTree_TreeItems();
 		/**
 		 * The meta object literal for the '<em><b>Tree Items Loaded</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->

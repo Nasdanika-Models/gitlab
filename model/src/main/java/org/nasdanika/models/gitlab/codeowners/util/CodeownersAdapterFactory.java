@@ -97,8 +97,12 @@ public class CodeownersAdapterFactory extends AdapterFactoryImpl {
 				return createLoadableAdapter();
 			}
 			@Override
-			public Adapter caseTreeItem(TreeItem object) {
+			public Adapter caseTreeItem(org.nasdanika.ncore.TreeItem object) {
 				return createTreeItemAdapter();
+			}
+			@Override
+			public Adapter caseGitLab_TreeItem(TreeItem object) {
+				return createGitLab_TreeItemAdapter();
 			}
 			@Override
 			public Adapter caseBlob(Blob object) {
@@ -213,6 +217,20 @@ public class CodeownersAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
+	 * Creates a new adapter for an object of class '{@link org.nasdanika.ncore.TreeItem <em>Tree Item</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.nasdanika.ncore.TreeItem
+	 * @generated
+	 */
+	public Adapter createTreeItemAdapter() {
+		return null;
+	}
+
+	/**
 	 * Creates a new adapter for an object of class '{@link org.nasdanika.models.gitlab.TreeItem <em>Tree Item</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -222,7 +240,7 @@ public class CodeownersAdapterFactory extends AdapterFactoryImpl {
 	 * @see org.nasdanika.models.gitlab.TreeItem
 	 * @generated
 	 */
-	public Adapter createTreeItemAdapter() {
+	public Adapter createGitLab_TreeItemAdapter() {
 		return null;
 	}
 

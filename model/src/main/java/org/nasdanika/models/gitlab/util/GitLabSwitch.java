@@ -173,6 +173,7 @@ public class GitLabSwitch<T> extends Switch<T> {
 				TreeItem treeItem = (TreeItem)theEObject;
 				T result = caseTreeItem(treeItem);
 				if (result == null) result = caseLoadable(treeItem);
+				if (result == null) result = caseNcore_TreeItem(treeItem);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -180,7 +181,9 @@ public class GitLabSwitch<T> extends Switch<T> {
 				Tree tree = (Tree)theEObject;
 				T result = caseTree(tree);
 				if (result == null) result = caseTreeItem(tree);
+				if (result == null) result = caseNcore_Tree(tree);
 				if (result == null) result = caseLoadable(tree);
+				if (result == null) result = caseNcore_TreeItem(tree);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -189,7 +192,9 @@ public class GitLabSwitch<T> extends Switch<T> {
 				T result = caseBranch(branch);
 				if (result == null) result = caseTree(branch);
 				if (result == null) result = caseTreeItem(branch);
+				if (result == null) result = caseNcore_Tree(branch);
 				if (result == null) result = caseLoadable(branch);
+				if (result == null) result = caseNcore_TreeItem(branch);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -198,6 +203,7 @@ public class GitLabSwitch<T> extends Switch<T> {
 				T result = caseBlob(blob);
 				if (result == null) result = caseTreeItem(blob);
 				if (result == null) result = caseLoadable(blob);
+				if (result == null) result = caseNcore_TreeItem(blob);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -207,6 +213,7 @@ public class GitLabSwitch<T> extends Switch<T> {
 				if (result == null) result = caseBlob(repositoryFile);
 				if (result == null) result = caseTreeItem(repositoryFile);
 				if (result == null) result = caseLoadable(repositoryFile);
+				if (result == null) result = caseNcore_TreeItem(repositoryFile);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -217,6 +224,7 @@ public class GitLabSwitch<T> extends Switch<T> {
 				if (result == null) result = caseBlob(textRepositoryFile);
 				if (result == null) result = caseTreeItem(textRepositoryFile);
 				if (result == null) result = caseLoadable(textRepositoryFile);
+				if (result == null) result = caseNcore_TreeItem(textRepositoryFile);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -227,6 +235,7 @@ public class GitLabSwitch<T> extends Switch<T> {
 				if (result == null) result = caseBlob(binaryRepositoryFile);
 				if (result == null) result = caseTreeItem(binaryRepositoryFile);
 				if (result == null) result = caseLoadable(binaryRepositoryFile);
+				if (result == null) result = caseNcore_TreeItem(binaryRepositoryFile);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -237,6 +246,7 @@ public class GitLabSwitch<T> extends Switch<T> {
 				if (result == null) result = caseBlob(eObjectRepositoryFile);
 				if (result == null) result = caseTreeItem(eObjectRepositoryFile);
 				if (result == null) result = caseLoadable(eObjectRepositoryFile);
+				if (result == null) result = caseNcore_TreeItem(eObjectRepositoryFile);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -247,6 +257,7 @@ public class GitLabSwitch<T> extends Switch<T> {
 				if (result == null) result = caseBlob(listRepositoryFile);
 				if (result == null) result = caseTreeItem(listRepositoryFile);
 				if (result == null) result = caseLoadable(listRepositoryFile);
+				if (result == null) result = caseNcore_TreeItem(listRepositoryFile);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -611,6 +622,36 @@ public class GitLabSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseListRepositoryFile(ListRepositoryFile object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Tree Item</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Tree Item</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseNcore_TreeItem(org.nasdanika.ncore.TreeItem object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Tree</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Tree</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseNcore_Tree(org.nasdanika.ncore.Tree object) {
 		return null;
 	}
 

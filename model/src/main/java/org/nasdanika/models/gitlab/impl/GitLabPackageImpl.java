@@ -45,6 +45,7 @@ import org.nasdanika.models.gitlab.User;
 import org.nasdanika.models.gitlab.Visibility;
 import org.nasdanika.models.gitlab.codeowners.CodeownersPackage;
 import org.nasdanika.models.gitlab.codeowners.impl.CodeownersPackageImpl;
+import org.nasdanika.ncore.NcorePackage;
 
 /**
  * <!-- begin-user-doc -->
@@ -288,6 +289,9 @@ public class GitLabPackageImpl extends EPackageImpl implements GitLabPackage {
 		GitLabPackageImpl theGitLabPackage = registeredGitLabPackage instanceof GitLabPackageImpl ? (GitLabPackageImpl)registeredGitLabPackage : new GitLabPackageImpl();
 
 		isInited = true;
+
+		// Initialize simple dependencies
+		NcorePackage.eINSTANCE.eClass();
 
 		// Obtain or create and register interdependencies
 		Object registeredPackage = EPackage.Registry.INSTANCE.getEPackage(CodeownersPackage.eNS_URI);
@@ -2115,18 +2119,8 @@ public class GitLabPackageImpl extends EPackageImpl implements GitLabPackage {
 	 * @generated
 	 */
 	@Override
-	public EAttribute getTreeItem_Name() {
-		return (EAttribute)treeItemEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public EAttribute getTreeItem_Path() {
-		return (EAttribute)treeItemEClass.getEStructuralFeatures().get(2);
+		return (EAttribute)treeItemEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -2145,18 +2139,8 @@ public class GitLabPackageImpl extends EPackageImpl implements GitLabPackage {
 	 * @generated
 	 */
 	@Override
-	public EReference getTree_TreeItems() {
-		return (EReference)treeEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public EAttribute getTree_TreeItemsLoaded() {
-		return (EAttribute)treeEClass.getEStructuralFeatures().get(1);
+		return (EAttribute)treeEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -2584,11 +2568,9 @@ public class GitLabPackageImpl extends EPackageImpl implements GitLabPackage {
 
 		treeItemEClass = createEClass(TREE_ITEM);
 		createEAttribute(treeItemEClass, TREE_ITEM__ID);
-		createEAttribute(treeItemEClass, TREE_ITEM__NAME);
 		createEAttribute(treeItemEClass, TREE_ITEM__PATH);
 
 		treeEClass = createEClass(TREE);
-		createEReference(treeEClass, TREE__TREE_ITEMS);
 		createEAttribute(treeEClass, TREE__TREE_ITEMS_LOADED);
 
 		branchEClass = createEClass(BRANCH);
@@ -2656,6 +2638,7 @@ public class GitLabPackageImpl extends EPackageImpl implements GitLabPackage {
 
 		// Obtain other dependent packages
 		CodeownersPackage theCodeownersPackage = (CodeownersPackage)EPackage.Registry.INSTANCE.getEPackage(CodeownersPackage.eNS_URI);
+		NcorePackage theNcorePackage = (NcorePackage)EPackage.Registry.INSTANCE.getEPackage(NcorePackage.eNS_URI);
 
 		// Add subpackages
 		getESubpackages().add(theCodeownersPackage);
@@ -2674,7 +2657,9 @@ public class GitLabPackageImpl extends EPackageImpl implements GitLabPackage {
 		contributorEClass.getESuperTypes().add(this.getAbstractUser());
 		ownerEClass.getESuperTypes().add(this.getAbstractUser());
 		treeItemEClass.getESuperTypes().add(this.getLoadable());
+		treeItemEClass.getESuperTypes().add(theNcorePackage.getTreeItem());
 		treeEClass.getESuperTypes().add(this.getTreeItem());
+		treeEClass.getESuperTypes().add(theNcorePackage.getTree());
 		branchEClass.getESuperTypes().add(this.getTree());
 		blobEClass.getESuperTypes().add(this.getTreeItem());
 		repositoryFileEClass.getESuperTypes().add(this.getBlob());
@@ -2832,7 +2817,6 @@ public class GitLabPackageImpl extends EPackageImpl implements GitLabPackage {
 		initEAttribute(getProject_SuggestionCommitMessage(), ecorePackage.getEString(), "suggestionCommitMessage", null, 0, 1, Project.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getProject_SquashOption(), this.getSquashOption(), "squashOption", null, 0, 1, Project.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getProject_Branches(), this.getBranch(), null, "branches", null, 0, -1, Project.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		getProject_Branches().getEKeys().add(this.getTreeItem_Name());
 		initEReference(getProject_Contributors(), this.getContributor(), null, "contributors", null, 0, -1, Project.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		getProject_Contributors().getEKeys().add(this.getAbstractUser_Id());
 		initEReference(getProject_Members(), this.getMember(), null, "members", null, 0, -1, Project.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -2882,12 +2866,9 @@ public class GitLabPackageImpl extends EPackageImpl implements GitLabPackage {
 
 		initEClass(treeItemEClass, TreeItem.class, "TreeItem", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getTreeItem_Id(), ecorePackage.getEString(), "id", null, 0, 1, TreeItem.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getTreeItem_Name(), ecorePackage.getEString(), "name", null, 0, 1, TreeItem.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getTreeItem_Path(), ecorePackage.getEString(), "path", null, 0, 1, TreeItem.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(treeEClass, Tree.class, "Tree", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getTree_TreeItems(), this.getTreeItem(), null, "treeItems", null, 0, -1, Tree.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		getTree_TreeItems().getEKeys().add(this.getTreeItem_Name());
 		initEAttribute(getTree_TreeItemsLoaded(), ecorePackage.getEDate(), "treeItemsLoaded", null, 0, 1, Tree.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(branchEClass, Branch.class, "Branch", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);

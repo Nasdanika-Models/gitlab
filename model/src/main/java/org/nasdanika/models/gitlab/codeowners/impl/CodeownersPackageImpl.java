@@ -20,6 +20,7 @@ import org.nasdanika.models.gitlab.codeowners.Entry;
 import org.nasdanika.models.gitlab.codeowners.Section;
 
 import org.nasdanika.models.gitlab.impl.GitLabPackageImpl;
+import org.nasdanika.ncore.NcorePackage;
 
 /**
  * <!-- begin-user-doc -->
@@ -108,6 +109,9 @@ public class CodeownersPackageImpl extends EPackageImpl implements CodeownersPac
 		CodeownersPackageImpl theCodeownersPackage = registeredCodeownersPackage instanceof CodeownersPackageImpl ? (CodeownersPackageImpl)registeredCodeownersPackage : new CodeownersPackageImpl();
 
 		isInited = true;
+
+		// Initialize simple dependencies
+		NcorePackage.eINSTANCE.eClass();
 
 		// Obtain or create and register interdependencies
 		Object registeredPackage = EPackage.Registry.INSTANCE.getEPackage(GitLabPackage.eNS_URI);

@@ -3,7 +3,6 @@
 package org.nasdanika.models.gitlab;
 
 import java.util.Date;
-import org.eclipse.emf.common.util.EList;
 
 /**
  * <!-- begin-user-doc -->
@@ -14,7 +13,6 @@ import org.eclipse.emf.common.util.EList;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link org.nasdanika.models.gitlab.Tree#getTreeItems <em>Tree Items</em>}</li>
  *   <li>{@link org.nasdanika.models.gitlab.Tree#getTreeItemsLoaded <em>Tree Items Loaded</em>}</li>
  * </ul>
  *
@@ -22,19 +20,7 @@ import org.eclipse.emf.common.util.EList;
  * @model
  * @generated
  */
-public interface Tree extends TreeItem {
-	/**
-	 * Returns the value of the '<em><b>Tree Items</b></em>' containment reference list.
-	 * The list contents are of type {@link org.nasdanika.models.gitlab.TreeItem}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Tree Items</em>' containment reference list.
-	 * @see org.nasdanika.models.gitlab.GitLabPackage#getTree_TreeItems()
-	 * @model containment="true" keys="name"
-	 * @generated
-	 */
-	EList<TreeItem> getTreeItems();
-
+public interface Tree extends TreeItem, org.nasdanika.ncore.Tree {
 	/**
 	 * Returns the value of the '<em><b>Tree Items Loaded</b></em>' attribute.
 	 * <!-- begin-user-doc -->

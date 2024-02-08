@@ -5,6 +5,7 @@ package org.nasdanika.models.gitlab.impl;
 import org.eclipse.emf.ecore.EClass;
 import org.nasdanika.models.gitlab.GitLabPackage;
 import org.nasdanika.models.gitlab.TreeItem;
+import org.nasdanika.ncore.NcorePackage;
 
 /**
  * <!-- begin-user-doc -->
@@ -14,24 +15,14 @@ import org.nasdanika.models.gitlab.TreeItem;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.nasdanika.models.gitlab.impl.TreeItemImpl#getId <em>Id</em>}</li>
  *   <li>{@link org.nasdanika.models.gitlab.impl.TreeItemImpl#getName <em>Name</em>}</li>
+ *   <li>{@link org.nasdanika.models.gitlab.impl.TreeItemImpl#getId <em>Id</em>}</li>
  *   <li>{@link org.nasdanika.models.gitlab.impl.TreeItemImpl#getPath <em>Path</em>}</li>
  * </ul>
  *
  * @generated
  */
 public class TreeItemImpl extends LoadableImpl implements TreeItem {
-	/**
-	 * The default value of the '{@link #getId() <em>Id</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getId()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final String ID_EDEFAULT = null;
-
 	/**
 	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -41,6 +32,16 @@ public class TreeItemImpl extends LoadableImpl implements TreeItem {
 	 * @ordered
 	 */
 	protected static final String NAME_EDEFAULT = null;
+
+	/**
+	 * The default value of the '{@link #getId() <em>Id</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getId()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String ID_EDEFAULT = null;
 
 	/**
 	 * The default value of the '{@link #getPath() <em>Path</em>}' attribute.
@@ -98,7 +99,7 @@ public class TreeItemImpl extends LoadableImpl implements TreeItem {
 	 */
 	@Override
 	public String getName() {
-		return (String)eDynamicGet(GitLabPackage.TREE_ITEM__NAME, GitLabPackage.Literals.TREE_ITEM__NAME, true, true);
+		return (String)eDynamicGet(GitLabPackage.TREE_ITEM__NAME, NcorePackage.Literals.TREE_ITEM__NAME, true, true);
 	}
 
 	/**
@@ -108,7 +109,7 @@ public class TreeItemImpl extends LoadableImpl implements TreeItem {
 	 */
 	@Override
 	public void setName(String newName) {
-		eDynamicSet(GitLabPackage.TREE_ITEM__NAME, GitLabPackage.Literals.TREE_ITEM__NAME, newName);
+		eDynamicSet(GitLabPackage.TREE_ITEM__NAME, NcorePackage.Literals.TREE_ITEM__NAME, newName);
 	}
 
 	/**
@@ -139,10 +140,10 @@ public class TreeItemImpl extends LoadableImpl implements TreeItem {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case GitLabPackage.TREE_ITEM__ID:
-				return getId();
 			case GitLabPackage.TREE_ITEM__NAME:
 				return getName();
+			case GitLabPackage.TREE_ITEM__ID:
+				return getId();
 			case GitLabPackage.TREE_ITEM__PATH:
 				return getPath();
 		}
@@ -157,11 +158,11 @@ public class TreeItemImpl extends LoadableImpl implements TreeItem {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case GitLabPackage.TREE_ITEM__ID:
-				setId((String)newValue);
-				return;
 			case GitLabPackage.TREE_ITEM__NAME:
 				setName((String)newValue);
+				return;
+			case GitLabPackage.TREE_ITEM__ID:
+				setId((String)newValue);
 				return;
 			case GitLabPackage.TREE_ITEM__PATH:
 				setPath((String)newValue);
@@ -178,11 +179,11 @@ public class TreeItemImpl extends LoadableImpl implements TreeItem {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case GitLabPackage.TREE_ITEM__ID:
-				setId(ID_EDEFAULT);
-				return;
 			case GitLabPackage.TREE_ITEM__NAME:
 				setName(NAME_EDEFAULT);
+				return;
+			case GitLabPackage.TREE_ITEM__ID:
+				setId(ID_EDEFAULT);
 				return;
 			case GitLabPackage.TREE_ITEM__PATH:
 				setPath(PATH_EDEFAULT);
@@ -199,14 +200,46 @@ public class TreeItemImpl extends LoadableImpl implements TreeItem {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case GitLabPackage.TREE_ITEM__ID:
-				return ID_EDEFAULT == null ? getId() != null : !ID_EDEFAULT.equals(getId());
 			case GitLabPackage.TREE_ITEM__NAME:
 				return NAME_EDEFAULT == null ? getName() != null : !NAME_EDEFAULT.equals(getName());
+			case GitLabPackage.TREE_ITEM__ID:
+				return ID_EDEFAULT == null ? getId() != null : !ID_EDEFAULT.equals(getId());
 			case GitLabPackage.TREE_ITEM__PATH:
 				return PATH_EDEFAULT == null ? getPath() != null : !PATH_EDEFAULT.equals(getPath());
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass) {
+		if (baseClass == org.nasdanika.ncore.TreeItem.class) {
+			switch (derivedFeatureID) {
+				case GitLabPackage.TREE_ITEM__NAME: return NcorePackage.TREE_ITEM__NAME;
+				default: return -1;
+			}
+		}
+		return super.eBaseStructuralFeatureID(derivedFeatureID, baseClass);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass) {
+		if (baseClass == org.nasdanika.ncore.TreeItem.class) {
+			switch (baseFeatureID) {
+				case NcorePackage.TREE_ITEM__NAME: return GitLabPackage.TREE_ITEM__NAME;
+				default: return -1;
+			}
+		}
+		return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);
 	}
 
 } //TreeItemImpl

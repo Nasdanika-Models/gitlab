@@ -7,6 +7,7 @@ module org.nasdanika.models.gitlab {
 	requires transitive org.eclipse.emf.common;
 	requires transitive org.gitlab4j.api;
 	requires transitive java.logging;
-	requires transitive org.nasdanika.common;
+	requires transitive org.nasdanika.ncore;
+	requires org.eclipse.emf.ecore.xmi;	
 	
 }

@@ -4,7 +4,8 @@
     editorDirectory="" modelPluginID="org.nasdanika.models.gitlab" modelName="GitLab"
     rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container" importerID="org.eclipse.emf.importer.ecore"
     featureDelegation="Dynamic" complianceLevel="17.0" suppressGenModelAnnotations="false"
-    copyrightFields="false" operationReflection="true" importOrganizing="true">
+    copyrightFields="false" usedGenPackages="../../org.nasdanika.ncore/model/ncore.genmodel#//ncore"
+    operationReflection="true" importOrganizing="true">
   <foreignModel>gitlab.ecore</foreignModel>
   <genPackages prefix="GitLab" basePackage="org.nasdanika.models" disposableProviderFactory="true"
       ecorePackage="gitlab.ecore#/">
@@ -238,11 +239,9 @@
     </genClasses>
     <genClasses ecoreClass="gitlab.ecore#//TreeItem">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gitlab.ecore#//TreeItem/id"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gitlab.ecore#//TreeItem/name"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gitlab.ecore#//TreeItem/path"/>
     </genClasses>
     <genClasses ecoreClass="gitlab.ecore#//Tree">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference gitlab.ecore#//Tree/treeItems"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gitlab.ecore#//Tree/treeItemsLoaded"/>
     </genClasses>
     <genClasses ecoreClass="gitlab.ecore#//Branch">
@@ -274,7 +273,8 @@
     <genClasses ecoreClass="gitlab.ecore#//ListRepositoryFile">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference gitlab.ecore#//ListRepositoryFile/content"/>
     </genClasses>
-    <nestedGenPackages prefix="Codeowners" disposableProviderFactory="true" ecorePackage="gitlab.ecore#//codeowners">
+    <nestedGenPackages prefix="Codeowners" basePackage="org.nasdanika.models.gitlab"
+        disposableProviderFactory="true" ecorePackage="gitlab.ecore#//codeowners">
       <genClasses ecoreClass="gitlab.ecore#//codeowners/CodeOwner">
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gitlab.ecore#//codeowners/CodeOwner/id"/>
         <genFeatures notify="false" createChild="false" propertySortChoices="true"

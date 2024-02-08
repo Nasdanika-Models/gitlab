@@ -102,8 +102,9 @@ public class CodeownersSwitch<T> extends Switch<T> {
 				if (result == null) result = caseRepositoryFile(codeOwners);
 				if (result == null) result = caseDefaultSection(codeOwners);
 				if (result == null) result = caseBlob(codeOwners);
-				if (result == null) result = caseTreeItem(codeOwners);
+				if (result == null) result = caseGitLab_TreeItem(codeOwners);
 				if (result == null) result = caseLoadable(codeOwners);
+				if (result == null) result = caseTreeItem(codeOwners);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -212,7 +213,22 @@ public class CodeownersSwitch<T> extends Switch<T> {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseTreeItem(TreeItem object) {
+	public T caseTreeItem(org.nasdanika.ncore.TreeItem object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Tree Item</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Tree Item</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseGitLab_TreeItem(TreeItem object) {
 		return null;
 	}
 

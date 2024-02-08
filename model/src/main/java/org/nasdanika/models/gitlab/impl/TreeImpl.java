@@ -16,7 +16,8 @@ import org.eclipse.emf.ecore.util.InternalEList;
 
 import org.nasdanika.models.gitlab.GitLabPackage;
 import org.nasdanika.models.gitlab.Tree;
-import org.nasdanika.models.gitlab.TreeItem;
+import org.nasdanika.ncore.NcorePackage;
+import org.nasdanika.ncore.TreeItem;
 
 /**
  * <!-- begin-user-doc -->
@@ -70,7 +71,7 @@ public class TreeImpl extends TreeItemImpl implements Tree {
 	@SuppressWarnings("unchecked")
 	@Override
 	public EList<TreeItem> getTreeItems() {
-		return (EList<TreeItem>)eDynamicGet(GitLabPackage.TREE__TREE_ITEMS, GitLabPackage.Literals.TREE__TREE_ITEMS, true, true);
+		return (EList<TreeItem>)eDynamicGet(GitLabPackage.TREE__TREE_ITEMS, NcorePackage.Literals.TREE__TREE_ITEMS, true, true);
 	}
 
 	/**
@@ -175,6 +176,38 @@ public class TreeImpl extends TreeItemImpl implements Tree {
 				return TREE_ITEMS_LOADED_EDEFAULT == null ? getTreeItemsLoaded() != null : !TREE_ITEMS_LOADED_EDEFAULT.equals(getTreeItemsLoaded());
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass) {
+		if (baseClass == org.nasdanika.ncore.Tree.class) {
+			switch (derivedFeatureID) {
+				case GitLabPackage.TREE__TREE_ITEMS: return NcorePackage.TREE__TREE_ITEMS;
+				default: return -1;
+			}
+		}
+		return super.eBaseStructuralFeatureID(derivedFeatureID, baseClass);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass) {
+		if (baseClass == org.nasdanika.ncore.Tree.class) {
+			switch (baseFeatureID) {
+				case NcorePackage.TREE__TREE_ITEMS: return GitLabPackage.TREE__TREE_ITEMS;
+				default: return -1;
+			}
+		}
+		return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);
 	}
 
 } //TreeImpl

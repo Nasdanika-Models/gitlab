@@ -65,7 +65,7 @@
 		</dependency>
 		<dependency>
 			<groupId>org.nasdanika.core</groupId>
-			<artifactId>common</artifactId>
+			<artifactId>ncore</artifactId>
 			<version>${core.version}</version>
 		</dependency>
 		<dependency>

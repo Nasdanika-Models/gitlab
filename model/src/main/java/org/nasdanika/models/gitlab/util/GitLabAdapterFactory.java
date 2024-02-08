@@ -165,6 +165,14 @@ public class GitLabAdapterFactory extends AdapterFactoryImpl {
 				return createListRepositoryFileAdapter();
 			}
 			@Override
+			public Adapter caseNcore_TreeItem(org.nasdanika.ncore.TreeItem object) {
+				return createNcore_TreeItemAdapter();
+			}
+			@Override
+			public Adapter caseNcore_Tree(org.nasdanika.ncore.Tree object) {
+				return createNcore_TreeAdapter();
+			}
+			@Override
 			public Adapter defaultCase(EObject object) {
 				return createEObjectAdapter();
 			}
@@ -517,6 +525,34 @@ public class GitLabAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createListRepositoryFileAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.nasdanika.ncore.TreeItem <em>Tree Item</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.nasdanika.ncore.TreeItem
+	 * @generated
+	 */
+	public Adapter createNcore_TreeItemAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.nasdanika.ncore.Tree <em>Tree</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.nasdanika.ncore.Tree
+	 * @generated
+	 */
+	public Adapter createNcore_TreeAdapter() {
 		return null;
 	}
 

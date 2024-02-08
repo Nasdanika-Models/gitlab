@@ -12,7 +12,6 @@ package org.nasdanika.models.gitlab;
  * </p>
  * <ul>
  *   <li>{@link org.nasdanika.models.gitlab.TreeItem#getId <em>Id</em>}</li>
- *   <li>{@link org.nasdanika.models.gitlab.TreeItem#getName <em>Name</em>}</li>
  *   <li>{@link org.nasdanika.models.gitlab.TreeItem#getPath <em>Path</em>}</li>
  * </ul>
  *
@@ -20,7 +19,7 @@ package org.nasdanika.models.gitlab;
  * @model
  * @generated
  */
-public interface TreeItem extends Loadable {
+public interface TreeItem extends Loadable, org.nasdanika.ncore.TreeItem {
 	/**
 	 * Returns the value of the '<em><b>Id</b></em>' attribute.
 	 * <!-- begin-user-doc -->
@@ -42,28 +41,6 @@ public interface TreeItem extends Loadable {
 	 * @generated
 	 */
 	void setId(String value);
-
-	/**
-	 * Returns the value of the '<em><b>Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Name</em>' attribute.
-	 * @see #setName(String)
-	 * @see org.nasdanika.models.gitlab.GitLabPackage#getTreeItem_Name()
-	 * @model
-	 * @generated
-	 */
-	String getName();
-
-	/**
-	 * Sets the value of the '{@link org.nasdanika.models.gitlab.TreeItem#getName <em>Name</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Name</em>' attribute.
-	 * @see #getName()
-	 * @generated
-	 */
-	void setName(String value);
 
 	/**
 	 * Returns the value of the '<em><b>Path</b></em>' attribute.
