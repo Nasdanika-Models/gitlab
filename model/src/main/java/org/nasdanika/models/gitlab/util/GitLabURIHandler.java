@@ -100,7 +100,11 @@ public class GitLabURIHandler implements URIHandler {
 	 * @return
 	 */
 	protected Object getProjectIdOrPath(URI uri) {
-		return Long.parseLong(uri.authority());
+		try {
+			return Long.parseLong(uri.authority());
+		} catch (NumberFormatException e) {
+			return uri.authority();
+		}
 	}
 			
 	/**

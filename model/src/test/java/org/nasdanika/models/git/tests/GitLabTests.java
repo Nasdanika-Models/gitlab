@@ -183,14 +183,13 @@ public class GitLabTests {
 					"main",
 		            "Pavel.Vlasov@nasdanika.org", 
 		            "Pavel Vlasov", 
-		            commitAction);					
-					
+		            commitAction);										
 		}
 	}
 		
 	@Disabled
 	@Test
-	public void testCreatePullRequest() throws Exception {
+	public void testCreateMergeRequest() throws Exception {
 		String accessToken = System.getenv("GITLAB_COMMITTER_TOKEN");
 		try (GitLabApiProvider gitLabApiProvider = new GitLabApiProvider("https://gitlab.com/", accessToken)) {				
 			MergeRequestApi mergeRequestApi = gitLabApiProvider.getGitLabApi().getMergeRequestApi();
