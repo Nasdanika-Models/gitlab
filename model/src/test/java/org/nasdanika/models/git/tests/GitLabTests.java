@@ -160,7 +160,7 @@ public class GitLabTests {
 		String accessToken = System.getenv("GITLAB_COMMITTER_TOKEN");
 		try (GitLabApiProvider gitLabApiProvider = new GitLabApiProvider("https://gitlab.com/", accessToken)) {				
 			RepositoryApi repoApi = gitLabApiProvider.getGitLabApi().getRepositoryApi();
-			repoApi.createBranch(48523784L, "feature-XYZ", "main");
+			repoApi.createBranch(48523784L, "feature-" + System.currentTimeMillis(), "main");
 		}		
 	}
 	
