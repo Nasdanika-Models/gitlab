@@ -1,3 +1,7 @@
+import org.nasdanika.capability.CapabilityFactory;
+import org.nasdanika.models.gitlab.codeowners.util.CodeownersEPackageResourceSetCapabilityFactory;
+import org.nasdanika.models.gitlab.util.GitLabEPackageResourceSetCapabilityFactory;
+
 module org.nasdanika.models.gitlab {
 	exports org.nasdanika.models.gitlab;
 	exports org.nasdanika.models.gitlab.impl;
@@ -9,5 +13,9 @@ module org.nasdanika.models.gitlab {
 	requires transitive java.logging;
 	requires transitive org.nasdanika.ncore;
 	requires org.eclipse.emf.ecore.xmi;	
+	
+	provides CapabilityFactory with
+		GitLabEPackageResourceSetCapabilityFactory,
+		CodeownersEPackageResourceSetCapabilityFactory;
 	
 }
