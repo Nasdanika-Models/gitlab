@@ -64,4 +64,12 @@ public interface TreeItem extends Loadable, org.nasdanika.ncore.TreeItem {
 	 */
 	void setPath(String value);
 
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	TreeItemReference createReference();
+
 } // TreeItem

@@ -9,6 +9,7 @@ import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.util.Switch;
 
 import org.nasdanika.models.gitlab.*;
+import org.nasdanika.ncore.Reference;
 
 /**
  * <!-- begin-user-doc -->
@@ -23,7 +24,7 @@ import org.nasdanika.models.gitlab.*;
  * @see org.nasdanika.models.gitlab.GitLabPackage
  * @generated
  */
-public class GitLabSwitch<T> extends Switch<T> {
+public class GitLabSwitch<T1> extends Switch<T1> {
 	/**
 	 * The cached model package
 	 * <!-- begin-user-doc -->
@@ -65,121 +66,180 @@ public class GitLabSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	@Override
-	protected T doSwitch(int classifierID, EObject theEObject) {
+	protected T1 doSwitch(int classifierID, EObject theEObject) {
 		switch (classifierID) {
 			case GitLabPackage.LOADABLE: {
 				Loadable loadable = (Loadable)theEObject;
-				T result = caseLoadable(loadable);
+				T1 result = caseLoadable(loadable);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case GitLabPackage.LOAD: {
 				Load load = (Load)theEObject;
-				T result = caseLoad(load);
+				T1 result = caseLoad(load);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case GitLabPackage.GIT_LAB: {
 				GitLab gitLab = (GitLab)theEObject;
-				T result = caseGitLab(gitLab);
+				T1 result = caseGitLab(gitLab);
 				if (result == null) result = caseLoadable(gitLab);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case GitLabPackage.ABSTRACT_GROUP: {
+				AbstractGroup abstractGroup = (AbstractGroup)theEObject;
+				T1 result = caseAbstractGroup(abstractGroup);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case GitLabPackage.GROUP: {
 				Group group = (Group)theEObject;
-				T result = caseGroup(group);
+				T1 result = caseGroup(group);
 				if (result == null) result = caseLoadable(group);
+				if (result == null) result = caseAbstractGroup(group);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case GitLabPackage.GROUP_REFERENCE: {
+				GroupReference groupReference = (GroupReference)theEObject;
+				T1 result = caseGroupReference(groupReference);
+				if (result == null) result = caseReference(groupReference);
+				if (result == null) result = caseAbstractGroup(groupReference);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case GitLabPackage.PRINCIPAL: {
+				Principal principal = (Principal)theEObject;
+				T1 result = casePrincipal(principal);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case GitLabPackage.ABSTRACT_USER: {
 				AbstractUser abstractUser = (AbstractUser)theEObject;
-				T result = caseAbstractUser(abstractUser);
+				T1 result = caseAbstractUser(abstractUser);
 				if (result == null) result = caseLoadable(abstractUser);
+				if (result == null) result = casePrincipal(abstractUser);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case GitLabPackage.MEMBER: {
 				Member member = (Member)theEObject;
-				T result = caseMember(member);
+				T1 result = caseMember(member);
 				if (result == null) result = caseAbstractUser(member);
 				if (result == null) result = caseLoadable(member);
+				if (result == null) result = casePrincipal(member);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case GitLabPackage.USER_REFERENCE: {
+				UserReference userReference = (UserReference)theEObject;
+				T1 result = caseUserReference(userReference);
+				if (result == null) result = caseReference(userReference);
+				if (result == null) result = casePrincipal(userReference);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case GitLabPackage.USER: {
 				User user = (User)theEObject;
-				T result = caseUser(user);
+				T1 result = caseUser(user);
 				if (result == null) result = caseAbstractUser(user);
 				if (result == null) result = caseLoadable(user);
+				if (result == null) result = casePrincipal(user);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case GitLabPackage.ABSTRACT_PROJECT: {
+				AbstractProject abstractProject = (AbstractProject)theEObject;
+				T1 result = caseAbstractProject(abstractProject);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case GitLabPackage.PROJECT: {
 				Project project = (Project)theEObject;
-				T result = caseProject(project);
+				T1 result = caseProject(project);
 				if (result == null) result = caseLoadable(project);
+				if (result == null) result = caseAbstractProject(project);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case GitLabPackage.PROJECT_REFERENCE: {
+				ProjectReference projectReference = (ProjectReference)theEObject;
+				T1 result = caseProjectReference(projectReference);
+				if (result == null) result = caseReference(projectReference);
+				if (result == null) result = caseAbstractProject(projectReference);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case GitLabPackage.PROJECT_SHARED_GROUP: {
 				ProjectSharedGroup projectSharedGroup = (ProjectSharedGroup)theEObject;
-				T result = caseProjectSharedGroup(projectSharedGroup);
+				T1 result = caseProjectSharedGroup(projectSharedGroup);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case GitLabPackage.PROJECT_STATISTICS: {
 				ProjectStatistics projectStatistics = (ProjectStatistics)theEObject;
-				T result = caseProjectStatistics(projectStatistics);
+				T1 result = caseProjectStatistics(projectStatistics);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case GitLabPackage.PROJECT_LICENSE: {
 				ProjectLicense projectLicense = (ProjectLicense)theEObject;
-				T result = caseProjectLicense(projectLicense);
+				T1 result = caseProjectLicense(projectLicense);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case GitLabPackage.CONTRIBUTOR: {
 				Contributor contributor = (Contributor)theEObject;
-				T result = caseContributor(contributor);
+				T1 result = caseContributor(contributor);
 				if (result == null) result = caseAbstractUser(contributor);
 				if (result == null) result = caseLoadable(contributor);
+				if (result == null) result = casePrincipal(contributor);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case GitLabPackage.PROJECT_ACCESS: {
 				ProjectAccess projectAccess = (ProjectAccess)theEObject;
-				T result = caseProjectAccess(projectAccess);
+				T1 result = caseProjectAccess(projectAccess);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case GitLabPackage.CUSTOM_ATTRIBUTE: {
 				@SuppressWarnings("unchecked") Map.Entry<String, String> customAttribute = (Map.Entry<String, String>)theEObject;
-				T result = caseCustomAttribute(customAttribute);
+				T1 result = caseCustomAttribute(customAttribute);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case GitLabPackage.OWNER: {
 				Owner owner = (Owner)theEObject;
-				T result = caseOwner(owner);
+				T1 result = caseOwner(owner);
 				if (result == null) result = caseAbstractUser(owner);
 				if (result == null) result = caseLoadable(owner);
+				if (result == null) result = casePrincipal(owner);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case GitLabPackage.TREE_ITEM: {
 				TreeItem treeItem = (TreeItem)theEObject;
-				T result = caseTreeItem(treeItem);
+				T1 result = caseTreeItem(treeItem);
 				if (result == null) result = caseLoadable(treeItem);
 				if (result == null) result = caseNcore_TreeItem(treeItem);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case GitLabPackage.TREE_ITEM_REFERENCE: {
+				TreeItemReference treeItemReference = (TreeItemReference)theEObject;
+				T1 result = caseTreeItemReference(treeItemReference);
+				if (result == null) result = caseTreeItem(treeItemReference);
+				if (result == null) result = caseReference(treeItemReference);
+				if (result == null) result = caseLoadable(treeItemReference);
+				if (result == null) result = caseNcore_TreeItem(treeItemReference);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			case GitLabPackage.TREE: {
 				Tree tree = (Tree)theEObject;
-				T result = caseTree(tree);
+				T1 result = caseTree(tree);
 				if (result == null) result = caseTreeItem(tree);
 				if (result == null) result = caseNcore_Tree(tree);
 				if (result == null) result = caseLoadable(tree);
@@ -189,7 +249,7 @@ public class GitLabSwitch<T> extends Switch<T> {
 			}
 			case GitLabPackage.BRANCH: {
 				Branch branch = (Branch)theEObject;
-				T result = caseBranch(branch);
+				T1 result = caseBranch(branch);
 				if (result == null) result = caseTree(branch);
 				if (result == null) result = caseTreeItem(branch);
 				if (result == null) result = caseNcore_Tree(branch);
@@ -200,7 +260,7 @@ public class GitLabSwitch<T> extends Switch<T> {
 			}
 			case GitLabPackage.BLOB: {
 				Blob blob = (Blob)theEObject;
-				T result = caseBlob(blob);
+				T1 result = caseBlob(blob);
 				if (result == null) result = caseTreeItem(blob);
 				if (result == null) result = caseLoadable(blob);
 				if (result == null) result = caseNcore_TreeItem(blob);
@@ -209,7 +269,7 @@ public class GitLabSwitch<T> extends Switch<T> {
 			}
 			case GitLabPackage.REPOSITORY_FILE: {
 				RepositoryFile repositoryFile = (RepositoryFile)theEObject;
-				T result = caseRepositoryFile(repositoryFile);
+				T1 result = caseRepositoryFile(repositoryFile);
 				if (result == null) result = caseBlob(repositoryFile);
 				if (result == null) result = caseTreeItem(repositoryFile);
 				if (result == null) result = caseLoadable(repositoryFile);
@@ -219,7 +279,7 @@ public class GitLabSwitch<T> extends Switch<T> {
 			}
 			case GitLabPackage.TEXT_REPOSITORY_FILE: {
 				TextRepositoryFile textRepositoryFile = (TextRepositoryFile)theEObject;
-				T result = caseTextRepositoryFile(textRepositoryFile);
+				T1 result = caseTextRepositoryFile(textRepositoryFile);
 				if (result == null) result = caseRepositoryFile(textRepositoryFile);
 				if (result == null) result = caseBlob(textRepositoryFile);
 				if (result == null) result = caseTreeItem(textRepositoryFile);
@@ -230,7 +290,7 @@ public class GitLabSwitch<T> extends Switch<T> {
 			}
 			case GitLabPackage.BINARY_REPOSITORY_FILE: {
 				BinaryRepositoryFile binaryRepositoryFile = (BinaryRepositoryFile)theEObject;
-				T result = caseBinaryRepositoryFile(binaryRepositoryFile);
+				T1 result = caseBinaryRepositoryFile(binaryRepositoryFile);
 				if (result == null) result = caseRepositoryFile(binaryRepositoryFile);
 				if (result == null) result = caseBlob(binaryRepositoryFile);
 				if (result == null) result = caseTreeItem(binaryRepositoryFile);
@@ -241,7 +301,7 @@ public class GitLabSwitch<T> extends Switch<T> {
 			}
 			case GitLabPackage.EOBJECT_REPOSITORY_FILE: {
 				EObjectRepositoryFile eObjectRepositoryFile = (EObjectRepositoryFile)theEObject;
-				T result = caseEObjectRepositoryFile(eObjectRepositoryFile);
+				T1 result = caseEObjectRepositoryFile(eObjectRepositoryFile);
 				if (result == null) result = caseRepositoryFile(eObjectRepositoryFile);
 				if (result == null) result = caseBlob(eObjectRepositoryFile);
 				if (result == null) result = caseTreeItem(eObjectRepositoryFile);
@@ -252,7 +312,7 @@ public class GitLabSwitch<T> extends Switch<T> {
 			}
 			case GitLabPackage.LIST_REPOSITORY_FILE: {
 				ListRepositoryFile listRepositoryFile = (ListRepositoryFile)theEObject;
-				T result = caseListRepositoryFile(listRepositoryFile);
+				T1 result = caseListRepositoryFile(listRepositoryFile);
 				if (result == null) result = caseRepositoryFile(listRepositoryFile);
 				if (result == null) result = caseBlob(listRepositoryFile);
 				if (result == null) result = caseTreeItem(listRepositoryFile);
@@ -276,7 +336,7 @@ public class GitLabSwitch<T> extends Switch<T> {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseLoadable(Loadable object) {
+	public T1 caseLoadable(Loadable object) {
 		return null;
 	}
 
@@ -291,7 +351,7 @@ public class GitLabSwitch<T> extends Switch<T> {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseLoad(Load object) {
+	public T1 caseLoad(Load object) {
 		return null;
 	}
 
@@ -306,7 +366,22 @@ public class GitLabSwitch<T> extends Switch<T> {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseGitLab(GitLab object) {
+	public T1 caseGitLab(GitLab object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Abstract Group</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Abstract Group</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T1 caseAbstractGroup(AbstractGroup object) {
 		return null;
 	}
 
@@ -321,7 +396,37 @@ public class GitLabSwitch<T> extends Switch<T> {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseGroup(Group object) {
+	public T1 caseGroup(Group object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Group Reference</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Group Reference</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T1 caseGroupReference(GroupReference object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Principal</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Principal</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T1 casePrincipal(Principal object) {
 		return null;
 	}
 
@@ -336,7 +441,22 @@ public class GitLabSwitch<T> extends Switch<T> {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseMember(Member object) {
+	public T1 caseMember(Member object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>User Reference</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>User Reference</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T1 caseUserReference(UserReference object) {
 		return null;
 	}
 
@@ -351,7 +471,7 @@ public class GitLabSwitch<T> extends Switch<T> {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseAbstractUser(AbstractUser object) {
+	public T1 caseAbstractUser(AbstractUser object) {
 		return null;
 	}
 
@@ -366,7 +486,22 @@ public class GitLabSwitch<T> extends Switch<T> {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseUser(User object) {
+	public T1 caseUser(User object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Abstract Project</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Abstract Project</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T1 caseAbstractProject(AbstractProject object) {
 		return null;
 	}
 
@@ -381,7 +516,22 @@ public class GitLabSwitch<T> extends Switch<T> {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseProject(Project object) {
+	public T1 caseProject(Project object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Project Reference</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Project Reference</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T1 caseProjectReference(ProjectReference object) {
 		return null;
 	}
 
@@ -396,7 +546,7 @@ public class GitLabSwitch<T> extends Switch<T> {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseProjectSharedGroup(ProjectSharedGroup object) {
+	public T1 caseProjectSharedGroup(ProjectSharedGroup object) {
 		return null;
 	}
 
@@ -411,7 +561,7 @@ public class GitLabSwitch<T> extends Switch<T> {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseProjectStatistics(ProjectStatistics object) {
+	public T1 caseProjectStatistics(ProjectStatistics object) {
 		return null;
 	}
 
@@ -426,7 +576,7 @@ public class GitLabSwitch<T> extends Switch<T> {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseProjectLicense(ProjectLicense object) {
+	public T1 caseProjectLicense(ProjectLicense object) {
 		return null;
 	}
 
@@ -441,7 +591,7 @@ public class GitLabSwitch<T> extends Switch<T> {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseContributor(Contributor object) {
+	public T1 caseContributor(Contributor object) {
 		return null;
 	}
 
@@ -456,7 +606,7 @@ public class GitLabSwitch<T> extends Switch<T> {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseProjectAccess(ProjectAccess object) {
+	public T1 caseProjectAccess(ProjectAccess object) {
 		return null;
 	}
 
@@ -471,7 +621,7 @@ public class GitLabSwitch<T> extends Switch<T> {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseCustomAttribute(Map.Entry<String, String> object) {
+	public T1 caseCustomAttribute(Map.Entry<String, String> object) {
 		return null;
 	}
 
@@ -486,7 +636,7 @@ public class GitLabSwitch<T> extends Switch<T> {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseBranch(Branch object) {
+	public T1 caseBranch(Branch object) {
 		return null;
 	}
 
@@ -501,7 +651,7 @@ public class GitLabSwitch<T> extends Switch<T> {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseOwner(Owner object) {
+	public T1 caseOwner(Owner object) {
 		return null;
 	}
 
@@ -516,7 +666,22 @@ public class GitLabSwitch<T> extends Switch<T> {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseTreeItem(TreeItem object) {
+	public T1 caseTreeItem(TreeItem object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Tree Item Reference</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Tree Item Reference</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T1 caseTreeItemReference(TreeItemReference object) {
 		return null;
 	}
 
@@ -531,7 +696,7 @@ public class GitLabSwitch<T> extends Switch<T> {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseTree(Tree object) {
+	public T1 caseTree(Tree object) {
 		return null;
 	}
 
@@ -546,7 +711,7 @@ public class GitLabSwitch<T> extends Switch<T> {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseBlob(Blob object) {
+	public T1 caseBlob(Blob object) {
 		return null;
 	}
 
@@ -561,7 +726,7 @@ public class GitLabSwitch<T> extends Switch<T> {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseRepositoryFile(RepositoryFile object) {
+	public T1 caseRepositoryFile(RepositoryFile object) {
 		return null;
 	}
 
@@ -576,7 +741,7 @@ public class GitLabSwitch<T> extends Switch<T> {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseTextRepositoryFile(TextRepositoryFile object) {
+	public T1 caseTextRepositoryFile(TextRepositoryFile object) {
 		return null;
 	}
 
@@ -591,7 +756,7 @@ public class GitLabSwitch<T> extends Switch<T> {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseBinaryRepositoryFile(BinaryRepositoryFile object) {
+	public T1 caseBinaryRepositoryFile(BinaryRepositoryFile object) {
 		return null;
 	}
 
@@ -606,7 +771,7 @@ public class GitLabSwitch<T> extends Switch<T> {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseEObjectRepositoryFile(EObjectRepositoryFile object) {
+	public T1 caseEObjectRepositoryFile(EObjectRepositoryFile object) {
 		return null;
 	}
 
@@ -621,7 +786,22 @@ public class GitLabSwitch<T> extends Switch<T> {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseListRepositoryFile(ListRepositoryFile object) {
+	public T1 caseListRepositoryFile(ListRepositoryFile object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Reference</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Reference</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public <T> T1 caseReference(Reference<T> object) {
 		return null;
 	}
 
@@ -636,7 +816,7 @@ public class GitLabSwitch<T> extends Switch<T> {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseNcore_TreeItem(org.nasdanika.ncore.TreeItem object) {
+	public T1 caseNcore_TreeItem(org.nasdanika.ncore.TreeItem object) {
 		return null;
 	}
 
@@ -651,7 +831,7 @@ public class GitLabSwitch<T> extends Switch<T> {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseNcore_Tree(org.nasdanika.ncore.Tree object) {
+	public T1 caseNcore_Tree(org.nasdanika.ncore.Tree object) {
 		return null;
 	}
 
@@ -667,7 +847,7 @@ public class GitLabSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	@Override
-	public T defaultCase(EObject object) {
+	public T1 defaultCase(EObject object) {
 		return null;
 	}
 

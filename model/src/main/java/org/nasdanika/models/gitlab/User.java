@@ -29,7 +29,7 @@ import org.nasdanika.models.gitlab.codeowners.CodeOwner;
 public interface User extends AbstractUser {
 	/**
 	 * Returns the value of the '<em><b>Projects</b></em>' containment reference list.
-	 * The list contents are of type {@link org.nasdanika.models.gitlab.Project}.
+	 * The list contents are of type {@link org.nasdanika.models.gitlab.AbstractProject}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Projects</em>' containment reference list.
@@ -37,7 +37,7 @@ public interface User extends AbstractUser {
 	 * @model containment="true" keys="id"
 	 * @generated
 	 */
-	EList<Project> getProjects();
+	EList<AbstractProject> getProjects();
 
 	/**
 	 * Returns the value of the '<em><b>Membership</b></em>' reference list.
@@ -108,5 +108,13 @@ public interface User extends AbstractUser {
 	 * @generated
 	 */
 	EList<CodeOwner> getCodeOwnership();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	UserReference createReference();
 
 } // User

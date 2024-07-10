@@ -61,9 +61,12 @@ public class GitLabFactoryImpl extends EFactoryImpl implements GitLabFactory {
 			case GitLabPackage.LOAD: return createLoad();
 			case GitLabPackage.GIT_LAB: return createGitLab();
 			case GitLabPackage.GROUP: return createGroup();
+			case GitLabPackage.GROUP_REFERENCE: return createGroupReference();
 			case GitLabPackage.MEMBER: return createMember();
+			case GitLabPackage.USER_REFERENCE: return createUserReference();
 			case GitLabPackage.USER: return createUser();
 			case GitLabPackage.PROJECT: return createProject();
+			case GitLabPackage.PROJECT_REFERENCE: return createProjectReference();
 			case GitLabPackage.PROJECT_SHARED_GROUP: return createProjectSharedGroup();
 			case GitLabPackage.PROJECT_STATISTICS: return createProjectStatistics();
 			case GitLabPackage.PROJECT_LICENSE: return createProjectLicense();
@@ -72,6 +75,7 @@ public class GitLabFactoryImpl extends EFactoryImpl implements GitLabFactory {
 			case GitLabPackage.CUSTOM_ATTRIBUTE: return (EObject)createCustomAttribute();
 			case GitLabPackage.OWNER: return createOwner();
 			case GitLabPackage.TREE_ITEM: return createTreeItem();
+			case GitLabPackage.TREE_ITEM_REFERENCE: return createTreeItemReference();
 			case GitLabPackage.TREE: return createTree();
 			case GitLabPackage.BRANCH: return createBranch();
 			case GitLabPackage.BLOB: return createBlob();
@@ -178,9 +182,31 @@ public class GitLabFactoryImpl extends EFactoryImpl implements GitLabFactory {
 	 * @generated
 	 */
 	@Override
+	public GroupReference createGroupReference() {
+		GroupReferenceImpl groupReference = new GroupReferenceImpl();
+		return groupReference;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public Member createMember() {
 		MemberImpl member = new MemberImpl();
 		return member;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public UserReference createUserReference() {
+		UserReferenceImpl userReference = new UserReferenceImpl();
+		return userReference;
 	}
 
 	/**
@@ -203,6 +229,17 @@ public class GitLabFactoryImpl extends EFactoryImpl implements GitLabFactory {
 	public Project createProject() {
 		ProjectImpl project = new ProjectImpl();
 		return project;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public ProjectReference createProjectReference() {
+		ProjectReferenceImpl projectReference = new ProjectReferenceImpl();
+		return projectReference;
 	}
 
 	/**
@@ -301,6 +338,17 @@ public class GitLabFactoryImpl extends EFactoryImpl implements GitLabFactory {
 	public TreeItem createTreeItem() {
 		TreeItemImpl treeItem = new TreeItemImpl();
 		return treeItem;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public TreeItemReference createTreeItemReference() {
+		TreeItemReferenceImpl treeItemReference = new TreeItemReferenceImpl();
+		return treeItemReference;
 	}
 
 	/**

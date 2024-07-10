@@ -11,6 +11,7 @@ import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
 import org.eclipse.emf.ecore.EObject;
 
 import org.nasdanika.models.gitlab.*;
+import org.nasdanika.ncore.Reference;
 
 /**
  * <!-- begin-user-doc -->
@@ -81,8 +82,20 @@ public class GitLabAdapterFactory extends AdapterFactoryImpl {
 				return createGitLabAdapter();
 			}
 			@Override
+			public Adapter caseAbstractGroup(AbstractGroup object) {
+				return createAbstractGroupAdapter();
+			}
+			@Override
 			public Adapter caseGroup(Group object) {
 				return createGroupAdapter();
+			}
+			@Override
+			public Adapter caseGroupReference(GroupReference object) {
+				return createGroupReferenceAdapter();
+			}
+			@Override
+			public Adapter casePrincipal(Principal object) {
+				return createPrincipalAdapter();
 			}
 			@Override
 			public Adapter caseAbstractUser(AbstractUser object) {
@@ -93,12 +106,24 @@ public class GitLabAdapterFactory extends AdapterFactoryImpl {
 				return createMemberAdapter();
 			}
 			@Override
+			public Adapter caseUserReference(UserReference object) {
+				return createUserReferenceAdapter();
+			}
+			@Override
 			public Adapter caseUser(User object) {
 				return createUserAdapter();
 			}
 			@Override
+			public Adapter caseAbstractProject(AbstractProject object) {
+				return createAbstractProjectAdapter();
+			}
+			@Override
 			public Adapter caseProject(Project object) {
 				return createProjectAdapter();
+			}
+			@Override
+			public Adapter caseProjectReference(ProjectReference object) {
+				return createProjectReferenceAdapter();
 			}
 			@Override
 			public Adapter caseProjectSharedGroup(ProjectSharedGroup object) {
@@ -133,6 +158,10 @@ public class GitLabAdapterFactory extends AdapterFactoryImpl {
 				return createTreeItemAdapter();
 			}
 			@Override
+			public Adapter caseTreeItemReference(TreeItemReference object) {
+				return createTreeItemReferenceAdapter();
+			}
+			@Override
 			public Adapter caseTree(Tree object) {
 				return createTreeAdapter();
 			}
@@ -163,6 +192,10 @@ public class GitLabAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter caseListRepositoryFile(ListRepositoryFile object) {
 				return createListRepositoryFileAdapter();
+			}
+			@Override
+			public <T> Adapter caseReference(Reference<T> object) {
+				return createReferenceAdapter();
 			}
 			@Override
 			public Adapter caseNcore_TreeItem(org.nasdanika.ncore.TreeItem object) {
@@ -235,6 +268,20 @@ public class GitLabAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
+	 * Creates a new adapter for an object of class '{@link org.nasdanika.models.gitlab.AbstractGroup <em>Abstract Group</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.nasdanika.models.gitlab.AbstractGroup
+	 * @generated
+	 */
+	public Adapter createAbstractGroupAdapter() {
+		return null;
+	}
+
+	/**
 	 * Creates a new adapter for an object of class '{@link org.nasdanika.models.gitlab.Group <em>Group</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -249,6 +296,34 @@ public class GitLabAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
+	 * Creates a new adapter for an object of class '{@link org.nasdanika.models.gitlab.GroupReference <em>Group Reference</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.nasdanika.models.gitlab.GroupReference
+	 * @generated
+	 */
+	public Adapter createGroupReferenceAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.nasdanika.models.gitlab.Principal <em>Principal</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.nasdanika.models.gitlab.Principal
+	 * @generated
+	 */
+	public Adapter createPrincipalAdapter() {
+		return null;
+	}
+
+	/**
 	 * Creates a new adapter for an object of class '{@link org.nasdanika.models.gitlab.Member <em>Member</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -259,6 +334,20 @@ public class GitLabAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createMemberAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.nasdanika.models.gitlab.UserReference <em>User Reference</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.nasdanika.models.gitlab.UserReference
+	 * @generated
+	 */
+	public Adapter createUserReferenceAdapter() {
 		return null;
 	}
 
@@ -291,6 +380,20 @@ public class GitLabAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
+	 * Creates a new adapter for an object of class '{@link org.nasdanika.models.gitlab.AbstractProject <em>Abstract Project</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.nasdanika.models.gitlab.AbstractProject
+	 * @generated
+	 */
+	public Adapter createAbstractProjectAdapter() {
+		return null;
+	}
+
+	/**
 	 * Creates a new adapter for an object of class '{@link org.nasdanika.models.gitlab.Project <em>Project</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -301,6 +404,20 @@ public class GitLabAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createProjectAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.nasdanika.models.gitlab.ProjectReference <em>Project Reference</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.nasdanika.models.gitlab.ProjectReference
+	 * @generated
+	 */
+	public Adapter createProjectReferenceAdapter() {
 		return null;
 	}
 
@@ -431,6 +548,20 @@ public class GitLabAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
+	 * Creates a new adapter for an object of class '{@link org.nasdanika.models.gitlab.TreeItemReference <em>Tree Item Reference</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.nasdanika.models.gitlab.TreeItemReference
+	 * @generated
+	 */
+	public Adapter createTreeItemReferenceAdapter() {
+		return null;
+	}
+
+	/**
 	 * Creates a new adapter for an object of class '{@link org.nasdanika.models.gitlab.Tree <em>Tree</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -525,6 +656,20 @@ public class GitLabAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createListRepositoryFileAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.nasdanika.ncore.Reference <em>Reference</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.nasdanika.ncore.Reference
+	 * @generated
+	 */
+	public Adapter createReferenceAdapter() {
 		return null;
 	}
 

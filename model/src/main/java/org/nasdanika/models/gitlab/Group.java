@@ -15,7 +15,6 @@ import org.nasdanika.models.gitlab.codeowners.CodeOwner;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link org.nasdanika.models.gitlab.Group#getId <em>Id</em>}</li>
  *   <li>{@link org.nasdanika.models.gitlab.Group#getName <em>Name</em>}</li>
  *   <li>{@link org.nasdanika.models.gitlab.Group#getAvatarUrl <em>Avatar Url</em>}</li>
  *   <li>{@link org.nasdanika.models.gitlab.Group#getWebUrl <em>Web Url</em>}</li>
@@ -43,29 +42,7 @@ import org.nasdanika.models.gitlab.codeowners.CodeOwner;
  * @model
  * @generated
  */
-public interface Group extends Loadable {
-
-	/**
-	 * Returns the value of the '<em><b>Id</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Id</em>' attribute.
-	 * @see #setId(Long)
-	 * @see org.nasdanika.models.gitlab.GitLabPackage#getGroup_Id()
-	 * @model
-	 * @generated
-	 */
-	Long getId();
-
-	/**
-	 * Sets the value of the '{@link org.nasdanika.models.gitlab.Group#getId <em>Id</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Id</em>' attribute.
-	 * @see #getId()
-	 * @generated
-	 */
-	void setId(Long value);
+public interface Group extends Loadable, AbstractGroup {
 
 	/**
 	 * Returns the value of the '<em><b>Name</b></em>' attribute.
@@ -292,7 +269,7 @@ public interface Group extends Loadable {
 
 	/**
 	 * Returns the value of the '<em><b>Projects</b></em>' containment reference list.
-	 * The list contents are of type {@link org.nasdanika.models.gitlab.Project}.
+	 * The list contents are of type {@link org.nasdanika.models.gitlab.AbstractProject}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Projects</em>' containment reference list.
@@ -300,7 +277,7 @@ public interface Group extends Loadable {
 	 * @model containment="true" keys="id"
 	 * @generated
 	 */
-	EList<Project> getProjects();
+	EList<AbstractProject> getProjects();
 
 	/**
 	 * Returns the value of the '<em><b>Shares</b></em>' reference list.
@@ -406,7 +383,7 @@ public interface Group extends Loadable {
 
 	/**
 	 * Returns the value of the '<em><b>Sub Groups</b></em>' containment reference list.
-	 * The list contents are of type {@link org.nasdanika.models.gitlab.Group}.
+	 * The list contents are of type {@link org.nasdanika.models.gitlab.AbstractGroup}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Sub Groups</em>' containment reference list.
@@ -414,7 +391,7 @@ public interface Group extends Loadable {
 	 * @model containment="true" keys="id"
 	 * @generated
 	 */
-	EList<Group> getSubGroups();
+	EList<AbstractGroup> getSubGroups();
 
 	/**
 	 * Returns the value of the '<em><b>Members</b></em>' containment reference list.
@@ -491,4 +468,12 @@ public interface Group extends Loadable {
 	 * @generated
 	 */
 	void setProjectsLoaded(Date value);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	GroupReference createReference();
 } // Group

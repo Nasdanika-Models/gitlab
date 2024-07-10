@@ -53,7 +53,7 @@ public interface GitLab extends Loadable {
 
 	/**
 	 * Returns the value of the '<em><b>Groups</b></em>' containment reference list.
-	 * The list contents are of type {@link org.nasdanika.models.gitlab.Group}.
+	 * The list contents are of type {@link org.nasdanika.models.gitlab.AbstractGroup}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Groups</em>' containment reference list.
@@ -61,11 +61,11 @@ public interface GitLab extends Loadable {
 	 * @model containment="true" keys="id"
 	 * @generated
 	 */
-	EList<Group> getGroups();
+	EList<AbstractGroup> getGroups();
 
 	/**
 	 * Returns the value of the '<em><b>Users</b></em>' containment reference list.
-	 * The list contents are of type {@link org.nasdanika.models.gitlab.User}.
+	 * The list contents are of type {@link org.nasdanika.models.gitlab.Principal}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Users</em>' containment reference list.
@@ -73,7 +73,7 @@ public interface GitLab extends Loadable {
 	 * @model containment="true" keys="id"
 	 * @generated
 	 */
-	EList<User> getUsers();
+	EList<Principal> getUsers();
 
 	/**
 	 * Returns the value of the '<em><b>Top Level Groups Loaded</b></em>' attribute.

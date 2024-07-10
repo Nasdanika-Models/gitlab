@@ -2,20 +2,23 @@
  */
 package org.nasdanika.models.gitlab.impl;
 
+import java.lang.reflect.InvocationTargetException;
 import java.util.Collection;
 import java.util.Date;
+
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.EMap;
 import org.eclipse.emf.ecore.EClass;
-
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.util.InternalEList;
+import org.nasdanika.models.gitlab.AbstractProject;
 import org.nasdanika.models.gitlab.AutoDevopsDeployStrategy;
 import org.nasdanika.models.gitlab.Branch;
 import org.nasdanika.models.gitlab.BuildGitStrategy;
 import org.nasdanika.models.gitlab.Contributor;
+import org.nasdanika.models.gitlab.GitLabFactory;
 import org.nasdanika.models.gitlab.GitLabPackage;
 import org.nasdanika.models.gitlab.Member;
 import org.nasdanika.models.gitlab.MergeMethod;
@@ -23,6 +26,7 @@ import org.nasdanika.models.gitlab.Owner;
 import org.nasdanika.models.gitlab.Project;
 import org.nasdanika.models.gitlab.ProjectAccess;
 import org.nasdanika.models.gitlab.ProjectLicense;
+import org.nasdanika.models.gitlab.ProjectReference;
 import org.nasdanika.models.gitlab.ProjectSharedGroup;
 import org.nasdanika.models.gitlab.ProjectStatistics;
 import org.nasdanika.models.gitlab.SquashOption;
@@ -38,6 +42,7 @@ import org.nasdanika.models.gitlab.Visibility;
  * The following features are implemented:
  * </p>
  * <ul>
+ *   <li>{@link org.nasdanika.models.gitlab.impl.ProjectImpl#getId <em>Id</em>}</li>
  *   <li>{@link org.nasdanika.models.gitlab.impl.ProjectImpl#getApprovalsBeforeMerge <em>Approvals Before Merge</em>}</li>
  *   <li>{@link org.nasdanika.models.gitlab.impl.ProjectImpl#getArchived <em>Archived</em>}</li>
  *   <li>{@link org.nasdanika.models.gitlab.impl.ProjectImpl#getAvatarUrl <em>Avatar Url</em>}</li>
@@ -52,7 +57,6 @@ import org.nasdanika.models.gitlab.Visibility;
  *   <li>{@link org.nasdanika.models.gitlab.impl.ProjectImpl#getForkedFrom <em>Forked From</em>}</li>
  *   <li>{@link org.nasdanika.models.gitlab.impl.ProjectImpl#getForks <em>Forks</em>}</li>
  *   <li>{@link org.nasdanika.models.gitlab.impl.ProjectImpl#getHttpUrlToRepo <em>Http Url To Repo</em>}</li>
- *   <li>{@link org.nasdanika.models.gitlab.impl.ProjectImpl#getId <em>Id</em>}</li>
  *   <li>{@link org.nasdanika.models.gitlab.impl.ProjectImpl#getIsPublic <em>Is Public</em>}</li>
  *   <li>{@link org.nasdanika.models.gitlab.impl.ProjectImpl#getIssuesEnabled <em>Issues Enabled</em>}</li>
  *   <li>{@link org.nasdanika.models.gitlab.impl.ProjectImpl#getJobsEnabled <em>Jobs Enabled</em>}</li>
@@ -80,7 +84,6 @@ import org.nasdanika.models.gitlab.Visibility;
  *   <li>{@link org.nasdanika.models.gitlab.impl.ProjectImpl#getSnippetsEnabled <em>Snippets Enabled</em>}</li>
  *   <li>{@link org.nasdanika.models.gitlab.impl.ProjectImpl#getSshUrlToRepo <em>Ssh Url To Repo</em>}</li>
  *   <li>{@link org.nasdanika.models.gitlab.impl.ProjectImpl#getStarCount <em>Star Count</em>}</li>
- *   <li>{@link org.nasdanika.models.gitlab.impl.ProjectImpl#getTags <em>Tags</em>}</li>
  *   <li>{@link org.nasdanika.models.gitlab.impl.ProjectImpl#getVisibilityLevel <em>Visibility Level</em>}</li>
  *   <li>{@link org.nasdanika.models.gitlab.impl.ProjectImpl#getVisibility <em>Visibility</em>}</li>
  *   <li>{@link org.nasdanika.models.gitlab.impl.ProjectImpl#getWallEnabled <em>Wall Enabled</em>}</li>
@@ -120,6 +123,15 @@ import org.nasdanika.models.gitlab.Visibility;
  * @generated
  */
 public class ProjectImpl extends LoadableImpl implements Project {
+	/**
+	 * The default value of the '{@link #getId() <em>Id</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getId()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final Long ID_EDEFAULT = null;
 	/**
 	 * The default value of the '{@link #getApprovalsBeforeMerge() <em>Approvals Before Merge</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -219,15 +231,6 @@ public class ProjectImpl extends LoadableImpl implements Project {
 	 * @ordered
 	 */
 	protected static final String HTTP_URL_TO_REPO_EDEFAULT = null;
-	/**
-	 * The default value of the '{@link #getId() <em>Id</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getId()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final Long ID_EDEFAULT = null;
 
 	/**
 	 * The default value of the '{@link #getIsPublic() <em>Is Public</em>}' attribute.
@@ -1026,7 +1029,7 @@ public class ProjectImpl extends LoadableImpl implements Project {
 	 */
 	@Override
 	public Long getId() {
-		return (Long)eDynamicGet(GitLabPackage.PROJECT__ID, GitLabPackage.Literals.PROJECT__ID, true, true);
+		return (Long)eDynamicGet(GitLabPackage.PROJECT__ID, GitLabPackage.Literals.ABSTRACT_PROJECT__ID, true, true);
 	}
 
 	/**
@@ -1036,7 +1039,7 @@ public class ProjectImpl extends LoadableImpl implements Project {
 	 */
 	@Override
 	public void setId(Long newId) {
-		eDynamicSet(GitLabPackage.PROJECT__ID, GitLabPackage.Literals.PROJECT__ID, newId);
+		eDynamicSet(GitLabPackage.PROJECT__ID, GitLabPackage.Literals.ABSTRACT_PROJECT__ID, newId);
 	}
 
 	/**
@@ -1598,17 +1601,6 @@ public class ProjectImpl extends LoadableImpl implements Project {
 	@Override
 	public void setStarCount(Integer newStarCount) {
 		eDynamicSet(GitLabPackage.PROJECT__STAR_COUNT, GitLabPackage.Literals.PROJECT__STAR_COUNT, newStarCount);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@SuppressWarnings("unchecked")
-	@Override
-	public EList<String> getTags() {
-		return (EList<String>)eDynamicGet(GitLabPackage.PROJECT__TAGS, GitLabPackage.Literals.PROJECT__TAGS, true, true);
 	}
 
 	/**
@@ -2278,6 +2270,19 @@ public class ProjectImpl extends LoadableImpl implements Project {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	@Override
+	public ProjectReference createReference() {
+		ProjectReference ret = GitLabFactory.eINSTANCE.createProjectReference();
+		ret.setTarget(this);
+		ret.setId(this.getId());
+		return ret;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
@@ -2346,6 +2351,8 @@ public class ProjectImpl extends LoadableImpl implements Project {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
+			case GitLabPackage.PROJECT__ID:
+				return getId();
 			case GitLabPackage.PROJECT__APPROVALS_BEFORE_MERGE:
 				return getApprovalsBeforeMerge();
 			case GitLabPackage.PROJECT__ARCHIVED:
@@ -2376,8 +2383,6 @@ public class ProjectImpl extends LoadableImpl implements Project {
 				return getForks();
 			case GitLabPackage.PROJECT__HTTP_URL_TO_REPO:
 				return getHttpUrlToRepo();
-			case GitLabPackage.PROJECT__ID:
-				return getId();
 			case GitLabPackage.PROJECT__IS_PUBLIC:
 				return getIsPublic();
 			case GitLabPackage.PROJECT__ISSUES_ENABLED:
@@ -2432,8 +2437,6 @@ public class ProjectImpl extends LoadableImpl implements Project {
 				return getSshUrlToRepo();
 			case GitLabPackage.PROJECT__STAR_COUNT:
 				return getStarCount();
-			case GitLabPackage.PROJECT__TAGS:
-				return getTags();
 			case GitLabPackage.PROJECT__VISIBILITY_LEVEL:
 				return getVisibilityLevel();
 			case GitLabPackage.PROJECT__VISIBILITY:
@@ -2516,6 +2519,9 @@ public class ProjectImpl extends LoadableImpl implements Project {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
+			case GitLabPackage.PROJECT__ID:
+				setId((Long)newValue);
+				return;
 			case GitLabPackage.PROJECT__APPROVALS_BEFORE_MERGE:
 				setApprovalsBeforeMerge((Integer)newValue);
 				return;
@@ -2558,9 +2564,6 @@ public class ProjectImpl extends LoadableImpl implements Project {
 				return;
 			case GitLabPackage.PROJECT__HTTP_URL_TO_REPO:
 				setHttpUrlToRepo((String)newValue);
-				return;
-			case GitLabPackage.PROJECT__ID:
-				setId((Long)newValue);
 				return;
 			case GitLabPackage.PROJECT__IS_PUBLIC:
 				setIsPublic((Boolean)newValue);
@@ -2643,10 +2646,6 @@ public class ProjectImpl extends LoadableImpl implements Project {
 				return;
 			case GitLabPackage.PROJECT__STAR_COUNT:
 				setStarCount((Integer)newValue);
-				return;
-			case GitLabPackage.PROJECT__TAGS:
-				getTags().clear();
-				getTags().addAll((Collection<? extends String>)newValue);
 				return;
 			case GitLabPackage.PROJECT__VISIBILITY_LEVEL:
 				setVisibilityLevel((Integer)newValue);
@@ -2765,6 +2764,9 @@ public class ProjectImpl extends LoadableImpl implements Project {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
+			case GitLabPackage.PROJECT__ID:
+				setId(ID_EDEFAULT);
+				return;
 			case GitLabPackage.PROJECT__APPROVALS_BEFORE_MERGE:
 				setApprovalsBeforeMerge(APPROVALS_BEFORE_MERGE_EDEFAULT);
 				return;
@@ -2806,9 +2808,6 @@ public class ProjectImpl extends LoadableImpl implements Project {
 				return;
 			case GitLabPackage.PROJECT__HTTP_URL_TO_REPO:
 				setHttpUrlToRepo(HTTP_URL_TO_REPO_EDEFAULT);
-				return;
-			case GitLabPackage.PROJECT__ID:
-				setId(ID_EDEFAULT);
 				return;
 			case GitLabPackage.PROJECT__IS_PUBLIC:
 				setIsPublic(IS_PUBLIC_EDEFAULT);
@@ -2890,9 +2889,6 @@ public class ProjectImpl extends LoadableImpl implements Project {
 				return;
 			case GitLabPackage.PROJECT__STAR_COUNT:
 				setStarCount(STAR_COUNT_EDEFAULT);
-				return;
-			case GitLabPackage.PROJECT__TAGS:
-				getTags().clear();
 				return;
 			case GitLabPackage.PROJECT__VISIBILITY_LEVEL:
 				setVisibilityLevel(VISIBILITY_LEVEL_EDEFAULT);
@@ -3008,6 +3004,8 @@ public class ProjectImpl extends LoadableImpl implements Project {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
+			case GitLabPackage.PROJECT__ID:
+				return ID_EDEFAULT == null ? getId() != null : !ID_EDEFAULT.equals(getId());
 			case GitLabPackage.PROJECT__APPROVALS_BEFORE_MERGE:
 				return APPROVALS_BEFORE_MERGE_EDEFAULT == null ? getApprovalsBeforeMerge() != null : !APPROVALS_BEFORE_MERGE_EDEFAULT.equals(getApprovalsBeforeMerge());
 			case GitLabPackage.PROJECT__ARCHIVED:
@@ -3036,8 +3034,6 @@ public class ProjectImpl extends LoadableImpl implements Project {
 				return !getForks().isEmpty();
 			case GitLabPackage.PROJECT__HTTP_URL_TO_REPO:
 				return HTTP_URL_TO_REPO_EDEFAULT == null ? getHttpUrlToRepo() != null : !HTTP_URL_TO_REPO_EDEFAULT.equals(getHttpUrlToRepo());
-			case GitLabPackage.PROJECT__ID:
-				return ID_EDEFAULT == null ? getId() != null : !ID_EDEFAULT.equals(getId());
 			case GitLabPackage.PROJECT__IS_PUBLIC:
 				return IS_PUBLIC_EDEFAULT == null ? getIsPublic() != null : !IS_PUBLIC_EDEFAULT.equals(getIsPublic());
 			case GitLabPackage.PROJECT__ISSUES_ENABLED:
@@ -3092,8 +3088,6 @@ public class ProjectImpl extends LoadableImpl implements Project {
 				return SSH_URL_TO_REPO_EDEFAULT == null ? getSshUrlToRepo() != null : !SSH_URL_TO_REPO_EDEFAULT.equals(getSshUrlToRepo());
 			case GitLabPackage.PROJECT__STAR_COUNT:
 				return STAR_COUNT_EDEFAULT == null ? getStarCount() != null : !STAR_COUNT_EDEFAULT.equals(getStarCount());
-			case GitLabPackage.PROJECT__TAGS:
-				return !getTags().isEmpty();
 			case GitLabPackage.PROJECT__VISIBILITY_LEVEL:
 				return VISIBILITY_LEVEL_EDEFAULT == null ? getVisibilityLevel() != null : !VISIBILITY_LEVEL_EDEFAULT.equals(getVisibilityLevel());
 			case GitLabPackage.PROJECT__VISIBILITY:
@@ -3164,6 +3158,52 @@ public class ProjectImpl extends LoadableImpl implements Project {
 				return BRANCHES_LOAD_ERROR_EDEFAULT == null ? getBranchesLoadError() != null : !BRANCHES_LOAD_ERROR_EDEFAULT.equals(getBranchesLoadError());
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass) {
+		if (baseClass == AbstractProject.class) {
+			switch (derivedFeatureID) {
+				case GitLabPackage.PROJECT__ID: return GitLabPackage.ABSTRACT_PROJECT__ID;
+				default: return -1;
+			}
+		}
+		return super.eBaseStructuralFeatureID(derivedFeatureID, baseClass);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass) {
+		if (baseClass == AbstractProject.class) {
+			switch (baseFeatureID) {
+				case GitLabPackage.ABSTRACT_PROJECT__ID: return GitLabPackage.PROJECT__ID;
+				default: return -1;
+			}
+		}
+		return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
+		switch (operationID) {
+			case GitLabPackage.PROJECT___CREATE_REFERENCE:
+				return createReference();
+		}
+		return super.eInvoke(operationID, arguments);
 	}
 
 } //ProjectImpl

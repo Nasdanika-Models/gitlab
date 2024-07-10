@@ -2,6 +2,7 @@
  */
 package org.nasdanika.models.gitlab.impl;
 
+import java.lang.reflect.InvocationTargetException;
 import java.util.Collection;
 import java.util.Date;
 import org.eclipse.emf.common.notify.NotificationChain;
@@ -10,10 +11,13 @@ import org.eclipse.emf.ecore.EClass;
 
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.util.InternalEList;
+import org.nasdanika.models.gitlab.AbstractGroup;
+import org.nasdanika.models.gitlab.AbstractProject;
+import org.nasdanika.models.gitlab.GitLabFactory;
 import org.nasdanika.models.gitlab.GitLabPackage;
 import org.nasdanika.models.gitlab.Group;
+import org.nasdanika.models.gitlab.GroupReference;
 import org.nasdanika.models.gitlab.Member;
-import org.nasdanika.models.gitlab.Project;
 import org.nasdanika.models.gitlab.ProjectSharedGroup;
 import org.nasdanika.models.gitlab.Visibility;
 import org.nasdanika.models.gitlab.codeowners.CodeOwner;
@@ -233,7 +237,7 @@ public class GroupImpl extends LoadableImpl implements Group {
 	 */
 	@Override
 	public Long getId() {
-		return (Long)eDynamicGet(GitLabPackage.GROUP__ID, GitLabPackage.Literals.GROUP__ID, true, true);
+		return (Long)eDynamicGet(GitLabPackage.GROUP__ID, GitLabPackage.Literals.ABSTRACT_GROUP__ID, true, true);
 	}
 
 	/**
@@ -243,7 +247,7 @@ public class GroupImpl extends LoadableImpl implements Group {
 	 */
 	@Override
 	public void setId(Long newId) {
-		eDynamicSet(GitLabPackage.GROUP__ID, GitLabPackage.Literals.GROUP__ID, newId);
+		eDynamicSet(GitLabPackage.GROUP__ID, GitLabPackage.Literals.ABSTRACT_GROUP__ID, newId);
 	}
 
 	/**
@@ -453,8 +457,8 @@ public class GroupImpl extends LoadableImpl implements Group {
 	 */
 	@SuppressWarnings("unchecked")
 	@Override
-	public EList<Project> getProjects() {
-		return (EList<Project>)eDynamicGet(GitLabPackage.GROUP__PROJECTS, GitLabPackage.Literals.GROUP__PROJECTS, true, true);
+	public EList<AbstractProject> getProjects() {
+		return (EList<AbstractProject>)eDynamicGet(GitLabPackage.GROUP__PROJECTS, GitLabPackage.Literals.GROUP__PROJECTS, true, true);
 	}
 
 	/**
@@ -555,8 +559,8 @@ public class GroupImpl extends LoadableImpl implements Group {
 	 */
 	@SuppressWarnings("unchecked")
 	@Override
-	public EList<Group> getSubGroups() {
-		return (EList<Group>)eDynamicGet(GitLabPackage.GROUP__SUB_GROUPS, GitLabPackage.Literals.GROUP__SUB_GROUPS, true, true);
+	public EList<AbstractGroup> getSubGroups() {
+		return (EList<AbstractGroup>)eDynamicGet(GitLabPackage.GROUP__SUB_GROUPS, GitLabPackage.Literals.GROUP__SUB_GROUPS, true, true);
 	}
 
 	/**
@@ -619,6 +623,19 @@ public class GroupImpl extends LoadableImpl implements Group {
 	@Override
 	public void setProjectsLoaded(Date newProjectsLoaded) {
 		eDynamicSet(GitLabPackage.GROUP__PROJECTS_LOADED, GitLabPackage.Literals.GROUP__PROJECTS_LOADED, newProjectsLoaded);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	@Override
+	public GroupReference createReference() {
+		GroupReference ret = GitLabFactory.eINSTANCE.createGroupReference();
+		ret.setTarget(this);
+		ret.setId(this.getId());
+		return ret;
 	}
 
 	/**
@@ -760,7 +777,7 @@ public class GroupImpl extends LoadableImpl implements Group {
 				return;
 			case GitLabPackage.GROUP__PROJECTS:
 				getProjects().clear();
-				getProjects().addAll((Collection<? extends Project>)newValue);
+				getProjects().addAll((Collection<? extends AbstractProject>)newValue);
 				return;
 			case GitLabPackage.GROUP__SHARES:
 				getShares().clear();
@@ -780,7 +797,7 @@ public class GroupImpl extends LoadableImpl implements Group {
 				return;
 			case GitLabPackage.GROUP__SUB_GROUPS:
 				getSubGroups().clear();
-				getSubGroups().addAll((Collection<? extends Group>)newValue);
+				getSubGroups().addAll((Collection<? extends AbstractGroup>)newValue);
 				return;
 			case GitLabPackage.GROUP__MEMBERS:
 				getMembers().clear();
@@ -932,6 +949,52 @@ public class GroupImpl extends LoadableImpl implements Group {
 				return PROJECTS_LOADED_EDEFAULT == null ? getProjectsLoaded() != null : !PROJECTS_LOADED_EDEFAULT.equals(getProjectsLoaded());
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass) {
+		if (baseClass == AbstractGroup.class) {
+			switch (derivedFeatureID) {
+				case GitLabPackage.GROUP__ID: return GitLabPackage.ABSTRACT_GROUP__ID;
+				default: return -1;
+			}
+		}
+		return super.eBaseStructuralFeatureID(derivedFeatureID, baseClass);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass) {
+		if (baseClass == AbstractGroup.class) {
+			switch (baseFeatureID) {
+				case GitLabPackage.ABSTRACT_GROUP__ID: return GitLabPackage.GROUP__ID;
+				default: return -1;
+			}
+		}
+		return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
+		switch (operationID) {
+			case GitLabPackage.GROUP___CREATE_REFERENCE:
+				return createReference();
+		}
+		return super.eInvoke(operationID, arguments);
 	}
 
 } //GroupImpl

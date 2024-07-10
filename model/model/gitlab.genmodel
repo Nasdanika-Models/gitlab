@@ -71,8 +71,10 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference gitlab.ecore#//GitLab/users"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gitlab.ecore#//GitLab/topLevelGroupsLoaded"/>
     </genClasses>
+    <genClasses image="false" ecoreClass="gitlab.ecore#//AbstractGroup">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gitlab.ecore#//AbstractGroup/id"/>
+    </genClasses>
     <genClasses ecoreClass="gitlab.ecore#//Group">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gitlab.ecore#//Group/id"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gitlab.ecore#//Group/name"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gitlab.ecore#//Group/avatarUrl"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gitlab.ecore#//Group/webUrl"/>
@@ -94,12 +96,16 @@
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference gitlab.ecore#//Group/codeOwnership"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gitlab.ecore#//Group/subGroupsLoaded"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gitlab.ecore#//Group/projectsLoaded"/>
+      <genOperations ecoreOperation="gitlab.ecore#//Group/createReference"/>
+    </genClasses>
+    <genClasses ecoreClass="gitlab.ecore#//GroupReference"/>
+    <genClasses image="false" ecoreClass="gitlab.ecore#//Principal">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gitlab.ecore#//Principal/id"/>
     </genClasses>
     <genClasses image="false" ecoreClass="gitlab.ecore#//AbstractUser">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gitlab.ecore#//AbstractUser/avatarUrl"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gitlab.ecore#//AbstractUser/createdAt"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gitlab.ecore#//AbstractUser/eMail"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gitlab.ecore#//AbstractUser/id"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gitlab.ecore#//AbstractUser/name"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gitlab.ecore#//AbstractUser/state"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gitlab.ecore#//AbstractUser/userName"/>
@@ -110,6 +116,7 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gitlab.ecore#//Member/accessLevel"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gitlab.ecore#//Member/expiresAt"/>
     </genClasses>
+    <genClasses ecoreClass="gitlab.ecore#//UserReference"/>
     <genClasses ecoreClass="gitlab.ecore#//User">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference gitlab.ecore#//User/projects"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference gitlab.ecore#//User/membership"/>
@@ -117,6 +124,10 @@
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference gitlab.ecore#//User/createdProjects"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference gitlab.ecore#//User/contributions"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference gitlab.ecore#//User/codeOwnership"/>
+      <genOperations ecoreOperation="gitlab.ecore#//User/createReference"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="gitlab.ecore#//AbstractProject">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gitlab.ecore#//AbstractProject/id"/>
     </genClasses>
     <genClasses ecoreClass="gitlab.ecore#//Project">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gitlab.ecore#//Project/approvalsBeforeMerge"/>
@@ -133,7 +144,6 @@
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference gitlab.ecore#//Project/forkedFrom"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference gitlab.ecore#//Project/forks"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gitlab.ecore#//Project/httpUrlToRepo"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gitlab.ecore#//Project/id"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gitlab.ecore#//Project/isPublic"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gitlab.ecore#//Project/issuesEnabled"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gitlab.ecore#//Project/jobsEnabled"/>
@@ -161,7 +171,6 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gitlab.ecore#//Project/snippetsEnabled"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gitlab.ecore#//Project/sshUrlToRepo"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gitlab.ecore#//Project/starCount"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gitlab.ecore#//Project/tags"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gitlab.ecore#//Project/visibilityLevel"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gitlab.ecore#//Project/visibility"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gitlab.ecore#//Project/wallEnabled"/>
@@ -196,7 +205,9 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference gitlab.ecore#//Project/members"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gitlab.ecore#//Project/branchesLoaded"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gitlab.ecore#//Project/branchesLoadError"/>
+      <genOperations ecoreOperation="gitlab.ecore#//Project/createReference"/>
     </genClasses>
+    <genClasses ecoreClass="gitlab.ecore#//ProjectReference"/>
     <genClasses ecoreClass="gitlab.ecore#//ProjectSharedGroup">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gitlab.ecore#//ProjectSharedGroup/id"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gitlab.ecore#//ProjectSharedGroup/name"/>
@@ -240,7 +251,9 @@
     <genClasses ecoreClass="gitlab.ecore#//TreeItem">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gitlab.ecore#//TreeItem/id"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gitlab.ecore#//TreeItem/path"/>
+      <genOperations ecoreOperation="gitlab.ecore#//TreeItem/createReference"/>
     </genClasses>
+    <genClasses ecoreClass="gitlab.ecore#//TreeItemReference"/>
     <genClasses ecoreClass="gitlab.ecore#//Tree">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gitlab.ecore#//Tree/treeItemsLoaded"/>
     </genClasses>

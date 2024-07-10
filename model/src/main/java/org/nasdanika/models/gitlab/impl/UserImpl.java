@@ -2,21 +2,23 @@
  */
 package org.nasdanika.models.gitlab.impl;
 
+import java.lang.reflect.InvocationTargetException;
 import java.util.Collection;
+
 import org.eclipse.emf.common.notify.NotificationChain;
-
 import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.util.InternalEList;
-
+import org.nasdanika.models.gitlab.AbstractProject;
 import org.nasdanika.models.gitlab.Contributor;
+import org.nasdanika.models.gitlab.GitLabFactory;
 import org.nasdanika.models.gitlab.GitLabPackage;
 import org.nasdanika.models.gitlab.Member;
 import org.nasdanika.models.gitlab.Owner;
 import org.nasdanika.models.gitlab.Project;
 import org.nasdanika.models.gitlab.User;
+import org.nasdanika.models.gitlab.UserReference;
 import org.nasdanika.models.gitlab.codeowners.CodeOwner;
 
 /**
@@ -64,8 +66,8 @@ public class UserImpl extends AbstractUserImpl implements User {
 	 */
 	@SuppressWarnings("unchecked")
 	@Override
-	public EList<Project> getProjects() {
-		return (EList<Project>)eDynamicGet(GitLabPackage.USER__PROJECTS, GitLabPackage.Literals.USER__PROJECTS, true, true);
+	public EList<AbstractProject> getProjects() {
+		return (EList<AbstractProject>)eDynamicGet(GitLabPackage.USER__PROJECTS, GitLabPackage.Literals.USER__PROJECTS, true, true);
 	}
 
 	/**
@@ -121,6 +123,19 @@ public class UserImpl extends AbstractUserImpl implements User {
 	@Override
 	public EList<CodeOwner> getCodeOwnership() {
 		return (EList<CodeOwner>)eDynamicGet(GitLabPackage.USER__CODE_OWNERSHIP, GitLabPackage.Literals.USER__CODE_OWNERSHIP, true, true);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	@Override
+	public UserReference createReference() {
+		UserReference ret = GitLabFactory.eINSTANCE.createUserReference();
+		ret.setTarget(this);
+		ret.setId(this.getId());
+		return ret;
 	}
 
 	/**
@@ -205,7 +220,7 @@ public class UserImpl extends AbstractUserImpl implements User {
 		switch (featureID) {
 			case GitLabPackage.USER__PROJECTS:
 				getProjects().clear();
-				getProjects().addAll((Collection<? extends Project>)newValue);
+				getProjects().addAll((Collection<? extends AbstractProject>)newValue);
 				return;
 			case GitLabPackage.USER__MEMBERSHIP:
 				getMembership().clear();
@@ -283,6 +298,20 @@ public class UserImpl extends AbstractUserImpl implements User {
 				return !getCodeOwnership().isEmpty();
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
+		switch (operationID) {
+			case GitLabPackage.USER___CREATE_REFERENCE:
+				return createReference();
+		}
+		return super.eInvoke(operationID, arguments);
 	}
 
 } //UserImpl

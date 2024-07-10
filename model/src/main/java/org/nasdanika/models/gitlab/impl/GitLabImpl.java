@@ -13,10 +13,10 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.util.InternalEList;
 
+import org.nasdanika.models.gitlab.AbstractGroup;
 import org.nasdanika.models.gitlab.GitLab;
 import org.nasdanika.models.gitlab.GitLabPackage;
-import org.nasdanika.models.gitlab.Group;
-import org.nasdanika.models.gitlab.User;
+import org.nasdanika.models.gitlab.Principal;
 
 /**
  * <!-- begin-user-doc -->
@@ -101,8 +101,8 @@ public class GitLabImpl extends LoadableImpl implements GitLab {
 	 */
 	@SuppressWarnings("unchecked")
 	@Override
-	public EList<Group> getGroups() {
-		return (EList<Group>)eDynamicGet(GitLabPackage.GIT_LAB__GROUPS, GitLabPackage.Literals.GIT_LAB__GROUPS, true, true);
+	public EList<AbstractGroup> getGroups() {
+		return (EList<AbstractGroup>)eDynamicGet(GitLabPackage.GIT_LAB__GROUPS, GitLabPackage.Literals.GIT_LAB__GROUPS, true, true);
 	}
 
 	/**
@@ -112,8 +112,8 @@ public class GitLabImpl extends LoadableImpl implements GitLab {
 	 */
 	@SuppressWarnings("unchecked")
 	@Override
-	public EList<User> getUsers() {
-		return (EList<User>)eDynamicGet(GitLabPackage.GIT_LAB__USERS, GitLabPackage.Literals.GIT_LAB__USERS, true, true);
+	public EList<Principal> getUsers() {
+		return (EList<Principal>)eDynamicGet(GitLabPackage.GIT_LAB__USERS, GitLabPackage.Literals.GIT_LAB__USERS, true, true);
 	}
 
 	/**
@@ -186,11 +186,11 @@ public class GitLabImpl extends LoadableImpl implements GitLab {
 				return;
 			case GitLabPackage.GIT_LAB__GROUPS:
 				getGroups().clear();
-				getGroups().addAll((Collection<? extends Group>)newValue);
+				getGroups().addAll((Collection<? extends AbstractGroup>)newValue);
 				return;
 			case GitLabPackage.GIT_LAB__USERS:
 				getUsers().clear();
-				getUsers().addAll((Collection<? extends User>)newValue);
+				getUsers().addAll((Collection<? extends Principal>)newValue);
 				return;
 			case GitLabPackage.GIT_LAB__TOP_LEVEL_GROUPS_LOADED:
 				setTopLevelGroupsLoaded((Date)newValue);

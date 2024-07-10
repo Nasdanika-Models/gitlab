@@ -6,6 +6,9 @@ module org.nasdanika.models.gitlab {
 	exports org.nasdanika.models.gitlab;
 	exports org.nasdanika.models.gitlab.impl;
 	exports org.nasdanika.models.gitlab.util;
+	exports org.nasdanika.models.gitlab.codeowners;
+	exports org.nasdanika.models.gitlab.codeowners.impl;
+	exports org.nasdanika.models.gitlab.codeowners.util;
 	
 	requires transitive org.eclipse.emf.ecore;
 	requires transitive org.eclipse.emf.common;

@@ -2,9 +2,14 @@
  */
 package org.nasdanika.models.gitlab.impl;
 
+import java.lang.reflect.InvocationTargetException;
+
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
+import org.nasdanika.models.gitlab.GitLabFactory;
 import org.nasdanika.models.gitlab.GitLabPackage;
 import org.nasdanika.models.gitlab.TreeItem;
+import org.nasdanika.models.gitlab.TreeItemReference;
 import org.nasdanika.ncore.NcorePackage;
 
 /**
@@ -135,6 +140,22 @@ public class TreeItemImpl extends LoadableImpl implements TreeItem {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	@Override
+	public TreeItemReference createReference() {
+		TreeItemReference ret = GitLabFactory.eINSTANCE.createTreeItemReference();
+		ret.setTarget(this);
+		ret.setId(this.getId());
+		ret.setLoaded(this.getLoaded());
+		ret.setName(this.getName());
+		ret.setPath(this.getPath());
+		return ret;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -240,6 +261,20 @@ public class TreeItemImpl extends LoadableImpl implements TreeItem {
 			}
 		}
 		return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
+		switch (operationID) {
+			case GitLabPackage.TREE_ITEM___CREATE_REFERENCE:
+				return createReference();
+		}
+		return super.eInvoke(operationID, arguments);
 	}
 
 } //TreeItemImpl

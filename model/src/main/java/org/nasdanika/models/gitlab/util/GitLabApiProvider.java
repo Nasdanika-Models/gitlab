@@ -1,42 +1,10 @@
 package org.nasdanika.models.gitlab.util;
 
-import java.util.List;
-import java.util.function.BiConsumer;
 import java.util.logging.Handler;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-import org.eclipse.emf.common.util.EMap;
-import org.gitlab4j.api.Constants.AutoDevopsDeployStrategy;
-import org.gitlab4j.api.Constants.BuildGitStrategy;
-import org.gitlab4j.api.Constants.SquashOption;
 import org.gitlab4j.api.GitLabApi;
-import org.gitlab4j.api.GitLabApiException;
-import org.gitlab4j.api.GroupApi;
-import org.gitlab4j.api.Pager;
-import org.gitlab4j.api.ProjectApi;
-import org.gitlab4j.api.ProjectLicense;
-import org.gitlab4j.api.RepositoryApi;
-import org.gitlab4j.api.RepositoryFileApi;
-import org.gitlab4j.api.models.AbstractUser;
-import org.gitlab4j.api.models.Branch;
-import org.gitlab4j.api.models.Commit;
-import org.gitlab4j.api.models.Contributor;
-import org.gitlab4j.api.models.CustomAttribute;
-import org.gitlab4j.api.models.Group.Statistics;
-import org.gitlab4j.api.models.GroupFilter;
-import org.gitlab4j.api.models.Owner;
-import org.gitlab4j.api.models.Permissions;
-import org.gitlab4j.api.models.Project;
-import org.gitlab4j.api.models.ProjectAccess;
-import org.gitlab4j.api.models.ProjectSharedGroup;
-import org.gitlab4j.api.models.ProjectStatistics;
-import org.gitlab4j.api.models.TreeItem;
-import org.gitlab4j.api.models.Visibility;
-import org.nasdanika.common.ProgressMonitor;
-import org.nasdanika.common.Status;
-import org.nasdanika.models.gitlab.GitLabFactory;
-import org.nasdanika.models.gitlab.MergeMethod;
 
 /**
  * This class takes care of different ways to create {@link GitLabApi} and request throttling    

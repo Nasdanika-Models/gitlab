@@ -7,6 +7,7 @@ import java.util.Date;
 import org.eclipse.emf.ecore.EClass;
 import org.nasdanika.models.gitlab.AbstractUser;
 import org.nasdanika.models.gitlab.GitLabPackage;
+import org.nasdanika.models.gitlab.Principal;
 
 /**
  * <!-- begin-user-doc -->
@@ -16,10 +17,10 @@ import org.nasdanika.models.gitlab.GitLabPackage;
  * The following features are implemented:
  * </p>
  * <ul>
+ *   <li>{@link org.nasdanika.models.gitlab.impl.AbstractUserImpl#getId <em>Id</em>}</li>
  *   <li>{@link org.nasdanika.models.gitlab.impl.AbstractUserImpl#getAvatarUrl <em>Avatar Url</em>}</li>
  *   <li>{@link org.nasdanika.models.gitlab.impl.AbstractUserImpl#getCreatedAt <em>Created At</em>}</li>
  *   <li>{@link org.nasdanika.models.gitlab.impl.AbstractUserImpl#getEMail <em>EMail</em>}</li>
- *   <li>{@link org.nasdanika.models.gitlab.impl.AbstractUserImpl#getId <em>Id</em>}</li>
  *   <li>{@link org.nasdanika.models.gitlab.impl.AbstractUserImpl#getName <em>Name</em>}</li>
  *   <li>{@link org.nasdanika.models.gitlab.impl.AbstractUserImpl#getState <em>State</em>}</li>
  *   <li>{@link org.nasdanika.models.gitlab.impl.AbstractUserImpl#getUserName <em>User Name</em>}</li>
@@ -29,6 +30,16 @@ import org.nasdanika.models.gitlab.GitLabPackage;
  * @generated
  */
 public abstract class AbstractUserImpl extends LoadableImpl implements AbstractUser {
+	/**
+	 * The default value of the '{@link #getId() <em>Id</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getId()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final Long ID_EDEFAULT = null;
+
 	/**
 	 * The default value of the '{@link #getAvatarUrl() <em>Avatar Url</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -58,16 +69,6 @@ public abstract class AbstractUserImpl extends LoadableImpl implements AbstractU
 	 * @ordered
 	 */
 	protected static final String EMAIL_EDEFAULT = null;
-
-	/**
-	 * The default value of the '{@link #getId() <em>Id</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getId()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final Long ID_EDEFAULT = null;
 
 	/**
 	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
@@ -195,7 +196,7 @@ public abstract class AbstractUserImpl extends LoadableImpl implements AbstractU
 	 */
 	@Override
 	public Long getId() {
-		return (Long)eDynamicGet(GitLabPackage.ABSTRACT_USER__ID, GitLabPackage.Literals.ABSTRACT_USER__ID, true, true);
+		return (Long)eDynamicGet(GitLabPackage.ABSTRACT_USER__ID, GitLabPackage.Literals.PRINCIPAL__ID, true, true);
 	}
 
 	/**
@@ -205,7 +206,7 @@ public abstract class AbstractUserImpl extends LoadableImpl implements AbstractU
 	 */
 	@Override
 	public void setId(Long newId) {
-		eDynamicSet(GitLabPackage.ABSTRACT_USER__ID, GitLabPackage.Literals.ABSTRACT_USER__ID, newId);
+		eDynamicSet(GitLabPackage.ABSTRACT_USER__ID, GitLabPackage.Literals.PRINCIPAL__ID, newId);
 	}
 
 	/**
@@ -296,14 +297,14 @@ public abstract class AbstractUserImpl extends LoadableImpl implements AbstractU
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
+			case GitLabPackage.ABSTRACT_USER__ID:
+				return getId();
 			case GitLabPackage.ABSTRACT_USER__AVATAR_URL:
 				return getAvatarUrl();
 			case GitLabPackage.ABSTRACT_USER__CREATED_AT:
 				return getCreatedAt();
 			case GitLabPackage.ABSTRACT_USER__EMAIL:
 				return getEMail();
-			case GitLabPackage.ABSTRACT_USER__ID:
-				return getId();
 			case GitLabPackage.ABSTRACT_USER__NAME:
 				return getName();
 			case GitLabPackage.ABSTRACT_USER__STATE:
@@ -324,6 +325,9 @@ public abstract class AbstractUserImpl extends LoadableImpl implements AbstractU
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
+			case GitLabPackage.ABSTRACT_USER__ID:
+				setId((Long)newValue);
+				return;
 			case GitLabPackage.ABSTRACT_USER__AVATAR_URL:
 				setAvatarUrl((String)newValue);
 				return;
@@ -332,9 +336,6 @@ public abstract class AbstractUserImpl extends LoadableImpl implements AbstractU
 				return;
 			case GitLabPackage.ABSTRACT_USER__EMAIL:
 				setEMail((String)newValue);
-				return;
-			case GitLabPackage.ABSTRACT_USER__ID:
-				setId((Long)newValue);
 				return;
 			case GitLabPackage.ABSTRACT_USER__NAME:
 				setName((String)newValue);
@@ -360,6 +361,9 @@ public abstract class AbstractUserImpl extends LoadableImpl implements AbstractU
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
+			case GitLabPackage.ABSTRACT_USER__ID:
+				setId(ID_EDEFAULT);
+				return;
 			case GitLabPackage.ABSTRACT_USER__AVATAR_URL:
 				setAvatarUrl(AVATAR_URL_EDEFAULT);
 				return;
@@ -368,9 +372,6 @@ public abstract class AbstractUserImpl extends LoadableImpl implements AbstractU
 				return;
 			case GitLabPackage.ABSTRACT_USER__EMAIL:
 				setEMail(EMAIL_EDEFAULT);
-				return;
-			case GitLabPackage.ABSTRACT_USER__ID:
-				setId(ID_EDEFAULT);
 				return;
 			case GitLabPackage.ABSTRACT_USER__NAME:
 				setName(NAME_EDEFAULT);
@@ -396,14 +397,14 @@ public abstract class AbstractUserImpl extends LoadableImpl implements AbstractU
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
+			case GitLabPackage.ABSTRACT_USER__ID:
+				return ID_EDEFAULT == null ? getId() != null : !ID_EDEFAULT.equals(getId());
 			case GitLabPackage.ABSTRACT_USER__AVATAR_URL:
 				return AVATAR_URL_EDEFAULT == null ? getAvatarUrl() != null : !AVATAR_URL_EDEFAULT.equals(getAvatarUrl());
 			case GitLabPackage.ABSTRACT_USER__CREATED_AT:
 				return CREATED_AT_EDEFAULT == null ? getCreatedAt() != null : !CREATED_AT_EDEFAULT.equals(getCreatedAt());
 			case GitLabPackage.ABSTRACT_USER__EMAIL:
 				return EMAIL_EDEFAULT == null ? getEMail() != null : !EMAIL_EDEFAULT.equals(getEMail());
-			case GitLabPackage.ABSTRACT_USER__ID:
-				return ID_EDEFAULT == null ? getId() != null : !ID_EDEFAULT.equals(getId());
 			case GitLabPackage.ABSTRACT_USER__NAME:
 				return NAME_EDEFAULT == null ? getName() != null : !NAME_EDEFAULT.equals(getName());
 			case GitLabPackage.ABSTRACT_USER__STATE:
@@ -414,6 +415,38 @@ public abstract class AbstractUserImpl extends LoadableImpl implements AbstractU
 				return WEB_URL_EDEFAULT == null ? getWebUrl() != null : !WEB_URL_EDEFAULT.equals(getWebUrl());
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass) {
+		if (baseClass == Principal.class) {
+			switch (derivedFeatureID) {
+				case GitLabPackage.ABSTRACT_USER__ID: return GitLabPackage.PRINCIPAL__ID;
+				default: return -1;
+			}
+		}
+		return super.eBaseStructuralFeatureID(derivedFeatureID, baseClass);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass) {
+		if (baseClass == Principal.class) {
+			switch (baseFeatureID) {
+				case GitLabPackage.PRINCIPAL__ID: return GitLabPackage.ABSTRACT_USER__ID;
+				default: return -1;
+			}
+		}
+		return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);
 	}
 
 } //AbstractUserImpl

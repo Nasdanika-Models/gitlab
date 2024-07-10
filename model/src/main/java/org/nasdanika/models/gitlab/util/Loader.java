@@ -26,8 +26,8 @@ import org.gitlab4j.api.models.Owner;
 import org.gitlab4j.api.models.Permissions;
 import org.gitlab4j.api.models.Project;
 import org.gitlab4j.api.models.ProjectAccess;
-import org.gitlab4j.api.models.ProjectSharedGroup;
 import org.gitlab4j.api.models.ProjectStatistics;
+import org.gitlab4j.api.models.SharedGroup;
 import org.gitlab4j.api.models.TreeItem;
 import org.gitlab4j.api.models.Visibility;
 import org.nasdanika.common.ProgressMonitor;
@@ -348,9 +348,9 @@ public class Loader {
 		modelProject.setRunnersToken(project.getRunnersToken());
 		modelProject.setSharedRunnersEnabled(project.getSharedRunnersEnabled());
 		
-		List<ProjectSharedGroup> sharedGroups = project.getSharedWithGroups();
+		List<? extends SharedGroup> sharedGroups = project.getSharedWithGroups();
 		if (sharedGroups != null) {
-			for (ProjectSharedGroup sg: sharedGroups) {
+			for (SharedGroup sg: sharedGroups) {
 				org.nasdanika.models.gitlab.ProjectSharedGroup psg = getFactory().createProjectSharedGroup();
 				org.gitlab4j.api.models.AccessLevel accessLevel = sg.getGroupAccessLevel();
 				if (accessLevel != null) {
@@ -365,11 +365,6 @@ public class Loader {
 		modelProject.setSnippetsEnabled(project.getSnippetsEnabled());
 		modelProject.setSshUrlToRepo(project.getSshUrlToRepo());
 		modelProject.setStarCount(project.getStarCount());
-
-		List<String> tags = project.getTagList();
-		if (tags != null) {
-			modelProject.getTags().addAll(tags);
-		}
 		
 		modelProject.setVisibilityLevel(project.getVisibilityLevel());
 		Visibility projectVisibility = project.getVisibility();

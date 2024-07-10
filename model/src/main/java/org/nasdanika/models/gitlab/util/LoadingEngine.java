@@ -1,10 +1,6 @@
 package org.nasdanika.models.gitlab.util;
 
-import java.util.Date;
 import java.util.concurrent.Executor;
-
-import org.nasdanika.common.ProgressMonitor;
-import org.nasdanika.models.gitlab.GitLab;
 
 /**
  * Performs multi-object, multi-stage loading leveraging {@link Loader}. 

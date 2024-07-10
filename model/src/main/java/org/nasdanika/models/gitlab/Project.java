@@ -29,7 +29,6 @@ import org.eclipse.emf.common.util.EMap;
  *   <li>{@link org.nasdanika.models.gitlab.Project#getForkedFrom <em>Forked From</em>}</li>
  *   <li>{@link org.nasdanika.models.gitlab.Project#getForks <em>Forks</em>}</li>
  *   <li>{@link org.nasdanika.models.gitlab.Project#getHttpUrlToRepo <em>Http Url To Repo</em>}</li>
- *   <li>{@link org.nasdanika.models.gitlab.Project#getId <em>Id</em>}</li>
  *   <li>{@link org.nasdanika.models.gitlab.Project#getIsPublic <em>Is Public</em>}</li>
  *   <li>{@link org.nasdanika.models.gitlab.Project#getIssuesEnabled <em>Issues Enabled</em>}</li>
  *   <li>{@link org.nasdanika.models.gitlab.Project#getJobsEnabled <em>Jobs Enabled</em>}</li>
@@ -57,7 +56,6 @@ import org.eclipse.emf.common.util.EMap;
  *   <li>{@link org.nasdanika.models.gitlab.Project#getSnippetsEnabled <em>Snippets Enabled</em>}</li>
  *   <li>{@link org.nasdanika.models.gitlab.Project#getSshUrlToRepo <em>Ssh Url To Repo</em>}</li>
  *   <li>{@link org.nasdanika.models.gitlab.Project#getStarCount <em>Star Count</em>}</li>
- *   <li>{@link org.nasdanika.models.gitlab.Project#getTags <em>Tags</em>}</li>
  *   <li>{@link org.nasdanika.models.gitlab.Project#getVisibilityLevel <em>Visibility Level</em>}</li>
  *   <li>{@link org.nasdanika.models.gitlab.Project#getVisibility <em>Visibility</em>}</li>
  *   <li>{@link org.nasdanika.models.gitlab.Project#getWallEnabled <em>Wall Enabled</em>}</li>
@@ -98,7 +96,7 @@ import org.eclipse.emf.common.util.EMap;
  * @model
  * @generated
  */
-public interface Project extends Loadable {
+public interface Project extends Loadable, AbstractProject {
 
 	/**
 	 * Returns the value of the '<em><b>Approvals Before Merge</b></em>' attribute.
@@ -403,28 +401,6 @@ public interface Project extends Loadable {
 	 * @generated
 	 */
 	void setHttpUrlToRepo(String value);
-
-	/**
-	 * Returns the value of the '<em><b>Id</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Id</em>' attribute.
-	 * @see #setId(Long)
-	 * @see org.nasdanika.models.gitlab.GitLabPackage#getProject_Id()
-	 * @model
-	 * @generated
-	 */
-	Long getId();
-
-	/**
-	 * Sets the value of the '{@link org.nasdanika.models.gitlab.Project#getId <em>Id</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Id</em>' attribute.
-	 * @see #getId()
-	 * @generated
-	 */
-	void setId(Long value);
 
 	/**
 	 * Returns the value of the '<em><b>Is Public</b></em>' attribute.
@@ -1012,18 +988,6 @@ public interface Project extends Loadable {
 	 * @generated
 	 */
 	void setStarCount(Integer value);
-
-	/**
-	 * Returns the value of the '<em><b>Tags</b></em>' attribute list.
-	 * The list contents are of type {@link java.lang.String}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Tags</em>' attribute list.
-	 * @see org.nasdanika.models.gitlab.GitLabPackage#getProject_Tags()
-	 * @model
-	 * @generated
-	 */
-	EList<String> getTags();
 
 	/**
 	 * Returns the value of the '<em><b>Visibility Level</b></em>' attribute.
@@ -1754,4 +1718,12 @@ public interface Project extends Loadable {
 	 * @generated
 	 */
 	void setBranchesLoadError(String value);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	ProjectReference createReference();
 } // Project

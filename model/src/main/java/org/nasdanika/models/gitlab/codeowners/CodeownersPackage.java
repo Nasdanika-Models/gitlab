@@ -424,6 +424,15 @@ public interface CodeownersPackage extends EPackage {
 	int CODE_OWNERS_FEATURE_COUNT = GitLabPackage.REPOSITORY_FILE_FEATURE_COUNT + 4;
 
 	/**
+	 * The operation id for the '<em>Create Reference</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CODE_OWNERS___CREATE_REFERENCE = GitLabPackage.REPOSITORY_FILE___CREATE_REFERENCE;
+
+	/**
 	 * The number of operations of the '<em>Code Owners</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

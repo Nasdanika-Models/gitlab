@@ -16,7 +16,6 @@ import java.util.Date;
  *   <li>{@link org.nasdanika.models.gitlab.AbstractUser#getAvatarUrl <em>Avatar Url</em>}</li>
  *   <li>{@link org.nasdanika.models.gitlab.AbstractUser#getCreatedAt <em>Created At</em>}</li>
  *   <li>{@link org.nasdanika.models.gitlab.AbstractUser#getEMail <em>EMail</em>}</li>
- *   <li>{@link org.nasdanika.models.gitlab.AbstractUser#getId <em>Id</em>}</li>
  *   <li>{@link org.nasdanika.models.gitlab.AbstractUser#getName <em>Name</em>}</li>
  *   <li>{@link org.nasdanika.models.gitlab.AbstractUser#getState <em>State</em>}</li>
  *   <li>{@link org.nasdanika.models.gitlab.AbstractUser#getUserName <em>User Name</em>}</li>
@@ -27,7 +26,7 @@ import java.util.Date;
  * @model abstract="true"
  * @generated
  */
-public interface AbstractUser extends Loadable {
+public interface AbstractUser extends Loadable, Principal {
 	/**
 	 * Returns the value of the '<em><b>Avatar Url</b></em>' attribute.
 	 * <!-- begin-user-doc -->
@@ -93,28 +92,6 @@ public interface AbstractUser extends Loadable {
 	 * @generated
 	 */
 	void setEMail(String value);
-
-	/**
-	 * Returns the value of the '<em><b>Id</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Id</em>' attribute.
-	 * @see #setId(Long)
-	 * @see org.nasdanika.models.gitlab.GitLabPackage#getAbstractUser_Id()
-	 * @model
-	 * @generated
-	 */
-	Long getId();
-
-	/**
-	 * Sets the value of the '{@link org.nasdanika.models.gitlab.AbstractUser#getId <em>Id</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Id</em>' attribute.
-	 * @see #getId()
-	 * @generated
-	 */
-	void setId(Long value);
 
 	/**
 	 * Returns the value of the '<em><b>Name</b></em>' attribute.

@@ -49,6 +49,15 @@ public interface GitLabFactory extends EFactory {
 	Group createGroup();
 
 	/**
+	 * Returns a new object of class '<em>Group Reference</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Group Reference</em>'.
+	 * @generated
+	 */
+	GroupReference createGroupReference();
+
+	/**
 	 * Returns a new object of class '<em>Member</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -56,6 +65,15 @@ public interface GitLabFactory extends EFactory {
 	 * @generated
 	 */
 	Member createMember();
+
+	/**
+	 * Returns a new object of class '<em>User Reference</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>User Reference</em>'.
+	 * @generated
+	 */
+	UserReference createUserReference();
 
 	/**
 	 * Returns a new object of class '<em>User</em>'.
@@ -74,6 +92,15 @@ public interface GitLabFactory extends EFactory {
 	 * @generated
 	 */
 	Project createProject();
+
+	/**
+	 * Returns a new object of class '<em>Project Reference</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Project Reference</em>'.
+	 * @generated
+	 */
+	ProjectReference createProjectReference();
 
 	/**
 	 * Returns a new object of class '<em>Project Shared Group</em>'.
@@ -146,6 +173,15 @@ public interface GitLabFactory extends EFactory {
 	 * @generated
 	 */
 	TreeItem createTreeItem();
+
+	/**
+	 * Returns a new object of class '<em>Tree Item Reference</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Tree Item Reference</em>'.
+	 * @generated
+	 */
+	TreeItemReference createTreeItemReference();
 
 	/**
 	 * Returns a new object of class '<em>Tree</em>'.
