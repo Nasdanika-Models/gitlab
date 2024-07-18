@@ -1883,13 +1883,22 @@ public interface GitLabPackage extends EPackage {
 	int PROJECT__BRANCHES_LOAD_ERROR = LOADABLE_FEATURE_COUNT + 75;
 
 	/**
+	 * The feature id for the '<em><b>Commits</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROJECT__COMMITS = LOADABLE_FEATURE_COUNT + 76;
+
+	/**
 	 * The number of structural features of the '<em>Project</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PROJECT_FEATURE_COUNT = LOADABLE_FEATURE_COUNT + 76;
+	int PROJECT_FEATURE_COUNT = LOADABLE_FEATURE_COUNT + 77;
 
 	/**
 	 * The operation id for the '<em>Create Reference</em>' operation.
@@ -2302,13 +2311,13 @@ public interface GitLabPackage extends EPackage {
 	int CONTRIBUTOR__USER = ABSTRACT_USER_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Commits</b></em>' attribute.
+	 * The feature id for the '<em><b>Commit Count</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CONTRIBUTOR__COMMITS = ABSTRACT_USER_FEATURE_COUNT + 1;
+	int CONTRIBUTOR__COMMIT_COUNT = ABSTRACT_USER_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Additions</b></em>' attribute.
@@ -2329,13 +2338,22 @@ public interface GitLabPackage extends EPackage {
 	int CONTRIBUTOR__DELETIONS = ABSTRACT_USER_FEATURE_COUNT + 3;
 
 	/**
+	 * The feature id for the '<em><b>Commits</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONTRIBUTOR__COMMITS = ABSTRACT_USER_FEATURE_COUNT + 4;
+
+	/**
 	 * The number of structural features of the '<em>Contributor</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CONTRIBUTOR_FEATURE_COUNT = ABSTRACT_USER_FEATURE_COUNT + 4;
+	int CONTRIBUTOR_FEATURE_COUNT = ABSTRACT_USER_FEATURE_COUNT + 5;
 
 	/**
 	 * The number of operations of the '<em>Contributor</em>' class.
@@ -2347,6 +2365,214 @@ public interface GitLabPackage extends EPackage {
 	int CONTRIBUTOR_OPERATION_COUNT = ABSTRACT_USER_OPERATION_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link org.nasdanika.models.gitlab.impl.CommitImpl <em>Commit</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.nasdanika.models.gitlab.impl.CommitImpl
+	 * @see org.nasdanika.models.gitlab.impl.GitLabPackageImpl#getCommit()
+	 * @generated
+	 */
+	int COMMIT = 18;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMMIT__ID = 0;
+
+	/**
+	 * The feature id for the '<em><b>Contributor</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMMIT__CONTRIBUTOR = 1;
+
+	/**
+	 * The feature id for the '<em><b>Parent Ids</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMMIT__PARENT_IDS = 2;
+
+	/**
+	 * The feature id for the '<em><b>Parents</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMMIT__PARENTS = 3;
+
+	/**
+	 * The feature id for the '<em><b>Children</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMMIT__CHILDREN = 4;
+
+	/**
+	 * The feature id for the '<em><b>Authored Date</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMMIT__AUTHORED_DATE = 5;
+
+	/**
+	 * The feature id for the '<em><b>Author Email</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMMIT__AUTHOR_EMAIL = 6;
+
+	/**
+	 * The feature id for the '<em><b>Author Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMMIT__AUTHOR_NAME = 7;
+
+	/**
+	 * The feature id for the '<em><b>Committed Date</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMMIT__COMMITTED_DATE = 8;
+
+	/**
+	 * The feature id for the '<em><b>Committer Email</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMMIT__COMMITTER_EMAIL = 9;
+
+	/**
+	 * The feature id for the '<em><b>Committer Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMMIT__COMMITTER_NAME = 10;
+
+	/**
+	 * The feature id for the '<em><b>Created At</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMMIT__CREATED_AT = 11;
+
+	/**
+	 * The feature id for the '<em><b>Message</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMMIT__MESSAGE = 12;
+
+	/**
+	 * The feature id for the '<em><b>Short Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMMIT__SHORT_ID = 13;
+
+	/**
+	 * The feature id for the '<em><b>Status</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMMIT__STATUS = 14;
+
+	/**
+	 * The feature id for the '<em><b>Timestamp</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMMIT__TIMESTAMP = 15;
+
+	/**
+	 * The feature id for the '<em><b>Title</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMMIT__TITLE = 16;
+
+	/**
+	 * The feature id for the '<em><b>Url</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMMIT__URL = 17;
+
+	/**
+	 * The feature id for the '<em><b>Web URL</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMMIT__WEB_URL = 18;
+
+	/**
+	 * The feature id for the '<em><b>Branches</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMMIT__BRANCHES = 19;
+
+	/**
+	 * The number of structural features of the '<em>Commit</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMMIT_FEATURE_COUNT = 20;
+
+	/**
+	 * The number of operations of the '<em>Commit</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMMIT_OPERATION_COUNT = 0;
+
+	/**
 	 * The meta object id for the '{@link org.nasdanika.models.gitlab.impl.ProjectAccessImpl <em>Project Access</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2354,7 +2580,7 @@ public interface GitLabPackage extends EPackage {
 	 * @see org.nasdanika.models.gitlab.impl.GitLabPackageImpl#getProjectAccess()
 	 * @generated
 	 */
-	int PROJECT_ACCESS = 18;
+	int PROJECT_ACCESS = 19;
 
 	/**
 	 * The feature id for the '<em><b>Access Level</b></em>' attribute.
@@ -2400,7 +2626,7 @@ public interface GitLabPackage extends EPackage {
 	 * @see org.nasdanika.models.gitlab.impl.GitLabPackageImpl#getCustomAttribute()
 	 * @generated
 	 */
-	int CUSTOM_ATTRIBUTE = 19;
+	int CUSTOM_ATTRIBUTE = 20;
 
 	/**
 	 * The feature id for the '<em><b>Key</b></em>' attribute.
@@ -2446,7 +2672,7 @@ public interface GitLabPackage extends EPackage {
 	 * @see org.nasdanika.models.gitlab.impl.GitLabPackageImpl#getTreeItem()
 	 * @generated
 	 */
-	int TREE_ITEM = 21;
+	int TREE_ITEM = 22;
 
 	/**
 	 * The meta object id for the '{@link org.nasdanika.models.gitlab.impl.TreeImpl <em>Tree</em>}' class.
@@ -2456,7 +2682,7 @@ public interface GitLabPackage extends EPackage {
 	 * @see org.nasdanika.models.gitlab.impl.GitLabPackageImpl#getTree()
 	 * @generated
 	 */
-	int TREE = 23;
+	int TREE = 24;
 
 	/**
 	 * The meta object id for the '{@link org.nasdanika.models.gitlab.impl.BranchImpl <em>Branch</em>}' class.
@@ -2466,7 +2692,7 @@ public interface GitLabPackage extends EPackage {
 	 * @see org.nasdanika.models.gitlab.impl.GitLabPackageImpl#getBranch()
 	 * @generated
 	 */
-	int BRANCH = 24;
+	int BRANCH = 25;
 
 	/**
 	 * The meta object id for the '{@link org.nasdanika.models.gitlab.impl.OwnerImpl <em>Owner</em>}' class.
@@ -2476,7 +2702,7 @@ public interface GitLabPackage extends EPackage {
 	 * @see org.nasdanika.models.gitlab.impl.GitLabPackageImpl#getOwner()
 	 * @generated
 	 */
-	int OWNER = 20;
+	int OWNER = 21;
 
 	/**
 	 * The feature id for the '<em><b>Loaded</b></em>' attribute.
@@ -2675,7 +2901,7 @@ public interface GitLabPackage extends EPackage {
 	 * @see org.nasdanika.models.gitlab.impl.GitLabPackageImpl#getTreeItemReference()
 	 * @generated
 	 */
-	int TREE_ITEM_REFERENCE = 22;
+	int TREE_ITEM_REFERENCE = 23;
 
 	/**
 	 * The feature id for the '<em><b>Loaded</b></em>' attribute.
@@ -2912,22 +3138,13 @@ public interface GitLabPackage extends EPackage {
 	int BRANCH__TREE_ITEMS_LOADED = TREE__TREE_ITEMS_LOADED;
 
 	/**
-	 * The feature id for the '<em><b>Commit Date</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int BRANCH__COMMIT_DATE = TREE_FEATURE_COUNT + 0;
-
-	/**
 	 * The feature id for the '<em><b>Developers Can Merge</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int BRANCH__DEVELOPERS_CAN_MERGE = TREE_FEATURE_COUNT + 1;
+	int BRANCH__DEVELOPERS_CAN_MERGE = TREE_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Developers Can Push</b></em>' attribute.
@@ -2936,7 +3153,7 @@ public interface GitLabPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int BRANCH__DEVELOPERS_CAN_PUSH = TREE_FEATURE_COUNT + 2;
+	int BRANCH__DEVELOPERS_CAN_PUSH = TREE_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Merged</b></em>' attribute.
@@ -2945,7 +3162,7 @@ public interface GitLabPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int BRANCH__MERGED = TREE_FEATURE_COUNT + 3;
+	int BRANCH__MERGED = TREE_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Is Protected</b></em>' attribute.
@@ -2954,7 +3171,7 @@ public interface GitLabPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int BRANCH__IS_PROTECTED = TREE_FEATURE_COUNT + 4;
+	int BRANCH__IS_PROTECTED = TREE_FEATURE_COUNT + 3;
 
 	/**
 	 * The feature id for the '<em><b>Is Default</b></em>' attribute.
@@ -2963,7 +3180,7 @@ public interface GitLabPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int BRANCH__IS_DEFAULT = TREE_FEATURE_COUNT + 5;
+	int BRANCH__IS_DEFAULT = TREE_FEATURE_COUNT + 4;
 
 	/**
 	 * The feature id for the '<em><b>Can Push</b></em>' attribute.
@@ -2972,7 +3189,7 @@ public interface GitLabPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int BRANCH__CAN_PUSH = TREE_FEATURE_COUNT + 6;
+	int BRANCH__CAN_PUSH = TREE_FEATURE_COUNT + 5;
 
 	/**
 	 * The feature id for the '<em><b>Web Url</b></em>' attribute.
@@ -2981,7 +3198,16 @@ public interface GitLabPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int BRANCH__WEB_URL = TREE_FEATURE_COUNT + 7;
+	int BRANCH__WEB_URL = TREE_FEATURE_COUNT + 6;
+
+	/**
+	 * The feature id for the '<em><b>Commit</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BRANCH__COMMIT = TREE_FEATURE_COUNT + 7;
 
 	/**
 	 * The number of structural features of the '<em>Branch</em>' class.
@@ -3018,7 +3244,7 @@ public interface GitLabPackage extends EPackage {
 	 * @see org.nasdanika.models.gitlab.impl.GitLabPackageImpl#getBlob()
 	 * @generated
 	 */
-	int BLOB = 25;
+	int BLOB = 26;
 
 	/**
 	 * The feature id for the '<em><b>Loaded</b></em>' attribute.
@@ -3100,7 +3326,7 @@ public interface GitLabPackage extends EPackage {
 	 * @see org.nasdanika.models.gitlab.impl.GitLabPackageImpl#getRepositoryFile()
 	 * @generated
 	 */
-	int REPOSITORY_FILE = 26;
+	int REPOSITORY_FILE = 27;
 
 	/**
 	 * The feature id for the '<em><b>Loaded</b></em>' attribute.
@@ -3218,7 +3444,7 @@ public interface GitLabPackage extends EPackage {
 	 * @see org.nasdanika.models.gitlab.impl.GitLabPackageImpl#getTextRepositoryFile()
 	 * @generated
 	 */
-	int TEXT_REPOSITORY_FILE = 27;
+	int TEXT_REPOSITORY_FILE = 28;
 
 	/**
 	 * The feature id for the '<em><b>Loaded</b></em>' attribute.
@@ -3345,7 +3571,7 @@ public interface GitLabPackage extends EPackage {
 	 * @see org.nasdanika.models.gitlab.impl.GitLabPackageImpl#getBinaryRepositoryFile()
 	 * @generated
 	 */
-	int BINARY_REPOSITORY_FILE = 28;
+	int BINARY_REPOSITORY_FILE = 29;
 
 	/**
 	 * The feature id for the '<em><b>Loaded</b></em>' attribute.
@@ -3472,7 +3698,7 @@ public interface GitLabPackage extends EPackage {
 	 * @see org.nasdanika.models.gitlab.impl.GitLabPackageImpl#getEObjectRepositoryFile()
 	 * @generated
 	 */
-	int EOBJECT_REPOSITORY_FILE = 29;
+	int EOBJECT_REPOSITORY_FILE = 30;
 
 	/**
 	 * The feature id for the '<em><b>Loaded</b></em>' attribute.
@@ -3599,7 +3825,7 @@ public interface GitLabPackage extends EPackage {
 	 * @see org.nasdanika.models.gitlab.impl.GitLabPackageImpl#getListRepositoryFile()
 	 * @generated
 	 */
-	int LIST_REPOSITORY_FILE = 30;
+	int LIST_REPOSITORY_FILE = 31;
 
 	/**
 	 * The feature id for the '<em><b>Loaded</b></em>' attribute.
@@ -3726,7 +3952,7 @@ public interface GitLabPackage extends EPackage {
 	 * @see org.nasdanika.models.gitlab.impl.GitLabPackageImpl#getVisibility()
 	 * @generated
 	 */
-	int VISIBILITY = 31;
+	int VISIBILITY = 32;
 
 
 	/**
@@ -3737,7 +3963,7 @@ public interface GitLabPackage extends EPackage {
 	 * @see org.nasdanika.models.gitlab.impl.GitLabPackageImpl#getAccessLevel()
 	 * @generated
 	 */
-	int ACCESS_LEVEL = 32;
+	int ACCESS_LEVEL = 33;
 
 
 	/**
@@ -3748,7 +3974,7 @@ public interface GitLabPackage extends EPackage {
 	 * @see org.nasdanika.models.gitlab.impl.GitLabPackageImpl#getMergeMethod()
 	 * @generated
 	 */
-	int MERGE_METHOD = 33;
+	int MERGE_METHOD = 34;
 
 	/**
 	 * The meta object id for the '{@link org.nasdanika.models.gitlab.BuildGitStrategy <em>Build Git Strategy</em>}' enum.
@@ -3758,7 +3984,7 @@ public interface GitLabPackage extends EPackage {
 	 * @see org.nasdanika.models.gitlab.impl.GitLabPackageImpl#getBuildGitStrategy()
 	 * @generated
 	 */
-	int BUILD_GIT_STRATEGY = 34;
+	int BUILD_GIT_STRATEGY = 35;
 
 	/**
 	 * The meta object id for the '{@link org.nasdanika.models.gitlab.Status <em>Status</em>}' enum.
@@ -3768,7 +3994,7 @@ public interface GitLabPackage extends EPackage {
 	 * @see org.nasdanika.models.gitlab.impl.GitLabPackageImpl#getStatus()
 	 * @generated
 	 */
-	int STATUS = 35;
+	int STATUS = 36;
 
 	/**
 	 * The meta object id for the '{@link org.nasdanika.models.gitlab.AutoDevopsDeployStrategy <em>Auto Devops Deploy Strategy</em>}' enum.
@@ -3778,7 +4004,7 @@ public interface GitLabPackage extends EPackage {
 	 * @see org.nasdanika.models.gitlab.impl.GitLabPackageImpl#getAutoDevopsDeployStrategy()
 	 * @generated
 	 */
-	int AUTO_DEVOPS_DEPLOY_STRATEGY = 36;
+	int AUTO_DEVOPS_DEPLOY_STRATEGY = 37;
 
 	/**
 	 * The meta object id for the '{@link org.nasdanika.models.gitlab.SquashOption <em>Squash Option</em>}' enum.
@@ -3788,7 +4014,7 @@ public interface GitLabPackage extends EPackage {
 	 * @see org.nasdanika.models.gitlab.impl.GitLabPackageImpl#getSquashOption()
 	 * @generated
 	 */
-	int SQUASH_OPTION = 37;
+	int SQUASH_OPTION = 38;
 
 
 	/**
@@ -5339,6 +5565,17 @@ public interface GitLabPackage extends EPackage {
 	EAttribute getProject_BranchesLoadError();
 
 	/**
+	 * Returns the meta object for the containment reference list '{@link org.nasdanika.models.gitlab.Project#getCommits <em>Commits</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Commits</em>'.
+	 * @see org.nasdanika.models.gitlab.Project#getCommits()
+	 * @see #getProject()
+	 * @generated
+	 */
+	EReference getProject_Commits();
+
+	/**
 	 * Returns the meta object for the '{@link org.nasdanika.models.gitlab.Project#createReference() <em>Create Reference</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -5597,15 +5834,256 @@ public interface GitLabPackage extends EPackage {
 	EReference getContributor_User();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.nasdanika.models.gitlab.Contributor#getCommits <em>Commits</em>}'.
+	 * Returns the meta object for the attribute '{@link org.nasdanika.models.gitlab.Contributor#getCommitCount <em>Commit Count</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Commits</em>'.
+	 * @return the meta object for the attribute '<em>Commit Count</em>'.
+	 * @see org.nasdanika.models.gitlab.Contributor#getCommitCount()
+	 * @see #getContributor()
+	 * @generated
+	 */
+	EAttribute getContributor_CommitCount();
+
+	/**
+	 * Returns the meta object for the reference list '{@link org.nasdanika.models.gitlab.Contributor#getCommits <em>Commits</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Commits</em>'.
 	 * @see org.nasdanika.models.gitlab.Contributor#getCommits()
 	 * @see #getContributor()
 	 * @generated
 	 */
-	EAttribute getContributor_Commits();
+	EReference getContributor_Commits();
+
+	/**
+	 * Returns the meta object for class '{@link org.nasdanika.models.gitlab.Commit <em>Commit</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Commit</em>'.
+	 * @see org.nasdanika.models.gitlab.Commit
+	 * @generated
+	 */
+	EClass getCommit();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.models.gitlab.Commit#getId <em>Id</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Id</em>'.
+	 * @see org.nasdanika.models.gitlab.Commit#getId()
+	 * @see #getCommit()
+	 * @generated
+	 */
+	EAttribute getCommit_Id();
+
+	/**
+	 * Returns the meta object for the reference '{@link org.nasdanika.models.gitlab.Commit#getContributor <em>Contributor</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Contributor</em>'.
+	 * @see org.nasdanika.models.gitlab.Commit#getContributor()
+	 * @see #getCommit()
+	 * @generated
+	 */
+	EReference getCommit_Contributor();
+
+	/**
+	 * Returns the meta object for the attribute list '{@link org.nasdanika.models.gitlab.Commit#getParentIds <em>Parent Ids</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute list '<em>Parent Ids</em>'.
+	 * @see org.nasdanika.models.gitlab.Commit#getParentIds()
+	 * @see #getCommit()
+	 * @generated
+	 */
+	EAttribute getCommit_ParentIds();
+
+	/**
+	 * Returns the meta object for the reference list '{@link org.nasdanika.models.gitlab.Commit#getParents <em>Parents</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Parents</em>'.
+	 * @see org.nasdanika.models.gitlab.Commit#getParents()
+	 * @see #getCommit()
+	 * @generated
+	 */
+	EReference getCommit_Parents();
+
+	/**
+	 * Returns the meta object for the reference list '{@link org.nasdanika.models.gitlab.Commit#getChildren <em>Children</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Children</em>'.
+	 * @see org.nasdanika.models.gitlab.Commit#getChildren()
+	 * @see #getCommit()
+	 * @generated
+	 */
+	EReference getCommit_Children();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.models.gitlab.Commit#getAuthoredDate <em>Authored Date</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Authored Date</em>'.
+	 * @see org.nasdanika.models.gitlab.Commit#getAuthoredDate()
+	 * @see #getCommit()
+	 * @generated
+	 */
+	EAttribute getCommit_AuthoredDate();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.models.gitlab.Commit#getAuthorEmail <em>Author Email</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Author Email</em>'.
+	 * @see org.nasdanika.models.gitlab.Commit#getAuthorEmail()
+	 * @see #getCommit()
+	 * @generated
+	 */
+	EAttribute getCommit_AuthorEmail();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.models.gitlab.Commit#getAuthorName <em>Author Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Author Name</em>'.
+	 * @see org.nasdanika.models.gitlab.Commit#getAuthorName()
+	 * @see #getCommit()
+	 * @generated
+	 */
+	EAttribute getCommit_AuthorName();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.models.gitlab.Commit#getCommittedDate <em>Committed Date</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Committed Date</em>'.
+	 * @see org.nasdanika.models.gitlab.Commit#getCommittedDate()
+	 * @see #getCommit()
+	 * @generated
+	 */
+	EAttribute getCommit_CommittedDate();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.models.gitlab.Commit#getCommitterEmail <em>Committer Email</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Committer Email</em>'.
+	 * @see org.nasdanika.models.gitlab.Commit#getCommitterEmail()
+	 * @see #getCommit()
+	 * @generated
+	 */
+	EAttribute getCommit_CommitterEmail();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.models.gitlab.Commit#getCommitterName <em>Committer Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Committer Name</em>'.
+	 * @see org.nasdanika.models.gitlab.Commit#getCommitterName()
+	 * @see #getCommit()
+	 * @generated
+	 */
+	EAttribute getCommit_CommitterName();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.models.gitlab.Commit#getCreatedAt <em>Created At</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Created At</em>'.
+	 * @see org.nasdanika.models.gitlab.Commit#getCreatedAt()
+	 * @see #getCommit()
+	 * @generated
+	 */
+	EAttribute getCommit_CreatedAt();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.models.gitlab.Commit#getMessage <em>Message</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Message</em>'.
+	 * @see org.nasdanika.models.gitlab.Commit#getMessage()
+	 * @see #getCommit()
+	 * @generated
+	 */
+	EAttribute getCommit_Message();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.models.gitlab.Commit#getShortId <em>Short Id</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Short Id</em>'.
+	 * @see org.nasdanika.models.gitlab.Commit#getShortId()
+	 * @see #getCommit()
+	 * @generated
+	 */
+	EAttribute getCommit_ShortId();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.models.gitlab.Commit#getStatus <em>Status</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Status</em>'.
+	 * @see org.nasdanika.models.gitlab.Commit#getStatus()
+	 * @see #getCommit()
+	 * @generated
+	 */
+	EAttribute getCommit_Status();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.models.gitlab.Commit#getTimestamp <em>Timestamp</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Timestamp</em>'.
+	 * @see org.nasdanika.models.gitlab.Commit#getTimestamp()
+	 * @see #getCommit()
+	 * @generated
+	 */
+	EAttribute getCommit_Timestamp();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.models.gitlab.Commit#getTitle <em>Title</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Title</em>'.
+	 * @see org.nasdanika.models.gitlab.Commit#getTitle()
+	 * @see #getCommit()
+	 * @generated
+	 */
+	EAttribute getCommit_Title();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.models.gitlab.Commit#getUrl <em>Url</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Url</em>'.
+	 * @see org.nasdanika.models.gitlab.Commit#getUrl()
+	 * @see #getCommit()
+	 * @generated
+	 */
+	EAttribute getCommit_Url();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.models.gitlab.Commit#getWebURL <em>Web URL</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Web URL</em>'.
+	 * @see org.nasdanika.models.gitlab.Commit#getWebURL()
+	 * @see #getCommit()
+	 * @generated
+	 */
+	EAttribute getCommit_WebURL();
+
+	/**
+	 * Returns the meta object for the reference list '{@link org.nasdanika.models.gitlab.Commit#getBranches <em>Branches</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Branches</em>'.
+	 * @see org.nasdanika.models.gitlab.Commit#getBranches()
+	 * @see #getCommit()
+	 * @generated
+	 */
+	EReference getCommit_Branches();
 
 	/**
 	 * Returns the meta object for the attribute '{@link org.nasdanika.models.gitlab.Contributor#getAdditions <em>Additions</em>}'.
@@ -5706,17 +6184,6 @@ public interface GitLabPackage extends EPackage {
 	EClass getBranch();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.nasdanika.models.gitlab.Branch#getCommitDate <em>Commit Date</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Commit Date</em>'.
-	 * @see org.nasdanika.models.gitlab.Branch#getCommitDate()
-	 * @see #getBranch()
-	 * @generated
-	 */
-	EAttribute getBranch_CommitDate();
-
-	/**
 	 * Returns the meta object for the attribute '{@link org.nasdanika.models.gitlab.Branch#getDevelopersCanMerge <em>Developers Can Merge</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -5792,6 +6259,17 @@ public interface GitLabPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getBranch_WebUrl();
+
+	/**
+	 * Returns the meta object for the reference '{@link org.nasdanika.models.gitlab.Branch#getCommit <em>Commit</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Commit</em>'.
+	 * @see org.nasdanika.models.gitlab.Branch#getCommit()
+	 * @see #getBranch()
+	 * @generated
+	 */
+	EReference getBranch_Commit();
 
 	/**
 	 * Returns the meta object for class '{@link org.nasdanika.models.gitlab.Owner <em>Owner</em>}'.
@@ -7149,6 +7627,13 @@ public interface GitLabPackage extends EPackage {
 		 */
 		EAttribute PROJECT__BRANCHES_LOAD_ERROR = eINSTANCE.getProject_BranchesLoadError();
 		/**
+		 * The meta object literal for the '<em><b>Commits</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference PROJECT__COMMITS = eINSTANCE.getProject_Commits();
+		/**
 		 * The meta object literal for the '<em><b>Create Reference</b></em>' operation.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -7327,12 +7812,168 @@ public interface GitLabPackage extends EPackage {
 		 */
 		EReference CONTRIBUTOR__USER = eINSTANCE.getContributor_User();
 		/**
-		 * The meta object literal for the '<em><b>Commits</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Commit Count</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute CONTRIBUTOR__COMMITS = eINSTANCE.getContributor_Commits();
+		EAttribute CONTRIBUTOR__COMMIT_COUNT = eINSTANCE.getContributor_CommitCount();
+		/**
+		 * The meta object literal for the '<em><b>Commits</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference CONTRIBUTOR__COMMITS = eINSTANCE.getContributor_Commits();
+		/**
+		 * The meta object literal for the '{@link org.nasdanika.models.gitlab.impl.CommitImpl <em>Commit</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.nasdanika.models.gitlab.impl.CommitImpl
+		 * @see org.nasdanika.models.gitlab.impl.GitLabPackageImpl#getCommit()
+		 * @generated
+		 */
+		EClass COMMIT = eINSTANCE.getCommit();
+		/**
+		 * The meta object literal for the '<em><b>Id</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute COMMIT__ID = eINSTANCE.getCommit_Id();
+		/**
+		 * The meta object literal for the '<em><b>Contributor</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference COMMIT__CONTRIBUTOR = eINSTANCE.getCommit_Contributor();
+		/**
+		 * The meta object literal for the '<em><b>Parent Ids</b></em>' attribute list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute COMMIT__PARENT_IDS = eINSTANCE.getCommit_ParentIds();
+		/**
+		 * The meta object literal for the '<em><b>Parents</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference COMMIT__PARENTS = eINSTANCE.getCommit_Parents();
+		/**
+		 * The meta object literal for the '<em><b>Children</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference COMMIT__CHILDREN = eINSTANCE.getCommit_Children();
+		/**
+		 * The meta object literal for the '<em><b>Authored Date</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute COMMIT__AUTHORED_DATE = eINSTANCE.getCommit_AuthoredDate();
+		/**
+		 * The meta object literal for the '<em><b>Author Email</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute COMMIT__AUTHOR_EMAIL = eINSTANCE.getCommit_AuthorEmail();
+		/**
+		 * The meta object literal for the '<em><b>Author Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute COMMIT__AUTHOR_NAME = eINSTANCE.getCommit_AuthorName();
+		/**
+		 * The meta object literal for the '<em><b>Committed Date</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute COMMIT__COMMITTED_DATE = eINSTANCE.getCommit_CommittedDate();
+		/**
+		 * The meta object literal for the '<em><b>Committer Email</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute COMMIT__COMMITTER_EMAIL = eINSTANCE.getCommit_CommitterEmail();
+		/**
+		 * The meta object literal for the '<em><b>Committer Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute COMMIT__COMMITTER_NAME = eINSTANCE.getCommit_CommitterName();
+		/**
+		 * The meta object literal for the '<em><b>Created At</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute COMMIT__CREATED_AT = eINSTANCE.getCommit_CreatedAt();
+		/**
+		 * The meta object literal for the '<em><b>Message</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute COMMIT__MESSAGE = eINSTANCE.getCommit_Message();
+		/**
+		 * The meta object literal for the '<em><b>Short Id</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute COMMIT__SHORT_ID = eINSTANCE.getCommit_ShortId();
+		/**
+		 * The meta object literal for the '<em><b>Status</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute COMMIT__STATUS = eINSTANCE.getCommit_Status();
+		/**
+		 * The meta object literal for the '<em><b>Timestamp</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute COMMIT__TIMESTAMP = eINSTANCE.getCommit_Timestamp();
+		/**
+		 * The meta object literal for the '<em><b>Title</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute COMMIT__TITLE = eINSTANCE.getCommit_Title();
+		/**
+		 * The meta object literal for the '<em><b>Url</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute COMMIT__URL = eINSTANCE.getCommit_Url();
+		/**
+		 * The meta object literal for the '<em><b>Web URL</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute COMMIT__WEB_URL = eINSTANCE.getCommit_WebURL();
+		/**
+		 * The meta object literal for the '<em><b>Branches</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference COMMIT__BRANCHES = eINSTANCE.getCommit_Branches();
 		/**
 		 * The meta object literal for the '<em><b>Additions</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
@@ -7403,13 +8044,6 @@ public interface GitLabPackage extends EPackage {
 		 */
 		EClass BRANCH = eINSTANCE.getBranch();
 		/**
-		 * The meta object literal for the '<em><b>Commit Date</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute BRANCH__COMMIT_DATE = eINSTANCE.getBranch_CommitDate();
-		/**
 		 * The meta object literal for the '<em><b>Developers Can Merge</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -7458,6 +8092,13 @@ public interface GitLabPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute BRANCH__WEB_URL = eINSTANCE.getBranch_WebUrl();
+		/**
+		 * The meta object literal for the '<em><b>Commit</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference BRANCH__COMMIT = eINSTANCE.getBranch_Commit();
 		/**
 		 * The meta object literal for the '{@link org.nasdanika.models.gitlab.impl.OwnerImpl <em>Owner</em>}' class.
 		 * <!-- begin-user-doc -->

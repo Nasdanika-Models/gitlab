@@ -269,6 +269,10 @@ public class Loader {
 		return getFactory().createBranch();
 	}
 	
+	protected org.nasdanika.models.gitlab.Commit createCommit(Commit commit, ProgressMonitor progressMonitor) {
+		return getFactory().createCommit();
+	}
+	
 	protected org.nasdanika.models.gitlab.Contributor createContributor(Contributor contributor, ProgressMonitor progressMonitor) {
 		return getFactory().createContributor();
 	}
@@ -485,7 +489,7 @@ public class Loader {
 								org.nasdanika.models.gitlab.Contributor modelContributor = createContributor(contributor, contributorMonitor);
 								populateAbstractUser(contributor, modelContributor);
 								modelContributor.setAdditions(contributor.getAdditions());
-								modelContributor.setCommits(contributor.getCommits());
+								modelContributor.setCommitCount(contributor.getCommits());
 								modelContributor.setDeletions(contributor.getDeletions());
 								contributorConsumer.accept(modelContributor, contributorMonitor);
 							}
@@ -524,7 +528,13 @@ public class Loader {
 								
 								Commit commit = branch.getCommit();
 								if (commit != null) {
-									modelBranch.setCommitDate(commit.getCommittedDate());
+									org.nasdanika.models.gitlab.Commit modelCommit = createCommit(commit, progressMonitor);
+									modelBranch.setCommit(modelCommit);
+									List<String> parentIds = commit.getParentIds();
+									if (parentIds != null) {
+										modelCommit.getParentIds().addAll(parentIds);
+									}
+									loadCommit(commit, modelCommit, progressMonitor);
 								}
 								
 								modelBranch.setDevelopersCanMerge(branch.getDevelopersCanMerge());
@@ -542,6 +552,24 @@ public class Loader {
 				}
 			}
 		}
+	}
+
+	protected void loadCommit(Commit commit, org.nasdanika.models.gitlab.Commit modelCommit, ProgressMonitor progressMonitor) {
+		modelCommit.setAuthoredDate(commit.getAuthoredDate());
+		modelCommit.setAuthorEmail(commit.getAuthorEmail());
+		modelCommit.setAuthorName(commit.getAuthorName());
+		modelCommit.setCommittedDate(commit.getCommittedDate());
+		modelCommit.setCommitterEmail(commit.getCommitterEmail());
+		modelCommit.setCommitterName(commit.getCommitterName());
+		modelCommit.setCreatedAt(commit.getCreatedAt());
+		modelCommit.setId(commit.getId());
+		modelCommit.setMessage(commit.getMessage());
+		modelCommit.setShortId(commit.getShortId());
+		modelCommit.setStatus(commit.getStatus());
+		modelCommit.setTimestamp(commit.getTimestamp());
+		modelCommit.setTitle(commit.getTitle());
+		modelCommit.setUrl(commit.getUrl());
+		modelCommit.setWebURL(commit.getWebUrl());
 	}
 	
 	/**

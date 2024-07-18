@@ -2,10 +2,14 @@
  */
 package org.nasdanika.models.gitlab.impl;
 
+import java.util.Collection;
 import org.eclipse.emf.common.notify.NotificationChain;
 
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
+import org.eclipse.emf.ecore.util.InternalEList;
+import org.nasdanika.models.gitlab.Commit;
 import org.nasdanika.models.gitlab.Contributor;
 import org.nasdanika.models.gitlab.GitLabPackage;
 import org.nasdanika.models.gitlab.User;
@@ -19,23 +23,24 @@ import org.nasdanika.models.gitlab.User;
  * </p>
  * <ul>
  *   <li>{@link org.nasdanika.models.gitlab.impl.ContributorImpl#getUser <em>User</em>}</li>
- *   <li>{@link org.nasdanika.models.gitlab.impl.ContributorImpl#getCommits <em>Commits</em>}</li>
+ *   <li>{@link org.nasdanika.models.gitlab.impl.ContributorImpl#getCommitCount <em>Commit Count</em>}</li>
  *   <li>{@link org.nasdanika.models.gitlab.impl.ContributorImpl#getAdditions <em>Additions</em>}</li>
  *   <li>{@link org.nasdanika.models.gitlab.impl.ContributorImpl#getDeletions <em>Deletions</em>}</li>
+ *   <li>{@link org.nasdanika.models.gitlab.impl.ContributorImpl#getCommits <em>Commits</em>}</li>
  * </ul>
  *
  * @generated
  */
 public class ContributorImpl extends AbstractUserImpl implements Contributor {
 	/**
-	 * The default value of the '{@link #getCommits() <em>Commits</em>}' attribute.
+	 * The default value of the '{@link #getCommitCount() <em>Commit Count</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getCommits()
+	 * @see #getCommitCount()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final Integer COMMITS_EDEFAULT = null;
+	protected static final Integer COMMIT_COUNT_EDEFAULT = null;
 
 	/**
 	 * The default value of the '{@link #getAdditions() <em>Additions</em>}' attribute.
@@ -121,8 +126,8 @@ public class ContributorImpl extends AbstractUserImpl implements Contributor {
 	 * @generated
 	 */
 	@Override
-	public Integer getCommits() {
-		return (Integer)eDynamicGet(GitLabPackage.CONTRIBUTOR__COMMITS, GitLabPackage.Literals.CONTRIBUTOR__COMMITS, true, true);
+	public Integer getCommitCount() {
+		return (Integer)eDynamicGet(GitLabPackage.CONTRIBUTOR__COMMIT_COUNT, GitLabPackage.Literals.CONTRIBUTOR__COMMIT_COUNT, true, true);
 	}
 
 	/**
@@ -131,8 +136,19 @@ public class ContributorImpl extends AbstractUserImpl implements Contributor {
 	 * @generated
 	 */
 	@Override
-	public void setCommits(Integer newCommits) {
-		eDynamicSet(GitLabPackage.CONTRIBUTOR__COMMITS, GitLabPackage.Literals.CONTRIBUTOR__COMMITS, newCommits);
+	public void setCommitCount(Integer newCommitCount) {
+		eDynamicSet(GitLabPackage.CONTRIBUTOR__COMMIT_COUNT, GitLabPackage.Literals.CONTRIBUTOR__COMMIT_COUNT, newCommitCount);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@SuppressWarnings("unchecked")
+	@Override
+	public EList<Commit> getCommits() {
+		return (EList<Commit>)eDynamicGet(GitLabPackage.CONTRIBUTOR__COMMITS, GitLabPackage.Literals.CONTRIBUTOR__COMMITS, true, true);
 	}
 
 	/**
@@ -180,6 +196,7 @@ public class ContributorImpl extends AbstractUserImpl implements Contributor {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -188,6 +205,8 @@ public class ContributorImpl extends AbstractUserImpl implements Contributor {
 				if (user != null)
 					msgs = ((InternalEObject)user).eInverseRemove(this, GitLabPackage.USER__CONTRIBUTIONS, User.class, msgs);
 				return basicSetUser((User)otherEnd, msgs);
+			case GitLabPackage.CONTRIBUTOR__COMMITS:
+				return ((InternalEList<InternalEObject>)(InternalEList<?>)getCommits()).basicAdd(otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
@@ -202,6 +221,8 @@ public class ContributorImpl extends AbstractUserImpl implements Contributor {
 		switch (featureID) {
 			case GitLabPackage.CONTRIBUTOR__USER:
 				return basicSetUser(null, msgs);
+			case GitLabPackage.CONTRIBUTOR__COMMITS:
+				return ((InternalEList<?>)getCommits()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -217,12 +238,14 @@ public class ContributorImpl extends AbstractUserImpl implements Contributor {
 			case GitLabPackage.CONTRIBUTOR__USER:
 				if (resolve) return getUser();
 				return basicGetUser();
-			case GitLabPackage.CONTRIBUTOR__COMMITS:
-				return getCommits();
+			case GitLabPackage.CONTRIBUTOR__COMMIT_COUNT:
+				return getCommitCount();
 			case GitLabPackage.CONTRIBUTOR__ADDITIONS:
 				return getAdditions();
 			case GitLabPackage.CONTRIBUTOR__DELETIONS:
 				return getDeletions();
+			case GitLabPackage.CONTRIBUTOR__COMMITS:
+				return getCommits();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -232,20 +255,25 @@ public class ContributorImpl extends AbstractUserImpl implements Contributor {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case GitLabPackage.CONTRIBUTOR__USER:
 				setUser((User)newValue);
 				return;
-			case GitLabPackage.CONTRIBUTOR__COMMITS:
-				setCommits((Integer)newValue);
+			case GitLabPackage.CONTRIBUTOR__COMMIT_COUNT:
+				setCommitCount((Integer)newValue);
 				return;
 			case GitLabPackage.CONTRIBUTOR__ADDITIONS:
 				setAdditions((Integer)newValue);
 				return;
 			case GitLabPackage.CONTRIBUTOR__DELETIONS:
 				setDeletions((Integer)newValue);
+				return;
+			case GitLabPackage.CONTRIBUTOR__COMMITS:
+				getCommits().clear();
+				getCommits().addAll((Collection<? extends Commit>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -262,14 +290,17 @@ public class ContributorImpl extends AbstractUserImpl implements Contributor {
 			case GitLabPackage.CONTRIBUTOR__USER:
 				setUser((User)null);
 				return;
-			case GitLabPackage.CONTRIBUTOR__COMMITS:
-				setCommits(COMMITS_EDEFAULT);
+			case GitLabPackage.CONTRIBUTOR__COMMIT_COUNT:
+				setCommitCount(COMMIT_COUNT_EDEFAULT);
 				return;
 			case GitLabPackage.CONTRIBUTOR__ADDITIONS:
 				setAdditions(ADDITIONS_EDEFAULT);
 				return;
 			case GitLabPackage.CONTRIBUTOR__DELETIONS:
 				setDeletions(DELETIONS_EDEFAULT);
+				return;
+			case GitLabPackage.CONTRIBUTOR__COMMITS:
+				getCommits().clear();
 				return;
 		}
 		super.eUnset(featureID);
@@ -285,12 +316,14 @@ public class ContributorImpl extends AbstractUserImpl implements Contributor {
 		switch (featureID) {
 			case GitLabPackage.CONTRIBUTOR__USER:
 				return basicGetUser() != null;
-			case GitLabPackage.CONTRIBUTOR__COMMITS:
-				return COMMITS_EDEFAULT == null ? getCommits() != null : !COMMITS_EDEFAULT.equals(getCommits());
+			case GitLabPackage.CONTRIBUTOR__COMMIT_COUNT:
+				return COMMIT_COUNT_EDEFAULT == null ? getCommitCount() != null : !COMMIT_COUNT_EDEFAULT.equals(getCommitCount());
 			case GitLabPackage.CONTRIBUTOR__ADDITIONS:
 				return ADDITIONS_EDEFAULT == null ? getAdditions() != null : !ADDITIONS_EDEFAULT.equals(getAdditions());
 			case GitLabPackage.CONTRIBUTOR__DELETIONS:
 				return DELETIONS_EDEFAULT == null ? getDeletions() != null : !DELETIONS_EDEFAULT.equals(getDeletions());
+			case GitLabPackage.CONTRIBUTOR__COMMITS:
+				return !getCommits().isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

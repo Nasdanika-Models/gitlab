@@ -2,8 +2,6 @@
  */
 package org.nasdanika.models.gitlab;
 
-import java.util.Date;
-
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Branch</b></em>'.
@@ -13,7 +11,6 @@ import java.util.Date;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link org.nasdanika.models.gitlab.Branch#getCommitDate <em>Commit Date</em>}</li>
  *   <li>{@link org.nasdanika.models.gitlab.Branch#getDevelopersCanMerge <em>Developers Can Merge</em>}</li>
  *   <li>{@link org.nasdanika.models.gitlab.Branch#getDevelopersCanPush <em>Developers Can Push</em>}</li>
  *   <li>{@link org.nasdanika.models.gitlab.Branch#getMerged <em>Merged</em>}</li>
@@ -21,6 +18,7 @@ import java.util.Date;
  *   <li>{@link org.nasdanika.models.gitlab.Branch#getIsDefault <em>Is Default</em>}</li>
  *   <li>{@link org.nasdanika.models.gitlab.Branch#getCanPush <em>Can Push</em>}</li>
  *   <li>{@link org.nasdanika.models.gitlab.Branch#getWebUrl <em>Web Url</em>}</li>
+ *   <li>{@link org.nasdanika.models.gitlab.Branch#getCommit <em>Commit</em>}</li>
  * </ul>
  *
  * @see org.nasdanika.models.gitlab.GitLabPackage#getBranch()
@@ -28,28 +26,6 @@ import java.util.Date;
  * @generated
  */
 public interface Branch extends Tree {
-	/**
-	 * Returns the value of the '<em><b>Commit Date</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Commit Date</em>' attribute.
-	 * @see #setCommitDate(Date)
-	 * @see org.nasdanika.models.gitlab.GitLabPackage#getBranch_CommitDate()
-	 * @model
-	 * @generated
-	 */
-	Date getCommitDate();
-
-	/**
-	 * Sets the value of the '{@link org.nasdanika.models.gitlab.Branch#getCommitDate <em>Commit Date</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Commit Date</em>' attribute.
-	 * @see #getCommitDate()
-	 * @generated
-	 */
-	void setCommitDate(Date value);
-
 	/**
 	 * Returns the value of the '<em><b>Developers Can Merge</b></em>' attribute.
 	 * <!-- begin-user-doc -->
@@ -203,5 +179,29 @@ public interface Branch extends Tree {
 	 * @generated
 	 */
 	void setWebUrl(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Commit</b></em>' reference.
+	 * It is bidirectional and its opposite is '{@link org.nasdanika.models.gitlab.Commit#getBranches <em>Branches</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Commit</em>' reference.
+	 * @see #setCommit(Commit)
+	 * @see org.nasdanika.models.gitlab.GitLabPackage#getBranch_Commit()
+	 * @see org.nasdanika.models.gitlab.Commit#getBranches
+	 * @model opposite="branches"
+	 * @generated
+	 */
+	Commit getCommit();
+
+	/**
+	 * Sets the value of the '{@link org.nasdanika.models.gitlab.Branch#getCommit <em>Commit</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Commit</em>' reference.
+	 * @see #getCommit()
+	 * @generated
+	 */
+	void setCommit(Commit value);
 
 } // Branch

@@ -17,6 +17,7 @@ import org.nasdanika.models.gitlab.AbstractProject;
 import org.nasdanika.models.gitlab.AutoDevopsDeployStrategy;
 import org.nasdanika.models.gitlab.Branch;
 import org.nasdanika.models.gitlab.BuildGitStrategy;
+import org.nasdanika.models.gitlab.Commit;
 import org.nasdanika.models.gitlab.Contributor;
 import org.nasdanika.models.gitlab.GitLabFactory;
 import org.nasdanika.models.gitlab.GitLabPackage;
@@ -118,6 +119,7 @@ import org.nasdanika.models.gitlab.Visibility;
  *   <li>{@link org.nasdanika.models.gitlab.impl.ProjectImpl#getMembers <em>Members</em>}</li>
  *   <li>{@link org.nasdanika.models.gitlab.impl.ProjectImpl#getBranchesLoaded <em>Branches Loaded</em>}</li>
  *   <li>{@link org.nasdanika.models.gitlab.impl.ProjectImpl#getBranchesLoadError <em>Branches Load Error</em>}</li>
+ *   <li>{@link org.nasdanika.models.gitlab.impl.ProjectImpl#getCommits <em>Commits</em>}</li>
  * </ul>
  *
  * @generated
@@ -2270,6 +2272,17 @@ public class ProjectImpl extends LoadableImpl implements Project {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@SuppressWarnings("unchecked")
+	@Override
+	public EList<Commit> getCommits() {
+		return (EList<Commit>)eDynamicGet(GitLabPackage.PROJECT__COMMITS, GitLabPackage.Literals.PROJECT__COMMITS, true, true);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
 	@Override
@@ -2339,6 +2352,8 @@ public class ProjectImpl extends LoadableImpl implements Project {
 				return ((InternalEList<?>)getContributors()).basicRemove(otherEnd, msgs);
 			case GitLabPackage.PROJECT__MEMBERS:
 				return ((InternalEList<?>)getMembers()).basicRemove(otherEnd, msgs);
+			case GitLabPackage.PROJECT__COMMITS:
+				return ((InternalEList<?>)getCommits()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -2506,6 +2521,8 @@ public class ProjectImpl extends LoadableImpl implements Project {
 				return getBranchesLoaded();
 			case GitLabPackage.PROJECT__BRANCHES_LOAD_ERROR:
 				return getBranchesLoadError();
+			case GitLabPackage.PROJECT__COMMITS:
+				return getCommits();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -2752,6 +2769,10 @@ public class ProjectImpl extends LoadableImpl implements Project {
 			case GitLabPackage.PROJECT__BRANCHES_LOAD_ERROR:
 				setBranchesLoadError((String)newValue);
 				return;
+			case GitLabPackage.PROJECT__COMMITS:
+				getCommits().clear();
+				getCommits().addAll((Collection<? extends Commit>)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -2992,6 +3013,9 @@ public class ProjectImpl extends LoadableImpl implements Project {
 			case GitLabPackage.PROJECT__BRANCHES_LOAD_ERROR:
 				setBranchesLoadError(BRANCHES_LOAD_ERROR_EDEFAULT);
 				return;
+			case GitLabPackage.PROJECT__COMMITS:
+				getCommits().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -3156,6 +3180,8 @@ public class ProjectImpl extends LoadableImpl implements Project {
 				return BRANCHES_LOADED_EDEFAULT == null ? getBranchesLoaded() != null : !BRANCHES_LOADED_EDEFAULT.equals(getBranchesLoaded());
 			case GitLabPackage.PROJECT__BRANCHES_LOAD_ERROR:
 				return BRANCHES_LOAD_ERROR_EDEFAULT == null ? getBranchesLoadError() != null : !BRANCHES_LOAD_ERROR_EDEFAULT.equals(getBranchesLoadError());
+			case GitLabPackage.PROJECT__COMMITS:
+				return !getCommits().isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

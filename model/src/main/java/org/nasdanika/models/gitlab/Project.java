@@ -90,6 +90,7 @@ import org.eclipse.emf.common.util.EMap;
  *   <li>{@link org.nasdanika.models.gitlab.Project#getMembers <em>Members</em>}</li>
  *   <li>{@link org.nasdanika.models.gitlab.Project#getBranchesLoaded <em>Branches Loaded</em>}</li>
  *   <li>{@link org.nasdanika.models.gitlab.Project#getBranchesLoadError <em>Branches Load Error</em>}</li>
+ *   <li>{@link org.nasdanika.models.gitlab.Project#getCommits <em>Commits</em>}</li>
  * </ul>
  *
  * @see org.nasdanika.models.gitlab.GitLabPackage#getProject()
@@ -1718,6 +1719,18 @@ public interface Project extends Loadable, AbstractProject {
 	 * @generated
 	 */
 	void setBranchesLoadError(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Commits</b></em>' containment reference list.
+	 * The list contents are of type {@link org.nasdanika.models.gitlab.Commit}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Commits</em>' containment reference list.
+	 * @see org.nasdanika.models.gitlab.GitLabPackage#getProject_Commits()
+	 * @model containment="true" keys="id"
+	 * @generated
+	 */
+	EList<Commit> getCommits();
 
 	/**
 	 * <!-- begin-user-doc -->

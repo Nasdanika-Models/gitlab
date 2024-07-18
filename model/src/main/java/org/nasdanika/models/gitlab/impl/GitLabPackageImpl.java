@@ -22,6 +22,7 @@ import org.nasdanika.models.gitlab.BinaryRepositoryFile;
 import org.nasdanika.models.gitlab.Blob;
 import org.nasdanika.models.gitlab.Branch;
 import org.nasdanika.models.gitlab.BuildGitStrategy;
+import org.nasdanika.models.gitlab.Commit;
 import org.nasdanika.models.gitlab.Contributor;
 import org.nasdanika.models.gitlab.EObjectRepositoryFile;
 import org.nasdanika.models.gitlab.GitLab;
@@ -172,6 +173,12 @@ public class GitLabPackageImpl extends EPackageImpl implements GitLabPackage {
 	 * @generated
 	 */
 	private EClass contributorEClass = null;
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass commitEClass = null;
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1790,6 +1797,16 @@ public class GitLabPackageImpl extends EPackageImpl implements GitLabPackage {
 	 * @generated
 	 */
 	@Override
+	public EReference getProject_Commits() {
+		return (EReference)projectEClass.getEStructuralFeatures().get(75);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EOperation getProject__CreateReference() {
 		return projectEClass.getEOperations().get(0);
 	}
@@ -2030,8 +2047,228 @@ public class GitLabPackageImpl extends EPackageImpl implements GitLabPackage {
 	 * @generated
 	 */
 	@Override
-	public EAttribute getContributor_Commits() {
+	public EAttribute getContributor_CommitCount() {
 		return (EAttribute)contributorEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getContributor_Commits() {
+		return (EReference)contributorEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EClass getCommit() {
+		return commitEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getCommit_Id() {
+		return (EAttribute)commitEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getCommit_Contributor() {
+		return (EReference)commitEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getCommit_ParentIds() {
+		return (EAttribute)commitEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getCommit_Parents() {
+		return (EReference)commitEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getCommit_Children() {
+		return (EReference)commitEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getCommit_AuthoredDate() {
+		return (EAttribute)commitEClass.getEStructuralFeatures().get(5);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getCommit_AuthorEmail() {
+		return (EAttribute)commitEClass.getEStructuralFeatures().get(6);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getCommit_AuthorName() {
+		return (EAttribute)commitEClass.getEStructuralFeatures().get(7);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getCommit_CommittedDate() {
+		return (EAttribute)commitEClass.getEStructuralFeatures().get(8);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getCommit_CommitterEmail() {
+		return (EAttribute)commitEClass.getEStructuralFeatures().get(9);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getCommit_CommitterName() {
+		return (EAttribute)commitEClass.getEStructuralFeatures().get(10);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getCommit_CreatedAt() {
+		return (EAttribute)commitEClass.getEStructuralFeatures().get(11);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getCommit_Message() {
+		return (EAttribute)commitEClass.getEStructuralFeatures().get(12);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getCommit_ShortId() {
+		return (EAttribute)commitEClass.getEStructuralFeatures().get(13);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getCommit_Status() {
+		return (EAttribute)commitEClass.getEStructuralFeatures().get(14);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getCommit_Timestamp() {
+		return (EAttribute)commitEClass.getEStructuralFeatures().get(15);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getCommit_Title() {
+		return (EAttribute)commitEClass.getEStructuralFeatures().get(16);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getCommit_Url() {
+		return (EAttribute)commitEClass.getEStructuralFeatures().get(17);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getCommit_WebURL() {
+		return (EAttribute)commitEClass.getEStructuralFeatures().get(18);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getCommit_Branches() {
+		return (EReference)commitEClass.getEStructuralFeatures().get(19);
 	}
 
 	/**
@@ -2130,7 +2367,7 @@ public class GitLabPackageImpl extends EPackageImpl implements GitLabPackage {
 	 * @generated
 	 */
 	@Override
-	public EAttribute getBranch_CommitDate() {
+	public EAttribute getBranch_DevelopersCanMerge() {
 		return (EAttribute)branchEClass.getEStructuralFeatures().get(0);
 	}
 
@@ -2140,7 +2377,7 @@ public class GitLabPackageImpl extends EPackageImpl implements GitLabPackage {
 	 * @generated
 	 */
 	@Override
-	public EAttribute getBranch_DevelopersCanMerge() {
+	public EAttribute getBranch_DevelopersCanPush() {
 		return (EAttribute)branchEClass.getEStructuralFeatures().get(1);
 	}
 
@@ -2150,7 +2387,7 @@ public class GitLabPackageImpl extends EPackageImpl implements GitLabPackage {
 	 * @generated
 	 */
 	@Override
-	public EAttribute getBranch_DevelopersCanPush() {
+	public EAttribute getBranch_Merged() {
 		return (EAttribute)branchEClass.getEStructuralFeatures().get(2);
 	}
 
@@ -2160,7 +2397,7 @@ public class GitLabPackageImpl extends EPackageImpl implements GitLabPackage {
 	 * @generated
 	 */
 	@Override
-	public EAttribute getBranch_Merged() {
+	public EAttribute getBranch_IsProtected() {
 		return (EAttribute)branchEClass.getEStructuralFeatures().get(3);
 	}
 
@@ -2170,7 +2407,7 @@ public class GitLabPackageImpl extends EPackageImpl implements GitLabPackage {
 	 * @generated
 	 */
 	@Override
-	public EAttribute getBranch_IsProtected() {
+	public EAttribute getBranch_IsDefault() {
 		return (EAttribute)branchEClass.getEStructuralFeatures().get(4);
 	}
 
@@ -2180,7 +2417,7 @@ public class GitLabPackageImpl extends EPackageImpl implements GitLabPackage {
 	 * @generated
 	 */
 	@Override
-	public EAttribute getBranch_IsDefault() {
+	public EAttribute getBranch_CanPush() {
 		return (EAttribute)branchEClass.getEStructuralFeatures().get(5);
 	}
 
@@ -2190,7 +2427,7 @@ public class GitLabPackageImpl extends EPackageImpl implements GitLabPackage {
 	 * @generated
 	 */
 	@Override
-	public EAttribute getBranch_CanPush() {
+	public EAttribute getBranch_WebUrl() {
 		return (EAttribute)branchEClass.getEStructuralFeatures().get(6);
 	}
 
@@ -2200,8 +2437,8 @@ public class GitLabPackageImpl extends EPackageImpl implements GitLabPackage {
 	 * @generated
 	 */
 	@Override
-	public EAttribute getBranch_WebUrl() {
-		return (EAttribute)branchEClass.getEStructuralFeatures().get(7);
+	public EReference getBranch_Commit() {
+		return (EReference)branchEClass.getEStructuralFeatures().get(7);
 	}
 
 	/**
@@ -2687,6 +2924,7 @@ public class GitLabPackageImpl extends EPackageImpl implements GitLabPackage {
 		createEReference(projectEClass, PROJECT__MEMBERS);
 		createEAttribute(projectEClass, PROJECT__BRANCHES_LOADED);
 		createEAttribute(projectEClass, PROJECT__BRANCHES_LOAD_ERROR);
+		createEReference(projectEClass, PROJECT__COMMITS);
 		createEOperation(projectEClass, PROJECT___CREATE_REFERENCE);
 
 		projectReferenceEClass = createEClass(PROJECT_REFERENCE);
@@ -2716,9 +2954,32 @@ public class GitLabPackageImpl extends EPackageImpl implements GitLabPackage {
 
 		contributorEClass = createEClass(CONTRIBUTOR);
 		createEReference(contributorEClass, CONTRIBUTOR__USER);
-		createEAttribute(contributorEClass, CONTRIBUTOR__COMMITS);
+		createEAttribute(contributorEClass, CONTRIBUTOR__COMMIT_COUNT);
 		createEAttribute(contributorEClass, CONTRIBUTOR__ADDITIONS);
 		createEAttribute(contributorEClass, CONTRIBUTOR__DELETIONS);
+		createEReference(contributorEClass, CONTRIBUTOR__COMMITS);
+
+		commitEClass = createEClass(COMMIT);
+		createEAttribute(commitEClass, COMMIT__ID);
+		createEReference(commitEClass, COMMIT__CONTRIBUTOR);
+		createEAttribute(commitEClass, COMMIT__PARENT_IDS);
+		createEReference(commitEClass, COMMIT__PARENTS);
+		createEReference(commitEClass, COMMIT__CHILDREN);
+		createEAttribute(commitEClass, COMMIT__AUTHORED_DATE);
+		createEAttribute(commitEClass, COMMIT__AUTHOR_EMAIL);
+		createEAttribute(commitEClass, COMMIT__AUTHOR_NAME);
+		createEAttribute(commitEClass, COMMIT__COMMITTED_DATE);
+		createEAttribute(commitEClass, COMMIT__COMMITTER_EMAIL);
+		createEAttribute(commitEClass, COMMIT__COMMITTER_NAME);
+		createEAttribute(commitEClass, COMMIT__CREATED_AT);
+		createEAttribute(commitEClass, COMMIT__MESSAGE);
+		createEAttribute(commitEClass, COMMIT__SHORT_ID);
+		createEAttribute(commitEClass, COMMIT__STATUS);
+		createEAttribute(commitEClass, COMMIT__TIMESTAMP);
+		createEAttribute(commitEClass, COMMIT__TITLE);
+		createEAttribute(commitEClass, COMMIT__URL);
+		createEAttribute(commitEClass, COMMIT__WEB_URL);
+		createEReference(commitEClass, COMMIT__BRANCHES);
 
 		projectAccessEClass = createEClass(PROJECT_ACCESS);
 		createEAttribute(projectAccessEClass, PROJECT_ACCESS__ACCESS_LEVEL);
@@ -2742,7 +3003,6 @@ public class GitLabPackageImpl extends EPackageImpl implements GitLabPackage {
 		createEAttribute(treeEClass, TREE__TREE_ITEMS_LOADED);
 
 		branchEClass = createEClass(BRANCH);
-		createEAttribute(branchEClass, BRANCH__COMMIT_DATE);
 		createEAttribute(branchEClass, BRANCH__DEVELOPERS_CAN_MERGE);
 		createEAttribute(branchEClass, BRANCH__DEVELOPERS_CAN_PUSH);
 		createEAttribute(branchEClass, BRANCH__MERGED);
@@ -2750,6 +3010,7 @@ public class GitLabPackageImpl extends EPackageImpl implements GitLabPackage {
 		createEAttribute(branchEClass, BRANCH__IS_DEFAULT);
 		createEAttribute(branchEClass, BRANCH__CAN_PUSH);
 		createEAttribute(branchEClass, BRANCH__WEB_URL);
+		createEReference(branchEClass, BRANCH__COMMIT);
 
 		blobEClass = createEClass(BLOB);
 
@@ -3031,6 +3292,8 @@ public class GitLabPackageImpl extends EPackageImpl implements GitLabPackage {
 		getProject_Members().getEKeys().add(this.getPrincipal_Id());
 		initEAttribute(getProject_BranchesLoaded(), ecorePackage.getEDate(), "branchesLoaded", null, 0, 1, Project.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getProject_BranchesLoadError(), ecorePackage.getEString(), "branchesLoadError", null, 0, 1, Project.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getProject_Commits(), this.getCommit(), null, "commits", null, 0, -1, Project.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		getProject_Commits().getEKeys().add(this.getCommit_Id());
 
 		initEOperation(getProject__CreateReference(), this.getProjectReference(), "createReference", 0, 1, IS_UNIQUE, IS_ORDERED);
 
@@ -3061,9 +3324,32 @@ public class GitLabPackageImpl extends EPackageImpl implements GitLabPackage {
 
 		initEClass(contributorEClass, Contributor.class, "Contributor", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getContributor_User(), this.getUser(), this.getUser_Contributions(), "user", null, 0, 1, Contributor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getContributor_Commits(), ecorePackage.getEIntegerObject(), "commits", null, 0, 1, Contributor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getContributor_CommitCount(), ecorePackage.getEIntegerObject(), "commitCount", null, 0, 1, Contributor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getContributor_Additions(), ecorePackage.getEIntegerObject(), "additions", null, 0, 1, Contributor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getContributor_Deletions(), ecorePackage.getEIntegerObject(), "deletions", null, 0, 1, Contributor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getContributor_Commits(), this.getCommit(), this.getCommit_Contributor(), "commits", null, 0, -1, Contributor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(commitEClass, Commit.class, "Commit", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getCommit_Id(), ecorePackage.getEString(), "id", null, 0, 1, Commit.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getCommit_Contributor(), this.getContributor(), this.getContributor_Commits(), "contributor", null, 0, 1, Commit.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getCommit_ParentIds(), ecorePackage.getEString(), "parentIds", null, 0, -1, Commit.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getCommit_Parents(), this.getCommit(), this.getCommit_Children(), "parents", null, 0, -1, Commit.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getCommit_Children(), this.getCommit(), this.getCommit_Parents(), "children", null, 0, -1, Commit.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getCommit_AuthoredDate(), ecorePackage.getEDate(), "authoredDate", null, 0, 1, Commit.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getCommit_AuthorEmail(), ecorePackage.getEString(), "authorEmail", null, 0, 1, Commit.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getCommit_AuthorName(), ecorePackage.getEString(), "authorName", null, 0, 1, Commit.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getCommit_CommittedDate(), ecorePackage.getEDate(), "committedDate", null, 0, 1, Commit.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getCommit_CommitterEmail(), ecorePackage.getEString(), "committerEmail", null, 0, 1, Commit.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getCommit_CommitterName(), ecorePackage.getEString(), "committerName", null, 0, 1, Commit.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getCommit_CreatedAt(), ecorePackage.getEDate(), "createdAt", null, 0, 1, Commit.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getCommit_Message(), ecorePackage.getEString(), "message", null, 0, 1, Commit.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getCommit_ShortId(), ecorePackage.getEString(), "shortId", null, 0, 1, Commit.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getCommit_Status(), ecorePackage.getEString(), "status", null, 0, 1, Commit.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getCommit_Timestamp(), ecorePackage.getEDate(), "timestamp", null, 0, 1, Commit.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getCommit_Title(), ecorePackage.getEString(), "title", null, 0, 1, Commit.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getCommit_Url(), ecorePackage.getEString(), "url", null, 0, 1, Commit.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getCommit_WebURL(), ecorePackage.getEString(), "webURL", null, 0, 1, Commit.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getCommit_Branches(), this.getBranch(), this.getBranch_Commit(), "branches", null, 0, -1, Commit.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(projectAccessEClass, ProjectAccess.class, "ProjectAccess", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getProjectAccess_AccessLevel(), this.getAccessLevel(), "accessLevel", null, 0, 1, ProjectAccess.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -3088,7 +3374,6 @@ public class GitLabPackageImpl extends EPackageImpl implements GitLabPackage {
 		initEAttribute(getTree_TreeItemsLoaded(), ecorePackage.getEDate(), "treeItemsLoaded", null, 0, 1, Tree.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(branchEClass, Branch.class, "Branch", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getBranch_CommitDate(), ecorePackage.getEDate(), "commitDate", null, 0, 1, Branch.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getBranch_DevelopersCanMerge(), ecorePackage.getEBooleanObject(), "developersCanMerge", null, 0, 1, Branch.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getBranch_DevelopersCanPush(), ecorePackage.getEBooleanObject(), "developersCanPush", null, 0, 1, Branch.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getBranch_Merged(), ecorePackage.getEBooleanObject(), "merged", null, 0, 1, Branch.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -3096,6 +3381,7 @@ public class GitLabPackageImpl extends EPackageImpl implements GitLabPackage {
 		initEAttribute(getBranch_IsDefault(), ecorePackage.getEBooleanObject(), "isDefault", null, 0, 1, Branch.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getBranch_CanPush(), ecorePackage.getEBooleanObject(), "canPush", null, 0, 1, Branch.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getBranch_WebUrl(), ecorePackage.getEString(), "webUrl", null, 0, 1, Branch.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getBranch_Commit(), this.getCommit(), this.getCommit_Branches(), "commit", null, 0, 1, Branch.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(blobEClass, Blob.class, "Blob", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 

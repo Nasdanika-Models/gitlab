@@ -2,6 +2,8 @@
  */
 package org.nasdanika.models.gitlab;
 
+import org.eclipse.emf.common.util.EList;
+
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Contributor</b></em>'.
@@ -12,9 +14,10 @@ package org.nasdanika.models.gitlab;
  * </p>
  * <ul>
  *   <li>{@link org.nasdanika.models.gitlab.Contributor#getUser <em>User</em>}</li>
- *   <li>{@link org.nasdanika.models.gitlab.Contributor#getCommits <em>Commits</em>}</li>
+ *   <li>{@link org.nasdanika.models.gitlab.Contributor#getCommitCount <em>Commit Count</em>}</li>
  *   <li>{@link org.nasdanika.models.gitlab.Contributor#getAdditions <em>Additions</em>}</li>
  *   <li>{@link org.nasdanika.models.gitlab.Contributor#getDeletions <em>Deletions</em>}</li>
+ *   <li>{@link org.nasdanika.models.gitlab.Contributor#getCommits <em>Commits</em>}</li>
  * </ul>
  *
  * @see org.nasdanika.models.gitlab.GitLabPackage#getContributor()
@@ -50,26 +53,40 @@ public interface Contributor extends AbstractUser {
 	void setUser(User value);
 
 	/**
-	 * Returns the value of the '<em><b>Commits</b></em>' attribute.
+	 * Returns the value of the '<em><b>Commit Count</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Commits</em>' attribute.
-	 * @see #setCommits(Integer)
-	 * @see org.nasdanika.models.gitlab.GitLabPackage#getContributor_Commits()
+	 * @return the value of the '<em>Commit Count</em>' attribute.
+	 * @see #setCommitCount(Integer)
+	 * @see org.nasdanika.models.gitlab.GitLabPackage#getContributor_CommitCount()
 	 * @model
 	 * @generated
 	 */
-	Integer getCommits();
+	Integer getCommitCount();
 
 	/**
-	 * Sets the value of the '{@link org.nasdanika.models.gitlab.Contributor#getCommits <em>Commits</em>}' attribute.
+	 * Sets the value of the '{@link org.nasdanika.models.gitlab.Contributor#getCommitCount <em>Commit Count</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Commits</em>' attribute.
-	 * @see #getCommits()
+	 * @param value the new value of the '<em>Commit Count</em>' attribute.
+	 * @see #getCommitCount()
 	 * @generated
 	 */
-	void setCommits(Integer value);
+	void setCommitCount(Integer value);
+
+	/**
+	 * Returns the value of the '<em><b>Commits</b></em>' reference list.
+	 * The list contents are of type {@link org.nasdanika.models.gitlab.Commit}.
+	 * It is bidirectional and its opposite is '{@link org.nasdanika.models.gitlab.Commit#getContributor <em>Contributor</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Commits</em>' reference list.
+	 * @see org.nasdanika.models.gitlab.GitLabPackage#getContributor_Commits()
+	 * @see org.nasdanika.models.gitlab.Commit#getContributor
+	 * @model opposite="contributor"
+	 * @generated
+	 */
+	EList<Commit> getCommits();
 
 	/**
 	 * Returns the value of the '<em><b>Additions</b></em>' attribute.

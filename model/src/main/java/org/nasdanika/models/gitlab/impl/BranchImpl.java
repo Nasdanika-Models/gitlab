@@ -2,10 +2,11 @@
  */
 package org.nasdanika.models.gitlab.impl;
 
-import java.util.Date;
-
+import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.InternalEObject;
 import org.nasdanika.models.gitlab.Branch;
+import org.nasdanika.models.gitlab.Commit;
 import org.nasdanika.models.gitlab.GitLabPackage;
 
 /**
@@ -16,7 +17,6 @@ import org.nasdanika.models.gitlab.GitLabPackage;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.nasdanika.models.gitlab.impl.BranchImpl#getCommitDate <em>Commit Date</em>}</li>
  *   <li>{@link org.nasdanika.models.gitlab.impl.BranchImpl#getDevelopersCanMerge <em>Developers Can Merge</em>}</li>
  *   <li>{@link org.nasdanika.models.gitlab.impl.BranchImpl#getDevelopersCanPush <em>Developers Can Push</em>}</li>
  *   <li>{@link org.nasdanika.models.gitlab.impl.BranchImpl#getMerged <em>Merged</em>}</li>
@@ -24,21 +24,12 @@ import org.nasdanika.models.gitlab.GitLabPackage;
  *   <li>{@link org.nasdanika.models.gitlab.impl.BranchImpl#getIsDefault <em>Is Default</em>}</li>
  *   <li>{@link org.nasdanika.models.gitlab.impl.BranchImpl#getCanPush <em>Can Push</em>}</li>
  *   <li>{@link org.nasdanika.models.gitlab.impl.BranchImpl#getWebUrl <em>Web Url</em>}</li>
+ *   <li>{@link org.nasdanika.models.gitlab.impl.BranchImpl#getCommit <em>Commit</em>}</li>
  * </ul>
  *
  * @generated
  */
 public class BranchImpl extends TreeImpl implements Branch {
-	/**
-	 * The default value of the '{@link #getCommitDate() <em>Commit Date</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getCommitDate()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final Date COMMIT_DATE_EDEFAULT = null;
-
 	/**
 	 * The default value of the '{@link #getDevelopersCanMerge() <em>Developers Can Merge</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -126,26 +117,6 @@ public class BranchImpl extends TreeImpl implements Branch {
 	@Override
 	protected EClass eStaticClass() {
 		return GitLabPackage.Literals.BRANCH;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Date getCommitDate() {
-		return (Date)eDynamicGet(GitLabPackage.BRANCH__COMMIT_DATE, GitLabPackage.Literals.BRANCH__COMMIT_DATE, true, true);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public void setCommitDate(Date newCommitDate) {
-		eDynamicSet(GitLabPackage.BRANCH__COMMIT_DATE, GitLabPackage.Literals.BRANCH__COMMIT_DATE, newCommitDate);
 	}
 
 	/**
@@ -294,10 +265,78 @@ public class BranchImpl extends TreeImpl implements Branch {
 	 * @generated
 	 */
 	@Override
+	public Commit getCommit() {
+		return (Commit)eDynamicGet(GitLabPackage.BRANCH__COMMIT, GitLabPackage.Literals.BRANCH__COMMIT, true, true);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Commit basicGetCommit() {
+		return (Commit)eDynamicGet(GitLabPackage.BRANCH__COMMIT, GitLabPackage.Literals.BRANCH__COMMIT, false, true);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetCommit(Commit newCommit, NotificationChain msgs) {
+		msgs = eDynamicInverseAdd((InternalEObject)newCommit, GitLabPackage.BRANCH__COMMIT, msgs);
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setCommit(Commit newCommit) {
+		eDynamicSet(GitLabPackage.BRANCH__COMMIT, GitLabPackage.Literals.BRANCH__COMMIT, newCommit);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case GitLabPackage.BRANCH__COMMIT:
+				Commit commit = basicGetCommit();
+				if (commit != null)
+					msgs = ((InternalEObject)commit).eInverseRemove(this, GitLabPackage.COMMIT__BRANCHES, Commit.class, msgs);
+				return basicSetCommit((Commit)otherEnd, msgs);
+		}
+		return super.eInverseAdd(otherEnd, featureID, msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case GitLabPackage.BRANCH__COMMIT:
+				return basicSetCommit(null, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case GitLabPackage.BRANCH__COMMIT_DATE:
-				return getCommitDate();
 			case GitLabPackage.BRANCH__DEVELOPERS_CAN_MERGE:
 				return getDevelopersCanMerge();
 			case GitLabPackage.BRANCH__DEVELOPERS_CAN_PUSH:
@@ -312,6 +351,9 @@ public class BranchImpl extends TreeImpl implements Branch {
 				return getCanPush();
 			case GitLabPackage.BRANCH__WEB_URL:
 				return getWebUrl();
+			case GitLabPackage.BRANCH__COMMIT:
+				if (resolve) return getCommit();
+				return basicGetCommit();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -324,9 +366,6 @@ public class BranchImpl extends TreeImpl implements Branch {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case GitLabPackage.BRANCH__COMMIT_DATE:
-				setCommitDate((Date)newValue);
-				return;
 			case GitLabPackage.BRANCH__DEVELOPERS_CAN_MERGE:
 				setDevelopersCanMerge((Boolean)newValue);
 				return;
@@ -348,6 +387,9 @@ public class BranchImpl extends TreeImpl implements Branch {
 			case GitLabPackage.BRANCH__WEB_URL:
 				setWebUrl((String)newValue);
 				return;
+			case GitLabPackage.BRANCH__COMMIT:
+				setCommit((Commit)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -360,9 +402,6 @@ public class BranchImpl extends TreeImpl implements Branch {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case GitLabPackage.BRANCH__COMMIT_DATE:
-				setCommitDate(COMMIT_DATE_EDEFAULT);
-				return;
 			case GitLabPackage.BRANCH__DEVELOPERS_CAN_MERGE:
 				setDevelopersCanMerge(DEVELOPERS_CAN_MERGE_EDEFAULT);
 				return;
@@ -384,6 +423,9 @@ public class BranchImpl extends TreeImpl implements Branch {
 			case GitLabPackage.BRANCH__WEB_URL:
 				setWebUrl(WEB_URL_EDEFAULT);
 				return;
+			case GitLabPackage.BRANCH__COMMIT:
+				setCommit((Commit)null);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -396,8 +438,6 @@ public class BranchImpl extends TreeImpl implements Branch {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case GitLabPackage.BRANCH__COMMIT_DATE:
-				return COMMIT_DATE_EDEFAULT == null ? getCommitDate() != null : !COMMIT_DATE_EDEFAULT.equals(getCommitDate());
 			case GitLabPackage.BRANCH__DEVELOPERS_CAN_MERGE:
 				return DEVELOPERS_CAN_MERGE_EDEFAULT == null ? getDevelopersCanMerge() != null : !DEVELOPERS_CAN_MERGE_EDEFAULT.equals(getDevelopersCanMerge());
 			case GitLabPackage.BRANCH__DEVELOPERS_CAN_PUSH:
@@ -412,6 +452,8 @@ public class BranchImpl extends TreeImpl implements Branch {
 				return CAN_PUSH_EDEFAULT == null ? getCanPush() != null : !CAN_PUSH_EDEFAULT.equals(getCanPush());
 			case GitLabPackage.BRANCH__WEB_URL:
 				return WEB_URL_EDEFAULT == null ? getWebUrl() != null : !WEB_URL_EDEFAULT.equals(getWebUrl());
+			case GitLabPackage.BRANCH__COMMIT:
+				return basicGetCommit() != null;
 		}
 		return super.eIsSet(featureID);
 	}

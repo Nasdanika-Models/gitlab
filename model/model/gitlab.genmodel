@@ -205,6 +205,7 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference gitlab.ecore#//Project/members"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gitlab.ecore#//Project/branchesLoaded"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gitlab.ecore#//Project/branchesLoadError"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference gitlab.ecore#//Project/commits"/>
       <genOperations ecoreOperation="gitlab.ecore#//Project/createReference"/>
     </genClasses>
     <genClasses ecoreClass="gitlab.ecore#//ProjectReference"/>
@@ -233,9 +234,32 @@
     </genClasses>
     <genClasses ecoreClass="gitlab.ecore#//Contributor">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference gitlab.ecore#//Contributor/user"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gitlab.ecore#//Contributor/commits"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gitlab.ecore#//Contributor/commitCount"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gitlab.ecore#//Contributor/additions"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gitlab.ecore#//Contributor/deletions"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EReference gitlab.ecore#//Contributor/commits"/>
+    </genClasses>
+    <genClasses ecoreClass="gitlab.ecore#//Commit">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gitlab.ecore#//Commit/id"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference gitlab.ecore#//Commit/contributor"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gitlab.ecore#//Commit/parentIds"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference gitlab.ecore#//Commit/parents"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference gitlab.ecore#//Commit/children"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gitlab.ecore#//Commit/authoredDate"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gitlab.ecore#//Commit/authorEmail"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gitlab.ecore#//Commit/authorName"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gitlab.ecore#//Commit/committedDate"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gitlab.ecore#//Commit/committerEmail"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gitlab.ecore#//Commit/committerName"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gitlab.ecore#//Commit/createdAt"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gitlab.ecore#//Commit/message"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gitlab.ecore#//Commit/shortId"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gitlab.ecore#//Commit/status"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gitlab.ecore#//Commit/timestamp"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gitlab.ecore#//Commit/title"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gitlab.ecore#//Commit/url"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gitlab.ecore#//Commit/webURL"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference gitlab.ecore#//Commit/branches"/>
     </genClasses>
     <genClasses ecoreClass="gitlab.ecore#//ProjectAccess">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gitlab.ecore#//ProjectAccess/accessLevel"/>
@@ -258,7 +282,6 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gitlab.ecore#//Tree/treeItemsLoaded"/>
     </genClasses>
     <genClasses ecoreClass="gitlab.ecore#//Branch">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gitlab.ecore#//Branch/commitDate"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gitlab.ecore#//Branch/developersCanMerge"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gitlab.ecore#//Branch/developersCanPush"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gitlab.ecore#//Branch/merged"/>
@@ -266,6 +289,7 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gitlab.ecore#//Branch/isDefault"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gitlab.ecore#//Branch/canPush"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gitlab.ecore#//Branch/webUrl"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference gitlab.ecore#//Branch/commit"/>
     </genClasses>
     <genClasses ecoreClass="gitlab.ecore#//Blob"/>
     <genClasses image="false" ecoreClass="gitlab.ecore#//RepositoryFile">

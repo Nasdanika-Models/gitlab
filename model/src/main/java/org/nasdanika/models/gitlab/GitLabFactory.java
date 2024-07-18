@@ -139,6 +139,15 @@ public interface GitLabFactory extends EFactory {
 	Contributor createContributor();
 
 	/**
+	 * Returns a new object of class '<em>Commit</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Commit</em>'.
+	 * @generated
+	 */
+	Commit createCommit();
+
+	/**
 	 * Returns a new object of class '<em>Project Access</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
