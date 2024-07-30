@@ -570,6 +570,10 @@ public class Loader {
 		modelCommit.setTitle(commit.getTitle());
 		modelCommit.setUrl(commit.getUrl());
 		modelCommit.setWebURL(commit.getWebUrl());
+		List<String> parentIds = commit.getParentIds();
+		if (parentIds != null) {
+			modelCommit.getParentIds().addAll(parentIds);
+		}
 	}
 	
 	/**
