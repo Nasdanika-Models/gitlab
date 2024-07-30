@@ -1641,7 +1641,7 @@ public interface Project extends Loadable, AbstractProject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Branches</em>' containment reference list.
 	 * @see org.nasdanika.models.gitlab.GitLabPackage#getProject_Branches()
-	 * @model containment="true"
+	 * @model containment="true" keys="name"
 	 * @generated
 	 */
 	EList<Branch> getBranches();

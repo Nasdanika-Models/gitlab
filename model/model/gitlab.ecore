@@ -242,7 +242,7 @@
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="squashOption" eType="#//SquashOption"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="branches" upperBound="-1"
-        eType="#//Branch" containment="true"/>
+        eType="#//Branch" containment="true" eKeys="../../org.nasdanika.ncore/model/ncore.ecore#//TreeItem/name"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="contributors" upperBound="-1"
         eType="#//Contributor" containment="true" eKeys="#//Principal/id"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="members" upperBound="-1"
