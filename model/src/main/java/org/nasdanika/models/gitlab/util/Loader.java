@@ -589,12 +589,13 @@ public class Loader {
 			long projectId,
 			String refName,
 			String path,
+			boolean recursive,
 			BiConsumer<org.nasdanika.models.gitlab.TreeItem, ProgressMonitor> treeItemConsumer, 			
 			ProgressMonitor progressMonitor) throws GitLabApiException {
 		
 		try (ProgressMonitor treeItemsMonitor = progressMonitor.split("Loading tree items of project: " + projectId + ", refName: " + refName + ", path: " + path, 1)) {
 			RepositoryApi repoApi = gitLabApi.getRepositoryApi();
-			Pager<org.gitlab4j.api.models.TreeItem> treeItemPager = repoApi.getTree(projectId, path, refName, getPageSize());
+			Pager<org.gitlab4j.api.models.TreeItem> treeItemPager = repoApi.getTree(projectId, path, refName, recursive, getPageSize());
 			int pageNum = 0;
 			while (treeItemPager.hasNext()) {
 				++pageNum;
@@ -631,8 +632,7 @@ public class Loader {
 								case COMMIT:
 									break;
 								default:
-									break;
-								
+									break;								
 								}								
 							}
 						}
