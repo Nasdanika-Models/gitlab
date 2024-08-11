@@ -155,7 +155,13 @@ public class GitLabTests {
 				BiConsumer<TreeItem, ProgressMonitor> treeItemConsumer = (treeItem, pm) -> {
 					System.out.println(treeItem.getName() + " " + treeItem.getClass().getName());
 				};
-				new Loader(gitLabApiProvider.getGitLabApi()).loadTree(PROJECT_ID, null, Loader.ROOT_PATH, treeItemConsumer, progressMonitor);
+				new Loader(gitLabApiProvider.getGitLabApi()).loadTree(
+						PROJECT_ID, 
+						null, 
+						Loader.ROOT_PATH, 
+						false,
+						treeItemConsumer, 
+						progressMonitor);
 			}
 		}
 	}
