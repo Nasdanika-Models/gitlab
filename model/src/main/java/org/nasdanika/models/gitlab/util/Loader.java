@@ -45,10 +45,16 @@ public class Loader {
 	public static final String ROOT_PATH = "/";
 	private GitLabApi gitLabApi;
 	private GitLabFactory factory = GitLabFactory.eINSTANCE;
-	private int pageSize = 20;
+	private int pageSize = -1;
 	
 	public int getPageSize() {
-		return pageSize;
+		if (pageSize > 0) {
+			return pageSize;
+		}
+		if (gitLabApi == null) {
+			return GitLabApi.DEFAULT_PER_PAGE;
+		}
+		return gitLabApi.getDefaultPerPage();
 	}
 	
 	/**
