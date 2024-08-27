@@ -478,4 +478,106 @@
           eType="#//codeowners/Section" containment="true" eKeys="#//codeowners/Section/name"/>
     </eClassifiers>
   </eSubpackages>
+  <eSubpackages name="pipeline" nsURI="ecore://nasdanika.org/models/gitlab/pipeline"
+      nsPrefix="org.nasdanika.models.gitlab.pipeline">
+    <eClassifiers xsi:type="ecore:EClass" name="Pipeline">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="jobs" upperBound="-1"
+          eType="#//pipeline/Job" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//ELong"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="iid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//ELong"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="projectId" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//ELong"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="status" eType="#//pipeline/PipelineStatus"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="source" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="ref" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="sha" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="beforeSha" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="tag" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBooleanObject"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="yamlErrors" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="user" eType="#//User"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="createdAt" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDate"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="updatedAt" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDate"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="startedAt" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDate"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="finishedAt" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDate"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="committedAt" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDate"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="coverage" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="duration" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EIntegerObject"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="queuedDuration" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloatObject"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="webUrl" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="detailedStatus" eType="#//pipeline/DetailedStatus"
+          containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Job">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//ELong"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="commit" eType="#//Commit"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="coverage" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="createdAt" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDate"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="finishedAt" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDate"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="erasedAt" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDate"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="artifactsExpireAt" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDate"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDate"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="ref" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="runner" eType="#//pipeline/Runner"
+          containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="user" eType="#//User"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="startedAt" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDate"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="artifactsFile" eType="#//pipeline/ArtifactFile"
+          containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="artifacts" upperBound="-1"
+          eType="#//pipeline/Artifact" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="tag" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBooleanObject"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="webUrl" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="stage" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="jobStatus" eType="#//pipeline/JobStatus"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="when" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="manual" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBooleanObject"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="allowFailure" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBooleanObject"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="duration" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloatObject"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="queuedDuration" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloatObject"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EEnum" name="PipelineStatus">
+      <eLiterals name="CREATED"/>
+      <eLiterals name="WAITING_FOR_RESOURCE" value="1"/>
+      <eLiterals name="PREPARING" value="2"/>
+      <eLiterals name="PENDING" value="3"/>
+      <eLiterals name="RUNNING" value="4"/>
+      <eLiterals name="SUCCESS" value="5"/>
+      <eLiterals name="FAILED" value="6"/>
+      <eLiterals name="CANCELED" value="7"/>
+      <eLiterals name="SKIPPED" value="8"/>
+      <eLiterals name="MANUAL" value="9"/>
+      <eLiterals name="SCHEDULED" value="10"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="DetailedStatus"/>
+    <eClassifiers xsi:type="ecore:EClass" name="ArtifactFile">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="fileName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="size" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//ELong"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="location" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="coverage" eType="ecore:EClass ../../org.nasdanika.models.coverage/model/coverage.ecore#//ModuleCoverage"
+          containment="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Artifact">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="fileName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="fileType" eType="#//pipeline/FileType"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="size" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//ELong"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="fileFormat" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Runner"/>
+    <eClassifiers xsi:type="ecore:EEnum" name="JobStatus">
+      <eLiterals name="CREATED"/>
+      <eLiterals name="RUNNING" value="1"/>
+      <eLiterals name="PENDING" value="2"/>
+      <eLiterals name="SUCCESS" value="3"/>
+      <eLiterals name="FAILED" value="4"/>
+      <eLiterals name="CANCELED" value="5"/>
+      <eLiterals name="SKIPPED" value="6"/>
+      <eLiterals name="MANUAL" value="7"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EEnum" name="FileType">
+      <eLiterals name="ARCHIVE"/>
+      <eLiterals name="METADATA" value="1"/>
+      <eLiterals name="TRACE" value="2"/>
+      <eLiterals name="JUNIT" value="3"/>
+    </eClassifiers>
+  </eSubpackages>
 </ecore:EPackage>
