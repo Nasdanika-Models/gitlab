@@ -259,6 +259,8 @@
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EReference" name="commits" upperBound="-1"
         eType="#//Commit" containment="true" eKeys="#//Commit/id"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="pipelines" upperBound="-1"
+        eType="#//pipeline/Pipeline" containment="true" eKeys="#//pipeline/Pipeline/id"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ProjectReference">
     <eGenericSuperTypes eClassifier="ecore:EClass ../../org.nasdanika.ncore/model/ncore.ecore#//Reference">
@@ -482,7 +484,7 @@
       nsPrefix="org.nasdanika.models.gitlab.pipeline">
     <eClassifiers xsi:type="ecore:EClass" name="Pipeline">
       <eStructuralFeatures xsi:type="ecore:EReference" name="jobs" upperBound="-1"
-          eType="#//pipeline/Job" containment="true"/>
+          eType="#//pipeline/Job" containment="true" eKeys="#//pipeline/Job/id"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//ELong"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="iid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//ELong"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="projectId" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//ELong"/>
@@ -515,16 +517,16 @@
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="finishedAt" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDate"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="erasedAt" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDate"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="artifactsExpireAt" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDate"/>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDate"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="ref" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="runner" eType="#//pipeline/Runner"
           containment="true"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="user" eType="#//User"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="startedAt" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDate"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="artifactsFile" eType="#//pipeline/ArtifactFile"
+      <eStructuralFeatures xsi:type="ecore:EReference" name="artifactsFile" eType="#//pipeline/ArtifactsFile"
           containment="true"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="artifacts" upperBound="-1"
-          eType="#//pipeline/Artifact" containment="true"/>
+          eType="#//pipeline/Artifact" containment="true" eKeys="#//pipeline/Artifact/fileName"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="tag" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBooleanObject"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="webUrl" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="stage" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -549,7 +551,7 @@
       <eLiterals name="SCHEDULED" value="10"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="DetailedStatus"/>
-    <eClassifiers xsi:type="ecore:EClass" name="ArtifactFile">
+    <eClassifiers xsi:type="ecore:EClass" name="ArtifactsFile">
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="fileName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="size" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//ELong"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="location" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>

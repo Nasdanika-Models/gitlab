@@ -1892,13 +1892,22 @@ public interface GitLabPackage extends EPackage {
 	int PROJECT__COMMITS = LOADABLE_FEATURE_COUNT + 76;
 
 	/**
+	 * The feature id for the '<em><b>Pipelines</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROJECT__PIPELINES = LOADABLE_FEATURE_COUNT + 77;
+
+	/**
 	 * The number of structural features of the '<em>Project</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PROJECT_FEATURE_COUNT = LOADABLE_FEATURE_COUNT + 77;
+	int PROJECT_FEATURE_COUNT = LOADABLE_FEATURE_COUNT + 78;
 
 	/**
 	 * The operation id for the '<em>Create Reference</em>' operation.
@@ -5576,6 +5585,17 @@ public interface GitLabPackage extends EPackage {
 	EReference getProject_Commits();
 
 	/**
+	 * Returns the meta object for the containment reference list '{@link org.nasdanika.models.gitlab.Project#getPipelines <em>Pipelines</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Pipelines</em>'.
+	 * @see org.nasdanika.models.gitlab.Project#getPipelines()
+	 * @see #getProject()
+	 * @generated
+	 */
+	EReference getProject_Pipelines();
+
+	/**
 	 * Returns the meta object for the '{@link org.nasdanika.models.gitlab.Project#createReference() <em>Create Reference</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -7633,6 +7653,13 @@ public interface GitLabPackage extends EPackage {
 		 * @generated
 		 */
 		EReference PROJECT__COMMITS = eINSTANCE.getProject_Commits();
+		/**
+		 * The meta object literal for the '<em><b>Pipelines</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference PROJECT__PIPELINES = eINSTANCE.getProject_Pipelines();
 		/**
 		 * The meta object literal for the '<em><b>Create Reference</b></em>' operation.
 		 * <!-- begin-user-doc -->

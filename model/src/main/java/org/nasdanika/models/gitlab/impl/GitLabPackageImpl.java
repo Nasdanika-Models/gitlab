@@ -55,6 +55,8 @@ import org.nasdanika.models.gitlab.UserReference;
 import org.nasdanika.models.gitlab.Visibility;
 import org.nasdanika.models.gitlab.codeowners.CodeownersPackage;
 import org.nasdanika.models.gitlab.codeowners.impl.CodeownersPackageImpl;
+import org.nasdanika.models.gitlab.pipeline.PipelinePackage;
+import org.nasdanika.models.gitlab.pipeline.impl.PipelinePackageImpl;
 import org.nasdanika.ncore.NcorePackage;
 
 /**
@@ -349,19 +351,24 @@ public class GitLabPackageImpl extends EPackageImpl implements GitLabPackage {
 		isInited = true;
 
 		// Initialize simple dependencies
+		org.nasdanika.models.coverage.CoveragePackage.eINSTANCE.eClass();
 		NcorePackage.eINSTANCE.eClass();
 
 		// Obtain or create and register interdependencies
 		Object registeredPackage = EPackage.Registry.INSTANCE.getEPackage(CodeownersPackage.eNS_URI);
 		CodeownersPackageImpl theCodeownersPackage = (CodeownersPackageImpl)(registeredPackage instanceof CodeownersPackageImpl ? registeredPackage : CodeownersPackage.eINSTANCE);
+		registeredPackage = EPackage.Registry.INSTANCE.getEPackage(PipelinePackage.eNS_URI);
+		PipelinePackageImpl thePipelinePackage = (PipelinePackageImpl)(registeredPackage instanceof PipelinePackageImpl ? registeredPackage : PipelinePackage.eINSTANCE);
 
 		// Create package meta-data objects
 		theGitLabPackage.createPackageContents();
 		theCodeownersPackage.createPackageContents();
+		thePipelinePackage.createPackageContents();
 
 		// Initialize created meta-data
 		theGitLabPackage.initializePackageContents();
 		theCodeownersPackage.initializePackageContents();
+		thePipelinePackage.initializePackageContents();
 
 		// Mark meta-data to indicate it can't be changed
 		theGitLabPackage.freeze();
@@ -1807,6 +1814,16 @@ public class GitLabPackageImpl extends EPackageImpl implements GitLabPackage {
 	 * @generated
 	 */
 	@Override
+	public EReference getProject_Pipelines() {
+		return (EReference)projectEClass.getEStructuralFeatures().get(76);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EOperation getProject__CreateReference() {
 		return projectEClass.getEOperations().get(0);
 	}
@@ -2925,6 +2942,7 @@ public class GitLabPackageImpl extends EPackageImpl implements GitLabPackage {
 		createEAttribute(projectEClass, PROJECT__BRANCHES_LOADED);
 		createEAttribute(projectEClass, PROJECT__BRANCHES_LOAD_ERROR);
 		createEReference(projectEClass, PROJECT__COMMITS);
+		createEReference(projectEClass, PROJECT__PIPELINES);
 		createEOperation(projectEClass, PROJECT___CREATE_REFERENCE);
 
 		projectReferenceEClass = createEClass(PROJECT_REFERENCE);
@@ -3067,10 +3085,12 @@ public class GitLabPackageImpl extends EPackageImpl implements GitLabPackage {
 
 		// Obtain other dependent packages
 		CodeownersPackage theCodeownersPackage = (CodeownersPackage)EPackage.Registry.INSTANCE.getEPackage(CodeownersPackage.eNS_URI);
+		PipelinePackage thePipelinePackage = (PipelinePackage)EPackage.Registry.INSTANCE.getEPackage(PipelinePackage.eNS_URI);
 		NcorePackage theNcorePackage = (NcorePackage)EPackage.Registry.INSTANCE.getEPackage(NcorePackage.eNS_URI);
 
 		// Add subpackages
 		getESubpackages().add(theCodeownersPackage);
+		getESubpackages().add(thePipelinePackage);
 
 		// Create type parameters
 
@@ -3295,6 +3315,8 @@ public class GitLabPackageImpl extends EPackageImpl implements GitLabPackage {
 		initEAttribute(getProject_BranchesLoadError(), ecorePackage.getEString(), "branchesLoadError", null, 0, 1, Project.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getProject_Commits(), this.getCommit(), null, "commits", null, 0, -1, Project.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		getProject_Commits().getEKeys().add(this.getCommit_Id());
+		initEReference(getProject_Pipelines(), thePipelinePackage.getPipeline(), null, "pipelines", null, 0, -1, Project.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		getProject_Pipelines().getEKeys().add(thePipelinePackage.getPipeline_Id());
 
 		initEOperation(getProject__CreateReference(), this.getProjectReference(), "createReference", 0, 1, IS_UNIQUE, IS_ORDERED);
 

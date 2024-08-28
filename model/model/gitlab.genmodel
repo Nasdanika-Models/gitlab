@@ -4,7 +4,7 @@
     editorDirectory="" modelPluginID="org.nasdanika.models.gitlab" modelName="GitLab"
     rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container" importerID="org.eclipse.emf.importer.ecore"
     bundleManifest="false" featureDelegation="Dynamic" complianceLevel="17.0" suppressGenModelAnnotations="false"
-    copyrightFields="false" usedGenPackages="../../org.nasdanika.ncore/model/ncore.genmodel#//ncore"
+    copyrightFields="false" usedGenPackages="../../org.nasdanika.models.coverage/model/coverage.genmodel#//coverage ../../org.nasdanika.ncore/model/ncore.genmodel#//ncore"
     operationReflection="true" importOrganizing="true">
   <foreignModel>gitlab.ecore</foreignModel>
   <genPackages prefix="GitLab" basePackage="org.nasdanika.models" disposableProviderFactory="true"
@@ -206,6 +206,7 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gitlab.ecore#//Project/branchesLoaded"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gitlab.ecore#//Project/branchesLoadError"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference gitlab.ecore#//Project/commits"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference gitlab.ecore#//Project/pipelines"/>
       <genOperations ecoreOperation="gitlab.ecore#//Project/createReference"/>
     </genClasses>
     <genClasses ecoreClass="gitlab.ecore#//ProjectReference"/>
@@ -335,6 +336,105 @@
       <genClasses ecoreClass="gitlab.ecore#//codeowners/CodeOwners">
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference gitlab.ecore#//codeowners/CodeOwners/sections"/>
       </genClasses>
+    </nestedGenPackages>
+    <nestedGenPackages prefix="Pipeline" basePackage="org.nasdanika.models.gitlab"
+        disposableProviderFactory="true" ecorePackage="gitlab.ecore#//pipeline">
+      <genEnums typeSafeEnumCompatible="false" ecoreEnum="gitlab.ecore#//pipeline/PipelineStatus">
+        <genEnumLiterals ecoreEnumLiteral="gitlab.ecore#//pipeline/PipelineStatus/CREATED"/>
+        <genEnumLiterals ecoreEnumLiteral="gitlab.ecore#//pipeline/PipelineStatus/WAITING_FOR_RESOURCE"/>
+        <genEnumLiterals ecoreEnumLiteral="gitlab.ecore#//pipeline/PipelineStatus/PREPARING"/>
+        <genEnumLiterals ecoreEnumLiteral="gitlab.ecore#//pipeline/PipelineStatus/PENDING"/>
+        <genEnumLiterals ecoreEnumLiteral="gitlab.ecore#//pipeline/PipelineStatus/RUNNING"/>
+        <genEnumLiterals ecoreEnumLiteral="gitlab.ecore#//pipeline/PipelineStatus/SUCCESS"/>
+        <genEnumLiterals ecoreEnumLiteral="gitlab.ecore#//pipeline/PipelineStatus/FAILED"/>
+        <genEnumLiterals ecoreEnumLiteral="gitlab.ecore#//pipeline/PipelineStatus/CANCELED"/>
+        <genEnumLiterals ecoreEnumLiteral="gitlab.ecore#//pipeline/PipelineStatus/SKIPPED"/>
+        <genEnumLiterals ecoreEnumLiteral="gitlab.ecore#//pipeline/PipelineStatus/MANUAL"/>
+        <genEnumLiterals ecoreEnumLiteral="gitlab.ecore#//pipeline/PipelineStatus/SCHEDULED"/>
+      </genEnums>
+      <genEnums typeSafeEnumCompatible="false" ecoreEnum="gitlab.ecore#//pipeline/JobStatus">
+        <genEnumLiterals ecoreEnumLiteral="gitlab.ecore#//pipeline/JobStatus/CREATED"/>
+        <genEnumLiterals ecoreEnumLiteral="gitlab.ecore#//pipeline/JobStatus/RUNNING"/>
+        <genEnumLiterals ecoreEnumLiteral="gitlab.ecore#//pipeline/JobStatus/PENDING"/>
+        <genEnumLiterals ecoreEnumLiteral="gitlab.ecore#//pipeline/JobStatus/SUCCESS"/>
+        <genEnumLiterals ecoreEnumLiteral="gitlab.ecore#//pipeline/JobStatus/FAILED"/>
+        <genEnumLiterals ecoreEnumLiteral="gitlab.ecore#//pipeline/JobStatus/CANCELED"/>
+        <genEnumLiterals ecoreEnumLiteral="gitlab.ecore#//pipeline/JobStatus/SKIPPED"/>
+        <genEnumLiterals ecoreEnumLiteral="gitlab.ecore#//pipeline/JobStatus/MANUAL"/>
+      </genEnums>
+      <genEnums typeSafeEnumCompatible="false" ecoreEnum="gitlab.ecore#//pipeline/FileType">
+        <genEnumLiterals ecoreEnumLiteral="gitlab.ecore#//pipeline/FileType/ARCHIVE"/>
+        <genEnumLiterals ecoreEnumLiteral="gitlab.ecore#//pipeline/FileType/METADATA"/>
+        <genEnumLiterals ecoreEnumLiteral="gitlab.ecore#//pipeline/FileType/TRACE"/>
+        <genEnumLiterals ecoreEnumLiteral="gitlab.ecore#//pipeline/FileType/JUNIT"/>
+      </genEnums>
+      <genClasses ecoreClass="gitlab.ecore#//pipeline/Pipeline">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference gitlab.ecore#//pipeline/Pipeline/jobs"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gitlab.ecore#//pipeline/Pipeline/id"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gitlab.ecore#//pipeline/Pipeline/iid"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gitlab.ecore#//pipeline/Pipeline/projectId"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gitlab.ecore#//pipeline/Pipeline/status"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gitlab.ecore#//pipeline/Pipeline/source"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gitlab.ecore#//pipeline/Pipeline/ref"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gitlab.ecore#//pipeline/Pipeline/sha"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gitlab.ecore#//pipeline/Pipeline/beforeSha"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gitlab.ecore#//pipeline/Pipeline/tag"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gitlab.ecore#//pipeline/Pipeline/yamlErrors"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference gitlab.ecore#//pipeline/Pipeline/user"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gitlab.ecore#//pipeline/Pipeline/createdAt"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gitlab.ecore#//pipeline/Pipeline/updatedAt"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gitlab.ecore#//pipeline/Pipeline/startedAt"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gitlab.ecore#//pipeline/Pipeline/finishedAt"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gitlab.ecore#//pipeline/Pipeline/committedAt"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gitlab.ecore#//pipeline/Pipeline/coverage"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gitlab.ecore#//pipeline/Pipeline/duration"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gitlab.ecore#//pipeline/Pipeline/queuedDuration"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gitlab.ecore#//pipeline/Pipeline/webUrl"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference gitlab.ecore#//pipeline/Pipeline/detailedStatus"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gitlab.ecore#//pipeline/Pipeline/name"/>
+      </genClasses>
+      <genClasses ecoreClass="gitlab.ecore#//pipeline/Job">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gitlab.ecore#//pipeline/Job/id"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference gitlab.ecore#//pipeline/Job/commit"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gitlab.ecore#//pipeline/Job/coverage"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gitlab.ecore#//pipeline/Job/createdAt"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gitlab.ecore#//pipeline/Job/finishedAt"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gitlab.ecore#//pipeline/Job/erasedAt"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gitlab.ecore#//pipeline/Job/artifactsExpireAt"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gitlab.ecore#//pipeline/Job/name"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gitlab.ecore#//pipeline/Job/ref"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference gitlab.ecore#//pipeline/Job/runner"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference gitlab.ecore#//pipeline/Job/user"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gitlab.ecore#//pipeline/Job/startedAt"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference gitlab.ecore#//pipeline/Job/artifactsFile"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference gitlab.ecore#//pipeline/Job/artifacts"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gitlab.ecore#//pipeline/Job/tag"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gitlab.ecore#//pipeline/Job/webUrl"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gitlab.ecore#//pipeline/Job/stage"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gitlab.ecore#//pipeline/Job/jobStatus"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gitlab.ecore#//pipeline/Job/when"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gitlab.ecore#//pipeline/Job/manual"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gitlab.ecore#//pipeline/Job/allowFailure"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gitlab.ecore#//pipeline/Job/duration"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gitlab.ecore#//pipeline/Job/queuedDuration"/>
+      </genClasses>
+      <genClasses ecoreClass="gitlab.ecore#//pipeline/DetailedStatus"/>
+      <genClasses ecoreClass="gitlab.ecore#//pipeline/ArtifactsFile">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gitlab.ecore#//pipeline/ArtifactsFile/fileName"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gitlab.ecore#//pipeline/ArtifactsFile/size"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gitlab.ecore#//pipeline/ArtifactsFile/location"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference gitlab.ecore#//pipeline/ArtifactsFile/coverage"/>
+      </genClasses>
+      <genClasses ecoreClass="gitlab.ecore#//pipeline/Artifact">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gitlab.ecore#//pipeline/Artifact/fileName"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gitlab.ecore#//pipeline/Artifact/fileType"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gitlab.ecore#//pipeline/Artifact/size"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gitlab.ecore#//pipeline/Artifact/fileFormat"/>
+      </genClasses>
+      <genClasses ecoreClass="gitlab.ecore#//pipeline/Runner"/>
     </nestedGenPackages>
   </genPackages>
 </genmodel:GenModel>

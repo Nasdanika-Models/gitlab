@@ -9,6 +9,7 @@ import org.eclipse.emf.ecore.EReference;
 
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 
+import org.nasdanika.models.coverage.CoveragePackage;
 import org.nasdanika.models.gitlab.GitLabPackage;
 
 import org.nasdanika.models.gitlab.codeowners.CodeOwner;
@@ -20,6 +21,8 @@ import org.nasdanika.models.gitlab.codeowners.Entry;
 import org.nasdanika.models.gitlab.codeowners.Section;
 
 import org.nasdanika.models.gitlab.impl.GitLabPackageImpl;
+import org.nasdanika.models.gitlab.pipeline.PipelinePackage;
+import org.nasdanika.models.gitlab.pipeline.impl.PipelinePackageImpl;
 import org.nasdanika.ncore.NcorePackage;
 
 /**
@@ -111,19 +114,24 @@ public class CodeownersPackageImpl extends EPackageImpl implements CodeownersPac
 		isInited = true;
 
 		// Initialize simple dependencies
+		CoveragePackage.eINSTANCE.eClass();
 		NcorePackage.eINSTANCE.eClass();
 
 		// Obtain or create and register interdependencies
 		Object registeredPackage = EPackage.Registry.INSTANCE.getEPackage(GitLabPackage.eNS_URI);
 		GitLabPackageImpl theGitLabPackage = (GitLabPackageImpl)(registeredPackage instanceof GitLabPackageImpl ? registeredPackage : GitLabPackage.eINSTANCE);
+		registeredPackage = EPackage.Registry.INSTANCE.getEPackage(PipelinePackage.eNS_URI);
+		PipelinePackageImpl thePipelinePackage = (PipelinePackageImpl)(registeredPackage instanceof PipelinePackageImpl ? registeredPackage : PipelinePackage.eINSTANCE);
 
 		// Create package meta-data objects
 		theCodeownersPackage.createPackageContents();
 		theGitLabPackage.createPackageContents();
+		thePipelinePackage.createPackageContents();
 
 		// Initialize created meta-data
 		theCodeownersPackage.initializePackageContents();
 		theGitLabPackage.initializePackageContents();
+		thePipelinePackage.initializePackageContents();
 
 		// Mark meta-data to indicate it can't be changed
 		theCodeownersPackage.freeze();

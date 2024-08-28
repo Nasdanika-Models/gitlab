@@ -5,6 +5,7 @@ package org.nasdanika.models.gitlab;
 import java.util.Date;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.EMap;
+import org.nasdanika.models.gitlab.pipeline.Pipeline;
 
 /**
  * <!-- begin-user-doc -->
@@ -91,6 +92,7 @@ import org.eclipse.emf.common.util.EMap;
  *   <li>{@link org.nasdanika.models.gitlab.Project#getBranchesLoaded <em>Branches Loaded</em>}</li>
  *   <li>{@link org.nasdanika.models.gitlab.Project#getBranchesLoadError <em>Branches Load Error</em>}</li>
  *   <li>{@link org.nasdanika.models.gitlab.Project#getCommits <em>Commits</em>}</li>
+ *   <li>{@link org.nasdanika.models.gitlab.Project#getPipelines <em>Pipelines</em>}</li>
  * </ul>
  *
  * @see org.nasdanika.models.gitlab.GitLabPackage#getProject()
@@ -1731,6 +1733,18 @@ public interface Project extends Loadable, AbstractProject {
 	 * @generated
 	 */
 	EList<Commit> getCommits();
+
+	/**
+	 * Returns the value of the '<em><b>Pipelines</b></em>' containment reference list.
+	 * The list contents are of type {@link org.nasdanika.models.gitlab.pipeline.Pipeline}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Pipelines</em>' containment reference list.
+	 * @see org.nasdanika.models.gitlab.GitLabPackage#getProject_Pipelines()
+	 * @model containment="true" keys="id"
+	 * @generated
+	 */
+	EList<Pipeline> getPipelines();
 
 	/**
 	 * <!-- begin-user-doc -->
