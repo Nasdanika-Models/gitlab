@@ -2,17 +2,18 @@ package org.nasdanika.models.gitlab.cli;
 
 import org.gitlab4j.api.GitLabApiException;
 import org.nasdanika.cli.CommandGroup;
+import org.nasdanika.cli.SubCommands;
 import org.nasdanika.models.gitlab.util.GitLabApiFunction;
 import org.nasdanika.models.gitlab.util.GitLabApiProvider;
 
+import picocli.CommandLine.Command;
 import picocli.CommandLine.Option;
-import picocli.CommandLine.ParentCommand;
 
-/**
- * Base class for commands with sub-commands implementing or providing {@link GitLabApiFunction} interface.
- * Sub-commands would get a hold of the parent command using {@link ParentCommand} annotation and call its execute() method.
- * Subclassing can be used instead of creating sub-commands
- */
+@Command(
+	description = "Commands for working with GitLab",
+	name = "gitlab",
+	mixinStandardHelpOptions = true)
+@SubCommands(GitLabApiFunction.class)
 public class GitLabCommand extends CommandGroup {
 
 	@Option( 
