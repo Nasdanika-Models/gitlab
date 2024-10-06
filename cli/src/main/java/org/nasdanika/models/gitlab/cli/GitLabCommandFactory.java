@@ -22,7 +22,7 @@ public class GitLabCommandFactory extends SubCommandCapabilityFactory<GitLabComm
 			List<CommandLine> parentPath,
 			CapabilityFactory.Loader loader,
 			ProgressMonitor progressMonitor) {
-		return CompletableFuture.completedStage(new GitLabCommand());
+		return CompletableFuture.completedStage(new GitLabCommand(loader.getCapabilityLoader()));
 	}
 
 }

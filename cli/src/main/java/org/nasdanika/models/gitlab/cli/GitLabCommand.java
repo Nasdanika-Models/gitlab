@@ -1,8 +1,12 @@
 package org.nasdanika.models.gitlab.cli;
 
 import org.gitlab4j.api.GitLabApiException;
+import org.nasdanika.capability.CapabilityLoader;
 import org.nasdanika.cli.CommandGroup;
+import org.nasdanika.cli.ParentCommands;
+import org.nasdanika.cli.RootCommand;
 import org.nasdanika.cli.SubCommands;
+import org.nasdanika.common.Invocable;
 import org.nasdanika.models.gitlab.util.GitLabApiFunction;
 import org.nasdanika.models.gitlab.util.GitLabApiProvider;
 
@@ -13,8 +17,17 @@ import picocli.CommandLine.Option;
 	description = "Commands for working with GitLab",
 	name = "gitlab",
 	mixinStandardHelpOptions = true)
+@ParentCommands(RootCommand.class)
 @SubCommands(GitLabApiFunction.class)
-public class GitLabCommand extends CommandGroup {
+public class GitLabCommand extends CommandGroup implements Invocable.Invoker {
+
+	protected GitLabCommand() {
+		super();
+	}
+
+	protected GitLabCommand(CapabilityLoader capabilityLoader) {
+		super(capabilityLoader);
+	}
 
 	@Option( 
 		names = {"-u", "--url"},
@@ -66,6 +79,18 @@ public class GitLabCommand extends CommandGroup {
 				clientRateLimit)) {
 			
 			return function.apply(gitLabApiProvider.getGitLabApi());			
+		}
+	}
+
+	@Override
+	public Object invoke(Invocable invocable) {
+		try (GitLabApiProvider gitLabApiProvider = new GitLabApiProvider(
+				url, 
+				accessToken, 
+				clientRateLimitWindow * 1000, 
+				clientRateLimit)) {
+			
+			return invocable.bindByName("gitLabApi", gitLabApiProvider.getGitLabApi()).invoke();			
 		}
 	}	
 
