@@ -15,6 +15,7 @@ import java.util.Map;
 import java.util.Map.Entry;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.function.BiFunction;
+import java.util.function.BiPredicate;
 import java.util.function.Consumer;
 
 import org.eclipse.emf.common.util.URI;
@@ -29,6 +30,7 @@ import org.gitlab4j.api.models.Commit;
 import org.gitlab4j.api.models.CommitAction;
 import org.gitlab4j.api.models.CommitAction.Action;
 import org.gitlab4j.api.models.CommitPayload;
+import org.gitlab4j.api.models.MergeRequest;
 import org.gitlab4j.api.models.MergeRequestParams;
 import org.gitlab4j.api.models.RepositoryFile;
 import org.gitlab4j.api.models.TreeItem;
@@ -305,13 +307,15 @@ public class GitLabURIHandler implements URIHandler {
 	 * Creates commit actions grouped by project and clears action
 	 * @return
 	 */
-	public Map<Object, Map<String, List<CommitAction>>> createCommitActions() {
+	public Map<Object, Map<String, List<CommitAction>>> createCommitActions(BiPredicate<URI, Action> actionPredicate) {
 		synchronized (content) {		
 			Map<Object, Map<String, List<CommitAction>>> ret = new HashMap<>();
 			for (Entry<URI, ContentEntry> ce: content.entrySet()) {
 				ContentEntry value = ce.getValue();
 				Action action = value.getAction();
-				if (action != null && !value.isTree()) {
+				if (action != null 
+						&& !value.isTree() 
+						&& (actionPredicate == null || actionPredicate.test(ce.getKey(), action))) {
 					CommitAction commitAction = new CommitAction()
 							.withAction(action)
 							.withFilePath(getPath(ce.getKey()));
@@ -332,8 +336,8 @@ public class GitLabURIHandler implements URIHandler {
 		}		
 	}
 	
-	public Map<Object, Map<String, CommitPayload>> createCommitPayloads() {
-		Map<Object, Map<String, List<CommitAction>>> actions = createCommitActions();
+	public Map<Object, Map<String, CommitPayload>> createCommitPayloads(BiPredicate<URI, Action> actionPredicate) {
+		Map<Object, Map<String, List<CommitAction>>> actions = createCommitActions(actionPredicate);
 		Map<Object, Map<String, CommitPayload>> ret = new HashMap<>();
 		for (Entry<Object, Map<String, List<CommitAction>>> projectEntry: actions.entrySet()) {
 			for (Entry<String, List<CommitAction>> refEntry: projectEntry.getValue().entrySet()) {
@@ -347,14 +351,17 @@ public class GitLabURIHandler implements URIHandler {
 		return ret;
 	}
 	
-	public Map<Object, Map<String, Commit>> commit(
+	public static record CommitResult(Commit commit, MergeRequest mergeRequest) {}
+	
+	public Map<Object, Map<String, CommitResult>> commit(
+			BiPredicate<URI, Action> actionPredicate,
 			BiFunction<Object,String,Consumer<CommitPayload>> payloadConfiguratorProvider,
 			BiFunction<Object,String,MergeRequestParams> mergeRequestParamsProvider) throws GitLabApiException {
 		if (payloadConfiguratorProvider == null) {
 			return Collections.emptyMap();
 		}
-		Map<Object, Map<String, CommitPayload>> payloads = createCommitPayloads();
-		Map<Object, Map<String, Commit>> ret = new HashMap<>();
+		Map<Object, Map<String, CommitPayload>> payloads = createCommitPayloads(actionPredicate);
+		Map<Object, Map<String, CommitResult>> ret = new HashMap<>();
 		for (Entry<Object, Map<String, CommitPayload>> projectEntry: payloads.entrySet()) {
 			for (Entry<String, CommitPayload> refEntry: projectEntry.getValue().entrySet()) {
 				Object projectKey = projectEntry.getKey();
@@ -364,14 +371,16 @@ public class GitLabURIHandler implements URIHandler {
 					CommitPayload payload = refEntry.getValue();
 					payloadConfigurator.accept(payload);
 					Commit commit = gitLabApi.getCommitsApi().createCommit(projectKey, payload); 
-					ret
-						.computeIfAbsent(projectKey , k -> new HashMap<>())
-						.put(ref, commit);
 					
 					MergeRequestParams mergeRequestParams = mergeRequestParamsProvider.apply(projectKey, ref);
+					MergeRequest mergeRequest = null;
 					if (mergeRequestParams != null) {
-						gitLabApi.getMergeRequestApi().createMergeRequest(projectKey, mergeRequestParams);
+						mergeRequest = gitLabApi.getMergeRequestApi().createMergeRequest(projectKey, mergeRequestParams);
 					}					
+					ret
+					.computeIfAbsent(projectKey , k -> new HashMap<>())
+					.put(ref, new CommitResult(commit, mergeRequest));
+					
 				}
 			}
 		}

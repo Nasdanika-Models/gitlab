@@ -1,17 +1,26 @@
 package org.nasdanika.models.git.tests;
 
+import java.io.OutputStreamWriter;
+import java.io.Writer;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
+import java.util.Map;
 import java.util.function.BiConsumer;
+import java.util.function.BiFunction;
+import java.util.function.BiPredicate;
+import java.util.function.Consumer;
 
+import org.eclipse.emf.common.util.URI;
 import org.gitlab4j.api.CommitsApi;
 import org.gitlab4j.api.Constants.Encoding;
 import org.gitlab4j.api.MergeRequestApi;
 import org.gitlab4j.api.RepositoryApi;
 import org.gitlab4j.api.models.Commit;
 import org.gitlab4j.api.models.CommitAction;
-import org.gitlab4j.api.models.MergeRequestParams;
 import org.gitlab4j.api.models.CommitAction.Action;
+import org.gitlab4j.api.models.CommitPayload;
+import org.gitlab4j.api.models.MergeRequestParams;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.nasdanika.common.PrintStreamProgressMonitor;
@@ -24,10 +33,14 @@ import org.nasdanika.models.gitlab.Member;
 import org.nasdanika.models.gitlab.Project;
 import org.nasdanika.models.gitlab.TreeItem;
 import org.nasdanika.models.gitlab.util.GitLabApiProvider;
+import org.nasdanika.models.gitlab.util.GitLabURIHandler;
+import org.nasdanika.models.gitlab.util.GitLabURIHandler.CommitResult;
 import org.nasdanika.models.gitlab.util.Loader;
 
 public class GitLabTests {
 
+	private static final String PAVEL_VLASOV_EMAIL = "Pavel.Vlasov@somewhere.xyz";
+	private static final String MAIN_BRANCH = "main";
 	private static final String GITLAB_COMMITTER_TOKEN = System.getenv("GITLAB_COMMITTER_TOKEN");
 	private static final String GITLAB_ACCESS_TOKEN = System.getenv("GITLAB_ACCESS_TOKEN");
 	private static final long PROJECT_ID = 48523784L;
@@ -171,7 +184,7 @@ public class GitLabTests {
 		String accessToken = GITLAB_COMMITTER_TOKEN;
 		try (GitLabApiProvider gitLabApiProvider = new GitLabApiProvider("https://gitlab.com/", accessToken)) {				
 			RepositoryApi repoApi = gitLabApiProvider.getGitLabApi().getRepositoryApi();
-			repoApi.createBranch(PROJECT_ID, "feature-" + System.currentTimeMillis(), "main");
+			repoApi.createBranch(PROJECT_ID, "feature-" + System.currentTimeMillis(), MAIN_BRANCH);
 		}		
 	}
 	
@@ -189,10 +202,10 @@ public class GitLabTests {
 			
 			commitApi.createCommit(
 					PROJECT_ID,
-					"main", 
+					MAIN_BRANCH, 
 					"Testing commit API", 
-					"main",
-		            "Pavel.Vlasov@nasdanika.org", 
+					MAIN_BRANCH,
+		            PAVEL_VLASOV_EMAIL, 
 		            "Pavel Vlasov", 
 		            commitAction);										
 		}
@@ -206,7 +219,7 @@ public class GitLabTests {
 			MergeRequestApi mergeRequestApi = gitLabApiProvider.getGitLabApi().getMergeRequestApi();
 			MergeRequestParams params = new MergeRequestParams()
 				    .withSourceBranch("feature-XYZ")
-				    .withTargetBranch("main")
+				    .withTargetBranch(MAIN_BRANCH)
 				    .withTitle("Generated code")
 				    .withDescription("Code automatically generated...");
 			mergeRequestApi.createMergeRequest(PROJECT_ID, params);
@@ -214,11 +227,56 @@ public class GitLabTests {
 	}
 	
 	@Test
+	@Disabled
+	public void testGitLabURIHandler() throws Exception {
+		String accessToken = GITLAB_COMMITTER_TOKEN;
+		try (GitLabApiProvider gitLabApiProvider = new GitLabApiProvider("https://gitlab.com/", accessToken)) {
+			GitLabURIHandler gitLabURIHandler = new GitLabURIHandler(gitLabApiProvider.getGitLabApi());
+			org.eclipse.emf.common.util.URI testURI = org.eclipse.emf.common.util.URI.createURI("gitlab://54851996/main/test.txt");
+			try (Writer writer = new OutputStreamWriter(gitLabURIHandler.createOutputStream(testURI, null))) {
+				writer.write("Hello, World! " + new Date());
+			}
+			
+			SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd-HH-mm-ss-SSS");
+			String branch = "uri-handler-test-" + dateFormat.format(new Date());
+			
+			BiPredicate<URI, Action> actionPredicate = (uri, action) -> {
+				System.out.println("Commit action: " + uri + " -> " + action.name());
+				return true;
+			};
+			
+			BiFunction<Object, String, Consumer<CommitPayload>> payloadConfigurationProvider = (projectID, ref) -> (commitPayload) -> {
+				commitPayload
+					.withBranch(branch)
+					.withStartBranch(MAIN_BRANCH)
+					.withAuthorEmail(PAVEL_VLASOV_EMAIL)
+					.withAuthorName("Pavel Vlasov")
+					.withCommitMessage("Testing commit and merge request via GitLabURIHandler at " + new Date())
+					.withStats(true);								
+			};
+			
+			BiFunction<Object, String, MergeRequestParams> mergeRequestParamsProvider = (projectID, ref) -> {
+				return new MergeRequestParams()
+					.withSourceBranch(branch)
+					.withTargetBranch(MAIN_BRANCH)
+					.withTitle("Test of merge request via GitLabURIHandler")
+					.withDescription("Created test.txt file");
+			};
+			
+			Map<Object, Map<String, CommitResult>> commitResults = gitLabURIHandler.commit(
+					actionPredicate, 
+					payloadConfigurationProvider, 
+					mergeRequestParamsProvider);
+			System.out.println(commitResults);
+		}		
+	}	
+	
+	@Test
 	public void testGetTree() throws Exception {
 		String accessToken = GITLAB_ACCESS_TOKEN;
 		try (GitLabApiProvider gitLabApiProvider = new GitLabApiProvider("https://gitlab.com/", accessToken)) {				
 			RepositoryApi repoApi = gitLabApiProvider.getGitLabApi().getRepositoryApi();
-			List<org.gitlab4j.api.models.TreeItem> treeItems = repoApi.getTree(PROJECT_ID, "/", "main");
+			List<org.gitlab4j.api.models.TreeItem> treeItems = repoApi.getTree(PROJECT_ID, "/", MAIN_BRANCH);
 			for (org.gitlab4j.api.models.TreeItem treeItem: treeItems) {
 				System.out.println(treeItem);				
 			}
