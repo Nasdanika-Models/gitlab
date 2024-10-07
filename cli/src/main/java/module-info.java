@@ -1,5 +1,6 @@
 import org.nasdanika.capability.CapabilityFactory;
 import org.nasdanika.models.gitlab.cli.GitLabCommandFactory;
+import org.nasdanika.models.gitlab.cli.GitLabContributorCommandFactory;
 
 module org.nasdanika.models.gitlab.cli {
 	
@@ -10,6 +11,8 @@ module org.nasdanika.models.gitlab.cli {
 	
 	opens org.nasdanika.models.gitlab.cli to info.picocli;
 	
-	provides CapabilityFactory with GitLabCommandFactory;
+	provides CapabilityFactory with 
+		GitLabCommandFactory,
+		GitLabContributorCommandFactory;
 
 }

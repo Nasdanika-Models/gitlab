@@ -5,7 +5,6 @@ import org.nasdanika.capability.CapabilityLoader;
 import org.nasdanika.cli.CommandGroup;
 import org.nasdanika.cli.ParentCommands;
 import org.nasdanika.cli.RootCommand;
-import org.nasdanika.cli.SubCommands;
 import org.nasdanika.common.Invocable;
 import org.nasdanika.models.gitlab.util.GitLabApiFunction;
 import org.nasdanika.models.gitlab.util.GitLabApiProvider;
@@ -18,7 +17,6 @@ import picocli.CommandLine.Option;
 	name = "gitlab",
 	mixinStandardHelpOptions = true)
 @ParentCommands(RootCommand.class)
-@SubCommands(GitLabApiFunction.class)
 public class GitLabCommand extends CommandGroup implements Invocable.Invoker {
 
 	protected GitLabCommand() {
@@ -71,7 +69,7 @@ public class GitLabCommand extends CommandGroup implements Invocable.Invoker {
 	 * @return
 	 * @throws GitLabApiException
 	 */
-	public <Т> Т execute(GitLabApiFunction<Т> function) throws GitLabApiException {
+	public <Т> Т apply(GitLabApiFunction<Т> function) throws GitLabApiException {
 		try (GitLabApiProvider gitLabApiProvider = new GitLabApiProvider(
 				url, 
 				accessToken, 
@@ -90,7 +88,10 @@ public class GitLabCommand extends CommandGroup implements Invocable.Invoker {
 				clientRateLimitWindow * 1000, 
 				clientRateLimit)) {
 			
-			return invocable.bindByName("gitLabApi", gitLabApiProvider.getGitLabApi()).invoke();			
+			return invocable
+					.bindByName("gitLabApi", gitLabApiProvider.getGitLabApi())
+					.bindByName("capabilityLoader", capabilityLoader)
+					.invoke();			
 		}
 	}	
 
