@@ -158,7 +158,8 @@ public class GitLabContributorCommand extends CommandGroup implements Invocable.
 	
 	@ArgGroup(
 			multiplicity = "1",
-			heading = "Commit%n")
+			heading = "Commit%n",
+			exclusive = false)
 	private CommitArgGroup commitArgGroup;
 	
 	protected boolean isCommit(URI uri, Action action) {
@@ -249,7 +250,8 @@ public class GitLabContributorCommand extends CommandGroup implements Invocable.
 	
 	@ArgGroup(
 			multiplicity = "0..1",
-			heading = "Merge request%n")
+			heading = "Merge request%n",
+			exclusive = false)
 	private MergeRequestArgGroup mergeRequestArgGroup;
 
 	@Override
