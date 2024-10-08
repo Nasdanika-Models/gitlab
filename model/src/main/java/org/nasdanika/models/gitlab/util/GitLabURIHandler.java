@@ -50,6 +50,10 @@ public class GitLabURIHandler implements URIHandler {
 	protected GitLabApi gitLabApi;
 	protected RepositoryApi repositoryApi;
 	
+	public GitLabApi getGitLabApi() {
+		return gitLabApi;
+	}
+	
 	public GitLabURIHandler(GitLabApi gitLabApi) {
 		this.gitLabApi = gitLabApi;
 		this.repositoryFileApi = gitLabApi.getRepositoryFileApi();
@@ -90,6 +94,7 @@ public class GitLabURIHandler implements URIHandler {
 		}
 		
 		public ContentEntry() {
+			setAction(Action.DELETE);
 		}		
 		
 		public ContentEntry(InputStream in) throws IOException {
@@ -230,54 +235,8 @@ public class GitLabURIHandler implements URIHandler {
 		synchronized (content) {
 			ContentEntry resourceEntry = content.get(uri);
 			if (resourceEntry == null) {
-				if (Util.isBlank(uri.lastSegment())) {
-					ByteArrayOutputStream baos = new ByteArrayOutputStream();
-					XMIResourceImpl resource = new XMIResourceImpl(uri);
-					try (baos) {
-						Tree tree = GitLabFactory.eINSTANCE.createTree();
-						resource.getContents().add(tree);
-						List<TreeItem> treeItems = repositoryApi.getTree(getProjectIdOrPath(uri), getPath(uri), getRef(uri));
-						for (TreeItem treeItem: treeItems) {
-							switch (treeItem.getType()) {
-							case TREE:
-								org.nasdanika.models.gitlab.Tree subTree = GitLabFactory.eINSTANCE.createTree();
-								subTree.setId(treeItem.getId());
-								subTree.setName(treeItem.getName());
-								subTree.setPath(treeItem.getPath());
-								tree.getTreeItems().add(subTree);
-								break;
-							case BLOB:
-								org.nasdanika.models.gitlab.Blob blob = GitLabFactory.eINSTANCE.createBlob();
-								blob.setId(treeItem.getId());
-								blob.setName(treeItem.getName());
-								blob.setPath(treeItem.getPath());
-								tree.getTreeItems().add(blob);
-								break;
-							case COMMIT:
-								break;
-							default:
-								break;							
-							}
-						}
-					} catch (GitLabApiException e) {
-						throw new IOException(e);
-					} 
-					
-					resource.save(baos, options);
-					resourceEntry = new ContentEntry(baos.toByteArray(), true);
-					content.put(uri, resourceEntry);
-				} else {				
-					try {
-						RepositoryFile repositoryFile = repositoryFileApi.getFile(
-								getProjectIdOrPath(uri), 
-								getRef(uri),
-								getPath(uri));
-						resourceEntry = new ContentEntry(repositoryFile.getDecodedContentAsBytes(), false);
-						content.put(uri, resourceEntry);
-					} catch (GitLabApiException e) {
-						throw new IOException(e);
-					}
-				}
+				resourceEntry = new ContentEntry();
+				content.put(uri, resourceEntry);
 			} 
 			resourceEntry.setContent((byte[]) null);
 		}
