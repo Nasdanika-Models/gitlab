@@ -14,7 +14,7 @@ public class GitLabApiProvider  implements AutoCloseable {
 	private GitLabApi gitLabApi;
 	
 	/**
-	 * Access to the API for configuration. 
+	 * Access to the API. 
 	 * @return
 	 */
 	public GitLabApi getGitLabApi() {
