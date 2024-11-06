@@ -82,6 +82,7 @@ public class GitLabFactoryImpl extends EFactoryImpl implements GitLabFactory {
 			case GitLabPackage.BLOB: return createBlob();
 			case GitLabPackage.REPOSITORY_FILE: return createRepositoryFile();
 			case GitLabPackage.TEXT_REPOSITORY_FILE: return createTextRepositoryFile();
+			case GitLabPackage.REFERENCE_REPOSITORY_FILE: return createReferenceRepositoryFile();
 			case GitLabPackage.BINARY_REPOSITORY_FILE: return createBinaryRepositoryFile();
 			case GitLabPackage.EOBJECT_REPOSITORY_FILE: return createEObjectRepositoryFile();
 			case GitLabPackage.LIST_REPOSITORY_FILE: return createListRepositoryFile();
@@ -405,6 +406,17 @@ public class GitLabFactoryImpl extends EFactoryImpl implements GitLabFactory {
 	public TextRepositoryFile createTextRepositoryFile() {
 		TextRepositoryFileImpl textRepositoryFile = new TextRepositoryFileImpl();
 		return textRepositoryFile;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public ReferenceRepositoryFile createReferenceRepositoryFile() {
+		ReferenceRepositoryFileImpl referenceRepositoryFile = new ReferenceRepositoryFileImpl();
+		return referenceRepositoryFile;
 	}
 
 	/**

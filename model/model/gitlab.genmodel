@@ -302,6 +302,9 @@
     <genClasses ecoreClass="gitlab.ecore#//TextRepositoryFile">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gitlab.ecore#//TextRepositoryFile/content"/>
     </genClasses>
+    <genClasses ecoreClass="gitlab.ecore#//ReferenceRepositoryFile">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gitlab.ecore#//ReferenceRepositoryFile/location"/>
+    </genClasses>
     <genClasses ecoreClass="gitlab.ecore#//BinaryRepositoryFile">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gitlab.ecore#//BinaryRepositoryFile/content"/>
     </genClasses>

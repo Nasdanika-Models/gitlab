@@ -3573,6 +3573,133 @@ public interface GitLabPackage extends EPackage {
 	int TEXT_REPOSITORY_FILE_OPERATION_COUNT = REPOSITORY_FILE_OPERATION_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link org.nasdanika.models.gitlab.impl.ReferenceRepositoryFileImpl <em>Reference Repository File</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.nasdanika.models.gitlab.impl.ReferenceRepositoryFileImpl
+	 * @see org.nasdanika.models.gitlab.impl.GitLabPackageImpl#getReferenceRepositoryFile()
+	 * @generated
+	 */
+	int REFERENCE_REPOSITORY_FILE = 29;
+
+	/**
+	 * The feature id for the '<em><b>Loaded</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int REFERENCE_REPOSITORY_FILE__LOADED = REPOSITORY_FILE__LOADED;
+
+	/**
+	 * The feature id for the '<em><b>Loads</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int REFERENCE_REPOSITORY_FILE__LOADS = REPOSITORY_FILE__LOADS;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int REFERENCE_REPOSITORY_FILE__NAME = REPOSITORY_FILE__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int REFERENCE_REPOSITORY_FILE__ID = REPOSITORY_FILE__ID;
+
+	/**
+	 * The feature id for the '<em><b>Path</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int REFERENCE_REPOSITORY_FILE__PATH = REPOSITORY_FILE__PATH;
+
+	/**
+	 * The feature id for the '<em><b>Size</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int REFERENCE_REPOSITORY_FILE__SIZE = REPOSITORY_FILE__SIZE;
+
+	/**
+	 * The feature id for the '<em><b>Ref</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int REFERENCE_REPOSITORY_FILE__REF = REPOSITORY_FILE__REF;
+
+	/**
+	 * The feature id for the '<em><b>Commit Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int REFERENCE_REPOSITORY_FILE__COMMIT_ID = REPOSITORY_FILE__COMMIT_ID;
+
+	/**
+	 * The feature id for the '<em><b>Last Commit Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int REFERENCE_REPOSITORY_FILE__LAST_COMMIT_ID = REPOSITORY_FILE__LAST_COMMIT_ID;
+
+	/**
+	 * The feature id for the '<em><b>Location</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int REFERENCE_REPOSITORY_FILE__LOCATION = REPOSITORY_FILE_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Reference Repository File</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int REFERENCE_REPOSITORY_FILE_FEATURE_COUNT = REPOSITORY_FILE_FEATURE_COUNT + 1;
+
+	/**
+	 * The operation id for the '<em>Create Reference</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int REFERENCE_REPOSITORY_FILE___CREATE_REFERENCE = REPOSITORY_FILE___CREATE_REFERENCE;
+
+	/**
+	 * The number of operations of the '<em>Reference Repository File</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int REFERENCE_REPOSITORY_FILE_OPERATION_COUNT = REPOSITORY_FILE_OPERATION_COUNT + 0;
+
+	/**
 	 * The meta object id for the '{@link org.nasdanika.models.gitlab.impl.BinaryRepositoryFileImpl <em>Binary Repository File</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3580,7 +3707,7 @@ public interface GitLabPackage extends EPackage {
 	 * @see org.nasdanika.models.gitlab.impl.GitLabPackageImpl#getBinaryRepositoryFile()
 	 * @generated
 	 */
-	int BINARY_REPOSITORY_FILE = 29;
+	int BINARY_REPOSITORY_FILE = 30;
 
 	/**
 	 * The feature id for the '<em><b>Loaded</b></em>' attribute.
@@ -3707,7 +3834,7 @@ public interface GitLabPackage extends EPackage {
 	 * @see org.nasdanika.models.gitlab.impl.GitLabPackageImpl#getEObjectRepositoryFile()
 	 * @generated
 	 */
-	int EOBJECT_REPOSITORY_FILE = 30;
+	int EOBJECT_REPOSITORY_FILE = 31;
 
 	/**
 	 * The feature id for the '<em><b>Loaded</b></em>' attribute.
@@ -3834,7 +3961,7 @@ public interface GitLabPackage extends EPackage {
 	 * @see org.nasdanika.models.gitlab.impl.GitLabPackageImpl#getListRepositoryFile()
 	 * @generated
 	 */
-	int LIST_REPOSITORY_FILE = 31;
+	int LIST_REPOSITORY_FILE = 32;
 
 	/**
 	 * The feature id for the '<em><b>Loaded</b></em>' attribute.
@@ -3961,7 +4088,7 @@ public interface GitLabPackage extends EPackage {
 	 * @see org.nasdanika.models.gitlab.impl.GitLabPackageImpl#getVisibility()
 	 * @generated
 	 */
-	int VISIBILITY = 32;
+	int VISIBILITY = 33;
 
 
 	/**
@@ -3972,7 +4099,7 @@ public interface GitLabPackage extends EPackage {
 	 * @see org.nasdanika.models.gitlab.impl.GitLabPackageImpl#getAccessLevel()
 	 * @generated
 	 */
-	int ACCESS_LEVEL = 33;
+	int ACCESS_LEVEL = 34;
 
 
 	/**
@@ -3983,7 +4110,7 @@ public interface GitLabPackage extends EPackage {
 	 * @see org.nasdanika.models.gitlab.impl.GitLabPackageImpl#getMergeMethod()
 	 * @generated
 	 */
-	int MERGE_METHOD = 34;
+	int MERGE_METHOD = 35;
 
 	/**
 	 * The meta object id for the '{@link org.nasdanika.models.gitlab.BuildGitStrategy <em>Build Git Strategy</em>}' enum.
@@ -3993,7 +4120,7 @@ public interface GitLabPackage extends EPackage {
 	 * @see org.nasdanika.models.gitlab.impl.GitLabPackageImpl#getBuildGitStrategy()
 	 * @generated
 	 */
-	int BUILD_GIT_STRATEGY = 35;
+	int BUILD_GIT_STRATEGY = 36;
 
 	/**
 	 * The meta object id for the '{@link org.nasdanika.models.gitlab.Status <em>Status</em>}' enum.
@@ -4003,7 +4130,7 @@ public interface GitLabPackage extends EPackage {
 	 * @see org.nasdanika.models.gitlab.impl.GitLabPackageImpl#getStatus()
 	 * @generated
 	 */
-	int STATUS = 36;
+	int STATUS = 37;
 
 	/**
 	 * The meta object id for the '{@link org.nasdanika.models.gitlab.AutoDevopsDeployStrategy <em>Auto Devops Deploy Strategy</em>}' enum.
@@ -4013,7 +4140,7 @@ public interface GitLabPackage extends EPackage {
 	 * @see org.nasdanika.models.gitlab.impl.GitLabPackageImpl#getAutoDevopsDeployStrategy()
 	 * @generated
 	 */
-	int AUTO_DEVOPS_DEPLOY_STRATEGY = 37;
+	int AUTO_DEVOPS_DEPLOY_STRATEGY = 38;
 
 	/**
 	 * The meta object id for the '{@link org.nasdanika.models.gitlab.SquashOption <em>Squash Option</em>}' enum.
@@ -4023,7 +4150,7 @@ public interface GitLabPackage extends EPackage {
 	 * @see org.nasdanika.models.gitlab.impl.GitLabPackageImpl#getSquashOption()
 	 * @generated
 	 */
-	int SQUASH_OPTION = 38;
+	int SQUASH_OPTION = 39;
 
 
 	/**
@@ -6471,6 +6598,27 @@ public interface GitLabPackage extends EPackage {
 	EAttribute getTextRepositoryFile_Content();
 
 	/**
+	 * Returns the meta object for class '{@link org.nasdanika.models.gitlab.ReferenceRepositoryFile <em>Reference Repository File</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Reference Repository File</em>'.
+	 * @see org.nasdanika.models.gitlab.ReferenceRepositoryFile
+	 * @generated
+	 */
+	EClass getReferenceRepositoryFile();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.models.gitlab.ReferenceRepositoryFile#getLocation <em>Location</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Location</em>'.
+	 * @see org.nasdanika.models.gitlab.ReferenceRepositoryFile#getLocation()
+	 * @see #getReferenceRepositoryFile()
+	 * @generated
+	 */
+	EAttribute getReferenceRepositoryFile_Location();
+
+	/**
 	 * Returns the meta object for class '{@link org.nasdanika.models.gitlab.BinaryRepositoryFile <em>Binary Repository File</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -8259,6 +8407,22 @@ public interface GitLabPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute TEXT_REPOSITORY_FILE__CONTENT = eINSTANCE.getTextRepositoryFile_Content();
+		/**
+		 * The meta object literal for the '{@link org.nasdanika.models.gitlab.impl.ReferenceRepositoryFileImpl <em>Reference Repository File</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.nasdanika.models.gitlab.impl.ReferenceRepositoryFileImpl
+		 * @see org.nasdanika.models.gitlab.impl.GitLabPackageImpl#getReferenceRepositoryFile()
+		 * @generated
+		 */
+		EClass REFERENCE_REPOSITORY_FILE = eINSTANCE.getReferenceRepositoryFile();
+		/**
+		 * The meta object literal for the '<em><b>Location</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute REFERENCE_REPOSITORY_FILE__LOCATION = eINSTANCE.getReferenceRepositoryFile_Location();
 		/**
 		 * The meta object literal for the '{@link org.nasdanika.models.gitlab.impl.BinaryRepositoryFileImpl <em>Binary Repository File</em>}' class.
 		 * <!-- begin-user-doc -->

@@ -186,6 +186,10 @@ public class GitLabAdapterFactory extends AdapterFactoryImpl {
 				return createTextRepositoryFileAdapter();
 			}
 			@Override
+			public Adapter caseReferenceRepositoryFile(ReferenceRepositoryFile object) {
+				return createReferenceRepositoryFileAdapter();
+			}
+			@Override
 			public Adapter caseBinaryRepositoryFile(BinaryRepositoryFile object) {
 				return createBinaryRepositoryFileAdapter();
 			}
@@ -632,6 +636,20 @@ public class GitLabAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createTextRepositoryFileAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.nasdanika.models.gitlab.ReferenceRepositoryFile <em>Reference Repository File</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.nasdanika.models.gitlab.ReferenceRepositoryFile
+	 * @generated
+	 */
+	public Adapter createReferenceRepositoryFileAdapter() {
 		return null;
 	}
 

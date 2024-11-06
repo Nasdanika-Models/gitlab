@@ -294,6 +294,17 @@ public class GitLabSwitch<T1> extends Switch<T1> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case GitLabPackage.REFERENCE_REPOSITORY_FILE: {
+				ReferenceRepositoryFile referenceRepositoryFile = (ReferenceRepositoryFile)theEObject;
+				T1 result = caseReferenceRepositoryFile(referenceRepositoryFile);
+				if (result == null) result = caseRepositoryFile(referenceRepositoryFile);
+				if (result == null) result = caseBlob(referenceRepositoryFile);
+				if (result == null) result = caseTreeItem(referenceRepositoryFile);
+				if (result == null) result = caseLoadable(referenceRepositoryFile);
+				if (result == null) result = caseNcore_TreeItem(referenceRepositoryFile);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			case GitLabPackage.BINARY_REPOSITORY_FILE: {
 				BinaryRepositoryFile binaryRepositoryFile = (BinaryRepositoryFile)theEObject;
 				T1 result = caseBinaryRepositoryFile(binaryRepositoryFile);
@@ -763,6 +774,21 @@ public class GitLabSwitch<T1> extends Switch<T1> {
 	 * @generated
 	 */
 	public T1 caseTextRepositoryFile(TextRepositoryFile object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Reference Repository File</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Reference Repository File</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T1 caseReferenceRepositoryFile(ReferenceRepositoryFile object) {
 		return null;
 	}
 

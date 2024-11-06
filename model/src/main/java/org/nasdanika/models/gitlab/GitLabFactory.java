@@ -229,6 +229,15 @@ public interface GitLabFactory extends EFactory {
 	TextRepositoryFile createTextRepositoryFile();
 
 	/**
+	 * Returns a new object of class '<em>Reference Repository File</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Reference Repository File</em>'.
+	 * @generated
+	 */
+	ReferenceRepositoryFile createReferenceRepositoryFile();
+
+	/**
 	 * Returns a new object of class '<em>Binary Repository File</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

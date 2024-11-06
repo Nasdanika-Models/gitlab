@@ -13,6 +13,7 @@ import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 
+import org.nasdanika.models.coverage.CoveragePackage;
 import org.nasdanika.models.gitlab.AbstractGroup;
 import org.nasdanika.models.gitlab.AbstractProject;
 import org.nasdanika.models.gitlab.AbstractUser;
@@ -43,6 +44,7 @@ import org.nasdanika.models.gitlab.ProjectLicense;
 import org.nasdanika.models.gitlab.ProjectReference;
 import org.nasdanika.models.gitlab.ProjectSharedGroup;
 import org.nasdanika.models.gitlab.ProjectStatistics;
+import org.nasdanika.models.gitlab.ReferenceRepositoryFile;
 import org.nasdanika.models.gitlab.RepositoryFile;
 import org.nasdanika.models.gitlab.SquashOption;
 import org.nasdanika.models.gitlab.Status;
@@ -246,6 +248,12 @@ public class GitLabPackageImpl extends EPackageImpl implements GitLabPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	private EClass referenceRepositoryFileEClass = null;
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	private EClass binaryRepositoryFileEClass = null;
 	/**
 	 * <!-- begin-user-doc -->
@@ -351,7 +359,7 @@ public class GitLabPackageImpl extends EPackageImpl implements GitLabPackage {
 		isInited = true;
 
 		// Initialize simple dependencies
-		org.nasdanika.models.coverage.CoveragePackage.eINSTANCE.eClass();
+		CoveragePackage.eINSTANCE.eClass();
 		NcorePackage.eINSTANCE.eClass();
 
 		// Obtain or create and register interdependencies
@@ -2634,6 +2642,26 @@ public class GitLabPackageImpl extends EPackageImpl implements GitLabPackage {
 	 * @generated
 	 */
 	@Override
+	public EClass getReferenceRepositoryFile() {
+		return referenceRepositoryFileEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getReferenceRepositoryFile_Location() {
+		return (EAttribute)referenceRepositoryFileEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EClass getBinaryRepositoryFile() {
 		return binaryRepositoryFileEClass;
 	}
@@ -3041,6 +3069,9 @@ public class GitLabPackageImpl extends EPackageImpl implements GitLabPackage {
 		textRepositoryFileEClass = createEClass(TEXT_REPOSITORY_FILE);
 		createEAttribute(textRepositoryFileEClass, TEXT_REPOSITORY_FILE__CONTENT);
 
+		referenceRepositoryFileEClass = createEClass(REFERENCE_REPOSITORY_FILE);
+		createEAttribute(referenceRepositoryFileEClass, REFERENCE_REPOSITORY_FILE__LOCATION);
+
 		binaryRepositoryFileEClass = createEClass(BINARY_REPOSITORY_FILE);
 		createEAttribute(binaryRepositoryFileEClass, BINARY_REPOSITORY_FILE__CONTENT);
 
@@ -3140,6 +3171,7 @@ public class GitLabPackageImpl extends EPackageImpl implements GitLabPackage {
 		blobEClass.getESuperTypes().add(this.getTreeItem());
 		repositoryFileEClass.getESuperTypes().add(this.getBlob());
 		textRepositoryFileEClass.getESuperTypes().add(this.getRepositoryFile());
+		referenceRepositoryFileEClass.getESuperTypes().add(this.getRepositoryFile());
 		binaryRepositoryFileEClass.getESuperTypes().add(this.getRepositoryFile());
 		eObjectRepositoryFileEClass.getESuperTypes().add(this.getRepositoryFile());
 		listRepositoryFileEClass.getESuperTypes().add(this.getRepositoryFile());
@@ -3416,6 +3448,9 @@ public class GitLabPackageImpl extends EPackageImpl implements GitLabPackage {
 
 		initEClass(textRepositoryFileEClass, TextRepositoryFile.class, "TextRepositoryFile", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getTextRepositoryFile_Content(), ecorePackage.getEString(), "content", null, 0, 1, TextRepositoryFile.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(referenceRepositoryFileEClass, ReferenceRepositoryFile.class, "ReferenceRepositoryFile", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getReferenceRepositoryFile_Location(), ecorePackage.getEString(), "location", null, 0, 1, ReferenceRepositoryFile.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(binaryRepositoryFileEClass, BinaryRepositoryFile.class, "BinaryRepositoryFile", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getBinaryRepositoryFile_Content(), ecorePackage.getEByteArray(), "content", null, 0, 1, BinaryRepositoryFile.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
