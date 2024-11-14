@@ -41,7 +41,6 @@ public class GitLabTests {
 
 	private static final String PAVEL_VLASOV_EMAIL = "Pavel.Vlasov@somewhere.xyz";
 	private static final String MAIN_BRANCH = "main";
-	private static final String GITLAB_COMMITTER_TOKEN = System.getenv("GITLAB_COMMITTER_TOKEN");
 	private static final String GITLAB_ACCESS_TOKEN = System.getenv("GITLAB_ACCESS_TOKEN");
 	private static final long PROJECT_ID = 48523784L;
 
@@ -181,7 +180,7 @@ public class GitLabTests {
 	
 	@Test
 	public void testCreateBranch() throws Exception {
-		String accessToken = GITLAB_COMMITTER_TOKEN;
+		String accessToken = GITLAB_ACCESS_TOKEN;
 		try (GitLabApiProvider gitLabApiProvider = new GitLabApiProvider("https://gitlab.com/", accessToken)) {				
 			RepositoryApi repoApi = gitLabApiProvider.getGitLabApi().getRepositoryApi();
 			repoApi.createBranch(PROJECT_ID, "feature-" + System.currentTimeMillis(), MAIN_BRANCH);
@@ -191,7 +190,7 @@ public class GitLabTests {
 	@Disabled
 	@Test
 	public void testCommit() throws Exception {
-		String accessToken = GITLAB_COMMITTER_TOKEN;
+		String accessToken = GITLAB_ACCESS_TOKEN;
 		try (GitLabApiProvider gitLabApiProvider = new GitLabApiProvider("https://gitlab.com/", accessToken)) {				
 			CommitsApi commitApi = gitLabApiProvider.getGitLabApi().getCommitsApi();
 			CommitAction commitAction = new CommitAction()
@@ -214,7 +213,7 @@ public class GitLabTests {
 	@Disabled
 	@Test
 	public void testCreateMergeRequest() throws Exception {
-		String accessToken = GITLAB_COMMITTER_TOKEN;
+		String accessToken = GITLAB_ACCESS_TOKEN;
 		try (GitLabApiProvider gitLabApiProvider = new GitLabApiProvider("https://gitlab.com/", accessToken)) {				
 			MergeRequestApi mergeRequestApi = gitLabApiProvider.getGitLabApi().getMergeRequestApi();
 			MergeRequestParams params = new MergeRequestParams()
@@ -229,7 +228,7 @@ public class GitLabTests {
 	@Test
 	@Disabled
 	public void testGitLabURIHandler() throws Exception {
-		String accessToken = GITLAB_COMMITTER_TOKEN;
+		String accessToken = GITLAB_ACCESS_TOKEN;
 		try (GitLabApiProvider gitLabApiProvider = new GitLabApiProvider("https://gitlab.com/", accessToken)) {
 			GitLabURIHandler gitLabURIHandler = new GitLabURIHandler(gitLabApiProvider.getGitLabApi());
 			org.eclipse.emf.common.util.URI testURI = org.eclipse.emf.common.util.URI.createURI("gitlab://54851996/main/test.txt");
