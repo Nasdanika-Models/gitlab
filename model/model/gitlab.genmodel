@@ -261,6 +261,7 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gitlab.ecore#//Commit/url"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gitlab.ecore#//Commit/webURL"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference gitlab.ecore#//Commit/branches"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference gitlab.ecore#//Commit/diffs"/>
     </genClasses>
     <genClasses ecoreClass="gitlab.ecore#//ProjectAccess">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gitlab.ecore#//ProjectAccess/accessLevel"/>
@@ -298,6 +299,7 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gitlab.ecore#//RepositoryFile/ref"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gitlab.ecore#//RepositoryFile/commitId"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gitlab.ecore#//RepositoryFile/lastCommitId"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference gitlab.ecore#//RepositoryFile/blame"/>
     </genClasses>
     <genClasses ecoreClass="gitlab.ecore#//TextRepositoryFile">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gitlab.ecore#//TextRepositoryFile/content"/>
@@ -313,6 +315,20 @@
     </genClasses>
     <genClasses ecoreClass="gitlab.ecore#//ListRepositoryFile">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference gitlab.ecore#//ListRepositoryFile/content"/>
+    </genClasses>
+    <genClasses ecoreClass="gitlab.ecore#//Blame">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference gitlab.ecore#//Blame/commit"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gitlab.ecore#//Blame/lines"/>
+    </genClasses>
+    <genClasses ecoreClass="gitlab.ecore#//Diff">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gitlab.ecore#//Diff/aMode"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gitlab.ecore#//Diff/bMode"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gitlab.ecore#//Diff/diff"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gitlab.ecore#//Diff/deletedFile"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gitlab.ecore#//Diff/newFile"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gitlab.ecore#//Diff/newPath"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gitlab.ecore#//Diff/oldPath"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gitlab.ecore#//Diff/renamedFile"/>
     </genClasses>
     <nestedGenPackages prefix="Codeowners" basePackage="org.nasdanika.models.gitlab"
         disposableProviderFactory="true" ecorePackage="gitlab.ecore#//codeowners">

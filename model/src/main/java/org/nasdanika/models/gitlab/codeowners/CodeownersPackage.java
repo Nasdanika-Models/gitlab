@@ -379,6 +379,15 @@ public interface CodeownersPackage extends EPackage {
 	int CODE_OWNERS__LAST_COMMIT_ID = GitLabPackage.REPOSITORY_FILE__LAST_COMMIT_ID;
 
 	/**
+	 * The feature id for the '<em><b>Blame</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CODE_OWNERS__BLAME = GitLabPackage.REPOSITORY_FILE__BLAME;
+
+	/**
 	 * The feature id for the '<em><b>Approvers</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

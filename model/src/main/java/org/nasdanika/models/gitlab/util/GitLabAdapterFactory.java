@@ -202,6 +202,14 @@ public class GitLabAdapterFactory extends AdapterFactoryImpl {
 				return createListRepositoryFileAdapter();
 			}
 			@Override
+			public Adapter caseBlame(Blame object) {
+				return createBlameAdapter();
+			}
+			@Override
+			public Adapter caseDiff(Diff object) {
+				return createDiffAdapter();
+			}
+			@Override
 			public <T> Adapter caseReference(Reference<T> object) {
 				return createReferenceAdapter();
 			}
@@ -692,6 +700,34 @@ public class GitLabAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createListRepositoryFileAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.nasdanika.models.gitlab.Blame <em>Blame</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.nasdanika.models.gitlab.Blame
+	 * @generated
+	 */
+	public Adapter createBlameAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.nasdanika.models.gitlab.Diff <em>Diff</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.nasdanika.models.gitlab.Diff
+	 * @generated
+	 */
+	public Adapter createDiffAdapter() {
 		return null;
 	}
 

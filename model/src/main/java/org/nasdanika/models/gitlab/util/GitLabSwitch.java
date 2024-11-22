@@ -338,6 +338,18 @@ public class GitLabSwitch<T1> extends Switch<T1> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case GitLabPackage.BLAME: {
+				Blame blame = (Blame)theEObject;
+				T1 result = caseBlame(blame);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case GitLabPackage.DIFF: {
+				Diff diff = (Diff)theEObject;
+				T1 result = caseDiff(diff);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			default: return defaultCase(theEObject);
 		}
 	}
@@ -834,6 +846,36 @@ public class GitLabSwitch<T1> extends Switch<T1> {
 	 * @generated
 	 */
 	public T1 caseListRepositoryFile(ListRepositoryFile object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Blame</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Blame</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T1 caseBlame(Blame object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Diff</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Diff</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T1 caseDiff(Diff object) {
 		return null;
 	}
 

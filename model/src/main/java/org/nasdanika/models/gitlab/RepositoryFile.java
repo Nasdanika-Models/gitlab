@@ -2,6 +2,8 @@
  */
 package org.nasdanika.models.gitlab;
 
+import org.eclipse.emf.common.util.EList;
+
 
 /**
  * <!-- begin-user-doc -->
@@ -20,6 +22,7 @@ package org.nasdanika.models.gitlab;
  *   <li>{@link org.nasdanika.models.gitlab.RepositoryFile#getRef <em>Ref</em>}</li>
  *   <li>{@link org.nasdanika.models.gitlab.RepositoryFile#getCommitId <em>Commit Id</em>}</li>
  *   <li>{@link org.nasdanika.models.gitlab.RepositoryFile#getLastCommitId <em>Last Commit Id</em>}</li>
+ *   <li>{@link org.nasdanika.models.gitlab.RepositoryFile#getBlame <em>Blame</em>}</li>
  * </ul>
  *
  * @see org.nasdanika.models.gitlab.GitLabPackage#getRepositoryFile()
@@ -114,5 +117,17 @@ public interface RepositoryFile extends Blob {
 	 * @generated
 	 */
 	void setLastCommitId(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Blame</b></em>' containment reference list.
+	 * The list contents are of type {@link org.nasdanika.models.gitlab.Blame}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Blame</em>' containment reference list.
+	 * @see org.nasdanika.models.gitlab.GitLabPackage#getRepositoryFile_Blame()
+	 * @model containment="true"
+	 * @generated
+	 */
+	EList<Blame> getBlame();
 
 } // RepositoryFile

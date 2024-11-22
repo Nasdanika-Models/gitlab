@@ -265,6 +265,24 @@ public interface GitLabFactory extends EFactory {
 	ListRepositoryFile createListRepositoryFile();
 
 	/**
+	 * Returns a new object of class '<em>Blame</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Blame</em>'.
+	 * @generated
+	 */
+	Blame createBlame();
+
+	/**
+	 * Returns a new object of class '<em>Diff</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Diff</em>'.
+	 * @generated
+	 */
+	Diff createDiff();
+
+	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

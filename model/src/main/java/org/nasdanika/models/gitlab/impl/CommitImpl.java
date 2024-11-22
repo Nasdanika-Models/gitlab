@@ -19,6 +19,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
 import org.nasdanika.models.gitlab.Branch;
 import org.nasdanika.models.gitlab.Commit;
 import org.nasdanika.models.gitlab.Contributor;
+import org.nasdanika.models.gitlab.Diff;
 import org.nasdanika.models.gitlab.GitLabPackage;
 
 /**
@@ -49,6 +50,7 @@ import org.nasdanika.models.gitlab.GitLabPackage;
  *   <li>{@link org.nasdanika.models.gitlab.impl.CommitImpl#getUrl <em>Url</em>}</li>
  *   <li>{@link org.nasdanika.models.gitlab.impl.CommitImpl#getWebURL <em>Web URL</em>}</li>
  *   <li>{@link org.nasdanika.models.gitlab.impl.CommitImpl#getBranches <em>Branches</em>}</li>
+ *   <li>{@link org.nasdanika.models.gitlab.impl.CommitImpl#getDiffs <em>Diffs</em>}</li>
  * </ul>
  *
  * @generated
@@ -623,6 +625,17 @@ public class CommitImpl extends MinimalEObjectImpl.Container implements Commit {
 	 */
 	@SuppressWarnings("unchecked")
 	@Override
+	public EList<Diff> getDiffs() {
+		return (EList<Diff>)eDynamicGet(GitLabPackage.COMMIT__DIFFS, GitLabPackage.Literals.COMMIT__DIFFS, true, true);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@SuppressWarnings("unchecked")
+	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case GitLabPackage.COMMIT__CONTRIBUTOR:
@@ -656,6 +669,8 @@ public class CommitImpl extends MinimalEObjectImpl.Container implements Commit {
 				return ((InternalEList<?>)getChildren()).basicRemove(otherEnd, msgs);
 			case GitLabPackage.COMMIT__BRANCHES:
 				return ((InternalEList<?>)getBranches()).basicRemove(otherEnd, msgs);
+			case GitLabPackage.COMMIT__DIFFS:
+				return ((InternalEList<?>)getDiffs()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -709,6 +724,8 @@ public class CommitImpl extends MinimalEObjectImpl.Container implements Commit {
 				return getWebURL();
 			case GitLabPackage.COMMIT__BRANCHES:
 				return getBranches();
+			case GitLabPackage.COMMIT__DIFFS:
+				return getDiffs();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -786,6 +803,10 @@ public class CommitImpl extends MinimalEObjectImpl.Container implements Commit {
 				getBranches().clear();
 				getBranches().addAll((Collection<? extends Branch>)newValue);
 				return;
+			case GitLabPackage.COMMIT__DIFFS:
+				getDiffs().clear();
+				getDiffs().addAll((Collection<? extends Diff>)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -858,6 +879,9 @@ public class CommitImpl extends MinimalEObjectImpl.Container implements Commit {
 			case GitLabPackage.COMMIT__BRANCHES:
 				getBranches().clear();
 				return;
+			case GitLabPackage.COMMIT__DIFFS:
+				getDiffs().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -910,6 +934,8 @@ public class CommitImpl extends MinimalEObjectImpl.Container implements Commit {
 				return WEB_URL_EDEFAULT == null ? getWebURL() != null : !WEB_URL_EDEFAULT.equals(getWebURL());
 			case GitLabPackage.COMMIT__BRANCHES:
 				return !getBranches().isEmpty();
+			case GitLabPackage.COMMIT__DIFFS:
+				return !getDiffs().isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

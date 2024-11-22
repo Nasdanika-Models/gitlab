@@ -20,11 +20,13 @@ import org.nasdanika.models.gitlab.AbstractUser;
 import org.nasdanika.models.gitlab.AccessLevel;
 import org.nasdanika.models.gitlab.AutoDevopsDeployStrategy;
 import org.nasdanika.models.gitlab.BinaryRepositoryFile;
+import org.nasdanika.models.gitlab.Blame;
 import org.nasdanika.models.gitlab.Blob;
 import org.nasdanika.models.gitlab.Branch;
 import org.nasdanika.models.gitlab.BuildGitStrategy;
 import org.nasdanika.models.gitlab.Commit;
 import org.nasdanika.models.gitlab.Contributor;
+import org.nasdanika.models.gitlab.Diff;
 import org.nasdanika.models.gitlab.EObjectRepositoryFile;
 import org.nasdanika.models.gitlab.GitLab;
 import org.nasdanika.models.gitlab.GitLabFactory;
@@ -267,6 +269,18 @@ public class GitLabPackageImpl extends EPackageImpl implements GitLabPackage {
 	 * @generated
 	 */
 	private EClass listRepositoryFileEClass = null;
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass blameEClass = null;
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass diffEClass = null;
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2302,6 +2316,16 @@ public class GitLabPackageImpl extends EPackageImpl implements GitLabPackage {
 	 * @generated
 	 */
 	@Override
+	public EReference getCommit_Diffs() {
+		return (EReference)commitEClass.getEStructuralFeatures().get(20);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EAttribute getContributor_Additions() {
 		return (EAttribute)contributorEClass.getEStructuralFeatures().get(2);
 	}
@@ -2622,6 +2646,16 @@ public class GitLabPackageImpl extends EPackageImpl implements GitLabPackage {
 	 * @generated
 	 */
 	@Override
+	public EReference getRepositoryFile_Blame() {
+		return (EReference)repositoryFileEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EClass getTextRepositoryFile() {
 		return textRepositoryFileEClass;
 	}
@@ -2714,6 +2748,126 @@ public class GitLabPackageImpl extends EPackageImpl implements GitLabPackage {
 	@Override
 	public EReference getListRepositoryFile_Content() {
 		return (EReference)listRepositoryFileEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EClass getBlame() {
+		return blameEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getBlame_Commit() {
+		return (EReference)blameEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getBlame_Lines() {
+		return (EAttribute)blameEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EClass getDiff() {
+		return diffEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getDiff_AMode() {
+		return (EAttribute)diffEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getDiff_BMode() {
+		return (EAttribute)diffEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getDiff_Diff() {
+		return (EAttribute)diffEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getDiff_DeletedFile() {
+		return (EAttribute)diffEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getDiff_NewFile() {
+		return (EAttribute)diffEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getDiff_NewPath() {
+		return (EAttribute)diffEClass.getEStructuralFeatures().get(5);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getDiff_OldPath() {
+		return (EAttribute)diffEClass.getEStructuralFeatures().get(6);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getDiff_RenamedFile() {
+		return (EAttribute)diffEClass.getEStructuralFeatures().get(7);
 	}
 
 	/**
@@ -3026,6 +3180,7 @@ public class GitLabPackageImpl extends EPackageImpl implements GitLabPackage {
 		createEAttribute(commitEClass, COMMIT__URL);
 		createEAttribute(commitEClass, COMMIT__WEB_URL);
 		createEReference(commitEClass, COMMIT__BRANCHES);
+		createEReference(commitEClass, COMMIT__DIFFS);
 
 		projectAccessEClass = createEClass(PROJECT_ACCESS);
 		createEAttribute(projectAccessEClass, PROJECT_ACCESS__ACCESS_LEVEL);
@@ -3065,6 +3220,7 @@ public class GitLabPackageImpl extends EPackageImpl implements GitLabPackage {
 		createEAttribute(repositoryFileEClass, REPOSITORY_FILE__REF);
 		createEAttribute(repositoryFileEClass, REPOSITORY_FILE__COMMIT_ID);
 		createEAttribute(repositoryFileEClass, REPOSITORY_FILE__LAST_COMMIT_ID);
+		createEReference(repositoryFileEClass, REPOSITORY_FILE__BLAME);
 
 		textRepositoryFileEClass = createEClass(TEXT_REPOSITORY_FILE);
 		createEAttribute(textRepositoryFileEClass, TEXT_REPOSITORY_FILE__CONTENT);
@@ -3080,6 +3236,20 @@ public class GitLabPackageImpl extends EPackageImpl implements GitLabPackage {
 
 		listRepositoryFileEClass = createEClass(LIST_REPOSITORY_FILE);
 		createEReference(listRepositoryFileEClass, LIST_REPOSITORY_FILE__CONTENT);
+
+		blameEClass = createEClass(BLAME);
+		createEReference(blameEClass, BLAME__COMMIT);
+		createEAttribute(blameEClass, BLAME__LINES);
+
+		diffEClass = createEClass(DIFF);
+		createEAttribute(diffEClass, DIFF__AMODE);
+		createEAttribute(diffEClass, DIFF__BMODE);
+		createEAttribute(diffEClass, DIFF__DIFF);
+		createEAttribute(diffEClass, DIFF__DELETED_FILE);
+		createEAttribute(diffEClass, DIFF__NEW_FILE);
+		createEAttribute(diffEClass, DIFF__NEW_PATH);
+		createEAttribute(diffEClass, DIFF__OLD_PATH);
+		createEAttribute(diffEClass, DIFF__RENAMED_FILE);
 
 		// Create enums
 		visibilityEEnum = createEEnum(VISIBILITY);
@@ -3405,6 +3575,7 @@ public class GitLabPackageImpl extends EPackageImpl implements GitLabPackage {
 		initEAttribute(getCommit_Url(), ecorePackage.getEString(), "url", null, 0, 1, Commit.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getCommit_WebURL(), ecorePackage.getEString(), "webURL", null, 0, 1, Commit.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getCommit_Branches(), this.getBranch(), this.getBranch_Commit(), "branches", null, 0, -1, Commit.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getCommit_Diffs(), this.getDiff(), null, "diffs", null, 0, -1, Commit.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(projectAccessEClass, ProjectAccess.class, "ProjectAccess", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getProjectAccess_AccessLevel(), this.getAccessLevel(), "accessLevel", null, 0, 1, ProjectAccess.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -3445,6 +3616,7 @@ public class GitLabPackageImpl extends EPackageImpl implements GitLabPackage {
 		initEAttribute(getRepositoryFile_Ref(), ecorePackage.getEString(), "ref", null, 0, 1, RepositoryFile.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getRepositoryFile_CommitId(), ecorePackage.getEString(), "commitId", null, 0, 1, RepositoryFile.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getRepositoryFile_LastCommitId(), ecorePackage.getEString(), "lastCommitId", null, 0, 1, RepositoryFile.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getRepositoryFile_Blame(), this.getBlame(), null, "blame", null, 0, -1, RepositoryFile.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(textRepositoryFileEClass, TextRepositoryFile.class, "TextRepositoryFile", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getTextRepositoryFile_Content(), ecorePackage.getEString(), "content", null, 0, 1, TextRepositoryFile.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -3460,6 +3632,20 @@ public class GitLabPackageImpl extends EPackageImpl implements GitLabPackage {
 
 		initEClass(listRepositoryFileEClass, ListRepositoryFile.class, "ListRepositoryFile", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getListRepositoryFile_Content(), ecorePackage.getEObject(), null, "content", null, 0, -1, ListRepositoryFile.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(blameEClass, Blame.class, "Blame", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getBlame_Commit(), this.getCommit(), null, "commit", null, 1, 1, Blame.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getBlame_Lines(), ecorePackage.getEString(), "lines", null, 0, -1, Blame.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(diffEClass, Diff.class, "Diff", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getDiff_AMode(), ecorePackage.getEString(), "aMode", null, 0, 1, Diff.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getDiff_BMode(), ecorePackage.getEString(), "bMode", null, 0, 1, Diff.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getDiff_Diff(), ecorePackage.getEString(), "diff", null, 0, 1, Diff.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getDiff_DeletedFile(), ecorePackage.getEBoolean(), "deletedFile", null, 0, 1, Diff.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getDiff_NewFile(), ecorePackage.getEBoolean(), "newFile", null, 0, 1, Diff.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getDiff_NewPath(), ecorePackage.getEBoolean(), "newPath", null, 0, 1, Diff.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getDiff_OldPath(), ecorePackage.getEString(), "oldPath", null, 0, 1, Diff.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getDiff_RenamedFile(), ecorePackage.getEBoolean(), "renamedFile", null, 0, 1, Diff.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Initialize enums and add enum literals
 		initEEnum(visibilityEEnum, Visibility.class, "Visibility");

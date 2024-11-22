@@ -37,11 +37,11 @@ import picocli.CommandLine.ParentCommand;
 @ParentCommands(GitLabCommand.class)
 public class GitLabContributorCommand extends CommandGroup implements Invocable.Invoker {
 	
-	protected GitLabContributorCommand() {
+	public GitLabContributorCommand() {
 		super();
 	}
 
-	protected GitLabContributorCommand(CapabilityLoader capabilityLoader) {
+	public GitLabContributorCommand(CapabilityLoader capabilityLoader) {
 		super(capabilityLoader);
 	}
 	

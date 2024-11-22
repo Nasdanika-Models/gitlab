@@ -37,6 +37,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link org.nasdanika.models.gitlab.Commit#getUrl <em>Url</em>}</li>
  *   <li>{@link org.nasdanika.models.gitlab.Commit#getWebURL <em>Web URL</em>}</li>
  *   <li>{@link org.nasdanika.models.gitlab.Commit#getBranches <em>Branches</em>}</li>
+ *   <li>{@link org.nasdanika.models.gitlab.Commit#getDiffs <em>Diffs</em>}</li>
  * </ul>
  *
  * @see org.nasdanika.models.gitlab.GitLabPackage#getCommit()
@@ -451,5 +452,17 @@ public interface Commit extends EObject {
 	 * @generated
 	 */
 	EList<Branch> getBranches();
+
+	/**
+	 * Returns the value of the '<em><b>Diffs</b></em>' containment reference list.
+	 * The list contents are of type {@link org.nasdanika.models.gitlab.Diff}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Diffs</em>' containment reference list.
+	 * @see org.nasdanika.models.gitlab.GitLabPackage#getCommit_Diffs()
+	 * @model containment="true"
+	 * @generated
+	 */
+	EList<Diff> getDiffs();
 
 } // Commit

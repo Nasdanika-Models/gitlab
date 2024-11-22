@@ -2564,13 +2564,22 @@ public interface GitLabPackage extends EPackage {
 	int COMMIT__BRANCHES = 19;
 
 	/**
+	 * The feature id for the '<em><b>Diffs</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMMIT__DIFFS = 20;
+
+	/**
 	 * The number of structural features of the '<em>Commit</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COMMIT_FEATURE_COUNT = 20;
+	int COMMIT_FEATURE_COUNT = 21;
 
 	/**
 	 * The number of operations of the '<em>Commit</em>' class.
@@ -3419,13 +3428,22 @@ public interface GitLabPackage extends EPackage {
 	int REPOSITORY_FILE__LAST_COMMIT_ID = BLOB_FEATURE_COUNT + 3;
 
 	/**
+	 * The feature id for the '<em><b>Blame</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int REPOSITORY_FILE__BLAME = BLOB_FEATURE_COUNT + 4;
+
+	/**
 	 * The number of structural features of the '<em>Repository File</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int REPOSITORY_FILE_FEATURE_COUNT = BLOB_FEATURE_COUNT + 4;
+	int REPOSITORY_FILE_FEATURE_COUNT = BLOB_FEATURE_COUNT + 5;
 
 	/**
 	 * The operation id for the '<em>Create Reference</em>' operation.
@@ -3535,6 +3553,15 @@ public interface GitLabPackage extends EPackage {
 	 * @ordered
 	 */
 	int TEXT_REPOSITORY_FILE__LAST_COMMIT_ID = REPOSITORY_FILE__LAST_COMMIT_ID;
+
+	/**
+	 * The feature id for the '<em><b>Blame</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEXT_REPOSITORY_FILE__BLAME = REPOSITORY_FILE__BLAME;
 
 	/**
 	 * The feature id for the '<em><b>Content</b></em>' attribute.
@@ -3664,6 +3691,15 @@ public interface GitLabPackage extends EPackage {
 	int REFERENCE_REPOSITORY_FILE__LAST_COMMIT_ID = REPOSITORY_FILE__LAST_COMMIT_ID;
 
 	/**
+	 * The feature id for the '<em><b>Blame</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int REFERENCE_REPOSITORY_FILE__BLAME = REPOSITORY_FILE__BLAME;
+
+	/**
 	 * The feature id for the '<em><b>Location</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3789,6 +3825,15 @@ public interface GitLabPackage extends EPackage {
 	 * @ordered
 	 */
 	int BINARY_REPOSITORY_FILE__LAST_COMMIT_ID = REPOSITORY_FILE__LAST_COMMIT_ID;
+
+	/**
+	 * The feature id for the '<em><b>Blame</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BINARY_REPOSITORY_FILE__BLAME = REPOSITORY_FILE__BLAME;
 
 	/**
 	 * The feature id for the '<em><b>Content</b></em>' attribute.
@@ -3918,6 +3963,15 @@ public interface GitLabPackage extends EPackage {
 	int EOBJECT_REPOSITORY_FILE__LAST_COMMIT_ID = REPOSITORY_FILE__LAST_COMMIT_ID;
 
 	/**
+	 * The feature id for the '<em><b>Blame</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EOBJECT_REPOSITORY_FILE__BLAME = REPOSITORY_FILE__BLAME;
+
+	/**
 	 * The feature id for the '<em><b>Content</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4045,6 +4099,15 @@ public interface GitLabPackage extends EPackage {
 	int LIST_REPOSITORY_FILE__LAST_COMMIT_ID = REPOSITORY_FILE__LAST_COMMIT_ID;
 
 	/**
+	 * The feature id for the '<em><b>Blame</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LIST_REPOSITORY_FILE__BLAME = REPOSITORY_FILE__BLAME;
+
+	/**
 	 * The feature id for the '<em><b>Content</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4081,6 +4144,152 @@ public interface GitLabPackage extends EPackage {
 	int LIST_REPOSITORY_FILE_OPERATION_COUNT = REPOSITORY_FILE_OPERATION_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link org.nasdanika.models.gitlab.impl.BlameImpl <em>Blame</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.nasdanika.models.gitlab.impl.BlameImpl
+	 * @see org.nasdanika.models.gitlab.impl.GitLabPackageImpl#getBlame()
+	 * @generated
+	 */
+	int BLAME = 33;
+
+	/**
+	 * The feature id for the '<em><b>Commit</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BLAME__COMMIT = 0;
+
+	/**
+	 * The feature id for the '<em><b>Lines</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BLAME__LINES = 1;
+
+	/**
+	 * The number of structural features of the '<em>Blame</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BLAME_FEATURE_COUNT = 2;
+
+	/**
+	 * The number of operations of the '<em>Blame</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BLAME_OPERATION_COUNT = 0;
+
+	/**
+	 * The meta object id for the '{@link org.nasdanika.models.gitlab.impl.DiffImpl <em>Diff</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.nasdanika.models.gitlab.impl.DiffImpl
+	 * @see org.nasdanika.models.gitlab.impl.GitLabPackageImpl#getDiff()
+	 * @generated
+	 */
+	int DIFF = 34;
+
+	/**
+	 * The feature id for the '<em><b>AMode</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DIFF__AMODE = 0;
+
+	/**
+	 * The feature id for the '<em><b>BMode</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DIFF__BMODE = 1;
+
+	/**
+	 * The feature id for the '<em><b>Diff</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DIFF__DIFF = 2;
+
+	/**
+	 * The feature id for the '<em><b>Deleted File</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DIFF__DELETED_FILE = 3;
+
+	/**
+	 * The feature id for the '<em><b>New File</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DIFF__NEW_FILE = 4;
+
+	/**
+	 * The feature id for the '<em><b>New Path</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DIFF__NEW_PATH = 5;
+
+	/**
+	 * The feature id for the '<em><b>Old Path</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DIFF__OLD_PATH = 6;
+
+	/**
+	 * The feature id for the '<em><b>Renamed File</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DIFF__RENAMED_FILE = 7;
+
+	/**
+	 * The number of structural features of the '<em>Diff</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DIFF_FEATURE_COUNT = 8;
+
+	/**
+	 * The number of operations of the '<em>Diff</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DIFF_OPERATION_COUNT = 0;
+
+	/**
 	 * The meta object id for the '{@link org.nasdanika.models.gitlab.Visibility <em>Visibility</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4088,7 +4297,7 @@ public interface GitLabPackage extends EPackage {
 	 * @see org.nasdanika.models.gitlab.impl.GitLabPackageImpl#getVisibility()
 	 * @generated
 	 */
-	int VISIBILITY = 33;
+	int VISIBILITY = 35;
 
 
 	/**
@@ -4099,7 +4308,7 @@ public interface GitLabPackage extends EPackage {
 	 * @see org.nasdanika.models.gitlab.impl.GitLabPackageImpl#getAccessLevel()
 	 * @generated
 	 */
-	int ACCESS_LEVEL = 34;
+	int ACCESS_LEVEL = 36;
 
 
 	/**
@@ -4110,7 +4319,7 @@ public interface GitLabPackage extends EPackage {
 	 * @see org.nasdanika.models.gitlab.impl.GitLabPackageImpl#getMergeMethod()
 	 * @generated
 	 */
-	int MERGE_METHOD = 35;
+	int MERGE_METHOD = 37;
 
 	/**
 	 * The meta object id for the '{@link org.nasdanika.models.gitlab.BuildGitStrategy <em>Build Git Strategy</em>}' enum.
@@ -4120,7 +4329,7 @@ public interface GitLabPackage extends EPackage {
 	 * @see org.nasdanika.models.gitlab.impl.GitLabPackageImpl#getBuildGitStrategy()
 	 * @generated
 	 */
-	int BUILD_GIT_STRATEGY = 36;
+	int BUILD_GIT_STRATEGY = 38;
 
 	/**
 	 * The meta object id for the '{@link org.nasdanika.models.gitlab.Status <em>Status</em>}' enum.
@@ -4130,7 +4339,7 @@ public interface GitLabPackage extends EPackage {
 	 * @see org.nasdanika.models.gitlab.impl.GitLabPackageImpl#getStatus()
 	 * @generated
 	 */
-	int STATUS = 37;
+	int STATUS = 39;
 
 	/**
 	 * The meta object id for the '{@link org.nasdanika.models.gitlab.AutoDevopsDeployStrategy <em>Auto Devops Deploy Strategy</em>}' enum.
@@ -4140,7 +4349,7 @@ public interface GitLabPackage extends EPackage {
 	 * @see org.nasdanika.models.gitlab.impl.GitLabPackageImpl#getAutoDevopsDeployStrategy()
 	 * @generated
 	 */
-	int AUTO_DEVOPS_DEPLOY_STRATEGY = 38;
+	int AUTO_DEVOPS_DEPLOY_STRATEGY = 40;
 
 	/**
 	 * The meta object id for the '{@link org.nasdanika.models.gitlab.SquashOption <em>Squash Option</em>}' enum.
@@ -4150,7 +4359,7 @@ public interface GitLabPackage extends EPackage {
 	 * @see org.nasdanika.models.gitlab.impl.GitLabPackageImpl#getSquashOption()
 	 * @generated
 	 */
-	int SQUASH_OPTION = 39;
+	int SQUASH_OPTION = 41;
 
 
 	/**
@@ -6233,6 +6442,17 @@ public interface GitLabPackage extends EPackage {
 	EReference getCommit_Branches();
 
 	/**
+	 * Returns the meta object for the containment reference list '{@link org.nasdanika.models.gitlab.Commit#getDiffs <em>Diffs</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Diffs</em>'.
+	 * @see org.nasdanika.models.gitlab.Commit#getDiffs()
+	 * @see #getCommit()
+	 * @generated
+	 */
+	EReference getCommit_Diffs();
+
+	/**
 	 * Returns the meta object for the attribute '{@link org.nasdanika.models.gitlab.Contributor#getAdditions <em>Additions</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -6577,6 +6797,17 @@ public interface GitLabPackage extends EPackage {
 	EAttribute getRepositoryFile_LastCommitId();
 
 	/**
+	 * Returns the meta object for the containment reference list '{@link org.nasdanika.models.gitlab.RepositoryFile#getBlame <em>Blame</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Blame</em>'.
+	 * @see org.nasdanika.models.gitlab.RepositoryFile#getBlame()
+	 * @see #getRepositoryFile()
+	 * @generated
+	 */
+	EReference getRepositoryFile_Blame();
+
+	/**
 	 * Returns the meta object for class '{@link org.nasdanika.models.gitlab.TextRepositoryFile <em>Text Repository File</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -6680,6 +6911,136 @@ public interface GitLabPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getListRepositoryFile_Content();
+
+	/**
+	 * Returns the meta object for class '{@link org.nasdanika.models.gitlab.Blame <em>Blame</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Blame</em>'.
+	 * @see org.nasdanika.models.gitlab.Blame
+	 * @generated
+	 */
+	EClass getBlame();
+
+	/**
+	 * Returns the meta object for the reference '{@link org.nasdanika.models.gitlab.Blame#getCommit <em>Commit</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Commit</em>'.
+	 * @see org.nasdanika.models.gitlab.Blame#getCommit()
+	 * @see #getBlame()
+	 * @generated
+	 */
+	EReference getBlame_Commit();
+
+	/**
+	 * Returns the meta object for the attribute list '{@link org.nasdanika.models.gitlab.Blame#getLines <em>Lines</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute list '<em>Lines</em>'.
+	 * @see org.nasdanika.models.gitlab.Blame#getLines()
+	 * @see #getBlame()
+	 * @generated
+	 */
+	EAttribute getBlame_Lines();
+
+	/**
+	 * Returns the meta object for class '{@link org.nasdanika.models.gitlab.Diff <em>Diff</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Diff</em>'.
+	 * @see org.nasdanika.models.gitlab.Diff
+	 * @generated
+	 */
+	EClass getDiff();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.models.gitlab.Diff#getAMode <em>AMode</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>AMode</em>'.
+	 * @see org.nasdanika.models.gitlab.Diff#getAMode()
+	 * @see #getDiff()
+	 * @generated
+	 */
+	EAttribute getDiff_AMode();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.models.gitlab.Diff#getBMode <em>BMode</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>BMode</em>'.
+	 * @see org.nasdanika.models.gitlab.Diff#getBMode()
+	 * @see #getDiff()
+	 * @generated
+	 */
+	EAttribute getDiff_BMode();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.models.gitlab.Diff#getDiff <em>Diff</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Diff</em>'.
+	 * @see org.nasdanika.models.gitlab.Diff#getDiff()
+	 * @see #getDiff()
+	 * @generated
+	 */
+	EAttribute getDiff_Diff();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.models.gitlab.Diff#isDeletedFile <em>Deleted File</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Deleted File</em>'.
+	 * @see org.nasdanika.models.gitlab.Diff#isDeletedFile()
+	 * @see #getDiff()
+	 * @generated
+	 */
+	EAttribute getDiff_DeletedFile();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.models.gitlab.Diff#isNewFile <em>New File</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>New File</em>'.
+	 * @see org.nasdanika.models.gitlab.Diff#isNewFile()
+	 * @see #getDiff()
+	 * @generated
+	 */
+	EAttribute getDiff_NewFile();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.models.gitlab.Diff#isNewPath <em>New Path</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>New Path</em>'.
+	 * @see org.nasdanika.models.gitlab.Diff#isNewPath()
+	 * @see #getDiff()
+	 * @generated
+	 */
+	EAttribute getDiff_NewPath();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.models.gitlab.Diff#getOldPath <em>Old Path</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Old Path</em>'.
+	 * @see org.nasdanika.models.gitlab.Diff#getOldPath()
+	 * @see #getDiff()
+	 * @generated
+	 */
+	EAttribute getDiff_OldPath();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.models.gitlab.Diff#isRenamedFile <em>Renamed File</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Renamed File</em>'.
+	 * @see org.nasdanika.models.gitlab.Diff#isRenamedFile()
+	 * @see #getDiff()
+	 * @generated
+	 */
+	EAttribute getDiff_RenamedFile();
 
 	/**
 	 * Returns the meta object for enum '{@link org.nasdanika.models.gitlab.Visibility <em>Visibility</em>}'.
@@ -8150,6 +8511,13 @@ public interface GitLabPackage extends EPackage {
 		 */
 		EReference COMMIT__BRANCHES = eINSTANCE.getCommit_Branches();
 		/**
+		 * The meta object literal for the '<em><b>Diffs</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference COMMIT__DIFFS = eINSTANCE.getCommit_Diffs();
+		/**
 		 * The meta object literal for the '<em><b>Additions</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -8392,6 +8760,13 @@ public interface GitLabPackage extends EPackage {
 		 */
 		EAttribute REPOSITORY_FILE__LAST_COMMIT_ID = eINSTANCE.getRepositoryFile_LastCommitId();
 		/**
+		 * The meta object literal for the '<em><b>Blame</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference REPOSITORY_FILE__BLAME = eINSTANCE.getRepositoryFile_Blame();
+		/**
 		 * The meta object literal for the '{@link org.nasdanika.models.gitlab.impl.TextRepositoryFileImpl <em>Text Repository File</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -8471,6 +8846,94 @@ public interface GitLabPackage extends EPackage {
 		 * @generated
 		 */
 		EReference LIST_REPOSITORY_FILE__CONTENT = eINSTANCE.getListRepositoryFile_Content();
+		/**
+		 * The meta object literal for the '{@link org.nasdanika.models.gitlab.impl.BlameImpl <em>Blame</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.nasdanika.models.gitlab.impl.BlameImpl
+		 * @see org.nasdanika.models.gitlab.impl.GitLabPackageImpl#getBlame()
+		 * @generated
+		 */
+		EClass BLAME = eINSTANCE.getBlame();
+		/**
+		 * The meta object literal for the '<em><b>Commit</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference BLAME__COMMIT = eINSTANCE.getBlame_Commit();
+		/**
+		 * The meta object literal for the '<em><b>Lines</b></em>' attribute list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute BLAME__LINES = eINSTANCE.getBlame_Lines();
+		/**
+		 * The meta object literal for the '{@link org.nasdanika.models.gitlab.impl.DiffImpl <em>Diff</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.nasdanika.models.gitlab.impl.DiffImpl
+		 * @see org.nasdanika.models.gitlab.impl.GitLabPackageImpl#getDiff()
+		 * @generated
+		 */
+		EClass DIFF = eINSTANCE.getDiff();
+		/**
+		 * The meta object literal for the '<em><b>AMode</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute DIFF__AMODE = eINSTANCE.getDiff_AMode();
+		/**
+		 * The meta object literal for the '<em><b>BMode</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute DIFF__BMODE = eINSTANCE.getDiff_BMode();
+		/**
+		 * The meta object literal for the '<em><b>Diff</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute DIFF__DIFF = eINSTANCE.getDiff_Diff();
+		/**
+		 * The meta object literal for the '<em><b>Deleted File</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute DIFF__DELETED_FILE = eINSTANCE.getDiff_DeletedFile();
+		/**
+		 * The meta object literal for the '<em><b>New File</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute DIFF__NEW_FILE = eINSTANCE.getDiff_NewFile();
+		/**
+		 * The meta object literal for the '<em><b>New Path</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute DIFF__NEW_PATH = eINSTANCE.getDiff_NewPath();
+		/**
+		 * The meta object literal for the '<em><b>Old Path</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute DIFF__OLD_PATH = eINSTANCE.getDiff_OldPath();
+		/**
+		 * The meta object literal for the '<em><b>Renamed File</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute DIFF__RENAMED_FILE = eINSTANCE.getDiff_RenamedFile();
 		/**
 		 * The meta object literal for the '{@link org.nasdanika.models.gitlab.Visibility <em>Visibility</em>}' enum.
 		 * <!-- begin-user-doc -->

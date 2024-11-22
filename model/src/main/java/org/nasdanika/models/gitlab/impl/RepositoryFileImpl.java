@@ -2,8 +2,14 @@
  */
 package org.nasdanika.models.gitlab.impl;
 
+import java.util.Collection;
+import org.eclipse.emf.common.notify.NotificationChain;
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 
+import org.eclipse.emf.ecore.InternalEObject;
+import org.eclipse.emf.ecore.util.InternalEList;
+import org.nasdanika.models.gitlab.Blame;
 import org.nasdanika.models.gitlab.GitLabPackage;
 import org.nasdanika.models.gitlab.RepositoryFile;
 
@@ -19,6 +25,7 @@ import org.nasdanika.models.gitlab.RepositoryFile;
  *   <li>{@link org.nasdanika.models.gitlab.impl.RepositoryFileImpl#getRef <em>Ref</em>}</li>
  *   <li>{@link org.nasdanika.models.gitlab.impl.RepositoryFileImpl#getCommitId <em>Commit Id</em>}</li>
  *   <li>{@link org.nasdanika.models.gitlab.impl.RepositoryFileImpl#getLastCommitId <em>Last Commit Id</em>}</li>
+ *   <li>{@link org.nasdanika.models.gitlab.impl.RepositoryFileImpl#getBlame <em>Blame</em>}</li>
  * </ul>
  *
  * @generated
@@ -168,6 +175,31 @@ public class RepositoryFileImpl extends BlobImpl implements RepositoryFile {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
+	@Override
+	public EList<Blame> getBlame() {
+		return (EList<Blame>)eDynamicGet(GitLabPackage.REPOSITORY_FILE__BLAME, GitLabPackage.Literals.REPOSITORY_FILE__BLAME, true, true);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case GitLabPackage.REPOSITORY_FILE__BLAME:
+				return ((InternalEList<?>)getBlame()).basicRemove(otherEnd, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
@@ -179,6 +211,8 @@ public class RepositoryFileImpl extends BlobImpl implements RepositoryFile {
 				return getCommitId();
 			case GitLabPackage.REPOSITORY_FILE__LAST_COMMIT_ID:
 				return getLastCommitId();
+			case GitLabPackage.REPOSITORY_FILE__BLAME:
+				return getBlame();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -188,6 +222,7 @@ public class RepositoryFileImpl extends BlobImpl implements RepositoryFile {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
@@ -202,6 +237,10 @@ public class RepositoryFileImpl extends BlobImpl implements RepositoryFile {
 				return;
 			case GitLabPackage.REPOSITORY_FILE__LAST_COMMIT_ID:
 				setLastCommitId((String)newValue);
+				return;
+			case GitLabPackage.REPOSITORY_FILE__BLAME:
+				getBlame().clear();
+				getBlame().addAll((Collection<? extends Blame>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -227,6 +266,9 @@ public class RepositoryFileImpl extends BlobImpl implements RepositoryFile {
 			case GitLabPackage.REPOSITORY_FILE__LAST_COMMIT_ID:
 				setLastCommitId(LAST_COMMIT_ID_EDEFAULT);
 				return;
+			case GitLabPackage.REPOSITORY_FILE__BLAME:
+				getBlame().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -247,6 +289,8 @@ public class RepositoryFileImpl extends BlobImpl implements RepositoryFile {
 				return COMMIT_ID_EDEFAULT == null ? getCommitId() != null : !COMMIT_ID_EDEFAULT.equals(getCommitId());
 			case GitLabPackage.REPOSITORY_FILE__LAST_COMMIT_ID:
 				return LAST_COMMIT_ID_EDEFAULT == null ? getLastCommitId() != null : !LAST_COMMIT_ID_EDEFAULT.equals(getLastCommitId());
+			case GitLabPackage.REPOSITORY_FILE__BLAME:
+				return !getBlame().isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

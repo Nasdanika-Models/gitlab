@@ -86,6 +86,8 @@ public class GitLabFactoryImpl extends EFactoryImpl implements GitLabFactory {
 			case GitLabPackage.BINARY_REPOSITORY_FILE: return createBinaryRepositoryFile();
 			case GitLabPackage.EOBJECT_REPOSITORY_FILE: return createEObjectRepositoryFile();
 			case GitLabPackage.LIST_REPOSITORY_FILE: return createListRepositoryFile();
+			case GitLabPackage.BLAME: return createBlame();
+			case GitLabPackage.DIFF: return createDiff();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -450,6 +452,28 @@ public class GitLabFactoryImpl extends EFactoryImpl implements GitLabFactory {
 	public ListRepositoryFile createListRepositoryFile() {
 		ListRepositoryFileImpl listRepositoryFile = new ListRepositoryFileImpl();
 		return listRepositoryFile;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Blame createBlame() {
+		BlameImpl blame = new BlameImpl();
+		return blame;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Diff createDiff() {
+		DiffImpl diff = new DiffImpl();
+		return diff;
 	}
 
 	/**

@@ -1,6 +1,7 @@
 import org.nasdanika.capability.CapabilityFactory;
 import org.nasdanika.models.gitlab.cli.GitLabCommandFactory;
 import org.nasdanika.models.gitlab.cli.GitLabContributorCommandFactory;
+import org.nasdanika.models.gitlab.cli.GitLabRetrospectCommandFactory;
 
 module org.nasdanika.models.gitlab.cli {
 	
@@ -13,6 +14,7 @@ module org.nasdanika.models.gitlab.cli {
 	
 	provides CapabilityFactory with 
 		GitLabCommandFactory,
-		GitLabContributorCommandFactory;
+		GitLabContributorCommandFactory,
+		GitLabRetrospectCommandFactory;
 
 }

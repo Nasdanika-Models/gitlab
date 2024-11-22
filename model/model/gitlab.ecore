@@ -346,6 +346,8 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="webURL" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="branches" upperBound="-1"
         eType="#//Branch" eOpposite="#//Branch/commit"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="diffs" upperBound="-1"
+        eType="#//Diff" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="MergeMethod">
     <eLiterals name="Merge"/>
@@ -428,6 +430,8 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="ref" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="commitId" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="lastCommitId" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="blame" upperBound="-1"
+        eType="#//Blame" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="TextRepositoryFile" eSuperTypes="#//RepositoryFile">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="content" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -451,6 +455,22 @@
     </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="content" upperBound="-1"
         eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EObject" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Blame">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="commit" lowerBound="1"
+        eType="#//Commit"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="lines" upperBound="-1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Diff">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="aMode" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="bMode" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="diff" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="deletedFile" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="newFile" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="newPath" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="oldPath" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="renamedFile" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
   </eClassifiers>
   <eSubpackages name="codeowners" nsURI="ecore://nasdanika.org/models/gitlab/codeowners"
       nsPrefix="org.nasdanika.models.gitlab.codeowners">
