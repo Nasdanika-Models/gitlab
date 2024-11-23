@@ -20,11 +20,11 @@ import org.nasdanika.models.gitlab.GitLabPackage;
  *   <li>{@link org.nasdanika.models.gitlab.impl.DiffImpl#getAMode <em>AMode</em>}</li>
  *   <li>{@link org.nasdanika.models.gitlab.impl.DiffImpl#getBMode <em>BMode</em>}</li>
  *   <li>{@link org.nasdanika.models.gitlab.impl.DiffImpl#getDiff <em>Diff</em>}</li>
- *   <li>{@link org.nasdanika.models.gitlab.impl.DiffImpl#isDeletedFile <em>Deleted File</em>}</li>
- *   <li>{@link org.nasdanika.models.gitlab.impl.DiffImpl#isNewFile <em>New File</em>}</li>
- *   <li>{@link org.nasdanika.models.gitlab.impl.DiffImpl#isNewPath <em>New Path</em>}</li>
+ *   <li>{@link org.nasdanika.models.gitlab.impl.DiffImpl#getDeletedFile <em>Deleted File</em>}</li>
+ *   <li>{@link org.nasdanika.models.gitlab.impl.DiffImpl#getNewFile <em>New File</em>}</li>
+ *   <li>{@link org.nasdanika.models.gitlab.impl.DiffImpl#getNewPath <em>New Path</em>}</li>
  *   <li>{@link org.nasdanika.models.gitlab.impl.DiffImpl#getOldPath <em>Old Path</em>}</li>
- *   <li>{@link org.nasdanika.models.gitlab.impl.DiffImpl#isRenamedFile <em>Renamed File</em>}</li>
+ *   <li>{@link org.nasdanika.models.gitlab.impl.DiffImpl#getRenamedFile <em>Renamed File</em>}</li>
  * </ul>
  *
  * @generated
@@ -61,34 +61,34 @@ public class DiffImpl extends MinimalEObjectImpl.Container implements Diff {
 	protected static final String DIFF_EDEFAULT = null;
 
 	/**
-	 * The default value of the '{@link #isDeletedFile() <em>Deleted File</em>}' attribute.
+	 * The default value of the '{@link #getDeletedFile() <em>Deleted File</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #isDeletedFile()
+	 * @see #getDeletedFile()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final boolean DELETED_FILE_EDEFAULT = false;
+	protected static final Boolean DELETED_FILE_EDEFAULT = null;
 
 	/**
-	 * The default value of the '{@link #isNewFile() <em>New File</em>}' attribute.
+	 * The default value of the '{@link #getNewFile() <em>New File</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #isNewFile()
+	 * @see #getNewFile()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final boolean NEW_FILE_EDEFAULT = false;
+	protected static final Boolean NEW_FILE_EDEFAULT = null;
 
 	/**
-	 * The default value of the '{@link #isNewPath() <em>New Path</em>}' attribute.
+	 * The default value of the '{@link #getNewPath() <em>New Path</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #isNewPath()
+	 * @see #getNewPath()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final boolean NEW_PATH_EDEFAULT = false;
+	protected static final String NEW_PATH_EDEFAULT = null;
 
 	/**
 	 * The default value of the '{@link #getOldPath() <em>Old Path</em>}' attribute.
@@ -101,14 +101,14 @@ public class DiffImpl extends MinimalEObjectImpl.Container implements Diff {
 	protected static final String OLD_PATH_EDEFAULT = null;
 
 	/**
-	 * The default value of the '{@link #isRenamedFile() <em>Renamed File</em>}' attribute.
+	 * The default value of the '{@link #getRenamedFile() <em>Renamed File</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #isRenamedFile()
+	 * @see #getRenamedFile()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final boolean RENAMED_FILE_EDEFAULT = false;
+	protected static final Boolean RENAMED_FILE_EDEFAULT = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -205,7 +205,7 @@ public class DiffImpl extends MinimalEObjectImpl.Container implements Diff {
 	 * @generated
 	 */
 	@Override
-	public boolean isDeletedFile() {
+	public Boolean getDeletedFile() {
 		return (Boolean)eDynamicGet(GitLabPackage.DIFF__DELETED_FILE, GitLabPackage.Literals.DIFF__DELETED_FILE, true, true);
 	}
 
@@ -215,7 +215,7 @@ public class DiffImpl extends MinimalEObjectImpl.Container implements Diff {
 	 * @generated
 	 */
 	@Override
-	public void setDeletedFile(boolean newDeletedFile) {
+	public void setDeletedFile(Boolean newDeletedFile) {
 		eDynamicSet(GitLabPackage.DIFF__DELETED_FILE, GitLabPackage.Literals.DIFF__DELETED_FILE, newDeletedFile);
 	}
 
@@ -225,7 +225,7 @@ public class DiffImpl extends MinimalEObjectImpl.Container implements Diff {
 	 * @generated
 	 */
 	@Override
-	public boolean isNewFile() {
+	public Boolean getNewFile() {
 		return (Boolean)eDynamicGet(GitLabPackage.DIFF__NEW_FILE, GitLabPackage.Literals.DIFF__NEW_FILE, true, true);
 	}
 
@@ -235,7 +235,7 @@ public class DiffImpl extends MinimalEObjectImpl.Container implements Diff {
 	 * @generated
 	 */
 	@Override
-	public void setNewFile(boolean newNewFile) {
+	public void setNewFile(Boolean newNewFile) {
 		eDynamicSet(GitLabPackage.DIFF__NEW_FILE, GitLabPackage.Literals.DIFF__NEW_FILE, newNewFile);
 	}
 
@@ -245,8 +245,8 @@ public class DiffImpl extends MinimalEObjectImpl.Container implements Diff {
 	 * @generated
 	 */
 	@Override
-	public boolean isNewPath() {
-		return (Boolean)eDynamicGet(GitLabPackage.DIFF__NEW_PATH, GitLabPackage.Literals.DIFF__NEW_PATH, true, true);
+	public String getNewPath() {
+		return (String)eDynamicGet(GitLabPackage.DIFF__NEW_PATH, GitLabPackage.Literals.DIFF__NEW_PATH, true, true);
 	}
 
 	/**
@@ -255,7 +255,7 @@ public class DiffImpl extends MinimalEObjectImpl.Container implements Diff {
 	 * @generated
 	 */
 	@Override
-	public void setNewPath(boolean newNewPath) {
+	public void setNewPath(String newNewPath) {
 		eDynamicSet(GitLabPackage.DIFF__NEW_PATH, GitLabPackage.Literals.DIFF__NEW_PATH, newNewPath);
 	}
 
@@ -285,7 +285,7 @@ public class DiffImpl extends MinimalEObjectImpl.Container implements Diff {
 	 * @generated
 	 */
 	@Override
-	public boolean isRenamedFile() {
+	public Boolean getRenamedFile() {
 		return (Boolean)eDynamicGet(GitLabPackage.DIFF__RENAMED_FILE, GitLabPackage.Literals.DIFF__RENAMED_FILE, true, true);
 	}
 
@@ -295,7 +295,7 @@ public class DiffImpl extends MinimalEObjectImpl.Container implements Diff {
 	 * @generated
 	 */
 	@Override
-	public void setRenamedFile(boolean newRenamedFile) {
+	public void setRenamedFile(Boolean newRenamedFile) {
 		eDynamicSet(GitLabPackage.DIFF__RENAMED_FILE, GitLabPackage.Literals.DIFF__RENAMED_FILE, newRenamedFile);
 	}
 
@@ -314,15 +314,15 @@ public class DiffImpl extends MinimalEObjectImpl.Container implements Diff {
 			case GitLabPackage.DIFF__DIFF:
 				return getDiff();
 			case GitLabPackage.DIFF__DELETED_FILE:
-				return isDeletedFile();
+				return getDeletedFile();
 			case GitLabPackage.DIFF__NEW_FILE:
-				return isNewFile();
+				return getNewFile();
 			case GitLabPackage.DIFF__NEW_PATH:
-				return isNewPath();
+				return getNewPath();
 			case GitLabPackage.DIFF__OLD_PATH:
 				return getOldPath();
 			case GitLabPackage.DIFF__RENAMED_FILE:
-				return isRenamedFile();
+				return getRenamedFile();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -351,7 +351,7 @@ public class DiffImpl extends MinimalEObjectImpl.Container implements Diff {
 				setNewFile((Boolean)newValue);
 				return;
 			case GitLabPackage.DIFF__NEW_PATH:
-				setNewPath((Boolean)newValue);
+				setNewPath((String)newValue);
 				return;
 			case GitLabPackage.DIFF__OLD_PATH:
 				setOldPath((String)newValue);
@@ -414,15 +414,15 @@ public class DiffImpl extends MinimalEObjectImpl.Container implements Diff {
 			case GitLabPackage.DIFF__DIFF:
 				return DIFF_EDEFAULT == null ? getDiff() != null : !DIFF_EDEFAULT.equals(getDiff());
 			case GitLabPackage.DIFF__DELETED_FILE:
-				return isDeletedFile() != DELETED_FILE_EDEFAULT;
+				return DELETED_FILE_EDEFAULT == null ? getDeletedFile() != null : !DELETED_FILE_EDEFAULT.equals(getDeletedFile());
 			case GitLabPackage.DIFF__NEW_FILE:
-				return isNewFile() != NEW_FILE_EDEFAULT;
+				return NEW_FILE_EDEFAULT == null ? getNewFile() != null : !NEW_FILE_EDEFAULT.equals(getNewFile());
 			case GitLabPackage.DIFF__NEW_PATH:
-				return isNewPath() != NEW_PATH_EDEFAULT;
+				return NEW_PATH_EDEFAULT == null ? getNewPath() != null : !NEW_PATH_EDEFAULT.equals(getNewPath());
 			case GitLabPackage.DIFF__OLD_PATH:
 				return OLD_PATH_EDEFAULT == null ? getOldPath() != null : !OLD_PATH_EDEFAULT.equals(getOldPath());
 			case GitLabPackage.DIFF__RENAMED_FILE:
-				return isRenamedFile() != RENAMED_FILE_EDEFAULT;
+				return RENAMED_FILE_EDEFAULT == null ? getRenamedFile() != null : !RENAMED_FILE_EDEFAULT.equals(getRenamedFile());
 		}
 		return super.eIsSet(featureID);
 	}

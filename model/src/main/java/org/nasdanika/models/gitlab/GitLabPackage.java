@@ -6988,33 +6988,33 @@ public interface GitLabPackage extends EPackage {
 	EAttribute getDiff_Diff();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.nasdanika.models.gitlab.Diff#isDeletedFile <em>Deleted File</em>}'.
+	 * Returns the meta object for the attribute '{@link org.nasdanika.models.gitlab.Diff#getDeletedFile <em>Deleted File</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Deleted File</em>'.
-	 * @see org.nasdanika.models.gitlab.Diff#isDeletedFile()
+	 * @see org.nasdanika.models.gitlab.Diff#getDeletedFile()
 	 * @see #getDiff()
 	 * @generated
 	 */
 	EAttribute getDiff_DeletedFile();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.nasdanika.models.gitlab.Diff#isNewFile <em>New File</em>}'.
+	 * Returns the meta object for the attribute '{@link org.nasdanika.models.gitlab.Diff#getNewFile <em>New File</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>New File</em>'.
-	 * @see org.nasdanika.models.gitlab.Diff#isNewFile()
+	 * @see org.nasdanika.models.gitlab.Diff#getNewFile()
 	 * @see #getDiff()
 	 * @generated
 	 */
 	EAttribute getDiff_NewFile();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.nasdanika.models.gitlab.Diff#isNewPath <em>New Path</em>}'.
+	 * Returns the meta object for the attribute '{@link org.nasdanika.models.gitlab.Diff#getNewPath <em>New Path</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>New Path</em>'.
-	 * @see org.nasdanika.models.gitlab.Diff#isNewPath()
+	 * @see org.nasdanika.models.gitlab.Diff#getNewPath()
 	 * @see #getDiff()
 	 * @generated
 	 */
@@ -7032,11 +7032,11 @@ public interface GitLabPackage extends EPackage {
 	EAttribute getDiff_OldPath();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.nasdanika.models.gitlab.Diff#isRenamedFile <em>Renamed File</em>}'.
+	 * Returns the meta object for the attribute '{@link org.nasdanika.models.gitlab.Diff#getRenamedFile <em>Renamed File</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Renamed File</em>'.
-	 * @see org.nasdanika.models.gitlab.Diff#isRenamedFile()
+	 * @see org.nasdanika.models.gitlab.Diff#getRenamedFile()
 	 * @see #getDiff()
 	 * @generated
 	 */

@@ -14,7 +14,7 @@
 		<dependency>
 			<groupId>org.nasdanika.core</groupId>
 			<artifactId>cli</artifactId>
-			<version>2024.11.0</version>
+			<version>${core.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>${project.groupId}</groupId>

@@ -14,13 +14,17 @@ import java.util.function.Consumer;
 import org.eclipse.emf.common.util.URI;
 import org.gitlab4j.api.CommitsApi;
 import org.gitlab4j.api.Constants.Encoding;
+import org.gitlab4j.api.GitLabApi;
 import org.gitlab4j.api.MergeRequestApi;
 import org.gitlab4j.api.RepositoryApi;
+import org.gitlab4j.api.RepositoryFileApi;
+import org.gitlab4j.api.models.Blame;
 import org.gitlab4j.api.models.Commit;
 import org.gitlab4j.api.models.CommitAction;
 import org.gitlab4j.api.models.CommitAction.Action;
 import org.gitlab4j.api.models.CommitPayload;
 import org.gitlab4j.api.models.MergeRequestParams;
+import org.gitlab4j.api.utils.ISO8601;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.nasdanika.common.PrintStreamProgressMonitor;
@@ -105,7 +109,7 @@ public class GitLabTests {
 			System.out.println("Loading projects");
 			try (GitLabApiProvider gitLabApiProvider = new GitLabApiProvider("https://gitlab.com/", accessToken)) {				
 				BiConsumer<Project, ProgressMonitor> projectConsumer = (project, pm) -> {
-					System.out.println(project.getId() + " " + project.getName());
+					System.out.println(project.getId() + " " + project.getName() + " " + project.getPathWithNamespace());
 				};
 				new Loader(gitLabApiProvider.getGitLabApi()).loadProjects(71457619L, projectConsumer, progressMonitor);
 			}
@@ -299,5 +303,48 @@ public class GitLabTests {
 		}
 	}
 	
+	// "2023-08-18T12:09:08Z" - date format
+	// e3bc3075b3572472a80ba60e4cbfcbe87800a4e5
+	// ref - main
+		
+	@Test
+	public void testLoadDiffBlame() throws Exception {
+		String accessToken = GITLAB_ACCESS_TOKEN;
+		if (!Util.isBlank(accessToken)) {	
+			System.out.println("Loading commits with diff and blame");			
+			try (GitLabApiProvider gitLabApiProvider = new GitLabApiProvider("https://gitlab.com/", accessToken)) {						
+	//			for (org.gitlab4j.api.models.Branch branch: gitLabApiProvider.getGitLabApi().getRepositoryApi().getBranches(PROJECT_ID)) {
+	//				System.out.println(branch);
+	//			}
+				
+				String path = "README.md";
+				
+				GitLabApi gitLabApi = gitLabApiProvider.getGitLabApi();
+				CommitsApi commitsApi = gitLabApi.getCommitsApi();
+				Date since = ISO8601.toDate("2023-08-18T12:09:08Z");
+				String ref = "main";
+				List<Commit> commits = commitsApi.getCommits(
+						PROJECT_ID, 
+						ref, 
+						since,
+						null, // until
+						path /* path */ );
+				
+//				for (Commit commit: commits) {
+//					System.out.println("===");
+//					System.out.println(commit);
+//					for (Diff diff: commitsApi.getDiff("nasdanika-bank/bank", commit.getId())) {
+//						System.out.println(diff);
+//					}					
+//				}
+				
+				RepositoryFileApi repoFileApi = gitLabApi.getRepositoryFileApi();
+				for (Blame blame: repoFileApi.getBlame(String.valueOf(PROJECT_ID), path, ref)) {
+					System.out.println(blame);
+				}
+				
+			}
+		}
+	}
 
 }

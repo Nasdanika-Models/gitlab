@@ -16,11 +16,11 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link org.nasdanika.models.gitlab.Diff#getAMode <em>AMode</em>}</li>
  *   <li>{@link org.nasdanika.models.gitlab.Diff#getBMode <em>BMode</em>}</li>
  *   <li>{@link org.nasdanika.models.gitlab.Diff#getDiff <em>Diff</em>}</li>
- *   <li>{@link org.nasdanika.models.gitlab.Diff#isDeletedFile <em>Deleted File</em>}</li>
- *   <li>{@link org.nasdanika.models.gitlab.Diff#isNewFile <em>New File</em>}</li>
- *   <li>{@link org.nasdanika.models.gitlab.Diff#isNewPath <em>New Path</em>}</li>
+ *   <li>{@link org.nasdanika.models.gitlab.Diff#getDeletedFile <em>Deleted File</em>}</li>
+ *   <li>{@link org.nasdanika.models.gitlab.Diff#getNewFile <em>New File</em>}</li>
+ *   <li>{@link org.nasdanika.models.gitlab.Diff#getNewPath <em>New Path</em>}</li>
  *   <li>{@link org.nasdanika.models.gitlab.Diff#getOldPath <em>Old Path</em>}</li>
- *   <li>{@link org.nasdanika.models.gitlab.Diff#isRenamedFile <em>Renamed File</em>}</li>
+ *   <li>{@link org.nasdanika.models.gitlab.Diff#getRenamedFile <em>Renamed File</em>}</li>
  * </ul>
  *
  * @see org.nasdanika.models.gitlab.GitLabPackage#getDiff()
@@ -99,66 +99,66 @@ public interface Diff extends EObject {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Deleted File</em>' attribute.
-	 * @see #setDeletedFile(boolean)
+	 * @see #setDeletedFile(Boolean)
 	 * @see org.nasdanika.models.gitlab.GitLabPackage#getDiff_DeletedFile()
 	 * @model
 	 * @generated
 	 */
-	boolean isDeletedFile();
+	Boolean getDeletedFile();
 
 	/**
-	 * Sets the value of the '{@link org.nasdanika.models.gitlab.Diff#isDeletedFile <em>Deleted File</em>}' attribute.
+	 * Sets the value of the '{@link org.nasdanika.models.gitlab.Diff#getDeletedFile <em>Deleted File</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Deleted File</em>' attribute.
-	 * @see #isDeletedFile()
+	 * @see #getDeletedFile()
 	 * @generated
 	 */
-	void setDeletedFile(boolean value);
+	void setDeletedFile(Boolean value);
 
 	/**
 	 * Returns the value of the '<em><b>New File</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>New File</em>' attribute.
-	 * @see #setNewFile(boolean)
+	 * @see #setNewFile(Boolean)
 	 * @see org.nasdanika.models.gitlab.GitLabPackage#getDiff_NewFile()
 	 * @model
 	 * @generated
 	 */
-	boolean isNewFile();
+	Boolean getNewFile();
 
 	/**
-	 * Sets the value of the '{@link org.nasdanika.models.gitlab.Diff#isNewFile <em>New File</em>}' attribute.
+	 * Sets the value of the '{@link org.nasdanika.models.gitlab.Diff#getNewFile <em>New File</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>New File</em>' attribute.
-	 * @see #isNewFile()
+	 * @see #getNewFile()
 	 * @generated
 	 */
-	void setNewFile(boolean value);
+	void setNewFile(Boolean value);
 
 	/**
 	 * Returns the value of the '<em><b>New Path</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>New Path</em>' attribute.
-	 * @see #setNewPath(boolean)
+	 * @see #setNewPath(String)
 	 * @see org.nasdanika.models.gitlab.GitLabPackage#getDiff_NewPath()
 	 * @model
 	 * @generated
 	 */
-	boolean isNewPath();
+	String getNewPath();
 
 	/**
-	 * Sets the value of the '{@link org.nasdanika.models.gitlab.Diff#isNewPath <em>New Path</em>}' attribute.
+	 * Sets the value of the '{@link org.nasdanika.models.gitlab.Diff#getNewPath <em>New Path</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>New Path</em>' attribute.
-	 * @see #isNewPath()
+	 * @see #getNewPath()
 	 * @generated
 	 */
-	void setNewPath(boolean value);
+	void setNewPath(String value);
 
 	/**
 	 * Returns the value of the '<em><b>Old Path</b></em>' attribute.
@@ -187,21 +187,21 @@ public interface Diff extends EObject {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Renamed File</em>' attribute.
-	 * @see #setRenamedFile(boolean)
+	 * @see #setRenamedFile(Boolean)
 	 * @see org.nasdanika.models.gitlab.GitLabPackage#getDiff_RenamedFile()
 	 * @model
 	 * @generated
 	 */
-	boolean isRenamedFile();
+	Boolean getRenamedFile();
 
 	/**
-	 * Sets the value of the '{@link org.nasdanika.models.gitlab.Diff#isRenamedFile <em>Renamed File</em>}' attribute.
+	 * Sets the value of the '{@link org.nasdanika.models.gitlab.Diff#getRenamedFile <em>Renamed File</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Renamed File</em>' attribute.
-	 * @see #isRenamedFile()
+	 * @see #getRenamedFile()
 	 * @generated
 	 */
-	void setRenamedFile(boolean value);
+	void setRenamedFile(Boolean value);
 
 } // Diff

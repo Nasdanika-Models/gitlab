@@ -560,7 +560,7 @@ public class Loader {
 		}
 	}
 
-	protected void loadCommit(Commit commit, org.nasdanika.models.gitlab.Commit modelCommit, ProgressMonitor progressMonitor) {
+	public void loadCommit(Commit commit, org.nasdanika.models.gitlab.Commit modelCommit, ProgressMonitor progressMonitor) {
 		modelCommit.setAuthoredDate(commit.getAuthoredDate());
 		modelCommit.setAuthorEmail(commit.getAuthorEmail());
 		modelCommit.setAuthorName(commit.getAuthorName());
