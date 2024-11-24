@@ -75,26 +75,46 @@ public class GitLabRetrospectCommand extends CommandGroup implements Invocable.I
 			description = "Paths of interest")
     private List<String> paths = new ArrayList<>();
 	
+	public List<String> getPaths() {
+		return paths;
+	}
+	
 	@Parameters(
 			index =  "0",	
 			arity = "1",
 			description = "Project ID or path")
 	private String project;
 	
+	public String getProject() {
+		return project;
+	}
+	
 	@Option(			
 			names = {"--ref"},
 			description = "Reference - branch, tag, or commit")
     private String ref;
+	
+	public String getRef() {
+		return ref;
+	}
 	
 	@Option(			
 			names = {"--since"},
 			description = "Since date in ISO8601 format yyyy-MM-dd'T'HH:mm:ssZ")
     private String since;
 	
+	public String getSince() {
+		return since;
+	}
+	
 	@Option(			
 			names = {"--until"},
 			description = "Since date in ISO8601 format yyyy-MM-dd'T'HH:mm:ssZ")
     private String until;
+	
+	public String getUntil() {
+		return until;
+	}
 	
 	private org.nasdanika.models.gitlab.Commit loadCommit(Commit commit, CommitsApi commitsApi) throws GitLabApiException {
 		org.nasdanika.models.gitlab.Commit modelCommit = getGitLabFactory().createCommit();
@@ -149,16 +169,17 @@ public class GitLabRetrospectCommand extends CommandGroup implements Invocable.I
 				RepositoryFileApi repoFileApi = gitLabApi.getRepositoryFileApi();
 				Map<String, org.nasdanika.models.gitlab.Commit> commits = new LinkedHashMap<>();
 				org.nasdanika.models.gitlab.Branch modelBranch = null;
-				if (!Util.isBlank(ref)) {
+				String reference = getRef();
+				if (!Util.isBlank(reference)) {
 					modelBranch = getGitLabFactory().createBranch();
-					modelBranch.setName(ref);
+					modelBranch.setName(reference);
 					modelProject.getBranches().add(modelBranch);
 				}
 				
 				for (String path: paths.isEmpty() ? Collections.singleton((String) null) : paths) {
 					List<Commit> pathCommits = commitsApi.getCommits(
 							this.project, 
-							ref, 
+							reference, 
 							since == null ? null : ISO8601.toDate(since),
 							until == null ? null : ISO8601.toDate(until),
 							path);
@@ -169,11 +190,11 @@ public class GitLabRetrospectCommand extends CommandGroup implements Invocable.I
 						}
 					}
 					
-					if (!Util.isBlank(path) && !Util.isBlank(ref)) {
+					if (!Util.isBlank(path) && !Util.isBlank(reference)) {
 						RepositoryFile repoFile = getGitLabFactory().createRepositoryFile();
 						repoFile.setPath(path);
 						modelBranch.getTreeItems().add(repoFile);
-						for (Blame blame: repoFileApi.getBlame(this.project, path, ref)) {
+						for (Blame blame: repoFileApi.getBlame(this.project, path, reference)) {
 							org.nasdanika.models.gitlab.Blame modelBlame = getGitLabFactory().createBlame();
 							Commit commit = blame.getCommit();
 							if (!commits.containsKey(commit.getId())) {

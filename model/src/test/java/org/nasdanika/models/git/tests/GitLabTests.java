@@ -43,6 +43,7 @@ import org.nasdanika.models.gitlab.util.Loader;
 
 public class GitLabTests {
 
+	private static final String GITLAB_URL = System.getenv("GITLAB_URL");
 	private static final String PAVEL_VLASOV_EMAIL = "Pavel.Vlasov@somewhere.xyz";
 	private static final String MAIN_BRANCH = "main";
 	private static final String GITLAB_ACCESS_TOKEN = System.getenv("GITLAB_ACCESS_TOKEN");
@@ -54,7 +55,7 @@ public class GitLabTests {
 		String accessToken = GITLAB_ACCESS_TOKEN;
 		if (!Util.isBlank(accessToken)) {	
 			System.out.println("Loading top level groups");
-			try (GitLabApiProvider gitLabApiProvider = new GitLabApiProvider("https://gitlab.com/", accessToken)) {				
+			try (GitLabApiProvider gitLabApiProvider = new GitLabApiProvider(GITLAB_URL, accessToken)) {				
 				BiConsumer<Group, ProgressMonitor> tlgConsumer = (tlg, pm) -> {
 					System.out.println(tlg.getId() + " " + tlg.getName());
 				};
@@ -69,7 +70,7 @@ public class GitLabTests {
 		String accessToken = GITLAB_ACCESS_TOKEN;
 		if (!Util.isBlank(accessToken)) {	
 			System.out.println("Loading sub-groups");
-			try (GitLabApiProvider gitLabApiProvider = new GitLabApiProvider("https://gitlab.com/", accessToken)) {				
+			try (GitLabApiProvider gitLabApiProvider = new GitLabApiProvider(GITLAB_URL, accessToken)) {				
 				BiConsumer<Group, ProgressMonitor> groupConsumer = (tlg, pm) -> {
 					System.out.println(tlg.getId() + " " + tlg.getName());
 				};
@@ -92,7 +93,7 @@ public class GitLabTests {
 		String accessToken = GITLAB_ACCESS_TOKEN;
 		if (!Util.isBlank(accessToken)) {	
 			System.out.println("Loading group members");
-			try (GitLabApiProvider gitLabApiProvider = new GitLabApiProvider("https://gitlab.com/", accessToken)) {				
+			try (GitLabApiProvider gitLabApiProvider = new GitLabApiProvider(GITLAB_URL, accessToken)) {				
 				BiConsumer<Member, ProgressMonitor> memberConsumer = (member, pm) -> {
 					System.out.println(member.getId() + " " + member.getName());
 				};
@@ -107,7 +108,7 @@ public class GitLabTests {
 		String accessToken = GITLAB_ACCESS_TOKEN;
 		if (!Util.isBlank(accessToken)) {	
 			System.out.println("Loading projects");
-			try (GitLabApiProvider gitLabApiProvider = new GitLabApiProvider("https://gitlab.com/", accessToken)) {				
+			try (GitLabApiProvider gitLabApiProvider = new GitLabApiProvider(GITLAB_URL, accessToken)) {				
 				BiConsumer<Project, ProgressMonitor> projectConsumer = (project, pm) -> {
 					System.out.println(project.getId() + " " + project.getName() + " " + project.getPathWithNamespace());
 				};
@@ -122,7 +123,7 @@ public class GitLabTests {
 		String accessToken = GITLAB_ACCESS_TOKEN;
 		if (!Util.isBlank(accessToken)) {	
 			System.out.println("Loading project members");
-			try (GitLabApiProvider gitLabApiProvider = new GitLabApiProvider("https://gitlab.com/", accessToken)) {				
+			try (GitLabApiProvider gitLabApiProvider = new GitLabApiProvider(GITLAB_URL, accessToken)) {				
 				BiConsumer<Member, ProgressMonitor> memberConsumer = (member, pm) -> {
 					System.out.println(member.getId() + " " + member.getName());
 				};
@@ -137,7 +138,7 @@ public class GitLabTests {
 		String accessToken = GITLAB_ACCESS_TOKEN;
 		if (!Util.isBlank(accessToken)) {	
 			System.out.println("Loading project contributors");
-			try (GitLabApiProvider gitLabApiProvider = new GitLabApiProvider("https://gitlab.com/", accessToken)) {				
+			try (GitLabApiProvider gitLabApiProvider = new GitLabApiProvider(GITLAB_URL, accessToken)) {				
 				BiConsumer<Contributor, ProgressMonitor> contributorConsumer = (contributor, pm) -> {
 					System.out.println(contributor.getId() + " " + contributor.getName());
 				};
@@ -152,7 +153,7 @@ public class GitLabTests {
 		String accessToken = GITLAB_ACCESS_TOKEN;
 		if (!Util.isBlank(accessToken)) {	
 			System.out.println("Loading branches");
-			try (GitLabApiProvider gitLabApiProvider = new GitLabApiProvider("https://gitlab.com/", accessToken)) {				
+			try (GitLabApiProvider gitLabApiProvider = new GitLabApiProvider(GITLAB_URL, accessToken)) {				
 				BiConsumer<Branch, ProgressMonitor> branchConsumer = (branch, pm) -> {
 					System.out.println(branch.getName());
 				};
@@ -167,7 +168,7 @@ public class GitLabTests {
 		String accessToken = GITLAB_ACCESS_TOKEN;
 		if (!Util.isBlank(accessToken)) {	
 			System.out.println("Loading tree");
-			try (GitLabApiProvider gitLabApiProvider = new GitLabApiProvider("https://gitlab.com/", accessToken)) {				
+			try (GitLabApiProvider gitLabApiProvider = new GitLabApiProvider(GITLAB_URL, accessToken)) {				
 				BiConsumer<TreeItem, ProgressMonitor> treeItemConsumer = (treeItem, pm) -> {
 					System.out.println(treeItem.getName() + " " + treeItem.getClass().getName());
 				};
@@ -185,7 +186,7 @@ public class GitLabTests {
 	@Test
 	public void testCreateBranch() throws Exception {
 		String accessToken = GITLAB_ACCESS_TOKEN;
-		try (GitLabApiProvider gitLabApiProvider = new GitLabApiProvider("https://gitlab.com/", accessToken)) {				
+		try (GitLabApiProvider gitLabApiProvider = new GitLabApiProvider(GITLAB_URL, accessToken)) {				
 			RepositoryApi repoApi = gitLabApiProvider.getGitLabApi().getRepositoryApi();
 			repoApi.createBranch(PROJECT_ID, "feature-" + System.currentTimeMillis(), MAIN_BRANCH);
 		}		
@@ -195,7 +196,7 @@ public class GitLabTests {
 	@Test
 	public void testCommit() throws Exception {
 		String accessToken = GITLAB_ACCESS_TOKEN;
-		try (GitLabApiProvider gitLabApiProvider = new GitLabApiProvider("https://gitlab.com/", accessToken)) {				
+		try (GitLabApiProvider gitLabApiProvider = new GitLabApiProvider(GITLAB_URL, accessToken)) {				
 			CommitsApi commitApi = gitLabApiProvider.getGitLabApi().getCommitsApi();
 			CommitAction commitAction = new CommitAction()
 					.withAction(Action.UPDATE)
@@ -218,7 +219,7 @@ public class GitLabTests {
 	@Test
 	public void testCreateMergeRequest() throws Exception {
 		String accessToken = GITLAB_ACCESS_TOKEN;
-		try (GitLabApiProvider gitLabApiProvider = new GitLabApiProvider("https://gitlab.com/", accessToken)) {				
+		try (GitLabApiProvider gitLabApiProvider = new GitLabApiProvider(GITLAB_URL, accessToken)) {				
 			MergeRequestApi mergeRequestApi = gitLabApiProvider.getGitLabApi().getMergeRequestApi();
 			MergeRequestParams params = new MergeRequestParams()
 				    .withSourceBranch("feature-XYZ")
@@ -233,7 +234,7 @@ public class GitLabTests {
 	@Disabled
 	public void testGitLabURIHandler() throws Exception {
 		String accessToken = GITLAB_ACCESS_TOKEN;
-		try (GitLabApiProvider gitLabApiProvider = new GitLabApiProvider("https://gitlab.com/", accessToken)) {
+		try (GitLabApiProvider gitLabApiProvider = new GitLabApiProvider(GITLAB_URL, accessToken)) {
 			GitLabURIHandler gitLabURIHandler = new GitLabURIHandler(gitLabApiProvider.getGitLabApi());
 			org.eclipse.emf.common.util.URI testURI = org.eclipse.emf.common.util.URI.createURI("gitlab://54851996/main/test.txt");
 			try (Writer writer = new OutputStreamWriter(gitLabURIHandler.createOutputStream(testURI, null))) {
@@ -277,7 +278,7 @@ public class GitLabTests {
 	@Test
 	public void testGetTree() throws Exception {
 		String accessToken = GITLAB_ACCESS_TOKEN;
-		try (GitLabApiProvider gitLabApiProvider = new GitLabApiProvider("https://gitlab.com/", accessToken)) {				
+		try (GitLabApiProvider gitLabApiProvider = new GitLabApiProvider(GITLAB_URL, accessToken)) {				
 			RepositoryApi repoApi = gitLabApiProvider.getGitLabApi().getRepositoryApi();
 			List<org.gitlab4j.api.models.TreeItem> treeItems = repoApi.getTree(PROJECT_ID, "/", MAIN_BRANCH);
 			for (org.gitlab4j.api.models.TreeItem treeItem: treeItems) {
@@ -291,7 +292,7 @@ public class GitLabTests {
 		String accessToken = GITLAB_ACCESS_TOKEN;
 		if (!Util.isBlank(accessToken)) {	
 			System.out.println("Loading project commits");
-			try (GitLabApiProvider gitLabApiProvider = new GitLabApiProvider("https://gitlab.com/", accessToken)) {						
+			try (GitLabApiProvider gitLabApiProvider = new GitLabApiProvider(GITLAB_URL, accessToken)) {						
 //				for (org.gitlab4j.api.models.Branch branch: gitLabApiProvider.getGitLabApi().getRepositoryApi().getBranches(PROJECT_ID)) {
 //					System.out.println(branch);
 //				}
@@ -312,7 +313,7 @@ public class GitLabTests {
 		String accessToken = GITLAB_ACCESS_TOKEN;
 		if (!Util.isBlank(accessToken)) {	
 			System.out.println("Loading commits with diff and blame");			
-			try (GitLabApiProvider gitLabApiProvider = new GitLabApiProvider("https://gitlab.com/", accessToken)) {						
+			try (GitLabApiProvider gitLabApiProvider = new GitLabApiProvider(GITLAB_URL, accessToken)) {						
 	//			for (org.gitlab4j.api.models.Branch branch: gitLabApiProvider.getGitLabApi().getRepositoryApi().getBranches(PROJECT_ID)) {
 	//				System.out.println(branch);
 	//			}
