@@ -19,6 +19,7 @@ import org.gitlab4j.api.models.Diff;
 import org.gitlab4j.api.utils.ISO8601;
 import org.nasdanika.capability.CapabilityLoader;
 import org.nasdanika.cli.CommandGroup;
+import org.nasdanika.cli.Description;
 import org.nasdanika.cli.ParentCommands;
 import org.nasdanika.common.Invocable;
 import org.nasdanika.common.NasdanikaException;
@@ -41,6 +42,7 @@ import picocli.CommandLine.ParentCommand;
 		name = "retrospect",
 		mixinStandardHelpOptions = true)
 @ParentCommands(GitLabContributorCommand.class)
+@Description(icon = "https://docs.nasdanika.org/images/retrospective.svg")
 public class GitLabRetrospectCommand extends CommandGroup implements Invocable.Invoker {
 	
 	/**

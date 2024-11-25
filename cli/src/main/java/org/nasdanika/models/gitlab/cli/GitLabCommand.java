@@ -3,6 +3,7 @@ package org.nasdanika.models.gitlab.cli;
 import org.gitlab4j.api.GitLabApiException;
 import org.nasdanika.capability.CapabilityLoader;
 import org.nasdanika.cli.CommandGroup;
+import org.nasdanika.cli.Description;
 import org.nasdanika.cli.ParentCommands;
 import org.nasdanika.cli.RootCommand;
 import org.nasdanika.common.Invocable;
@@ -17,6 +18,7 @@ import picocli.CommandLine.Option;
 	name = "gitlab",
 	mixinStandardHelpOptions = true)
 @ParentCommands(RootCommand.class)
+@Description(icon = "https://docs.nasdanika.org/images/GitLab.svg")
 public class GitLabCommand extends CommandGroup implements Invocable.Invoker {
 
 	protected GitLabCommand() {

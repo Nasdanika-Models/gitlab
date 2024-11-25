@@ -14,6 +14,7 @@ import org.gitlab4j.api.models.CommitPayload;
 import org.gitlab4j.api.models.MergeRequestParams;
 import org.nasdanika.capability.CapabilityLoader;
 import org.nasdanika.cli.CommandGroup;
+import org.nasdanika.cli.Description;
 import org.nasdanika.cli.ParentCommands;
 import org.nasdanika.common.Invocable;
 import org.nasdanika.common.NasdanikaException;
@@ -35,6 +36,7 @@ import picocli.CommandLine.ParentCommand;
 	name = "contribute",
 	mixinStandardHelpOptions = true)
 @ParentCommands(GitLabCommand.class)
+@Description(icon = "https://docs.nasdanika.org/images/jigsaw.svg")
 public class GitLabContributorCommand extends CommandGroup implements Invocable.Invoker {
 	
 	public GitLabContributorCommand() {
