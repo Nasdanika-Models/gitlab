@@ -148,7 +148,7 @@ public class Loader {
 		return getFactory().createGroup();
 	}
 	
-	protected org.nasdanika.models.gitlab.Group loadGroup(
+	public org.nasdanika.models.gitlab.Group loadGroup(
 			org.gitlab4j.api.models.Group group, 
 			GroupApi groupApi,			
 			ProgressMonitor progressMonitor) throws GitLabApiException {
@@ -218,7 +218,7 @@ public class Loader {
 	 * @param progressMonitor
 	 * @return
 	 */
-	protected org.nasdanika.models.gitlab.Member loadMember(org.gitlab4j.api.models.Member member, ProgressMonitor progressMonitor) {
+	public org.nasdanika.models.gitlab.Member loadMember(org.gitlab4j.api.models.Member member, ProgressMonitor progressMonitor) {
 		org.nasdanika.models.gitlab.Member modelMember = getFactory().createMember();
 		populateAbstractUser(member, modelMember);
 		org.gitlab4j.api.models.AccessLevel accessLevel = member.getAccessLevel();
@@ -283,7 +283,7 @@ public class Loader {
 		return getFactory().createContributor();
 	}
 	
-	protected org.nasdanika.models.gitlab.ProjectLicense loadProjectLicense(ProjectLicense apiLicense, ProgressMonitor progressMonitor) {
+	public org.nasdanika.models.gitlab.ProjectLicense loadProjectLicense(ProjectLicense apiLicense, ProgressMonitor progressMonitor) {
 		org.nasdanika.models.gitlab.ProjectLicense modelLicense = getFactory().createProjectLicense();
 		modelLicense.setHtmlUrl(apiLicense.getHtmlUrl());
 		modelLicense.setKey(apiLicense.getKey());
@@ -293,7 +293,7 @@ public class Loader {
 		return modelLicense;
 	}
 	
-	protected org.nasdanika.models.gitlab.Project loadProject(org.gitlab4j.api.models.Project project, ProgressMonitor progressMonitor) throws GitLabApiException {
+	public org.nasdanika.models.gitlab.Project loadProject(org.gitlab4j.api.models.Project project, ProgressMonitor progressMonitor) throws GitLabApiException {
 				
 		org.nasdanika.models.gitlab.Project modelProject = createProject(project, progressMonitor);
 		

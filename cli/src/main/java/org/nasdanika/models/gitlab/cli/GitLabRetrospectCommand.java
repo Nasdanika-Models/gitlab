@@ -1,7 +1,6 @@
 package org.nasdanika.models.gitlab.cli;
 
 import java.io.IOException;
-import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Date;
@@ -23,6 +22,7 @@ import org.nasdanika.cli.Description;
 import org.nasdanika.cli.ParentCommands;
 import org.nasdanika.common.Invocable;
 import org.nasdanika.common.NasdanikaException;
+import org.nasdanika.common.PrintStreamProgressMonitor;
 import org.nasdanika.common.Util;
 import org.nasdanika.models.gitlab.GitLabFactory;
 import org.nasdanika.models.gitlab.Project;
@@ -31,6 +31,7 @@ import org.nasdanika.models.gitlab.cli.GitLabContributorCommand.Result;
 import org.nasdanika.models.gitlab.util.GitLabApiProvider;
 import org.nasdanika.models.gitlab.util.GitLabURIHandler;
 import org.nasdanika.models.gitlab.util.GitLabURIHandlerFunction;
+import org.nasdanika.models.gitlab.util.Loader;
 
 import picocli.CommandLine.Command;
 import picocli.CommandLine.Option;
@@ -57,7 +58,7 @@ public class GitLabRetrospectCommand extends CommandGroup implements Invocable.I
 		 * @return
 		 * @throws IOException
 		 */
-		T apply(GitLabURIHandler gitLabURIHandler, Date since, Date until, Project project) throws IOException;
+		T apply(GitLabURIHandler gitLabURIHandler, Date since, Date until, Project project) throws Exception;
 
 	}
 	
@@ -163,10 +164,12 @@ public class GitLabRetrospectCommand extends CommandGroup implements Invocable.I
 	 */
 	public <T> Result<T> apply(Retrospector<T> retrospector) throws GitLabApiException {
 		GitLabURIHandlerFunction<T> gitLabURIHandlerFunction = gitLabURIHandler -> {
-			try {				
-				Project modelProject = getGitLabFactory().createProject();
-				modelProject.setPathWithNamespace(project);
+			try {			
 				GitLabApi gitLabApi = gitLabURIHandler.getGitLabApi();
+				org.gitlab4j.api.models.Project gitLabProject = gitLabApi.getProjectApi().getProject(project);				
+				Loader loader = new Loader(gitLabApi);
+				loader.setFactory(getGitLabFactory());
+				Project modelProject = loader.loadProject(gitLabProject, new PrintStreamProgressMonitor()); // Progress monitor mix-in?
 				CommitsApi commitsApi = gitLabApi.getCommitsApi();
 				RepositoryFileApi repoFileApi = gitLabApi.getRepositoryFileApi();
 				Map<String, org.nasdanika.models.gitlab.Commit> commits = new LinkedHashMap<>();
@@ -215,7 +218,7 @@ public class GitLabRetrospectCommand extends CommandGroup implements Invocable.I
 						since == null ? null : ISO8601.toDate(since), 
 						until == null ? null : ISO8601.toDate(until), 
 						modelProject);
-			} catch (IOException | GitLabApiException | ParseException e) {
+			} catch (Exception e) {
 				throw new NasdanikaException(e);
 			}
 		};

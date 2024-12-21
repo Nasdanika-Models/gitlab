@@ -5,6 +5,8 @@ import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
+import java.net.URLDecoder;
+import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Base64;
@@ -170,9 +172,9 @@ public class GitLabURIHandler implements URIHandler {
 				} else {				
 					try {
 						RepositoryFile repositoryFile = repositoryFileApi.getFile(
-								getProjectIdOrPath(uri), 
-								getRef(uri),
-								getPath(uri));
+								getProjectIdOrPath(uri),
+								getPath(uri),
+								getRef(uri));
 						resourceEntry = new ContentEntry(repositoryFile.getDecodedContentAsBytes(), false);
 						content.put(uri, resourceEntry);
 					} catch (GitLabApiException e) {
@@ -193,7 +195,7 @@ public class GitLabURIHandler implements URIHandler {
 		try {
 			return Long.parseLong(uri.authority());
 		} catch (NumberFormatException e) {
-			return uri.authority();
+			return URLDecoder.decode(uri.authority(), StandardCharsets.UTF_8);
 		}
 	}
 			
@@ -203,7 +205,7 @@ public class GitLabURIHandler implements URIHandler {
 	 * @return
 	 */
 	protected String getRef(URI uri) {
-		return uri.segment(0);
+		return URLDecoder.decode(uri.segment(0), StandardCharsets.UTF_8);
 	}
 	
 	protected String getPath(URI uri) {
