@@ -535,12 +535,8 @@ public class Loader {
 								Commit commit = branch.getCommit();
 								if (commit != null) {
 									org.nasdanika.models.gitlab.Commit modelCommit = createCommit(commit, progressMonitor);
-									modelBranch.setCommit(modelCommit);
-									List<String> parentIds = commit.getParentIds();
-									if (parentIds != null) {
-										modelCommit.getParentIds().addAll(parentIds);
-									}
 									loadCommit(commit, modelCommit, progressMonitor);
+									modelBranch.setCommit(modelCommit);
 								}
 								
 								modelBranch.setDevelopersCanMerge(branch.getDevelopersCanMerge());
