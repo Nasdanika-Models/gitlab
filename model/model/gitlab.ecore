@@ -472,6 +472,9 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="oldPath" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="renamedFile" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBooleanObject"/>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="MergeRequest"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Discussable" abstract="true"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Discussion"/>
   <eSubpackages name="codeowners" nsURI="ecore://nasdanika.org/models/gitlab/codeowners"
       nsPrefix="org.nasdanika.models.gitlab.codeowners">
     <eClassifiers xsi:type="ecore:EClass" name="CodeOwner">
