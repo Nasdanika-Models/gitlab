@@ -27,6 +27,8 @@ import org.nasdanika.models.gitlab.BuildGitStrategy;
 import org.nasdanika.models.gitlab.Commit;
 import org.nasdanika.models.gitlab.Contributor;
 import org.nasdanika.models.gitlab.Diff;
+import org.nasdanika.models.gitlab.Discussable;
+import org.nasdanika.models.gitlab.Discussion;
 import org.nasdanika.models.gitlab.EObjectRepositoryFile;
 import org.nasdanika.models.gitlab.GitLab;
 import org.nasdanika.models.gitlab.GitLabFactory;
@@ -38,6 +40,7 @@ import org.nasdanika.models.gitlab.Load;
 import org.nasdanika.models.gitlab.Loadable;
 import org.nasdanika.models.gitlab.Member;
 import org.nasdanika.models.gitlab.MergeMethod;
+import org.nasdanika.models.gitlab.MergeRequest;
 import org.nasdanika.models.gitlab.Owner;
 import org.nasdanika.models.gitlab.Principal;
 import org.nasdanika.models.gitlab.Project;
@@ -281,6 +284,24 @@ public class GitLabPackageImpl extends EPackageImpl implements GitLabPackage {
 	 * @generated
 	 */
 	private EClass diffEClass = null;
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass mergeRequestEClass = null;
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass discussableEClass = null;
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass discussionEClass = null;
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -788,6 +809,16 @@ public class GitLabPackageImpl extends EPackageImpl implements GitLabPackage {
 	@Override
 	public EAttribute getGroup_ProjectsLoaded() {
 		return (EAttribute)groupEClass.getEStructuralFeatures().get(20);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getGroup_ParentId() {
+		return (EAttribute)groupEClass.getEStructuralFeatures().get(21);
 	}
 
 	/**
@@ -1846,6 +1877,16 @@ public class GitLabPackageImpl extends EPackageImpl implements GitLabPackage {
 	 * @generated
 	 */
 	@Override
+	public EAttribute getProject_Groups() {
+		return (EAttribute)projectEClass.getEStructuralFeatures().get(77);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EOperation getProject__CreateReference() {
 		return projectEClass.getEOperations().get(0);
 	}
@@ -2876,6 +2917,36 @@ public class GitLabPackageImpl extends EPackageImpl implements GitLabPackage {
 	 * @generated
 	 */
 	@Override
+	public EClass getMergeRequest() {
+		return mergeRequestEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EClass getDiscussable() {
+		return discussableEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EClass getDiscussion() {
+		return discussionEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EEnum getVisibility() {
 		return visibilityEEnum;
 	}
@@ -3012,6 +3083,7 @@ public class GitLabPackageImpl extends EPackageImpl implements GitLabPackage {
 		createEReference(groupEClass, GROUP__CODE_OWNERSHIP);
 		createEAttribute(groupEClass, GROUP__SUB_GROUPS_LOADED);
 		createEAttribute(groupEClass, GROUP__PROJECTS_LOADED);
+		createEAttribute(groupEClass, GROUP__PARENT_ID);
 		createEOperation(groupEClass, GROUP___CREATE_REFERENCE);
 
 		groupReferenceEClass = createEClass(GROUP_REFERENCE);
@@ -3125,6 +3197,7 @@ public class GitLabPackageImpl extends EPackageImpl implements GitLabPackage {
 		createEAttribute(projectEClass, PROJECT__BRANCHES_LOAD_ERROR);
 		createEReference(projectEClass, PROJECT__COMMITS);
 		createEReference(projectEClass, PROJECT__PIPELINES);
+		createEAttribute(projectEClass, PROJECT__GROUPS);
 		createEOperation(projectEClass, PROJECT___CREATE_REFERENCE);
 
 		projectReferenceEClass = createEClass(PROJECT_REFERENCE);
@@ -3250,6 +3323,12 @@ public class GitLabPackageImpl extends EPackageImpl implements GitLabPackage {
 		createEAttribute(diffEClass, DIFF__NEW_PATH);
 		createEAttribute(diffEClass, DIFF__OLD_PATH);
 		createEAttribute(diffEClass, DIFF__RENAMED_FILE);
+
+		mergeRequestEClass = createEClass(MERGE_REQUEST);
+
+		discussableEClass = createEClass(DISCUSSABLE);
+
+		discussionEClass = createEClass(DISCUSSION);
 
 		// Create enums
 		visibilityEEnum = createEEnum(VISIBILITY);
@@ -3395,6 +3474,7 @@ public class GitLabPackageImpl extends EPackageImpl implements GitLabPackage {
 		initEReference(getGroup_CodeOwnership(), theCodeownersPackage.getCodeOwner(), theCodeownersPackage.getCodeOwner_Group(), "codeOwnership", null, 0, -1, Group.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getGroup_SubGroupsLoaded(), ecorePackage.getEDate(), "subGroupsLoaded", null, 0, 1, Group.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getGroup_ProjectsLoaded(), ecorePackage.getEDate(), "projectsLoaded", null, 0, 1, Group.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getGroup_ParentId(), ecorePackage.getELongObject(), "parentId", null, 0, 1, Group.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEOperation(getGroup__CreateReference(), this.getGroupReference(), "createReference", 0, 1, IS_UNIQUE, IS_ORDERED);
 
@@ -3519,6 +3599,7 @@ public class GitLabPackageImpl extends EPackageImpl implements GitLabPackage {
 		getProject_Commits().getEKeys().add(this.getCommit_Id());
 		initEReference(getProject_Pipelines(), thePipelinePackage.getPipeline(), null, "pipelines", null, 0, -1, Project.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		getProject_Pipelines().getEKeys().add(thePipelinePackage.getPipeline_Id());
+		initEAttribute(getProject_Groups(), ecorePackage.getELong(), "groups", null, 0, -1, Project.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEOperation(getProject__CreateReference(), this.getProjectReference(), "createReference", 0, 1, IS_UNIQUE, IS_ORDERED);
 
@@ -3646,6 +3727,12 @@ public class GitLabPackageImpl extends EPackageImpl implements GitLabPackage {
 		initEAttribute(getDiff_NewPath(), ecorePackage.getEString(), "newPath", null, 0, 1, Diff.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getDiff_OldPath(), ecorePackage.getEString(), "oldPath", null, 0, 1, Diff.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getDiff_RenamedFile(), ecorePackage.getEBooleanObject(), "renamedFile", null, 0, 1, Diff.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(mergeRequestEClass, MergeRequest.class, "MergeRequest", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(discussableEClass, Discussable.class, "Discussable", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(discussionEClass, Discussion.class, "Discussion", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		// Initialize enums and add enum literals
 		initEEnum(visibilityEEnum, Visibility.class, "Visibility");

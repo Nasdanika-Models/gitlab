@@ -88,6 +88,8 @@ public class GitLabFactoryImpl extends EFactoryImpl implements GitLabFactory {
 			case GitLabPackage.LIST_REPOSITORY_FILE: return createListRepositoryFile();
 			case GitLabPackage.BLAME: return createBlame();
 			case GitLabPackage.DIFF: return createDiff();
+			case GitLabPackage.MERGE_REQUEST: return createMergeRequest();
+			case GitLabPackage.DISCUSSION: return createDiscussion();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -474,6 +476,28 @@ public class GitLabFactoryImpl extends EFactoryImpl implements GitLabFactory {
 	public Diff createDiff() {
 		DiffImpl diff = new DiffImpl();
 		return diff;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public MergeRequest createMergeRequest() {
+		MergeRequestImpl mergeRequest = new MergeRequestImpl();
+		return mergeRequest;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Discussion createDiscussion() {
+		DiscussionImpl discussion = new DiscussionImpl();
+		return discussion;
 	}
 
 	/**

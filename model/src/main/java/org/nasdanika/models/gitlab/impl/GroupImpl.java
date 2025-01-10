@@ -52,6 +52,7 @@ import org.nasdanika.models.gitlab.codeowners.CodeOwner;
  *   <li>{@link org.nasdanika.models.gitlab.impl.GroupImpl#getCodeOwnership <em>Code Ownership</em>}</li>
  *   <li>{@link org.nasdanika.models.gitlab.impl.GroupImpl#getSubGroupsLoaded <em>Sub Groups Loaded</em>}</li>
  *   <li>{@link org.nasdanika.models.gitlab.impl.GroupImpl#getProjectsLoaded <em>Projects Loaded</em>}</li>
+ *   <li>{@link org.nasdanika.models.gitlab.impl.GroupImpl#getParentId <em>Parent Id</em>}</li>
  * </ul>
  *
  * @generated
@@ -211,6 +212,15 @@ public class GroupImpl extends LoadableImpl implements Group {
 	 * @ordered
 	 */
 	protected static final Date PROJECTS_LOADED_EDEFAULT = null;
+	/**
+	 * The default value of the '{@link #getParentId() <em>Parent Id</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getParentId()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final Long PARENT_ID_EDEFAULT = null;
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -628,6 +638,26 @@ public class GroupImpl extends LoadableImpl implements Group {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Long getParentId() {
+		return (Long)eDynamicGet(GitLabPackage.GROUP__PARENT_ID, GitLabPackage.Literals.GROUP__PARENT_ID, true, true);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setParentId(Long newParentId) {
+		eDynamicSet(GitLabPackage.GROUP__PARENT_ID, GitLabPackage.Literals.GROUP__PARENT_ID, newParentId);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
 	@Override
@@ -729,6 +759,8 @@ public class GroupImpl extends LoadableImpl implements Group {
 				return getSubGroupsLoaded();
 			case GitLabPackage.GROUP__PROJECTS_LOADED:
 				return getProjectsLoaded();
+			case GitLabPackage.GROUP__PARENT_ID:
+				return getParentId();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -813,6 +845,9 @@ public class GroupImpl extends LoadableImpl implements Group {
 			case GitLabPackage.GROUP__PROJECTS_LOADED:
 				setProjectsLoaded((Date)newValue);
 				return;
+			case GitLabPackage.GROUP__PARENT_ID:
+				setParentId((Long)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -891,6 +926,9 @@ public class GroupImpl extends LoadableImpl implements Group {
 			case GitLabPackage.GROUP__PROJECTS_LOADED:
 				setProjectsLoaded(PROJECTS_LOADED_EDEFAULT);
 				return;
+			case GitLabPackage.GROUP__PARENT_ID:
+				setParentId(PARENT_ID_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -947,6 +985,8 @@ public class GroupImpl extends LoadableImpl implements Group {
 				return SUB_GROUPS_LOADED_EDEFAULT == null ? getSubGroupsLoaded() != null : !SUB_GROUPS_LOADED_EDEFAULT.equals(getSubGroupsLoaded());
 			case GitLabPackage.GROUP__PROJECTS_LOADED:
 				return PROJECTS_LOADED_EDEFAULT == null ? getProjectsLoaded() != null : !PROJECTS_LOADED_EDEFAULT.equals(getProjectsLoaded());
+			case GitLabPackage.GROUP__PARENT_ID:
+				return PARENT_ID_EDEFAULT == null ? getParentId() != null : !PARENT_ID_EDEFAULT.equals(getParentId());
 		}
 		return super.eIsSet(featureID);
 	}

@@ -36,6 +36,7 @@ import org.nasdanika.models.gitlab.codeowners.CodeOwner;
  *   <li>{@link org.nasdanika.models.gitlab.Group#getCodeOwnership <em>Code Ownership</em>}</li>
  *   <li>{@link org.nasdanika.models.gitlab.Group#getSubGroupsLoaded <em>Sub Groups Loaded</em>}</li>
  *   <li>{@link org.nasdanika.models.gitlab.Group#getProjectsLoaded <em>Projects Loaded</em>}</li>
+ *   <li>{@link org.nasdanika.models.gitlab.Group#getParentId <em>Parent Id</em>}</li>
  * </ul>
  *
  * @see org.nasdanika.models.gitlab.GitLabPackage#getGroup()
@@ -468,6 +469,28 @@ public interface Group extends Loadable, AbstractGroup {
 	 * @generated
 	 */
 	void setProjectsLoaded(Date value);
+
+	/**
+	 * Returns the value of the '<em><b>Parent Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Parent Id</em>' attribute.
+	 * @see #setParentId(Long)
+	 * @see org.nasdanika.models.gitlab.GitLabPackage#getGroup_ParentId()
+	 * @model
+	 * @generated
+	 */
+	Long getParentId();
+
+	/**
+	 * Sets the value of the '{@link org.nasdanika.models.gitlab.Group#getParentId <em>Parent Id</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Parent Id</em>' attribute.
+	 * @see #getParentId()
+	 * @generated
+	 */
+	void setParentId(Long value);
 
 	/**
 	 * <!-- begin-user-doc -->

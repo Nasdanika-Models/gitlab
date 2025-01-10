@@ -533,13 +533,22 @@ public interface GitLabPackage extends EPackage {
 	int GROUP__PROJECTS_LOADED = LOADABLE_FEATURE_COUNT + 21;
 
 	/**
+	 * The feature id for the '<em><b>Parent Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GROUP__PARENT_ID = LOADABLE_FEATURE_COUNT + 22;
+
+	/**
 	 * The number of structural features of the '<em>Group</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int GROUP_FEATURE_COUNT = LOADABLE_FEATURE_COUNT + 22;
+	int GROUP_FEATURE_COUNT = LOADABLE_FEATURE_COUNT + 23;
 
 	/**
 	 * The operation id for the '<em>Create Reference</em>' operation.
@@ -1901,13 +1910,22 @@ public interface GitLabPackage extends EPackage {
 	int PROJECT__PIPELINES = LOADABLE_FEATURE_COUNT + 77;
 
 	/**
+	 * The feature id for the '<em><b>Groups</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROJECT__GROUPS = LOADABLE_FEATURE_COUNT + 78;
+
+	/**
 	 * The number of structural features of the '<em>Project</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PROJECT_FEATURE_COUNT = LOADABLE_FEATURE_COUNT + 78;
+	int PROJECT_FEATURE_COUNT = LOADABLE_FEATURE_COUNT + 79;
 
 	/**
 	 * The operation id for the '<em>Create Reference</em>' operation.
@@ -4290,6 +4308,90 @@ public interface GitLabPackage extends EPackage {
 	int DIFF_OPERATION_COUNT = 0;
 
 	/**
+	 * The meta object id for the '{@link org.nasdanika.models.gitlab.impl.MergeRequestImpl <em>Merge Request</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.nasdanika.models.gitlab.impl.MergeRequestImpl
+	 * @see org.nasdanika.models.gitlab.impl.GitLabPackageImpl#getMergeRequest()
+	 * @generated
+	 */
+	int MERGE_REQUEST = 35;
+
+	/**
+	 * The number of structural features of the '<em>Merge Request</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MERGE_REQUEST_FEATURE_COUNT = 0;
+
+	/**
+	 * The number of operations of the '<em>Merge Request</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MERGE_REQUEST_OPERATION_COUNT = 0;
+
+	/**
+	 * The meta object id for the '{@link org.nasdanika.models.gitlab.impl.DiscussableImpl <em>Discussable</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.nasdanika.models.gitlab.impl.DiscussableImpl
+	 * @see org.nasdanika.models.gitlab.impl.GitLabPackageImpl#getDiscussable()
+	 * @generated
+	 */
+	int DISCUSSABLE = 36;
+
+	/**
+	 * The number of structural features of the '<em>Discussable</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DISCUSSABLE_FEATURE_COUNT = 0;
+
+	/**
+	 * The number of operations of the '<em>Discussable</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DISCUSSABLE_OPERATION_COUNT = 0;
+
+	/**
+	 * The meta object id for the '{@link org.nasdanika.models.gitlab.impl.DiscussionImpl <em>Discussion</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.nasdanika.models.gitlab.impl.DiscussionImpl
+	 * @see org.nasdanika.models.gitlab.impl.GitLabPackageImpl#getDiscussion()
+	 * @generated
+	 */
+	int DISCUSSION = 37;
+
+	/**
+	 * The number of structural features of the '<em>Discussion</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DISCUSSION_FEATURE_COUNT = 0;
+
+	/**
+	 * The number of operations of the '<em>Discussion</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DISCUSSION_OPERATION_COUNT = 0;
+
+	/**
 	 * The meta object id for the '{@link org.nasdanika.models.gitlab.Visibility <em>Visibility</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4297,7 +4399,7 @@ public interface GitLabPackage extends EPackage {
 	 * @see org.nasdanika.models.gitlab.impl.GitLabPackageImpl#getVisibility()
 	 * @generated
 	 */
-	int VISIBILITY = 35;
+	int VISIBILITY = 38;
 
 
 	/**
@@ -4308,7 +4410,7 @@ public interface GitLabPackage extends EPackage {
 	 * @see org.nasdanika.models.gitlab.impl.GitLabPackageImpl#getAccessLevel()
 	 * @generated
 	 */
-	int ACCESS_LEVEL = 36;
+	int ACCESS_LEVEL = 39;
 
 
 	/**
@@ -4319,7 +4421,7 @@ public interface GitLabPackage extends EPackage {
 	 * @see org.nasdanika.models.gitlab.impl.GitLabPackageImpl#getMergeMethod()
 	 * @generated
 	 */
-	int MERGE_METHOD = 37;
+	int MERGE_METHOD = 40;
 
 	/**
 	 * The meta object id for the '{@link org.nasdanika.models.gitlab.BuildGitStrategy <em>Build Git Strategy</em>}' enum.
@@ -4329,7 +4431,7 @@ public interface GitLabPackage extends EPackage {
 	 * @see org.nasdanika.models.gitlab.impl.GitLabPackageImpl#getBuildGitStrategy()
 	 * @generated
 	 */
-	int BUILD_GIT_STRATEGY = 38;
+	int BUILD_GIT_STRATEGY = 41;
 
 	/**
 	 * The meta object id for the '{@link org.nasdanika.models.gitlab.Status <em>Status</em>}' enum.
@@ -4339,7 +4441,7 @@ public interface GitLabPackage extends EPackage {
 	 * @see org.nasdanika.models.gitlab.impl.GitLabPackageImpl#getStatus()
 	 * @generated
 	 */
-	int STATUS = 39;
+	int STATUS = 42;
 
 	/**
 	 * The meta object id for the '{@link org.nasdanika.models.gitlab.AutoDevopsDeployStrategy <em>Auto Devops Deploy Strategy</em>}' enum.
@@ -4349,7 +4451,7 @@ public interface GitLabPackage extends EPackage {
 	 * @see org.nasdanika.models.gitlab.impl.GitLabPackageImpl#getAutoDevopsDeployStrategy()
 	 * @generated
 	 */
-	int AUTO_DEVOPS_DEPLOY_STRATEGY = 40;
+	int AUTO_DEVOPS_DEPLOY_STRATEGY = 43;
 
 	/**
 	 * The meta object id for the '{@link org.nasdanika.models.gitlab.SquashOption <em>Squash Option</em>}' enum.
@@ -4359,7 +4461,7 @@ public interface GitLabPackage extends EPackage {
 	 * @see org.nasdanika.models.gitlab.impl.GitLabPackageImpl#getSquashOption()
 	 * @generated
 	 */
-	int SQUASH_OPTION = 41;
+	int SQUASH_OPTION = 44;
 
 
 	/**
@@ -4785,6 +4887,17 @@ public interface GitLabPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getGroup_ProjectsLoaded();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.models.gitlab.Group#getParentId <em>Parent Id</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Parent Id</em>'.
+	 * @see org.nasdanika.models.gitlab.Group#getParentId()
+	 * @see #getGroup()
+	 * @generated
+	 */
+	EAttribute getGroup_ParentId();
 
 	/**
 	 * Returns the meta object for the '{@link org.nasdanika.models.gitlab.Group#createReference() <em>Create Reference</em>}' operation.
@@ -5932,6 +6045,17 @@ public interface GitLabPackage extends EPackage {
 	EReference getProject_Pipelines();
 
 	/**
+	 * Returns the meta object for the attribute list '{@link org.nasdanika.models.gitlab.Project#getGroups <em>Groups</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute list '<em>Groups</em>'.
+	 * @see org.nasdanika.models.gitlab.Project#getGroups()
+	 * @see #getProject()
+	 * @generated
+	 */
+	EAttribute getProject_Groups();
+
+	/**
 	 * Returns the meta object for the '{@link org.nasdanika.models.gitlab.Project#createReference() <em>Create Reference</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -7043,6 +7167,36 @@ public interface GitLabPackage extends EPackage {
 	EAttribute getDiff_RenamedFile();
 
 	/**
+	 * Returns the meta object for class '{@link org.nasdanika.models.gitlab.MergeRequest <em>Merge Request</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Merge Request</em>'.
+	 * @see org.nasdanika.models.gitlab.MergeRequest
+	 * @generated
+	 */
+	EClass getMergeRequest();
+
+	/**
+	 * Returns the meta object for class '{@link org.nasdanika.models.gitlab.Discussable <em>Discussable</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Discussable</em>'.
+	 * @see org.nasdanika.models.gitlab.Discussable
+	 * @generated
+	 */
+	EClass getDiscussable();
+
+	/**
+	 * Returns the meta object for class '{@link org.nasdanika.models.gitlab.Discussion <em>Discussion</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Discussion</em>'.
+	 * @see org.nasdanika.models.gitlab.Discussion
+	 * @generated
+	 */
+	EClass getDiscussion();
+
+	/**
 	 * Returns the meta object for enum '{@link org.nasdanika.models.gitlab.Visibility <em>Visibility</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -7418,6 +7572,13 @@ public interface GitLabPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute GROUP__PROJECTS_LOADED = eINSTANCE.getGroup_ProjectsLoaded();
+		/**
+		 * The meta object literal for the '<em><b>Parent Id</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute GROUP__PARENT_ID = eINSTANCE.getGroup_ParentId();
 		/**
 		 * The meta object literal for the '<em><b>Create Reference</b></em>' operation.
 		 * <!-- begin-user-doc -->
@@ -8169,6 +8330,13 @@ public interface GitLabPackage extends EPackage {
 		 * @generated
 		 */
 		EReference PROJECT__PIPELINES = eINSTANCE.getProject_Pipelines();
+		/**
+		 * The meta object literal for the '<em><b>Groups</b></em>' attribute list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute PROJECT__GROUPS = eINSTANCE.getProject_Groups();
 		/**
 		 * The meta object literal for the '<em><b>Create Reference</b></em>' operation.
 		 * <!-- begin-user-doc -->
@@ -8934,6 +9102,33 @@ public interface GitLabPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute DIFF__RENAMED_FILE = eINSTANCE.getDiff_RenamedFile();
+		/**
+		 * The meta object literal for the '{@link org.nasdanika.models.gitlab.impl.MergeRequestImpl <em>Merge Request</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.nasdanika.models.gitlab.impl.MergeRequestImpl
+		 * @see org.nasdanika.models.gitlab.impl.GitLabPackageImpl#getMergeRequest()
+		 * @generated
+		 */
+		EClass MERGE_REQUEST = eINSTANCE.getMergeRequest();
+		/**
+		 * The meta object literal for the '{@link org.nasdanika.models.gitlab.impl.DiscussableImpl <em>Discussable</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.nasdanika.models.gitlab.impl.DiscussableImpl
+		 * @see org.nasdanika.models.gitlab.impl.GitLabPackageImpl#getDiscussable()
+		 * @generated
+		 */
+		EClass DISCUSSABLE = eINSTANCE.getDiscussable();
+		/**
+		 * The meta object literal for the '{@link org.nasdanika.models.gitlab.impl.DiscussionImpl <em>Discussion</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.nasdanika.models.gitlab.impl.DiscussionImpl
+		 * @see org.nasdanika.models.gitlab.impl.GitLabPackageImpl#getDiscussion()
+		 * @generated
+		 */
+		EClass DISCUSSION = eINSTANCE.getDiscussion();
 		/**
 		 * The meta object literal for the '{@link org.nasdanika.models.gitlab.Visibility <em>Visibility</em>}' enum.
 		 * <!-- begin-user-doc -->

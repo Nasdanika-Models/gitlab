@@ -210,6 +210,18 @@ public class GitLabAdapterFactory extends AdapterFactoryImpl {
 				return createDiffAdapter();
 			}
 			@Override
+			public Adapter caseMergeRequest(MergeRequest object) {
+				return createMergeRequestAdapter();
+			}
+			@Override
+			public Adapter caseDiscussable(Discussable object) {
+				return createDiscussableAdapter();
+			}
+			@Override
+			public Adapter caseDiscussion(Discussion object) {
+				return createDiscussionAdapter();
+			}
+			@Override
 			public <T> Adapter caseReference(Reference<T> object) {
 				return createReferenceAdapter();
 			}
@@ -728,6 +740,48 @@ public class GitLabAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createDiffAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.nasdanika.models.gitlab.MergeRequest <em>Merge Request</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.nasdanika.models.gitlab.MergeRequest
+	 * @generated
+	 */
+	public Adapter createMergeRequestAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.nasdanika.models.gitlab.Discussable <em>Discussable</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.nasdanika.models.gitlab.Discussable
+	 * @generated
+	 */
+	public Adapter createDiscussableAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.nasdanika.models.gitlab.Discussion <em>Discussion</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.nasdanika.models.gitlab.Discussion
+	 * @generated
+	 */
+	public Adapter createDiscussionAdapter() {
 		return null;
 	}
 

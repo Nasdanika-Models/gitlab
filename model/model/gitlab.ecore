@@ -99,6 +99,7 @@
         <details key="documentation" value="Timestamp when this group projects were loaded. Deprecated use loads"/>
       </eAnnotations>
     </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="parentId" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//ELongObject"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="GroupReference">
     <eGenericSuperTypes eClassifier="ecore:EClass ../../org.nasdanika.ncore/model/ncore.ecore#//Reference">
@@ -261,6 +262,8 @@
         eType="#//Commit" containment="true" eKeys="#//Commit/id"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="pipelines" upperBound="-1"
         eType="#//pipeline/Pipeline" containment="true" eKeys="#//pipeline/Pipeline/id"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="groups" upperBound="-1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//ELong"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ProjectReference">
     <eGenericSuperTypes eClassifier="ecore:EClass ../../org.nasdanika.ncore/model/ncore.ecore#//Reference">

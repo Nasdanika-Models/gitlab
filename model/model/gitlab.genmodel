@@ -96,6 +96,7 @@
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference gitlab.ecore#//Group/codeOwnership"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gitlab.ecore#//Group/subGroupsLoaded"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gitlab.ecore#//Group/projectsLoaded"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gitlab.ecore#//Group/parentId"/>
       <genOperations ecoreOperation="gitlab.ecore#//Group/createReference"/>
     </genClasses>
     <genClasses ecoreClass="gitlab.ecore#//GroupReference"/>
@@ -207,6 +208,7 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gitlab.ecore#//Project/branchesLoadError"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference gitlab.ecore#//Project/commits"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference gitlab.ecore#//Project/pipelines"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gitlab.ecore#//Project/groups"/>
       <genOperations ecoreOperation="gitlab.ecore#//Project/createReference"/>
     </genClasses>
     <genClasses ecoreClass="gitlab.ecore#//ProjectReference"/>
@@ -330,6 +332,9 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gitlab.ecore#//Diff/oldPath"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gitlab.ecore#//Diff/renamedFile"/>
     </genClasses>
+    <genClasses ecoreClass="gitlab.ecore#//MergeRequest"/>
+    <genClasses image="false" ecoreClass="gitlab.ecore#//Discussable"/>
+    <genClasses ecoreClass="gitlab.ecore#//Discussion"/>
     <nestedGenPackages prefix="Codeowners" basePackage="org.nasdanika.models.gitlab"
         disposableProviderFactory="true" ecorePackage="gitlab.ecore#//codeowners">
       <genClasses ecoreClass="gitlab.ecore#//codeowners/CodeOwner">

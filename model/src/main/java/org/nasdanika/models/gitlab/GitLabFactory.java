@@ -283,6 +283,24 @@ public interface GitLabFactory extends EFactory {
 	Diff createDiff();
 
 	/**
+	 * Returns a new object of class '<em>Merge Request</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Merge Request</em>'.
+	 * @generated
+	 */
+	MergeRequest createMergeRequest();
+
+	/**
+	 * Returns a new object of class '<em>Discussion</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Discussion</em>'.
+	 * @generated
+	 */
+	Discussion createDiscussion();
+
+	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

@@ -93,6 +93,7 @@ import org.nasdanika.models.gitlab.pipeline.Pipeline;
  *   <li>{@link org.nasdanika.models.gitlab.Project#getBranchesLoadError <em>Branches Load Error</em>}</li>
  *   <li>{@link org.nasdanika.models.gitlab.Project#getCommits <em>Commits</em>}</li>
  *   <li>{@link org.nasdanika.models.gitlab.Project#getPipelines <em>Pipelines</em>}</li>
+ *   <li>{@link org.nasdanika.models.gitlab.Project#getGroups <em>Groups</em>}</li>
  * </ul>
  *
  * @see org.nasdanika.models.gitlab.GitLabPackage#getProject()
@@ -1745,6 +1746,18 @@ public interface Project extends Loadable, AbstractProject {
 	 * @generated
 	 */
 	EList<Pipeline> getPipelines();
+
+	/**
+	 * Returns the value of the '<em><b>Groups</b></em>' attribute list.
+	 * The list contents are of type {@link java.lang.Long}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Groups</em>' attribute list.
+	 * @see org.nasdanika.models.gitlab.GitLabPackage#getProject_Groups()
+	 * @model
+	 * @generated
+	 */
+	EList<Long> getGroups();
 
 	/**
 	 * <!-- begin-user-doc -->

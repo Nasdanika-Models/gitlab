@@ -122,6 +122,7 @@ import org.nasdanika.models.gitlab.pipeline.Pipeline;
  *   <li>{@link org.nasdanika.models.gitlab.impl.ProjectImpl#getBranchesLoadError <em>Branches Load Error</em>}</li>
  *   <li>{@link org.nasdanika.models.gitlab.impl.ProjectImpl#getCommits <em>Commits</em>}</li>
  *   <li>{@link org.nasdanika.models.gitlab.impl.ProjectImpl#getPipelines <em>Pipelines</em>}</li>
+ *   <li>{@link org.nasdanika.models.gitlab.impl.ProjectImpl#getGroups <em>Groups</em>}</li>
  * </ul>
  *
  * @generated
@@ -2296,6 +2297,17 @@ public class ProjectImpl extends LoadableImpl implements Project {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@SuppressWarnings("unchecked")
+	@Override
+	public EList<Long> getGroups() {
+		return (EList<Long>)eDynamicGet(GitLabPackage.PROJECT__GROUPS, GitLabPackage.Literals.PROJECT__GROUPS, true, true);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
 	@Override
@@ -2540,6 +2552,8 @@ public class ProjectImpl extends LoadableImpl implements Project {
 				return getCommits();
 			case GitLabPackage.PROJECT__PIPELINES:
 				return getPipelines();
+			case GitLabPackage.PROJECT__GROUPS:
+				return getGroups();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -2794,6 +2808,10 @@ public class ProjectImpl extends LoadableImpl implements Project {
 				getPipelines().clear();
 				getPipelines().addAll((Collection<? extends Pipeline>)newValue);
 				return;
+			case GitLabPackage.PROJECT__GROUPS:
+				getGroups().clear();
+				getGroups().addAll((Collection<? extends Long>)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -3040,6 +3058,9 @@ public class ProjectImpl extends LoadableImpl implements Project {
 			case GitLabPackage.PROJECT__PIPELINES:
 				getPipelines().clear();
 				return;
+			case GitLabPackage.PROJECT__GROUPS:
+				getGroups().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -3208,6 +3229,8 @@ public class ProjectImpl extends LoadableImpl implements Project {
 				return !getCommits().isEmpty();
 			case GitLabPackage.PROJECT__PIPELINES:
 				return !getPipelines().isEmpty();
+			case GitLabPackage.PROJECT__GROUPS:
+				return !getGroups().isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}
