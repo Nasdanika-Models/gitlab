@@ -15,9 +15,12 @@ import org.eclipse.emf.ecore.impl.EPackageImpl;
 
 import org.nasdanika.models.coverage.CoveragePackage;
 import org.nasdanika.models.gitlab.AbstractGroup;
+import org.nasdanika.models.gitlab.AbstractIssue;
 import org.nasdanika.models.gitlab.AbstractProject;
 import org.nasdanika.models.gitlab.AbstractUser;
 import org.nasdanika.models.gitlab.AccessLevel;
+import org.nasdanika.models.gitlab.ApprovalRule;
+import org.nasdanika.models.gitlab.ApprovalState;
 import org.nasdanika.models.gitlab.AutoDevopsDeployStrategy;
 import org.nasdanika.models.gitlab.BinaryRepositoryFile;
 import org.nasdanika.models.gitlab.Blame;
@@ -27,6 +30,7 @@ import org.nasdanika.models.gitlab.BuildGitStrategy;
 import org.nasdanika.models.gitlab.Commit;
 import org.nasdanika.models.gitlab.Contributor;
 import org.nasdanika.models.gitlab.Diff;
+import org.nasdanika.models.gitlab.DiffRef;
 import org.nasdanika.models.gitlab.Discussable;
 import org.nasdanika.models.gitlab.Discussion;
 import org.nasdanika.models.gitlab.EObjectRepositoryFile;
@@ -35,13 +39,20 @@ import org.nasdanika.models.gitlab.GitLabFactory;
 import org.nasdanika.models.gitlab.GitLabPackage;
 import org.nasdanika.models.gitlab.Group;
 import org.nasdanika.models.gitlab.GroupReference;
+import org.nasdanika.models.gitlab.Issue;
 import org.nasdanika.models.gitlab.ListRepositoryFile;
 import org.nasdanika.models.gitlab.Load;
 import org.nasdanika.models.gitlab.Loadable;
 import org.nasdanika.models.gitlab.Member;
 import org.nasdanika.models.gitlab.MergeMethod;
 import org.nasdanika.models.gitlab.MergeRequest;
+import org.nasdanika.models.gitlab.MergeRequestDiff;
+import org.nasdanika.models.gitlab.MergeRequestVersion;
+import org.nasdanika.models.gitlab.Milestone;
+import org.nasdanika.models.gitlab.Notable;
+import org.nasdanika.models.gitlab.Note;
 import org.nasdanika.models.gitlab.Owner;
+import org.nasdanika.models.gitlab.Position;
 import org.nasdanika.models.gitlab.Principal;
 import org.nasdanika.models.gitlab.Project;
 import org.nasdanika.models.gitlab.ProjectAccess;
@@ -50,10 +61,13 @@ import org.nasdanika.models.gitlab.ProjectReference;
 import org.nasdanika.models.gitlab.ProjectSharedGroup;
 import org.nasdanika.models.gitlab.ProjectStatistics;
 import org.nasdanika.models.gitlab.ReferenceRepositoryFile;
+import org.nasdanika.models.gitlab.References;
 import org.nasdanika.models.gitlab.RepositoryFile;
 import org.nasdanika.models.gitlab.SquashOption;
 import org.nasdanika.models.gitlab.Status;
+import org.nasdanika.models.gitlab.TaskCompletionStatus;
 import org.nasdanika.models.gitlab.TextRepositoryFile;
+import org.nasdanika.models.gitlab.TimeStats;
 import org.nasdanika.models.gitlab.Tree;
 import org.nasdanika.models.gitlab.TreeItem;
 import org.nasdanika.models.gitlab.TreeItemReference;
@@ -289,7 +303,91 @@ public class GitLabPackageImpl extends EPackageImpl implements GitLabPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	private EClass positionEClass = null;
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass noteEClass = null;
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass notableEClass = null;
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	private EClass mergeRequestEClass = null;
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass approvalRuleEClass = null;
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass approvalStateEClass = null;
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass mergeRequestVersionEClass = null;
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass mergeRequestDiffEClass = null;
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass timeStatsEClass = null;
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass taskCompletionStatusEClass = null;
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass milestoneEClass = null;
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass referencesEClass = null;
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass diffRefEClass = null;
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass abstractIssueEClass = null;
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass issueEClass = null;
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1887,6 +1985,16 @@ public class GitLabPackageImpl extends EPackageImpl implements GitLabPackage {
 	 * @generated
 	 */
 	@Override
+	public EReference getProject_MergeRequests() {
+		return (EReference)projectEClass.getEStructuralFeatures().get(78);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EOperation getProject__CreateReference() {
 		return projectEClass.getEOperations().get(0);
 	}
@@ -2917,6 +3025,56 @@ public class GitLabPackageImpl extends EPackageImpl implements GitLabPackage {
 	 * @generated
 	 */
 	@Override
+	public EClass getPosition() {
+		return positionEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EClass getNote() {
+		return noteEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getNote_Position() {
+		return (EReference)noteEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EClass getNotable() {
+		return notableEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getNotable_Notes() {
+		return (EReference)notableEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EClass getMergeRequest() {
 		return mergeRequestEClass;
 	}
@@ -2927,8 +3085,438 @@ public class GitLabPackageImpl extends EPackageImpl implements GitLabPackage {
 	 * @generated
 	 */
 	@Override
+	public EAttribute getMergeRequest_Id() {
+		return (EAttribute)mergeRequestEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getMergeRequest_Iid() {
+		return (EAttribute)mergeRequestEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getMergeRequest_Assignee() {
+		return (EReference)mergeRequestEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getMergeRequest_Assignees() {
+		return (EReference)mergeRequestEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getMergeRequest_Author() {
+		return (EReference)mergeRequestEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getMergeRequest_Reviewers() {
+		return (EReference)mergeRequestEClass.getEStructuralFeatures().get(5);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getMergeRequest_Changes() {
+		return (EReference)mergeRequestEClass.getEStructuralFeatures().get(6);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getMergeRequest_MergeUser() {
+		return (EReference)mergeRequestEClass.getEStructuralFeatures().get(7);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getMergeRequest_TaskCompletionStatus() {
+		return (EReference)mergeRequestEClass.getEStructuralFeatures().get(8);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getMergeRequest_Milestone() {
+		return (EReference)mergeRequestEClass.getEStructuralFeatures().get(9);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getMergeRequest_Pipeline() {
+		return (EReference)mergeRequestEClass.getEStructuralFeatures().get(10);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getMergeRequest_HeadPipeline() {
+		return (EReference)mergeRequestEClass.getEStructuralFeatures().get(11);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getMergeRequest_References() {
+		return (EReference)mergeRequestEClass.getEStructuralFeatures().get(12);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getMergeRequest_TimeStats() {
+		return (EReference)mergeRequestEClass.getEStructuralFeatures().get(13);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getMergeRequest_DiffRefs() {
+		return (EReference)mergeRequestEClass.getEStructuralFeatures().get(14);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EClass getApprovalRule() {
+		return approvalRuleEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getApprovalRule_EligibleApprovers() {
+		return (EReference)approvalRuleEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getApprovalRule_SourceRule() {
+		return (EReference)approvalRuleEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getApprovalRule_Users() {
+		return (EReference)approvalRuleEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getApprovalRule_Groups() {
+		return (EReference)approvalRuleEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getApprovalRule_ApprovedBy() {
+		return (EReference)approvalRuleEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EClass getApprovalState() {
+		return approvalStateEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getApprovalState_Rules() {
+		return (EReference)approvalStateEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EClass getMergeRequestVersion() {
+		return mergeRequestVersionEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EClass getMergeRequestDiff() {
+		return mergeRequestDiffEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getMergeRequestDiff_Commits() {
+		return (EReference)mergeRequestDiffEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getMergeRequestDiff_Diffs() {
+		return (EReference)mergeRequestDiffEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EClass getTimeStats() {
+		return timeStatsEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EClass getTaskCompletionStatus() {
+		return taskCompletionStatusEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EClass getMilestone() {
+		return milestoneEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EClass getReferences() {
+		return referencesEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EClass getDiffRef() {
+		return diffRefEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EClass getAbstractIssue() {
+		return abstractIssueEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getAbstractIssue_Assignee() {
+		return (EReference)abstractIssueEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getAbstractIssue_Assignees() {
+		return (EReference)abstractIssueEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getAbstractIssue_Author() {
+		return (EReference)abstractIssueEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getAbstractIssue_ClosedBy() {
+		return (EReference)abstractIssueEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getAbstractIssue_Milestone() {
+		return (EReference)abstractIssueEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getAbstractIssue_References() {
+		return (EReference)abstractIssueEClass.getEStructuralFeatures().get(5);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getAbstractIssue_TimeStats() {
+		return (EReference)abstractIssueEClass.getEStructuralFeatures().get(6);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getAbstractIssue_TaskCompletionStatus() {
+		return (EReference)abstractIssueEClass.getEStructuralFeatures().get(7);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EClass getIssue() {
+		return issueEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EClass getDiscussable() {
 		return discussableEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getDiscussable_Discussions() {
+		return (EReference)discussableEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -3198,6 +3786,7 @@ public class GitLabPackageImpl extends EPackageImpl implements GitLabPackage {
 		createEReference(projectEClass, PROJECT__COMMITS);
 		createEReference(projectEClass, PROJECT__PIPELINES);
 		createEAttribute(projectEClass, PROJECT__GROUPS);
+		createEReference(projectEClass, PROJECT__MERGE_REQUESTS);
 		createEOperation(projectEClass, PROJECT___CREATE_REFERENCE);
 
 		projectReferenceEClass = createEClass(PROJECT_REFERENCE);
@@ -3324,11 +3913,73 @@ public class GitLabPackageImpl extends EPackageImpl implements GitLabPackage {
 		createEAttribute(diffEClass, DIFF__OLD_PATH);
 		createEAttribute(diffEClass, DIFF__RENAMED_FILE);
 
-		mergeRequestEClass = createEClass(MERGE_REQUEST);
+		positionEClass = createEClass(POSITION);
 
-		discussableEClass = createEClass(DISCUSSABLE);
+		noteEClass = createEClass(NOTE);
+		createEReference(noteEClass, NOTE__POSITION);
+
+		notableEClass = createEClass(NOTABLE);
+		createEReference(notableEClass, NOTABLE__NOTES);
 
 		discussionEClass = createEClass(DISCUSSION);
+
+		discussableEClass = createEClass(DISCUSSABLE);
+		createEReference(discussableEClass, DISCUSSABLE__DISCUSSIONS);
+
+		mergeRequestEClass = createEClass(MERGE_REQUEST);
+		createEAttribute(mergeRequestEClass, MERGE_REQUEST__ID);
+		createEAttribute(mergeRequestEClass, MERGE_REQUEST__IID);
+		createEReference(mergeRequestEClass, MERGE_REQUEST__ASSIGNEE);
+		createEReference(mergeRequestEClass, MERGE_REQUEST__ASSIGNEES);
+		createEReference(mergeRequestEClass, MERGE_REQUEST__AUTHOR);
+		createEReference(mergeRequestEClass, MERGE_REQUEST__REVIEWERS);
+		createEReference(mergeRequestEClass, MERGE_REQUEST__CHANGES);
+		createEReference(mergeRequestEClass, MERGE_REQUEST__MERGE_USER);
+		createEReference(mergeRequestEClass, MERGE_REQUEST__TASK_COMPLETION_STATUS);
+		createEReference(mergeRequestEClass, MERGE_REQUEST__MILESTONE);
+		createEReference(mergeRequestEClass, MERGE_REQUEST__PIPELINE);
+		createEReference(mergeRequestEClass, MERGE_REQUEST__HEAD_PIPELINE);
+		createEReference(mergeRequestEClass, MERGE_REQUEST__REFERENCES);
+		createEReference(mergeRequestEClass, MERGE_REQUEST__TIME_STATS);
+		createEReference(mergeRequestEClass, MERGE_REQUEST__DIFF_REFS);
+
+		approvalRuleEClass = createEClass(APPROVAL_RULE);
+		createEReference(approvalRuleEClass, APPROVAL_RULE__ELIGIBLE_APPROVERS);
+		createEReference(approvalRuleEClass, APPROVAL_RULE__SOURCE_RULE);
+		createEReference(approvalRuleEClass, APPROVAL_RULE__USERS);
+		createEReference(approvalRuleEClass, APPROVAL_RULE__GROUPS);
+		createEReference(approvalRuleEClass, APPROVAL_RULE__APPROVED_BY);
+
+		approvalStateEClass = createEClass(APPROVAL_STATE);
+		createEReference(approvalStateEClass, APPROVAL_STATE__RULES);
+
+		mergeRequestVersionEClass = createEClass(MERGE_REQUEST_VERSION);
+
+		mergeRequestDiffEClass = createEClass(MERGE_REQUEST_DIFF);
+		createEReference(mergeRequestDiffEClass, MERGE_REQUEST_DIFF__COMMITS);
+		createEReference(mergeRequestDiffEClass, MERGE_REQUEST_DIFF__DIFFS);
+
+		timeStatsEClass = createEClass(TIME_STATS);
+
+		taskCompletionStatusEClass = createEClass(TASK_COMPLETION_STATUS);
+
+		milestoneEClass = createEClass(MILESTONE);
+
+		referencesEClass = createEClass(REFERENCES);
+
+		diffRefEClass = createEClass(DIFF_REF);
+
+		abstractIssueEClass = createEClass(ABSTRACT_ISSUE);
+		createEReference(abstractIssueEClass, ABSTRACT_ISSUE__ASSIGNEE);
+		createEReference(abstractIssueEClass, ABSTRACT_ISSUE__ASSIGNEES);
+		createEReference(abstractIssueEClass, ABSTRACT_ISSUE__AUTHOR);
+		createEReference(abstractIssueEClass, ABSTRACT_ISSUE__CLOSED_BY);
+		createEReference(abstractIssueEClass, ABSTRACT_ISSUE__MILESTONE);
+		createEReference(abstractIssueEClass, ABSTRACT_ISSUE__REFERENCES);
+		createEReference(abstractIssueEClass, ABSTRACT_ISSUE__TIME_STATS);
+		createEReference(abstractIssueEClass, ABSTRACT_ISSUE__TASK_COMPLETION_STATUS);
+
+		issueEClass = createEClass(ISSUE);
 
 		// Create enums
 		visibilityEEnum = createEEnum(VISIBILITY);
@@ -3405,6 +4056,7 @@ public class GitLabPackageImpl extends EPackageImpl implements GitLabPackage {
 		g1 = createEGenericType(this.getAbstractProject());
 		projectReferenceEClass.getEGenericSuperTypes().add(g1);
 		contributorEClass.getESuperTypes().add(this.getAbstractUser());
+		commitEClass.getESuperTypes().add(this.getDiscussable());
 		ownerEClass.getESuperTypes().add(this.getAbstractUser());
 		treeItemEClass.getESuperTypes().add(this.getLoadable());
 		treeItemEClass.getESuperTypes().add(theNcorePackage.getTreeItem());
@@ -3424,6 +4076,13 @@ public class GitLabPackageImpl extends EPackageImpl implements GitLabPackage {
 		binaryRepositoryFileEClass.getESuperTypes().add(this.getRepositoryFile());
 		eObjectRepositoryFileEClass.getESuperTypes().add(this.getRepositoryFile());
 		listRepositoryFileEClass.getESuperTypes().add(this.getRepositoryFile());
+		discussionEClass.getESuperTypes().add(this.getNotable());
+		mergeRequestEClass.getESuperTypes().add(this.getNotable());
+		mergeRequestEClass.getESuperTypes().add(this.getDiscussable());
+		mergeRequestDiffEClass.getESuperTypes().add(this.getMergeRequestVersion());
+		issueEClass.getESuperTypes().add(this.getAbstractIssue());
+		issueEClass.getESuperTypes().add(this.getNotable());
+		issueEClass.getESuperTypes().add(this.getDiscussable());
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(loadableEClass, Loadable.class, "Loadable", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -3600,6 +4259,8 @@ public class GitLabPackageImpl extends EPackageImpl implements GitLabPackage {
 		initEReference(getProject_Pipelines(), thePipelinePackage.getPipeline(), null, "pipelines", null, 0, -1, Project.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		getProject_Pipelines().getEKeys().add(thePipelinePackage.getPipeline_Id());
 		initEAttribute(getProject_Groups(), ecorePackage.getELong(), "groups", null, 0, -1, Project.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getProject_MergeRequests(), this.getMergeRequest(), null, "mergeRequests", null, 0, -1, Project.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		getProject_MergeRequests().getEKeys().add(this.getMergeRequest_Id());
 
 		initEOperation(getProject__CreateReference(), this.getProjectReference(), "createReference", 0, 1, IS_UNIQUE, IS_ORDERED);
 
@@ -3728,11 +4389,73 @@ public class GitLabPackageImpl extends EPackageImpl implements GitLabPackage {
 		initEAttribute(getDiff_OldPath(), ecorePackage.getEString(), "oldPath", null, 0, 1, Diff.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getDiff_RenamedFile(), ecorePackage.getEBooleanObject(), "renamedFile", null, 0, 1, Diff.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(mergeRequestEClass, MergeRequest.class, "MergeRequest", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEClass(positionEClass, Position.class, "Position", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-		initEClass(discussableEClass, Discussable.class, "Discussable", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEClass(noteEClass, Note.class, "Note", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getNote_Position(), this.getPosition(), null, "position", null, 0, 1, Note.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(notableEClass, Notable.class, "Notable", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getNotable_Notes(), this.getNote(), null, "notes", null, 0, -1, Notable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(discussionEClass, Discussion.class, "Discussion", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(discussableEClass, Discussable.class, "Discussable", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getDiscussable_Discussions(), this.getDiscussion(), null, "discussions", null, 0, -1, Discussable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(mergeRequestEClass, MergeRequest.class, "MergeRequest", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getMergeRequest_Id(), ecorePackage.getELong(), "id", null, 0, 1, MergeRequest.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getMergeRequest_Iid(), ecorePackage.getELong(), "iid", null, 0, 1, MergeRequest.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getMergeRequest_Assignee(), this.getUser(), null, "assignee", null, 0, 1, MergeRequest.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getMergeRequest_Assignees(), this.getUser(), null, "assignees", null, 0, -1, MergeRequest.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getMergeRequest_Author(), this.getUser(), null, "author", null, 0, 1, MergeRequest.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getMergeRequest_Reviewers(), this.getUser(), null, "reviewers", null, 0, -1, MergeRequest.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getMergeRequest_Changes(), this.getDiff(), null, "changes", null, 0, -1, MergeRequest.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getMergeRequest_MergeUser(), this.getUser(), null, "mergeUser", null, 0, 1, MergeRequest.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getMergeRequest_TaskCompletionStatus(), this.getTaskCompletionStatus(), null, "taskCompletionStatus", null, 0, 1, MergeRequest.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getMergeRequest_Milestone(), this.getMilestone(), null, "milestone", null, 0, 1, MergeRequest.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getMergeRequest_Pipeline(), thePipelinePackage.getPipeline(), null, "pipeline", null, 0, 1, MergeRequest.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getMergeRequest_HeadPipeline(), thePipelinePackage.getPipeline(), null, "headPipeline", null, 0, 1, MergeRequest.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getMergeRequest_References(), this.getReferences(), null, "references", null, 0, 1, MergeRequest.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getMergeRequest_TimeStats(), this.getTimeStats(), null, "timeStats", null, 0, 1, MergeRequest.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getMergeRequest_DiffRefs(), this.getDiffRef(), null, "diffRefs", null, 0, 1, MergeRequest.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(approvalRuleEClass, ApprovalRule.class, "ApprovalRule", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getApprovalRule_EligibleApprovers(), this.getUser(), null, "eligibleApprovers", null, 0, -1, ApprovalRule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getApprovalRule_SourceRule(), this.getApprovalRule(), null, "sourceRule", null, 0, 1, ApprovalRule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getApprovalRule_Users(), this.getUser(), null, "users", null, 0, -1, ApprovalRule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getApprovalRule_Groups(), this.getGroup(), null, "groups", null, 0, -1, ApprovalRule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getApprovalRule_ApprovedBy(), this.getUser(), null, "approvedBy", null, 0, -1, ApprovalRule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(approvalStateEClass, ApprovalState.class, "ApprovalState", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getApprovalState_Rules(), this.getApprovalRule(), null, "rules", null, 0, -1, ApprovalState.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(mergeRequestVersionEClass, MergeRequestVersion.class, "MergeRequestVersion", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(mergeRequestDiffEClass, MergeRequestDiff.class, "MergeRequestDiff", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getMergeRequestDiff_Commits(), this.getCommit(), null, "commits", null, 0, -1, MergeRequestDiff.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getMergeRequestDiff_Diffs(), this.getDiff(), null, "diffs", null, 0, -1, MergeRequestDiff.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(timeStatsEClass, TimeStats.class, "TimeStats", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(taskCompletionStatusEClass, TaskCompletionStatus.class, "TaskCompletionStatus", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(milestoneEClass, Milestone.class, "Milestone", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(referencesEClass, References.class, "References", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(diffRefEClass, DiffRef.class, "DiffRef", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(abstractIssueEClass, AbstractIssue.class, "AbstractIssue", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getAbstractIssue_Assignee(), this.getUser(), null, "assignee", null, 0, 1, AbstractIssue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getAbstractIssue_Assignees(), this.getUser(), null, "assignees", null, 0, -1, AbstractIssue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getAbstractIssue_Author(), this.getUser(), null, "author", null, 0, 1, AbstractIssue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getAbstractIssue_ClosedBy(), this.getUser(), null, "closedBy", null, 0, 1, AbstractIssue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getAbstractIssue_Milestone(), this.getMilestone(), null, "milestone", null, 0, 1, AbstractIssue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getAbstractIssue_References(), this.getReferences(), null, "references", null, 0, 1, AbstractIssue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getAbstractIssue_TimeStats(), this.getTimeStats(), null, "timeStats", null, 0, 1, AbstractIssue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getAbstractIssue_TaskCompletionStatus(), this.getTaskCompletionStatus(), null, "taskCompletionStatus", null, 0, 1, AbstractIssue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(issueEClass, Issue.class, "Issue", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		// Initialize enums and add enum literals
 		initEEnum(visibilityEEnum, Visibility.class, "Visibility");

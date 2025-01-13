@@ -201,6 +201,7 @@ public class GitLabSwitch<T1> extends Switch<T1> {
 			case GitLabPackage.COMMIT: {
 				Commit commit = (Commit)theEObject;
 				T1 result = caseCommit(commit);
+				if (result == null) result = caseDiscussable(commit);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -350,9 +351,28 @@ public class GitLabSwitch<T1> extends Switch<T1> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case GitLabPackage.MERGE_REQUEST: {
-				MergeRequest mergeRequest = (MergeRequest)theEObject;
-				T1 result = caseMergeRequest(mergeRequest);
+			case GitLabPackage.POSITION: {
+				Position position = (Position)theEObject;
+				T1 result = casePosition(position);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case GitLabPackage.NOTE: {
+				Note note = (Note)theEObject;
+				T1 result = caseNote(note);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case GitLabPackage.NOTABLE: {
+				Notable notable = (Notable)theEObject;
+				T1 result = caseNotable(notable);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case GitLabPackage.DISCUSSION: {
+				Discussion discussion = (Discussion)theEObject;
+				T1 result = caseDiscussion(discussion);
+				if (result == null) result = caseNotable(discussion);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -362,9 +382,81 @@ public class GitLabSwitch<T1> extends Switch<T1> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case GitLabPackage.DISCUSSION: {
-				Discussion discussion = (Discussion)theEObject;
-				T1 result = caseDiscussion(discussion);
+			case GitLabPackage.MERGE_REQUEST: {
+				MergeRequest mergeRequest = (MergeRequest)theEObject;
+				T1 result = caseMergeRequest(mergeRequest);
+				if (result == null) result = caseNotable(mergeRequest);
+				if (result == null) result = caseDiscussable(mergeRequest);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case GitLabPackage.APPROVAL_RULE: {
+				ApprovalRule approvalRule = (ApprovalRule)theEObject;
+				T1 result = caseApprovalRule(approvalRule);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case GitLabPackage.APPROVAL_STATE: {
+				ApprovalState approvalState = (ApprovalState)theEObject;
+				T1 result = caseApprovalState(approvalState);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case GitLabPackage.MERGE_REQUEST_VERSION: {
+				MergeRequestVersion mergeRequestVersion = (MergeRequestVersion)theEObject;
+				T1 result = caseMergeRequestVersion(mergeRequestVersion);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case GitLabPackage.MERGE_REQUEST_DIFF: {
+				MergeRequestDiff mergeRequestDiff = (MergeRequestDiff)theEObject;
+				T1 result = caseMergeRequestDiff(mergeRequestDiff);
+				if (result == null) result = caseMergeRequestVersion(mergeRequestDiff);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case GitLabPackage.TIME_STATS: {
+				TimeStats timeStats = (TimeStats)theEObject;
+				T1 result = caseTimeStats(timeStats);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case GitLabPackage.TASK_COMPLETION_STATUS: {
+				TaskCompletionStatus taskCompletionStatus = (TaskCompletionStatus)theEObject;
+				T1 result = caseTaskCompletionStatus(taskCompletionStatus);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case GitLabPackage.MILESTONE: {
+				Milestone milestone = (Milestone)theEObject;
+				T1 result = caseMilestone(milestone);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case GitLabPackage.REFERENCES: {
+				References references = (References)theEObject;
+				T1 result = caseReferences(references);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case GitLabPackage.DIFF_REF: {
+				DiffRef diffRef = (DiffRef)theEObject;
+				T1 result = caseDiffRef(diffRef);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case GitLabPackage.ABSTRACT_ISSUE: {
+				AbstractIssue abstractIssue = (AbstractIssue)theEObject;
+				T1 result = caseAbstractIssue(abstractIssue);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case GitLabPackage.ISSUE: {
+				Issue issue = (Issue)theEObject;
+				T1 result = caseIssue(issue);
+				if (result == null) result = caseAbstractIssue(issue);
+				if (result == null) result = caseNotable(issue);
+				if (result == null) result = caseDiscussable(issue);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -898,6 +990,51 @@ public class GitLabSwitch<T1> extends Switch<T1> {
 	}
 
 	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Position</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Position</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T1 casePosition(Position object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Note</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Note</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T1 caseNote(Note object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Notable</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Notable</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T1 caseNotable(Notable object) {
+		return null;
+	}
+
+	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Merge Request</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -909,6 +1046,171 @@ public class GitLabSwitch<T1> extends Switch<T1> {
 	 * @generated
 	 */
 	public T1 caseMergeRequest(MergeRequest object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Approval Rule</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Approval Rule</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T1 caseApprovalRule(ApprovalRule object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Approval State</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Approval State</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T1 caseApprovalState(ApprovalState object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Merge Request Version</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Merge Request Version</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T1 caseMergeRequestVersion(MergeRequestVersion object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Merge Request Diff</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Merge Request Diff</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T1 caseMergeRequestDiff(MergeRequestDiff object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Time Stats</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Time Stats</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T1 caseTimeStats(TimeStats object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Task Completion Status</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Task Completion Status</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T1 caseTaskCompletionStatus(TaskCompletionStatus object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Milestone</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Milestone</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T1 caseMilestone(Milestone object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>References</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>References</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T1 caseReferences(References object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Diff Ref</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Diff Ref</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T1 caseDiffRef(DiffRef object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Abstract Issue</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Abstract Issue</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T1 caseAbstractIssue(AbstractIssue object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Issue</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Issue</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T1 caseIssue(Issue object) {
 		return null;
 	}
 

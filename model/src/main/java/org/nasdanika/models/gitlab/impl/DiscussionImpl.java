@@ -3,9 +3,6 @@
 package org.nasdanika.models.gitlab.impl;
 
 import org.eclipse.emf.ecore.EClass;
-
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-
 import org.nasdanika.models.gitlab.Discussion;
 import org.nasdanika.models.gitlab.GitLabPackage;
 
@@ -16,7 +13,7 @@ import org.nasdanika.models.gitlab.GitLabPackage;
  *
  * @generated
  */
-public class DiscussionImpl extends MinimalEObjectImpl.Container implements Discussion {
+public class DiscussionImpl extends NotableImpl implements Discussion {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -34,16 +31,6 @@ public class DiscussionImpl extends MinimalEObjectImpl.Container implements Disc
 	@Override
 	protected EClass eStaticClass() {
 		return GitLabPackage.Literals.DISCUSSION;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	protected int eStaticFeatureCount() {
-		return 0;
 	}
 
 } //DiscussionImpl

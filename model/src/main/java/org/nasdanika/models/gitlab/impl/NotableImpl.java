@@ -3,38 +3,42 @@
 package org.nasdanika.models.gitlab.impl;
 
 import java.util.Collection;
-import org.eclipse.emf.common.notify.NotificationChain;
-import org.eclipse.emf.common.util.EList;
-import org.eclipse.emf.ecore.EClass;
 
+import org.eclipse.emf.common.notify.NotificationChain;
+
+import org.eclipse.emf.common.util.EList;
+
+import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
+
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.eclipse.emf.ecore.util.InternalEList;
-import org.nasdanika.models.gitlab.Discussable;
-import org.nasdanika.models.gitlab.Discussion;
+
 import org.nasdanika.models.gitlab.GitLabPackage;
+import org.nasdanika.models.gitlab.Notable;
+import org.nasdanika.models.gitlab.Note;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Discussable</b></em>'.
+ * An implementation of the model object '<em><b>Notable</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.nasdanika.models.gitlab.impl.DiscussableImpl#getDiscussions <em>Discussions</em>}</li>
+ *   <li>{@link org.nasdanika.models.gitlab.impl.NotableImpl#getNotes <em>Notes</em>}</li>
  * </ul>
  *
  * @generated
  */
-public abstract class DiscussableImpl extends MinimalEObjectImpl.Container implements Discussable {
+public abstract class NotableImpl extends MinimalEObjectImpl.Container implements Notable {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected DiscussableImpl() {
+	protected NotableImpl() {
 		super();
 	}
 
@@ -45,7 +49,7 @@ public abstract class DiscussableImpl extends MinimalEObjectImpl.Container imple
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return GitLabPackage.Literals.DISCUSSABLE;
+		return GitLabPackage.Literals.NOTABLE;
 	}
 
 	/**
@@ -65,8 +69,8 @@ public abstract class DiscussableImpl extends MinimalEObjectImpl.Container imple
 	 */
 	@SuppressWarnings("unchecked")
 	@Override
-	public EList<Discussion> getDiscussions() {
-		return (EList<Discussion>)eDynamicGet(GitLabPackage.DISCUSSABLE__DISCUSSIONS, GitLabPackage.Literals.DISCUSSABLE__DISCUSSIONS, true, true);
+	public EList<Note> getNotes() {
+		return (EList<Note>)eDynamicGet(GitLabPackage.NOTABLE__NOTES, GitLabPackage.Literals.NOTABLE__NOTES, true, true);
 	}
 
 	/**
@@ -77,8 +81,8 @@ public abstract class DiscussableImpl extends MinimalEObjectImpl.Container imple
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case GitLabPackage.DISCUSSABLE__DISCUSSIONS:
-				return ((InternalEList<?>)getDiscussions()).basicRemove(otherEnd, msgs);
+			case GitLabPackage.NOTABLE__NOTES:
+				return ((InternalEList<?>)getNotes()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -91,8 +95,8 @@ public abstract class DiscussableImpl extends MinimalEObjectImpl.Container imple
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case GitLabPackage.DISCUSSABLE__DISCUSSIONS:
-				return getDiscussions();
+			case GitLabPackage.NOTABLE__NOTES:
+				return getNotes();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -106,9 +110,9 @@ public abstract class DiscussableImpl extends MinimalEObjectImpl.Container imple
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case GitLabPackage.DISCUSSABLE__DISCUSSIONS:
-				getDiscussions().clear();
-				getDiscussions().addAll((Collection<? extends Discussion>)newValue);
+			case GitLabPackage.NOTABLE__NOTES:
+				getNotes().clear();
+				getNotes().addAll((Collection<? extends Note>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -122,8 +126,8 @@ public abstract class DiscussableImpl extends MinimalEObjectImpl.Container imple
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case GitLabPackage.DISCUSSABLE__DISCUSSIONS:
-				getDiscussions().clear();
+			case GitLabPackage.NOTABLE__NOTES:
+				getNotes().clear();
 				return;
 		}
 		super.eUnset(featureID);
@@ -137,10 +141,10 @@ public abstract class DiscussableImpl extends MinimalEObjectImpl.Container imple
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case GitLabPackage.DISCUSSABLE__DISCUSSIONS:
-				return !getDiscussions().isEmpty();
+			case GitLabPackage.NOTABLE__NOTES:
+				return !getNotes().isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}
 
-} //DiscussableImpl
+} //NotableImpl

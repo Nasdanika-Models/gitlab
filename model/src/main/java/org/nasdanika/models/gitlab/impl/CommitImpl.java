@@ -11,9 +11,6 @@ import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-
 import org.eclipse.emf.ecore.util.InternalEList;
 
 import org.nasdanika.models.gitlab.Branch;
@@ -55,7 +52,7 @@ import org.nasdanika.models.gitlab.GitLabPackage;
  *
  * @generated
  */
-public class CommitImpl extends MinimalEObjectImpl.Container implements Commit {
+public class CommitImpl extends DiscussableImpl implements Commit {
 	/**
 	 * The default value of the '{@link #getId() <em>Id</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -223,16 +220,6 @@ public class CommitImpl extends MinimalEObjectImpl.Container implements Commit {
 	@Override
 	protected EClass eStaticClass() {
 		return GitLabPackage.Literals.COMMIT;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	protected int eStaticFeatureCount() {
-		return 0;
 	}
 
 	/**

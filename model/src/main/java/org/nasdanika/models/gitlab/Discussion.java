@@ -2,8 +2,6 @@
  */
 package org.nasdanika.models.gitlab;
 
-import org.eclipse.emf.ecore.EObject;
-
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Discussion</b></em>'.
@@ -14,5 +12,5 @@ import org.eclipse.emf.ecore.EObject;
  * @model
  * @generated
  */
-public interface Discussion extends EObject {
+public interface Discussion extends Notable {
 } // Discussion

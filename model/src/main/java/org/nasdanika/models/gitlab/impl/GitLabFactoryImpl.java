@@ -88,8 +88,21 @@ public class GitLabFactoryImpl extends EFactoryImpl implements GitLabFactory {
 			case GitLabPackage.LIST_REPOSITORY_FILE: return createListRepositoryFile();
 			case GitLabPackage.BLAME: return createBlame();
 			case GitLabPackage.DIFF: return createDiff();
-			case GitLabPackage.MERGE_REQUEST: return createMergeRequest();
+			case GitLabPackage.POSITION: return createPosition();
+			case GitLabPackage.NOTE: return createNote();
 			case GitLabPackage.DISCUSSION: return createDiscussion();
+			case GitLabPackage.MERGE_REQUEST: return createMergeRequest();
+			case GitLabPackage.APPROVAL_RULE: return createApprovalRule();
+			case GitLabPackage.APPROVAL_STATE: return createApprovalState();
+			case GitLabPackage.MERGE_REQUEST_VERSION: return createMergeRequestVersion();
+			case GitLabPackage.MERGE_REQUEST_DIFF: return createMergeRequestDiff();
+			case GitLabPackage.TIME_STATS: return createTimeStats();
+			case GitLabPackage.TASK_COMPLETION_STATUS: return createTaskCompletionStatus();
+			case GitLabPackage.MILESTONE: return createMilestone();
+			case GitLabPackage.REFERENCES: return createReferences();
+			case GitLabPackage.DIFF_REF: return createDiffRef();
+			case GitLabPackage.ABSTRACT_ISSUE: return createAbstractIssue();
+			case GitLabPackage.ISSUE: return createIssue();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -484,9 +497,152 @@ public class GitLabFactoryImpl extends EFactoryImpl implements GitLabFactory {
 	 * @generated
 	 */
 	@Override
+	public Position createPosition() {
+		PositionImpl position = new PositionImpl();
+		return position;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Note createNote() {
+		NoteImpl note = new NoteImpl();
+		return note;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public MergeRequest createMergeRequest() {
 		MergeRequestImpl mergeRequest = new MergeRequestImpl();
 		return mergeRequest;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public ApprovalRule createApprovalRule() {
+		ApprovalRuleImpl approvalRule = new ApprovalRuleImpl();
+		return approvalRule;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public ApprovalState createApprovalState() {
+		ApprovalStateImpl approvalState = new ApprovalStateImpl();
+		return approvalState;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public MergeRequestVersion createMergeRequestVersion() {
+		MergeRequestVersionImpl mergeRequestVersion = new MergeRequestVersionImpl();
+		return mergeRequestVersion;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public MergeRequestDiff createMergeRequestDiff() {
+		MergeRequestDiffImpl mergeRequestDiff = new MergeRequestDiffImpl();
+		return mergeRequestDiff;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public TimeStats createTimeStats() {
+		TimeStatsImpl timeStats = new TimeStatsImpl();
+		return timeStats;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public TaskCompletionStatus createTaskCompletionStatus() {
+		TaskCompletionStatusImpl taskCompletionStatus = new TaskCompletionStatusImpl();
+		return taskCompletionStatus;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Milestone createMilestone() {
+		MilestoneImpl milestone = new MilestoneImpl();
+		return milestone;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public References createReferences() {
+		ReferencesImpl references = new ReferencesImpl();
+		return references;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public DiffRef createDiffRef() {
+		DiffRefImpl diffRef = new DiffRefImpl();
+		return diffRef;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public AbstractIssue createAbstractIssue() {
+		AbstractIssueImpl abstractIssue = new AbstractIssueImpl();
+		return abstractIssue;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Issue createIssue() {
+		IssueImpl issue = new IssueImpl();
+		return issue;
 	}
 
 	/**

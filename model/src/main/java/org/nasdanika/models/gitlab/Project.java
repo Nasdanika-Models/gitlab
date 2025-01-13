@@ -94,6 +94,7 @@ import org.nasdanika.models.gitlab.pipeline.Pipeline;
  *   <li>{@link org.nasdanika.models.gitlab.Project#getCommits <em>Commits</em>}</li>
  *   <li>{@link org.nasdanika.models.gitlab.Project#getPipelines <em>Pipelines</em>}</li>
  *   <li>{@link org.nasdanika.models.gitlab.Project#getGroups <em>Groups</em>}</li>
+ *   <li>{@link org.nasdanika.models.gitlab.Project#getMergeRequests <em>Merge Requests</em>}</li>
  * </ul>
  *
  * @see org.nasdanika.models.gitlab.GitLabPackage#getProject()
@@ -1758,6 +1759,18 @@ public interface Project extends Loadable, AbstractProject {
 	 * @generated
 	 */
 	EList<Long> getGroups();
+
+	/**
+	 * Returns the value of the '<em><b>Merge Requests</b></em>' containment reference list.
+	 * The list contents are of type {@link org.nasdanika.models.gitlab.MergeRequest}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Merge Requests</em>' containment reference list.
+	 * @see org.nasdanika.models.gitlab.GitLabPackage#getProject_MergeRequests()
+	 * @model containment="true" keys="id"
+	 * @generated
+	 */
+	EList<MergeRequest> getMergeRequests();
 
 	/**
 	 * <!-- begin-user-doc -->

@@ -283,6 +283,24 @@ public interface GitLabFactory extends EFactory {
 	Diff createDiff();
 
 	/**
+	 * Returns a new object of class '<em>Position</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Position</em>'.
+	 * @generated
+	 */
+	Position createPosition();
+
+	/**
+	 * Returns a new object of class '<em>Note</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Note</em>'.
+	 * @generated
+	 */
+	Note createNote();
+
+	/**
 	 * Returns a new object of class '<em>Merge Request</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -290,6 +308,105 @@ public interface GitLabFactory extends EFactory {
 	 * @generated
 	 */
 	MergeRequest createMergeRequest();
+
+	/**
+	 * Returns a new object of class '<em>Approval Rule</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Approval Rule</em>'.
+	 * @generated
+	 */
+	ApprovalRule createApprovalRule();
+
+	/**
+	 * Returns a new object of class '<em>Approval State</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Approval State</em>'.
+	 * @generated
+	 */
+	ApprovalState createApprovalState();
+
+	/**
+	 * Returns a new object of class '<em>Merge Request Version</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Merge Request Version</em>'.
+	 * @generated
+	 */
+	MergeRequestVersion createMergeRequestVersion();
+
+	/**
+	 * Returns a new object of class '<em>Merge Request Diff</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Merge Request Diff</em>'.
+	 * @generated
+	 */
+	MergeRequestDiff createMergeRequestDiff();
+
+	/**
+	 * Returns a new object of class '<em>Time Stats</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Time Stats</em>'.
+	 * @generated
+	 */
+	TimeStats createTimeStats();
+
+	/**
+	 * Returns a new object of class '<em>Task Completion Status</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Task Completion Status</em>'.
+	 * @generated
+	 */
+	TaskCompletionStatus createTaskCompletionStatus();
+
+	/**
+	 * Returns a new object of class '<em>Milestone</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Milestone</em>'.
+	 * @generated
+	 */
+	Milestone createMilestone();
+
+	/**
+	 * Returns a new object of class '<em>References</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>References</em>'.
+	 * @generated
+	 */
+	References createReferences();
+
+	/**
+	 * Returns a new object of class '<em>Diff Ref</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Diff Ref</em>'.
+	 * @generated
+	 */
+	DiffRef createDiffRef();
+
+	/**
+	 * Returns a new object of class '<em>Abstract Issue</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Abstract Issue</em>'.
+	 * @generated
+	 */
+	AbstractIssue createAbstractIssue();
+
+	/**
+	 * Returns a new object of class '<em>Issue</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Issue</em>'.
+	 * @generated
+	 */
+	Issue createIssue();
 
 	/**
 	 * Returns a new object of class '<em>Discussion</em>'.

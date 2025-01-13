@@ -264,6 +264,8 @@
         eType="#//pipeline/Pipeline" containment="true" eKeys="#//pipeline/Pipeline/id"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="groups" upperBound="-1"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//ELong"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="mergeRequests" upperBound="-1"
+        eType="#//MergeRequest" containment="true" eKeys="#//MergeRequest/id"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ProjectReference">
     <eGenericSuperTypes eClassifier="ecore:EClass ../../org.nasdanika.ncore/model/ncore.ecore#//Reference">
@@ -323,7 +325,7 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="commits" upperBound="-1"
         eType="#//Commit" eOpposite="#//Commit/contributor"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Commit">
+  <eClassifiers xsi:type="ecore:EClass" name="Commit" eSuperTypes="#//Discussable">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="contributor" eType="#//Contributor"
         eOpposite="#//Contributor/commits"/>
@@ -475,9 +477,85 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="oldPath" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="renamedFile" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBooleanObject"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="MergeRequest"/>
-  <eClassifiers xsi:type="ecore:EClass" name="Discussable" abstract="true"/>
-  <eClassifiers xsi:type="ecore:EClass" name="Discussion"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Position"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Note">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="position" eType="#//Position"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Notable" abstract="true">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="notes" upperBound="-1"
+        eType="#//Note" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Discussion" eSuperTypes="#//Notable"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Discussable" abstract="true">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="discussions" upperBound="-1"
+        eType="#//Discussion" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="MergeRequest" eSuperTypes="#//Notable #//Discussable">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//ELong"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="iid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//ELong"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="assignee" eType="#//User"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="assignees" upperBound="-1"
+        eType="#//User"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="author" eType="#//User"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="reviewers" upperBound="-1"
+        eType="#//User"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="changes" upperBound="-1"
+        eType="#//Diff"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="mergeUser" eType="#//User"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="taskCompletionStatus" eType="#//TaskCompletionStatus"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="milestone" eType="#//Milestone"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="pipeline" eType="#//pipeline/Pipeline"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="headPipeline" eType="#//pipeline/Pipeline"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="references" eType="#//References"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="timeStats" eType="#//TimeStats"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="diffRefs" eType="#//DiffRef"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ApprovalRule">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="eligibleApprovers" upperBound="-1"
+        eType="#//User"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="sourceRule" eType="#//ApprovalRule"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="users" upperBound="-1"
+        eType="#//User"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="groups" upperBound="-1"
+        eType="#//Group"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="approvedBy" upperBound="-1"
+        eType="#//User"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ApprovalState">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="rules" upperBound="-1"
+        eType="#//ApprovalRule"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="MergeRequestVersion"/>
+  <eClassifiers xsi:type="ecore:EClass" name="MergeRequestDiff" eSuperTypes="#//MergeRequestVersion">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="commits" upperBound="-1"
+        eType="#//Commit"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="diffs" upperBound="-1"
+        eType="#//Diff"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="TimeStats"/>
+  <eClassifiers xsi:type="ecore:EClass" name="TaskCompletionStatus"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Milestone"/>
+  <eClassifiers xsi:type="ecore:EClass" name="References"/>
+  <eClassifiers xsi:type="ecore:EClass" name="DiffRef"/>
+  <eClassifiers xsi:type="ecore:EClass" name="AbstractIssue">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="assignee" eType="#//User"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="assignees" upperBound="-1"
+        eType="#//User"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="author" eType="#//User"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="closedBy" eType="#//User"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="milestone" eType="#//Milestone"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="references" eType="#//References"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="timeStats" eType="#//TimeStats"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="taskCompletionStatus" eType="#//TaskCompletionStatus"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Issue" eSuperTypes="#//AbstractIssue #//Notable #//Discussable"/>
   <eSubpackages name="codeowners" nsURI="ecore://nasdanika.org/models/gitlab/codeowners"
       nsPrefix="org.nasdanika.models.gitlab.codeowners">
     <eClassifiers xsi:type="ecore:EClass" name="CodeOwner">

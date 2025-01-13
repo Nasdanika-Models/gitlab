@@ -210,16 +210,72 @@ public class GitLabAdapterFactory extends AdapterFactoryImpl {
 				return createDiffAdapter();
 			}
 			@Override
-			public Adapter caseMergeRequest(MergeRequest object) {
-				return createMergeRequestAdapter();
+			public Adapter casePosition(Position object) {
+				return createPositionAdapter();
+			}
+			@Override
+			public Adapter caseNote(Note object) {
+				return createNoteAdapter();
+			}
+			@Override
+			public Adapter caseNotable(Notable object) {
+				return createNotableAdapter();
+			}
+			@Override
+			public Adapter caseDiscussion(Discussion object) {
+				return createDiscussionAdapter();
 			}
 			@Override
 			public Adapter caseDiscussable(Discussable object) {
 				return createDiscussableAdapter();
 			}
 			@Override
-			public Adapter caseDiscussion(Discussion object) {
-				return createDiscussionAdapter();
+			public Adapter caseMergeRequest(MergeRequest object) {
+				return createMergeRequestAdapter();
+			}
+			@Override
+			public Adapter caseApprovalRule(ApprovalRule object) {
+				return createApprovalRuleAdapter();
+			}
+			@Override
+			public Adapter caseApprovalState(ApprovalState object) {
+				return createApprovalStateAdapter();
+			}
+			@Override
+			public Adapter caseMergeRequestVersion(MergeRequestVersion object) {
+				return createMergeRequestVersionAdapter();
+			}
+			@Override
+			public Adapter caseMergeRequestDiff(MergeRequestDiff object) {
+				return createMergeRequestDiffAdapter();
+			}
+			@Override
+			public Adapter caseTimeStats(TimeStats object) {
+				return createTimeStatsAdapter();
+			}
+			@Override
+			public Adapter caseTaskCompletionStatus(TaskCompletionStatus object) {
+				return createTaskCompletionStatusAdapter();
+			}
+			@Override
+			public Adapter caseMilestone(Milestone object) {
+				return createMilestoneAdapter();
+			}
+			@Override
+			public Adapter caseReferences(References object) {
+				return createReferencesAdapter();
+			}
+			@Override
+			public Adapter caseDiffRef(DiffRef object) {
+				return createDiffRefAdapter();
+			}
+			@Override
+			public Adapter caseAbstractIssue(AbstractIssue object) {
+				return createAbstractIssueAdapter();
+			}
+			@Override
+			public Adapter caseIssue(Issue object) {
+				return createIssueAdapter();
 			}
 			@Override
 			public <T> Adapter caseReference(Reference<T> object) {
@@ -744,6 +800,48 @@ public class GitLabAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
+	 * Creates a new adapter for an object of class '{@link org.nasdanika.models.gitlab.Position <em>Position</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.nasdanika.models.gitlab.Position
+	 * @generated
+	 */
+	public Adapter createPositionAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.nasdanika.models.gitlab.Note <em>Note</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.nasdanika.models.gitlab.Note
+	 * @generated
+	 */
+	public Adapter createNoteAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.nasdanika.models.gitlab.Notable <em>Notable</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.nasdanika.models.gitlab.Notable
+	 * @generated
+	 */
+	public Adapter createNotableAdapter() {
+		return null;
+	}
+
+	/**
 	 * Creates a new adapter for an object of class '{@link org.nasdanika.models.gitlab.MergeRequest <em>Merge Request</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -754,6 +852,160 @@ public class GitLabAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createMergeRequestAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.nasdanika.models.gitlab.ApprovalRule <em>Approval Rule</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.nasdanika.models.gitlab.ApprovalRule
+	 * @generated
+	 */
+	public Adapter createApprovalRuleAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.nasdanika.models.gitlab.ApprovalState <em>Approval State</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.nasdanika.models.gitlab.ApprovalState
+	 * @generated
+	 */
+	public Adapter createApprovalStateAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.nasdanika.models.gitlab.MergeRequestVersion <em>Merge Request Version</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.nasdanika.models.gitlab.MergeRequestVersion
+	 * @generated
+	 */
+	public Adapter createMergeRequestVersionAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.nasdanika.models.gitlab.MergeRequestDiff <em>Merge Request Diff</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.nasdanika.models.gitlab.MergeRequestDiff
+	 * @generated
+	 */
+	public Adapter createMergeRequestDiffAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.nasdanika.models.gitlab.TimeStats <em>Time Stats</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.nasdanika.models.gitlab.TimeStats
+	 * @generated
+	 */
+	public Adapter createTimeStatsAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.nasdanika.models.gitlab.TaskCompletionStatus <em>Task Completion Status</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.nasdanika.models.gitlab.TaskCompletionStatus
+	 * @generated
+	 */
+	public Adapter createTaskCompletionStatusAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.nasdanika.models.gitlab.Milestone <em>Milestone</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.nasdanika.models.gitlab.Milestone
+	 * @generated
+	 */
+	public Adapter createMilestoneAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.nasdanika.models.gitlab.References <em>References</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.nasdanika.models.gitlab.References
+	 * @generated
+	 */
+	public Adapter createReferencesAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.nasdanika.models.gitlab.DiffRef <em>Diff Ref</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.nasdanika.models.gitlab.DiffRef
+	 * @generated
+	 */
+	public Adapter createDiffRefAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.nasdanika.models.gitlab.AbstractIssue <em>Abstract Issue</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.nasdanika.models.gitlab.AbstractIssue
+	 * @generated
+	 */
+	public Adapter createAbstractIssueAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.nasdanika.models.gitlab.Issue <em>Issue</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.nasdanika.models.gitlab.Issue
+	 * @generated
+	 */
+	public Adapter createIssueAdapter() {
 		return null;
 	}
 
