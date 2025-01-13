@@ -3,9 +3,7 @@
 package org.nasdanika.models.gitlab.impl;
 
 import org.eclipse.emf.ecore.EClass;
-
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-
+import org.nasdanika.emf.DynamicDelegate;
 import org.nasdanika.models.gitlab.Diff;
 import org.nasdanika.models.gitlab.GitLabPackage;
 
@@ -29,7 +27,7 @@ import org.nasdanika.models.gitlab.GitLabPackage;
  *
  * @generated
  */
-public class DiffImpl extends MinimalEObjectImpl.Container implements Diff {
+public class DiffImpl extends DynamicDelegate implements Diff {
 	/**
 	 * The default value of the '{@link #getAMode() <em>AMode</em>}' attribute.
 	 * <!-- begin-user-doc -->

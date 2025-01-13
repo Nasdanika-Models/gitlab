@@ -11,11 +11,9 @@ import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-
 import org.eclipse.emf.ecore.util.InternalEList;
 
+import org.nasdanika.emf.DynamicDelegate;
 import org.nasdanika.models.gitlab.Commit;
 import org.nasdanika.models.gitlab.User;
 
@@ -61,7 +59,7 @@ import org.nasdanika.models.gitlab.pipeline.Runner;
  *
  * @generated
  */
-public class JobImpl extends MinimalEObjectImpl.Container implements Job {
+public class JobImpl extends DynamicDelegate implements Job {
 	/**
 	 * The default value of the '{@link #getId() <em>Id</em>}' attribute.
 	 * <!-- begin-user-doc -->

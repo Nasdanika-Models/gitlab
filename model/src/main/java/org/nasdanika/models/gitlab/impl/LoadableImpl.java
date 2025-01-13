@@ -10,9 +10,8 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 
 import org.eclipse.emf.ecore.InternalEObject;
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-
 import org.eclipse.emf.ecore.util.InternalEList;
+import org.nasdanika.emf.DynamicDelegate;
 import org.nasdanika.models.gitlab.GitLabPackage;
 import org.nasdanika.models.gitlab.Load;
 import org.nasdanika.models.gitlab.Loadable;
@@ -31,7 +30,7 @@ import org.nasdanika.models.gitlab.Loadable;
  *
  * @generated
  */
-public abstract class LoadableImpl extends MinimalEObjectImpl.Container implements Loadable {
+public abstract class LoadableImpl extends DynamicDelegate implements Loadable {
 	/**
 	 * The default value of the '{@link #getLoaded() <em>Loaded</em>}' attribute.
 	 * <!-- begin-user-doc -->

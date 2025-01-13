@@ -6,9 +6,7 @@ import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-
+import org.nasdanika.emf.DynamicDelegate;
 import org.nasdanika.models.gitlab.GitLabPackage;
 import org.nasdanika.models.gitlab.Group;
 import org.nasdanika.models.gitlab.User;
@@ -31,7 +29,7 @@ import org.nasdanika.models.gitlab.codeowners.CodeownersPackage;
  *
  * @generated
  */
-public class CodeOwnerImpl extends MinimalEObjectImpl.Container implements CodeOwner {
+public class CodeOwnerImpl extends DynamicDelegate implements CodeOwner {
 	/**
 	 * The default value of the '{@link #getId() <em>Id</em>}' attribute.
 	 * <!-- begin-user-doc -->

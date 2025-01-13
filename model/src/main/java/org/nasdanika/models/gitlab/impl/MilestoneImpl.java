@@ -3,9 +3,7 @@
 package org.nasdanika.models.gitlab.impl;
 
 import org.eclipse.emf.ecore.EClass;
-
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-
+import org.nasdanika.emf.DynamicDelegate;
 import org.nasdanika.models.gitlab.GitLabPackage;
 import org.nasdanika.models.gitlab.Milestone;
 
@@ -16,7 +14,7 @@ import org.nasdanika.models.gitlab.Milestone;
  *
  * @generated
  */
-public class MilestoneImpl extends MinimalEObjectImpl.Container implements Milestone {
+public class MilestoneImpl extends DynamicDelegate implements Milestone {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

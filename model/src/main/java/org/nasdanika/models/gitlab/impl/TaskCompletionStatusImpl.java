@@ -3,9 +3,7 @@
 package org.nasdanika.models.gitlab.impl;
 
 import org.eclipse.emf.ecore.EClass;
-
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-
+import org.nasdanika.emf.DynamicDelegate;
 import org.nasdanika.models.gitlab.GitLabPackage;
 import org.nasdanika.models.gitlab.TaskCompletionStatus;
 
@@ -16,7 +14,7 @@ import org.nasdanika.models.gitlab.TaskCompletionStatus;
  *
  * @generated
  */
-public class TaskCompletionStatusImpl extends MinimalEObjectImpl.Container implements TaskCompletionStatus {
+public class TaskCompletionStatusImpl extends DynamicDelegate implements TaskCompletionStatus {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

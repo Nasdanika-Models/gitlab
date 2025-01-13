@@ -5,9 +5,7 @@ package org.nasdanika.models.gitlab.impl;
 import java.util.Date;
 
 import org.eclipse.emf.ecore.EClass;
-
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-
+import org.nasdanika.emf.DynamicDelegate;
 import org.nasdanika.models.gitlab.GitLabPackage;
 import org.nasdanika.models.gitlab.Load;
 
@@ -29,7 +27,7 @@ import org.nasdanika.models.gitlab.Load;
  *
  * @generated
  */
-public class LoadImpl extends MinimalEObjectImpl.Container implements Load {
+public class LoadImpl extends DynamicDelegate implements Load {
 	/**
 	 * The default value of the '{@link #getSource() <em>Source</em>}' attribute.
 	 * <!-- begin-user-doc -->

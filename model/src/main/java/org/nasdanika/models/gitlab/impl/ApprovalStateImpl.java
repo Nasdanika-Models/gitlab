@@ -7,9 +7,7 @@ import java.util.Collection;
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
-
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-
+import org.nasdanika.emf.DynamicDelegate;
 import org.nasdanika.models.gitlab.ApprovalRule;
 import org.nasdanika.models.gitlab.ApprovalState;
 import org.nasdanika.models.gitlab.GitLabPackage;
@@ -27,7 +25,7 @@ import org.nasdanika.models.gitlab.GitLabPackage;
  *
  * @generated
  */
-public class ApprovalStateImpl extends MinimalEObjectImpl.Container implements ApprovalState {
+public class ApprovalStateImpl extends DynamicDelegate implements ApprovalState {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

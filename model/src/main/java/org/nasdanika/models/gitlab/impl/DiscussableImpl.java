@@ -8,9 +8,8 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 
 import org.eclipse.emf.ecore.InternalEObject;
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-
 import org.eclipse.emf.ecore.util.InternalEList;
+import org.nasdanika.emf.DynamicDelegate;
 import org.nasdanika.models.gitlab.Discussable;
 import org.nasdanika.models.gitlab.Discussion;
 import org.nasdanika.models.gitlab.GitLabPackage;
@@ -28,7 +27,7 @@ import org.nasdanika.models.gitlab.GitLabPackage;
  *
  * @generated
  */
-public abstract class DiscussableImpl extends MinimalEObjectImpl.Container implements Discussable {
+public abstract class DiscussableImpl extends DynamicDelegate implements Discussable {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

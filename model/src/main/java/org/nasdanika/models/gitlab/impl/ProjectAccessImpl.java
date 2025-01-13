@@ -3,9 +3,7 @@
 package org.nasdanika.models.gitlab.impl;
 
 import org.eclipse.emf.ecore.EClass;
-
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-
+import org.nasdanika.emf.DynamicDelegate;
 import org.nasdanika.models.gitlab.AccessLevel;
 import org.nasdanika.models.gitlab.GitLabPackage;
 import org.nasdanika.models.gitlab.ProjectAccess;
@@ -24,7 +22,7 @@ import org.nasdanika.models.gitlab.ProjectAccess;
  *
  * @generated
  */
-public class ProjectAccessImpl extends MinimalEObjectImpl.Container implements ProjectAccess {
+public class ProjectAccessImpl extends DynamicDelegate implements ProjectAccess {
 	/**
 	 * The default value of the '{@link #getAccessLevel() <em>Access Level</em>}' attribute.
 	 * <!-- begin-user-doc -->

@@ -3,9 +3,7 @@
 package org.nasdanika.models.gitlab.pipeline.impl;
 
 import org.eclipse.emf.ecore.EClass;
-
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-
+import org.nasdanika.emf.DynamicDelegate;
 import org.nasdanika.models.gitlab.pipeline.PipelinePackage;
 import org.nasdanika.models.gitlab.pipeline.Runner;
 
@@ -16,7 +14,7 @@ import org.nasdanika.models.gitlab.pipeline.Runner;
  *
  * @generated
  */
-public class RunnerImpl extends MinimalEObjectImpl.Container implements Runner {
+public class RunnerImpl extends DynamicDelegate implements Runner {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

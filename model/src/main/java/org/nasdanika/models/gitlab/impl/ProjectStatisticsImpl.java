@@ -3,9 +3,7 @@
 package org.nasdanika.models.gitlab.impl;
 
 import org.eclipse.emf.ecore.EClass;
-
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-
+import org.nasdanika.emf.DynamicDelegate;
 import org.nasdanika.models.gitlab.GitLabPackage;
 import org.nasdanika.models.gitlab.ProjectStatistics;
 
@@ -28,7 +26,7 @@ import org.nasdanika.models.gitlab.ProjectStatistics;
  *
  * @generated
  */
-public class ProjectStatisticsImpl extends MinimalEObjectImpl.Container implements ProjectStatistics {
+public class ProjectStatisticsImpl extends DynamicDelegate implements ProjectStatistics {
 	/**
 	 * The default value of the '{@link #getCommitCount() <em>Commit Count</em>}' attribute.
 	 * <!-- begin-user-doc -->

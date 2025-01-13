@@ -10,11 +10,9 @@ import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-
 import org.eclipse.emf.ecore.util.InternalEList;
 
+import org.nasdanika.emf.DynamicDelegate;
 import org.nasdanika.models.gitlab.codeowners.CodeOwner;
 import org.nasdanika.models.gitlab.codeowners.CodeownersPackage;
 import org.nasdanika.models.gitlab.codeowners.Entry;
@@ -33,7 +31,7 @@ import org.nasdanika.models.gitlab.codeowners.Entry;
  *
  * @generated
  */
-public class EntryImpl extends MinimalEObjectImpl.Container implements Entry {
+public class EntryImpl extends DynamicDelegate implements Entry {
 	/**
 	 * The default value of the '{@link #getPattern() <em>Pattern</em>}' attribute.
 	 * <!-- begin-user-doc -->

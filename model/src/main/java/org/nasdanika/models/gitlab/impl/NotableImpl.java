@@ -10,11 +10,9 @@ import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-
 import org.eclipse.emf.ecore.util.InternalEList;
 
+import org.nasdanika.emf.DynamicDelegate;
 import org.nasdanika.models.gitlab.GitLabPackage;
 import org.nasdanika.models.gitlab.Notable;
 import org.nasdanika.models.gitlab.Note;
@@ -32,7 +30,7 @@ import org.nasdanika.models.gitlab.Note;
  *
  * @generated
  */
-public abstract class NotableImpl extends MinimalEObjectImpl.Container implements Notable {
+public abstract class NotableImpl extends DynamicDelegate implements Notable {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

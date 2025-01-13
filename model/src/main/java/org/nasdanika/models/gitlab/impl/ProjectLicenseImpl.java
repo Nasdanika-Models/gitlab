@@ -3,7 +3,7 @@
 package org.nasdanika.models.gitlab.impl;
 
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+import org.nasdanika.emf.DynamicDelegate;
 import org.nasdanika.models.gitlab.GitLabPackage;
 import org.nasdanika.models.gitlab.ProjectLicense;
 
@@ -24,7 +24,7 @@ import org.nasdanika.models.gitlab.ProjectLicense;
  *
  * @generated
  */
-public class ProjectLicenseImpl extends MinimalEObjectImpl.Container implements ProjectLicense {
+public class ProjectLicenseImpl extends DynamicDelegate implements ProjectLicense {
 	/**
 	 * The default value of the '{@link #getKey() <em>Key</em>}' attribute.
 	 * <!-- begin-user-doc -->

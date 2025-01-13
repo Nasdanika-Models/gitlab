@@ -6,9 +6,7 @@ import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-
+import org.nasdanika.emf.DynamicDelegate;
 import org.nasdanika.models.coverage.ModuleCoverage;
 
 import org.nasdanika.models.gitlab.pipeline.ArtifactsFile;
@@ -30,7 +28,7 @@ import org.nasdanika.models.gitlab.pipeline.PipelinePackage;
  *
  * @generated
  */
-public class ArtifactsFileImpl extends MinimalEObjectImpl.Container implements ArtifactsFile {
+public class ArtifactsFileImpl extends DynamicDelegate implements ArtifactsFile {
 	/**
 	 * The default value of the '{@link #getFileName() <em>File Name</em>}' attribute.
 	 * <!-- begin-user-doc -->

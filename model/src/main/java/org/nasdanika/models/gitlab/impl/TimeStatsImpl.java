@@ -3,9 +3,7 @@
 package org.nasdanika.models.gitlab.impl;
 
 import org.eclipse.emf.ecore.EClass;
-
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-
+import org.nasdanika.emf.DynamicDelegate;
 import org.nasdanika.models.gitlab.GitLabPackage;
 import org.nasdanika.models.gitlab.TimeStats;
 
@@ -16,7 +14,7 @@ import org.nasdanika.models.gitlab.TimeStats;
  *
  * @generated
  */
-public class TimeStatsImpl extends MinimalEObjectImpl.Container implements TimeStats {
+public class TimeStatsImpl extends DynamicDelegate implements TimeStats {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

@@ -3,9 +3,7 @@
 package org.nasdanika.models.gitlab.impl;
 
 import org.eclipse.emf.ecore.EClass;
-
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-
+import org.nasdanika.emf.DynamicDelegate;
 import org.nasdanika.models.gitlab.GitLabPackage;
 import org.nasdanika.models.gitlab.Position;
 
@@ -16,7 +14,7 @@ import org.nasdanika.models.gitlab.Position;
  *
  * @generated
  */
-public class PositionImpl extends MinimalEObjectImpl.Container implements Position {
+public class PositionImpl extends DynamicDelegate implements Position {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

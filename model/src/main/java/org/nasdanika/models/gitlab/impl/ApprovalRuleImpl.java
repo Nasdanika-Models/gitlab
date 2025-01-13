@@ -7,9 +7,7 @@ import java.util.Collection;
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
-
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-
+import org.nasdanika.emf.DynamicDelegate;
 import org.nasdanika.models.gitlab.ApprovalRule;
 import org.nasdanika.models.gitlab.GitLabPackage;
 import org.nasdanika.models.gitlab.Group;
@@ -32,7 +30,7 @@ import org.nasdanika.models.gitlab.User;
  *
  * @generated
  */
-public class ApprovalRuleImpl extends MinimalEObjectImpl.Container implements ApprovalRule {
+public class ApprovalRuleImpl extends DynamicDelegate implements ApprovalRule {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

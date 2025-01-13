@@ -3,9 +3,7 @@
 package org.nasdanika.models.gitlab.pipeline.impl;
 
 import org.eclipse.emf.ecore.EClass;
-
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-
+import org.nasdanika.emf.DynamicDelegate;
 import org.nasdanika.models.gitlab.pipeline.Artifact;
 import org.nasdanika.models.gitlab.pipeline.FileType;
 import org.nasdanika.models.gitlab.pipeline.PipelinePackage;
@@ -26,7 +24,7 @@ import org.nasdanika.models.gitlab.pipeline.PipelinePackage;
  *
  * @generated
  */
-public class ArtifactImpl extends MinimalEObjectImpl.Container implements Artifact {
+public class ArtifactImpl extends DynamicDelegate implements Artifact {
 	/**
 	 * The default value of the '{@link #getFileName() <em>File Name</em>}' attribute.
 	 * <!-- begin-user-doc -->

@@ -6,9 +6,7 @@ import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-
+import org.nasdanika.emf.DynamicDelegate;
 import org.nasdanika.models.gitlab.AccessLevel;
 import org.nasdanika.models.gitlab.GitLabPackage;
 import org.nasdanika.models.gitlab.Group;
@@ -31,7 +29,7 @@ import org.nasdanika.models.gitlab.ProjectSharedGroup;
  *
  * @generated
  */
-public class ProjectSharedGroupImpl extends MinimalEObjectImpl.Container implements ProjectSharedGroup {
+public class ProjectSharedGroupImpl extends DynamicDelegate implements ProjectSharedGroup {
 	/**
 	 * The default value of the '{@link #getId() <em>Id</em>}' attribute.
 	 * <!-- begin-user-doc -->

@@ -3,9 +3,7 @@
 package org.nasdanika.models.gitlab.impl;
 
 import org.eclipse.emf.ecore.EClass;
-
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-
+import org.nasdanika.emf.DynamicDelegate;
 import org.nasdanika.models.gitlab.GitLabPackage;
 import org.nasdanika.models.gitlab.MergeRequestVersion;
 
@@ -16,7 +14,7 @@ import org.nasdanika.models.gitlab.MergeRequestVersion;
  *
  * @generated
  */
-public class MergeRequestVersionImpl extends MinimalEObjectImpl.Container implements MergeRequestVersion {
+public class MergeRequestVersionImpl extends DynamicDelegate implements MergeRequestVersion {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

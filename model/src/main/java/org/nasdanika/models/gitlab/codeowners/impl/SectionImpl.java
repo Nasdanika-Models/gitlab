@@ -10,11 +10,9 @@ import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-
 import org.eclipse.emf.ecore.util.InternalEList;
 
+import org.nasdanika.emf.DynamicDelegate;
 import org.nasdanika.models.gitlab.codeowners.CodeOwner;
 import org.nasdanika.models.gitlab.codeowners.CodeownersPackage;
 import org.nasdanika.models.gitlab.codeowners.Entry;
@@ -37,7 +35,7 @@ import org.nasdanika.models.gitlab.codeowners.Section;
  *
  * @generated
  */
-public class SectionImpl extends MinimalEObjectImpl.Container implements Section {
+public class SectionImpl extends DynamicDelegate implements Section {
 	/**
 	 * The default value of the '{@link #getApprovers() <em>Approvers</em>}' attribute.
 	 * <!-- begin-user-doc -->

@@ -11,11 +11,9 @@ import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-
 import org.eclipse.emf.ecore.util.InternalEList;
 
+import org.nasdanika.emf.DynamicDelegate;
 import org.nasdanika.models.gitlab.User;
 
 import org.nasdanika.models.gitlab.pipeline.DetailedStatus;
@@ -59,7 +57,7 @@ import org.nasdanika.models.gitlab.pipeline.PipelineStatus;
  *
  * @generated
  */
-public class PipelineImpl extends MinimalEObjectImpl.Container implements Pipeline {
+public class PipelineImpl extends DynamicDelegate implements Pipeline {
 	/**
 	 * The default value of the '{@link #getId() <em>Id</em>}' attribute.
 	 * <!-- begin-user-doc -->

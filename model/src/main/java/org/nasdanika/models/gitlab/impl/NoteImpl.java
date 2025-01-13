@@ -6,9 +6,7 @@ import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-
+import org.nasdanika.emf.DynamicDelegate;
 import org.nasdanika.models.gitlab.GitLabPackage;
 import org.nasdanika.models.gitlab.Note;
 import org.nasdanika.models.gitlab.Position;
@@ -26,7 +24,7 @@ import org.nasdanika.models.gitlab.Position;
  *
  * @generated
  */
-public class NoteImpl extends MinimalEObjectImpl.Container implements Note {
+public class NoteImpl extends DynamicDelegate implements Note {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

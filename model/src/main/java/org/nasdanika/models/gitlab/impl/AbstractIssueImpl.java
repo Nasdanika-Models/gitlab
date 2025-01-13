@@ -10,9 +10,7 @@ import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-
+import org.nasdanika.emf.DynamicDelegate;
 import org.nasdanika.models.gitlab.AbstractIssue;
 import org.nasdanika.models.gitlab.GitLabPackage;
 import org.nasdanika.models.gitlab.Milestone;
@@ -41,7 +39,7 @@ import org.nasdanika.models.gitlab.User;
  *
  * @generated
  */
-public class AbstractIssueImpl extends MinimalEObjectImpl.Container implements AbstractIssue {
+public class AbstractIssueImpl extends DynamicDelegate implements AbstractIssue {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

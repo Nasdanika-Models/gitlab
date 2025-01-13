@@ -7,9 +7,7 @@ import java.util.Collection;
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
-
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-
+import org.nasdanika.emf.DynamicDelegate;
 import org.nasdanika.models.gitlab.Blame;
 import org.nasdanika.models.gitlab.Commit;
 import org.nasdanika.models.gitlab.GitLabPackage;
@@ -28,7 +26,7 @@ import org.nasdanika.models.gitlab.GitLabPackage;
  *
  * @generated
  */
-public class BlameImpl extends MinimalEObjectImpl.Container implements Blame {
+public class BlameImpl extends DynamicDelegate implements Blame {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
