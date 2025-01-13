@@ -3235,6 +3235,76 @@ public class GitLabPackageImpl extends EPackageImpl implements GitLabPackage {
 	 * @generated
 	 */
 	@Override
+	public EReference getMergeRequest_ApprovalRules() {
+		return (EReference)mergeRequestEClass.getEStructuralFeatures().get(15);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getMergeRequest_ApprovalState() {
+		return (EReference)mergeRequestEClass.getEStructuralFeatures().get(16);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getMergeRequest_ApprovalStatus() {
+		return (EReference)mergeRequestEClass.getEStructuralFeatures().get(17);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getMergeRequest_ClosedIssues() {
+		return (EReference)mergeRequestEClass.getEStructuralFeatures().get(18);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getMergeRequest_Commits() {
+		return (EReference)mergeRequestEClass.getEStructuralFeatures().get(19);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getMergeRequest_Diffs() {
+		return (EReference)mergeRequestEClass.getEStructuralFeatures().get(20);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getMergeRequest_DiffVersions() {
+		return (EReference)mergeRequestEClass.getEStructuralFeatures().get(21);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EClass getApprovalRule() {
 		return approvalRuleEClass;
 	}
@@ -3942,6 +4012,13 @@ public class GitLabPackageImpl extends EPackageImpl implements GitLabPackage {
 		createEReference(mergeRequestEClass, MERGE_REQUEST__REFERENCES);
 		createEReference(mergeRequestEClass, MERGE_REQUEST__TIME_STATS);
 		createEReference(mergeRequestEClass, MERGE_REQUEST__DIFF_REFS);
+		createEReference(mergeRequestEClass, MERGE_REQUEST__APPROVAL_RULES);
+		createEReference(mergeRequestEClass, MERGE_REQUEST__APPROVAL_STATE);
+		createEReference(mergeRequestEClass, MERGE_REQUEST__APPROVAL_STATUS);
+		createEReference(mergeRequestEClass, MERGE_REQUEST__CLOSED_ISSUES);
+		createEReference(mergeRequestEClass, MERGE_REQUEST__COMMITS);
+		createEReference(mergeRequestEClass, MERGE_REQUEST__DIFFS);
+		createEReference(mergeRequestEClass, MERGE_REQUEST__DIFF_VERSIONS);
 
 		approvalRuleEClass = createEClass(APPROVAL_RULE);
 		createEReference(approvalRuleEClass, APPROVAL_RULE__ELIGIBLE_APPROVERS);
@@ -4418,6 +4495,13 @@ public class GitLabPackageImpl extends EPackageImpl implements GitLabPackage {
 		initEReference(getMergeRequest_References(), this.getReferences(), null, "references", null, 0, 1, MergeRequest.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getMergeRequest_TimeStats(), this.getTimeStats(), null, "timeStats", null, 0, 1, MergeRequest.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getMergeRequest_DiffRefs(), this.getDiffRef(), null, "diffRefs", null, 0, 1, MergeRequest.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getMergeRequest_ApprovalRules(), this.getApprovalRule(), null, "approvalRules", null, 0, -1, MergeRequest.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getMergeRequest_ApprovalState(), this.getApprovalState(), null, "approvalState", null, 0, 1, MergeRequest.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getMergeRequest_ApprovalStatus(), this.getIssue(), null, "approvalStatus", null, 0, -1, MergeRequest.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getMergeRequest_ClosedIssues(), this.getIssue(), null, "closedIssues", null, 0, -1, MergeRequest.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getMergeRequest_Commits(), this.getCommit(), null, "commits", null, 0, -1, MergeRequest.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getMergeRequest_Diffs(), this.getDiff(), null, "diffs", null, 0, -1, MergeRequest.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getMergeRequest_DiffVersions(), this.getMergeRequestDiff(), null, "diffVersions", null, 0, -1, MergeRequest.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(approvalRuleEClass, ApprovalRule.class, "ApprovalRule", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getApprovalRule_EligibleApprovers(), this.getUser(), null, "eligibleApprovers", null, 0, -1, ApprovalRule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

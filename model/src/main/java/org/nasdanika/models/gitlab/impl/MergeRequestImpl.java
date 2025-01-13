@@ -9,12 +9,17 @@ import org.eclipse.emf.ecore.EClass;
 
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.util.InternalEList;
+import org.nasdanika.models.gitlab.ApprovalRule;
+import org.nasdanika.models.gitlab.ApprovalState;
+import org.nasdanika.models.gitlab.Commit;
 import org.nasdanika.models.gitlab.Diff;
 import org.nasdanika.models.gitlab.DiffRef;
 import org.nasdanika.models.gitlab.Discussable;
 import org.nasdanika.models.gitlab.Discussion;
 import org.nasdanika.models.gitlab.GitLabPackage;
+import org.nasdanika.models.gitlab.Issue;
 import org.nasdanika.models.gitlab.MergeRequest;
+import org.nasdanika.models.gitlab.MergeRequestDiff;
 import org.nasdanika.models.gitlab.Milestone;
 import org.nasdanika.models.gitlab.References;
 import org.nasdanika.models.gitlab.TaskCompletionStatus;
@@ -46,6 +51,13 @@ import org.nasdanika.models.gitlab.pipeline.Pipeline;
  *   <li>{@link org.nasdanika.models.gitlab.impl.MergeRequestImpl#getReferences <em>References</em>}</li>
  *   <li>{@link org.nasdanika.models.gitlab.impl.MergeRequestImpl#getTimeStats <em>Time Stats</em>}</li>
  *   <li>{@link org.nasdanika.models.gitlab.impl.MergeRequestImpl#getDiffRefs <em>Diff Refs</em>}</li>
+ *   <li>{@link org.nasdanika.models.gitlab.impl.MergeRequestImpl#getApprovalRules <em>Approval Rules</em>}</li>
+ *   <li>{@link org.nasdanika.models.gitlab.impl.MergeRequestImpl#getApprovalState <em>Approval State</em>}</li>
+ *   <li>{@link org.nasdanika.models.gitlab.impl.MergeRequestImpl#getApprovalStatus <em>Approval Status</em>}</li>
+ *   <li>{@link org.nasdanika.models.gitlab.impl.MergeRequestImpl#getClosedIssues <em>Closed Issues</em>}</li>
+ *   <li>{@link org.nasdanika.models.gitlab.impl.MergeRequestImpl#getCommits <em>Commits</em>}</li>
+ *   <li>{@link org.nasdanika.models.gitlab.impl.MergeRequestImpl#getDiffs <em>Diffs</em>}</li>
+ *   <li>{@link org.nasdanika.models.gitlab.impl.MergeRequestImpl#getDiffVersions <em>Diff Versions</em>}</li>
  * </ul>
  *
  * @generated
@@ -471,6 +483,101 @@ public class MergeRequestImpl extends NotableImpl implements MergeRequest {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
+	@Override
+	public EList<ApprovalRule> getApprovalRules() {
+		return (EList<ApprovalRule>)eDynamicGet(GitLabPackage.MERGE_REQUEST__APPROVAL_RULES, GitLabPackage.Literals.MERGE_REQUEST__APPROVAL_RULES, true, true);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public ApprovalState getApprovalState() {
+		return (ApprovalState)eDynamicGet(GitLabPackage.MERGE_REQUEST__APPROVAL_STATE, GitLabPackage.Literals.MERGE_REQUEST__APPROVAL_STATE, true, true);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ApprovalState basicGetApprovalState() {
+		return (ApprovalState)eDynamicGet(GitLabPackage.MERGE_REQUEST__APPROVAL_STATE, GitLabPackage.Literals.MERGE_REQUEST__APPROVAL_STATE, false, true);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setApprovalState(ApprovalState newApprovalState) {
+		eDynamicSet(GitLabPackage.MERGE_REQUEST__APPROVAL_STATE, GitLabPackage.Literals.MERGE_REQUEST__APPROVAL_STATE, newApprovalState);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@SuppressWarnings("unchecked")
+	@Override
+	public EList<Issue> getApprovalStatus() {
+		return (EList<Issue>)eDynamicGet(GitLabPackage.MERGE_REQUEST__APPROVAL_STATUS, GitLabPackage.Literals.MERGE_REQUEST__APPROVAL_STATUS, true, true);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@SuppressWarnings("unchecked")
+	@Override
+	public EList<Issue> getClosedIssues() {
+		return (EList<Issue>)eDynamicGet(GitLabPackage.MERGE_REQUEST__CLOSED_ISSUES, GitLabPackage.Literals.MERGE_REQUEST__CLOSED_ISSUES, true, true);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@SuppressWarnings("unchecked")
+	@Override
+	public EList<Commit> getCommits() {
+		return (EList<Commit>)eDynamicGet(GitLabPackage.MERGE_REQUEST__COMMITS, GitLabPackage.Literals.MERGE_REQUEST__COMMITS, true, true);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@SuppressWarnings("unchecked")
+	@Override
+	public EList<Diff> getDiffs() {
+		return (EList<Diff>)eDynamicGet(GitLabPackage.MERGE_REQUEST__DIFFS, GitLabPackage.Literals.MERGE_REQUEST__DIFFS, true, true);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@SuppressWarnings("unchecked")
+	@Override
+	public EList<MergeRequestDiff> getDiffVersions() {
+		return (EList<MergeRequestDiff>)eDynamicGet(GitLabPackage.MERGE_REQUEST__DIFF_VERSIONS, GitLabPackage.Literals.MERGE_REQUEST__DIFF_VERSIONS, true, true);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -533,6 +640,21 @@ public class MergeRequestImpl extends NotableImpl implements MergeRequest {
 				return getTimeStats();
 			case GitLabPackage.MERGE_REQUEST__DIFF_REFS:
 				return getDiffRefs();
+			case GitLabPackage.MERGE_REQUEST__APPROVAL_RULES:
+				return getApprovalRules();
+			case GitLabPackage.MERGE_REQUEST__APPROVAL_STATE:
+				if (resolve) return getApprovalState();
+				return basicGetApprovalState();
+			case GitLabPackage.MERGE_REQUEST__APPROVAL_STATUS:
+				return getApprovalStatus();
+			case GitLabPackage.MERGE_REQUEST__CLOSED_ISSUES:
+				return getClosedIssues();
+			case GitLabPackage.MERGE_REQUEST__COMMITS:
+				return getCommits();
+			case GitLabPackage.MERGE_REQUEST__DIFFS:
+				return getDiffs();
+			case GitLabPackage.MERGE_REQUEST__DIFF_VERSIONS:
+				return getDiffVersions();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -598,6 +720,33 @@ public class MergeRequestImpl extends NotableImpl implements MergeRequest {
 			case GitLabPackage.MERGE_REQUEST__DIFF_REFS:
 				setDiffRefs((DiffRef)newValue);
 				return;
+			case GitLabPackage.MERGE_REQUEST__APPROVAL_RULES:
+				getApprovalRules().clear();
+				getApprovalRules().addAll((Collection<? extends ApprovalRule>)newValue);
+				return;
+			case GitLabPackage.MERGE_REQUEST__APPROVAL_STATE:
+				setApprovalState((ApprovalState)newValue);
+				return;
+			case GitLabPackage.MERGE_REQUEST__APPROVAL_STATUS:
+				getApprovalStatus().clear();
+				getApprovalStatus().addAll((Collection<? extends Issue>)newValue);
+				return;
+			case GitLabPackage.MERGE_REQUEST__CLOSED_ISSUES:
+				getClosedIssues().clear();
+				getClosedIssues().addAll((Collection<? extends Issue>)newValue);
+				return;
+			case GitLabPackage.MERGE_REQUEST__COMMITS:
+				getCommits().clear();
+				getCommits().addAll((Collection<? extends Commit>)newValue);
+				return;
+			case GitLabPackage.MERGE_REQUEST__DIFFS:
+				getDiffs().clear();
+				getDiffs().addAll((Collection<? extends Diff>)newValue);
+				return;
+			case GitLabPackage.MERGE_REQUEST__DIFF_VERSIONS:
+				getDiffVersions().clear();
+				getDiffVersions().addAll((Collection<? extends MergeRequestDiff>)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -658,6 +807,27 @@ public class MergeRequestImpl extends NotableImpl implements MergeRequest {
 			case GitLabPackage.MERGE_REQUEST__DIFF_REFS:
 				setDiffRefs((DiffRef)null);
 				return;
+			case GitLabPackage.MERGE_REQUEST__APPROVAL_RULES:
+				getApprovalRules().clear();
+				return;
+			case GitLabPackage.MERGE_REQUEST__APPROVAL_STATE:
+				setApprovalState((ApprovalState)null);
+				return;
+			case GitLabPackage.MERGE_REQUEST__APPROVAL_STATUS:
+				getApprovalStatus().clear();
+				return;
+			case GitLabPackage.MERGE_REQUEST__CLOSED_ISSUES:
+				getClosedIssues().clear();
+				return;
+			case GitLabPackage.MERGE_REQUEST__COMMITS:
+				getCommits().clear();
+				return;
+			case GitLabPackage.MERGE_REQUEST__DIFFS:
+				getDiffs().clear();
+				return;
+			case GitLabPackage.MERGE_REQUEST__DIFF_VERSIONS:
+				getDiffVersions().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -702,6 +872,20 @@ public class MergeRequestImpl extends NotableImpl implements MergeRequest {
 				return getTimeStats() != null;
 			case GitLabPackage.MERGE_REQUEST__DIFF_REFS:
 				return getDiffRefs() != null;
+			case GitLabPackage.MERGE_REQUEST__APPROVAL_RULES:
+				return !getApprovalRules().isEmpty();
+			case GitLabPackage.MERGE_REQUEST__APPROVAL_STATE:
+				return basicGetApprovalState() != null;
+			case GitLabPackage.MERGE_REQUEST__APPROVAL_STATUS:
+				return !getApprovalStatus().isEmpty();
+			case GitLabPackage.MERGE_REQUEST__CLOSED_ISSUES:
+				return !getClosedIssues().isEmpty();
+			case GitLabPackage.MERGE_REQUEST__COMMITS:
+				return !getCommits().isEmpty();
+			case GitLabPackage.MERGE_REQUEST__DIFFS:
+				return !getDiffs().isEmpty();
+			case GitLabPackage.MERGE_REQUEST__DIFF_VERSIONS:
+				return !getDiffVersions().isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

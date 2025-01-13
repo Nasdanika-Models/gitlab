@@ -29,6 +29,13 @@ import org.nasdanika.models.gitlab.pipeline.Pipeline;
  *   <li>{@link org.nasdanika.models.gitlab.MergeRequest#getReferences <em>References</em>}</li>
  *   <li>{@link org.nasdanika.models.gitlab.MergeRequest#getTimeStats <em>Time Stats</em>}</li>
  *   <li>{@link org.nasdanika.models.gitlab.MergeRequest#getDiffRefs <em>Diff Refs</em>}</li>
+ *   <li>{@link org.nasdanika.models.gitlab.MergeRequest#getApprovalRules <em>Approval Rules</em>}</li>
+ *   <li>{@link org.nasdanika.models.gitlab.MergeRequest#getApprovalState <em>Approval State</em>}</li>
+ *   <li>{@link org.nasdanika.models.gitlab.MergeRequest#getApprovalStatus <em>Approval Status</em>}</li>
+ *   <li>{@link org.nasdanika.models.gitlab.MergeRequest#getClosedIssues <em>Closed Issues</em>}</li>
+ *   <li>{@link org.nasdanika.models.gitlab.MergeRequest#getCommits <em>Commits</em>}</li>
+ *   <li>{@link org.nasdanika.models.gitlab.MergeRequest#getDiffs <em>Diffs</em>}</li>
+ *   <li>{@link org.nasdanika.models.gitlab.MergeRequest#getDiffVersions <em>Diff Versions</em>}</li>
  * </ul>
  *
  * @see org.nasdanika.models.gitlab.GitLabPackage#getMergeRequest()
@@ -336,4 +343,98 @@ public interface MergeRequest extends Notable, Discussable {
 	 * @generated
 	 */
 	void setDiffRefs(DiffRef value);
+
+	/**
+	 * Returns the value of the '<em><b>Approval Rules</b></em>' reference list.
+	 * The list contents are of type {@link org.nasdanika.models.gitlab.ApprovalRule}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Approval Rules</em>' reference list.
+	 * @see org.nasdanika.models.gitlab.GitLabPackage#getMergeRequest_ApprovalRules()
+	 * @model
+	 * @generated
+	 */
+	EList<ApprovalRule> getApprovalRules();
+
+	/**
+	 * Returns the value of the '<em><b>Approval State</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Approval State</em>' reference.
+	 * @see #setApprovalState(ApprovalState)
+	 * @see org.nasdanika.models.gitlab.GitLabPackage#getMergeRequest_ApprovalState()
+	 * @model
+	 * @generated
+	 */
+	ApprovalState getApprovalState();
+
+	/**
+	 * Sets the value of the '{@link org.nasdanika.models.gitlab.MergeRequest#getApprovalState <em>Approval State</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Approval State</em>' reference.
+	 * @see #getApprovalState()
+	 * @generated
+	 */
+	void setApprovalState(ApprovalState value);
+
+	/**
+	 * Returns the value of the '<em><b>Approval Status</b></em>' reference list.
+	 * The list contents are of type {@link org.nasdanika.models.gitlab.Issue}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Approval Status</em>' reference list.
+	 * @see org.nasdanika.models.gitlab.GitLabPackage#getMergeRequest_ApprovalStatus()
+	 * @model
+	 * @generated
+	 */
+	EList<Issue> getApprovalStatus();
+
+	/**
+	 * Returns the value of the '<em><b>Closed Issues</b></em>' reference list.
+	 * The list contents are of type {@link org.nasdanika.models.gitlab.Issue}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Closed Issues</em>' reference list.
+	 * @see org.nasdanika.models.gitlab.GitLabPackage#getMergeRequest_ClosedIssues()
+	 * @model
+	 * @generated
+	 */
+	EList<Issue> getClosedIssues();
+
+	/**
+	 * Returns the value of the '<em><b>Commits</b></em>' reference list.
+	 * The list contents are of type {@link org.nasdanika.models.gitlab.Commit}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Commits</em>' reference list.
+	 * @see org.nasdanika.models.gitlab.GitLabPackage#getMergeRequest_Commits()
+	 * @model
+	 * @generated
+	 */
+	EList<Commit> getCommits();
+
+	/**
+	 * Returns the value of the '<em><b>Diffs</b></em>' reference list.
+	 * The list contents are of type {@link org.nasdanika.models.gitlab.Diff}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Diffs</em>' reference list.
+	 * @see org.nasdanika.models.gitlab.GitLabPackage#getMergeRequest_Diffs()
+	 * @model
+	 * @generated
+	 */
+	EList<Diff> getDiffs();
+
+	/**
+	 * Returns the value of the '<em><b>Diff Versions</b></em>' reference list.
+	 * The list contents are of type {@link org.nasdanika.models.gitlab.MergeRequestDiff}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Diff Versions</em>' reference list.
+	 * @see org.nasdanika.models.gitlab.GitLabPackage#getMergeRequest_DiffVersions()
+	 * @model
+	 * @generated
+	 */
+	EList<MergeRequestDiff> getDiffVersions();
 } // MergeRequest

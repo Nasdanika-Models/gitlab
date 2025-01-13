@@ -513,6 +513,19 @@
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="diffRefs" eType="#//DiffRef"
         containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="approvalRules" upperBound="-1"
+        eType="#//ApprovalRule"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="approvalState" eType="#//ApprovalState"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="approvalStatus" upperBound="-1"
+        eType="#//Issue"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="closedIssues" upperBound="-1"
+        eType="#//Issue"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="commits" upperBound="-1"
+        eType="#//Commit"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="diffs" upperBound="-1"
+        eType="#//Diff"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="diffVersions" upperBound="-1"
+        eType="#//MergeRequestDiff"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ApprovalRule">
     <eStructuralFeatures xsi:type="ecore:EReference" name="eligibleApprovers" upperBound="-1"
