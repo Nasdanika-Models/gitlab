@@ -205,15 +205,6 @@ public class AbstractIssueImpl extends DynamicDelegate implements AbstractIssue 
 	 */
 	protected static final String ISSUE_TYPE_EDEFAULT = null;
 	/**
-	 * The default value of the '{@link #getLabels() <em>Labels</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getLabels()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final String LABELS_EDEFAULT = null;
-	/**
 	 * The default value of the '{@link #getMergeRequestsCount() <em>Merge Requests Count</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -864,19 +855,10 @@ public class AbstractIssueImpl extends DynamicDelegate implements AbstractIssue 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
 	@Override
-	public String getLabels() {
-		return (String)eDynamicGet(GitLabPackage.ABSTRACT_ISSUE__LABELS, GitLabPackage.Literals.ABSTRACT_ISSUE__LABELS, true, true);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public void setLabels(String newLabels) {
-		eDynamicSet(GitLabPackage.ABSTRACT_ISSUE__LABELS, GitLabPackage.Literals.ABSTRACT_ISSUE__LABELS, newLabels);
+	public EList<String> getLabels() {
+		return (EList<String>)eDynamicGet(GitLabPackage.ABSTRACT_ISSUE__LABELS, GitLabPackage.Literals.ABSTRACT_ISSUE__LABELS, true, true);
 	}
 
 	/**
@@ -1283,7 +1265,8 @@ public class AbstractIssueImpl extends DynamicDelegate implements AbstractIssue 
 				setIssueType((String)newValue);
 				return;
 			case GitLabPackage.ABSTRACT_ISSUE__LABELS:
-				setLabels((String)newValue);
+				getLabels().clear();
+				getLabels().addAll((Collection<? extends String>)newValue);
 				return;
 			case GitLabPackage.ABSTRACT_ISSUE__MERGE_REQUESTS_COUNT:
 				setMergeRequestsCount((Integer)newValue);
@@ -1400,7 +1383,7 @@ public class AbstractIssueImpl extends DynamicDelegate implements AbstractIssue 
 				setIssueType(ISSUE_TYPE_EDEFAULT);
 				return;
 			case GitLabPackage.ABSTRACT_ISSUE__LABELS:
-				setLabels(LABELS_EDEFAULT);
+				getLabels().clear();
 				return;
 			case GitLabPackage.ABSTRACT_ISSUE__MERGE_REQUESTS_COUNT:
 				setMergeRequestsCount(MERGE_REQUESTS_COUNT_EDEFAULT);
@@ -1494,7 +1477,7 @@ public class AbstractIssueImpl extends DynamicDelegate implements AbstractIssue 
 			case GitLabPackage.ABSTRACT_ISSUE__ISSUE_TYPE:
 				return ISSUE_TYPE_EDEFAULT == null ? getIssueType() != null : !ISSUE_TYPE_EDEFAULT.equals(getIssueType());
 			case GitLabPackage.ABSTRACT_ISSUE__LABELS:
-				return LABELS_EDEFAULT == null ? getLabels() != null : !LABELS_EDEFAULT.equals(getLabels());
+				return !getLabels().isEmpty();
 			case GitLabPackage.ABSTRACT_ISSUE__MERGE_REQUESTS_COUNT:
 				return MERGE_REQUESTS_COUNT_EDEFAULT == null ? getMergeRequestsCount() != null : !MERGE_REQUESTS_COUNT_EDEFAULT.equals(getMergeRequestsCount());
 			case GitLabPackage.ABSTRACT_ISSUE__PROJECT_ID:

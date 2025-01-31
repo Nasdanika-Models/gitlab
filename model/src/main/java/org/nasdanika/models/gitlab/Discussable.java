@@ -30,7 +30,7 @@ public interface Discussable extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Discussions</em>' containment reference list.
 	 * @see org.nasdanika.models.gitlab.GitLabPackage#getDiscussable_Discussions()
-	 * @model containment="true"
+	 * @model containment="true" keys="id"
 	 * @generated
 	 */
 	EList<Discussion> getDiscussions();

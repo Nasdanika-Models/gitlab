@@ -55,6 +55,7 @@ import org.nasdanika.models.gitlab.Notable;
 import org.nasdanika.models.gitlab.Note;
 import org.nasdanika.models.gitlab.Owner;
 import org.nasdanika.models.gitlab.Position;
+import org.nasdanika.models.gitlab.PositionType;
 import org.nasdanika.models.gitlab.Principal;
 import org.nasdanika.models.gitlab.Project;
 import org.nasdanika.models.gitlab.ProjectAccess;
@@ -447,6 +448,12 @@ public class GitLabPackageImpl extends EPackageImpl implements GitLabPackage {
 	 */
 	private EEnum squashOptionEEnum = null;
 
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum positionTypeEEnum = null;
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3050,6 +3057,126 @@ public class GitLabPackageImpl extends EPackageImpl implements GitLabPackage {
 	 * @generated
 	 */
 	@Override
+	public EAttribute getPosition_BaseSha() {
+		return (EAttribute)positionEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getPosition_HeadSha() {
+		return (EAttribute)positionEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getPosition_Height() {
+		return (EAttribute)positionEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getPosition_NewLine() {
+		return (EAttribute)positionEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getPosition_NewPath() {
+		return (EAttribute)positionEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getPosition_OldLine() {
+		return (EAttribute)positionEClass.getEStructuralFeatures().get(5);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getPosition_OldPath() {
+		return (EAttribute)positionEClass.getEStructuralFeatures().get(6);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getPosition_PositionType() {
+		return (EAttribute)positionEClass.getEStructuralFeatures().get(7);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getPosition_StartSha() {
+		return (EAttribute)positionEClass.getEStructuralFeatures().get(8);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getPosition_Width() {
+		return (EAttribute)positionEClass.getEStructuralFeatures().get(9);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getPosition_X() {
+		return (EAttribute)positionEClass.getEStructuralFeatures().get(10);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getPosition_Y() {
+		return (EAttribute)positionEClass.getEStructuralFeatures().get(11);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EClass getNote() {
 		return noteEClass;
 	}
@@ -5000,6 +5127,26 @@ public class GitLabPackageImpl extends EPackageImpl implements GitLabPackage {
 	 * @generated
 	 */
 	@Override
+	public EAttribute getDiscussion_Id() {
+		return (EAttribute)discussionEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getDiscussion_IndividualNote() {
+		return (EAttribute)discussionEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EEnum getVisibility() {
 		return visibilityEEnum;
 	}
@@ -5062,6 +5209,16 @@ public class GitLabPackageImpl extends EPackageImpl implements GitLabPackage {
 	@Override
 	public EEnum getSquashOption() {
 		return squashOptionEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EEnum getPositionType() {
+		return positionTypeEEnum;
 	}
 
 	/**
@@ -5399,6 +5556,18 @@ public class GitLabPackageImpl extends EPackageImpl implements GitLabPackage {
 		createEAttribute(diffEClass, DIFF__RENAMED_FILE);
 
 		positionEClass = createEClass(POSITION);
+		createEAttribute(positionEClass, POSITION__BASE_SHA);
+		createEAttribute(positionEClass, POSITION__HEAD_SHA);
+		createEAttribute(positionEClass, POSITION__HEIGHT);
+		createEAttribute(positionEClass, POSITION__NEW_LINE);
+		createEAttribute(positionEClass, POSITION__NEW_PATH);
+		createEAttribute(positionEClass, POSITION__OLD_LINE);
+		createEAttribute(positionEClass, POSITION__OLD_PATH);
+		createEAttribute(positionEClass, POSITION__POSITION_TYPE);
+		createEAttribute(positionEClass, POSITION__START_SHA);
+		createEAttribute(positionEClass, POSITION__WIDTH);
+		createEAttribute(positionEClass, POSITION__X);
+		createEAttribute(positionEClass, POSITION__Y);
 
 		noteEClass = createEClass(NOTE);
 		createEReference(noteEClass, NOTE__POSITION);
@@ -5428,6 +5597,8 @@ public class GitLabPackageImpl extends EPackageImpl implements GitLabPackage {
 		createEReference(notableEClass, NOTABLE__NOTES);
 
 		discussionEClass = createEClass(DISCUSSION);
+		createEAttribute(discussionEClass, DISCUSSION__ID);
+		createEAttribute(discussionEClass, DISCUSSION__INDIVIDUAL_NOTE);
 
 		discussableEClass = createEClass(DISCUSSABLE);
 		createEReference(discussableEClass, DISCUSSABLE__DISCUSSIONS);
@@ -5619,6 +5790,7 @@ public class GitLabPackageImpl extends EPackageImpl implements GitLabPackage {
 		statusEEnum = createEEnum(STATUS);
 		autoDevopsDeployStrategyEEnum = createEEnum(AUTO_DEVOPS_DEPLOY_STRATEGY);
 		squashOptionEEnum = createEEnum(SQUASH_OPTION);
+		positionTypeEEnum = createEEnum(POSITION_TYPE);
 		issueStateEEnum = createEEnum(ISSUE_STATE);
 		linkTypeEEnum = createEEnum(LINK_TYPE);
 	}
@@ -6022,6 +6194,18 @@ public class GitLabPackageImpl extends EPackageImpl implements GitLabPackage {
 		initEAttribute(getDiff_RenamedFile(), ecorePackage.getEBooleanObject(), "renamedFile", null, 0, 1, Diff.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(positionEClass, Position.class, "Position", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getPosition_BaseSha(), ecorePackage.getEString(), "baseSha", null, 0, 1, Position.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getPosition_HeadSha(), ecorePackage.getEString(), "headSha", null, 0, 1, Position.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getPosition_Height(), ecorePackage.getEIntegerObject(), "height", null, 0, 1, Position.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getPosition_NewLine(), ecorePackage.getEIntegerObject(), "newLine", null, 0, 1, Position.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getPosition_NewPath(), ecorePackage.getEString(), "newPath", null, 0, 1, Position.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getPosition_OldLine(), ecorePackage.getEIntegerObject(), "oldLine", null, 0, 1, Position.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getPosition_OldPath(), ecorePackage.getEString(), "oldPath", null, 0, 1, Position.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getPosition_PositionType(), this.getPositionType(), "positionType", null, 0, 1, Position.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getPosition_StartSha(), ecorePackage.getEString(), "startSha", null, 0, 1, Position.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getPosition_Width(), ecorePackage.getEIntegerObject(), "width", null, 0, 1, Position.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getPosition_X(), ecorePackage.getEDoubleObject(), "x", null, 0, 1, Position.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getPosition_Y(), ecorePackage.getEDoubleObject(), "y", null, 0, 1, Position.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(noteEClass, Note.class, "Note", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getNote_Position(), this.getPosition(), null, "position", null, 0, 1, Note.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -6051,9 +6235,12 @@ public class GitLabPackageImpl extends EPackageImpl implements GitLabPackage {
 		initEReference(getNotable_Notes(), this.getNote(), null, "notes", null, 0, -1, Notable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(discussionEClass, Discussion.class, "Discussion", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getDiscussion_Id(), ecorePackage.getEString(), "id", null, 0, 1, Discussion.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getDiscussion_IndividualNote(), ecorePackage.getEBooleanObject(), "individualNote", null, 0, 1, Discussion.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(discussableEClass, Discussable.class, "Discussable", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getDiscussable_Discussions(), this.getDiscussion(), null, "discussions", null, 0, -1, Discussable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		getDiscussable_Discussions().getEKeys().add(this.getDiscussion_Id());
 
 		initEClass(mergeRequestEClass, MergeRequest.class, "MergeRequest", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getMergeRequest_Id(), ecorePackage.getELong(), "id", null, 0, 1, MergeRequest.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -6214,7 +6401,7 @@ public class GitLabPackageImpl extends EPackageImpl implements GitLabPackage {
 		initEAttribute(getAbstractIssue_Imported(), ecorePackage.getEBooleanObject(), "imported", null, 0, 1, AbstractIssue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getAbstractIssue_ImportedFrom(), ecorePackage.getEString(), "importedFrom", null, 0, 1, AbstractIssue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getAbstractIssue_IssueType(), ecorePackage.getEString(), "issueType", null, 0, 1, AbstractIssue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getAbstractIssue_Labels(), ecorePackage.getEString(), "labels", null, 0, 1, AbstractIssue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getAbstractIssue_Labels(), ecorePackage.getEString(), "labels", null, 0, -1, AbstractIssue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getAbstractIssue_MergeRequestsCount(), ecorePackage.getEIntegerObject(), "mergeRequestsCount", null, 0, 1, AbstractIssue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getAbstractIssue_ProjectId(), ecorePackage.getELongObject(), "projectId", null, 0, 1, AbstractIssue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getAbstractIssue_Severity(), ecorePackage.getEString(), "severity", null, 0, 1, AbstractIssue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -6278,6 +6465,11 @@ public class GitLabPackageImpl extends EPackageImpl implements GitLabPackage {
 		addEEnumLiteral(squashOptionEEnum, SquashOption.ALWAYS);
 		addEEnumLiteral(squashOptionEEnum, SquashOption.DEFAULT_ON);
 		addEEnumLiteral(squashOptionEEnum, SquashOption.DEFAULT_OFF);
+
+		initEEnum(positionTypeEEnum, PositionType.class, "PositionType");
+		addEEnumLiteral(positionTypeEEnum, PositionType.TEXT);
+		addEEnumLiteral(positionTypeEEnum, PositionType.IMAGE);
+		addEEnumLiteral(positionTypeEEnum, PositionType.FILE);
 
 		initEEnum(issueStateEEnum, IssueState.class, "IssueState");
 		addEEnumLiteral(issueStateEEnum, IssueState.OPENED);

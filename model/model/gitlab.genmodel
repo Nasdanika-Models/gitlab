@@ -53,6 +53,11 @@
       <genEnumLiterals ecoreEnumLiteral="gitlab.ecore#//SquashOption/DefaultOn"/>
       <genEnumLiterals ecoreEnumLiteral="gitlab.ecore#//SquashOption/DefaultOff"/>
     </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="gitlab.ecore#//PositionType">
+      <genEnumLiterals ecoreEnumLiteral="gitlab.ecore#//PositionType/TEXT"/>
+      <genEnumLiterals ecoreEnumLiteral="gitlab.ecore#//PositionType/IMAGE"/>
+      <genEnumLiterals ecoreEnumLiteral="gitlab.ecore#//PositionType/FILE"/>
+    </genEnums>
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="gitlab.ecore#//IssueState">
       <genEnumLiterals ecoreEnumLiteral="gitlab.ecore#//IssueState/OPENED"/>
       <genEnumLiterals ecoreEnumLiteral="gitlab.ecore#//IssueState/CLOSED"/>
@@ -343,7 +348,20 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gitlab.ecore#//Diff/oldPath"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gitlab.ecore#//Diff/renamedFile"/>
     </genClasses>
-    <genClasses ecoreClass="gitlab.ecore#//Position"/>
+    <genClasses ecoreClass="gitlab.ecore#//Position">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gitlab.ecore#//Position/baseSha"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gitlab.ecore#//Position/headSha"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gitlab.ecore#//Position/height"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gitlab.ecore#//Position/newLine"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gitlab.ecore#//Position/newPath"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gitlab.ecore#//Position/oldLine"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gitlab.ecore#//Position/oldPath"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gitlab.ecore#//Position/positionType"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gitlab.ecore#//Position/startSha"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gitlab.ecore#//Position/width"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gitlab.ecore#//Position/x"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gitlab.ecore#//Position/y"/>
+    </genClasses>
     <genClasses ecoreClass="gitlab.ecore#//Note">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference gitlab.ecore#//Note/position"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference gitlab.ecore#//Note/author"/>
@@ -371,7 +389,10 @@
     <genClasses image="false" ecoreClass="gitlab.ecore#//Notable">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference gitlab.ecore#//Notable/notes"/>
     </genClasses>
-    <genClasses ecoreClass="gitlab.ecore#//Discussion"/>
+    <genClasses ecoreClass="gitlab.ecore#//Discussion">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gitlab.ecore#//Discussion/id"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gitlab.ecore#//Discussion/individualNote"/>
+    </genClasses>
     <genClasses image="false" ecoreClass="gitlab.ecore#//Discussable">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference gitlab.ecore#//Discussable/discussions"/>
     </genClasses>

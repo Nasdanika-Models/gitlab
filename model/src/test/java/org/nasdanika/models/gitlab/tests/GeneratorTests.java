@@ -1,4 +1,4 @@
-package org.nasdanika.models.git.tests;
+package org.nasdanika.models.gitlab.tests;
 
 import java.io.File;
 import java.io.IOException;
@@ -29,11 +29,18 @@ import org.yaml.snakeyaml.Yaml;
 public class GeneratorTests {
 	
 	private static final String DECLARATIONS = """
-issueLinkId : Long
-linkCreatedAt : Date
-linkType : LinkType
-linkUpdatedAt : Date
-subscribed : Boolean
+baseSha : String
+headSha : String
+height : Integer
+newLine : Integer
+newPath : String
+oldLine : Integer
+oldPath : String
+positionType : PositionType
+startSha : String
+width : Integer
+x : Double
+y : Double
 			""";
 	
 	private static final String TEMPLATE = """
@@ -44,6 +51,7 @@ subscribed : Boolean
 			Map.entry("Boolean", "ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBooleanObject"),
 			Map.entry("Integer", "ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EIntegerObject"),
 			Map.entry("Long", "ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//ELongObject"),
+			Map.entry("Double", "ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDoubleObject"),
 			Map.entry("Date", "ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDate"),
 			Map.entry("String", "ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString")
 			);	
@@ -55,7 +63,7 @@ subscribed : Boolean
 		for (Entry<String, String> declaration: declarations.entrySet()) {			
 			String type = TYPE_MAP.get(declaration.getValue());
 			if (type == null) {
-				type = declaration.getValue();
+				type = "#//" + declaration.getValue();
 			}
 			Function<String, String> tokens = Map.of(
 					"name",

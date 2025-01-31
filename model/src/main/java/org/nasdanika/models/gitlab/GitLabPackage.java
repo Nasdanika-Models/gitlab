@@ -4513,13 +4513,121 @@ public interface GitLabPackage extends EPackage {
 	int DIFF_OPERATION_COUNT = 0;
 
 	/**
+	 * The feature id for the '<em><b>Base Sha</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int POSITION__BASE_SHA = 0;
+
+	/**
+	 * The feature id for the '<em><b>Head Sha</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int POSITION__HEAD_SHA = 1;
+
+	/**
+	 * The feature id for the '<em><b>Height</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int POSITION__HEIGHT = 2;
+
+	/**
+	 * The feature id for the '<em><b>New Line</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int POSITION__NEW_LINE = 3;
+
+	/**
+	 * The feature id for the '<em><b>New Path</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int POSITION__NEW_PATH = 4;
+
+	/**
+	 * The feature id for the '<em><b>Old Line</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int POSITION__OLD_LINE = 5;
+
+	/**
+	 * The feature id for the '<em><b>Old Path</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int POSITION__OLD_PATH = 6;
+
+	/**
+	 * The feature id for the '<em><b>Position Type</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int POSITION__POSITION_TYPE = 7;
+
+	/**
+	 * The feature id for the '<em><b>Start Sha</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int POSITION__START_SHA = 8;
+
+	/**
+	 * The feature id for the '<em><b>Width</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int POSITION__WIDTH = 9;
+
+	/**
+	 * The feature id for the '<em><b>X</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int POSITION__X = 10;
+
+	/**
+	 * The feature id for the '<em><b>Y</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int POSITION__Y = 11;
+
+	/**
 	 * The number of structural features of the '<em>Position</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int POSITION_FEATURE_COUNT = 0;
+	int POSITION_FEATURE_COUNT = 12;
 
 	/**
 	 * The number of operations of the '<em>Position</em>' class.
@@ -4793,13 +4901,31 @@ public interface GitLabPackage extends EPackage {
 	int DISCUSSION__NOTES = NOTABLE__NOTES;
 
 	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DISCUSSION__ID = NOTABLE_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Individual Note</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DISCUSSION__INDIVIDUAL_NOTE = NOTABLE_FEATURE_COUNT + 1;
+
+	/**
 	 * The number of structural features of the '<em>Discussion</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DISCUSSION_FEATURE_COUNT = NOTABLE_FEATURE_COUNT + 0;
+	int DISCUSSION_FEATURE_COUNT = NOTABLE_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of operations of the '<em>Discussion</em>' class.
@@ -6323,7 +6449,7 @@ public interface GitLabPackage extends EPackage {
 	int ABSTRACT_ISSUE__ISSUE_TYPE = 22;
 
 	/**
-	 * The feature id for the '<em><b>Labels</b></em>' attribute.
+	 * The feature id for the '<em><b>Labels</b></em>' attribute list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -6656,7 +6782,7 @@ public interface GitLabPackage extends EPackage {
 	int ISSUE__ISSUE_TYPE = ABSTRACT_ISSUE__ISSUE_TYPE;
 
 	/**
-	 * The feature id for the '<em><b>Labels</b></em>' attribute.
+	 * The feature id for the '<em><b>Labels</b></em>' attribute list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -6918,6 +7044,16 @@ public interface GitLabPackage extends EPackage {
 
 
 	/**
+	 * The meta object id for the '{@link org.nasdanika.models.gitlab.PositionType <em>Position Type</em>}' enum.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.nasdanika.models.gitlab.PositionType
+	 * @see org.nasdanika.models.gitlab.impl.GitLabPackageImpl#getPositionType()
+	 * @generated
+	 */
+	int POSITION_TYPE = 59;
+
+	/**
 	 * The meta object id for the '{@link org.nasdanika.models.gitlab.IssueState <em>Issue State</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -6925,7 +7061,7 @@ public interface GitLabPackage extends EPackage {
 	 * @see org.nasdanika.models.gitlab.impl.GitLabPackageImpl#getIssueState()
 	 * @generated
 	 */
-	int ISSUE_STATE = 59;
+	int ISSUE_STATE = 60;
 
 	/**
 	 * The meta object id for the '{@link org.nasdanika.models.gitlab.LinkType <em>Link Type</em>}' enum.
@@ -6935,7 +7071,7 @@ public interface GitLabPackage extends EPackage {
 	 * @see org.nasdanika.models.gitlab.impl.GitLabPackageImpl#getLinkType()
 	 * @generated
 	 */
-	int LINK_TYPE = 60;
+	int LINK_TYPE = 61;
 
 
 	/**
@@ -9662,6 +9798,138 @@ public interface GitLabPackage extends EPackage {
 	EClass getPosition();
 
 	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.models.gitlab.Position#getBaseSha <em>Base Sha</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Base Sha</em>'.
+	 * @see org.nasdanika.models.gitlab.Position#getBaseSha()
+	 * @see #getPosition()
+	 * @generated
+	 */
+	EAttribute getPosition_BaseSha();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.models.gitlab.Position#getHeadSha <em>Head Sha</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Head Sha</em>'.
+	 * @see org.nasdanika.models.gitlab.Position#getHeadSha()
+	 * @see #getPosition()
+	 * @generated
+	 */
+	EAttribute getPosition_HeadSha();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.models.gitlab.Position#getHeight <em>Height</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Height</em>'.
+	 * @see org.nasdanika.models.gitlab.Position#getHeight()
+	 * @see #getPosition()
+	 * @generated
+	 */
+	EAttribute getPosition_Height();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.models.gitlab.Position#getNewLine <em>New Line</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>New Line</em>'.
+	 * @see org.nasdanika.models.gitlab.Position#getNewLine()
+	 * @see #getPosition()
+	 * @generated
+	 */
+	EAttribute getPosition_NewLine();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.models.gitlab.Position#getNewPath <em>New Path</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>New Path</em>'.
+	 * @see org.nasdanika.models.gitlab.Position#getNewPath()
+	 * @see #getPosition()
+	 * @generated
+	 */
+	EAttribute getPosition_NewPath();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.models.gitlab.Position#getOldLine <em>Old Line</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Old Line</em>'.
+	 * @see org.nasdanika.models.gitlab.Position#getOldLine()
+	 * @see #getPosition()
+	 * @generated
+	 */
+	EAttribute getPosition_OldLine();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.models.gitlab.Position#getOldPath <em>Old Path</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Old Path</em>'.
+	 * @see org.nasdanika.models.gitlab.Position#getOldPath()
+	 * @see #getPosition()
+	 * @generated
+	 */
+	EAttribute getPosition_OldPath();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.models.gitlab.Position#getPositionType <em>Position Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Position Type</em>'.
+	 * @see org.nasdanika.models.gitlab.Position#getPositionType()
+	 * @see #getPosition()
+	 * @generated
+	 */
+	EAttribute getPosition_PositionType();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.models.gitlab.Position#getStartSha <em>Start Sha</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Start Sha</em>'.
+	 * @see org.nasdanika.models.gitlab.Position#getStartSha()
+	 * @see #getPosition()
+	 * @generated
+	 */
+	EAttribute getPosition_StartSha();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.models.gitlab.Position#getWidth <em>Width</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Width</em>'.
+	 * @see org.nasdanika.models.gitlab.Position#getWidth()
+	 * @see #getPosition()
+	 * @generated
+	 */
+	EAttribute getPosition_Width();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.models.gitlab.Position#getX <em>X</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>X</em>'.
+	 * @see org.nasdanika.models.gitlab.Position#getX()
+	 * @see #getPosition()
+	 * @generated
+	 */
+	EAttribute getPosition_X();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.models.gitlab.Position#getY <em>Y</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Y</em>'.
+	 * @see org.nasdanika.models.gitlab.Position#getY()
+	 * @see #getPosition()
+	 * @generated
+	 */
+	EAttribute getPosition_Y();
+
+	/**
 	 * Returns the meta object for class '{@link org.nasdanika.models.gitlab.Note <em>Note</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -11563,10 +11831,10 @@ public interface GitLabPackage extends EPackage {
 	EAttribute getAbstractIssue_IssueType();
 
 	/**
-	 * Returns the meta object for the attribute '{@link org.nasdanika.models.gitlab.AbstractIssue#getLabels <em>Labels</em>}'.
+	 * Returns the meta object for the attribute list '{@link org.nasdanika.models.gitlab.AbstractIssue#getLabels <em>Labels</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Labels</em>'.
+	 * @return the meta object for the attribute list '<em>Labels</em>'.
 	 * @see org.nasdanika.models.gitlab.AbstractIssue#getLabels()
 	 * @see #getAbstractIssue()
 	 * @generated
@@ -11791,6 +12059,28 @@ public interface GitLabPackage extends EPackage {
 	EClass getDiscussion();
 
 	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.models.gitlab.Discussion#getId <em>Id</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Id</em>'.
+	 * @see org.nasdanika.models.gitlab.Discussion#getId()
+	 * @see #getDiscussion()
+	 * @generated
+	 */
+	EAttribute getDiscussion_Id();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.models.gitlab.Discussion#getIndividualNote <em>Individual Note</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Individual Note</em>'.
+	 * @see org.nasdanika.models.gitlab.Discussion#getIndividualNote()
+	 * @see #getDiscussion()
+	 * @generated
+	 */
+	EAttribute getDiscussion_IndividualNote();
+
+	/**
 	 * Returns the meta object for enum '{@link org.nasdanika.models.gitlab.Visibility <em>Visibility</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -11859,6 +12149,16 @@ public interface GitLabPackage extends EPackage {
 	 * @generated
 	 */
 	EEnum getSquashOption();
+
+	/**
+	 * Returns the meta object for enum '{@link org.nasdanika.models.gitlab.PositionType <em>Position Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for enum '<em>Position Type</em>'.
+	 * @see org.nasdanika.models.gitlab.PositionType
+	 * @generated
+	 */
+	EEnum getPositionType();
 
 	/**
 	 * Returns the meta object for enum '{@link org.nasdanika.models.gitlab.IssueState <em>Issue State</em>}'.
@@ -13733,6 +14033,90 @@ public interface GitLabPackage extends EPackage {
 		 */
 		EClass POSITION = eINSTANCE.getPosition();
 		/**
+		 * The meta object literal for the '<em><b>Base Sha</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute POSITION__BASE_SHA = eINSTANCE.getPosition_BaseSha();
+		/**
+		 * The meta object literal for the '<em><b>Head Sha</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute POSITION__HEAD_SHA = eINSTANCE.getPosition_HeadSha();
+		/**
+		 * The meta object literal for the '<em><b>Height</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute POSITION__HEIGHT = eINSTANCE.getPosition_Height();
+		/**
+		 * The meta object literal for the '<em><b>New Line</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute POSITION__NEW_LINE = eINSTANCE.getPosition_NewLine();
+		/**
+		 * The meta object literal for the '<em><b>New Path</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute POSITION__NEW_PATH = eINSTANCE.getPosition_NewPath();
+		/**
+		 * The meta object literal for the '<em><b>Old Line</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute POSITION__OLD_LINE = eINSTANCE.getPosition_OldLine();
+		/**
+		 * The meta object literal for the '<em><b>Old Path</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute POSITION__OLD_PATH = eINSTANCE.getPosition_OldPath();
+		/**
+		 * The meta object literal for the '<em><b>Position Type</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute POSITION__POSITION_TYPE = eINSTANCE.getPosition_PositionType();
+		/**
+		 * The meta object literal for the '<em><b>Start Sha</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute POSITION__START_SHA = eINSTANCE.getPosition_StartSha();
+		/**
+		 * The meta object literal for the '<em><b>Width</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute POSITION__WIDTH = eINSTANCE.getPosition_Width();
+		/**
+		 * The meta object literal for the '<em><b>X</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute POSITION__X = eINSTANCE.getPosition_X();
+		/**
+		 * The meta object literal for the '<em><b>Y</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute POSITION__Y = eINSTANCE.getPosition_Y();
+		/**
 		 * The meta object literal for the '{@link org.nasdanika.models.gitlab.impl.NoteImpl <em>Note</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -14977,7 +15361,7 @@ public interface GitLabPackage extends EPackage {
 		 */
 		EAttribute ABSTRACT_ISSUE__ISSUE_TYPE = eINSTANCE.getAbstractIssue_IssueType();
 		/**
-		 * The meta object literal for the '<em><b>Labels</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Labels</b></em>' attribute list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -15130,6 +15514,20 @@ public interface GitLabPackage extends EPackage {
 		 */
 		EClass DISCUSSION = eINSTANCE.getDiscussion();
 		/**
+		 * The meta object literal for the '<em><b>Id</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute DISCUSSION__ID = eINSTANCE.getDiscussion_Id();
+		/**
+		 * The meta object literal for the '<em><b>Individual Note</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute DISCUSSION__INDIVIDUAL_NOTE = eINSTANCE.getDiscussion_IndividualNote();
+		/**
 		 * The meta object literal for the '{@link org.nasdanika.models.gitlab.Visibility <em>Visibility</em>}' enum.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -15192,6 +15590,15 @@ public interface GitLabPackage extends EPackage {
 		 * @generated
 		 */
 		EEnum SQUASH_OPTION = eINSTANCE.getSquashOption();
+		/**
+		 * The meta object literal for the '{@link org.nasdanika.models.gitlab.PositionType <em>Position Type</em>}' enum.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.nasdanika.models.gitlab.PositionType
+		 * @see org.nasdanika.models.gitlab.impl.GitLabPackageImpl#getPositionType()
+		 * @generated
+		 */
+		EEnum POSITION_TYPE = eINSTANCE.getPositionType();
 		/**
 		 * The meta object literal for the '{@link org.nasdanika.models.gitlab.IssueState <em>Issue State</em>}' enum.
 		 * <!-- begin-user-doc -->

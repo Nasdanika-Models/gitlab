@@ -555,26 +555,16 @@ public interface AbstractIssue extends EObject {
 	void setIssueType(String value);
 
 	/**
-	 * Returns the value of the '<em><b>Labels</b></em>' attribute.
+	 * Returns the value of the '<em><b>Labels</b></em>' attribute list.
+	 * The list contents are of type {@link java.lang.String}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Labels</em>' attribute.
-	 * @see #setLabels(String)
+	 * @return the value of the '<em>Labels</em>' attribute list.
 	 * @see org.nasdanika.models.gitlab.GitLabPackage#getAbstractIssue_Labels()
 	 * @model
 	 * @generated
 	 */
-	String getLabels();
-
-	/**
-	 * Sets the value of the '{@link org.nasdanika.models.gitlab.AbstractIssue#getLabels <em>Labels</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Labels</em>' attribute.
-	 * @see #getLabels()
-	 * @generated
-	 */
-	void setLabels(String value);
+	EList<String> getLabels();
 
 	/**
 	 * Returns the value of the '<em><b>Merge Requests Count</b></em>' attribute.

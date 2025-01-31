@@ -130,6 +130,8 @@ public class GitLabFactoryImpl extends EFactoryImpl implements GitLabFactory {
 				return createAutoDevopsDeployStrategyFromString(eDataType, initialValue);
 			case GitLabPackage.SQUASH_OPTION:
 				return createSquashOptionFromString(eDataType, initialValue);
+			case GitLabPackage.POSITION_TYPE:
+				return createPositionTypeFromString(eDataType, initialValue);
 			case GitLabPackage.ISSUE_STATE:
 				return createIssueStateFromString(eDataType, initialValue);
 			case GitLabPackage.LINK_TYPE:
@@ -161,6 +163,8 @@ public class GitLabFactoryImpl extends EFactoryImpl implements GitLabFactory {
 				return convertAutoDevopsDeployStrategyToString(eDataType, instanceValue);
 			case GitLabPackage.SQUASH_OPTION:
 				return convertSquashOptionToString(eDataType, instanceValue);
+			case GitLabPackage.POSITION_TYPE:
+				return convertPositionTypeToString(eDataType, instanceValue);
 			case GitLabPackage.ISSUE_STATE:
 				return convertIssueStateToString(eDataType, instanceValue);
 			case GitLabPackage.LINK_TYPE:
@@ -801,6 +805,26 @@ public class GitLabFactoryImpl extends EFactoryImpl implements GitLabFactory {
 	 * @generated
 	 */
 	public String convertSquashOptionToString(EDataType eDataType, Object instanceValue) {
+		return instanceValue == null ? null : instanceValue.toString();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public PositionType createPositionTypeFromString(EDataType eDataType, String initialValue) {
+		PositionType result = PositionType.get(initialValue);
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertPositionTypeToString(EDataType eDataType, Object instanceValue) {
 		return instanceValue == null ? null : instanceValue.toString();
 	}
 

@@ -1,4 +1,4 @@
-package org.nasdanika.models.git.tests;
+package org.nasdanika.models.gitlab.tests;
 
 import java.io.OutputStreamWriter;
 import java.io.Writer;
