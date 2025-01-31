@@ -550,7 +550,7 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="reviewers" upperBound="-1"
         eType="#//User"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="changes" upperBound="-1"
-        eType="#//Diff"/>
+        eType="#//Diff" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="mergeUser" eType="#//User"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="taskCompletionStatus" eType="#//TaskCompletionStatus"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="milestone" eType="#//Milestone"/>
@@ -574,7 +574,7 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="diffs" upperBound="-1"
         eType="#//Diff" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="diffVersions" upperBound="-1"
-        eType="#//MergeRequestDiff"/>
+        eType="#//MergeRequestDiff" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="allowCollaboration" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="allowMaintainerToPush"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBooleanObject"/>

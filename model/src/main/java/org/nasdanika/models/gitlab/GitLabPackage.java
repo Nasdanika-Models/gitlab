@@ -5073,7 +5073,7 @@ public interface GitLabPackage extends EPackage {
 	int MERGE_REQUEST__REVIEWERS = NOTABLE_FEATURE_COUNT + 6;
 
 	/**
-	 * The feature id for the '<em><b>Changes</b></em>' reference list.
+	 * The feature id for the '<em><b>Changes</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -5208,7 +5208,7 @@ public interface GitLabPackage extends EPackage {
 	int MERGE_REQUEST__DIFFS = NOTABLE_FEATURE_COUNT + 21;
 
 	/**
-	 * The feature id for the '<em><b>Diff Versions</b></em>' reference list.
+	 * The feature id for the '<em><b>Diff Versions</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -10397,10 +10397,10 @@ public interface GitLabPackage extends EPackage {
 	EReference getMergeRequest_Reviewers();
 
 	/**
-	 * Returns the meta object for the reference list '{@link org.nasdanika.models.gitlab.MergeRequest#getChanges <em>Changes</em>}'.
+	 * Returns the meta object for the containment reference list '{@link org.nasdanika.models.gitlab.MergeRequest#getChanges <em>Changes</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Changes</em>'.
+	 * @return the meta object for the containment reference list '<em>Changes</em>'.
 	 * @see org.nasdanika.models.gitlab.MergeRequest#getChanges()
 	 * @see #getMergeRequest()
 	 * @generated
@@ -10562,10 +10562,10 @@ public interface GitLabPackage extends EPackage {
 	EReference getMergeRequest_Diffs();
 
 	/**
-	 * Returns the meta object for the reference list '{@link org.nasdanika.models.gitlab.MergeRequest#getDiffVersions <em>Diff Versions</em>}'.
+	 * Returns the meta object for the containment reference list '{@link org.nasdanika.models.gitlab.MergeRequest#getDiffVersions <em>Diff Versions</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Diff Versions</em>'.
+	 * @return the meta object for the containment reference list '<em>Diff Versions</em>'.
 	 * @see org.nasdanika.models.gitlab.MergeRequest#getDiffVersions()
 	 * @see #getMergeRequest()
 	 * @generated
@@ -14502,7 +14502,7 @@ public interface GitLabPackage extends EPackage {
 		 */
 		EReference MERGE_REQUEST__REVIEWERS = eINSTANCE.getMergeRequest_Reviewers();
 		/**
-		 * The meta object literal for the '<em><b>Changes</b></em>' reference list feature.
+		 * The meta object literal for the '<em><b>Changes</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -14607,7 +14607,7 @@ public interface GitLabPackage extends EPackage {
 		 */
 		EReference MERGE_REQUEST__DIFFS = eINSTANCE.getMergeRequest_Diffs();
 		/**
-		 * The meta object literal for the '<em><b>Diff Versions</b></em>' reference list feature.
+		 * The meta object literal for the '<em><b>Diff Versions</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated

@@ -1899,6 +1899,8 @@ public class MergeRequestImpl extends NotableImpl implements MergeRequest {
 		switch (featureID) {
 			case GitLabPackage.MERGE_REQUEST__DISCUSSIONS:
 				return ((InternalEList<?>)getDiscussions()).basicRemove(otherEnd, msgs);
+			case GitLabPackage.MERGE_REQUEST__CHANGES:
+				return ((InternalEList<?>)getChanges()).basicRemove(otherEnd, msgs);
 			case GitLabPackage.MERGE_REQUEST__REFERENCES:
 				return basicSetReferences(null, msgs);
 			case GitLabPackage.MERGE_REQUEST__TIME_STATS:
@@ -1907,6 +1909,8 @@ public class MergeRequestImpl extends NotableImpl implements MergeRequest {
 				return basicSetDiffRefs(null, msgs);
 			case GitLabPackage.MERGE_REQUEST__DIFFS:
 				return ((InternalEList<?>)getDiffs()).basicRemove(otherEnd, msgs);
+			case GitLabPackage.MERGE_REQUEST__DIFF_VERSIONS:
+				return ((InternalEList<?>)getDiffVersions()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}

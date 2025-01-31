@@ -203,13 +203,13 @@ public interface MergeRequest extends Notable, Discussable {
 	EList<User> getReviewers();
 
 	/**
-	 * Returns the value of the '<em><b>Changes</b></em>' reference list.
+	 * Returns the value of the '<em><b>Changes</b></em>' containment reference list.
 	 * The list contents are of type {@link org.nasdanika.models.gitlab.Diff}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Changes</em>' reference list.
+	 * @return the value of the '<em>Changes</em>' containment reference list.
 	 * @see org.nasdanika.models.gitlab.GitLabPackage#getMergeRequest_Changes()
-	 * @model
+	 * @model containment="true"
 	 * @generated
 	 */
 	EList<Diff> getChanges();
@@ -473,13 +473,13 @@ public interface MergeRequest extends Notable, Discussable {
 	EList<Diff> getDiffs();
 
 	/**
-	 * Returns the value of the '<em><b>Diff Versions</b></em>' reference list.
+	 * Returns the value of the '<em><b>Diff Versions</b></em>' containment reference list.
 	 * The list contents are of type {@link org.nasdanika.models.gitlab.MergeRequestDiff}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Diff Versions</em>' reference list.
+	 * @return the value of the '<em>Diff Versions</em>' containment reference list.
 	 * @see org.nasdanika.models.gitlab.GitLabPackage#getMergeRequest_DiffVersions()
-	 * @model
+	 * @model containment="true"
 	 * @generated
 	 */
 	EList<MergeRequestDiff> getDiffVersions();
