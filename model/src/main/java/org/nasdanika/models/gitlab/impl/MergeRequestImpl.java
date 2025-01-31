@@ -1905,6 +1905,8 @@ public class MergeRequestImpl extends NotableImpl implements MergeRequest {
 				return basicSetTimeStats(null, msgs);
 			case GitLabPackage.MERGE_REQUEST__DIFF_REFS:
 				return basicSetDiffRefs(null, msgs);
+			case GitLabPackage.MERGE_REQUEST__DIFFS:
+				return ((InternalEList<?>)getDiffs()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}

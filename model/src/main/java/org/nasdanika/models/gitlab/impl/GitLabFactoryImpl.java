@@ -72,6 +72,7 @@ public class GitLabFactoryImpl extends EFactoryImpl implements GitLabFactory {
 			case GitLabPackage.PROJECT_LICENSE: return createProjectLicense();
 			case GitLabPackage.CONTRIBUTOR: return createContributor();
 			case GitLabPackage.COMMIT: return createCommit();
+			case GitLabPackage.COMMIT_STATS: return createCommitStats();
 			case GitLabPackage.PROJECT_ACCESS: return createProjectAccess();
 			case GitLabPackage.CUSTOM_ATTRIBUTE: return (EObject)createCustomAttribute();
 			case GitLabPackage.OWNER: return createOwner();
@@ -326,6 +327,17 @@ public class GitLabFactoryImpl extends EFactoryImpl implements GitLabFactory {
 	public Commit createCommit() {
 		CommitImpl commit = new CommitImpl();
 		return commit;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public CommitStats createCommitStats() {
+		CommitStatsImpl commitStats = new CommitStatsImpl();
+		return commitStats;
 	}
 
 	/**

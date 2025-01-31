@@ -280,6 +280,12 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gitlab.ecore#//Commit/webURL"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference gitlab.ecore#//Commit/branches"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference gitlab.ecore#//Commit/diffs"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference gitlab.ecore#//Commit/stats"/>
+    </genClasses>
+    <genClasses ecoreClass="gitlab.ecore#//CommitStats">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gitlab.ecore#//CommitStats/additions"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gitlab.ecore#//CommitStats/deletions"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gitlab.ecore#//CommitStats/total"/>
     </genClasses>
     <genClasses ecoreClass="gitlab.ecore#//ProjectAccess">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute gitlab.ecore#//ProjectAccess/accessLevel"/>

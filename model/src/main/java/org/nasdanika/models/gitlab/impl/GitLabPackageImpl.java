@@ -28,6 +28,7 @@ import org.nasdanika.models.gitlab.Blob;
 import org.nasdanika.models.gitlab.Branch;
 import org.nasdanika.models.gitlab.BuildGitStrategy;
 import org.nasdanika.models.gitlab.Commit;
+import org.nasdanika.models.gitlab.CommitStats;
 import org.nasdanika.models.gitlab.Contributor;
 import org.nasdanika.models.gitlab.Diff;
 import org.nasdanika.models.gitlab.DiffRef;
@@ -205,6 +206,12 @@ public class GitLabPackageImpl extends EPackageImpl implements GitLabPackage {
 	 * @generated
 	 */
 	private EClass commitEClass = null;
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass commitStatsEClass = null;
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2489,6 +2496,56 @@ public class GitLabPackageImpl extends EPackageImpl implements GitLabPackage {
 	@Override
 	public EReference getCommit_Diffs() {
 		return (EReference)commitEClass.getEStructuralFeatures().get(20);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getCommit_Stats() {
+		return (EReference)commitEClass.getEStructuralFeatures().get(21);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EClass getCommitStats() {
+		return commitStatsEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getCommitStats_Additions() {
+		return (EAttribute)commitStatsEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getCommitStats_Deletions() {
+		return (EAttribute)commitStatsEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getCommitStats_Total() {
+		return (EAttribute)commitStatsEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -5485,6 +5542,12 @@ public class GitLabPackageImpl extends EPackageImpl implements GitLabPackage {
 		createEAttribute(commitEClass, COMMIT__WEB_URL);
 		createEReference(commitEClass, COMMIT__BRANCHES);
 		createEReference(commitEClass, COMMIT__DIFFS);
+		createEReference(commitEClass, COMMIT__STATS);
+
+		commitStatsEClass = createEClass(COMMIT_STATS);
+		createEAttribute(commitStatsEClass, COMMIT_STATS__ADDITIONS);
+		createEAttribute(commitStatsEClass, COMMIT_STATS__DELETIONS);
+		createEAttribute(commitStatsEClass, COMMIT_STATS__TOTAL);
 
 		projectAccessEClass = createEClass(PROJECT_ACCESS);
 		createEAttribute(projectAccessEClass, PROJECT_ACCESS__ACCESS_LEVEL);
@@ -6122,6 +6185,12 @@ public class GitLabPackageImpl extends EPackageImpl implements GitLabPackage {
 		initEAttribute(getCommit_WebURL(), ecorePackage.getEString(), "webURL", null, 0, 1, Commit.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getCommit_Branches(), this.getBranch(), this.getBranch_Commit(), "branches", null, 0, -1, Commit.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getCommit_Diffs(), this.getDiff(), null, "diffs", null, 0, -1, Commit.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getCommit_Stats(), this.getCommitStats(), null, "stats", null, 0, 1, Commit.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(commitStatsEClass, CommitStats.class, "CommitStats", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getCommitStats_Additions(), ecorePackage.getEIntegerObject(), "additions", null, 0, 1, CommitStats.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getCommitStats_Deletions(), ecorePackage.getEIntegerObject(), "deletions", null, 0, 1, CommitStats.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getCommitStats_Total(), ecorePackage.getEIntegerObject(), "total", null, 0, 1, CommitStats.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(projectAccessEClass, ProjectAccess.class, "ProjectAccess", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getProjectAccess_AccessLevel(), this.getAccessLevel(), "accessLevel", null, 0, 1, ProjectAccess.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -6263,7 +6332,7 @@ public class GitLabPackageImpl extends EPackageImpl implements GitLabPackage {
 		initEReference(getMergeRequest_ApprovalStatus(), this.getIssue(), null, "approvalStatus", null, 0, -1, MergeRequest.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getMergeRequest_ClosedIssues(), this.getIssue(), null, "closedIssues", null, 0, -1, MergeRequest.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getMergeRequest_Commits(), this.getCommit(), null, "commits", null, 0, -1, MergeRequest.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getMergeRequest_Diffs(), this.getDiff(), null, "diffs", null, 0, -1, MergeRequest.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getMergeRequest_Diffs(), this.getDiff(), null, "diffs", null, 0, -1, MergeRequest.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getMergeRequest_DiffVersions(), this.getMergeRequestDiff(), null, "diffVersions", null, 0, -1, MergeRequest.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getMergeRequest_AllowCollaboration(), ecorePackage.getEBoolean(), "allowCollaboration", null, 0, 1, MergeRequest.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getMergeRequest_AllowMaintainerToPush(), ecorePackage.getEBooleanObject(), "allowMaintainerToPush", null, 0, 1, MergeRequest.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

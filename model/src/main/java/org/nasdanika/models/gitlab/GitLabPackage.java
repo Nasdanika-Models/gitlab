@@ -2418,7 +2418,7 @@ public interface GitLabPackage extends EPackage {
 	 * @see org.nasdanika.models.gitlab.impl.GitLabPackageImpl#getProjectAccess()
 	 * @generated
 	 */
-	int PROJECT_ACCESS = 19;
+	int PROJECT_ACCESS = 20;
 
 	/**
 	 * The meta object id for the '{@link org.nasdanika.models.gitlab.impl.CustomAttributeImpl <em>Custom Attribute</em>}' class.
@@ -2428,7 +2428,7 @@ public interface GitLabPackage extends EPackage {
 	 * @see org.nasdanika.models.gitlab.impl.GitLabPackageImpl#getCustomAttribute()
 	 * @generated
 	 */
-	int CUSTOM_ATTRIBUTE = 20;
+	int CUSTOM_ATTRIBUTE = 21;
 
 	/**
 	 * The meta object id for the '{@link org.nasdanika.models.gitlab.impl.TreeItemImpl <em>Tree Item</em>}' class.
@@ -2438,7 +2438,7 @@ public interface GitLabPackage extends EPackage {
 	 * @see org.nasdanika.models.gitlab.impl.GitLabPackageImpl#getTreeItem()
 	 * @generated
 	 */
-	int TREE_ITEM = 22;
+	int TREE_ITEM = 23;
 
 	/**
 	 * The meta object id for the '{@link org.nasdanika.models.gitlab.impl.TreeImpl <em>Tree</em>}' class.
@@ -2448,7 +2448,7 @@ public interface GitLabPackage extends EPackage {
 	 * @see org.nasdanika.models.gitlab.impl.GitLabPackageImpl#getTree()
 	 * @generated
 	 */
-	int TREE = 24;
+	int TREE = 25;
 
 	/**
 	 * The meta object id for the '{@link org.nasdanika.models.gitlab.impl.BranchImpl <em>Branch</em>}' class.
@@ -2458,7 +2458,7 @@ public interface GitLabPackage extends EPackage {
 	 * @see org.nasdanika.models.gitlab.impl.GitLabPackageImpl#getBranch()
 	 * @generated
 	 */
-	int BRANCH = 25;
+	int BRANCH = 26;
 
 	/**
 	 * The meta object id for the '{@link org.nasdanika.models.gitlab.impl.OwnerImpl <em>Owner</em>}' class.
@@ -2468,7 +2468,7 @@ public interface GitLabPackage extends EPackage {
 	 * @see org.nasdanika.models.gitlab.impl.GitLabPackageImpl#getOwner()
 	 * @generated
 	 */
-	int OWNER = 21;
+	int OWNER = 22;
 
 	/**
 	 * The meta object id for the '{@link org.nasdanika.models.gitlab.impl.TreeItemReferenceImpl <em>Tree Item Reference</em>}' class.
@@ -2478,7 +2478,7 @@ public interface GitLabPackage extends EPackage {
 	 * @see org.nasdanika.models.gitlab.impl.GitLabPackageImpl#getTreeItemReference()
 	 * @generated
 	 */
-	int TREE_ITEM_REFERENCE = 23;
+	int TREE_ITEM_REFERENCE = 24;
 
 	/**
 	 * The meta object id for the '{@link org.nasdanika.models.gitlab.impl.BlobImpl <em>Blob</em>}' class.
@@ -2488,7 +2488,7 @@ public interface GitLabPackage extends EPackage {
 	 * @see org.nasdanika.models.gitlab.impl.GitLabPackageImpl#getBlob()
 	 * @generated
 	 */
-	int BLOB = 26;
+	int BLOB = 27;
 
 	/**
 	 * The meta object id for the '{@link org.nasdanika.models.gitlab.impl.RepositoryFileImpl <em>Repository File</em>}' class.
@@ -2498,7 +2498,7 @@ public interface GitLabPackage extends EPackage {
 	 * @see org.nasdanika.models.gitlab.impl.GitLabPackageImpl#getRepositoryFile()
 	 * @generated
 	 */
-	int REPOSITORY_FILE = 27;
+	int REPOSITORY_FILE = 28;
 
 	/**
 	 * The meta object id for the '{@link org.nasdanika.models.gitlab.impl.TextRepositoryFileImpl <em>Text Repository File</em>}' class.
@@ -2508,7 +2508,7 @@ public interface GitLabPackage extends EPackage {
 	 * @see org.nasdanika.models.gitlab.impl.GitLabPackageImpl#getTextRepositoryFile()
 	 * @generated
 	 */
-	int TEXT_REPOSITORY_FILE = 28;
+	int TEXT_REPOSITORY_FILE = 29;
 
 	/**
 	 * The meta object id for the '{@link org.nasdanika.models.gitlab.impl.ReferenceRepositoryFileImpl <em>Reference Repository File</em>}' class.
@@ -2518,7 +2518,7 @@ public interface GitLabPackage extends EPackage {
 	 * @see org.nasdanika.models.gitlab.impl.GitLabPackageImpl#getReferenceRepositoryFile()
 	 * @generated
 	 */
-	int REFERENCE_REPOSITORY_FILE = 29;
+	int REFERENCE_REPOSITORY_FILE = 30;
 
 	/**
 	 * The meta object id for the '{@link org.nasdanika.models.gitlab.impl.BinaryRepositoryFileImpl <em>Binary Repository File</em>}' class.
@@ -2528,7 +2528,7 @@ public interface GitLabPackage extends EPackage {
 	 * @see org.nasdanika.models.gitlab.impl.GitLabPackageImpl#getBinaryRepositoryFile()
 	 * @generated
 	 */
-	int BINARY_REPOSITORY_FILE = 30;
+	int BINARY_REPOSITORY_FILE = 31;
 
 	/**
 	 * The meta object id for the '{@link org.nasdanika.models.gitlab.impl.EObjectRepositoryFileImpl <em>EObject Repository File</em>}' class.
@@ -2538,7 +2538,7 @@ public interface GitLabPackage extends EPackage {
 	 * @see org.nasdanika.models.gitlab.impl.GitLabPackageImpl#getEObjectRepositoryFile()
 	 * @generated
 	 */
-	int EOBJECT_REPOSITORY_FILE = 31;
+	int EOBJECT_REPOSITORY_FILE = 32;
 
 	/**
 	 * The meta object id for the '{@link org.nasdanika.models.gitlab.impl.ListRepositoryFileImpl <em>List Repository File</em>}' class.
@@ -2548,7 +2548,7 @@ public interface GitLabPackage extends EPackage {
 	 * @see org.nasdanika.models.gitlab.impl.GitLabPackageImpl#getListRepositoryFile()
 	 * @generated
 	 */
-	int LIST_REPOSITORY_FILE = 32;
+	int LIST_REPOSITORY_FILE = 33;
 
 	/**
 	 * The meta object id for the '{@link org.nasdanika.models.gitlab.impl.BlameImpl <em>Blame</em>}' class.
@@ -2558,7 +2558,7 @@ public interface GitLabPackage extends EPackage {
 	 * @see org.nasdanika.models.gitlab.impl.GitLabPackageImpl#getBlame()
 	 * @generated
 	 */
-	int BLAME = 33;
+	int BLAME = 34;
 
 	/**
 	 * The meta object id for the '{@link org.nasdanika.models.gitlab.impl.DiffImpl <em>Diff</em>}' class.
@@ -2568,7 +2568,7 @@ public interface GitLabPackage extends EPackage {
 	 * @see org.nasdanika.models.gitlab.impl.GitLabPackageImpl#getDiff()
 	 * @generated
 	 */
-	int DIFF = 34;
+	int DIFF = 35;
 
 	/**
 	 * The meta object id for the '{@link org.nasdanika.models.gitlab.impl.PositionImpl <em>Position</em>}' class.
@@ -2578,7 +2578,7 @@ public interface GitLabPackage extends EPackage {
 	 * @see org.nasdanika.models.gitlab.impl.GitLabPackageImpl#getPosition()
 	 * @generated
 	 */
-	int POSITION = 35;
+	int POSITION = 36;
 
 	/**
 	 * The meta object id for the '{@link org.nasdanika.models.gitlab.impl.NoteImpl <em>Note</em>}' class.
@@ -2588,7 +2588,7 @@ public interface GitLabPackage extends EPackage {
 	 * @see org.nasdanika.models.gitlab.impl.GitLabPackageImpl#getNote()
 	 * @generated
 	 */
-	int NOTE = 36;
+	int NOTE = 37;
 
 	/**
 	 * The meta object id for the '{@link org.nasdanika.models.gitlab.impl.NotableImpl <em>Notable</em>}' class.
@@ -2598,7 +2598,7 @@ public interface GitLabPackage extends EPackage {
 	 * @see org.nasdanika.models.gitlab.impl.GitLabPackageImpl#getNotable()
 	 * @generated
 	 */
-	int NOTABLE = 37;
+	int NOTABLE = 38;
 
 	/**
 	 * The meta object id for the '{@link org.nasdanika.models.gitlab.impl.MergeRequestImpl <em>Merge Request</em>}' class.
@@ -2608,7 +2608,7 @@ public interface GitLabPackage extends EPackage {
 	 * @see org.nasdanika.models.gitlab.impl.GitLabPackageImpl#getMergeRequest()
 	 * @generated
 	 */
-	int MERGE_REQUEST = 40;
+	int MERGE_REQUEST = 41;
 
 	/**
 	 * The meta object id for the '{@link org.nasdanika.models.gitlab.impl.ApprovalRuleImpl <em>Approval Rule</em>}' class.
@@ -2618,7 +2618,7 @@ public interface GitLabPackage extends EPackage {
 	 * @see org.nasdanika.models.gitlab.impl.GitLabPackageImpl#getApprovalRule()
 	 * @generated
 	 */
-	int APPROVAL_RULE = 41;
+	int APPROVAL_RULE = 42;
 
 	/**
 	 * The meta object id for the '{@link org.nasdanika.models.gitlab.impl.ApprovalStateImpl <em>Approval State</em>}' class.
@@ -2628,7 +2628,7 @@ public interface GitLabPackage extends EPackage {
 	 * @see org.nasdanika.models.gitlab.impl.GitLabPackageImpl#getApprovalState()
 	 * @generated
 	 */
-	int APPROVAL_STATE = 42;
+	int APPROVAL_STATE = 43;
 
 	/**
 	 * The meta object id for the '{@link org.nasdanika.models.gitlab.impl.MergeRequestVersionImpl <em>Merge Request Version</em>}' class.
@@ -2638,7 +2638,7 @@ public interface GitLabPackage extends EPackage {
 	 * @see org.nasdanika.models.gitlab.impl.GitLabPackageImpl#getMergeRequestVersion()
 	 * @generated
 	 */
-	int MERGE_REQUEST_VERSION = 43;
+	int MERGE_REQUEST_VERSION = 44;
 
 	/**
 	 * The meta object id for the '{@link org.nasdanika.models.gitlab.impl.MergeRequestDiffImpl <em>Merge Request Diff</em>}' class.
@@ -2648,7 +2648,7 @@ public interface GitLabPackage extends EPackage {
 	 * @see org.nasdanika.models.gitlab.impl.GitLabPackageImpl#getMergeRequestDiff()
 	 * @generated
 	 */
-	int MERGE_REQUEST_DIFF = 44;
+	int MERGE_REQUEST_DIFF = 45;
 
 	/**
 	 * The meta object id for the '{@link org.nasdanika.models.gitlab.impl.TimeStatsImpl <em>Time Stats</em>}' class.
@@ -2658,7 +2658,7 @@ public interface GitLabPackage extends EPackage {
 	 * @see org.nasdanika.models.gitlab.impl.GitLabPackageImpl#getTimeStats()
 	 * @generated
 	 */
-	int TIME_STATS = 45;
+	int TIME_STATS = 46;
 
 	/**
 	 * The meta object id for the '{@link org.nasdanika.models.gitlab.impl.TaskCompletionStatusImpl <em>Task Completion Status</em>}' class.
@@ -2668,7 +2668,7 @@ public interface GitLabPackage extends EPackage {
 	 * @see org.nasdanika.models.gitlab.impl.GitLabPackageImpl#getTaskCompletionStatus()
 	 * @generated
 	 */
-	int TASK_COMPLETION_STATUS = 46;
+	int TASK_COMPLETION_STATUS = 47;
 
 	/**
 	 * The meta object id for the '{@link org.nasdanika.models.gitlab.impl.MilestoneImpl <em>Milestone</em>}' class.
@@ -2678,7 +2678,7 @@ public interface GitLabPackage extends EPackage {
 	 * @see org.nasdanika.models.gitlab.impl.GitLabPackageImpl#getMilestone()
 	 * @generated
 	 */
-	int MILESTONE = 47;
+	int MILESTONE = 48;
 
 	/**
 	 * The meta object id for the '{@link org.nasdanika.models.gitlab.impl.ReferencesImpl <em>References</em>}' class.
@@ -2688,7 +2688,7 @@ public interface GitLabPackage extends EPackage {
 	 * @see org.nasdanika.models.gitlab.impl.GitLabPackageImpl#getReferences()
 	 * @generated
 	 */
-	int REFERENCES = 48;
+	int REFERENCES = 49;
 
 	/**
 	 * The meta object id for the '{@link org.nasdanika.models.gitlab.impl.DiffRefImpl <em>Diff Ref</em>}' class.
@@ -2698,7 +2698,7 @@ public interface GitLabPackage extends EPackage {
 	 * @see org.nasdanika.models.gitlab.impl.GitLabPackageImpl#getDiffRef()
 	 * @generated
 	 */
-	int DIFF_REF = 49;
+	int DIFF_REF = 50;
 
 	/**
 	 * The meta object id for the '{@link org.nasdanika.models.gitlab.impl.AbstractIssueImpl <em>Abstract Issue</em>}' class.
@@ -2708,7 +2708,7 @@ public interface GitLabPackage extends EPackage {
 	 * @see org.nasdanika.models.gitlab.impl.GitLabPackageImpl#getAbstractIssue()
 	 * @generated
 	 */
-	int ABSTRACT_ISSUE = 50;
+	int ABSTRACT_ISSUE = 51;
 
 	/**
 	 * The meta object id for the '{@link org.nasdanika.models.gitlab.impl.IssueImpl <em>Issue</em>}' class.
@@ -2718,7 +2718,7 @@ public interface GitLabPackage extends EPackage {
 	 * @see org.nasdanika.models.gitlab.impl.GitLabPackageImpl#getIssue()
 	 * @generated
 	 */
-	int ISSUE = 51;
+	int ISSUE = 52;
 
 	/**
 	 * The meta object id for the '{@link org.nasdanika.models.gitlab.impl.DiscussableImpl <em>Discussable</em>}' class.
@@ -2728,7 +2728,7 @@ public interface GitLabPackage extends EPackage {
 	 * @see org.nasdanika.models.gitlab.impl.GitLabPackageImpl#getDiscussable()
 	 * @generated
 	 */
-	int DISCUSSABLE = 39;
+	int DISCUSSABLE = 40;
 
 	/**
 	 * The feature id for the '<em><b>Discussions</b></em>' containment reference list.
@@ -2956,13 +2956,22 @@ public interface GitLabPackage extends EPackage {
 	int COMMIT__DIFFS = DISCUSSABLE_FEATURE_COUNT + 20;
 
 	/**
+	 * The feature id for the '<em><b>Stats</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMMIT__STATS = DISCUSSABLE_FEATURE_COUNT + 21;
+
+	/**
 	 * The number of structural features of the '<em>Commit</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COMMIT_FEATURE_COUNT = DISCUSSABLE_FEATURE_COUNT + 21;
+	int COMMIT_FEATURE_COUNT = DISCUSSABLE_FEATURE_COUNT + 22;
 
 	/**
 	 * The number of operations of the '<em>Commit</em>' class.
@@ -2972,6 +2981,61 @@ public interface GitLabPackage extends EPackage {
 	 * @ordered
 	 */
 	int COMMIT_OPERATION_COUNT = DISCUSSABLE_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link org.nasdanika.models.gitlab.impl.CommitStatsImpl <em>Commit Stats</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.nasdanika.models.gitlab.impl.CommitStatsImpl
+	 * @see org.nasdanika.models.gitlab.impl.GitLabPackageImpl#getCommitStats()
+	 * @generated
+	 */
+	int COMMIT_STATS = 19;
+
+	/**
+	 * The feature id for the '<em><b>Additions</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMMIT_STATS__ADDITIONS = 0;
+
+	/**
+	 * The feature id for the '<em><b>Deletions</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMMIT_STATS__DELETIONS = 1;
+
+	/**
+	 * The feature id for the '<em><b>Total</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMMIT_STATS__TOTAL = 2;
+
+	/**
+	 * The number of structural features of the '<em>Commit Stats</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMMIT_STATS_FEATURE_COUNT = 3;
+
+	/**
+	 * The number of operations of the '<em>Commit Stats</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMMIT_STATS_OPERATION_COUNT = 0;
 
 	/**
 	 * The feature id for the '<em><b>Access Level</b></em>' attribute.
@@ -4889,7 +4953,7 @@ public interface GitLabPackage extends EPackage {
 	 * @see org.nasdanika.models.gitlab.impl.GitLabPackageImpl#getDiscussion()
 	 * @generated
 	 */
-	int DISCUSSION = 38;
+	int DISCUSSION = 39;
 
 	/**
 	 * The feature id for the '<em><b>Notes</b></em>' containment reference list.
@@ -5135,7 +5199,7 @@ public interface GitLabPackage extends EPackage {
 	int MERGE_REQUEST__COMMITS = NOTABLE_FEATURE_COUNT + 20;
 
 	/**
-	 * The feature id for the '<em><b>Diffs</b></em>' reference list.
+	 * The feature id for the '<em><b>Diffs</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -6978,7 +7042,7 @@ public interface GitLabPackage extends EPackage {
 	 * @see org.nasdanika.models.gitlab.impl.GitLabPackageImpl#getVisibility()
 	 * @generated
 	 */
-	int VISIBILITY = 52;
+	int VISIBILITY = 53;
 
 
 	/**
@@ -6989,7 +7053,7 @@ public interface GitLabPackage extends EPackage {
 	 * @see org.nasdanika.models.gitlab.impl.GitLabPackageImpl#getAccessLevel()
 	 * @generated
 	 */
-	int ACCESS_LEVEL = 53;
+	int ACCESS_LEVEL = 54;
 
 
 	/**
@@ -7000,7 +7064,7 @@ public interface GitLabPackage extends EPackage {
 	 * @see org.nasdanika.models.gitlab.impl.GitLabPackageImpl#getMergeMethod()
 	 * @generated
 	 */
-	int MERGE_METHOD = 54;
+	int MERGE_METHOD = 55;
 
 	/**
 	 * The meta object id for the '{@link org.nasdanika.models.gitlab.BuildGitStrategy <em>Build Git Strategy</em>}' enum.
@@ -7010,7 +7074,7 @@ public interface GitLabPackage extends EPackage {
 	 * @see org.nasdanika.models.gitlab.impl.GitLabPackageImpl#getBuildGitStrategy()
 	 * @generated
 	 */
-	int BUILD_GIT_STRATEGY = 55;
+	int BUILD_GIT_STRATEGY = 56;
 
 	/**
 	 * The meta object id for the '{@link org.nasdanika.models.gitlab.Status <em>Status</em>}' enum.
@@ -7020,7 +7084,7 @@ public interface GitLabPackage extends EPackage {
 	 * @see org.nasdanika.models.gitlab.impl.GitLabPackageImpl#getStatus()
 	 * @generated
 	 */
-	int STATUS = 56;
+	int STATUS = 57;
 
 	/**
 	 * The meta object id for the '{@link org.nasdanika.models.gitlab.AutoDevopsDeployStrategy <em>Auto Devops Deploy Strategy</em>}' enum.
@@ -7030,7 +7094,7 @@ public interface GitLabPackage extends EPackage {
 	 * @see org.nasdanika.models.gitlab.impl.GitLabPackageImpl#getAutoDevopsDeployStrategy()
 	 * @generated
 	 */
-	int AUTO_DEVOPS_DEPLOY_STRATEGY = 57;
+	int AUTO_DEVOPS_DEPLOY_STRATEGY = 58;
 
 	/**
 	 * The meta object id for the '{@link org.nasdanika.models.gitlab.SquashOption <em>Squash Option</em>}' enum.
@@ -7040,7 +7104,7 @@ public interface GitLabPackage extends EPackage {
 	 * @see org.nasdanika.models.gitlab.impl.GitLabPackageImpl#getSquashOption()
 	 * @generated
 	 */
-	int SQUASH_OPTION = 58;
+	int SQUASH_OPTION = 59;
 
 
 	/**
@@ -7051,7 +7115,7 @@ public interface GitLabPackage extends EPackage {
 	 * @see org.nasdanika.models.gitlab.impl.GitLabPackageImpl#getPositionType()
 	 * @generated
 	 */
-	int POSITION_TYPE = 59;
+	int POSITION_TYPE = 60;
 
 	/**
 	 * The meta object id for the '{@link org.nasdanika.models.gitlab.IssueState <em>Issue State</em>}' enum.
@@ -7061,7 +7125,7 @@ public interface GitLabPackage extends EPackage {
 	 * @see org.nasdanika.models.gitlab.impl.GitLabPackageImpl#getIssueState()
 	 * @generated
 	 */
-	int ISSUE_STATE = 60;
+	int ISSUE_STATE = 61;
 
 	/**
 	 * The meta object id for the '{@link org.nasdanika.models.gitlab.LinkType <em>Link Type</em>}' enum.
@@ -7071,7 +7135,7 @@ public interface GitLabPackage extends EPackage {
 	 * @see org.nasdanika.models.gitlab.impl.GitLabPackageImpl#getLinkType()
 	 * @generated
 	 */
-	int LINK_TYPE = 61;
+	int LINK_TYPE = 62;
 
 
 	/**
@@ -9198,6 +9262,60 @@ public interface GitLabPackage extends EPackage {
 	EReference getCommit_Diffs();
 
 	/**
+	 * Returns the meta object for the containment reference '{@link org.nasdanika.models.gitlab.Commit#getStats <em>Stats</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Stats</em>'.
+	 * @see org.nasdanika.models.gitlab.Commit#getStats()
+	 * @see #getCommit()
+	 * @generated
+	 */
+	EReference getCommit_Stats();
+
+	/**
+	 * Returns the meta object for class '{@link org.nasdanika.models.gitlab.CommitStats <em>Commit Stats</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Commit Stats</em>'.
+	 * @see org.nasdanika.models.gitlab.CommitStats
+	 * @generated
+	 */
+	EClass getCommitStats();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.models.gitlab.CommitStats#getAdditions <em>Additions</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Additions</em>'.
+	 * @see org.nasdanika.models.gitlab.CommitStats#getAdditions()
+	 * @see #getCommitStats()
+	 * @generated
+	 */
+	EAttribute getCommitStats_Additions();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.models.gitlab.CommitStats#getDeletions <em>Deletions</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Deletions</em>'.
+	 * @see org.nasdanika.models.gitlab.CommitStats#getDeletions()
+	 * @see #getCommitStats()
+	 * @generated
+	 */
+	EAttribute getCommitStats_Deletions();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.models.gitlab.CommitStats#getTotal <em>Total</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Total</em>'.
+	 * @see org.nasdanika.models.gitlab.CommitStats#getTotal()
+	 * @see #getCommitStats()
+	 * @generated
+	 */
+	EAttribute getCommitStats_Total();
+
+	/**
 	 * Returns the meta object for the attribute '{@link org.nasdanika.models.gitlab.Contributor#getAdditions <em>Additions</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -10433,10 +10551,10 @@ public interface GitLabPackage extends EPackage {
 	EReference getMergeRequest_Commits();
 
 	/**
-	 * Returns the meta object for the reference list '{@link org.nasdanika.models.gitlab.MergeRequest#getDiffs <em>Diffs</em>}'.
+	 * Returns the meta object for the containment reference list '{@link org.nasdanika.models.gitlab.MergeRequest#getDiffs <em>Diffs</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Diffs</em>'.
+	 * @return the meta object for the containment reference list '<em>Diffs</em>'.
 	 * @see org.nasdanika.models.gitlab.MergeRequest#getDiffs()
 	 * @see #getMergeRequest()
 	 * @generated
@@ -13607,6 +13725,43 @@ public interface GitLabPackage extends EPackage {
 		 */
 		EReference COMMIT__DIFFS = eINSTANCE.getCommit_Diffs();
 		/**
+		 * The meta object literal for the '<em><b>Stats</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference COMMIT__STATS = eINSTANCE.getCommit_Stats();
+		/**
+		 * The meta object literal for the '{@link org.nasdanika.models.gitlab.impl.CommitStatsImpl <em>Commit Stats</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.nasdanika.models.gitlab.impl.CommitStatsImpl
+		 * @see org.nasdanika.models.gitlab.impl.GitLabPackageImpl#getCommitStats()
+		 * @generated
+		 */
+		EClass COMMIT_STATS = eINSTANCE.getCommitStats();
+		/**
+		 * The meta object literal for the '<em><b>Additions</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute COMMIT_STATS__ADDITIONS = eINSTANCE.getCommitStats_Additions();
+		/**
+		 * The meta object literal for the '<em><b>Deletions</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute COMMIT_STATS__DELETIONS = eINSTANCE.getCommitStats_Deletions();
+		/**
+		 * The meta object literal for the '<em><b>Total</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute COMMIT_STATS__TOTAL = eINSTANCE.getCommitStats_Total();
+		/**
 		 * The meta object literal for the '<em><b>Additions</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -14445,7 +14600,7 @@ public interface GitLabPackage extends EPackage {
 		 */
 		EReference MERGE_REQUEST__COMMITS = eINSTANCE.getMergeRequest_Commits();
 		/**
-		 * The meta object literal for the '<em><b>Diffs</b></em>' reference list feature.
+		 * The meta object literal for the '<em><b>Diffs</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated

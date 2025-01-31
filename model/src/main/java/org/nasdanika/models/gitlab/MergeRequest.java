@@ -461,13 +461,13 @@ public interface MergeRequest extends Notable, Discussable {
 	EList<Commit> getCommits();
 
 	/**
-	 * Returns the value of the '<em><b>Diffs</b></em>' reference list.
+	 * Returns the value of the '<em><b>Diffs</b></em>' containment reference list.
 	 * The list contents are of type {@link org.nasdanika.models.gitlab.Diff}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Diffs</em>' reference list.
+	 * @return the value of the '<em>Diffs</em>' containment reference list.
 	 * @see org.nasdanika.models.gitlab.GitLabPackage#getMergeRequest_Diffs()
-	 * @model
+	 * @model containment="true"
 	 * @generated
 	 */
 	EList<Diff> getDiffs();

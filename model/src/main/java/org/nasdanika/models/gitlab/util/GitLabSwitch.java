@@ -205,6 +205,12 @@ public class GitLabSwitch<T1> extends Switch<T1> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case GitLabPackage.COMMIT_STATS: {
+				CommitStats commitStats = (CommitStats)theEObject;
+				T1 result = caseCommitStats(commitStats);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			case GitLabPackage.PROJECT_ACCESS: {
 				ProjectAccess projectAccess = (ProjectAccess)theEObject;
 				T1 result = caseProjectAccess(projectAccess);
@@ -746,6 +752,21 @@ public class GitLabSwitch<T1> extends Switch<T1> {
 	 * @generated
 	 */
 	public T1 caseCommit(Commit object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Commit Stats</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Commit Stats</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T1 caseCommitStats(CommitStats object) {
 		return null;
 	}
 

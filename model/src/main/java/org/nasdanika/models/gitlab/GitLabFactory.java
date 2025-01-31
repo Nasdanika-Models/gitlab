@@ -148,6 +148,15 @@ public interface GitLabFactory extends EFactory {
 	Commit createCommit();
 
 	/**
+	 * Returns a new object of class '<em>Commit Stats</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Commit Stats</em>'.
+	 * @generated
+	 */
+	CommitStats createCommitStats();
+
+	/**
 	 * Returns a new object of class '<em>Project Access</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

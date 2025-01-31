@@ -353,6 +353,13 @@
         eType="#//Branch" eOpposite="#//Branch/commit"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="diffs" upperBound="-1"
         eType="#//Diff" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="stats" eType="#//CommitStats"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="CommitStats">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="additions" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EIntegerObject"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="deletions" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EIntegerObject"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="total" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EIntegerObject"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="MergeMethod">
     <eLiterals name="Merge"/>
@@ -565,7 +572,7 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="commits" upperBound="-1"
         eType="#//Commit"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="diffs" upperBound="-1"
-        eType="#//Diff"/>
+        eType="#//Diff" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="diffVersions" upperBound="-1"
         eType="#//MergeRequestDiff"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="allowCollaboration" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>

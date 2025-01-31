@@ -36,6 +36,7 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link org.nasdanika.models.gitlab.Commit#getWebURL <em>Web URL</em>}</li>
  *   <li>{@link org.nasdanika.models.gitlab.Commit#getBranches <em>Branches</em>}</li>
  *   <li>{@link org.nasdanika.models.gitlab.Commit#getDiffs <em>Diffs</em>}</li>
+ *   <li>{@link org.nasdanika.models.gitlab.Commit#getStats <em>Stats</em>}</li>
  * </ul>
  *
  * @see org.nasdanika.models.gitlab.GitLabPackage#getCommit()
@@ -462,5 +463,27 @@ public interface Commit extends Discussable {
 	 * @generated
 	 */
 	EList<Diff> getDiffs();
+
+	/**
+	 * Returns the value of the '<em><b>Stats</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Stats</em>' containment reference.
+	 * @see #setStats(CommitStats)
+	 * @see org.nasdanika.models.gitlab.GitLabPackage#getCommit_Stats()
+	 * @model containment="true"
+	 * @generated
+	 */
+	CommitStats getStats();
+
+	/**
+	 * Sets the value of the '{@link org.nasdanika.models.gitlab.Commit#getStats <em>Stats</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Stats</em>' containment reference.
+	 * @see #getStats()
+	 * @generated
+	 */
+	void setStats(CommitStats value);
 
 } // Commit

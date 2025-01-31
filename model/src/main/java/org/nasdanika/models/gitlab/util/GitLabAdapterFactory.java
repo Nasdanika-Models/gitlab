@@ -146,6 +146,10 @@ public class GitLabAdapterFactory extends AdapterFactoryImpl {
 				return createCommitAdapter();
 			}
 			@Override
+			public Adapter caseCommitStats(CommitStats object) {
+				return createCommitStatsAdapter();
+			}
+			@Override
 			public Adapter caseProjectAccess(ProjectAccess object) {
 				return createProjectAccessAdapter();
 			}
@@ -572,6 +576,20 @@ public class GitLabAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createCommitAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link org.nasdanika.models.gitlab.CommitStats <em>Commit Stats</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see org.nasdanika.models.gitlab.CommitStats
+	 * @generated
+	 */
+	public Adapter createCommitStatsAdapter() {
 		return null;
 	}
 

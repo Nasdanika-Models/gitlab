@@ -15,6 +15,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
 
 import org.nasdanika.models.gitlab.Branch;
 import org.nasdanika.models.gitlab.Commit;
+import org.nasdanika.models.gitlab.CommitStats;
 import org.nasdanika.models.gitlab.Contributor;
 import org.nasdanika.models.gitlab.Diff;
 import org.nasdanika.models.gitlab.GitLabPackage;
@@ -48,6 +49,7 @@ import org.nasdanika.models.gitlab.GitLabPackage;
  *   <li>{@link org.nasdanika.models.gitlab.impl.CommitImpl#getWebURL <em>Web URL</em>}</li>
  *   <li>{@link org.nasdanika.models.gitlab.impl.CommitImpl#getBranches <em>Branches</em>}</li>
  *   <li>{@link org.nasdanika.models.gitlab.impl.CommitImpl#getDiffs <em>Diffs</em>}</li>
+ *   <li>{@link org.nasdanika.models.gitlab.impl.CommitImpl#getStats <em>Stats</em>}</li>
  * </ul>
  *
  * @generated
@@ -621,6 +623,36 @@ public class CommitImpl extends DiscussableImpl implements Commit {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
+	public CommitStats getStats() {
+		return (CommitStats)eDynamicGet(GitLabPackage.COMMIT__STATS, GitLabPackage.Literals.COMMIT__STATS, true, true);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetStats(CommitStats newStats, NotificationChain msgs) {
+		msgs = eDynamicInverseAdd((InternalEObject)newStats, GitLabPackage.COMMIT__STATS, msgs);
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setStats(CommitStats newStats) {
+		eDynamicSet(GitLabPackage.COMMIT__STATS, GitLabPackage.Literals.COMMIT__STATS, newStats);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@SuppressWarnings("unchecked")
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
@@ -658,6 +690,8 @@ public class CommitImpl extends DiscussableImpl implements Commit {
 				return ((InternalEList<?>)getBranches()).basicRemove(otherEnd, msgs);
 			case GitLabPackage.COMMIT__DIFFS:
 				return ((InternalEList<?>)getDiffs()).basicRemove(otherEnd, msgs);
+			case GitLabPackage.COMMIT__STATS:
+				return basicSetStats(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -713,6 +747,8 @@ public class CommitImpl extends DiscussableImpl implements Commit {
 				return getBranches();
 			case GitLabPackage.COMMIT__DIFFS:
 				return getDiffs();
+			case GitLabPackage.COMMIT__STATS:
+				return getStats();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -794,6 +830,9 @@ public class CommitImpl extends DiscussableImpl implements Commit {
 				getDiffs().clear();
 				getDiffs().addAll((Collection<? extends Diff>)newValue);
 				return;
+			case GitLabPackage.COMMIT__STATS:
+				setStats((CommitStats)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -869,6 +908,9 @@ public class CommitImpl extends DiscussableImpl implements Commit {
 			case GitLabPackage.COMMIT__DIFFS:
 				getDiffs().clear();
 				return;
+			case GitLabPackage.COMMIT__STATS:
+				setStats((CommitStats)null);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -923,6 +965,8 @@ public class CommitImpl extends DiscussableImpl implements Commit {
 				return !getBranches().isEmpty();
 			case GitLabPackage.COMMIT__DIFFS:
 				return !getDiffs().isEmpty();
+			case GitLabPackage.COMMIT__STATS:
+				return getStats() != null;
 		}
 		return super.eIsSet(featureID);
 	}
