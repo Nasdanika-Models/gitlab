@@ -4540,13 +4540,202 @@ public interface GitLabPackage extends EPackage {
 	int NOTE__POSITION = 0;
 
 	/**
+	 * The feature id for the '<em><b>Author</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NOTE__AUTHOR = 1;
+
+	/**
+	 * The feature id for the '<em><b>Attachment</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NOTE__ATTACHMENT = 2;
+
+	/**
+	 * The feature id for the '<em><b>Body</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NOTE__BODY = 3;
+
+	/**
+	 * The feature id for the '<em><b>Created At</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NOTE__CREATED_AT = 4;
+
+	/**
+	 * The feature id for the '<em><b>Downvote</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NOTE__DOWNVOTE = 5;
+
+	/**
+	 * The feature id for the '<em><b>Expires At</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NOTE__EXPIRES_AT = 6;
+
+	/**
+	 * The feature id for the '<em><b>File Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NOTE__FILE_NAME = 7;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NOTE__ID = 8;
+
+	/**
+	 * The feature id for the '<em><b>Internal</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NOTE__INTERNAL = 9;
+
+	/**
+	 * The feature id for the '<em><b>Noteable Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NOTE__NOTEABLE_ID = 10;
+
+	/**
+	 * The feature id for the '<em><b>Noteable Iid</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NOTE__NOTEABLE_IID = 11;
+
+	/**
+	 * The feature id for the '<em><b>Noteable Type</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NOTE__NOTEABLE_TYPE = 12;
+
+	/**
+	 * The feature id for the '<em><b>Resolvable</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NOTE__RESOLVABLE = 13;
+
+	/**
+	 * The feature id for the '<em><b>Resolved</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NOTE__RESOLVED = 14;
+
+	/**
+	 * The feature id for the '<em><b>Resolved At</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NOTE__RESOLVED_AT = 15;
+
+	/**
+	 * The feature id for the '<em><b>Resolved By</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NOTE__RESOLVED_BY = 16;
+
+	/**
+	 * The feature id for the '<em><b>System</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NOTE__SYSTEM = 17;
+
+	/**
+	 * The feature id for the '<em><b>Title</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NOTE__TITLE = 18;
+
+	/**
+	 * The feature id for the '<em><b>Discussion Note</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NOTE__DISCUSSION_NOTE = 19;
+
+	/**
+	 * The feature id for the '<em><b>Updated At</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NOTE__UPDATED_AT = 20;
+
+	/**
+	 * The feature id for the '<em><b>Upvote</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NOTE__UPVOTE = 21;
+
+	/**
 	 * The number of structural features of the '<em>Note</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NOTE_FEATURE_COUNT = 1;
+	int NOTE_FEATURE_COUNT = 22;
 
 	/**
 	 * The number of operations of the '<em>Note</em>' class.
@@ -4838,13 +5027,418 @@ public interface GitLabPackage extends EPackage {
 	int MERGE_REQUEST__DIFF_VERSIONS = NOTABLE_FEATURE_COUNT + 22;
 
 	/**
+	 * The feature id for the '<em><b>Allow Collaboration</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MERGE_REQUEST__ALLOW_COLLABORATION = NOTABLE_FEATURE_COUNT + 23;
+
+	/**
+	 * The feature id for the '<em><b>Allow Maintainer To Push</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MERGE_REQUEST__ALLOW_MAINTAINER_TO_PUSH = NOTABLE_FEATURE_COUNT + 24;
+
+	/**
+	 * The feature id for the '<em><b>Approvals Before Merge</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MERGE_REQUEST__APPROVALS_BEFORE_MERGE = NOTABLE_FEATURE_COUNT + 25;
+
+	/**
+	 * The feature id for the '<em><b>Approvals Left</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MERGE_REQUEST__APPROVALS_LEFT = NOTABLE_FEATURE_COUNT + 26;
+
+	/**
+	 * The feature id for the '<em><b>Approvals Required</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MERGE_REQUEST__APPROVALS_REQUIRED = NOTABLE_FEATURE_COUNT + 27;
+
+	/**
+	 * The feature id for the '<em><b>Approved By</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MERGE_REQUEST__APPROVED_BY = NOTABLE_FEATURE_COUNT + 28;
+
+	/**
+	 * The feature id for the '<em><b>Blocking Discussions Resolved</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MERGE_REQUEST__BLOCKING_DISCUSSIONS_RESOLVED = NOTABLE_FEATURE_COUNT + 29;
+
+	/**
+	 * The feature id for the '<em><b>Changes Count</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MERGE_REQUEST__CHANGES_COUNT = NOTABLE_FEATURE_COUNT + 30;
+
+	/**
+	 * The feature id for the '<em><b>Closed At</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MERGE_REQUEST__CLOSED_AT = NOTABLE_FEATURE_COUNT + 31;
+
+	/**
+	 * The feature id for the '<em><b>Closed By</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MERGE_REQUEST__CLOSED_BY = NOTABLE_FEATURE_COUNT + 32;
+
+	/**
+	 * The feature id for the '<em><b>Created At</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MERGE_REQUEST__CREATED_AT = NOTABLE_FEATURE_COUNT + 33;
+
+	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MERGE_REQUEST__DESCRIPTION = NOTABLE_FEATURE_COUNT + 34;
+
+	/**
+	 * The feature id for the '<em><b>Detailed Merge Status</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MERGE_REQUEST__DETAILED_MERGE_STATUS = NOTABLE_FEATURE_COUNT + 35;
+
+	/**
+	 * The feature id for the '<em><b>Discussion Locked</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MERGE_REQUEST__DISCUSSION_LOCKED = NOTABLE_FEATURE_COUNT + 36;
+
+	/**
+	 * The feature id for the '<em><b>Diverged Commits Count</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MERGE_REQUEST__DIVERGED_COMMITS_COUNT = NOTABLE_FEATURE_COUNT + 37;
+
+	/**
+	 * The feature id for the '<em><b>Downvotes</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MERGE_REQUEST__DOWNVOTES = NOTABLE_FEATURE_COUNT + 38;
+
+	/**
+	 * The feature id for the '<em><b>Force Remove Source Branch</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MERGE_REQUEST__FORCE_REMOVE_SOURCE_BRANCH = NOTABLE_FEATURE_COUNT + 39;
+
+	/**
+	 * The feature id for the '<em><b>Has Conflicts</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MERGE_REQUEST__HAS_CONFLICTS = NOTABLE_FEATURE_COUNT + 40;
+
+	/**
+	 * The feature id for the '<em><b>Labels</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MERGE_REQUEST__LABELS = NOTABLE_FEATURE_COUNT + 41;
+
+	/**
+	 * The feature id for the '<em><b>Latest Build Finished At</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MERGE_REQUEST__LATEST_BUILD_FINISHED_AT = NOTABLE_FEATURE_COUNT + 42;
+
+	/**
+	 * The feature id for the '<em><b>Latest Build Started At</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MERGE_REQUEST__LATEST_BUILD_STARTED_AT = NOTABLE_FEATURE_COUNT + 43;
+
+	/**
+	 * The feature id for the '<em><b>Merge Commit Sha</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MERGE_REQUEST__MERGE_COMMIT_SHA = NOTABLE_FEATURE_COUNT + 44;
+
+	/**
+	 * The feature id for the '<em><b>Merged At</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MERGE_REQUEST__MERGED_AT = NOTABLE_FEATURE_COUNT + 45;
+
+	/**
+	 * The feature id for the '<em><b>Merged By</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MERGE_REQUEST__MERGED_BY = NOTABLE_FEATURE_COUNT + 46;
+
+	/**
+	 * The feature id for the '<em><b>Merge Error</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MERGE_REQUEST__MERGE_ERROR = NOTABLE_FEATURE_COUNT + 47;
+
+	/**
+	 * The feature id for the '<em><b>Merge Status</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MERGE_REQUEST__MERGE_STATUS = NOTABLE_FEATURE_COUNT + 48;
+
+	/**
+	 * The feature id for the '<em><b>Merge When Pipeline Succeeds</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MERGE_REQUEST__MERGE_WHEN_PIPELINE_SUCCEEDS = NOTABLE_FEATURE_COUNT + 49;
+
+	/**
+	 * The feature id for the '<em><b>Project Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MERGE_REQUEST__PROJECT_ID = NOTABLE_FEATURE_COUNT + 50;
+
+	/**
+	 * The feature id for the '<em><b>Rebase In Progress</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MERGE_REQUEST__REBASE_IN_PROGRESS = NOTABLE_FEATURE_COUNT + 51;
+
+	/**
+	 * The feature id for the '<em><b>Sha</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MERGE_REQUEST__SHA = NOTABLE_FEATURE_COUNT + 52;
+
+	/**
+	 * The feature id for the '<em><b>Should Remove Source Branch</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MERGE_REQUEST__SHOULD_REMOVE_SOURCE_BRANCH = NOTABLE_FEATURE_COUNT + 53;
+
+	/**
+	 * The feature id for the '<em><b>Source Branch</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MERGE_REQUEST__SOURCE_BRANCH = NOTABLE_FEATURE_COUNT + 54;
+
+	/**
+	 * The feature id for the '<em><b>Source Project Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MERGE_REQUEST__SOURCE_PROJECT_ID = NOTABLE_FEATURE_COUNT + 55;
+
+	/**
+	 * The feature id for the '<em><b>Squash</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MERGE_REQUEST__SQUASH = NOTABLE_FEATURE_COUNT + 56;
+
+	/**
+	 * The feature id for the '<em><b>Squash Commit Sha</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MERGE_REQUEST__SQUASH_COMMIT_SHA = NOTABLE_FEATURE_COUNT + 57;
+
+	/**
+	 * The feature id for the '<em><b>State</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MERGE_REQUEST__STATE = NOTABLE_FEATURE_COUNT + 58;
+
+	/**
+	 * The feature id for the '<em><b>Subscribed</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MERGE_REQUEST__SUBSCRIBED = NOTABLE_FEATURE_COUNT + 59;
+
+	/**
+	 * The feature id for the '<em><b>Target Branch</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MERGE_REQUEST__TARGET_BRANCH = NOTABLE_FEATURE_COUNT + 60;
+
+	/**
+	 * The feature id for the '<em><b>Target Project Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MERGE_REQUEST__TARGET_PROJECT_ID = NOTABLE_FEATURE_COUNT + 61;
+
+	/**
+	 * The feature id for the '<em><b>Title</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MERGE_REQUEST__TITLE = NOTABLE_FEATURE_COUNT + 62;
+
+	/**
+	 * The feature id for the '<em><b>Updated At</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MERGE_REQUEST__UPDATED_AT = NOTABLE_FEATURE_COUNT + 63;
+
+	/**
+	 * The feature id for the '<em><b>Upvotes</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MERGE_REQUEST__UPVOTES = NOTABLE_FEATURE_COUNT + 64;
+
+	/**
+	 * The feature id for the '<em><b>User Notes Count</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MERGE_REQUEST__USER_NOTES_COUNT = NOTABLE_FEATURE_COUNT + 65;
+
+	/**
+	 * The feature id for the '<em><b>Web Url</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MERGE_REQUEST__WEB_URL = NOTABLE_FEATURE_COUNT + 66;
+
+	/**
+	 * The feature id for the '<em><b>Work In Progress</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MERGE_REQUEST__WORK_IN_PROGRESS = NOTABLE_FEATURE_COUNT + 67;
+
+	/**
 	 * The number of structural features of the '<em>Merge Request</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int MERGE_REQUEST_FEATURE_COUNT = NOTABLE_FEATURE_COUNT + 23;
+	int MERGE_REQUEST_FEATURE_COUNT = NOTABLE_FEATURE_COUNT + 68;
 
 	/**
 	 * The number of operations of the '<em>Merge Request</em>' class.
@@ -4901,13 +5495,67 @@ public interface GitLabPackage extends EPackage {
 	int APPROVAL_RULE__APPROVED_BY = 4;
 
 	/**
+	 * The feature id for the '<em><b>Approvals Required</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int APPROVAL_RULE__APPROVALS_REQUIRED = 5;
+
+	/**
+	 * The feature id for the '<em><b>Approved</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int APPROVAL_RULE__APPROVED = 6;
+
+	/**
+	 * The feature id for the '<em><b>Contains Hidden Groups</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int APPROVAL_RULE__CONTAINS_HIDDEN_GROUPS = 7;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int APPROVAL_RULE__ID = 8;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int APPROVAL_RULE__NAME = 9;
+
+	/**
+	 * The feature id for the '<em><b>Rule Type</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int APPROVAL_RULE__RULE_TYPE = 10;
+
+	/**
 	 * The number of structural features of the '<em>Approval Rule</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int APPROVAL_RULE_FEATURE_COUNT = 5;
+	int APPROVAL_RULE_FEATURE_COUNT = 11;
 
 	/**
 	 * The number of operations of the '<em>Approval Rule</em>' class.
@@ -4928,13 +5576,22 @@ public interface GitLabPackage extends EPackage {
 	int APPROVAL_STATE__RULES = 0;
 
 	/**
+	 * The feature id for the '<em><b>Approval Rules Overwritten</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int APPROVAL_STATE__APPROVAL_RULES_OVERWRITTEN = 1;
+
+	/**
 	 * The number of structural features of the '<em>Approval State</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int APPROVAL_STATE_FEATURE_COUNT = 1;
+	int APPROVAL_STATE_FEATURE_COUNT = 2;
 
 	/**
 	 * The number of operations of the '<em>Approval State</em>' class.
@@ -4946,13 +5603,85 @@ public interface GitLabPackage extends EPackage {
 	int APPROVAL_STATE_OPERATION_COUNT = 0;
 
 	/**
+	 * The feature id for the '<em><b>Base Commit Sha</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MERGE_REQUEST_VERSION__BASE_COMMIT_SHA = 0;
+
+	/**
+	 * The feature id for the '<em><b>Created At</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MERGE_REQUEST_VERSION__CREATED_AT = 1;
+
+	/**
+	 * The feature id for the '<em><b>Head Commit Sha</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MERGE_REQUEST_VERSION__HEAD_COMMIT_SHA = 2;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MERGE_REQUEST_VERSION__ID = 3;
+
+	/**
+	 * The feature id for the '<em><b>Merge Request Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MERGE_REQUEST_VERSION__MERGE_REQUEST_ID = 4;
+
+	/**
+	 * The feature id for the '<em><b>Real Size</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MERGE_REQUEST_VERSION__REAL_SIZE = 5;
+
+	/**
+	 * The feature id for the '<em><b>Start Commit Sha</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MERGE_REQUEST_VERSION__START_COMMIT_SHA = 6;
+
+	/**
+	 * The feature id for the '<em><b>State</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MERGE_REQUEST_VERSION__STATE = 7;
+
+	/**
 	 * The number of structural features of the '<em>Merge Request Version</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int MERGE_REQUEST_VERSION_FEATURE_COUNT = 0;
+	int MERGE_REQUEST_VERSION_FEATURE_COUNT = 8;
 
 	/**
 	 * The number of operations of the '<em>Merge Request Version</em>' class.
@@ -4962,6 +5691,78 @@ public interface GitLabPackage extends EPackage {
 	 * @ordered
 	 */
 	int MERGE_REQUEST_VERSION_OPERATION_COUNT = 0;
+
+	/**
+	 * The feature id for the '<em><b>Base Commit Sha</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MERGE_REQUEST_DIFF__BASE_COMMIT_SHA = MERGE_REQUEST_VERSION__BASE_COMMIT_SHA;
+
+	/**
+	 * The feature id for the '<em><b>Created At</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MERGE_REQUEST_DIFF__CREATED_AT = MERGE_REQUEST_VERSION__CREATED_AT;
+
+	/**
+	 * The feature id for the '<em><b>Head Commit Sha</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MERGE_REQUEST_DIFF__HEAD_COMMIT_SHA = MERGE_REQUEST_VERSION__HEAD_COMMIT_SHA;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MERGE_REQUEST_DIFF__ID = MERGE_REQUEST_VERSION__ID;
+
+	/**
+	 * The feature id for the '<em><b>Merge Request Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MERGE_REQUEST_DIFF__MERGE_REQUEST_ID = MERGE_REQUEST_VERSION__MERGE_REQUEST_ID;
+
+	/**
+	 * The feature id for the '<em><b>Real Size</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MERGE_REQUEST_DIFF__REAL_SIZE = MERGE_REQUEST_VERSION__REAL_SIZE;
+
+	/**
+	 * The feature id for the '<em><b>Start Commit Sha</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MERGE_REQUEST_DIFF__START_COMMIT_SHA = MERGE_REQUEST_VERSION__START_COMMIT_SHA;
+
+	/**
+	 * The feature id for the '<em><b>State</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MERGE_REQUEST_DIFF__STATE = MERGE_REQUEST_VERSION__STATE;
 
 	/**
 	 * The feature id for the '<em><b>Commits</b></em>' reference list.
@@ -5000,13 +5801,49 @@ public interface GitLabPackage extends EPackage {
 	int MERGE_REQUEST_DIFF_OPERATION_COUNT = MERGE_REQUEST_VERSION_OPERATION_COUNT + 0;
 
 	/**
+	 * The feature id for the '<em><b>Time Estimate</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TIME_STATS__TIME_ESTIMATE = 0;
+
+	/**
+	 * The feature id for the '<em><b>Total Time Spent</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TIME_STATS__TOTAL_TIME_SPENT = 1;
+
+	/**
+	 * The feature id for the '<em><b>Human Time Estimate</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TIME_STATS__HUMAN_TIME_ESTIMATE = 2;
+
+	/**
+	 * The feature id for the '<em><b>Human Total Time Spent</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TIME_STATS__HUMAN_TOTAL_TIME_SPENT = 3;
+
+	/**
 	 * The number of structural features of the '<em>Time Stats</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TIME_STATS_FEATURE_COUNT = 0;
+	int TIME_STATS_FEATURE_COUNT = 4;
 
 	/**
 	 * The number of operations of the '<em>Time Stats</em>' class.
@@ -5018,13 +5855,31 @@ public interface GitLabPackage extends EPackage {
 	int TIME_STATS_OPERATION_COUNT = 0;
 
 	/**
+	 * The feature id for the '<em><b>Count</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TASK_COMPLETION_STATUS__COUNT = 0;
+
+	/**
+	 * The feature id for the '<em><b>Completed Count</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TASK_COMPLETION_STATUS__COMPLETED_COUNT = 1;
+
+	/**
 	 * The number of structural features of the '<em>Task Completion Status</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TASK_COMPLETION_STATUS_FEATURE_COUNT = 0;
+	int TASK_COMPLETION_STATUS_FEATURE_COUNT = 2;
 
 	/**
 	 * The number of operations of the '<em>Task Completion Status</em>' class.
@@ -5036,13 +5891,130 @@ public interface GitLabPackage extends EPackage {
 	int TASK_COMPLETION_STATUS_OPERATION_COUNT = 0;
 
 	/**
+	 * The feature id for the '<em><b>Created At</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MILESTONE__CREATED_AT = 0;
+
+	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MILESTONE__DESCRIPTION = 1;
+
+	/**
+	 * The feature id for the '<em><b>Due Date</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MILESTONE__DUE_DATE = 2;
+
+	/**
+	 * The feature id for the '<em><b>Expired</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MILESTONE__EXPIRED = 3;
+
+	/**
+	 * The feature id for the '<em><b>Group Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MILESTONE__GROUP_ID = 4;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MILESTONE__ID = 5;
+
+	/**
+	 * The feature id for the '<em><b>Iid</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MILESTONE__IID = 6;
+
+	/**
+	 * The feature id for the '<em><b>Project Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MILESTONE__PROJECT_ID = 7;
+
+	/**
+	 * The feature id for the '<em><b>Start Date</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MILESTONE__START_DATE = 8;
+
+	/**
+	 * The feature id for the '<em><b>State</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MILESTONE__STATE = 9;
+
+	/**
+	 * The feature id for the '<em><b>Title</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MILESTONE__TITLE = 10;
+
+	/**
+	 * The feature id for the '<em><b>Updated At</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MILESTONE__UPDATED_AT = 11;
+
+	/**
+	 * The feature id for the '<em><b>Web Url</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MILESTONE__WEB_URL = 12;
+
+	/**
 	 * The number of structural features of the '<em>Milestone</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int MILESTONE_FEATURE_COUNT = 0;
+	int MILESTONE_FEATURE_COUNT = 13;
 
 	/**
 	 * The number of operations of the '<em>Milestone</em>' class.
@@ -5054,13 +6026,40 @@ public interface GitLabPackage extends EPackage {
 	int MILESTONE_OPERATION_COUNT = 0;
 
 	/**
+	 * The feature id for the '<em><b>Short</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int REFERENCES__SHORT = 0;
+
+	/**
+	 * The feature id for the '<em><b>Compact</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int REFERENCES__COMPACT = 1;
+
+	/**
+	 * The feature id for the '<em><b>Relative</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int REFERENCES__RELATIVE = 2;
+
+	/**
 	 * The number of structural features of the '<em>References</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int REFERENCES_FEATURE_COUNT = 0;
+	int REFERENCES_FEATURE_COUNT = 3;
 
 	/**
 	 * The number of operations of the '<em>References</em>' class.
@@ -5072,13 +6071,40 @@ public interface GitLabPackage extends EPackage {
 	int REFERENCES_OPERATION_COUNT = 0;
 
 	/**
+	 * The feature id for the '<em><b>Base Sha</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DIFF_REF__BASE_SHA = 0;
+
+	/**
+	 * The feature id for the '<em><b>Heas Sha</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DIFF_REF__HEAS_SHA = 1;
+
+	/**
+	 * The feature id for the '<em><b>Start Sha</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DIFF_REF__START_SHA = 2;
+
+	/**
 	 * The number of structural features of the '<em>Diff Ref</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DIFF_REF_FEATURE_COUNT = 0;
+	int DIFF_REF_FEATURE_COUNT = 3;
 
 	/**
 	 * The number of operations of the '<em>Diff Ref</em>' class.
@@ -5162,13 +6188,256 @@ public interface GitLabPackage extends EPackage {
 	int ABSTRACT_ISSUE__TASK_COMPLETION_STATUS = 7;
 
 	/**
+	 * The feature id for the '<em><b>Closed At</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ABSTRACT_ISSUE__CLOSED_AT = 8;
+
+	/**
+	 * The feature id for the '<em><b>Confidential</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ABSTRACT_ISSUE__CONFIDENTIAL = 9;
+
+	/**
+	 * The feature id for the '<em><b>Created At</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ABSTRACT_ISSUE__CREATED_AT = 10;
+
+	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ABSTRACT_ISSUE__DESCRIPTION = 11;
+
+	/**
+	 * The feature id for the '<em><b>Discussion Locked</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ABSTRACT_ISSUE__DISCUSSION_LOCKED = 12;
+
+	/**
+	 * The feature id for the '<em><b>Downvotes</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ABSTRACT_ISSUE__DOWNVOTES = 13;
+
+	/**
+	 * The feature id for the '<em><b>Due Date</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ABSTRACT_ISSUE__DUE_DATE = 14;
+
+	/**
+	 * The feature id for the '<em><b>External Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ABSTRACT_ISSUE__EXTERNAL_ID = 15;
+
+	/**
+	 * The feature id for the '<em><b>Has Tasks</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ABSTRACT_ISSUE__HAS_TASKS = 16;
+
+	/**
+	 * The feature id for the '<em><b>Health Status</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ABSTRACT_ISSUE__HEALTH_STATUS = 17;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ABSTRACT_ISSUE__ID = 18;
+
+	/**
+	 * The feature id for the '<em><b>Iid</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ABSTRACT_ISSUE__IID = 19;
+
+	/**
+	 * The feature id for the '<em><b>Imported</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ABSTRACT_ISSUE__IMPORTED = 20;
+
+	/**
+	 * The feature id for the '<em><b>Imported From</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ABSTRACT_ISSUE__IMPORTED_FROM = 21;
+
+	/**
+	 * The feature id for the '<em><b>Issue Type</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ABSTRACT_ISSUE__ISSUE_TYPE = 22;
+
+	/**
+	 * The feature id for the '<em><b>Labels</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ABSTRACT_ISSUE__LABELS = 23;
+
+	/**
+	 * The feature id for the '<em><b>Merge Requests Count</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ABSTRACT_ISSUE__MERGE_REQUESTS_COUNT = 24;
+
+	/**
+	 * The feature id for the '<em><b>Project Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ABSTRACT_ISSUE__PROJECT_ID = 25;
+
+	/**
+	 * The feature id for the '<em><b>Severity</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ABSTRACT_ISSUE__SEVERITY = 26;
+
+	/**
+	 * The feature id for the '<em><b>State</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ABSTRACT_ISSUE__STATE = 27;
+
+	/**
+	 * The feature id for the '<em><b>Task Status</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ABSTRACT_ISSUE__TASK_STATUS = 28;
+
+	/**
+	 * The feature id for the '<em><b>Title</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ABSTRACT_ISSUE__TITLE = 29;
+
+	/**
+	 * The feature id for the '<em><b>Updated At</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ABSTRACT_ISSUE__UPDATED_AT = 30;
+
+	/**
+	 * The feature id for the '<em><b>Upvotes</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ABSTRACT_ISSUE__UPVOTES = 31;
+
+	/**
+	 * The feature id for the '<em><b>User Notes Count</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ABSTRACT_ISSUE__USER_NOTES_COUNT = 32;
+
+	/**
+	 * The feature id for the '<em><b>Web Url</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ABSTRACT_ISSUE__WEB_URL = 33;
+
+	/**
+	 * The feature id for the '<em><b>Weight</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ABSTRACT_ISSUE__WEIGHT = 34;
+
+	/**
 	 * The number of structural features of the '<em>Abstract Issue</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ABSTRACT_ISSUE_FEATURE_COUNT = 8;
+	int ABSTRACT_ISSUE_FEATURE_COUNT = 35;
 
 	/**
 	 * The number of operations of the '<em>Abstract Issue</em>' class.
@@ -5252,6 +6521,249 @@ public interface GitLabPackage extends EPackage {
 	int ISSUE__TASK_COMPLETION_STATUS = ABSTRACT_ISSUE__TASK_COMPLETION_STATUS;
 
 	/**
+	 * The feature id for the '<em><b>Closed At</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ISSUE__CLOSED_AT = ABSTRACT_ISSUE__CLOSED_AT;
+
+	/**
+	 * The feature id for the '<em><b>Confidential</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ISSUE__CONFIDENTIAL = ABSTRACT_ISSUE__CONFIDENTIAL;
+
+	/**
+	 * The feature id for the '<em><b>Created At</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ISSUE__CREATED_AT = ABSTRACT_ISSUE__CREATED_AT;
+
+	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ISSUE__DESCRIPTION = ABSTRACT_ISSUE__DESCRIPTION;
+
+	/**
+	 * The feature id for the '<em><b>Discussion Locked</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ISSUE__DISCUSSION_LOCKED = ABSTRACT_ISSUE__DISCUSSION_LOCKED;
+
+	/**
+	 * The feature id for the '<em><b>Downvotes</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ISSUE__DOWNVOTES = ABSTRACT_ISSUE__DOWNVOTES;
+
+	/**
+	 * The feature id for the '<em><b>Due Date</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ISSUE__DUE_DATE = ABSTRACT_ISSUE__DUE_DATE;
+
+	/**
+	 * The feature id for the '<em><b>External Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ISSUE__EXTERNAL_ID = ABSTRACT_ISSUE__EXTERNAL_ID;
+
+	/**
+	 * The feature id for the '<em><b>Has Tasks</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ISSUE__HAS_TASKS = ABSTRACT_ISSUE__HAS_TASKS;
+
+	/**
+	 * The feature id for the '<em><b>Health Status</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ISSUE__HEALTH_STATUS = ABSTRACT_ISSUE__HEALTH_STATUS;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ISSUE__ID = ABSTRACT_ISSUE__ID;
+
+	/**
+	 * The feature id for the '<em><b>Iid</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ISSUE__IID = ABSTRACT_ISSUE__IID;
+
+	/**
+	 * The feature id for the '<em><b>Imported</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ISSUE__IMPORTED = ABSTRACT_ISSUE__IMPORTED;
+
+	/**
+	 * The feature id for the '<em><b>Imported From</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ISSUE__IMPORTED_FROM = ABSTRACT_ISSUE__IMPORTED_FROM;
+
+	/**
+	 * The feature id for the '<em><b>Issue Type</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ISSUE__ISSUE_TYPE = ABSTRACT_ISSUE__ISSUE_TYPE;
+
+	/**
+	 * The feature id for the '<em><b>Labels</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ISSUE__LABELS = ABSTRACT_ISSUE__LABELS;
+
+	/**
+	 * The feature id for the '<em><b>Merge Requests Count</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ISSUE__MERGE_REQUESTS_COUNT = ABSTRACT_ISSUE__MERGE_REQUESTS_COUNT;
+
+	/**
+	 * The feature id for the '<em><b>Project Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ISSUE__PROJECT_ID = ABSTRACT_ISSUE__PROJECT_ID;
+
+	/**
+	 * The feature id for the '<em><b>Severity</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ISSUE__SEVERITY = ABSTRACT_ISSUE__SEVERITY;
+
+	/**
+	 * The feature id for the '<em><b>State</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ISSUE__STATE = ABSTRACT_ISSUE__STATE;
+
+	/**
+	 * The feature id for the '<em><b>Task Status</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ISSUE__TASK_STATUS = ABSTRACT_ISSUE__TASK_STATUS;
+
+	/**
+	 * The feature id for the '<em><b>Title</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ISSUE__TITLE = ABSTRACT_ISSUE__TITLE;
+
+	/**
+	 * The feature id for the '<em><b>Updated At</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ISSUE__UPDATED_AT = ABSTRACT_ISSUE__UPDATED_AT;
+
+	/**
+	 * The feature id for the '<em><b>Upvotes</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ISSUE__UPVOTES = ABSTRACT_ISSUE__UPVOTES;
+
+	/**
+	 * The feature id for the '<em><b>User Notes Count</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ISSUE__USER_NOTES_COUNT = ABSTRACT_ISSUE__USER_NOTES_COUNT;
+
+	/**
+	 * The feature id for the '<em><b>Web Url</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ISSUE__WEB_URL = ABSTRACT_ISSUE__WEB_URL;
+
+	/**
+	 * The feature id for the '<em><b>Weight</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ISSUE__WEIGHT = ABSTRACT_ISSUE__WEIGHT;
+
+	/**
 	 * The feature id for the '<em><b>Notes</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -5270,13 +6782,58 @@ public interface GitLabPackage extends EPackage {
 	int ISSUE__DISCUSSIONS = ABSTRACT_ISSUE_FEATURE_COUNT + 1;
 
 	/**
+	 * The feature id for the '<em><b>Issue Link Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ISSUE__ISSUE_LINK_ID = ABSTRACT_ISSUE_FEATURE_COUNT + 2;
+
+	/**
+	 * The feature id for the '<em><b>Link Created At</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ISSUE__LINK_CREATED_AT = ABSTRACT_ISSUE_FEATURE_COUNT + 3;
+
+	/**
+	 * The feature id for the '<em><b>Link Type</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ISSUE__LINK_TYPE = ABSTRACT_ISSUE_FEATURE_COUNT + 4;
+
+	/**
+	 * The feature id for the '<em><b>Link Updated At</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ISSUE__LINK_UPDATED_AT = ABSTRACT_ISSUE_FEATURE_COUNT + 5;
+
+	/**
+	 * The feature id for the '<em><b>Subscribed</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ISSUE__SUBSCRIBED = ABSTRACT_ISSUE_FEATURE_COUNT + 6;
+
+	/**
 	 * The number of structural features of the '<em>Issue</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ISSUE_FEATURE_COUNT = ABSTRACT_ISSUE_FEATURE_COUNT + 2;
+	int ISSUE_FEATURE_COUNT = ABSTRACT_ISSUE_FEATURE_COUNT + 7;
 
 	/**
 	 * The number of operations of the '<em>Issue</em>' class.
@@ -5358,6 +6915,27 @@ public interface GitLabPackage extends EPackage {
 	 * @generated
 	 */
 	int SQUASH_OPTION = 58;
+
+
+	/**
+	 * The meta object id for the '{@link org.nasdanika.models.gitlab.IssueState <em>Issue State</em>}' enum.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.nasdanika.models.gitlab.IssueState
+	 * @see org.nasdanika.models.gitlab.impl.GitLabPackageImpl#getIssueState()
+	 * @generated
+	 */
+	int ISSUE_STATE = 59;
+
+	/**
+	 * The meta object id for the '{@link org.nasdanika.models.gitlab.LinkType <em>Link Type</em>}' enum.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see org.nasdanika.models.gitlab.LinkType
+	 * @see org.nasdanika.models.gitlab.impl.GitLabPackageImpl#getLinkType()
+	 * @generated
+	 */
+	int LINK_TYPE = 60;
 
 
 	/**
@@ -8105,6 +9683,237 @@ public interface GitLabPackage extends EPackage {
 	EReference getNote_Position();
 
 	/**
+	 * Returns the meta object for the reference '{@link org.nasdanika.models.gitlab.Note#getAuthor <em>Author</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Author</em>'.
+	 * @see org.nasdanika.models.gitlab.Note#getAuthor()
+	 * @see #getNote()
+	 * @generated
+	 */
+	EReference getNote_Author();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.models.gitlab.Note#getAttachment <em>Attachment</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Attachment</em>'.
+	 * @see org.nasdanika.models.gitlab.Note#getAttachment()
+	 * @see #getNote()
+	 * @generated
+	 */
+	EAttribute getNote_Attachment();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.models.gitlab.Note#getBody <em>Body</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Body</em>'.
+	 * @see org.nasdanika.models.gitlab.Note#getBody()
+	 * @see #getNote()
+	 * @generated
+	 */
+	EAttribute getNote_Body();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.models.gitlab.Note#getCreatedAt <em>Created At</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Created At</em>'.
+	 * @see org.nasdanika.models.gitlab.Note#getCreatedAt()
+	 * @see #getNote()
+	 * @generated
+	 */
+	EAttribute getNote_CreatedAt();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.models.gitlab.Note#getDownvote <em>Downvote</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Downvote</em>'.
+	 * @see org.nasdanika.models.gitlab.Note#getDownvote()
+	 * @see #getNote()
+	 * @generated
+	 */
+	EAttribute getNote_Downvote();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.models.gitlab.Note#getExpiresAt <em>Expires At</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Expires At</em>'.
+	 * @see org.nasdanika.models.gitlab.Note#getExpiresAt()
+	 * @see #getNote()
+	 * @generated
+	 */
+	EAttribute getNote_ExpiresAt();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.models.gitlab.Note#getFileName <em>File Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>File Name</em>'.
+	 * @see org.nasdanika.models.gitlab.Note#getFileName()
+	 * @see #getNote()
+	 * @generated
+	 */
+	EAttribute getNote_FileName();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.models.gitlab.Note#getId <em>Id</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Id</em>'.
+	 * @see org.nasdanika.models.gitlab.Note#getId()
+	 * @see #getNote()
+	 * @generated
+	 */
+	EAttribute getNote_Id();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.models.gitlab.Note#getInternal <em>Internal</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Internal</em>'.
+	 * @see org.nasdanika.models.gitlab.Note#getInternal()
+	 * @see #getNote()
+	 * @generated
+	 */
+	EAttribute getNote_Internal();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.models.gitlab.Note#getNoteableId <em>Noteable Id</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Noteable Id</em>'.
+	 * @see org.nasdanika.models.gitlab.Note#getNoteableId()
+	 * @see #getNote()
+	 * @generated
+	 */
+	EAttribute getNote_NoteableId();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.models.gitlab.Note#getNoteableIid <em>Noteable Iid</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Noteable Iid</em>'.
+	 * @see org.nasdanika.models.gitlab.Note#getNoteableIid()
+	 * @see #getNote()
+	 * @generated
+	 */
+	EAttribute getNote_NoteableIid();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.models.gitlab.Note#getNoteableType <em>Noteable Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Noteable Type</em>'.
+	 * @see org.nasdanika.models.gitlab.Note#getNoteableType()
+	 * @see #getNote()
+	 * @generated
+	 */
+	EAttribute getNote_NoteableType();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.models.gitlab.Note#getResolvable <em>Resolvable</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Resolvable</em>'.
+	 * @see org.nasdanika.models.gitlab.Note#getResolvable()
+	 * @see #getNote()
+	 * @generated
+	 */
+	EAttribute getNote_Resolvable();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.models.gitlab.Note#getResolved <em>Resolved</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Resolved</em>'.
+	 * @see org.nasdanika.models.gitlab.Note#getResolved()
+	 * @see #getNote()
+	 * @generated
+	 */
+	EAttribute getNote_Resolved();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.models.gitlab.Note#getResolvedAt <em>Resolved At</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Resolved At</em>'.
+	 * @see org.nasdanika.models.gitlab.Note#getResolvedAt()
+	 * @see #getNote()
+	 * @generated
+	 */
+	EAttribute getNote_ResolvedAt();
+
+	/**
+	 * Returns the meta object for the reference '{@link org.nasdanika.models.gitlab.Note#getResolvedBy <em>Resolved By</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Resolved By</em>'.
+	 * @see org.nasdanika.models.gitlab.Note#getResolvedBy()
+	 * @see #getNote()
+	 * @generated
+	 */
+	EReference getNote_ResolvedBy();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.models.gitlab.Note#getSystem <em>System</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>System</em>'.
+	 * @see org.nasdanika.models.gitlab.Note#getSystem()
+	 * @see #getNote()
+	 * @generated
+	 */
+	EAttribute getNote_System();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.models.gitlab.Note#getTitle <em>Title</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Title</em>'.
+	 * @see org.nasdanika.models.gitlab.Note#getTitle()
+	 * @see #getNote()
+	 * @generated
+	 */
+	EAttribute getNote_Title();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.models.gitlab.Note#getDiscussionNote <em>Discussion Note</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Discussion Note</em>'.
+	 * @see org.nasdanika.models.gitlab.Note#getDiscussionNote()
+	 * @see #getNote()
+	 * @generated
+	 */
+	EAttribute getNote_DiscussionNote();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.models.gitlab.Note#getUpdatedAt <em>Updated At</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Updated At</em>'.
+	 * @see org.nasdanika.models.gitlab.Note#getUpdatedAt()
+	 * @see #getNote()
+	 * @generated
+	 */
+	EAttribute getNote_UpdatedAt();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.models.gitlab.Note#getUpvote <em>Upvote</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Upvote</em>'.
+	 * @see org.nasdanika.models.gitlab.Note#getUpvote()
+	 * @see #getNote()
+	 * @generated
+	 */
+	EAttribute getNote_Upvote();
+
+	/**
 	 * Returns the meta object for class '{@link org.nasdanika.models.gitlab.Notable <em>Notable</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -8378,6 +10187,501 @@ public interface GitLabPackage extends EPackage {
 	EReference getMergeRequest_DiffVersions();
 
 	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.models.gitlab.MergeRequest#isAllowCollaboration <em>Allow Collaboration</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Allow Collaboration</em>'.
+	 * @see org.nasdanika.models.gitlab.MergeRequest#isAllowCollaboration()
+	 * @see #getMergeRequest()
+	 * @generated
+	 */
+	EAttribute getMergeRequest_AllowCollaboration();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.models.gitlab.MergeRequest#getAllowMaintainerToPush <em>Allow Maintainer To Push</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Allow Maintainer To Push</em>'.
+	 * @see org.nasdanika.models.gitlab.MergeRequest#getAllowMaintainerToPush()
+	 * @see #getMergeRequest()
+	 * @generated
+	 */
+	EAttribute getMergeRequest_AllowMaintainerToPush();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.models.gitlab.MergeRequest#getApprovalsBeforeMerge <em>Approvals Before Merge</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Approvals Before Merge</em>'.
+	 * @see org.nasdanika.models.gitlab.MergeRequest#getApprovalsBeforeMerge()
+	 * @see #getMergeRequest()
+	 * @generated
+	 */
+	EAttribute getMergeRequest_ApprovalsBeforeMerge();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.models.gitlab.MergeRequest#getApprovalsLeft <em>Approvals Left</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Approvals Left</em>'.
+	 * @see org.nasdanika.models.gitlab.MergeRequest#getApprovalsLeft()
+	 * @see #getMergeRequest()
+	 * @generated
+	 */
+	EAttribute getMergeRequest_ApprovalsLeft();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.models.gitlab.MergeRequest#getApprovalsRequired <em>Approvals Required</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Approvals Required</em>'.
+	 * @see org.nasdanika.models.gitlab.MergeRequest#getApprovalsRequired()
+	 * @see #getMergeRequest()
+	 * @generated
+	 */
+	EAttribute getMergeRequest_ApprovalsRequired();
+
+	/**
+	 * Returns the meta object for the reference list '{@link org.nasdanika.models.gitlab.MergeRequest#getApprovedBy <em>Approved By</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Approved By</em>'.
+	 * @see org.nasdanika.models.gitlab.MergeRequest#getApprovedBy()
+	 * @see #getMergeRequest()
+	 * @generated
+	 */
+	EReference getMergeRequest_ApprovedBy();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.models.gitlab.MergeRequest#getBlockingDiscussionsResolved <em>Blocking Discussions Resolved</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Blocking Discussions Resolved</em>'.
+	 * @see org.nasdanika.models.gitlab.MergeRequest#getBlockingDiscussionsResolved()
+	 * @see #getMergeRequest()
+	 * @generated
+	 */
+	EAttribute getMergeRequest_BlockingDiscussionsResolved();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.models.gitlab.MergeRequest#getChangesCount <em>Changes Count</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Changes Count</em>'.
+	 * @see org.nasdanika.models.gitlab.MergeRequest#getChangesCount()
+	 * @see #getMergeRequest()
+	 * @generated
+	 */
+	EAttribute getMergeRequest_ChangesCount();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.models.gitlab.MergeRequest#getClosedAt <em>Closed At</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Closed At</em>'.
+	 * @see org.nasdanika.models.gitlab.MergeRequest#getClosedAt()
+	 * @see #getMergeRequest()
+	 * @generated
+	 */
+	EAttribute getMergeRequest_ClosedAt();
+
+	/**
+	 * Returns the meta object for the reference '{@link org.nasdanika.models.gitlab.MergeRequest#getClosedBy <em>Closed By</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Closed By</em>'.
+	 * @see org.nasdanika.models.gitlab.MergeRequest#getClosedBy()
+	 * @see #getMergeRequest()
+	 * @generated
+	 */
+	EReference getMergeRequest_ClosedBy();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.models.gitlab.MergeRequest#getCreatedAt <em>Created At</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Created At</em>'.
+	 * @see org.nasdanika.models.gitlab.MergeRequest#getCreatedAt()
+	 * @see #getMergeRequest()
+	 * @generated
+	 */
+	EAttribute getMergeRequest_CreatedAt();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.models.gitlab.MergeRequest#getDescription <em>Description</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Description</em>'.
+	 * @see org.nasdanika.models.gitlab.MergeRequest#getDescription()
+	 * @see #getMergeRequest()
+	 * @generated
+	 */
+	EAttribute getMergeRequest_Description();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.models.gitlab.MergeRequest#getDetailedMergeStatus <em>Detailed Merge Status</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Detailed Merge Status</em>'.
+	 * @see org.nasdanika.models.gitlab.MergeRequest#getDetailedMergeStatus()
+	 * @see #getMergeRequest()
+	 * @generated
+	 */
+	EAttribute getMergeRequest_DetailedMergeStatus();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.models.gitlab.MergeRequest#getDiscussionLocked <em>Discussion Locked</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Discussion Locked</em>'.
+	 * @see org.nasdanika.models.gitlab.MergeRequest#getDiscussionLocked()
+	 * @see #getMergeRequest()
+	 * @generated
+	 */
+	EAttribute getMergeRequest_DiscussionLocked();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.models.gitlab.MergeRequest#getDivergedCommitsCount <em>Diverged Commits Count</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Diverged Commits Count</em>'.
+	 * @see org.nasdanika.models.gitlab.MergeRequest#getDivergedCommitsCount()
+	 * @see #getMergeRequest()
+	 * @generated
+	 */
+	EAttribute getMergeRequest_DivergedCommitsCount();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.models.gitlab.MergeRequest#getDownvotes <em>Downvotes</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Downvotes</em>'.
+	 * @see org.nasdanika.models.gitlab.MergeRequest#getDownvotes()
+	 * @see #getMergeRequest()
+	 * @generated
+	 */
+	EAttribute getMergeRequest_Downvotes();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.models.gitlab.MergeRequest#getForceRemoveSourceBranch <em>Force Remove Source Branch</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Force Remove Source Branch</em>'.
+	 * @see org.nasdanika.models.gitlab.MergeRequest#getForceRemoveSourceBranch()
+	 * @see #getMergeRequest()
+	 * @generated
+	 */
+	EAttribute getMergeRequest_ForceRemoveSourceBranch();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.models.gitlab.MergeRequest#getHasConflicts <em>Has Conflicts</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Has Conflicts</em>'.
+	 * @see org.nasdanika.models.gitlab.MergeRequest#getHasConflicts()
+	 * @see #getMergeRequest()
+	 * @generated
+	 */
+	EAttribute getMergeRequest_HasConflicts();
+
+	/**
+	 * Returns the meta object for the attribute list '{@link org.nasdanika.models.gitlab.MergeRequest#getLabels <em>Labels</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute list '<em>Labels</em>'.
+	 * @see org.nasdanika.models.gitlab.MergeRequest#getLabels()
+	 * @see #getMergeRequest()
+	 * @generated
+	 */
+	EAttribute getMergeRequest_Labels();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.models.gitlab.MergeRequest#getLatestBuildFinishedAt <em>Latest Build Finished At</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Latest Build Finished At</em>'.
+	 * @see org.nasdanika.models.gitlab.MergeRequest#getLatestBuildFinishedAt()
+	 * @see #getMergeRequest()
+	 * @generated
+	 */
+	EAttribute getMergeRequest_LatestBuildFinishedAt();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.models.gitlab.MergeRequest#getLatestBuildStartedAt <em>Latest Build Started At</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Latest Build Started At</em>'.
+	 * @see org.nasdanika.models.gitlab.MergeRequest#getLatestBuildStartedAt()
+	 * @see #getMergeRequest()
+	 * @generated
+	 */
+	EAttribute getMergeRequest_LatestBuildStartedAt();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.models.gitlab.MergeRequest#getMergeCommitSha <em>Merge Commit Sha</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Merge Commit Sha</em>'.
+	 * @see org.nasdanika.models.gitlab.MergeRequest#getMergeCommitSha()
+	 * @see #getMergeRequest()
+	 * @generated
+	 */
+	EAttribute getMergeRequest_MergeCommitSha();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.models.gitlab.MergeRequest#getMergedAt <em>Merged At</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Merged At</em>'.
+	 * @see org.nasdanika.models.gitlab.MergeRequest#getMergedAt()
+	 * @see #getMergeRequest()
+	 * @generated
+	 */
+	EAttribute getMergeRequest_MergedAt();
+
+	/**
+	 * Returns the meta object for the reference '{@link org.nasdanika.models.gitlab.MergeRequest#getMergedBy <em>Merged By</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Merged By</em>'.
+	 * @see org.nasdanika.models.gitlab.MergeRequest#getMergedBy()
+	 * @see #getMergeRequest()
+	 * @generated
+	 */
+	EReference getMergeRequest_MergedBy();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.models.gitlab.MergeRequest#getMergeError <em>Merge Error</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Merge Error</em>'.
+	 * @see org.nasdanika.models.gitlab.MergeRequest#getMergeError()
+	 * @see #getMergeRequest()
+	 * @generated
+	 */
+	EAttribute getMergeRequest_MergeError();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.models.gitlab.MergeRequest#getMergeStatus <em>Merge Status</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Merge Status</em>'.
+	 * @see org.nasdanika.models.gitlab.MergeRequest#getMergeStatus()
+	 * @see #getMergeRequest()
+	 * @generated
+	 */
+	EAttribute getMergeRequest_MergeStatus();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.models.gitlab.MergeRequest#getMergeWhenPipelineSucceeds <em>Merge When Pipeline Succeeds</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Merge When Pipeline Succeeds</em>'.
+	 * @see org.nasdanika.models.gitlab.MergeRequest#getMergeWhenPipelineSucceeds()
+	 * @see #getMergeRequest()
+	 * @generated
+	 */
+	EAttribute getMergeRequest_MergeWhenPipelineSucceeds();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.models.gitlab.MergeRequest#getProjectId <em>Project Id</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Project Id</em>'.
+	 * @see org.nasdanika.models.gitlab.MergeRequest#getProjectId()
+	 * @see #getMergeRequest()
+	 * @generated
+	 */
+	EAttribute getMergeRequest_ProjectId();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.models.gitlab.MergeRequest#getRebaseInProgress <em>Rebase In Progress</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Rebase In Progress</em>'.
+	 * @see org.nasdanika.models.gitlab.MergeRequest#getRebaseInProgress()
+	 * @see #getMergeRequest()
+	 * @generated
+	 */
+	EAttribute getMergeRequest_RebaseInProgress();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.models.gitlab.MergeRequest#getSha <em>Sha</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Sha</em>'.
+	 * @see org.nasdanika.models.gitlab.MergeRequest#getSha()
+	 * @see #getMergeRequest()
+	 * @generated
+	 */
+	EAttribute getMergeRequest_Sha();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.models.gitlab.MergeRequest#getShouldRemoveSourceBranch <em>Should Remove Source Branch</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Should Remove Source Branch</em>'.
+	 * @see org.nasdanika.models.gitlab.MergeRequest#getShouldRemoveSourceBranch()
+	 * @see #getMergeRequest()
+	 * @generated
+	 */
+	EAttribute getMergeRequest_ShouldRemoveSourceBranch();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.models.gitlab.MergeRequest#getSourceBranch <em>Source Branch</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Source Branch</em>'.
+	 * @see org.nasdanika.models.gitlab.MergeRequest#getSourceBranch()
+	 * @see #getMergeRequest()
+	 * @generated
+	 */
+	EAttribute getMergeRequest_SourceBranch();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.models.gitlab.MergeRequest#getSourceProjectId <em>Source Project Id</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Source Project Id</em>'.
+	 * @see org.nasdanika.models.gitlab.MergeRequest#getSourceProjectId()
+	 * @see #getMergeRequest()
+	 * @generated
+	 */
+	EAttribute getMergeRequest_SourceProjectId();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.models.gitlab.MergeRequest#getSquash <em>Squash</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Squash</em>'.
+	 * @see org.nasdanika.models.gitlab.MergeRequest#getSquash()
+	 * @see #getMergeRequest()
+	 * @generated
+	 */
+	EAttribute getMergeRequest_Squash();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.models.gitlab.MergeRequest#getSquashCommitSha <em>Squash Commit Sha</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Squash Commit Sha</em>'.
+	 * @see org.nasdanika.models.gitlab.MergeRequest#getSquashCommitSha()
+	 * @see #getMergeRequest()
+	 * @generated
+	 */
+	EAttribute getMergeRequest_SquashCommitSha();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.models.gitlab.MergeRequest#getState <em>State</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>State</em>'.
+	 * @see org.nasdanika.models.gitlab.MergeRequest#getState()
+	 * @see #getMergeRequest()
+	 * @generated
+	 */
+	EAttribute getMergeRequest_State();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.models.gitlab.MergeRequest#getSubscribed <em>Subscribed</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Subscribed</em>'.
+	 * @see org.nasdanika.models.gitlab.MergeRequest#getSubscribed()
+	 * @see #getMergeRequest()
+	 * @generated
+	 */
+	EAttribute getMergeRequest_Subscribed();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.models.gitlab.MergeRequest#getTargetBranch <em>Target Branch</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Target Branch</em>'.
+	 * @see org.nasdanika.models.gitlab.MergeRequest#getTargetBranch()
+	 * @see #getMergeRequest()
+	 * @generated
+	 */
+	EAttribute getMergeRequest_TargetBranch();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.models.gitlab.MergeRequest#getTargetProjectId <em>Target Project Id</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Target Project Id</em>'.
+	 * @see org.nasdanika.models.gitlab.MergeRequest#getTargetProjectId()
+	 * @see #getMergeRequest()
+	 * @generated
+	 */
+	EAttribute getMergeRequest_TargetProjectId();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.models.gitlab.MergeRequest#getTitle <em>Title</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Title</em>'.
+	 * @see org.nasdanika.models.gitlab.MergeRequest#getTitle()
+	 * @see #getMergeRequest()
+	 * @generated
+	 */
+	EAttribute getMergeRequest_Title();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.models.gitlab.MergeRequest#getUpdatedAt <em>Updated At</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Updated At</em>'.
+	 * @see org.nasdanika.models.gitlab.MergeRequest#getUpdatedAt()
+	 * @see #getMergeRequest()
+	 * @generated
+	 */
+	EAttribute getMergeRequest_UpdatedAt();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.models.gitlab.MergeRequest#getUpvotes <em>Upvotes</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Upvotes</em>'.
+	 * @see org.nasdanika.models.gitlab.MergeRequest#getUpvotes()
+	 * @see #getMergeRequest()
+	 * @generated
+	 */
+	EAttribute getMergeRequest_Upvotes();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.models.gitlab.MergeRequest#getUserNotesCount <em>User Notes Count</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>User Notes Count</em>'.
+	 * @see org.nasdanika.models.gitlab.MergeRequest#getUserNotesCount()
+	 * @see #getMergeRequest()
+	 * @generated
+	 */
+	EAttribute getMergeRequest_UserNotesCount();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.models.gitlab.MergeRequest#getWebUrl <em>Web Url</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Web Url</em>'.
+	 * @see org.nasdanika.models.gitlab.MergeRequest#getWebUrl()
+	 * @see #getMergeRequest()
+	 * @generated
+	 */
+	EAttribute getMergeRequest_WebUrl();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.models.gitlab.MergeRequest#getWorkInProgress <em>Work In Progress</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Work In Progress</em>'.
+	 * @see org.nasdanika.models.gitlab.MergeRequest#getWorkInProgress()
+	 * @see #getMergeRequest()
+	 * @generated
+	 */
+	EAttribute getMergeRequest_WorkInProgress();
+
+	/**
 	 * Returns the meta object for class '{@link org.nasdanika.models.gitlab.ApprovalRule <em>Approval Rule</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -8443,6 +10747,72 @@ public interface GitLabPackage extends EPackage {
 	EReference getApprovalRule_ApprovedBy();
 
 	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.models.gitlab.ApprovalRule#getApprovalsRequired <em>Approvals Required</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Approvals Required</em>'.
+	 * @see org.nasdanika.models.gitlab.ApprovalRule#getApprovalsRequired()
+	 * @see #getApprovalRule()
+	 * @generated
+	 */
+	EAttribute getApprovalRule_ApprovalsRequired();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.models.gitlab.ApprovalRule#getApproved <em>Approved</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Approved</em>'.
+	 * @see org.nasdanika.models.gitlab.ApprovalRule#getApproved()
+	 * @see #getApprovalRule()
+	 * @generated
+	 */
+	EAttribute getApprovalRule_Approved();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.models.gitlab.ApprovalRule#getContainsHiddenGroups <em>Contains Hidden Groups</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Contains Hidden Groups</em>'.
+	 * @see org.nasdanika.models.gitlab.ApprovalRule#getContainsHiddenGroups()
+	 * @see #getApprovalRule()
+	 * @generated
+	 */
+	EAttribute getApprovalRule_ContainsHiddenGroups();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.models.gitlab.ApprovalRule#getId <em>Id</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Id</em>'.
+	 * @see org.nasdanika.models.gitlab.ApprovalRule#getId()
+	 * @see #getApprovalRule()
+	 * @generated
+	 */
+	EAttribute getApprovalRule_Id();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.models.gitlab.ApprovalRule#getName <em>Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Name</em>'.
+	 * @see org.nasdanika.models.gitlab.ApprovalRule#getName()
+	 * @see #getApprovalRule()
+	 * @generated
+	 */
+	EAttribute getApprovalRule_Name();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.models.gitlab.ApprovalRule#getRuleType <em>Rule Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Rule Type</em>'.
+	 * @see org.nasdanika.models.gitlab.ApprovalRule#getRuleType()
+	 * @see #getApprovalRule()
+	 * @generated
+	 */
+	EAttribute getApprovalRule_RuleType();
+
+	/**
 	 * Returns the meta object for class '{@link org.nasdanika.models.gitlab.ApprovalState <em>Approval State</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -8464,6 +10834,17 @@ public interface GitLabPackage extends EPackage {
 	EReference getApprovalState_Rules();
 
 	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.models.gitlab.ApprovalState#isApprovalRulesOverwritten <em>Approval Rules Overwritten</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Approval Rules Overwritten</em>'.
+	 * @see org.nasdanika.models.gitlab.ApprovalState#isApprovalRulesOverwritten()
+	 * @see #getApprovalState()
+	 * @generated
+	 */
+	EAttribute getApprovalState_ApprovalRulesOverwritten();
+
+	/**
 	 * Returns the meta object for class '{@link org.nasdanika.models.gitlab.MergeRequestVersion <em>Merge Request Version</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -8472,6 +10853,94 @@ public interface GitLabPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getMergeRequestVersion();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.models.gitlab.MergeRequestVersion#getBaseCommitSha <em>Base Commit Sha</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Base Commit Sha</em>'.
+	 * @see org.nasdanika.models.gitlab.MergeRequestVersion#getBaseCommitSha()
+	 * @see #getMergeRequestVersion()
+	 * @generated
+	 */
+	EAttribute getMergeRequestVersion_BaseCommitSha();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.models.gitlab.MergeRequestVersion#getCreatedAt <em>Created At</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Created At</em>'.
+	 * @see org.nasdanika.models.gitlab.MergeRequestVersion#getCreatedAt()
+	 * @see #getMergeRequestVersion()
+	 * @generated
+	 */
+	EAttribute getMergeRequestVersion_CreatedAt();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.models.gitlab.MergeRequestVersion#getHeadCommitSha <em>Head Commit Sha</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Head Commit Sha</em>'.
+	 * @see org.nasdanika.models.gitlab.MergeRequestVersion#getHeadCommitSha()
+	 * @see #getMergeRequestVersion()
+	 * @generated
+	 */
+	EAttribute getMergeRequestVersion_HeadCommitSha();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.models.gitlab.MergeRequestVersion#getId <em>Id</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Id</em>'.
+	 * @see org.nasdanika.models.gitlab.MergeRequestVersion#getId()
+	 * @see #getMergeRequestVersion()
+	 * @generated
+	 */
+	EAttribute getMergeRequestVersion_Id();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.models.gitlab.MergeRequestVersion#getMergeRequestId <em>Merge Request Id</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Merge Request Id</em>'.
+	 * @see org.nasdanika.models.gitlab.MergeRequestVersion#getMergeRequestId()
+	 * @see #getMergeRequestVersion()
+	 * @generated
+	 */
+	EAttribute getMergeRequestVersion_MergeRequestId();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.models.gitlab.MergeRequestVersion#getRealSize <em>Real Size</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Real Size</em>'.
+	 * @see org.nasdanika.models.gitlab.MergeRequestVersion#getRealSize()
+	 * @see #getMergeRequestVersion()
+	 * @generated
+	 */
+	EAttribute getMergeRequestVersion_RealSize();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.models.gitlab.MergeRequestVersion#getStartCommitSha <em>Start Commit Sha</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Start Commit Sha</em>'.
+	 * @see org.nasdanika.models.gitlab.MergeRequestVersion#getStartCommitSha()
+	 * @see #getMergeRequestVersion()
+	 * @generated
+	 */
+	EAttribute getMergeRequestVersion_StartCommitSha();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.models.gitlab.MergeRequestVersion#getState <em>State</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>State</em>'.
+	 * @see org.nasdanika.models.gitlab.MergeRequestVersion#getState()
+	 * @see #getMergeRequestVersion()
+	 * @generated
+	 */
+	EAttribute getMergeRequestVersion_State();
 
 	/**
 	 * Returns the meta object for class '{@link org.nasdanika.models.gitlab.MergeRequestDiff <em>Merge Request Diff</em>}'.
@@ -8516,6 +10985,50 @@ public interface GitLabPackage extends EPackage {
 	EClass getTimeStats();
 
 	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.models.gitlab.TimeStats#getTimeEstimate <em>Time Estimate</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Time Estimate</em>'.
+	 * @see org.nasdanika.models.gitlab.TimeStats#getTimeEstimate()
+	 * @see #getTimeStats()
+	 * @generated
+	 */
+	EAttribute getTimeStats_TimeEstimate();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.models.gitlab.TimeStats#getTotalTimeSpent <em>Total Time Spent</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Total Time Spent</em>'.
+	 * @see org.nasdanika.models.gitlab.TimeStats#getTotalTimeSpent()
+	 * @see #getTimeStats()
+	 * @generated
+	 */
+	EAttribute getTimeStats_TotalTimeSpent();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.models.gitlab.TimeStats#getHumanTimeEstimate <em>Human Time Estimate</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Human Time Estimate</em>'.
+	 * @see org.nasdanika.models.gitlab.TimeStats#getHumanTimeEstimate()
+	 * @see #getTimeStats()
+	 * @generated
+	 */
+	EAttribute getTimeStats_HumanTimeEstimate();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.models.gitlab.TimeStats#getHumanTotalTimeSpent <em>Human Total Time Spent</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Human Total Time Spent</em>'.
+	 * @see org.nasdanika.models.gitlab.TimeStats#getHumanTotalTimeSpent()
+	 * @see #getTimeStats()
+	 * @generated
+	 */
+	EAttribute getTimeStats_HumanTotalTimeSpent();
+
+	/**
 	 * Returns the meta object for class '{@link org.nasdanika.models.gitlab.TaskCompletionStatus <em>Task Completion Status</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -8524,6 +11037,28 @@ public interface GitLabPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getTaskCompletionStatus();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.models.gitlab.TaskCompletionStatus#getCount <em>Count</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Count</em>'.
+	 * @see org.nasdanika.models.gitlab.TaskCompletionStatus#getCount()
+	 * @see #getTaskCompletionStatus()
+	 * @generated
+	 */
+	EAttribute getTaskCompletionStatus_Count();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.models.gitlab.TaskCompletionStatus#getCompletedCount <em>Completed Count</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Completed Count</em>'.
+	 * @see org.nasdanika.models.gitlab.TaskCompletionStatus#getCompletedCount()
+	 * @see #getTaskCompletionStatus()
+	 * @generated
+	 */
+	EAttribute getTaskCompletionStatus_CompletedCount();
 
 	/**
 	 * Returns the meta object for class '{@link org.nasdanika.models.gitlab.Milestone <em>Milestone</em>}'.
@@ -8536,6 +11071,149 @@ public interface GitLabPackage extends EPackage {
 	EClass getMilestone();
 
 	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.models.gitlab.Milestone#getCreatedAt <em>Created At</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Created At</em>'.
+	 * @see org.nasdanika.models.gitlab.Milestone#getCreatedAt()
+	 * @see #getMilestone()
+	 * @generated
+	 */
+	EAttribute getMilestone_CreatedAt();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.models.gitlab.Milestone#getDescription <em>Description</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Description</em>'.
+	 * @see org.nasdanika.models.gitlab.Milestone#getDescription()
+	 * @see #getMilestone()
+	 * @generated
+	 */
+	EAttribute getMilestone_Description();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.models.gitlab.Milestone#getDueDate <em>Due Date</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Due Date</em>'.
+	 * @see org.nasdanika.models.gitlab.Milestone#getDueDate()
+	 * @see #getMilestone()
+	 * @generated
+	 */
+	EAttribute getMilestone_DueDate();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.models.gitlab.Milestone#getExpired <em>Expired</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Expired</em>'.
+	 * @see org.nasdanika.models.gitlab.Milestone#getExpired()
+	 * @see #getMilestone()
+	 * @generated
+	 */
+	EAttribute getMilestone_Expired();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.models.gitlab.Milestone#getGroupId <em>Group Id</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Group Id</em>'.
+	 * @see org.nasdanika.models.gitlab.Milestone#getGroupId()
+	 * @see #getMilestone()
+	 * @generated
+	 */
+	EAttribute getMilestone_GroupId();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.models.gitlab.Milestone#getId <em>Id</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Id</em>'.
+	 * @see org.nasdanika.models.gitlab.Milestone#getId()
+	 * @see #getMilestone()
+	 * @generated
+	 */
+	EAttribute getMilestone_Id();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.models.gitlab.Milestone#getIid <em>Iid</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Iid</em>'.
+	 * @see org.nasdanika.models.gitlab.Milestone#getIid()
+	 * @see #getMilestone()
+	 * @generated
+	 */
+	EAttribute getMilestone_Iid();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.models.gitlab.Milestone#getProjectId <em>Project Id</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Project Id</em>'.
+	 * @see org.nasdanika.models.gitlab.Milestone#getProjectId()
+	 * @see #getMilestone()
+	 * @generated
+	 */
+	EAttribute getMilestone_ProjectId();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.models.gitlab.Milestone#getStartDate <em>Start Date</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Start Date</em>'.
+	 * @see org.nasdanika.models.gitlab.Milestone#getStartDate()
+	 * @see #getMilestone()
+	 * @generated
+	 */
+	EAttribute getMilestone_StartDate();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.models.gitlab.Milestone#getState <em>State</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>State</em>'.
+	 * @see org.nasdanika.models.gitlab.Milestone#getState()
+	 * @see #getMilestone()
+	 * @generated
+	 */
+	EAttribute getMilestone_State();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.models.gitlab.Milestone#getTitle <em>Title</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Title</em>'.
+	 * @see org.nasdanika.models.gitlab.Milestone#getTitle()
+	 * @see #getMilestone()
+	 * @generated
+	 */
+	EAttribute getMilestone_Title();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.models.gitlab.Milestone#getUpdatedAt <em>Updated At</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Updated At</em>'.
+	 * @see org.nasdanika.models.gitlab.Milestone#getUpdatedAt()
+	 * @see #getMilestone()
+	 * @generated
+	 */
+	EAttribute getMilestone_UpdatedAt();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.models.gitlab.Milestone#getWebUrl <em>Web Url</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Web Url</em>'.
+	 * @see org.nasdanika.models.gitlab.Milestone#getWebUrl()
+	 * @see #getMilestone()
+	 * @generated
+	 */
+	EAttribute getMilestone_WebUrl();
+
+	/**
 	 * Returns the meta object for class '{@link org.nasdanika.models.gitlab.References <em>References</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -8546,6 +11224,39 @@ public interface GitLabPackage extends EPackage {
 	EClass getReferences();
 
 	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.models.gitlab.References#getShort <em>Short</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Short</em>'.
+	 * @see org.nasdanika.models.gitlab.References#getShort()
+	 * @see #getReferences()
+	 * @generated
+	 */
+	EAttribute getReferences_Short();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.models.gitlab.References#getCompact <em>Compact</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Compact</em>'.
+	 * @see org.nasdanika.models.gitlab.References#getCompact()
+	 * @see #getReferences()
+	 * @generated
+	 */
+	EAttribute getReferences_Compact();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.models.gitlab.References#getRelative <em>Relative</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Relative</em>'.
+	 * @see org.nasdanika.models.gitlab.References#getRelative()
+	 * @see #getReferences()
+	 * @generated
+	 */
+	EAttribute getReferences_Relative();
+
+	/**
 	 * Returns the meta object for class '{@link org.nasdanika.models.gitlab.DiffRef <em>Diff Ref</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -8554,6 +11265,39 @@ public interface GitLabPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getDiffRef();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.models.gitlab.DiffRef#getBaseSha <em>Base Sha</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Base Sha</em>'.
+	 * @see org.nasdanika.models.gitlab.DiffRef#getBaseSha()
+	 * @see #getDiffRef()
+	 * @generated
+	 */
+	EAttribute getDiffRef_BaseSha();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.models.gitlab.DiffRef#getHeasSha <em>Heas Sha</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Heas Sha</em>'.
+	 * @see org.nasdanika.models.gitlab.DiffRef#getHeasSha()
+	 * @see #getDiffRef()
+	 * @generated
+	 */
+	EAttribute getDiffRef_HeasSha();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.models.gitlab.DiffRef#getStartSha <em>Start Sha</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Start Sha</em>'.
+	 * @see org.nasdanika.models.gitlab.DiffRef#getStartSha()
+	 * @see #getDiffRef()
+	 * @generated
+	 */
+	EAttribute getDiffRef_StartSha();
 
 	/**
 	 * Returns the meta object for class '{@link org.nasdanika.models.gitlab.AbstractIssue <em>Abstract Issue</em>}'.
@@ -8654,6 +11398,303 @@ public interface GitLabPackage extends EPackage {
 	EReference getAbstractIssue_TaskCompletionStatus();
 
 	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.models.gitlab.AbstractIssue#getClosedAt <em>Closed At</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Closed At</em>'.
+	 * @see org.nasdanika.models.gitlab.AbstractIssue#getClosedAt()
+	 * @see #getAbstractIssue()
+	 * @generated
+	 */
+	EAttribute getAbstractIssue_ClosedAt();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.models.gitlab.AbstractIssue#getConfidential <em>Confidential</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Confidential</em>'.
+	 * @see org.nasdanika.models.gitlab.AbstractIssue#getConfidential()
+	 * @see #getAbstractIssue()
+	 * @generated
+	 */
+	EAttribute getAbstractIssue_Confidential();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.models.gitlab.AbstractIssue#getCreatedAt <em>Created At</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Created At</em>'.
+	 * @see org.nasdanika.models.gitlab.AbstractIssue#getCreatedAt()
+	 * @see #getAbstractIssue()
+	 * @generated
+	 */
+	EAttribute getAbstractIssue_CreatedAt();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.models.gitlab.AbstractIssue#getDescription <em>Description</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Description</em>'.
+	 * @see org.nasdanika.models.gitlab.AbstractIssue#getDescription()
+	 * @see #getAbstractIssue()
+	 * @generated
+	 */
+	EAttribute getAbstractIssue_Description();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.models.gitlab.AbstractIssue#getDiscussionLocked <em>Discussion Locked</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Discussion Locked</em>'.
+	 * @see org.nasdanika.models.gitlab.AbstractIssue#getDiscussionLocked()
+	 * @see #getAbstractIssue()
+	 * @generated
+	 */
+	EAttribute getAbstractIssue_DiscussionLocked();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.models.gitlab.AbstractIssue#getDownvotes <em>Downvotes</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Downvotes</em>'.
+	 * @see org.nasdanika.models.gitlab.AbstractIssue#getDownvotes()
+	 * @see #getAbstractIssue()
+	 * @generated
+	 */
+	EAttribute getAbstractIssue_Downvotes();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.models.gitlab.AbstractIssue#getDueDate <em>Due Date</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Due Date</em>'.
+	 * @see org.nasdanika.models.gitlab.AbstractIssue#getDueDate()
+	 * @see #getAbstractIssue()
+	 * @generated
+	 */
+	EAttribute getAbstractIssue_DueDate();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.models.gitlab.AbstractIssue#getExternalId <em>External Id</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>External Id</em>'.
+	 * @see org.nasdanika.models.gitlab.AbstractIssue#getExternalId()
+	 * @see #getAbstractIssue()
+	 * @generated
+	 */
+	EAttribute getAbstractIssue_ExternalId();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.models.gitlab.AbstractIssue#getHasTasks <em>Has Tasks</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Has Tasks</em>'.
+	 * @see org.nasdanika.models.gitlab.AbstractIssue#getHasTasks()
+	 * @see #getAbstractIssue()
+	 * @generated
+	 */
+	EAttribute getAbstractIssue_HasTasks();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.models.gitlab.AbstractIssue#getHealthStatus <em>Health Status</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Health Status</em>'.
+	 * @see org.nasdanika.models.gitlab.AbstractIssue#getHealthStatus()
+	 * @see #getAbstractIssue()
+	 * @generated
+	 */
+	EAttribute getAbstractIssue_HealthStatus();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.models.gitlab.AbstractIssue#getId <em>Id</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Id</em>'.
+	 * @see org.nasdanika.models.gitlab.AbstractIssue#getId()
+	 * @see #getAbstractIssue()
+	 * @generated
+	 */
+	EAttribute getAbstractIssue_Id();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.models.gitlab.AbstractIssue#getIid <em>Iid</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Iid</em>'.
+	 * @see org.nasdanika.models.gitlab.AbstractIssue#getIid()
+	 * @see #getAbstractIssue()
+	 * @generated
+	 */
+	EAttribute getAbstractIssue_Iid();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.models.gitlab.AbstractIssue#getImported <em>Imported</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Imported</em>'.
+	 * @see org.nasdanika.models.gitlab.AbstractIssue#getImported()
+	 * @see #getAbstractIssue()
+	 * @generated
+	 */
+	EAttribute getAbstractIssue_Imported();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.models.gitlab.AbstractIssue#getImportedFrom <em>Imported From</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Imported From</em>'.
+	 * @see org.nasdanika.models.gitlab.AbstractIssue#getImportedFrom()
+	 * @see #getAbstractIssue()
+	 * @generated
+	 */
+	EAttribute getAbstractIssue_ImportedFrom();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.models.gitlab.AbstractIssue#getIssueType <em>Issue Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Issue Type</em>'.
+	 * @see org.nasdanika.models.gitlab.AbstractIssue#getIssueType()
+	 * @see #getAbstractIssue()
+	 * @generated
+	 */
+	EAttribute getAbstractIssue_IssueType();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.models.gitlab.AbstractIssue#getLabels <em>Labels</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Labels</em>'.
+	 * @see org.nasdanika.models.gitlab.AbstractIssue#getLabels()
+	 * @see #getAbstractIssue()
+	 * @generated
+	 */
+	EAttribute getAbstractIssue_Labels();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.models.gitlab.AbstractIssue#getMergeRequestsCount <em>Merge Requests Count</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Merge Requests Count</em>'.
+	 * @see org.nasdanika.models.gitlab.AbstractIssue#getMergeRequestsCount()
+	 * @see #getAbstractIssue()
+	 * @generated
+	 */
+	EAttribute getAbstractIssue_MergeRequestsCount();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.models.gitlab.AbstractIssue#getProjectId <em>Project Id</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Project Id</em>'.
+	 * @see org.nasdanika.models.gitlab.AbstractIssue#getProjectId()
+	 * @see #getAbstractIssue()
+	 * @generated
+	 */
+	EAttribute getAbstractIssue_ProjectId();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.models.gitlab.AbstractIssue#getSeverity <em>Severity</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Severity</em>'.
+	 * @see org.nasdanika.models.gitlab.AbstractIssue#getSeverity()
+	 * @see #getAbstractIssue()
+	 * @generated
+	 */
+	EAttribute getAbstractIssue_Severity();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.models.gitlab.AbstractIssue#getState <em>State</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>State</em>'.
+	 * @see org.nasdanika.models.gitlab.AbstractIssue#getState()
+	 * @see #getAbstractIssue()
+	 * @generated
+	 */
+	EAttribute getAbstractIssue_State();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.models.gitlab.AbstractIssue#getTaskStatus <em>Task Status</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Task Status</em>'.
+	 * @see org.nasdanika.models.gitlab.AbstractIssue#getTaskStatus()
+	 * @see #getAbstractIssue()
+	 * @generated
+	 */
+	EAttribute getAbstractIssue_TaskStatus();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.models.gitlab.AbstractIssue#getTitle <em>Title</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Title</em>'.
+	 * @see org.nasdanika.models.gitlab.AbstractIssue#getTitle()
+	 * @see #getAbstractIssue()
+	 * @generated
+	 */
+	EAttribute getAbstractIssue_Title();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.models.gitlab.AbstractIssue#getUpdatedAt <em>Updated At</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Updated At</em>'.
+	 * @see org.nasdanika.models.gitlab.AbstractIssue#getUpdatedAt()
+	 * @see #getAbstractIssue()
+	 * @generated
+	 */
+	EAttribute getAbstractIssue_UpdatedAt();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.models.gitlab.AbstractIssue#getUpvotes <em>Upvotes</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Upvotes</em>'.
+	 * @see org.nasdanika.models.gitlab.AbstractIssue#getUpvotes()
+	 * @see #getAbstractIssue()
+	 * @generated
+	 */
+	EAttribute getAbstractIssue_Upvotes();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.models.gitlab.AbstractIssue#getUserNotesCount <em>User Notes Count</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>User Notes Count</em>'.
+	 * @see org.nasdanika.models.gitlab.AbstractIssue#getUserNotesCount()
+	 * @see #getAbstractIssue()
+	 * @generated
+	 */
+	EAttribute getAbstractIssue_UserNotesCount();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.models.gitlab.AbstractIssue#getWebUrl <em>Web Url</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Web Url</em>'.
+	 * @see org.nasdanika.models.gitlab.AbstractIssue#getWebUrl()
+	 * @see #getAbstractIssue()
+	 * @generated
+	 */
+	EAttribute getAbstractIssue_WebUrl();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.models.gitlab.AbstractIssue#getWeight <em>Weight</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Weight</em>'.
+	 * @see org.nasdanika.models.gitlab.AbstractIssue#getWeight()
+	 * @see #getAbstractIssue()
+	 * @generated
+	 */
+	EAttribute getAbstractIssue_Weight();
+
+	/**
 	 * Returns the meta object for class '{@link org.nasdanika.models.gitlab.Issue <em>Issue</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -8662,6 +11703,61 @@ public interface GitLabPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getIssue();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.models.gitlab.Issue#getIssueLinkId <em>Issue Link Id</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Issue Link Id</em>'.
+	 * @see org.nasdanika.models.gitlab.Issue#getIssueLinkId()
+	 * @see #getIssue()
+	 * @generated
+	 */
+	EAttribute getIssue_IssueLinkId();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.models.gitlab.Issue#getLinkCreatedAt <em>Link Created At</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Link Created At</em>'.
+	 * @see org.nasdanika.models.gitlab.Issue#getLinkCreatedAt()
+	 * @see #getIssue()
+	 * @generated
+	 */
+	EAttribute getIssue_LinkCreatedAt();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.models.gitlab.Issue#getLinkType <em>Link Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Link Type</em>'.
+	 * @see org.nasdanika.models.gitlab.Issue#getLinkType()
+	 * @see #getIssue()
+	 * @generated
+	 */
+	EAttribute getIssue_LinkType();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.models.gitlab.Issue#getLinkUpdatedAt <em>Link Updated At</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Link Updated At</em>'.
+	 * @see org.nasdanika.models.gitlab.Issue#getLinkUpdatedAt()
+	 * @see #getIssue()
+	 * @generated
+	 */
+	EAttribute getIssue_LinkUpdatedAt();
+
+	/**
+	 * Returns the meta object for the attribute '{@link org.nasdanika.models.gitlab.Issue#getSubscribed <em>Subscribed</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Subscribed</em>'.
+	 * @see org.nasdanika.models.gitlab.Issue#getSubscribed()
+	 * @see #getIssue()
+	 * @generated
+	 */
+	EAttribute getIssue_Subscribed();
 
 	/**
 	 * Returns the meta object for class '{@link org.nasdanika.models.gitlab.Discussable <em>Discussable</em>}'.
@@ -8763,6 +11859,26 @@ public interface GitLabPackage extends EPackage {
 	 * @generated
 	 */
 	EEnum getSquashOption();
+
+	/**
+	 * Returns the meta object for enum '{@link org.nasdanika.models.gitlab.IssueState <em>Issue State</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for enum '<em>Issue State</em>'.
+	 * @see org.nasdanika.models.gitlab.IssueState
+	 * @generated
+	 */
+	EEnum getIssueState();
+
+	/**
+	 * Returns the meta object for enum '{@link org.nasdanika.models.gitlab.LinkType <em>Link Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for enum '<em>Link Type</em>'.
+	 * @see org.nasdanika.models.gitlab.LinkType
+	 * @generated
+	 */
+	EEnum getLinkType();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -10633,6 +13749,153 @@ public interface GitLabPackage extends EPackage {
 		 */
 		EReference NOTE__POSITION = eINSTANCE.getNote_Position();
 		/**
+		 * The meta object literal for the '<em><b>Author</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference NOTE__AUTHOR = eINSTANCE.getNote_Author();
+		/**
+		 * The meta object literal for the '<em><b>Attachment</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute NOTE__ATTACHMENT = eINSTANCE.getNote_Attachment();
+		/**
+		 * The meta object literal for the '<em><b>Body</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute NOTE__BODY = eINSTANCE.getNote_Body();
+		/**
+		 * The meta object literal for the '<em><b>Created At</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute NOTE__CREATED_AT = eINSTANCE.getNote_CreatedAt();
+		/**
+		 * The meta object literal for the '<em><b>Downvote</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute NOTE__DOWNVOTE = eINSTANCE.getNote_Downvote();
+		/**
+		 * The meta object literal for the '<em><b>Expires At</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute NOTE__EXPIRES_AT = eINSTANCE.getNote_ExpiresAt();
+		/**
+		 * The meta object literal for the '<em><b>File Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute NOTE__FILE_NAME = eINSTANCE.getNote_FileName();
+		/**
+		 * The meta object literal for the '<em><b>Id</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute NOTE__ID = eINSTANCE.getNote_Id();
+		/**
+		 * The meta object literal for the '<em><b>Internal</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute NOTE__INTERNAL = eINSTANCE.getNote_Internal();
+		/**
+		 * The meta object literal for the '<em><b>Noteable Id</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute NOTE__NOTEABLE_ID = eINSTANCE.getNote_NoteableId();
+		/**
+		 * The meta object literal for the '<em><b>Noteable Iid</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute NOTE__NOTEABLE_IID = eINSTANCE.getNote_NoteableIid();
+		/**
+		 * The meta object literal for the '<em><b>Noteable Type</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute NOTE__NOTEABLE_TYPE = eINSTANCE.getNote_NoteableType();
+		/**
+		 * The meta object literal for the '<em><b>Resolvable</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute NOTE__RESOLVABLE = eINSTANCE.getNote_Resolvable();
+		/**
+		 * The meta object literal for the '<em><b>Resolved</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute NOTE__RESOLVED = eINSTANCE.getNote_Resolved();
+		/**
+		 * The meta object literal for the '<em><b>Resolved At</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute NOTE__RESOLVED_AT = eINSTANCE.getNote_ResolvedAt();
+		/**
+		 * The meta object literal for the '<em><b>Resolved By</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference NOTE__RESOLVED_BY = eINSTANCE.getNote_ResolvedBy();
+		/**
+		 * The meta object literal for the '<em><b>System</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute NOTE__SYSTEM = eINSTANCE.getNote_System();
+		/**
+		 * The meta object literal for the '<em><b>Title</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute NOTE__TITLE = eINSTANCE.getNote_Title();
+		/**
+		 * The meta object literal for the '<em><b>Discussion Note</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute NOTE__DISCUSSION_NOTE = eINSTANCE.getNote_DiscussionNote();
+		/**
+		 * The meta object literal for the '<em><b>Updated At</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute NOTE__UPDATED_AT = eINSTANCE.getNote_UpdatedAt();
+		/**
+		 * The meta object literal for the '<em><b>Upvote</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute NOTE__UPVOTE = eINSTANCE.getNote_Upvote();
+		/**
 		 * The meta object literal for the '{@link org.nasdanika.models.gitlab.impl.NotableImpl <em>Notable</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -10812,6 +14075,321 @@ public interface GitLabPackage extends EPackage {
 		 */
 		EReference MERGE_REQUEST__DIFF_VERSIONS = eINSTANCE.getMergeRequest_DiffVersions();
 		/**
+		 * The meta object literal for the '<em><b>Allow Collaboration</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute MERGE_REQUEST__ALLOW_COLLABORATION = eINSTANCE.getMergeRequest_AllowCollaboration();
+		/**
+		 * The meta object literal for the '<em><b>Allow Maintainer To Push</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute MERGE_REQUEST__ALLOW_MAINTAINER_TO_PUSH = eINSTANCE.getMergeRequest_AllowMaintainerToPush();
+		/**
+		 * The meta object literal for the '<em><b>Approvals Before Merge</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute MERGE_REQUEST__APPROVALS_BEFORE_MERGE = eINSTANCE.getMergeRequest_ApprovalsBeforeMerge();
+		/**
+		 * The meta object literal for the '<em><b>Approvals Left</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute MERGE_REQUEST__APPROVALS_LEFT = eINSTANCE.getMergeRequest_ApprovalsLeft();
+		/**
+		 * The meta object literal for the '<em><b>Approvals Required</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute MERGE_REQUEST__APPROVALS_REQUIRED = eINSTANCE.getMergeRequest_ApprovalsRequired();
+		/**
+		 * The meta object literal for the '<em><b>Approved By</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference MERGE_REQUEST__APPROVED_BY = eINSTANCE.getMergeRequest_ApprovedBy();
+		/**
+		 * The meta object literal for the '<em><b>Blocking Discussions Resolved</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute MERGE_REQUEST__BLOCKING_DISCUSSIONS_RESOLVED = eINSTANCE.getMergeRequest_BlockingDiscussionsResolved();
+		/**
+		 * The meta object literal for the '<em><b>Changes Count</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute MERGE_REQUEST__CHANGES_COUNT = eINSTANCE.getMergeRequest_ChangesCount();
+		/**
+		 * The meta object literal for the '<em><b>Closed At</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute MERGE_REQUEST__CLOSED_AT = eINSTANCE.getMergeRequest_ClosedAt();
+		/**
+		 * The meta object literal for the '<em><b>Closed By</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference MERGE_REQUEST__CLOSED_BY = eINSTANCE.getMergeRequest_ClosedBy();
+		/**
+		 * The meta object literal for the '<em><b>Created At</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute MERGE_REQUEST__CREATED_AT = eINSTANCE.getMergeRequest_CreatedAt();
+		/**
+		 * The meta object literal for the '<em><b>Description</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute MERGE_REQUEST__DESCRIPTION = eINSTANCE.getMergeRequest_Description();
+		/**
+		 * The meta object literal for the '<em><b>Detailed Merge Status</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute MERGE_REQUEST__DETAILED_MERGE_STATUS = eINSTANCE.getMergeRequest_DetailedMergeStatus();
+		/**
+		 * The meta object literal for the '<em><b>Discussion Locked</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute MERGE_REQUEST__DISCUSSION_LOCKED = eINSTANCE.getMergeRequest_DiscussionLocked();
+		/**
+		 * The meta object literal for the '<em><b>Diverged Commits Count</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute MERGE_REQUEST__DIVERGED_COMMITS_COUNT = eINSTANCE.getMergeRequest_DivergedCommitsCount();
+		/**
+		 * The meta object literal for the '<em><b>Downvotes</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute MERGE_REQUEST__DOWNVOTES = eINSTANCE.getMergeRequest_Downvotes();
+		/**
+		 * The meta object literal for the '<em><b>Force Remove Source Branch</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute MERGE_REQUEST__FORCE_REMOVE_SOURCE_BRANCH = eINSTANCE.getMergeRequest_ForceRemoveSourceBranch();
+		/**
+		 * The meta object literal for the '<em><b>Has Conflicts</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute MERGE_REQUEST__HAS_CONFLICTS = eINSTANCE.getMergeRequest_HasConflicts();
+		/**
+		 * The meta object literal for the '<em><b>Labels</b></em>' attribute list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute MERGE_REQUEST__LABELS = eINSTANCE.getMergeRequest_Labels();
+		/**
+		 * The meta object literal for the '<em><b>Latest Build Finished At</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute MERGE_REQUEST__LATEST_BUILD_FINISHED_AT = eINSTANCE.getMergeRequest_LatestBuildFinishedAt();
+		/**
+		 * The meta object literal for the '<em><b>Latest Build Started At</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute MERGE_REQUEST__LATEST_BUILD_STARTED_AT = eINSTANCE.getMergeRequest_LatestBuildStartedAt();
+		/**
+		 * The meta object literal for the '<em><b>Merge Commit Sha</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute MERGE_REQUEST__MERGE_COMMIT_SHA = eINSTANCE.getMergeRequest_MergeCommitSha();
+		/**
+		 * The meta object literal for the '<em><b>Merged At</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute MERGE_REQUEST__MERGED_AT = eINSTANCE.getMergeRequest_MergedAt();
+		/**
+		 * The meta object literal for the '<em><b>Merged By</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference MERGE_REQUEST__MERGED_BY = eINSTANCE.getMergeRequest_MergedBy();
+		/**
+		 * The meta object literal for the '<em><b>Merge Error</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute MERGE_REQUEST__MERGE_ERROR = eINSTANCE.getMergeRequest_MergeError();
+		/**
+		 * The meta object literal for the '<em><b>Merge Status</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute MERGE_REQUEST__MERGE_STATUS = eINSTANCE.getMergeRequest_MergeStatus();
+		/**
+		 * The meta object literal for the '<em><b>Merge When Pipeline Succeeds</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute MERGE_REQUEST__MERGE_WHEN_PIPELINE_SUCCEEDS = eINSTANCE.getMergeRequest_MergeWhenPipelineSucceeds();
+		/**
+		 * The meta object literal for the '<em><b>Project Id</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute MERGE_REQUEST__PROJECT_ID = eINSTANCE.getMergeRequest_ProjectId();
+		/**
+		 * The meta object literal for the '<em><b>Rebase In Progress</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute MERGE_REQUEST__REBASE_IN_PROGRESS = eINSTANCE.getMergeRequest_RebaseInProgress();
+		/**
+		 * The meta object literal for the '<em><b>Sha</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute MERGE_REQUEST__SHA = eINSTANCE.getMergeRequest_Sha();
+		/**
+		 * The meta object literal for the '<em><b>Should Remove Source Branch</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute MERGE_REQUEST__SHOULD_REMOVE_SOURCE_BRANCH = eINSTANCE.getMergeRequest_ShouldRemoveSourceBranch();
+		/**
+		 * The meta object literal for the '<em><b>Source Branch</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute MERGE_REQUEST__SOURCE_BRANCH = eINSTANCE.getMergeRequest_SourceBranch();
+		/**
+		 * The meta object literal for the '<em><b>Source Project Id</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute MERGE_REQUEST__SOURCE_PROJECT_ID = eINSTANCE.getMergeRequest_SourceProjectId();
+		/**
+		 * The meta object literal for the '<em><b>Squash</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute MERGE_REQUEST__SQUASH = eINSTANCE.getMergeRequest_Squash();
+		/**
+		 * The meta object literal for the '<em><b>Squash Commit Sha</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute MERGE_REQUEST__SQUASH_COMMIT_SHA = eINSTANCE.getMergeRequest_SquashCommitSha();
+		/**
+		 * The meta object literal for the '<em><b>State</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute MERGE_REQUEST__STATE = eINSTANCE.getMergeRequest_State();
+		/**
+		 * The meta object literal for the '<em><b>Subscribed</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute MERGE_REQUEST__SUBSCRIBED = eINSTANCE.getMergeRequest_Subscribed();
+		/**
+		 * The meta object literal for the '<em><b>Target Branch</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute MERGE_REQUEST__TARGET_BRANCH = eINSTANCE.getMergeRequest_TargetBranch();
+		/**
+		 * The meta object literal for the '<em><b>Target Project Id</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute MERGE_REQUEST__TARGET_PROJECT_ID = eINSTANCE.getMergeRequest_TargetProjectId();
+		/**
+		 * The meta object literal for the '<em><b>Title</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute MERGE_REQUEST__TITLE = eINSTANCE.getMergeRequest_Title();
+		/**
+		 * The meta object literal for the '<em><b>Updated At</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute MERGE_REQUEST__UPDATED_AT = eINSTANCE.getMergeRequest_UpdatedAt();
+		/**
+		 * The meta object literal for the '<em><b>Upvotes</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute MERGE_REQUEST__UPVOTES = eINSTANCE.getMergeRequest_Upvotes();
+		/**
+		 * The meta object literal for the '<em><b>User Notes Count</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute MERGE_REQUEST__USER_NOTES_COUNT = eINSTANCE.getMergeRequest_UserNotesCount();
+		/**
+		 * The meta object literal for the '<em><b>Web Url</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute MERGE_REQUEST__WEB_URL = eINSTANCE.getMergeRequest_WebUrl();
+		/**
+		 * The meta object literal for the '<em><b>Work In Progress</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute MERGE_REQUEST__WORK_IN_PROGRESS = eINSTANCE.getMergeRequest_WorkInProgress();
+		/**
 		 * The meta object literal for the '{@link org.nasdanika.models.gitlab.impl.ApprovalRuleImpl <em>Approval Rule</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -10856,6 +14434,48 @@ public interface GitLabPackage extends EPackage {
 		 */
 		EReference APPROVAL_RULE__APPROVED_BY = eINSTANCE.getApprovalRule_ApprovedBy();
 		/**
+		 * The meta object literal for the '<em><b>Approvals Required</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute APPROVAL_RULE__APPROVALS_REQUIRED = eINSTANCE.getApprovalRule_ApprovalsRequired();
+		/**
+		 * The meta object literal for the '<em><b>Approved</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute APPROVAL_RULE__APPROVED = eINSTANCE.getApprovalRule_Approved();
+		/**
+		 * The meta object literal for the '<em><b>Contains Hidden Groups</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute APPROVAL_RULE__CONTAINS_HIDDEN_GROUPS = eINSTANCE.getApprovalRule_ContainsHiddenGroups();
+		/**
+		 * The meta object literal for the '<em><b>Id</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute APPROVAL_RULE__ID = eINSTANCE.getApprovalRule_Id();
+		/**
+		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute APPROVAL_RULE__NAME = eINSTANCE.getApprovalRule_Name();
+		/**
+		 * The meta object literal for the '<em><b>Rule Type</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute APPROVAL_RULE__RULE_TYPE = eINSTANCE.getApprovalRule_RuleType();
+		/**
 		 * The meta object literal for the '{@link org.nasdanika.models.gitlab.impl.ApprovalStateImpl <em>Approval State</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -10872,6 +14492,13 @@ public interface GitLabPackage extends EPackage {
 		 */
 		EReference APPROVAL_STATE__RULES = eINSTANCE.getApprovalState_Rules();
 		/**
+		 * The meta object literal for the '<em><b>Approval Rules Overwritten</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute APPROVAL_STATE__APPROVAL_RULES_OVERWRITTEN = eINSTANCE.getApprovalState_ApprovalRulesOverwritten();
+		/**
 		 * The meta object literal for the '{@link org.nasdanika.models.gitlab.impl.MergeRequestVersionImpl <em>Merge Request Version</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -10880,6 +14507,62 @@ public interface GitLabPackage extends EPackage {
 		 * @generated
 		 */
 		EClass MERGE_REQUEST_VERSION = eINSTANCE.getMergeRequestVersion();
+		/**
+		 * The meta object literal for the '<em><b>Base Commit Sha</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute MERGE_REQUEST_VERSION__BASE_COMMIT_SHA = eINSTANCE.getMergeRequestVersion_BaseCommitSha();
+		/**
+		 * The meta object literal for the '<em><b>Created At</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute MERGE_REQUEST_VERSION__CREATED_AT = eINSTANCE.getMergeRequestVersion_CreatedAt();
+		/**
+		 * The meta object literal for the '<em><b>Head Commit Sha</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute MERGE_REQUEST_VERSION__HEAD_COMMIT_SHA = eINSTANCE.getMergeRequestVersion_HeadCommitSha();
+		/**
+		 * The meta object literal for the '<em><b>Id</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute MERGE_REQUEST_VERSION__ID = eINSTANCE.getMergeRequestVersion_Id();
+		/**
+		 * The meta object literal for the '<em><b>Merge Request Id</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute MERGE_REQUEST_VERSION__MERGE_REQUEST_ID = eINSTANCE.getMergeRequestVersion_MergeRequestId();
+		/**
+		 * The meta object literal for the '<em><b>Real Size</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute MERGE_REQUEST_VERSION__REAL_SIZE = eINSTANCE.getMergeRequestVersion_RealSize();
+		/**
+		 * The meta object literal for the '<em><b>Start Commit Sha</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute MERGE_REQUEST_VERSION__START_COMMIT_SHA = eINSTANCE.getMergeRequestVersion_StartCommitSha();
+		/**
+		 * The meta object literal for the '<em><b>State</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute MERGE_REQUEST_VERSION__STATE = eINSTANCE.getMergeRequestVersion_State();
 		/**
 		 * The meta object literal for the '{@link org.nasdanika.models.gitlab.impl.MergeRequestDiffImpl <em>Merge Request Diff</em>}' class.
 		 * <!-- begin-user-doc -->
@@ -10913,6 +14596,34 @@ public interface GitLabPackage extends EPackage {
 		 */
 		EClass TIME_STATS = eINSTANCE.getTimeStats();
 		/**
+		 * The meta object literal for the '<em><b>Time Estimate</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute TIME_STATS__TIME_ESTIMATE = eINSTANCE.getTimeStats_TimeEstimate();
+		/**
+		 * The meta object literal for the '<em><b>Total Time Spent</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute TIME_STATS__TOTAL_TIME_SPENT = eINSTANCE.getTimeStats_TotalTimeSpent();
+		/**
+		 * The meta object literal for the '<em><b>Human Time Estimate</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute TIME_STATS__HUMAN_TIME_ESTIMATE = eINSTANCE.getTimeStats_HumanTimeEstimate();
+		/**
+		 * The meta object literal for the '<em><b>Human Total Time Spent</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute TIME_STATS__HUMAN_TOTAL_TIME_SPENT = eINSTANCE.getTimeStats_HumanTotalTimeSpent();
+		/**
 		 * The meta object literal for the '{@link org.nasdanika.models.gitlab.impl.TaskCompletionStatusImpl <em>Task Completion Status</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -10921,6 +14632,20 @@ public interface GitLabPackage extends EPackage {
 		 * @generated
 		 */
 		EClass TASK_COMPLETION_STATUS = eINSTANCE.getTaskCompletionStatus();
+		/**
+		 * The meta object literal for the '<em><b>Count</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute TASK_COMPLETION_STATUS__COUNT = eINSTANCE.getTaskCompletionStatus_Count();
+		/**
+		 * The meta object literal for the '<em><b>Completed Count</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute TASK_COMPLETION_STATUS__COMPLETED_COUNT = eINSTANCE.getTaskCompletionStatus_CompletedCount();
 		/**
 		 * The meta object literal for the '{@link org.nasdanika.models.gitlab.impl.MilestoneImpl <em>Milestone</em>}' class.
 		 * <!-- begin-user-doc -->
@@ -10931,6 +14656,97 @@ public interface GitLabPackage extends EPackage {
 		 */
 		EClass MILESTONE = eINSTANCE.getMilestone();
 		/**
+		 * The meta object literal for the '<em><b>Created At</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute MILESTONE__CREATED_AT = eINSTANCE.getMilestone_CreatedAt();
+		/**
+		 * The meta object literal for the '<em><b>Description</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute MILESTONE__DESCRIPTION = eINSTANCE.getMilestone_Description();
+		/**
+		 * The meta object literal for the '<em><b>Due Date</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute MILESTONE__DUE_DATE = eINSTANCE.getMilestone_DueDate();
+		/**
+		 * The meta object literal for the '<em><b>Expired</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute MILESTONE__EXPIRED = eINSTANCE.getMilestone_Expired();
+		/**
+		 * The meta object literal for the '<em><b>Group Id</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute MILESTONE__GROUP_ID = eINSTANCE.getMilestone_GroupId();
+		/**
+		 * The meta object literal for the '<em><b>Id</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute MILESTONE__ID = eINSTANCE.getMilestone_Id();
+		/**
+		 * The meta object literal for the '<em><b>Iid</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute MILESTONE__IID = eINSTANCE.getMilestone_Iid();
+		/**
+		 * The meta object literal for the '<em><b>Project Id</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute MILESTONE__PROJECT_ID = eINSTANCE.getMilestone_ProjectId();
+		/**
+		 * The meta object literal for the '<em><b>Start Date</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute MILESTONE__START_DATE = eINSTANCE.getMilestone_StartDate();
+		/**
+		 * The meta object literal for the '<em><b>State</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute MILESTONE__STATE = eINSTANCE.getMilestone_State();
+		/**
+		 * The meta object literal for the '<em><b>Title</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute MILESTONE__TITLE = eINSTANCE.getMilestone_Title();
+		/**
+		 * The meta object literal for the '<em><b>Updated At</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute MILESTONE__UPDATED_AT = eINSTANCE.getMilestone_UpdatedAt();
+		/**
+		 * The meta object literal for the '<em><b>Web Url</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute MILESTONE__WEB_URL = eINSTANCE.getMilestone_WebUrl();
+		/**
 		 * The meta object literal for the '{@link org.nasdanika.models.gitlab.impl.ReferencesImpl <em>References</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -10940,6 +14756,27 @@ public interface GitLabPackage extends EPackage {
 		 */
 		EClass REFERENCES = eINSTANCE.getReferences();
 		/**
+		 * The meta object literal for the '<em><b>Short</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute REFERENCES__SHORT = eINSTANCE.getReferences_Short();
+		/**
+		 * The meta object literal for the '<em><b>Compact</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute REFERENCES__COMPACT = eINSTANCE.getReferences_Compact();
+		/**
+		 * The meta object literal for the '<em><b>Relative</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute REFERENCES__RELATIVE = eINSTANCE.getReferences_Relative();
+		/**
 		 * The meta object literal for the '{@link org.nasdanika.models.gitlab.impl.DiffRefImpl <em>Diff Ref</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -10948,6 +14785,27 @@ public interface GitLabPackage extends EPackage {
 		 * @generated
 		 */
 		EClass DIFF_REF = eINSTANCE.getDiffRef();
+		/**
+		 * The meta object literal for the '<em><b>Base Sha</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute DIFF_REF__BASE_SHA = eINSTANCE.getDiffRef_BaseSha();
+		/**
+		 * The meta object literal for the '<em><b>Heas Sha</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute DIFF_REF__HEAS_SHA = eINSTANCE.getDiffRef_HeasSha();
+		/**
+		 * The meta object literal for the '<em><b>Start Sha</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute DIFF_REF__START_SHA = eINSTANCE.getDiffRef_StartSha();
 		/**
 		 * The meta object literal for the '{@link org.nasdanika.models.gitlab.impl.AbstractIssueImpl <em>Abstract Issue</em>}' class.
 		 * <!-- begin-user-doc -->
@@ -11014,6 +14872,195 @@ public interface GitLabPackage extends EPackage {
 		 */
 		EReference ABSTRACT_ISSUE__TASK_COMPLETION_STATUS = eINSTANCE.getAbstractIssue_TaskCompletionStatus();
 		/**
+		 * The meta object literal for the '<em><b>Closed At</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute ABSTRACT_ISSUE__CLOSED_AT = eINSTANCE.getAbstractIssue_ClosedAt();
+		/**
+		 * The meta object literal for the '<em><b>Confidential</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute ABSTRACT_ISSUE__CONFIDENTIAL = eINSTANCE.getAbstractIssue_Confidential();
+		/**
+		 * The meta object literal for the '<em><b>Created At</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute ABSTRACT_ISSUE__CREATED_AT = eINSTANCE.getAbstractIssue_CreatedAt();
+		/**
+		 * The meta object literal for the '<em><b>Description</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute ABSTRACT_ISSUE__DESCRIPTION = eINSTANCE.getAbstractIssue_Description();
+		/**
+		 * The meta object literal for the '<em><b>Discussion Locked</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute ABSTRACT_ISSUE__DISCUSSION_LOCKED = eINSTANCE.getAbstractIssue_DiscussionLocked();
+		/**
+		 * The meta object literal for the '<em><b>Downvotes</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute ABSTRACT_ISSUE__DOWNVOTES = eINSTANCE.getAbstractIssue_Downvotes();
+		/**
+		 * The meta object literal for the '<em><b>Due Date</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute ABSTRACT_ISSUE__DUE_DATE = eINSTANCE.getAbstractIssue_DueDate();
+		/**
+		 * The meta object literal for the '<em><b>External Id</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute ABSTRACT_ISSUE__EXTERNAL_ID = eINSTANCE.getAbstractIssue_ExternalId();
+		/**
+		 * The meta object literal for the '<em><b>Has Tasks</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute ABSTRACT_ISSUE__HAS_TASKS = eINSTANCE.getAbstractIssue_HasTasks();
+		/**
+		 * The meta object literal for the '<em><b>Health Status</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute ABSTRACT_ISSUE__HEALTH_STATUS = eINSTANCE.getAbstractIssue_HealthStatus();
+		/**
+		 * The meta object literal for the '<em><b>Id</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute ABSTRACT_ISSUE__ID = eINSTANCE.getAbstractIssue_Id();
+		/**
+		 * The meta object literal for the '<em><b>Iid</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute ABSTRACT_ISSUE__IID = eINSTANCE.getAbstractIssue_Iid();
+		/**
+		 * The meta object literal for the '<em><b>Imported</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute ABSTRACT_ISSUE__IMPORTED = eINSTANCE.getAbstractIssue_Imported();
+		/**
+		 * The meta object literal for the '<em><b>Imported From</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute ABSTRACT_ISSUE__IMPORTED_FROM = eINSTANCE.getAbstractIssue_ImportedFrom();
+		/**
+		 * The meta object literal for the '<em><b>Issue Type</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute ABSTRACT_ISSUE__ISSUE_TYPE = eINSTANCE.getAbstractIssue_IssueType();
+		/**
+		 * The meta object literal for the '<em><b>Labels</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute ABSTRACT_ISSUE__LABELS = eINSTANCE.getAbstractIssue_Labels();
+		/**
+		 * The meta object literal for the '<em><b>Merge Requests Count</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute ABSTRACT_ISSUE__MERGE_REQUESTS_COUNT = eINSTANCE.getAbstractIssue_MergeRequestsCount();
+		/**
+		 * The meta object literal for the '<em><b>Project Id</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute ABSTRACT_ISSUE__PROJECT_ID = eINSTANCE.getAbstractIssue_ProjectId();
+		/**
+		 * The meta object literal for the '<em><b>Severity</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute ABSTRACT_ISSUE__SEVERITY = eINSTANCE.getAbstractIssue_Severity();
+		/**
+		 * The meta object literal for the '<em><b>State</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute ABSTRACT_ISSUE__STATE = eINSTANCE.getAbstractIssue_State();
+		/**
+		 * The meta object literal for the '<em><b>Task Status</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute ABSTRACT_ISSUE__TASK_STATUS = eINSTANCE.getAbstractIssue_TaskStatus();
+		/**
+		 * The meta object literal for the '<em><b>Title</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute ABSTRACT_ISSUE__TITLE = eINSTANCE.getAbstractIssue_Title();
+		/**
+		 * The meta object literal for the '<em><b>Updated At</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute ABSTRACT_ISSUE__UPDATED_AT = eINSTANCE.getAbstractIssue_UpdatedAt();
+		/**
+		 * The meta object literal for the '<em><b>Upvotes</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute ABSTRACT_ISSUE__UPVOTES = eINSTANCE.getAbstractIssue_Upvotes();
+		/**
+		 * The meta object literal for the '<em><b>User Notes Count</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute ABSTRACT_ISSUE__USER_NOTES_COUNT = eINSTANCE.getAbstractIssue_UserNotesCount();
+		/**
+		 * The meta object literal for the '<em><b>Web Url</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute ABSTRACT_ISSUE__WEB_URL = eINSTANCE.getAbstractIssue_WebUrl();
+		/**
+		 * The meta object literal for the '<em><b>Weight</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute ABSTRACT_ISSUE__WEIGHT = eINSTANCE.getAbstractIssue_Weight();
+		/**
 		 * The meta object literal for the '{@link org.nasdanika.models.gitlab.impl.IssueImpl <em>Issue</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -11022,6 +15069,41 @@ public interface GitLabPackage extends EPackage {
 		 * @generated
 		 */
 		EClass ISSUE = eINSTANCE.getIssue();
+		/**
+		 * The meta object literal for the '<em><b>Issue Link Id</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute ISSUE__ISSUE_LINK_ID = eINSTANCE.getIssue_IssueLinkId();
+		/**
+		 * The meta object literal for the '<em><b>Link Created At</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute ISSUE__LINK_CREATED_AT = eINSTANCE.getIssue_LinkCreatedAt();
+		/**
+		 * The meta object literal for the '<em><b>Link Type</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute ISSUE__LINK_TYPE = eINSTANCE.getIssue_LinkType();
+		/**
+		 * The meta object literal for the '<em><b>Link Updated At</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute ISSUE__LINK_UPDATED_AT = eINSTANCE.getIssue_LinkUpdatedAt();
+		/**
+		 * The meta object literal for the '<em><b>Subscribed</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute ISSUE__SUBSCRIBED = eINSTANCE.getIssue_Subscribed();
 		/**
 		 * The meta object literal for the '{@link org.nasdanika.models.gitlab.impl.DiscussableImpl <em>Discussable</em>}' class.
 		 * <!-- begin-user-doc -->
@@ -11110,6 +15192,24 @@ public interface GitLabPackage extends EPackage {
 		 * @generated
 		 */
 		EEnum SQUASH_OPTION = eINSTANCE.getSquashOption();
+		/**
+		 * The meta object literal for the '{@link org.nasdanika.models.gitlab.IssueState <em>Issue State</em>}' enum.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.nasdanika.models.gitlab.IssueState
+		 * @see org.nasdanika.models.gitlab.impl.GitLabPackageImpl#getIssueState()
+		 * @generated
+		 */
+		EEnum ISSUE_STATE = eINSTANCE.getIssueState();
+		/**
+		 * The meta object literal for the '{@link org.nasdanika.models.gitlab.LinkType <em>Link Type</em>}' enum.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see org.nasdanika.models.gitlab.LinkType
+		 * @see org.nasdanika.models.gitlab.impl.GitLabPackageImpl#getLinkType()
+		 * @generated
+		 */
+		EEnum LINK_TYPE = eINSTANCE.getLinkType();
 
 	}
 

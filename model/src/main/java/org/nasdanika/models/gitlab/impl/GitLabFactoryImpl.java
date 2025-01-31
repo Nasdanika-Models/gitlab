@@ -130,6 +130,10 @@ public class GitLabFactoryImpl extends EFactoryImpl implements GitLabFactory {
 				return createAutoDevopsDeployStrategyFromString(eDataType, initialValue);
 			case GitLabPackage.SQUASH_OPTION:
 				return createSquashOptionFromString(eDataType, initialValue);
+			case GitLabPackage.ISSUE_STATE:
+				return createIssueStateFromString(eDataType, initialValue);
+			case GitLabPackage.LINK_TYPE:
+				return createLinkTypeFromString(eDataType, initialValue);
 			default:
 				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
@@ -157,6 +161,10 @@ public class GitLabFactoryImpl extends EFactoryImpl implements GitLabFactory {
 				return convertAutoDevopsDeployStrategyToString(eDataType, instanceValue);
 			case GitLabPackage.SQUASH_OPTION:
 				return convertSquashOptionToString(eDataType, instanceValue);
+			case GitLabPackage.ISSUE_STATE:
+				return convertIssueStateToString(eDataType, instanceValue);
+			case GitLabPackage.LINK_TYPE:
+				return convertLinkTypeToString(eDataType, instanceValue);
 			default:
 				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
@@ -793,6 +801,46 @@ public class GitLabFactoryImpl extends EFactoryImpl implements GitLabFactory {
 	 * @generated
 	 */
 	public String convertSquashOptionToString(EDataType eDataType, Object instanceValue) {
+		return instanceValue == null ? null : instanceValue.toString();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public IssueState createIssueStateFromString(EDataType eDataType, String initialValue) {
+		IssueState result = IssueState.get(initialValue);
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertIssueStateToString(EDataType eDataType, Object instanceValue) {
+		return instanceValue == null ? null : instanceValue.toString();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public LinkType createLinkTypeFromString(EDataType eDataType, String initialValue) {
+		LinkType result = LinkType.get(initialValue);
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertLinkTypeToString(EDataType eDataType, Object instanceValue) {
 		return instanceValue == null ? null : instanceValue.toString();
 	}
 

@@ -21,11 +21,22 @@ import org.nasdanika.models.gitlab.GitLabPackage;
  * </p>
  * <ul>
  *   <li>{@link org.nasdanika.models.gitlab.impl.ApprovalStateImpl#getRules <em>Rules</em>}</li>
+ *   <li>{@link org.nasdanika.models.gitlab.impl.ApprovalStateImpl#isApprovalRulesOverwritten <em>Approval Rules Overwritten</em>}</li>
  * </ul>
  *
  * @generated
  */
 public class ApprovalStateImpl extends DynamicDelegate implements ApprovalState {
+	/**
+	 * The default value of the '{@link #isApprovalRulesOverwritten() <em>Approval Rules Overwritten</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isApprovalRulesOverwritten()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean APPROVAL_RULES_OVERWRITTEN_EDEFAULT = false;
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -72,10 +83,32 @@ public class ApprovalStateImpl extends DynamicDelegate implements ApprovalState 
 	 * @generated
 	 */
 	@Override
+	public boolean isApprovalRulesOverwritten() {
+		return (Boolean)eDynamicGet(GitLabPackage.APPROVAL_STATE__APPROVAL_RULES_OVERWRITTEN, GitLabPackage.Literals.APPROVAL_STATE__APPROVAL_RULES_OVERWRITTEN, true, true);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setApprovalRulesOverwritten(boolean newApprovalRulesOverwritten) {
+		eDynamicSet(GitLabPackage.APPROVAL_STATE__APPROVAL_RULES_OVERWRITTEN, GitLabPackage.Literals.APPROVAL_STATE__APPROVAL_RULES_OVERWRITTEN, newApprovalRulesOverwritten);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case GitLabPackage.APPROVAL_STATE__RULES:
 				return getRules();
+			case GitLabPackage.APPROVAL_STATE__APPROVAL_RULES_OVERWRITTEN:
+				return isApprovalRulesOverwritten();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -93,6 +126,9 @@ public class ApprovalStateImpl extends DynamicDelegate implements ApprovalState 
 				getRules().clear();
 				getRules().addAll((Collection<? extends ApprovalRule>)newValue);
 				return;
+			case GitLabPackage.APPROVAL_STATE__APPROVAL_RULES_OVERWRITTEN:
+				setApprovalRulesOverwritten((Boolean)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -108,6 +144,9 @@ public class ApprovalStateImpl extends DynamicDelegate implements ApprovalState 
 			case GitLabPackage.APPROVAL_STATE__RULES:
 				getRules().clear();
 				return;
+			case GitLabPackage.APPROVAL_STATE__APPROVAL_RULES_OVERWRITTEN:
+				setApprovalRulesOverwritten(APPROVAL_RULES_OVERWRITTEN_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -122,6 +161,8 @@ public class ApprovalStateImpl extends DynamicDelegate implements ApprovalState 
 		switch (featureID) {
 			case GitLabPackage.APPROVAL_STATE__RULES:
 				return !getRules().isEmpty();
+			case GitLabPackage.APPROVAL_STATE__APPROVAL_RULES_OVERWRITTEN:
+				return isApprovalRulesOverwritten() != APPROVAL_RULES_OVERWRITTEN_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}

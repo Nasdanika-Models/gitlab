@@ -16,6 +16,7 @@ import org.eclipse.emf.ecore.EObject;
  * </p>
  * <ul>
  *   <li>{@link org.nasdanika.models.gitlab.ApprovalState#getRules <em>Rules</em>}</li>
+ *   <li>{@link org.nasdanika.models.gitlab.ApprovalState#isApprovalRulesOverwritten <em>Approval Rules Overwritten</em>}</li>
  * </ul>
  *
  * @see org.nasdanika.models.gitlab.GitLabPackage#getApprovalState()
@@ -34,5 +35,27 @@ public interface ApprovalState extends EObject {
 	 * @generated
 	 */
 	EList<ApprovalRule> getRules();
+
+	/**
+	 * Returns the value of the '<em><b>Approval Rules Overwritten</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Approval Rules Overwritten</em>' attribute.
+	 * @see #setApprovalRulesOverwritten(boolean)
+	 * @see org.nasdanika.models.gitlab.GitLabPackage#getApprovalState_ApprovalRulesOverwritten()
+	 * @model
+	 * @generated
+	 */
+	boolean isApprovalRulesOverwritten();
+
+	/**
+	 * Sets the value of the '{@link org.nasdanika.models.gitlab.ApprovalState#isApprovalRulesOverwritten <em>Approval Rules Overwritten</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Approval Rules Overwritten</em>' attribute.
+	 * @see #isApprovalRulesOverwritten()
+	 * @generated
+	 */
+	void setApprovalRulesOverwritten(boolean value);
 
 } // ApprovalState

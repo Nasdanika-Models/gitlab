@@ -19,7 +19,8 @@ module org.nasdanika.models.gitlab {
 	requires transitive java.logging;
 	requires transitive org.nasdanika.emf;
 	requires transitive org.nasdanika.models.coverage;
-	requires org.eclipse.emf.ecore.xmi;	
+	requires org.eclipse.emf.ecore.xmi;
+	requires org.nasdanika.common;	
 	
 	provides CapabilityFactory with
 		GitLabEPackageResourceSetCapabilityFactory,

@@ -40,6 +40,8 @@ import org.nasdanika.models.gitlab.GitLabPackage;
 import org.nasdanika.models.gitlab.Group;
 import org.nasdanika.models.gitlab.GroupReference;
 import org.nasdanika.models.gitlab.Issue;
+import org.nasdanika.models.gitlab.IssueState;
+import org.nasdanika.models.gitlab.LinkType;
 import org.nasdanika.models.gitlab.ListRepositoryFile;
 import org.nasdanika.models.gitlab.Load;
 import org.nasdanika.models.gitlab.Loadable;
@@ -444,6 +446,19 @@ public class GitLabPackageImpl extends EPackageImpl implements GitLabPackage {
 	 * @generated
 	 */
 	private EEnum squashOptionEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum issueStateEEnum = null;
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum linkTypeEEnum = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -3055,6 +3070,216 @@ public class GitLabPackageImpl extends EPackageImpl implements GitLabPackage {
 	 * @generated
 	 */
 	@Override
+	public EReference getNote_Author() {
+		return (EReference)noteEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getNote_Attachment() {
+		return (EAttribute)noteEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getNote_Body() {
+		return (EAttribute)noteEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getNote_CreatedAt() {
+		return (EAttribute)noteEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getNote_Downvote() {
+		return (EAttribute)noteEClass.getEStructuralFeatures().get(5);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getNote_ExpiresAt() {
+		return (EAttribute)noteEClass.getEStructuralFeatures().get(6);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getNote_FileName() {
+		return (EAttribute)noteEClass.getEStructuralFeatures().get(7);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getNote_Id() {
+		return (EAttribute)noteEClass.getEStructuralFeatures().get(8);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getNote_Internal() {
+		return (EAttribute)noteEClass.getEStructuralFeatures().get(9);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getNote_NoteableId() {
+		return (EAttribute)noteEClass.getEStructuralFeatures().get(10);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getNote_NoteableIid() {
+		return (EAttribute)noteEClass.getEStructuralFeatures().get(11);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getNote_NoteableType() {
+		return (EAttribute)noteEClass.getEStructuralFeatures().get(12);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getNote_Resolvable() {
+		return (EAttribute)noteEClass.getEStructuralFeatures().get(13);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getNote_Resolved() {
+		return (EAttribute)noteEClass.getEStructuralFeatures().get(14);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getNote_ResolvedAt() {
+		return (EAttribute)noteEClass.getEStructuralFeatures().get(15);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getNote_ResolvedBy() {
+		return (EReference)noteEClass.getEStructuralFeatures().get(16);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getNote_System() {
+		return (EAttribute)noteEClass.getEStructuralFeatures().get(17);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getNote_Title() {
+		return (EAttribute)noteEClass.getEStructuralFeatures().get(18);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getNote_DiscussionNote() {
+		return (EAttribute)noteEClass.getEStructuralFeatures().get(19);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getNote_UpdatedAt() {
+		return (EAttribute)noteEClass.getEStructuralFeatures().get(20);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getNote_Upvote() {
+		return (EAttribute)noteEClass.getEStructuralFeatures().get(21);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EClass getNotable() {
 		return notableEClass;
 	}
@@ -3305,6 +3530,456 @@ public class GitLabPackageImpl extends EPackageImpl implements GitLabPackage {
 	 * @generated
 	 */
 	@Override
+	public EAttribute getMergeRequest_AllowCollaboration() {
+		return (EAttribute)mergeRequestEClass.getEStructuralFeatures().get(22);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getMergeRequest_AllowMaintainerToPush() {
+		return (EAttribute)mergeRequestEClass.getEStructuralFeatures().get(23);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getMergeRequest_ApprovalsBeforeMerge() {
+		return (EAttribute)mergeRequestEClass.getEStructuralFeatures().get(24);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getMergeRequest_ApprovalsLeft() {
+		return (EAttribute)mergeRequestEClass.getEStructuralFeatures().get(25);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getMergeRequest_ApprovalsRequired() {
+		return (EAttribute)mergeRequestEClass.getEStructuralFeatures().get(26);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getMergeRequest_ApprovedBy() {
+		return (EReference)mergeRequestEClass.getEStructuralFeatures().get(27);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getMergeRequest_BlockingDiscussionsResolved() {
+		return (EAttribute)mergeRequestEClass.getEStructuralFeatures().get(28);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getMergeRequest_ChangesCount() {
+		return (EAttribute)mergeRequestEClass.getEStructuralFeatures().get(29);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getMergeRequest_ClosedAt() {
+		return (EAttribute)mergeRequestEClass.getEStructuralFeatures().get(30);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getMergeRequest_ClosedBy() {
+		return (EReference)mergeRequestEClass.getEStructuralFeatures().get(31);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getMergeRequest_CreatedAt() {
+		return (EAttribute)mergeRequestEClass.getEStructuralFeatures().get(32);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getMergeRequest_Description() {
+		return (EAttribute)mergeRequestEClass.getEStructuralFeatures().get(33);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getMergeRequest_DetailedMergeStatus() {
+		return (EAttribute)mergeRequestEClass.getEStructuralFeatures().get(34);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getMergeRequest_DiscussionLocked() {
+		return (EAttribute)mergeRequestEClass.getEStructuralFeatures().get(35);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getMergeRequest_DivergedCommitsCount() {
+		return (EAttribute)mergeRequestEClass.getEStructuralFeatures().get(36);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getMergeRequest_Downvotes() {
+		return (EAttribute)mergeRequestEClass.getEStructuralFeatures().get(37);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getMergeRequest_ForceRemoveSourceBranch() {
+		return (EAttribute)mergeRequestEClass.getEStructuralFeatures().get(38);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getMergeRequest_HasConflicts() {
+		return (EAttribute)mergeRequestEClass.getEStructuralFeatures().get(39);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getMergeRequest_Labels() {
+		return (EAttribute)mergeRequestEClass.getEStructuralFeatures().get(40);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getMergeRequest_LatestBuildFinishedAt() {
+		return (EAttribute)mergeRequestEClass.getEStructuralFeatures().get(41);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getMergeRequest_LatestBuildStartedAt() {
+		return (EAttribute)mergeRequestEClass.getEStructuralFeatures().get(42);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getMergeRequest_MergeCommitSha() {
+		return (EAttribute)mergeRequestEClass.getEStructuralFeatures().get(43);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getMergeRequest_MergedAt() {
+		return (EAttribute)mergeRequestEClass.getEStructuralFeatures().get(44);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getMergeRequest_MergedBy() {
+		return (EReference)mergeRequestEClass.getEStructuralFeatures().get(45);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getMergeRequest_MergeError() {
+		return (EAttribute)mergeRequestEClass.getEStructuralFeatures().get(46);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getMergeRequest_MergeStatus() {
+		return (EAttribute)mergeRequestEClass.getEStructuralFeatures().get(47);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getMergeRequest_MergeWhenPipelineSucceeds() {
+		return (EAttribute)mergeRequestEClass.getEStructuralFeatures().get(48);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getMergeRequest_ProjectId() {
+		return (EAttribute)mergeRequestEClass.getEStructuralFeatures().get(49);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getMergeRequest_RebaseInProgress() {
+		return (EAttribute)mergeRequestEClass.getEStructuralFeatures().get(50);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getMergeRequest_Sha() {
+		return (EAttribute)mergeRequestEClass.getEStructuralFeatures().get(51);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getMergeRequest_ShouldRemoveSourceBranch() {
+		return (EAttribute)mergeRequestEClass.getEStructuralFeatures().get(52);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getMergeRequest_SourceBranch() {
+		return (EAttribute)mergeRequestEClass.getEStructuralFeatures().get(53);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getMergeRequest_SourceProjectId() {
+		return (EAttribute)mergeRequestEClass.getEStructuralFeatures().get(54);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getMergeRequest_Squash() {
+		return (EAttribute)mergeRequestEClass.getEStructuralFeatures().get(55);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getMergeRequest_SquashCommitSha() {
+		return (EAttribute)mergeRequestEClass.getEStructuralFeatures().get(56);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getMergeRequest_State() {
+		return (EAttribute)mergeRequestEClass.getEStructuralFeatures().get(57);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getMergeRequest_Subscribed() {
+		return (EAttribute)mergeRequestEClass.getEStructuralFeatures().get(58);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getMergeRequest_TargetBranch() {
+		return (EAttribute)mergeRequestEClass.getEStructuralFeatures().get(59);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getMergeRequest_TargetProjectId() {
+		return (EAttribute)mergeRequestEClass.getEStructuralFeatures().get(60);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getMergeRequest_Title() {
+		return (EAttribute)mergeRequestEClass.getEStructuralFeatures().get(61);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getMergeRequest_UpdatedAt() {
+		return (EAttribute)mergeRequestEClass.getEStructuralFeatures().get(62);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getMergeRequest_Upvotes() {
+		return (EAttribute)mergeRequestEClass.getEStructuralFeatures().get(63);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getMergeRequest_UserNotesCount() {
+		return (EAttribute)mergeRequestEClass.getEStructuralFeatures().get(64);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getMergeRequest_WebUrl() {
+		return (EAttribute)mergeRequestEClass.getEStructuralFeatures().get(65);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getMergeRequest_WorkInProgress() {
+		return (EAttribute)mergeRequestEClass.getEStructuralFeatures().get(66);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EClass getApprovalRule() {
 		return approvalRuleEClass;
 	}
@@ -3365,6 +4040,66 @@ public class GitLabPackageImpl extends EPackageImpl implements GitLabPackage {
 	 * @generated
 	 */
 	@Override
+	public EAttribute getApprovalRule_ApprovalsRequired() {
+		return (EAttribute)approvalRuleEClass.getEStructuralFeatures().get(5);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getApprovalRule_Approved() {
+		return (EAttribute)approvalRuleEClass.getEStructuralFeatures().get(6);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getApprovalRule_ContainsHiddenGroups() {
+		return (EAttribute)approvalRuleEClass.getEStructuralFeatures().get(7);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getApprovalRule_Id() {
+		return (EAttribute)approvalRuleEClass.getEStructuralFeatures().get(8);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getApprovalRule_Name() {
+		return (EAttribute)approvalRuleEClass.getEStructuralFeatures().get(9);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getApprovalRule_RuleType() {
+		return (EAttribute)approvalRuleEClass.getEStructuralFeatures().get(10);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EClass getApprovalState() {
 		return approvalStateEClass;
 	}
@@ -3385,8 +4120,98 @@ public class GitLabPackageImpl extends EPackageImpl implements GitLabPackage {
 	 * @generated
 	 */
 	@Override
+	public EAttribute getApprovalState_ApprovalRulesOverwritten() {
+		return (EAttribute)approvalStateEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EClass getMergeRequestVersion() {
 		return mergeRequestVersionEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getMergeRequestVersion_BaseCommitSha() {
+		return (EAttribute)mergeRequestVersionEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getMergeRequestVersion_CreatedAt() {
+		return (EAttribute)mergeRequestVersionEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getMergeRequestVersion_HeadCommitSha() {
+		return (EAttribute)mergeRequestVersionEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getMergeRequestVersion_Id() {
+		return (EAttribute)mergeRequestVersionEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getMergeRequestVersion_MergeRequestId() {
+		return (EAttribute)mergeRequestVersionEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getMergeRequestVersion_RealSize() {
+		return (EAttribute)mergeRequestVersionEClass.getEStructuralFeatures().get(5);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getMergeRequestVersion_StartCommitSha() {
+		return (EAttribute)mergeRequestVersionEClass.getEStructuralFeatures().get(6);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getMergeRequestVersion_State() {
+		return (EAttribute)mergeRequestVersionEClass.getEStructuralFeatures().get(7);
 	}
 
 	/**
@@ -3435,8 +4260,68 @@ public class GitLabPackageImpl extends EPackageImpl implements GitLabPackage {
 	 * @generated
 	 */
 	@Override
+	public EAttribute getTimeStats_TimeEstimate() {
+		return (EAttribute)timeStatsEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getTimeStats_TotalTimeSpent() {
+		return (EAttribute)timeStatsEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getTimeStats_HumanTimeEstimate() {
+		return (EAttribute)timeStatsEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getTimeStats_HumanTotalTimeSpent() {
+		return (EAttribute)timeStatsEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EClass getTaskCompletionStatus() {
 		return taskCompletionStatusEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getTaskCompletionStatus_Count() {
+		return (EAttribute)taskCompletionStatusEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getTaskCompletionStatus_CompletedCount() {
+		return (EAttribute)taskCompletionStatusEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -3455,6 +4340,136 @@ public class GitLabPackageImpl extends EPackageImpl implements GitLabPackage {
 	 * @generated
 	 */
 	@Override
+	public EAttribute getMilestone_CreatedAt() {
+		return (EAttribute)milestoneEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getMilestone_Description() {
+		return (EAttribute)milestoneEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getMilestone_DueDate() {
+		return (EAttribute)milestoneEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getMilestone_Expired() {
+		return (EAttribute)milestoneEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getMilestone_GroupId() {
+		return (EAttribute)milestoneEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getMilestone_Id() {
+		return (EAttribute)milestoneEClass.getEStructuralFeatures().get(5);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getMilestone_Iid() {
+		return (EAttribute)milestoneEClass.getEStructuralFeatures().get(6);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getMilestone_ProjectId() {
+		return (EAttribute)milestoneEClass.getEStructuralFeatures().get(7);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getMilestone_StartDate() {
+		return (EAttribute)milestoneEClass.getEStructuralFeatures().get(8);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getMilestone_State() {
+		return (EAttribute)milestoneEClass.getEStructuralFeatures().get(9);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getMilestone_Title() {
+		return (EAttribute)milestoneEClass.getEStructuralFeatures().get(10);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getMilestone_UpdatedAt() {
+		return (EAttribute)milestoneEClass.getEStructuralFeatures().get(11);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getMilestone_WebUrl() {
+		return (EAttribute)milestoneEClass.getEStructuralFeatures().get(12);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EClass getReferences() {
 		return referencesEClass;
 	}
@@ -3465,8 +4480,68 @@ public class GitLabPackageImpl extends EPackageImpl implements GitLabPackage {
 	 * @generated
 	 */
 	@Override
+	public EAttribute getReferences_Short() {
+		return (EAttribute)referencesEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getReferences_Compact() {
+		return (EAttribute)referencesEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getReferences_Relative() {
+		return (EAttribute)referencesEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EClass getDiffRef() {
 		return diffRefEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getDiffRef_BaseSha() {
+		return (EAttribute)diffRefEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getDiffRef_HeasSha() {
+		return (EAttribute)diffRefEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getDiffRef_StartSha() {
+		return (EAttribute)diffRefEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -3565,8 +4640,328 @@ public class GitLabPackageImpl extends EPackageImpl implements GitLabPackage {
 	 * @generated
 	 */
 	@Override
+	public EAttribute getAbstractIssue_ClosedAt() {
+		return (EAttribute)abstractIssueEClass.getEStructuralFeatures().get(8);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getAbstractIssue_Confidential() {
+		return (EAttribute)abstractIssueEClass.getEStructuralFeatures().get(9);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getAbstractIssue_CreatedAt() {
+		return (EAttribute)abstractIssueEClass.getEStructuralFeatures().get(10);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getAbstractIssue_Description() {
+		return (EAttribute)abstractIssueEClass.getEStructuralFeatures().get(11);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getAbstractIssue_DiscussionLocked() {
+		return (EAttribute)abstractIssueEClass.getEStructuralFeatures().get(12);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getAbstractIssue_Downvotes() {
+		return (EAttribute)abstractIssueEClass.getEStructuralFeatures().get(13);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getAbstractIssue_DueDate() {
+		return (EAttribute)abstractIssueEClass.getEStructuralFeatures().get(14);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getAbstractIssue_ExternalId() {
+		return (EAttribute)abstractIssueEClass.getEStructuralFeatures().get(15);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getAbstractIssue_HasTasks() {
+		return (EAttribute)abstractIssueEClass.getEStructuralFeatures().get(16);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getAbstractIssue_HealthStatus() {
+		return (EAttribute)abstractIssueEClass.getEStructuralFeatures().get(17);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getAbstractIssue_Id() {
+		return (EAttribute)abstractIssueEClass.getEStructuralFeatures().get(18);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getAbstractIssue_Iid() {
+		return (EAttribute)abstractIssueEClass.getEStructuralFeatures().get(19);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getAbstractIssue_Imported() {
+		return (EAttribute)abstractIssueEClass.getEStructuralFeatures().get(20);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getAbstractIssue_ImportedFrom() {
+		return (EAttribute)abstractIssueEClass.getEStructuralFeatures().get(21);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getAbstractIssue_IssueType() {
+		return (EAttribute)abstractIssueEClass.getEStructuralFeatures().get(22);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getAbstractIssue_Labels() {
+		return (EAttribute)abstractIssueEClass.getEStructuralFeatures().get(23);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getAbstractIssue_MergeRequestsCount() {
+		return (EAttribute)abstractIssueEClass.getEStructuralFeatures().get(24);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getAbstractIssue_ProjectId() {
+		return (EAttribute)abstractIssueEClass.getEStructuralFeatures().get(25);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getAbstractIssue_Severity() {
+		return (EAttribute)abstractIssueEClass.getEStructuralFeatures().get(26);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getAbstractIssue_State() {
+		return (EAttribute)abstractIssueEClass.getEStructuralFeatures().get(27);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getAbstractIssue_TaskStatus() {
+		return (EAttribute)abstractIssueEClass.getEStructuralFeatures().get(28);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getAbstractIssue_Title() {
+		return (EAttribute)abstractIssueEClass.getEStructuralFeatures().get(29);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getAbstractIssue_UpdatedAt() {
+		return (EAttribute)abstractIssueEClass.getEStructuralFeatures().get(30);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getAbstractIssue_Upvotes() {
+		return (EAttribute)abstractIssueEClass.getEStructuralFeatures().get(31);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getAbstractIssue_UserNotesCount() {
+		return (EAttribute)abstractIssueEClass.getEStructuralFeatures().get(32);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getAbstractIssue_WebUrl() {
+		return (EAttribute)abstractIssueEClass.getEStructuralFeatures().get(33);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getAbstractIssue_Weight() {
+		return (EAttribute)abstractIssueEClass.getEStructuralFeatures().get(34);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EClass getIssue() {
 		return issueEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getIssue_IssueLinkId() {
+		return (EAttribute)issueEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getIssue_LinkCreatedAt() {
+		return (EAttribute)issueEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getIssue_LinkType() {
+		return (EAttribute)issueEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getIssue_LinkUpdatedAt() {
+		return (EAttribute)issueEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getIssue_Subscribed() {
+		return (EAttribute)issueEClass.getEStructuralFeatures().get(4);
 	}
 
 	/**
@@ -3667,6 +5062,26 @@ public class GitLabPackageImpl extends EPackageImpl implements GitLabPackage {
 	@Override
 	public EEnum getSquashOption() {
 		return squashOptionEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EEnum getIssueState() {
+		return issueStateEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EEnum getLinkType() {
+		return linkTypeEEnum;
 	}
 
 	/**
@@ -3987,6 +5402,27 @@ public class GitLabPackageImpl extends EPackageImpl implements GitLabPackage {
 
 		noteEClass = createEClass(NOTE);
 		createEReference(noteEClass, NOTE__POSITION);
+		createEReference(noteEClass, NOTE__AUTHOR);
+		createEAttribute(noteEClass, NOTE__ATTACHMENT);
+		createEAttribute(noteEClass, NOTE__BODY);
+		createEAttribute(noteEClass, NOTE__CREATED_AT);
+		createEAttribute(noteEClass, NOTE__DOWNVOTE);
+		createEAttribute(noteEClass, NOTE__EXPIRES_AT);
+		createEAttribute(noteEClass, NOTE__FILE_NAME);
+		createEAttribute(noteEClass, NOTE__ID);
+		createEAttribute(noteEClass, NOTE__INTERNAL);
+		createEAttribute(noteEClass, NOTE__NOTEABLE_ID);
+		createEAttribute(noteEClass, NOTE__NOTEABLE_IID);
+		createEAttribute(noteEClass, NOTE__NOTEABLE_TYPE);
+		createEAttribute(noteEClass, NOTE__RESOLVABLE);
+		createEAttribute(noteEClass, NOTE__RESOLVED);
+		createEAttribute(noteEClass, NOTE__RESOLVED_AT);
+		createEReference(noteEClass, NOTE__RESOLVED_BY);
+		createEAttribute(noteEClass, NOTE__SYSTEM);
+		createEAttribute(noteEClass, NOTE__TITLE);
+		createEAttribute(noteEClass, NOTE__DISCUSSION_NOTE);
+		createEAttribute(noteEClass, NOTE__UPDATED_AT);
+		createEAttribute(noteEClass, NOTE__UPVOTE);
 
 		notableEClass = createEClass(NOTABLE);
 		createEReference(notableEClass, NOTABLE__NOTES);
@@ -4019,6 +5455,51 @@ public class GitLabPackageImpl extends EPackageImpl implements GitLabPackage {
 		createEReference(mergeRequestEClass, MERGE_REQUEST__COMMITS);
 		createEReference(mergeRequestEClass, MERGE_REQUEST__DIFFS);
 		createEReference(mergeRequestEClass, MERGE_REQUEST__DIFF_VERSIONS);
+		createEAttribute(mergeRequestEClass, MERGE_REQUEST__ALLOW_COLLABORATION);
+		createEAttribute(mergeRequestEClass, MERGE_REQUEST__ALLOW_MAINTAINER_TO_PUSH);
+		createEAttribute(mergeRequestEClass, MERGE_REQUEST__APPROVALS_BEFORE_MERGE);
+		createEAttribute(mergeRequestEClass, MERGE_REQUEST__APPROVALS_LEFT);
+		createEAttribute(mergeRequestEClass, MERGE_REQUEST__APPROVALS_REQUIRED);
+		createEReference(mergeRequestEClass, MERGE_REQUEST__APPROVED_BY);
+		createEAttribute(mergeRequestEClass, MERGE_REQUEST__BLOCKING_DISCUSSIONS_RESOLVED);
+		createEAttribute(mergeRequestEClass, MERGE_REQUEST__CHANGES_COUNT);
+		createEAttribute(mergeRequestEClass, MERGE_REQUEST__CLOSED_AT);
+		createEReference(mergeRequestEClass, MERGE_REQUEST__CLOSED_BY);
+		createEAttribute(mergeRequestEClass, MERGE_REQUEST__CREATED_AT);
+		createEAttribute(mergeRequestEClass, MERGE_REQUEST__DESCRIPTION);
+		createEAttribute(mergeRequestEClass, MERGE_REQUEST__DETAILED_MERGE_STATUS);
+		createEAttribute(mergeRequestEClass, MERGE_REQUEST__DISCUSSION_LOCKED);
+		createEAttribute(mergeRequestEClass, MERGE_REQUEST__DIVERGED_COMMITS_COUNT);
+		createEAttribute(mergeRequestEClass, MERGE_REQUEST__DOWNVOTES);
+		createEAttribute(mergeRequestEClass, MERGE_REQUEST__FORCE_REMOVE_SOURCE_BRANCH);
+		createEAttribute(mergeRequestEClass, MERGE_REQUEST__HAS_CONFLICTS);
+		createEAttribute(mergeRequestEClass, MERGE_REQUEST__LABELS);
+		createEAttribute(mergeRequestEClass, MERGE_REQUEST__LATEST_BUILD_FINISHED_AT);
+		createEAttribute(mergeRequestEClass, MERGE_REQUEST__LATEST_BUILD_STARTED_AT);
+		createEAttribute(mergeRequestEClass, MERGE_REQUEST__MERGE_COMMIT_SHA);
+		createEAttribute(mergeRequestEClass, MERGE_REQUEST__MERGED_AT);
+		createEReference(mergeRequestEClass, MERGE_REQUEST__MERGED_BY);
+		createEAttribute(mergeRequestEClass, MERGE_REQUEST__MERGE_ERROR);
+		createEAttribute(mergeRequestEClass, MERGE_REQUEST__MERGE_STATUS);
+		createEAttribute(mergeRequestEClass, MERGE_REQUEST__MERGE_WHEN_PIPELINE_SUCCEEDS);
+		createEAttribute(mergeRequestEClass, MERGE_REQUEST__PROJECT_ID);
+		createEAttribute(mergeRequestEClass, MERGE_REQUEST__REBASE_IN_PROGRESS);
+		createEAttribute(mergeRequestEClass, MERGE_REQUEST__SHA);
+		createEAttribute(mergeRequestEClass, MERGE_REQUEST__SHOULD_REMOVE_SOURCE_BRANCH);
+		createEAttribute(mergeRequestEClass, MERGE_REQUEST__SOURCE_BRANCH);
+		createEAttribute(mergeRequestEClass, MERGE_REQUEST__SOURCE_PROJECT_ID);
+		createEAttribute(mergeRequestEClass, MERGE_REQUEST__SQUASH);
+		createEAttribute(mergeRequestEClass, MERGE_REQUEST__SQUASH_COMMIT_SHA);
+		createEAttribute(mergeRequestEClass, MERGE_REQUEST__STATE);
+		createEAttribute(mergeRequestEClass, MERGE_REQUEST__SUBSCRIBED);
+		createEAttribute(mergeRequestEClass, MERGE_REQUEST__TARGET_BRANCH);
+		createEAttribute(mergeRequestEClass, MERGE_REQUEST__TARGET_PROJECT_ID);
+		createEAttribute(mergeRequestEClass, MERGE_REQUEST__TITLE);
+		createEAttribute(mergeRequestEClass, MERGE_REQUEST__UPDATED_AT);
+		createEAttribute(mergeRequestEClass, MERGE_REQUEST__UPVOTES);
+		createEAttribute(mergeRequestEClass, MERGE_REQUEST__USER_NOTES_COUNT);
+		createEAttribute(mergeRequestEClass, MERGE_REQUEST__WEB_URL);
+		createEAttribute(mergeRequestEClass, MERGE_REQUEST__WORK_IN_PROGRESS);
 
 		approvalRuleEClass = createEClass(APPROVAL_RULE);
 		createEReference(approvalRuleEClass, APPROVAL_RULE__ELIGIBLE_APPROVERS);
@@ -4026,25 +5507,65 @@ public class GitLabPackageImpl extends EPackageImpl implements GitLabPackage {
 		createEReference(approvalRuleEClass, APPROVAL_RULE__USERS);
 		createEReference(approvalRuleEClass, APPROVAL_RULE__GROUPS);
 		createEReference(approvalRuleEClass, APPROVAL_RULE__APPROVED_BY);
+		createEAttribute(approvalRuleEClass, APPROVAL_RULE__APPROVALS_REQUIRED);
+		createEAttribute(approvalRuleEClass, APPROVAL_RULE__APPROVED);
+		createEAttribute(approvalRuleEClass, APPROVAL_RULE__CONTAINS_HIDDEN_GROUPS);
+		createEAttribute(approvalRuleEClass, APPROVAL_RULE__ID);
+		createEAttribute(approvalRuleEClass, APPROVAL_RULE__NAME);
+		createEAttribute(approvalRuleEClass, APPROVAL_RULE__RULE_TYPE);
 
 		approvalStateEClass = createEClass(APPROVAL_STATE);
 		createEReference(approvalStateEClass, APPROVAL_STATE__RULES);
+		createEAttribute(approvalStateEClass, APPROVAL_STATE__APPROVAL_RULES_OVERWRITTEN);
 
 		mergeRequestVersionEClass = createEClass(MERGE_REQUEST_VERSION);
+		createEAttribute(mergeRequestVersionEClass, MERGE_REQUEST_VERSION__BASE_COMMIT_SHA);
+		createEAttribute(mergeRequestVersionEClass, MERGE_REQUEST_VERSION__CREATED_AT);
+		createEAttribute(mergeRequestVersionEClass, MERGE_REQUEST_VERSION__HEAD_COMMIT_SHA);
+		createEAttribute(mergeRequestVersionEClass, MERGE_REQUEST_VERSION__ID);
+		createEAttribute(mergeRequestVersionEClass, MERGE_REQUEST_VERSION__MERGE_REQUEST_ID);
+		createEAttribute(mergeRequestVersionEClass, MERGE_REQUEST_VERSION__REAL_SIZE);
+		createEAttribute(mergeRequestVersionEClass, MERGE_REQUEST_VERSION__START_COMMIT_SHA);
+		createEAttribute(mergeRequestVersionEClass, MERGE_REQUEST_VERSION__STATE);
 
 		mergeRequestDiffEClass = createEClass(MERGE_REQUEST_DIFF);
 		createEReference(mergeRequestDiffEClass, MERGE_REQUEST_DIFF__COMMITS);
 		createEReference(mergeRequestDiffEClass, MERGE_REQUEST_DIFF__DIFFS);
 
 		timeStatsEClass = createEClass(TIME_STATS);
+		createEAttribute(timeStatsEClass, TIME_STATS__TIME_ESTIMATE);
+		createEAttribute(timeStatsEClass, TIME_STATS__TOTAL_TIME_SPENT);
+		createEAttribute(timeStatsEClass, TIME_STATS__HUMAN_TIME_ESTIMATE);
+		createEAttribute(timeStatsEClass, TIME_STATS__HUMAN_TOTAL_TIME_SPENT);
 
 		taskCompletionStatusEClass = createEClass(TASK_COMPLETION_STATUS);
+		createEAttribute(taskCompletionStatusEClass, TASK_COMPLETION_STATUS__COUNT);
+		createEAttribute(taskCompletionStatusEClass, TASK_COMPLETION_STATUS__COMPLETED_COUNT);
 
 		milestoneEClass = createEClass(MILESTONE);
+		createEAttribute(milestoneEClass, MILESTONE__CREATED_AT);
+		createEAttribute(milestoneEClass, MILESTONE__DESCRIPTION);
+		createEAttribute(milestoneEClass, MILESTONE__DUE_DATE);
+		createEAttribute(milestoneEClass, MILESTONE__EXPIRED);
+		createEAttribute(milestoneEClass, MILESTONE__GROUP_ID);
+		createEAttribute(milestoneEClass, MILESTONE__ID);
+		createEAttribute(milestoneEClass, MILESTONE__IID);
+		createEAttribute(milestoneEClass, MILESTONE__PROJECT_ID);
+		createEAttribute(milestoneEClass, MILESTONE__START_DATE);
+		createEAttribute(milestoneEClass, MILESTONE__STATE);
+		createEAttribute(milestoneEClass, MILESTONE__TITLE);
+		createEAttribute(milestoneEClass, MILESTONE__UPDATED_AT);
+		createEAttribute(milestoneEClass, MILESTONE__WEB_URL);
 
 		referencesEClass = createEClass(REFERENCES);
+		createEAttribute(referencesEClass, REFERENCES__SHORT);
+		createEAttribute(referencesEClass, REFERENCES__COMPACT);
+		createEAttribute(referencesEClass, REFERENCES__RELATIVE);
 
 		diffRefEClass = createEClass(DIFF_REF);
+		createEAttribute(diffRefEClass, DIFF_REF__BASE_SHA);
+		createEAttribute(diffRefEClass, DIFF_REF__HEAS_SHA);
+		createEAttribute(diffRefEClass, DIFF_REF__START_SHA);
 
 		abstractIssueEClass = createEClass(ABSTRACT_ISSUE);
 		createEReference(abstractIssueEClass, ABSTRACT_ISSUE__ASSIGNEE);
@@ -4055,8 +5576,40 @@ public class GitLabPackageImpl extends EPackageImpl implements GitLabPackage {
 		createEReference(abstractIssueEClass, ABSTRACT_ISSUE__REFERENCES);
 		createEReference(abstractIssueEClass, ABSTRACT_ISSUE__TIME_STATS);
 		createEReference(abstractIssueEClass, ABSTRACT_ISSUE__TASK_COMPLETION_STATUS);
+		createEAttribute(abstractIssueEClass, ABSTRACT_ISSUE__CLOSED_AT);
+		createEAttribute(abstractIssueEClass, ABSTRACT_ISSUE__CONFIDENTIAL);
+		createEAttribute(abstractIssueEClass, ABSTRACT_ISSUE__CREATED_AT);
+		createEAttribute(abstractIssueEClass, ABSTRACT_ISSUE__DESCRIPTION);
+		createEAttribute(abstractIssueEClass, ABSTRACT_ISSUE__DISCUSSION_LOCKED);
+		createEAttribute(abstractIssueEClass, ABSTRACT_ISSUE__DOWNVOTES);
+		createEAttribute(abstractIssueEClass, ABSTRACT_ISSUE__DUE_DATE);
+		createEAttribute(abstractIssueEClass, ABSTRACT_ISSUE__EXTERNAL_ID);
+		createEAttribute(abstractIssueEClass, ABSTRACT_ISSUE__HAS_TASKS);
+		createEAttribute(abstractIssueEClass, ABSTRACT_ISSUE__HEALTH_STATUS);
+		createEAttribute(abstractIssueEClass, ABSTRACT_ISSUE__ID);
+		createEAttribute(abstractIssueEClass, ABSTRACT_ISSUE__IID);
+		createEAttribute(abstractIssueEClass, ABSTRACT_ISSUE__IMPORTED);
+		createEAttribute(abstractIssueEClass, ABSTRACT_ISSUE__IMPORTED_FROM);
+		createEAttribute(abstractIssueEClass, ABSTRACT_ISSUE__ISSUE_TYPE);
+		createEAttribute(abstractIssueEClass, ABSTRACT_ISSUE__LABELS);
+		createEAttribute(abstractIssueEClass, ABSTRACT_ISSUE__MERGE_REQUESTS_COUNT);
+		createEAttribute(abstractIssueEClass, ABSTRACT_ISSUE__PROJECT_ID);
+		createEAttribute(abstractIssueEClass, ABSTRACT_ISSUE__SEVERITY);
+		createEAttribute(abstractIssueEClass, ABSTRACT_ISSUE__STATE);
+		createEAttribute(abstractIssueEClass, ABSTRACT_ISSUE__TASK_STATUS);
+		createEAttribute(abstractIssueEClass, ABSTRACT_ISSUE__TITLE);
+		createEAttribute(abstractIssueEClass, ABSTRACT_ISSUE__UPDATED_AT);
+		createEAttribute(abstractIssueEClass, ABSTRACT_ISSUE__UPVOTES);
+		createEAttribute(abstractIssueEClass, ABSTRACT_ISSUE__USER_NOTES_COUNT);
+		createEAttribute(abstractIssueEClass, ABSTRACT_ISSUE__WEB_URL);
+		createEAttribute(abstractIssueEClass, ABSTRACT_ISSUE__WEIGHT);
 
 		issueEClass = createEClass(ISSUE);
+		createEAttribute(issueEClass, ISSUE__ISSUE_LINK_ID);
+		createEAttribute(issueEClass, ISSUE__LINK_CREATED_AT);
+		createEAttribute(issueEClass, ISSUE__LINK_TYPE);
+		createEAttribute(issueEClass, ISSUE__LINK_UPDATED_AT);
+		createEAttribute(issueEClass, ISSUE__SUBSCRIBED);
 
 		// Create enums
 		visibilityEEnum = createEEnum(VISIBILITY);
@@ -4066,6 +5619,8 @@ public class GitLabPackageImpl extends EPackageImpl implements GitLabPackage {
 		statusEEnum = createEEnum(STATUS);
 		autoDevopsDeployStrategyEEnum = createEEnum(AUTO_DEVOPS_DEPLOY_STRATEGY);
 		squashOptionEEnum = createEEnum(SQUASH_OPTION);
+		issueStateEEnum = createEEnum(ISSUE_STATE);
+		linkTypeEEnum = createEEnum(LINK_TYPE);
 	}
 
 	/**
@@ -4470,6 +6025,27 @@ public class GitLabPackageImpl extends EPackageImpl implements GitLabPackage {
 
 		initEClass(noteEClass, Note.class, "Note", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getNote_Position(), this.getPosition(), null, "position", null, 0, 1, Note.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getNote_Author(), this.getUser(), null, "author", null, 0, 1, Note.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getNote_Attachment(), ecorePackage.getEString(), "attachment", null, 0, 1, Note.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getNote_Body(), ecorePackage.getEString(), "body", null, 0, 1, Note.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getNote_CreatedAt(), ecorePackage.getEDate(), "createdAt", null, 0, 1, Note.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getNote_Downvote(), ecorePackage.getEBooleanObject(), "downvote", null, 0, 1, Note.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getNote_ExpiresAt(), ecorePackage.getEDate(), "expiresAt", null, 0, 1, Note.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getNote_FileName(), ecorePackage.getEString(), "fileName", null, 0, 1, Note.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getNote_Id(), ecorePackage.getELongObject(), "id", null, 0, 1, Note.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getNote_Internal(), ecorePackage.getEBooleanObject(), "internal", null, 0, 1, Note.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getNote_NoteableId(), ecorePackage.getELongObject(), "noteableId", null, 0, 1, Note.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getNote_NoteableIid(), ecorePackage.getELongObject(), "noteableIid", null, 0, 1, Note.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getNote_NoteableType(), ecorePackage.getEString(), "noteableType", null, 0, 1, Note.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getNote_Resolvable(), ecorePackage.getEBooleanObject(), "resolvable", null, 0, 1, Note.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getNote_Resolved(), ecorePackage.getEBooleanObject(), "resolved", null, 0, 1, Note.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getNote_ResolvedAt(), ecorePackage.getEDate(), "resolvedAt", null, 0, 1, Note.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getNote_ResolvedBy(), this.getUser(), null, "resolvedBy", null, 0, 1, Note.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getNote_System(), ecorePackage.getEBooleanObject(), "system", null, 0, 1, Note.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getNote_Title(), ecorePackage.getEString(), "title", null, 0, 1, Note.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getNote_DiscussionNote(), ecorePackage.getEBooleanObject(), "discussionNote", null, 0, 1, Note.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getNote_UpdatedAt(), ecorePackage.getEDate(), "updatedAt", null, 0, 1, Note.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getNote_Upvote(), ecorePackage.getEBooleanObject(), "upvote", null, 0, 1, Note.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(notableEClass, Notable.class, "Notable", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getNotable_Notes(), this.getNote(), null, "notes", null, 0, -1, Notable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -4502,6 +6078,51 @@ public class GitLabPackageImpl extends EPackageImpl implements GitLabPackage {
 		initEReference(getMergeRequest_Commits(), this.getCommit(), null, "commits", null, 0, -1, MergeRequest.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getMergeRequest_Diffs(), this.getDiff(), null, "diffs", null, 0, -1, MergeRequest.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getMergeRequest_DiffVersions(), this.getMergeRequestDiff(), null, "diffVersions", null, 0, -1, MergeRequest.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getMergeRequest_AllowCollaboration(), ecorePackage.getEBoolean(), "allowCollaboration", null, 0, 1, MergeRequest.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getMergeRequest_AllowMaintainerToPush(), ecorePackage.getEBooleanObject(), "allowMaintainerToPush", null, 0, 1, MergeRequest.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getMergeRequest_ApprovalsBeforeMerge(), ecorePackage.getEIntegerObject(), "approvalsBeforeMerge", null, 0, 1, MergeRequest.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getMergeRequest_ApprovalsLeft(), ecorePackage.getEIntegerObject(), "approvalsLeft", null, 0, 1, MergeRequest.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getMergeRequest_ApprovalsRequired(), ecorePackage.getEIntegerObject(), "approvalsRequired", null, 0, 1, MergeRequest.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getMergeRequest_ApprovedBy(), this.getUser(), null, "approvedBy", null, 0, -1, MergeRequest.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getMergeRequest_BlockingDiscussionsResolved(), ecorePackage.getEBooleanObject(), "blockingDiscussionsResolved", null, 0, 1, MergeRequest.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getMergeRequest_ChangesCount(), ecorePackage.getEString(), "changesCount", null, 0, 1, MergeRequest.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getMergeRequest_ClosedAt(), ecorePackage.getEDate(), "closedAt", null, 0, 1, MergeRequest.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getMergeRequest_ClosedBy(), this.getUser(), null, "closedBy", null, 0, 1, MergeRequest.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getMergeRequest_CreatedAt(), ecorePackage.getEDate(), "createdAt", null, 0, 1, MergeRequest.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getMergeRequest_Description(), ecorePackage.getEString(), "description", null, 0, 1, MergeRequest.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getMergeRequest_DetailedMergeStatus(), ecorePackage.getEString(), "detailedMergeStatus", null, 0, 1, MergeRequest.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getMergeRequest_DiscussionLocked(), ecorePackage.getEBooleanObject(), "discussionLocked", null, 0, 1, MergeRequest.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getMergeRequest_DivergedCommitsCount(), ecorePackage.getEIntegerObject(), "divergedCommitsCount", null, 0, 1, MergeRequest.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getMergeRequest_Downvotes(), ecorePackage.getEIntegerObject(), "downvotes", null, 0, 1, MergeRequest.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getMergeRequest_ForceRemoveSourceBranch(), ecorePackage.getEBooleanObject(), "forceRemoveSourceBranch", null, 0, 1, MergeRequest.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getMergeRequest_HasConflicts(), ecorePackage.getEBooleanObject(), "hasConflicts", null, 0, 1, MergeRequest.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getMergeRequest_Labels(), ecorePackage.getEString(), "labels", null, 0, -1, MergeRequest.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getMergeRequest_LatestBuildFinishedAt(), ecorePackage.getEDate(), "latestBuildFinishedAt", null, 0, 1, MergeRequest.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getMergeRequest_LatestBuildStartedAt(), ecorePackage.getEDate(), "latestBuildStartedAt", null, 0, 1, MergeRequest.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getMergeRequest_MergeCommitSha(), ecorePackage.getEString(), "mergeCommitSha", null, 0, 1, MergeRequest.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getMergeRequest_MergedAt(), ecorePackage.getEDate(), "mergedAt", null, 0, 1, MergeRequest.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getMergeRequest_MergedBy(), this.getUser(), null, "mergedBy", null, 0, 1, MergeRequest.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getMergeRequest_MergeError(), ecorePackage.getEString(), "mergeError", null, 0, 1, MergeRequest.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getMergeRequest_MergeStatus(), ecorePackage.getEString(), "mergeStatus", null, 0, 1, MergeRequest.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getMergeRequest_MergeWhenPipelineSucceeds(), ecorePackage.getEBooleanObject(), "mergeWhenPipelineSucceeds", null, 0, 1, MergeRequest.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getMergeRequest_ProjectId(), ecorePackage.getELongObject(), "projectId", null, 0, 1, MergeRequest.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getMergeRequest_RebaseInProgress(), ecorePackage.getEBooleanObject(), "rebaseInProgress", null, 0, 1, MergeRequest.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getMergeRequest_Sha(), ecorePackage.getEString(), "sha", null, 0, 1, MergeRequest.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getMergeRequest_ShouldRemoveSourceBranch(), ecorePackage.getEBooleanObject(), "shouldRemoveSourceBranch", null, 0, 1, MergeRequest.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getMergeRequest_SourceBranch(), ecorePackage.getEString(), "sourceBranch", null, 0, 1, MergeRequest.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getMergeRequest_SourceProjectId(), ecorePackage.getELongObject(), "sourceProjectId", null, 0, 1, MergeRequest.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getMergeRequest_Squash(), ecorePackage.getEBooleanObject(), "squash", null, 0, 1, MergeRequest.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getMergeRequest_SquashCommitSha(), ecorePackage.getEString(), "squashCommitSha", null, 0, 1, MergeRequest.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getMergeRequest_State(), ecorePackage.getEString(), "state", null, 0, 1, MergeRequest.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getMergeRequest_Subscribed(), ecorePackage.getEBooleanObject(), "subscribed", null, 0, 1, MergeRequest.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getMergeRequest_TargetBranch(), ecorePackage.getEString(), "targetBranch", null, 0, 1, MergeRequest.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getMergeRequest_TargetProjectId(), ecorePackage.getELongObject(), "targetProjectId", null, 0, 1, MergeRequest.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getMergeRequest_Title(), ecorePackage.getEString(), "title", null, 0, 1, MergeRequest.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getMergeRequest_UpdatedAt(), ecorePackage.getEDate(), "updatedAt", null, 0, 1, MergeRequest.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getMergeRequest_Upvotes(), ecorePackage.getEIntegerObject(), "upvotes", null, 0, 1, MergeRequest.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getMergeRequest_UserNotesCount(), ecorePackage.getEIntegerObject(), "userNotesCount", null, 0, 1, MergeRequest.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getMergeRequest_WebUrl(), ecorePackage.getEString(), "webUrl", null, 0, 1, MergeRequest.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getMergeRequest_WorkInProgress(), ecorePackage.getEBooleanObject(), "workInProgress", null, 0, 1, MergeRequest.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(approvalRuleEClass, ApprovalRule.class, "ApprovalRule", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getApprovalRule_EligibleApprovers(), this.getUser(), null, "eligibleApprovers", null, 0, -1, ApprovalRule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -4509,25 +6130,65 @@ public class GitLabPackageImpl extends EPackageImpl implements GitLabPackage {
 		initEReference(getApprovalRule_Users(), this.getUser(), null, "users", null, 0, -1, ApprovalRule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getApprovalRule_Groups(), this.getGroup(), null, "groups", null, 0, -1, ApprovalRule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getApprovalRule_ApprovedBy(), this.getUser(), null, "approvedBy", null, 0, -1, ApprovalRule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getApprovalRule_ApprovalsRequired(), ecorePackage.getEIntegerObject(), "approvalsRequired", null, 0, 1, ApprovalRule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getApprovalRule_Approved(), ecorePackage.getEBooleanObject(), "approved", null, 0, 1, ApprovalRule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getApprovalRule_ContainsHiddenGroups(), ecorePackage.getEBooleanObject(), "containsHiddenGroups", null, 0, 1, ApprovalRule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getApprovalRule_Id(), ecorePackage.getELongObject(), "id", null, 0, 1, ApprovalRule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getApprovalRule_Name(), ecorePackage.getEString(), "name", null, 0, 1, ApprovalRule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getApprovalRule_RuleType(), ecorePackage.getEString(), "ruleType", null, 0, 1, ApprovalRule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(approvalStateEClass, ApprovalState.class, "ApprovalState", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getApprovalState_Rules(), this.getApprovalRule(), null, "rules", null, 0, -1, ApprovalState.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getApprovalState_ApprovalRulesOverwritten(), ecorePackage.getEBoolean(), "approvalRulesOverwritten", null, 0, 1, ApprovalState.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(mergeRequestVersionEClass, MergeRequestVersion.class, "MergeRequestVersion", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getMergeRequestVersion_BaseCommitSha(), ecorePackage.getEString(), "baseCommitSha", null, 0, 1, MergeRequestVersion.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getMergeRequestVersion_CreatedAt(), ecorePackage.getEDate(), "createdAt", null, 0, 1, MergeRequestVersion.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getMergeRequestVersion_HeadCommitSha(), ecorePackage.getEString(), "headCommitSha", null, 0, 1, MergeRequestVersion.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getMergeRequestVersion_Id(), ecorePackage.getELongObject(), "id", null, 0, 1, MergeRequestVersion.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getMergeRequestVersion_MergeRequestId(), ecorePackage.getELongObject(), "mergeRequestId", null, 0, 1, MergeRequestVersion.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getMergeRequestVersion_RealSize(), ecorePackage.getEString(), "realSize", null, 0, 1, MergeRequestVersion.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getMergeRequestVersion_StartCommitSha(), ecorePackage.getEString(), "startCommitSha", null, 0, 1, MergeRequestVersion.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getMergeRequestVersion_State(), ecorePackage.getEString(), "state", null, 0, 1, MergeRequestVersion.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(mergeRequestDiffEClass, MergeRequestDiff.class, "MergeRequestDiff", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getMergeRequestDiff_Commits(), this.getCommit(), null, "commits", null, 0, -1, MergeRequestDiff.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getMergeRequestDiff_Diffs(), this.getDiff(), null, "diffs", null, 0, -1, MergeRequestDiff.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(timeStatsEClass, TimeStats.class, "TimeStats", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getTimeStats_TimeEstimate(), ecorePackage.getEIntegerObject(), "timeEstimate", null, 0, 1, TimeStats.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getTimeStats_TotalTimeSpent(), ecorePackage.getEIntegerObject(), "totalTimeSpent", null, 0, 1, TimeStats.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getTimeStats_HumanTimeEstimate(), theNcorePackage.getDuration(), "humanTimeEstimate", null, 0, 1, TimeStats.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getTimeStats_HumanTotalTimeSpent(), theNcorePackage.getDuration(), "humanTotalTimeSpent", null, 0, 1, TimeStats.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(taskCompletionStatusEClass, TaskCompletionStatus.class, "TaskCompletionStatus", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getTaskCompletionStatus_Count(), ecorePackage.getEIntegerObject(), "count", null, 0, 1, TaskCompletionStatus.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getTaskCompletionStatus_CompletedCount(), ecorePackage.getEIntegerObject(), "completedCount", null, 0, 1, TaskCompletionStatus.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(milestoneEClass, Milestone.class, "Milestone", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getMilestone_CreatedAt(), ecorePackage.getEDate(), "createdAt", null, 0, 1, Milestone.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getMilestone_Description(), ecorePackage.getEString(), "description", null, 0, 1, Milestone.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getMilestone_DueDate(), ecorePackage.getEDate(), "dueDate", null, 0, 1, Milestone.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getMilestone_Expired(), ecorePackage.getEBooleanObject(), "expired", null, 0, 1, Milestone.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getMilestone_GroupId(), ecorePackage.getELongObject(), "groupId", null, 0, 1, Milestone.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getMilestone_Id(), ecorePackage.getELongObject(), "id", null, 0, 1, Milestone.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getMilestone_Iid(), ecorePackage.getELongObject(), "iid", null, 0, 1, Milestone.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getMilestone_ProjectId(), ecorePackage.getELongObject(), "projectId", null, 0, 1, Milestone.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getMilestone_StartDate(), ecorePackage.getEDate(), "startDate", null, 0, 1, Milestone.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getMilestone_State(), ecorePackage.getEString(), "state", null, 0, 1, Milestone.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getMilestone_Title(), ecorePackage.getEString(), "title", null, 0, 1, Milestone.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getMilestone_UpdatedAt(), ecorePackage.getEDate(), "updatedAt", null, 0, 1, Milestone.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getMilestone_WebUrl(), ecorePackage.getEString(), "webUrl", null, 0, 1, Milestone.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(referencesEClass, References.class, "References", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getReferences_Short(), ecorePackage.getEString(), "short", null, 0, 1, References.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getReferences_Compact(), ecorePackage.getEString(), "compact", null, 0, 1, References.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getReferences_Relative(), ecorePackage.getEString(), "relative", null, 0, 1, References.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(diffRefEClass, DiffRef.class, "DiffRef", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getDiffRef_BaseSha(), ecorePackage.getEString(), "baseSha", null, 0, 1, DiffRef.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getDiffRef_HeasSha(), ecorePackage.getEString(), "heasSha", null, 0, 1, DiffRef.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getDiffRef_StartSha(), ecorePackage.getEString(), "startSha", null, 0, 1, DiffRef.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(abstractIssueEClass, AbstractIssue.class, "AbstractIssue", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getAbstractIssue_Assignee(), this.getUser(), null, "assignee", null, 0, 1, AbstractIssue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -4538,8 +6199,40 @@ public class GitLabPackageImpl extends EPackageImpl implements GitLabPackage {
 		initEReference(getAbstractIssue_References(), this.getReferences(), null, "references", null, 0, 1, AbstractIssue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getAbstractIssue_TimeStats(), this.getTimeStats(), null, "timeStats", null, 0, 1, AbstractIssue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getAbstractIssue_TaskCompletionStatus(), this.getTaskCompletionStatus(), null, "taskCompletionStatus", null, 0, 1, AbstractIssue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getAbstractIssue_ClosedAt(), ecorePackage.getEDate(), "closedAt", null, 0, 1, AbstractIssue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getAbstractIssue_Confidential(), ecorePackage.getEBooleanObject(), "confidential", null, 0, 1, AbstractIssue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getAbstractIssue_CreatedAt(), ecorePackage.getEDate(), "createdAt", null, 0, 1, AbstractIssue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getAbstractIssue_Description(), ecorePackage.getEString(), "description", null, 0, 1, AbstractIssue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getAbstractIssue_DiscussionLocked(), ecorePackage.getEBooleanObject(), "discussionLocked", null, 0, 1, AbstractIssue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getAbstractIssue_Downvotes(), ecorePackage.getEIntegerObject(), "downvotes", null, 0, 1, AbstractIssue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getAbstractIssue_DueDate(), ecorePackage.getEDate(), "dueDate", null, 0, 1, AbstractIssue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getAbstractIssue_ExternalId(), ecorePackage.getEString(), "externalId", null, 0, 1, AbstractIssue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getAbstractIssue_HasTasks(), ecorePackage.getEBooleanObject(), "hasTasks", null, 0, 1, AbstractIssue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getAbstractIssue_HealthStatus(), ecorePackage.getEString(), "healthStatus", null, 0, 1, AbstractIssue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getAbstractIssue_Id(), ecorePackage.getELongObject(), "id", null, 0, 1, AbstractIssue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getAbstractIssue_Iid(), ecorePackage.getELongObject(), "iid", null, 0, 1, AbstractIssue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getAbstractIssue_Imported(), ecorePackage.getEBooleanObject(), "imported", null, 0, 1, AbstractIssue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getAbstractIssue_ImportedFrom(), ecorePackage.getEString(), "importedFrom", null, 0, 1, AbstractIssue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getAbstractIssue_IssueType(), ecorePackage.getEString(), "issueType", null, 0, 1, AbstractIssue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getAbstractIssue_Labels(), ecorePackage.getEString(), "labels", null, 0, 1, AbstractIssue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getAbstractIssue_MergeRequestsCount(), ecorePackage.getEIntegerObject(), "mergeRequestsCount", null, 0, 1, AbstractIssue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getAbstractIssue_ProjectId(), ecorePackage.getELongObject(), "projectId", null, 0, 1, AbstractIssue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getAbstractIssue_Severity(), ecorePackage.getEString(), "severity", null, 0, 1, AbstractIssue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getAbstractIssue_State(), this.getIssueState(), "state", null, 0, 1, AbstractIssue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getAbstractIssue_TaskStatus(), ecorePackage.getEString(), "taskStatus", null, 0, 1, AbstractIssue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getAbstractIssue_Title(), ecorePackage.getEString(), "title", null, 0, 1, AbstractIssue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getAbstractIssue_UpdatedAt(), ecorePackage.getEDate(), "updatedAt", null, 0, 1, AbstractIssue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getAbstractIssue_Upvotes(), ecorePackage.getEIntegerObject(), "upvotes", null, 0, 1, AbstractIssue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getAbstractIssue_UserNotesCount(), ecorePackage.getEIntegerObject(), "userNotesCount", null, 0, 1, AbstractIssue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getAbstractIssue_WebUrl(), ecorePackage.getEString(), "webUrl", null, 0, 1, AbstractIssue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getAbstractIssue_Weight(), ecorePackage.getEIntegerObject(), "weight", null, 0, 1, AbstractIssue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(issueEClass, Issue.class, "Issue", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getIssue_IssueLinkId(), ecorePackage.getELongObject(), "issueLinkId", null, 0, 1, Issue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getIssue_LinkCreatedAt(), ecorePackage.getEDate(), "linkCreatedAt", null, 0, 1, Issue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getIssue_LinkType(), this.getLinkType(), "linkType", null, 0, 1, Issue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getIssue_LinkUpdatedAt(), ecorePackage.getEDate(), "linkUpdatedAt", null, 0, 1, Issue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getIssue_Subscribed(), ecorePackage.getEBooleanObject(), "subscribed", null, 0, 1, Issue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Initialize enums and add enum literals
 		initEEnum(visibilityEEnum, Visibility.class, "Visibility");
@@ -4585,6 +6278,16 @@ public class GitLabPackageImpl extends EPackageImpl implements GitLabPackage {
 		addEEnumLiteral(squashOptionEEnum, SquashOption.ALWAYS);
 		addEEnumLiteral(squashOptionEEnum, SquashOption.DEFAULT_ON);
 		addEEnumLiteral(squashOptionEEnum, SquashOption.DEFAULT_OFF);
+
+		initEEnum(issueStateEEnum, IssueState.class, "IssueState");
+		addEEnumLiteral(issueStateEEnum, IssueState.OPENED);
+		addEEnumLiteral(issueStateEEnum, IssueState.CLOSED);
+		addEEnumLiteral(issueStateEEnum, IssueState.REOPENED);
+
+		initEEnum(linkTypeEEnum, LinkType.class, "LinkType");
+		addEEnumLiteral(linkTypeEEnum, LinkType.RELATES_TO);
+		addEEnumLiteral(linkTypeEEnum, LinkType.BLOCKS);
+		addEEnumLiteral(linkTypeEEnum, LinkType.IS_BLOCKED_BY);
 
 		// Create resource
 		createResource(eNS_URI);
@@ -4721,6 +6424,12 @@ public class GitLabPackageImpl extends EPackageImpl implements GitLabPackage {
 		   source,
 		   new String[] {
 			   "documentation", "Repository file which content gets decoded to a list of objects, e.g. a list of properties - key/value pairs"
+		   });
+		addAnnotation
+		  (getTimeStats_HumanTotalTimeSpent(),
+		   source,
+		   new String[] {
+			   "documentation", "Positive period duration in [ISO-8601 durations](https://en.wikipedia.org/wiki/ISO_8601#Durations) format. E.g. ``P1M`` for one month or ``P20D`` for 20 days."
 		   });
 	}
 
