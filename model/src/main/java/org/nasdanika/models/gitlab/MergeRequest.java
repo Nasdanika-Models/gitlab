@@ -237,22 +237,22 @@ public interface MergeRequest extends Notable, Discussable {
 	void setMergeUser(User value);
 
 	/**
-	 * Returns the value of the '<em><b>Task Completion Status</b></em>' reference.
+	 * Returns the value of the '<em><b>Task Completion Status</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Task Completion Status</em>' reference.
+	 * @return the value of the '<em>Task Completion Status</em>' containment reference.
 	 * @see #setTaskCompletionStatus(TaskCompletionStatus)
 	 * @see org.nasdanika.models.gitlab.GitLabPackage#getMergeRequest_TaskCompletionStatus()
-	 * @model
+	 * @model containment="true"
 	 * @generated
 	 */
 	TaskCompletionStatus getTaskCompletionStatus();
 
 	/**
-	 * Sets the value of the '{@link org.nasdanika.models.gitlab.MergeRequest#getTaskCompletionStatus <em>Task Completion Status</em>}' reference.
+	 * Sets the value of the '{@link org.nasdanika.models.gitlab.MergeRequest#getTaskCompletionStatus <em>Task Completion Status</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Task Completion Status</em>' reference.
+	 * @param value the new value of the '<em>Task Completion Status</em>' containment reference.
 	 * @see #getTaskCompletionStatus()
 	 * @generated
 	 */
@@ -391,59 +391,59 @@ public interface MergeRequest extends Notable, Discussable {
 	void setDiffRefs(DiffRef value);
 
 	/**
-	 * Returns the value of the '<em><b>Approval Rules</b></em>' reference list.
+	 * Returns the value of the '<em><b>Approval Rules</b></em>' containment reference list.
 	 * The list contents are of type {@link org.nasdanika.models.gitlab.ApprovalRule}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Approval Rules</em>' reference list.
+	 * @return the value of the '<em>Approval Rules</em>' containment reference list.
 	 * @see org.nasdanika.models.gitlab.GitLabPackage#getMergeRequest_ApprovalRules()
-	 * @model
+	 * @model containment="true"
 	 * @generated
 	 */
 	EList<ApprovalRule> getApprovalRules();
 
 	/**
-	 * Returns the value of the '<em><b>Approval State</b></em>' reference.
+	 * Returns the value of the '<em><b>Approval State</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Approval State</em>' reference.
+	 * @return the value of the '<em>Approval State</em>' containment reference.
 	 * @see #setApprovalState(ApprovalState)
 	 * @see org.nasdanika.models.gitlab.GitLabPackage#getMergeRequest_ApprovalState()
-	 * @model
+	 * @model containment="true"
 	 * @generated
 	 */
 	ApprovalState getApprovalState();
 
 	/**
-	 * Sets the value of the '{@link org.nasdanika.models.gitlab.MergeRequest#getApprovalState <em>Approval State</em>}' reference.
+	 * Sets the value of the '{@link org.nasdanika.models.gitlab.MergeRequest#getApprovalState <em>Approval State</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Approval State</em>' reference.
+	 * @param value the new value of the '<em>Approval State</em>' containment reference.
 	 * @see #getApprovalState()
 	 * @generated
 	 */
 	void setApprovalState(ApprovalState value);
 
 	/**
-	 * Returns the value of the '<em><b>Approval Status</b></em>' reference list.
+	 * Returns the value of the '<em><b>Approval Status</b></em>' containment reference list.
 	 * The list contents are of type {@link org.nasdanika.models.gitlab.Issue}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Approval Status</em>' reference list.
+	 * @return the value of the '<em>Approval Status</em>' containment reference list.
 	 * @see org.nasdanika.models.gitlab.GitLabPackage#getMergeRequest_ApprovalStatus()
-	 * @model
+	 * @model containment="true"
 	 * @generated
 	 */
 	EList<Issue> getApprovalStatus();
 
 	/**
-	 * Returns the value of the '<em><b>Closed Issues</b></em>' reference list.
+	 * Returns the value of the '<em><b>Closed Issues</b></em>' containment reference list.
 	 * The list contents are of type {@link org.nasdanika.models.gitlab.Issue}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Closed Issues</em>' reference list.
+	 * @return the value of the '<em>Closed Issues</em>' containment reference list.
 	 * @see org.nasdanika.models.gitlab.GitLabPackage#getMergeRequest_ClosedIssues()
-	 * @model
+	 * @model containment="true"
 	 * @generated
 	 */
 	EList<Issue> getClosedIssues();

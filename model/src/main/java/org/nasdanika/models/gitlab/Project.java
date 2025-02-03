@@ -1767,7 +1767,7 @@ public interface Project extends Loadable, AbstractProject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Merge Requests</em>' containment reference list.
 	 * @see org.nasdanika.models.gitlab.GitLabPackage#getProject_MergeRequests()
-	 * @model containment="true" keys="id"
+	 * @model containment="true" keys="iid"
 	 * @generated
 	 */
 	EList<MergeRequest> getMergeRequests();

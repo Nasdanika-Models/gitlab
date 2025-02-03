@@ -5091,7 +5091,7 @@ public interface GitLabPackage extends EPackage {
 	int MERGE_REQUEST__MERGE_USER = NOTABLE_FEATURE_COUNT + 8;
 
 	/**
-	 * The feature id for the '<em><b>Task Completion Status</b></em>' reference.
+	 * The feature id for the '<em><b>Task Completion Status</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -5154,7 +5154,7 @@ public interface GitLabPackage extends EPackage {
 	int MERGE_REQUEST__DIFF_REFS = NOTABLE_FEATURE_COUNT + 15;
 
 	/**
-	 * The feature id for the '<em><b>Approval Rules</b></em>' reference list.
+	 * The feature id for the '<em><b>Approval Rules</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -5163,7 +5163,7 @@ public interface GitLabPackage extends EPackage {
 	int MERGE_REQUEST__APPROVAL_RULES = NOTABLE_FEATURE_COUNT + 16;
 
 	/**
-	 * The feature id for the '<em><b>Approval State</b></em>' reference.
+	 * The feature id for the '<em><b>Approval State</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -5172,7 +5172,7 @@ public interface GitLabPackage extends EPackage {
 	int MERGE_REQUEST__APPROVAL_STATE = NOTABLE_FEATURE_COUNT + 17;
 
 	/**
-	 * The feature id for the '<em><b>Approval Status</b></em>' reference list.
+	 * The feature id for the '<em><b>Approval Status</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -5181,7 +5181,7 @@ public interface GitLabPackage extends EPackage {
 	int MERGE_REQUEST__APPROVAL_STATUS = NOTABLE_FEATURE_COUNT + 18;
 
 	/**
-	 * The feature id for the '<em><b>Closed Issues</b></em>' reference list.
+	 * The feature id for the '<em><b>Closed Issues</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -10419,10 +10419,10 @@ public interface GitLabPackage extends EPackage {
 	EReference getMergeRequest_MergeUser();
 
 	/**
-	 * Returns the meta object for the reference '{@link org.nasdanika.models.gitlab.MergeRequest#getTaskCompletionStatus <em>Task Completion Status</em>}'.
+	 * Returns the meta object for the containment reference '{@link org.nasdanika.models.gitlab.MergeRequest#getTaskCompletionStatus <em>Task Completion Status</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Task Completion Status</em>'.
+	 * @return the meta object for the containment reference '<em>Task Completion Status</em>'.
 	 * @see org.nasdanika.models.gitlab.MergeRequest#getTaskCompletionStatus()
 	 * @see #getMergeRequest()
 	 * @generated
@@ -10496,10 +10496,10 @@ public interface GitLabPackage extends EPackage {
 	EReference getMergeRequest_DiffRefs();
 
 	/**
-	 * Returns the meta object for the reference list '{@link org.nasdanika.models.gitlab.MergeRequest#getApprovalRules <em>Approval Rules</em>}'.
+	 * Returns the meta object for the containment reference list '{@link org.nasdanika.models.gitlab.MergeRequest#getApprovalRules <em>Approval Rules</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Approval Rules</em>'.
+	 * @return the meta object for the containment reference list '<em>Approval Rules</em>'.
 	 * @see org.nasdanika.models.gitlab.MergeRequest#getApprovalRules()
 	 * @see #getMergeRequest()
 	 * @generated
@@ -10507,10 +10507,10 @@ public interface GitLabPackage extends EPackage {
 	EReference getMergeRequest_ApprovalRules();
 
 	/**
-	 * Returns the meta object for the reference '{@link org.nasdanika.models.gitlab.MergeRequest#getApprovalState <em>Approval State</em>}'.
+	 * Returns the meta object for the containment reference '{@link org.nasdanika.models.gitlab.MergeRequest#getApprovalState <em>Approval State</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Approval State</em>'.
+	 * @return the meta object for the containment reference '<em>Approval State</em>'.
 	 * @see org.nasdanika.models.gitlab.MergeRequest#getApprovalState()
 	 * @see #getMergeRequest()
 	 * @generated
@@ -10518,10 +10518,10 @@ public interface GitLabPackage extends EPackage {
 	EReference getMergeRequest_ApprovalState();
 
 	/**
-	 * Returns the meta object for the reference list '{@link org.nasdanika.models.gitlab.MergeRequest#getApprovalStatus <em>Approval Status</em>}'.
+	 * Returns the meta object for the containment reference list '{@link org.nasdanika.models.gitlab.MergeRequest#getApprovalStatus <em>Approval Status</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Approval Status</em>'.
+	 * @return the meta object for the containment reference list '<em>Approval Status</em>'.
 	 * @see org.nasdanika.models.gitlab.MergeRequest#getApprovalStatus()
 	 * @see #getMergeRequest()
 	 * @generated
@@ -10529,10 +10529,10 @@ public interface GitLabPackage extends EPackage {
 	EReference getMergeRequest_ApprovalStatus();
 
 	/**
-	 * Returns the meta object for the reference list '{@link org.nasdanika.models.gitlab.MergeRequest#getClosedIssues <em>Closed Issues</em>}'.
+	 * Returns the meta object for the containment reference list '{@link org.nasdanika.models.gitlab.MergeRequest#getClosedIssues <em>Closed Issues</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Closed Issues</em>'.
+	 * @return the meta object for the containment reference list '<em>Closed Issues</em>'.
 	 * @see org.nasdanika.models.gitlab.MergeRequest#getClosedIssues()
 	 * @see #getMergeRequest()
 	 * @generated
@@ -14516,7 +14516,7 @@ public interface GitLabPackage extends EPackage {
 		 */
 		EReference MERGE_REQUEST__MERGE_USER = eINSTANCE.getMergeRequest_MergeUser();
 		/**
-		 * The meta object literal for the '<em><b>Task Completion Status</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Task Completion Status</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -14565,28 +14565,28 @@ public interface GitLabPackage extends EPackage {
 		 */
 		EReference MERGE_REQUEST__DIFF_REFS = eINSTANCE.getMergeRequest_DiffRefs();
 		/**
-		 * The meta object literal for the '<em><b>Approval Rules</b></em>' reference list feature.
+		 * The meta object literal for the '<em><b>Approval Rules</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
 		EReference MERGE_REQUEST__APPROVAL_RULES = eINSTANCE.getMergeRequest_ApprovalRules();
 		/**
-		 * The meta object literal for the '<em><b>Approval State</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Approval State</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
 		EReference MERGE_REQUEST__APPROVAL_STATE = eINSTANCE.getMergeRequest_ApprovalState();
 		/**
-		 * The meta object literal for the '<em><b>Approval Status</b></em>' reference list feature.
+		 * The meta object literal for the '<em><b>Approval Status</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
 		EReference MERGE_REQUEST__APPROVAL_STATUS = eINSTANCE.getMergeRequest_ApprovalStatus();
 		/**
-		 * The meta object literal for the '<em><b>Closed Issues</b></em>' reference list feature.
+		 * The meta object literal for the '<em><b>Closed Issues</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated

@@ -265,7 +265,7 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="groups" upperBound="-1"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//ELong"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="mergeRequests" upperBound="-1"
-        eType="#//MergeRequest" containment="true" eKeys="#//MergeRequest/id"/>
+        eType="#//MergeRequest" containment="true" eKeys="#//MergeRequest/iid"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ProjectReference">
     <eGenericSuperTypes eClassifier="ecore:EClass ../../org.nasdanika.ncore/model/ncore.ecore#//Reference">
@@ -552,7 +552,8 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="changes" upperBound="-1"
         eType="#//Diff" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="mergeUser" eType="#//User"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="taskCompletionStatus" eType="#//TaskCompletionStatus"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="taskCompletionStatus" eType="#//TaskCompletionStatus"
+        containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="milestone" eType="#//Milestone"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="pipeline" eType="#//pipeline/Pipeline"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="headPipeline" eType="#//pipeline/Pipeline"/>
@@ -563,12 +564,13 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="diffRefs" eType="#//DiffRef"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="approvalRules" upperBound="-1"
-        eType="#//ApprovalRule"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="approvalState" eType="#//ApprovalState"/>
+        eType="#//ApprovalRule" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="approvalState" eType="#//ApprovalState"
+        containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="approvalStatus" upperBound="-1"
-        eType="#//Issue"/>
+        eType="#//Issue" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="closedIssues" upperBound="-1"
-        eType="#//Issue"/>
+        eType="#//Issue" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="commits" upperBound="-1"
         eType="#//Commit"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="diffs" upperBound="-1"

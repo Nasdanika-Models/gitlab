@@ -703,8 +703,9 @@ public class MergeRequestImpl extends NotableImpl implements MergeRequest {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public TaskCompletionStatus basicGetTaskCompletionStatus() {
-		return (TaskCompletionStatus)eDynamicGet(GitLabPackage.MERGE_REQUEST__TASK_COMPLETION_STATUS, GitLabPackage.Literals.MERGE_REQUEST__TASK_COMPLETION_STATUS, false, true);
+	public NotificationChain basicSetTaskCompletionStatus(TaskCompletionStatus newTaskCompletionStatus, NotificationChain msgs) {
+		msgs = eDynamicInverseAdd((InternalEObject)newTaskCompletionStatus, GitLabPackage.MERGE_REQUEST__TASK_COMPLETION_STATUS, msgs);
+		return msgs;
 	}
 
 	/**
@@ -920,8 +921,9 @@ public class MergeRequestImpl extends NotableImpl implements MergeRequest {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ApprovalState basicGetApprovalState() {
-		return (ApprovalState)eDynamicGet(GitLabPackage.MERGE_REQUEST__APPROVAL_STATE, GitLabPackage.Literals.MERGE_REQUEST__APPROVAL_STATE, false, true);
+	public NotificationChain basicSetApprovalState(ApprovalState newApprovalState, NotificationChain msgs) {
+		msgs = eDynamicInverseAdd((InternalEObject)newApprovalState, GitLabPackage.MERGE_REQUEST__APPROVAL_STATE, msgs);
+		return msgs;
 	}
 
 	/**
@@ -1901,12 +1903,22 @@ public class MergeRequestImpl extends NotableImpl implements MergeRequest {
 				return ((InternalEList<?>)getDiscussions()).basicRemove(otherEnd, msgs);
 			case GitLabPackage.MERGE_REQUEST__CHANGES:
 				return ((InternalEList<?>)getChanges()).basicRemove(otherEnd, msgs);
+			case GitLabPackage.MERGE_REQUEST__TASK_COMPLETION_STATUS:
+				return basicSetTaskCompletionStatus(null, msgs);
 			case GitLabPackage.MERGE_REQUEST__REFERENCES:
 				return basicSetReferences(null, msgs);
 			case GitLabPackage.MERGE_REQUEST__TIME_STATS:
 				return basicSetTimeStats(null, msgs);
 			case GitLabPackage.MERGE_REQUEST__DIFF_REFS:
 				return basicSetDiffRefs(null, msgs);
+			case GitLabPackage.MERGE_REQUEST__APPROVAL_RULES:
+				return ((InternalEList<?>)getApprovalRules()).basicRemove(otherEnd, msgs);
+			case GitLabPackage.MERGE_REQUEST__APPROVAL_STATE:
+				return basicSetApprovalState(null, msgs);
+			case GitLabPackage.MERGE_REQUEST__APPROVAL_STATUS:
+				return ((InternalEList<?>)getApprovalStatus()).basicRemove(otherEnd, msgs);
+			case GitLabPackage.MERGE_REQUEST__CLOSED_ISSUES:
+				return ((InternalEList<?>)getClosedIssues()).basicRemove(otherEnd, msgs);
 			case GitLabPackage.MERGE_REQUEST__DIFFS:
 				return ((InternalEList<?>)getDiffs()).basicRemove(otherEnd, msgs);
 			case GitLabPackage.MERGE_REQUEST__DIFF_VERSIONS:
@@ -1945,8 +1957,7 @@ public class MergeRequestImpl extends NotableImpl implements MergeRequest {
 				if (resolve) return getMergeUser();
 				return basicGetMergeUser();
 			case GitLabPackage.MERGE_REQUEST__TASK_COMPLETION_STATUS:
-				if (resolve) return getTaskCompletionStatus();
-				return basicGetTaskCompletionStatus();
+				return getTaskCompletionStatus();
 			case GitLabPackage.MERGE_REQUEST__MILESTONE:
 				if (resolve) return getMilestone();
 				return basicGetMilestone();
@@ -1965,8 +1976,7 @@ public class MergeRequestImpl extends NotableImpl implements MergeRequest {
 			case GitLabPackage.MERGE_REQUEST__APPROVAL_RULES:
 				return getApprovalRules();
 			case GitLabPackage.MERGE_REQUEST__APPROVAL_STATE:
-				if (resolve) return getApprovalState();
-				return basicGetApprovalState();
+				return getApprovalState();
 			case GitLabPackage.MERGE_REQUEST__APPROVAL_STATUS:
 				return getApprovalStatus();
 			case GitLabPackage.MERGE_REQUEST__CLOSED_ISSUES:
@@ -2545,7 +2555,7 @@ public class MergeRequestImpl extends NotableImpl implements MergeRequest {
 			case GitLabPackage.MERGE_REQUEST__MERGE_USER:
 				return basicGetMergeUser() != null;
 			case GitLabPackage.MERGE_REQUEST__TASK_COMPLETION_STATUS:
-				return basicGetTaskCompletionStatus() != null;
+				return getTaskCompletionStatus() != null;
 			case GitLabPackage.MERGE_REQUEST__MILESTONE:
 				return basicGetMilestone() != null;
 			case GitLabPackage.MERGE_REQUEST__PIPELINE:
@@ -2561,7 +2571,7 @@ public class MergeRequestImpl extends NotableImpl implements MergeRequest {
 			case GitLabPackage.MERGE_REQUEST__APPROVAL_RULES:
 				return !getApprovalRules().isEmpty();
 			case GitLabPackage.MERGE_REQUEST__APPROVAL_STATE:
-				return basicGetApprovalState() != null;
+				return getApprovalState() != null;
 			case GitLabPackage.MERGE_REQUEST__APPROVAL_STATUS:
 				return !getApprovalStatus().isEmpty();
 			case GitLabPackage.MERGE_REQUEST__CLOSED_ISSUES:
