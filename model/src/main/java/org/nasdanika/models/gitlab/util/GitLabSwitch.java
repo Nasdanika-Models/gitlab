@@ -391,6 +391,7 @@ public class GitLabSwitch<T1> extends Switch<T1> {
 			case GitLabPackage.MERGE_REQUEST: {
 				MergeRequest mergeRequest = (MergeRequest)theEObject;
 				T1 result = caseMergeRequest(mergeRequest);
+				if (result == null) result = caseLoadable(mergeRequest);
 				if (result == null) result = caseNotable(mergeRequest);
 				if (result == null) result = caseDiscussable(mergeRequest);
 				if (result == null) result = defaultCase(theEObject);

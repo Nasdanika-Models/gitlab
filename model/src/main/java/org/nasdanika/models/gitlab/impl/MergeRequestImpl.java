@@ -22,6 +22,8 @@ import org.nasdanika.models.gitlab.Issue;
 import org.nasdanika.models.gitlab.MergeRequest;
 import org.nasdanika.models.gitlab.MergeRequestDiff;
 import org.nasdanika.models.gitlab.Milestone;
+import org.nasdanika.models.gitlab.Notable;
+import org.nasdanika.models.gitlab.Note;
 import org.nasdanika.models.gitlab.References;
 import org.nasdanika.models.gitlab.TaskCompletionStatus;
 import org.nasdanika.models.gitlab.TimeStats;
@@ -36,6 +38,7 @@ import org.nasdanika.models.gitlab.pipeline.Pipeline;
  * The following features are implemented:
  * </p>
  * <ul>
+ *   <li>{@link org.nasdanika.models.gitlab.impl.MergeRequestImpl#getNotes <em>Notes</em>}</li>
  *   <li>{@link org.nasdanika.models.gitlab.impl.MergeRequestImpl#getDiscussions <em>Discussions</em>}</li>
  *   <li>{@link org.nasdanika.models.gitlab.impl.MergeRequestImpl#getId <em>Id</em>}</li>
  *   <li>{@link org.nasdanika.models.gitlab.impl.MergeRequestImpl#getIid <em>Iid</em>}</li>
@@ -108,7 +111,7 @@ import org.nasdanika.models.gitlab.pipeline.Pipeline;
  *
  * @generated
  */
-public class MergeRequestImpl extends NotableImpl implements MergeRequest {
+public class MergeRequestImpl extends LoadableImpl implements MergeRequest {
 	/**
 	 * The default value of the '{@link #getId() <em>Id</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -515,6 +518,17 @@ public class MergeRequestImpl extends NotableImpl implements MergeRequest {
 	@Override
 	protected EClass eStaticClass() {
 		return GitLabPackage.Literals.MERGE_REQUEST;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@SuppressWarnings("unchecked")
+	@Override
+	public EList<Note> getNotes() {
+		return (EList<Note>)eDynamicGet(GitLabPackage.MERGE_REQUEST__NOTES, GitLabPackage.Literals.NOTABLE__NOTES, true, true);
 	}
 
 	/**
@@ -1899,6 +1913,8 @@ public class MergeRequestImpl extends NotableImpl implements MergeRequest {
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
+			case GitLabPackage.MERGE_REQUEST__NOTES:
+				return ((InternalEList<?>)getNotes()).basicRemove(otherEnd, msgs);
 			case GitLabPackage.MERGE_REQUEST__DISCUSSIONS:
 				return ((InternalEList<?>)getDiscussions()).basicRemove(otherEnd, msgs);
 			case GitLabPackage.MERGE_REQUEST__CHANGES:
@@ -1935,6 +1951,8 @@ public class MergeRequestImpl extends NotableImpl implements MergeRequest {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
+			case GitLabPackage.MERGE_REQUEST__NOTES:
+				return getNotes();
 			case GitLabPackage.MERGE_REQUEST__DISCUSSIONS:
 				return getDiscussions();
 			case GitLabPackage.MERGE_REQUEST__ID:
@@ -2092,6 +2110,10 @@ public class MergeRequestImpl extends NotableImpl implements MergeRequest {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
+			case GitLabPackage.MERGE_REQUEST__NOTES:
+				getNotes().clear();
+				getNotes().addAll((Collection<? extends Note>)newValue);
+				return;
 			case GitLabPackage.MERGE_REQUEST__DISCUSSIONS:
 				getDiscussions().clear();
 				getDiscussions().addAll((Collection<? extends Discussion>)newValue);
@@ -2320,6 +2342,9 @@ public class MergeRequestImpl extends NotableImpl implements MergeRequest {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
+			case GitLabPackage.MERGE_REQUEST__NOTES:
+				getNotes().clear();
+				return;
 			case GitLabPackage.MERGE_REQUEST__DISCUSSIONS:
 				getDiscussions().clear();
 				return;
@@ -2536,6 +2561,8 @@ public class MergeRequestImpl extends NotableImpl implements MergeRequest {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
+			case GitLabPackage.MERGE_REQUEST__NOTES:
+				return !getNotes().isEmpty();
 			case GitLabPackage.MERGE_REQUEST__DISCUSSIONS:
 				return !getDiscussions().isEmpty();
 			case GitLabPackage.MERGE_REQUEST__ID:
@@ -2683,6 +2710,12 @@ public class MergeRequestImpl extends NotableImpl implements MergeRequest {
 	 */
 	@Override
 	public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass) {
+		if (baseClass == Notable.class) {
+			switch (derivedFeatureID) {
+				case GitLabPackage.MERGE_REQUEST__NOTES: return GitLabPackage.NOTABLE__NOTES;
+				default: return -1;
+			}
+		}
 		if (baseClass == Discussable.class) {
 			switch (derivedFeatureID) {
 				case GitLabPackage.MERGE_REQUEST__DISCUSSIONS: return GitLabPackage.DISCUSSABLE__DISCUSSIONS;
@@ -2699,6 +2732,12 @@ public class MergeRequestImpl extends NotableImpl implements MergeRequest {
 	 */
 	@Override
 	public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass) {
+		if (baseClass == Notable.class) {
+			switch (baseFeatureID) {
+				case GitLabPackage.NOTABLE__NOTES: return GitLabPackage.MERGE_REQUEST__NOTES;
+				default: return -1;
+			}
+		}
 		if (baseClass == Discussable.class) {
 			switch (baseFeatureID) {
 				case GitLabPackage.DISCUSSABLE__DISCUSSIONS: return GitLabPackage.MERGE_REQUEST__DISCUSSIONS;

@@ -88,7 +88,7 @@ import org.nasdanika.models.gitlab.pipeline.Pipeline;
  * @model
  * @generated
  */
-public interface MergeRequest extends Notable, Discussable {
+public interface MergeRequest extends Loadable, Notable, Discussable {
 
 	/**
 	 * Returns the value of the '<em><b>Id</b></em>' attribute.

@@ -5001,13 +5001,31 @@ public interface GitLabPackage extends EPackage {
 	int DISCUSSION_OPERATION_COUNT = NOTABLE_OPERATION_COUNT + 0;
 
 	/**
+	 * The feature id for the '<em><b>Loaded</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MERGE_REQUEST__LOADED = LOADABLE__LOADED;
+
+	/**
+	 * The feature id for the '<em><b>Loads</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MERGE_REQUEST__LOADS = LOADABLE__LOADS;
+
+	/**
 	 * The feature id for the '<em><b>Notes</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int MERGE_REQUEST__NOTES = NOTABLE__NOTES;
+	int MERGE_REQUEST__NOTES = LOADABLE_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Discussions</b></em>' containment reference list.
@@ -5016,7 +5034,7 @@ public interface GitLabPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MERGE_REQUEST__DISCUSSIONS = NOTABLE_FEATURE_COUNT + 0;
+	int MERGE_REQUEST__DISCUSSIONS = LOADABLE_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -5025,7 +5043,7 @@ public interface GitLabPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MERGE_REQUEST__ID = NOTABLE_FEATURE_COUNT + 1;
+	int MERGE_REQUEST__ID = LOADABLE_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Iid</b></em>' attribute.
@@ -5034,7 +5052,7 @@ public interface GitLabPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MERGE_REQUEST__IID = NOTABLE_FEATURE_COUNT + 2;
+	int MERGE_REQUEST__IID = LOADABLE_FEATURE_COUNT + 3;
 
 	/**
 	 * The feature id for the '<em><b>Assignee</b></em>' reference.
@@ -5043,7 +5061,7 @@ public interface GitLabPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MERGE_REQUEST__ASSIGNEE = NOTABLE_FEATURE_COUNT + 3;
+	int MERGE_REQUEST__ASSIGNEE = LOADABLE_FEATURE_COUNT + 4;
 
 	/**
 	 * The feature id for the '<em><b>Assignees</b></em>' reference list.
@@ -5052,7 +5070,7 @@ public interface GitLabPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MERGE_REQUEST__ASSIGNEES = NOTABLE_FEATURE_COUNT + 4;
+	int MERGE_REQUEST__ASSIGNEES = LOADABLE_FEATURE_COUNT + 5;
 
 	/**
 	 * The feature id for the '<em><b>Author</b></em>' reference.
@@ -5061,7 +5079,7 @@ public interface GitLabPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MERGE_REQUEST__AUTHOR = NOTABLE_FEATURE_COUNT + 5;
+	int MERGE_REQUEST__AUTHOR = LOADABLE_FEATURE_COUNT + 6;
 
 	/**
 	 * The feature id for the '<em><b>Reviewers</b></em>' reference list.
@@ -5070,7 +5088,7 @@ public interface GitLabPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MERGE_REQUEST__REVIEWERS = NOTABLE_FEATURE_COUNT + 6;
+	int MERGE_REQUEST__REVIEWERS = LOADABLE_FEATURE_COUNT + 7;
 
 	/**
 	 * The feature id for the '<em><b>Changes</b></em>' containment reference list.
@@ -5079,7 +5097,7 @@ public interface GitLabPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MERGE_REQUEST__CHANGES = NOTABLE_FEATURE_COUNT + 7;
+	int MERGE_REQUEST__CHANGES = LOADABLE_FEATURE_COUNT + 8;
 
 	/**
 	 * The feature id for the '<em><b>Merge User</b></em>' reference.
@@ -5088,7 +5106,7 @@ public interface GitLabPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MERGE_REQUEST__MERGE_USER = NOTABLE_FEATURE_COUNT + 8;
+	int MERGE_REQUEST__MERGE_USER = LOADABLE_FEATURE_COUNT + 9;
 
 	/**
 	 * The feature id for the '<em><b>Task Completion Status</b></em>' containment reference.
@@ -5097,7 +5115,7 @@ public interface GitLabPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MERGE_REQUEST__TASK_COMPLETION_STATUS = NOTABLE_FEATURE_COUNT + 9;
+	int MERGE_REQUEST__TASK_COMPLETION_STATUS = LOADABLE_FEATURE_COUNT + 10;
 
 	/**
 	 * The feature id for the '<em><b>Milestone</b></em>' reference.
@@ -5106,7 +5124,7 @@ public interface GitLabPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MERGE_REQUEST__MILESTONE = NOTABLE_FEATURE_COUNT + 10;
+	int MERGE_REQUEST__MILESTONE = LOADABLE_FEATURE_COUNT + 11;
 
 	/**
 	 * The feature id for the '<em><b>Pipeline</b></em>' reference.
@@ -5115,7 +5133,7 @@ public interface GitLabPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MERGE_REQUEST__PIPELINE = NOTABLE_FEATURE_COUNT + 11;
+	int MERGE_REQUEST__PIPELINE = LOADABLE_FEATURE_COUNT + 12;
 
 	/**
 	 * The feature id for the '<em><b>Head Pipeline</b></em>' reference.
@@ -5124,7 +5142,7 @@ public interface GitLabPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MERGE_REQUEST__HEAD_PIPELINE = NOTABLE_FEATURE_COUNT + 12;
+	int MERGE_REQUEST__HEAD_PIPELINE = LOADABLE_FEATURE_COUNT + 13;
 
 	/**
 	 * The feature id for the '<em><b>References</b></em>' containment reference.
@@ -5133,7 +5151,7 @@ public interface GitLabPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MERGE_REQUEST__REFERENCES = NOTABLE_FEATURE_COUNT + 13;
+	int MERGE_REQUEST__REFERENCES = LOADABLE_FEATURE_COUNT + 14;
 
 	/**
 	 * The feature id for the '<em><b>Time Stats</b></em>' containment reference.
@@ -5142,7 +5160,7 @@ public interface GitLabPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MERGE_REQUEST__TIME_STATS = NOTABLE_FEATURE_COUNT + 14;
+	int MERGE_REQUEST__TIME_STATS = LOADABLE_FEATURE_COUNT + 15;
 
 	/**
 	 * The feature id for the '<em><b>Diff Refs</b></em>' containment reference.
@@ -5151,7 +5169,7 @@ public interface GitLabPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MERGE_REQUEST__DIFF_REFS = NOTABLE_FEATURE_COUNT + 15;
+	int MERGE_REQUEST__DIFF_REFS = LOADABLE_FEATURE_COUNT + 16;
 
 	/**
 	 * The feature id for the '<em><b>Approval Rules</b></em>' containment reference list.
@@ -5160,7 +5178,7 @@ public interface GitLabPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MERGE_REQUEST__APPROVAL_RULES = NOTABLE_FEATURE_COUNT + 16;
+	int MERGE_REQUEST__APPROVAL_RULES = LOADABLE_FEATURE_COUNT + 17;
 
 	/**
 	 * The feature id for the '<em><b>Approval State</b></em>' containment reference.
@@ -5169,7 +5187,7 @@ public interface GitLabPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MERGE_REQUEST__APPROVAL_STATE = NOTABLE_FEATURE_COUNT + 17;
+	int MERGE_REQUEST__APPROVAL_STATE = LOADABLE_FEATURE_COUNT + 18;
 
 	/**
 	 * The feature id for the '<em><b>Approval Status</b></em>' containment reference list.
@@ -5178,7 +5196,7 @@ public interface GitLabPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MERGE_REQUEST__APPROVAL_STATUS = NOTABLE_FEATURE_COUNT + 18;
+	int MERGE_REQUEST__APPROVAL_STATUS = LOADABLE_FEATURE_COUNT + 19;
 
 	/**
 	 * The feature id for the '<em><b>Closed Issues</b></em>' containment reference list.
@@ -5187,7 +5205,7 @@ public interface GitLabPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MERGE_REQUEST__CLOSED_ISSUES = NOTABLE_FEATURE_COUNT + 19;
+	int MERGE_REQUEST__CLOSED_ISSUES = LOADABLE_FEATURE_COUNT + 20;
 
 	/**
 	 * The feature id for the '<em><b>Commits</b></em>' reference list.
@@ -5196,7 +5214,7 @@ public interface GitLabPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MERGE_REQUEST__COMMITS = NOTABLE_FEATURE_COUNT + 20;
+	int MERGE_REQUEST__COMMITS = LOADABLE_FEATURE_COUNT + 21;
 
 	/**
 	 * The feature id for the '<em><b>Diffs</b></em>' containment reference list.
@@ -5205,7 +5223,7 @@ public interface GitLabPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MERGE_REQUEST__DIFFS = NOTABLE_FEATURE_COUNT + 21;
+	int MERGE_REQUEST__DIFFS = LOADABLE_FEATURE_COUNT + 22;
 
 	/**
 	 * The feature id for the '<em><b>Diff Versions</b></em>' containment reference list.
@@ -5214,7 +5232,7 @@ public interface GitLabPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MERGE_REQUEST__DIFF_VERSIONS = NOTABLE_FEATURE_COUNT + 22;
+	int MERGE_REQUEST__DIFF_VERSIONS = LOADABLE_FEATURE_COUNT + 23;
 
 	/**
 	 * The feature id for the '<em><b>Allow Collaboration</b></em>' attribute.
@@ -5223,7 +5241,7 @@ public interface GitLabPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MERGE_REQUEST__ALLOW_COLLABORATION = NOTABLE_FEATURE_COUNT + 23;
+	int MERGE_REQUEST__ALLOW_COLLABORATION = LOADABLE_FEATURE_COUNT + 24;
 
 	/**
 	 * The feature id for the '<em><b>Allow Maintainer To Push</b></em>' attribute.
@@ -5232,7 +5250,7 @@ public interface GitLabPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MERGE_REQUEST__ALLOW_MAINTAINER_TO_PUSH = NOTABLE_FEATURE_COUNT + 24;
+	int MERGE_REQUEST__ALLOW_MAINTAINER_TO_PUSH = LOADABLE_FEATURE_COUNT + 25;
 
 	/**
 	 * The feature id for the '<em><b>Approvals Before Merge</b></em>' attribute.
@@ -5241,7 +5259,7 @@ public interface GitLabPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MERGE_REQUEST__APPROVALS_BEFORE_MERGE = NOTABLE_FEATURE_COUNT + 25;
+	int MERGE_REQUEST__APPROVALS_BEFORE_MERGE = LOADABLE_FEATURE_COUNT + 26;
 
 	/**
 	 * The feature id for the '<em><b>Approvals Left</b></em>' attribute.
@@ -5250,7 +5268,7 @@ public interface GitLabPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MERGE_REQUEST__APPROVALS_LEFT = NOTABLE_FEATURE_COUNT + 26;
+	int MERGE_REQUEST__APPROVALS_LEFT = LOADABLE_FEATURE_COUNT + 27;
 
 	/**
 	 * The feature id for the '<em><b>Approvals Required</b></em>' attribute.
@@ -5259,7 +5277,7 @@ public interface GitLabPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MERGE_REQUEST__APPROVALS_REQUIRED = NOTABLE_FEATURE_COUNT + 27;
+	int MERGE_REQUEST__APPROVALS_REQUIRED = LOADABLE_FEATURE_COUNT + 28;
 
 	/**
 	 * The feature id for the '<em><b>Approved By</b></em>' reference list.
@@ -5268,7 +5286,7 @@ public interface GitLabPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MERGE_REQUEST__APPROVED_BY = NOTABLE_FEATURE_COUNT + 28;
+	int MERGE_REQUEST__APPROVED_BY = LOADABLE_FEATURE_COUNT + 29;
 
 	/**
 	 * The feature id for the '<em><b>Blocking Discussions Resolved</b></em>' attribute.
@@ -5277,7 +5295,7 @@ public interface GitLabPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MERGE_REQUEST__BLOCKING_DISCUSSIONS_RESOLVED = NOTABLE_FEATURE_COUNT + 29;
+	int MERGE_REQUEST__BLOCKING_DISCUSSIONS_RESOLVED = LOADABLE_FEATURE_COUNT + 30;
 
 	/**
 	 * The feature id for the '<em><b>Changes Count</b></em>' attribute.
@@ -5286,7 +5304,7 @@ public interface GitLabPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MERGE_REQUEST__CHANGES_COUNT = NOTABLE_FEATURE_COUNT + 30;
+	int MERGE_REQUEST__CHANGES_COUNT = LOADABLE_FEATURE_COUNT + 31;
 
 	/**
 	 * The feature id for the '<em><b>Closed At</b></em>' attribute.
@@ -5295,7 +5313,7 @@ public interface GitLabPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MERGE_REQUEST__CLOSED_AT = NOTABLE_FEATURE_COUNT + 31;
+	int MERGE_REQUEST__CLOSED_AT = LOADABLE_FEATURE_COUNT + 32;
 
 	/**
 	 * The feature id for the '<em><b>Closed By</b></em>' reference.
@@ -5304,7 +5322,7 @@ public interface GitLabPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MERGE_REQUEST__CLOSED_BY = NOTABLE_FEATURE_COUNT + 32;
+	int MERGE_REQUEST__CLOSED_BY = LOADABLE_FEATURE_COUNT + 33;
 
 	/**
 	 * The feature id for the '<em><b>Created At</b></em>' attribute.
@@ -5313,7 +5331,7 @@ public interface GitLabPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MERGE_REQUEST__CREATED_AT = NOTABLE_FEATURE_COUNT + 33;
+	int MERGE_REQUEST__CREATED_AT = LOADABLE_FEATURE_COUNT + 34;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' attribute.
@@ -5322,7 +5340,7 @@ public interface GitLabPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MERGE_REQUEST__DESCRIPTION = NOTABLE_FEATURE_COUNT + 34;
+	int MERGE_REQUEST__DESCRIPTION = LOADABLE_FEATURE_COUNT + 35;
 
 	/**
 	 * The feature id for the '<em><b>Detailed Merge Status</b></em>' attribute.
@@ -5331,7 +5349,7 @@ public interface GitLabPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MERGE_REQUEST__DETAILED_MERGE_STATUS = NOTABLE_FEATURE_COUNT + 35;
+	int MERGE_REQUEST__DETAILED_MERGE_STATUS = LOADABLE_FEATURE_COUNT + 36;
 
 	/**
 	 * The feature id for the '<em><b>Discussion Locked</b></em>' attribute.
@@ -5340,7 +5358,7 @@ public interface GitLabPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MERGE_REQUEST__DISCUSSION_LOCKED = NOTABLE_FEATURE_COUNT + 36;
+	int MERGE_REQUEST__DISCUSSION_LOCKED = LOADABLE_FEATURE_COUNT + 37;
 
 	/**
 	 * The feature id for the '<em><b>Diverged Commits Count</b></em>' attribute.
@@ -5349,7 +5367,7 @@ public interface GitLabPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MERGE_REQUEST__DIVERGED_COMMITS_COUNT = NOTABLE_FEATURE_COUNT + 37;
+	int MERGE_REQUEST__DIVERGED_COMMITS_COUNT = LOADABLE_FEATURE_COUNT + 38;
 
 	/**
 	 * The feature id for the '<em><b>Downvotes</b></em>' attribute.
@@ -5358,7 +5376,7 @@ public interface GitLabPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MERGE_REQUEST__DOWNVOTES = NOTABLE_FEATURE_COUNT + 38;
+	int MERGE_REQUEST__DOWNVOTES = LOADABLE_FEATURE_COUNT + 39;
 
 	/**
 	 * The feature id for the '<em><b>Force Remove Source Branch</b></em>' attribute.
@@ -5367,7 +5385,7 @@ public interface GitLabPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MERGE_REQUEST__FORCE_REMOVE_SOURCE_BRANCH = NOTABLE_FEATURE_COUNT + 39;
+	int MERGE_REQUEST__FORCE_REMOVE_SOURCE_BRANCH = LOADABLE_FEATURE_COUNT + 40;
 
 	/**
 	 * The feature id for the '<em><b>Has Conflicts</b></em>' attribute.
@@ -5376,7 +5394,7 @@ public interface GitLabPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MERGE_REQUEST__HAS_CONFLICTS = NOTABLE_FEATURE_COUNT + 40;
+	int MERGE_REQUEST__HAS_CONFLICTS = LOADABLE_FEATURE_COUNT + 41;
 
 	/**
 	 * The feature id for the '<em><b>Labels</b></em>' attribute list.
@@ -5385,7 +5403,7 @@ public interface GitLabPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MERGE_REQUEST__LABELS = NOTABLE_FEATURE_COUNT + 41;
+	int MERGE_REQUEST__LABELS = LOADABLE_FEATURE_COUNT + 42;
 
 	/**
 	 * The feature id for the '<em><b>Latest Build Finished At</b></em>' attribute.
@@ -5394,7 +5412,7 @@ public interface GitLabPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MERGE_REQUEST__LATEST_BUILD_FINISHED_AT = NOTABLE_FEATURE_COUNT + 42;
+	int MERGE_REQUEST__LATEST_BUILD_FINISHED_AT = LOADABLE_FEATURE_COUNT + 43;
 
 	/**
 	 * The feature id for the '<em><b>Latest Build Started At</b></em>' attribute.
@@ -5403,7 +5421,7 @@ public interface GitLabPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MERGE_REQUEST__LATEST_BUILD_STARTED_AT = NOTABLE_FEATURE_COUNT + 43;
+	int MERGE_REQUEST__LATEST_BUILD_STARTED_AT = LOADABLE_FEATURE_COUNT + 44;
 
 	/**
 	 * The feature id for the '<em><b>Merge Commit Sha</b></em>' attribute.
@@ -5412,7 +5430,7 @@ public interface GitLabPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MERGE_REQUEST__MERGE_COMMIT_SHA = NOTABLE_FEATURE_COUNT + 44;
+	int MERGE_REQUEST__MERGE_COMMIT_SHA = LOADABLE_FEATURE_COUNT + 45;
 
 	/**
 	 * The feature id for the '<em><b>Merged At</b></em>' attribute.
@@ -5421,7 +5439,7 @@ public interface GitLabPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MERGE_REQUEST__MERGED_AT = NOTABLE_FEATURE_COUNT + 45;
+	int MERGE_REQUEST__MERGED_AT = LOADABLE_FEATURE_COUNT + 46;
 
 	/**
 	 * The feature id for the '<em><b>Merged By</b></em>' reference.
@@ -5430,7 +5448,7 @@ public interface GitLabPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MERGE_REQUEST__MERGED_BY = NOTABLE_FEATURE_COUNT + 46;
+	int MERGE_REQUEST__MERGED_BY = LOADABLE_FEATURE_COUNT + 47;
 
 	/**
 	 * The feature id for the '<em><b>Merge Error</b></em>' attribute.
@@ -5439,7 +5457,7 @@ public interface GitLabPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MERGE_REQUEST__MERGE_ERROR = NOTABLE_FEATURE_COUNT + 47;
+	int MERGE_REQUEST__MERGE_ERROR = LOADABLE_FEATURE_COUNT + 48;
 
 	/**
 	 * The feature id for the '<em><b>Merge Status</b></em>' attribute.
@@ -5448,7 +5466,7 @@ public interface GitLabPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MERGE_REQUEST__MERGE_STATUS = NOTABLE_FEATURE_COUNT + 48;
+	int MERGE_REQUEST__MERGE_STATUS = LOADABLE_FEATURE_COUNT + 49;
 
 	/**
 	 * The feature id for the '<em><b>Merge When Pipeline Succeeds</b></em>' attribute.
@@ -5457,7 +5475,7 @@ public interface GitLabPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MERGE_REQUEST__MERGE_WHEN_PIPELINE_SUCCEEDS = NOTABLE_FEATURE_COUNT + 49;
+	int MERGE_REQUEST__MERGE_WHEN_PIPELINE_SUCCEEDS = LOADABLE_FEATURE_COUNT + 50;
 
 	/**
 	 * The feature id for the '<em><b>Project Id</b></em>' attribute.
@@ -5466,7 +5484,7 @@ public interface GitLabPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MERGE_REQUEST__PROJECT_ID = NOTABLE_FEATURE_COUNT + 50;
+	int MERGE_REQUEST__PROJECT_ID = LOADABLE_FEATURE_COUNT + 51;
 
 	/**
 	 * The feature id for the '<em><b>Rebase In Progress</b></em>' attribute.
@@ -5475,7 +5493,7 @@ public interface GitLabPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MERGE_REQUEST__REBASE_IN_PROGRESS = NOTABLE_FEATURE_COUNT + 51;
+	int MERGE_REQUEST__REBASE_IN_PROGRESS = LOADABLE_FEATURE_COUNT + 52;
 
 	/**
 	 * The feature id for the '<em><b>Sha</b></em>' attribute.
@@ -5484,7 +5502,7 @@ public interface GitLabPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MERGE_REQUEST__SHA = NOTABLE_FEATURE_COUNT + 52;
+	int MERGE_REQUEST__SHA = LOADABLE_FEATURE_COUNT + 53;
 
 	/**
 	 * The feature id for the '<em><b>Should Remove Source Branch</b></em>' attribute.
@@ -5493,7 +5511,7 @@ public interface GitLabPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MERGE_REQUEST__SHOULD_REMOVE_SOURCE_BRANCH = NOTABLE_FEATURE_COUNT + 53;
+	int MERGE_REQUEST__SHOULD_REMOVE_SOURCE_BRANCH = LOADABLE_FEATURE_COUNT + 54;
 
 	/**
 	 * The feature id for the '<em><b>Source Branch</b></em>' attribute.
@@ -5502,7 +5520,7 @@ public interface GitLabPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MERGE_REQUEST__SOURCE_BRANCH = NOTABLE_FEATURE_COUNT + 54;
+	int MERGE_REQUEST__SOURCE_BRANCH = LOADABLE_FEATURE_COUNT + 55;
 
 	/**
 	 * The feature id for the '<em><b>Source Project Id</b></em>' attribute.
@@ -5511,7 +5529,7 @@ public interface GitLabPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MERGE_REQUEST__SOURCE_PROJECT_ID = NOTABLE_FEATURE_COUNT + 55;
+	int MERGE_REQUEST__SOURCE_PROJECT_ID = LOADABLE_FEATURE_COUNT + 56;
 
 	/**
 	 * The feature id for the '<em><b>Squash</b></em>' attribute.
@@ -5520,7 +5538,7 @@ public interface GitLabPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MERGE_REQUEST__SQUASH = NOTABLE_FEATURE_COUNT + 56;
+	int MERGE_REQUEST__SQUASH = LOADABLE_FEATURE_COUNT + 57;
 
 	/**
 	 * The feature id for the '<em><b>Squash Commit Sha</b></em>' attribute.
@@ -5529,7 +5547,7 @@ public interface GitLabPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MERGE_REQUEST__SQUASH_COMMIT_SHA = NOTABLE_FEATURE_COUNT + 57;
+	int MERGE_REQUEST__SQUASH_COMMIT_SHA = LOADABLE_FEATURE_COUNT + 58;
 
 	/**
 	 * The feature id for the '<em><b>State</b></em>' attribute.
@@ -5538,7 +5556,7 @@ public interface GitLabPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MERGE_REQUEST__STATE = NOTABLE_FEATURE_COUNT + 58;
+	int MERGE_REQUEST__STATE = LOADABLE_FEATURE_COUNT + 59;
 
 	/**
 	 * The feature id for the '<em><b>Subscribed</b></em>' attribute.
@@ -5547,7 +5565,7 @@ public interface GitLabPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MERGE_REQUEST__SUBSCRIBED = NOTABLE_FEATURE_COUNT + 59;
+	int MERGE_REQUEST__SUBSCRIBED = LOADABLE_FEATURE_COUNT + 60;
 
 	/**
 	 * The feature id for the '<em><b>Target Branch</b></em>' attribute.
@@ -5556,7 +5574,7 @@ public interface GitLabPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MERGE_REQUEST__TARGET_BRANCH = NOTABLE_FEATURE_COUNT + 60;
+	int MERGE_REQUEST__TARGET_BRANCH = LOADABLE_FEATURE_COUNT + 61;
 
 	/**
 	 * The feature id for the '<em><b>Target Project Id</b></em>' attribute.
@@ -5565,7 +5583,7 @@ public interface GitLabPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MERGE_REQUEST__TARGET_PROJECT_ID = NOTABLE_FEATURE_COUNT + 61;
+	int MERGE_REQUEST__TARGET_PROJECT_ID = LOADABLE_FEATURE_COUNT + 62;
 
 	/**
 	 * The feature id for the '<em><b>Title</b></em>' attribute.
@@ -5574,7 +5592,7 @@ public interface GitLabPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MERGE_REQUEST__TITLE = NOTABLE_FEATURE_COUNT + 62;
+	int MERGE_REQUEST__TITLE = LOADABLE_FEATURE_COUNT + 63;
 
 	/**
 	 * The feature id for the '<em><b>Updated At</b></em>' attribute.
@@ -5583,7 +5601,7 @@ public interface GitLabPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MERGE_REQUEST__UPDATED_AT = NOTABLE_FEATURE_COUNT + 63;
+	int MERGE_REQUEST__UPDATED_AT = LOADABLE_FEATURE_COUNT + 64;
 
 	/**
 	 * The feature id for the '<em><b>Upvotes</b></em>' attribute.
@@ -5592,7 +5610,7 @@ public interface GitLabPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MERGE_REQUEST__UPVOTES = NOTABLE_FEATURE_COUNT + 64;
+	int MERGE_REQUEST__UPVOTES = LOADABLE_FEATURE_COUNT + 65;
 
 	/**
 	 * The feature id for the '<em><b>User Notes Count</b></em>' attribute.
@@ -5601,7 +5619,7 @@ public interface GitLabPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MERGE_REQUEST__USER_NOTES_COUNT = NOTABLE_FEATURE_COUNT + 65;
+	int MERGE_REQUEST__USER_NOTES_COUNT = LOADABLE_FEATURE_COUNT + 66;
 
 	/**
 	 * The feature id for the '<em><b>Web Url</b></em>' attribute.
@@ -5610,7 +5628,7 @@ public interface GitLabPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MERGE_REQUEST__WEB_URL = NOTABLE_FEATURE_COUNT + 66;
+	int MERGE_REQUEST__WEB_URL = LOADABLE_FEATURE_COUNT + 67;
 
 	/**
 	 * The feature id for the '<em><b>Work In Progress</b></em>' attribute.
@@ -5619,7 +5637,7 @@ public interface GitLabPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MERGE_REQUEST__WORK_IN_PROGRESS = NOTABLE_FEATURE_COUNT + 67;
+	int MERGE_REQUEST__WORK_IN_PROGRESS = LOADABLE_FEATURE_COUNT + 68;
 
 	/**
 	 * The number of structural features of the '<em>Merge Request</em>' class.
@@ -5628,7 +5646,7 @@ public interface GitLabPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MERGE_REQUEST_FEATURE_COUNT = NOTABLE_FEATURE_COUNT + 68;
+	int MERGE_REQUEST_FEATURE_COUNT = LOADABLE_FEATURE_COUNT + 69;
 
 	/**
 	 * The number of operations of the '<em>Merge Request</em>' class.
@@ -5637,7 +5655,7 @@ public interface GitLabPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MERGE_REQUEST_OPERATION_COUNT = NOTABLE_OPERATION_COUNT + 0;
+	int MERGE_REQUEST_OPERATION_COUNT = LOADABLE_OPERATION_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Eligible Approvers</b></em>' reference list.

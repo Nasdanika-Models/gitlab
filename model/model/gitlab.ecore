@@ -540,7 +540,7 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="discussions" upperBound="-1"
         eType="#//Discussion" containment="true" eKeys="#//Discussion/id"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="MergeRequest" eSuperTypes="#//Notable #//Discussable">
+  <eClassifiers xsi:type="ecore:EClass" name="MergeRequest" eSuperTypes="#//Loadable #//Notable #//Discussable">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//ELong"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="iid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//ELong"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="assignee" eType="#//User"/>

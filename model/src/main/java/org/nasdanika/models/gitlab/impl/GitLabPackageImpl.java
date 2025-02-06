@@ -5944,6 +5944,7 @@ public class GitLabPackageImpl extends EPackageImpl implements GitLabPackage {
 		eObjectRepositoryFileEClass.getESuperTypes().add(this.getRepositoryFile());
 		listRepositoryFileEClass.getESuperTypes().add(this.getRepositoryFile());
 		discussionEClass.getESuperTypes().add(this.getNotable());
+		mergeRequestEClass.getESuperTypes().add(this.getLoadable());
 		mergeRequestEClass.getESuperTypes().add(this.getNotable());
 		mergeRequestEClass.getESuperTypes().add(this.getDiscussable());
 		mergeRequestDiffEClass.getESuperTypes().add(this.getMergeRequestVersion());
